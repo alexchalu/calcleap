@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celsius to Kelvin Converter — Free Converter | ToolPulse</title>
+<meta name="description" content="Convert Celsius to Kelvin. Simple temperature conversion for science and engineering.">
+<link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert/celsius-to-kelvin.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Celsius to Kelvin Converter","description":"Convert Celsius to Kelvin. Simple temperature conversion for science and engineering.","url":"https://alexchalu.github.io/toolpulse/convert/celsius-to-kelvin.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+:root{--bg:#0a0e1a;--s:#111827;--s2:#1f2937;--b:#374151;--t:#f3f4f6;--m:#9ca3af;--a:#10b981;--a2:#059669}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+header{background:var(--s);border-bottom:1px solid var(--b);padding:.75rem 1.5rem}
+.hi{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:1rem}
+.logo{font-size:1.2rem;font-weight:800;color:var(--a);text-decoration:none}
+main{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
+h1{font-size:1.6rem;margin-bottom:.5rem}
+.sub{color:var(--m);margin-bottom:1.5rem}
+.converter{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:2rem;text-align:center}
+.conv-row{display:flex;align-items:center;gap:1rem;justify-content:center;flex-wrap:wrap}
+.conv-input{padding:.8rem 1rem;background:var(--s2);border:1px solid var(--b);border-radius:8px;color:var(--t);font-size:1.5rem;font-weight:700;width:200px;text-align:center;outline:none}
+.conv-input:focus{border-color:var(--a)}
+.conv-label{font-size:.9rem;color:var(--m)}
+.conv-result{font-size:2.5rem;font-weight:800;color:var(--a);margin:1.5rem 0 .5rem}
+.conv-result-label{color:var(--m);font-size:.9rem}
+.swap-btn{background:var(--a);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.swap-btn:hover{background:var(--a2)}
+.ad{max-width:800px;margin:1rem auto;padding:0 1.5rem}
+table{width:100%;border-collapse:collapse;margin-top:1rem}
+th,td{padding:.5rem .75rem;text-align:left;border-bottom:1px solid var(--b);font-size:.85rem}
+th{color:var(--m);font-weight:600;font-size:.75rem;text-transform:uppercase}
+.info{margin-top:2rem;background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.5rem}
+.info h2{font-size:1.1rem;margin-bottom:.75rem}
+.info p{color:var(--m);font-size:.85rem;line-height:1.7}
+.related{margin-top:2rem}
+.related h2{font-size:1.1rem;margin-bottom:.75rem}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.5rem}
+.rlink{background:var(--s);border:1px solid var(--b);border-radius:8px;padding:.75rem;text-decoration:none;color:var(--t);font-size:.8rem;transition:.2s}
+.rlink:hover{border-color:var(--a)}
+footer{text-align:center;padding:1.5rem;color:var(--m);font-size:.8rem;border-top:1px solid var(--b);margin-top:2rem}
+footer a{color:var(--a);text-decoration:none}
+@media(max-width:600px){.conv-row{flex-direction:column}.conv-input{width:100%}}
+</style>
+</head>
+<body>
+<header><div class="hi"><a href="../index.html" class="logo">🔧 ToolPulse</a></div></header>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<main>
+<h1>Celsius to Kelvin Converter</h1>
+<p class="sub">Convert Celsius to Kelvin. Simple temperature conversion for science and engineering.</p>
+<div class="converter">
+<div class="conv-row">
+<div><input type="number" class="conv-input" id="fromVal" value="1" oninput="convert()"><div class="conv-label">Celsius (°C)</div></div>
+<button class="swap-btn" onclick="swap()">⇄</button>
+<div><input type="number" class="conv-input" id="toVal" oninput="reverse()" readonly><div class="conv-label">Kelvin (K)</div></div>
+</div>
+<div class="conv-result" id="result"></div>
+<div class="conv-result-label" id="resultLabel"></div>
+</div>
+<div class="ad" style="padding:0;margin-top:1.5rem"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="info">
+<h2>Conversion Table</h2>
+<table><thead><tr><th>Celsius (°C)</th><th>Kelvin (K)</th></tr></thead><tbody><tr><td>-273.15 Celsius (°C)</td><td>0 Kelvin (K)</td></tr><tr><td>-40 Celsius (°C)</td><td>233.15 Kelvin (K)</td></tr><tr><td>0 Celsius (°C)</td><td>273.15 Kelvin (K)</td></tr><tr><td>20 Celsius (°C)</td><td>293.15 Kelvin (K)</td></tr><tr><td>37 Celsius (°C)</td><td>310.15 Kelvin (K)</td></tr><tr><td>100 Celsius (°C)</td><td>373.15 Kelvin (K)</td></tr></tbody></table>
+</div>
+</main>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<footer><a href="../index.html">ToolPulse</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></footer>
+<script>
+const fromEl=document.getElementById('fromVal'),toEl=document.getElementById('toVal');
+const resEl=document.getElementById('result'),lblEl=document.getElementById('resultLabel');
+function fwd(v){return v+273.15}
+function rev(v){return v-273.15}
+function convert(){const v=parseFloat(fromEl.value)||0;const r=fwd(v);toEl.value=r%1===0?r:r.toFixed(6);resEl.textContent=toEl.value;lblEl.textContent=v+' Celsius (°C) = '+toEl.value+' Kelvin (K)'}
+function reverse(){const v=parseFloat(toEl.value)||0;const r=rev(v);fromEl.value=r%1===0?r:r.toFixed(6)}
+function swap(){const t=fromEl.value;fromEl.value=toEl.value;toEl.value=t;convert()}
+convert();
+</script>
+</body>
+</html>

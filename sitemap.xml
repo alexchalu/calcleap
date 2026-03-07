@@ -91,4 +91,37 @@
     <url><loc>https://alexchalu.github.io/toolpulse/calc/tip-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
     <url><loc>https://alexchalu.github.io/toolpulse/calc/gas-mileage-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
     <url><loc>https://alexchalu.github.io/toolpulse/calc/electricity-cost.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/fahrenheit-to-celsius.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/celsius-to-fahrenheit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/celsius-to-kelvin.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/pounds-to-kilograms.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/kilograms-to-pounds.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/ounces-to-grams.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/grams-to-ounces.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/stones-to-pounds.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/stones-to-kilograms.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/inches-to-centimeters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/centimeters-to-inches.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/feet-to-meters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/meters-to-feet.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/miles-to-kilometers.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/kilometers-to-miles.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/yards-to-meters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/millimeters-to-inches.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/square-feet-to-square-meters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/acres-to-hectares.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/gallons-to-liters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/liters-to-gallons.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/cups-to-milliliters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/tablespoons-to-teaspoons.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/fluid-ounces-to-milliliters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/mph-to-kph.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/kph-to-mph.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/mb-to-gb.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/gb-to-tb.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/kb-to-mb.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/calories-to-joules.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/watts-to-horsepower.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/psi-to-bar.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://alexchalu.github.io/toolpulse/convert/mpg-to-l100km.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
