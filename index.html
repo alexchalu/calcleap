@@ -3,87 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToolPulse — Free Online Tools</title>
-    <meta name="description" content="Fast, free online tools — JSON formatter, password generator, QR code maker, word counter, and more. No signup. 100% private — everything runs in your browser.">
-    <meta name="keywords" content="online tools, free tools, JSON formatter, password generator, QR code generator, word counter, base64 encoder, unit converter, developer tools">
+    <title>ToolPulse — 25 Free Online Tools | No Signup Required</title>
+    <meta name="description" content="25+ free online tools — JSON formatter, password generator, QR code maker, word counter, mortgage calculator, and more. No signup. 100% private — runs in your browser.">
+    <meta name="keywords" content="free online tools, developer tools, password generator, json formatter, qr code generator, word counter, base64 encoder, unit converter, mortgage calculator">
     <link rel="canonical" href="https://toolpulse-free.surge.sh/">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="ToolPulse — Free Online Tools">
+    <meta property="og:title" content="ToolPulse — 25 Free Online Tools">
     <meta property="og:description" content="Fast, free, privacy-friendly online tools. No signup required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://toolpulse-free.surge.sh/">
     
-    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     
-    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
     
-    <!-- QR Code Library -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
-    
     <link rel="stylesheet" href="style.css">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ToolPulse",
+        "description": "25+ free online tools. No signup. 100% private.",
+        "url": "https://toolpulse-free.surge.sh",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://toolpulse-free.surge.sh/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 <body>
     <header>
         <div class="header-inner">
-            <a href="#" class="logo" id="logo">⚡ ToolPulse</a>
+            <a href="index.html" class="logo">⚡ ToolPulse</a>
             <p class="tagline">Free tools. No signup. 100% private.</p>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
         </div>
     </header>
 
-    <!-- Ad Slot: Top Banner -->
-    <div class="ad-slot ad-banner" id="ad-top">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-3112605892426625"
-             data-ad-slot="auto"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+    <div class="ad-slot ad-banner">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <main id="app">
-        <!-- Landing page with tool grid -->
-        <section id="landing" class="page active">
-            <div class="search-bar">
-                <input type="text" id="toolSearch" placeholder="Search tools..." aria-label="Search tools">
-            </div>
-            <div class="tool-grid" id="toolGrid"></div>
-        </section>
+    <main style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;min-height:calc(100vh - 200px);">
+        <div style="text-align:center;margin-bottom:2.5rem">
+            <h1 style="font-size:2rem;margin-bottom:0.5rem">Free Online Tools</h1>
+            <p style="color:var(--text-muted);max-width:600px;margin:0 auto">25+ tools that run 100% in your browser. No data leaves your device. No signup, no tracking, no BS.</p>
+        </div>
+        
+        <div class="search-bar" style="text-align:center;margin-bottom:2rem">
+            <input type="text" id="toolSearch" placeholder="Search tools..." aria-label="Search tools" style="max-width:500px">
+        </div>
 
-        <!-- Tool container -->
-        <section id="toolPage" class="page">
-            <div class="tool-header">
-                <button class="back-btn" id="backBtn">← All Tools</button>
-                <h1 id="toolTitle"></h1>
-                <p id="toolDesc"></p>
-            </div>
-            <div id="toolContent" class="tool-content"></div>
-        </section>
+        <div class="tool-grid" id="toolGrid">
+            
+            <a class="tool-card" href="json-formatter.html" data-name="json formatter & validator developer">
+                <div class="icon">{ }</div>
+                <h3>JSON Formatter</h3>
+                <p>Format, validate, and minify JSON data instantly.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="word-counter.html" data-name="word & character counter writing">
+                <div class="icon">📝</div>
+                <h3>Word Counter</h3>
+                <p>Count words, characters, sentences, and paragraphs instantly.</p>
+                <span class="badge">Writing</span>
+            </a>
+            <a class="tool-card" href="password-generator.html" data-name="strong password generator security">
+                <div class="icon">🔐</div>
+                <h3>Password Generator</h3>
+                <p>Generate strong, secure random passwords.</p>
+                <span class="badge">Security</span>
+            </a>
+            <a class="tool-card" href="qr-code-generator.html" data-name="free qr code generator utility">
+                <div class="icon">📱</div>
+                <h3>QR Code Generator</h3>
+                <p>Create QR codes for URLs, text, WiFi credentials, and more.</p>
+                <span class="badge">Utility</span>
+            </a>
+            <a class="tool-card" href="base64-encoder-decoder.html" data-name="base64 encoder & decoder developer">
+                <div class="icon">🔄</div>
+                <h3>Base64 Codec</h3>
+                <p>Encode text to Base64 or decode Base64 strings instantly.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="color-converter.html" data-name="color converter — hex rgb hsl design">
+                <div class="icon">🎨</div>
+                <h3>Color Converter</h3>
+                <p>Convert colors between HEX, RGB, and HSL formats.</p>
+                <span class="badge">Design</span>
+            </a>
+            <a class="tool-card" href="hash-generator.html" data-name="sha256 hash generator security">
+                <div class="icon">🔒</div>
+                <h3>Hash Generator</h3>
+                <p>Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text.</p>
+                <span class="badge">Security</span>
+            </a>
+            <a class="tool-card" href="uuid-generator.html" data-name="uuid generator (v4) developer">
+                <div class="icon">🆔</div>
+                <h3>UUID Generator</h3>
+                <p>Generate random UUID v4 identifiers in bulk.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="url-encoder-decoder.html" data-name="url encoder & decoder developer">
+                <div class="icon">🔗</div>
+                <h3>URL Codec</h3>
+                <p>Encode and decode URL components and query strings.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="text-case-converter.html" data-name="text case converter writing">
+                <div class="icon">🔤</div>
+                <h3>Text Case</h3>
+                <p>Convert text to UPPERCASE, lowercase, Title Case, camelCase, snake_case, and kebab-case.</p>
+                <span class="badge">Writing</span>
+            </a>
+            <a class="tool-card" href="lorem-ipsum-generator.html" data-name="lorem ipsum generator design">
+                <div class="icon">📄</div>
+                <h3>Lorem Ipsum</h3>
+                <p>Generate Lorem Ipsum placeholder text for designs and layouts.</p>
+                <span class="badge">Design</span>
+            </a>
+            <a class="tool-card" href="unix-timestamp-converter.html" data-name="unix timestamp converter developer">
+                <div class="icon">🕐</div>
+                <h3>Timestamp</h3>
+                <p>Convert Unix timestamps to human-readable dates and vice versa.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="percentage-calculator.html" data-name="percentage calculator math">
+                <div class="icon">📊</div>
+                <h3>% Calculator</h3>
+                <p>Calculate percentages, percentage increases, and percentage differences easily.</p>
+                <span class="badge">Math</span>
+            </a>
+            <a class="tool-card" href="unit-converter.html" data-name="unit converter utility">
+                <div class="icon">📐</div>
+                <h3>Unit Converter</h3>
+                <p>Convert between units of length, weight, temperature, data size, and speed.</p>
+                <span class="badge">Utility</span>
+            </a>
+            <a class="tool-card" href="regex-tester.html" data-name="regex tester & debugger developer">
+                <div class="icon">⚙️</div>
+                <h3>Regex Tester</h3>
+                <p>Test and debug regular expressions with real-time matching and highlighting.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="markdown-preview.html" data-name="markdown preview & editor writing">
+                <div class="icon">📋</div>
+                <h3>Markdown Preview</h3>
+                <p>Write Markdown and see live HTML preview side by side.</p>
+                <span class="badge">Writing</span>
+            </a>
+            <a class="tool-card" href="image-to-base64.html" data-name="image to base64 converter developer">
+                <div class="icon">🖼️</div>
+                <h3>Image to Base64</h3>
+                <p>Convert images to Base64 encoded strings for embedding in HTML/CSS.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="diff-checker.html" data-name="text diff checker developer">
+                <div class="icon">📑</div>
+                <h3>Diff Checker</h3>
+                <p>Compare two texts and find differences instantly.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="css-minifier.html" data-name="css minifier & beautifier developer">
+                <div class="icon">🎯</div>
+                <h3>CSS Minifier</h3>
+                <p>Minify or beautify CSS code.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="javascript-minifier.html" data-name="javascript minifier developer">
+                <div class="icon">⚡</div>
+                <h3>JS Minifier</h3>
+                <p>Minify JavaScript code to reduce file size.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="html-encoder.html" data-name="html entity encoder/decoder developer">
+                <div class="icon">🌐</div>
+                <h3>HTML Encoder</h3>
+                <p>Encode and decode HTML entities.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="mortgage-calculator.html" data-name="mortgage calculator finance">
+                <div class="icon">🏠</div>
+                <h3>Mortgage Calc</h3>
+                <p>Calculate monthly mortgage payments, total interest, and amortization.</p>
+                <span class="badge">Finance</span>
+            </a>
+            <a class="tool-card" href="bmi-calculator.html" data-name="bmi calculator health">
+                <div class="icon">⚖️</div>
+                <h3>BMI Calculator</h3>
+                <p>Calculate your Body Mass Index (BMI) with height and weight.</p>
+                <span class="badge">Health</span>
+            </a>
+            <a class="tool-card" href="number-base-converter.html" data-name="number base converter developer">
+                <div class="icon">🔢</div>
+                <h3>Base Converter</h3>
+                <p>Convert numbers between binary, octal, decimal, and hexadecimal.</p>
+                <span class="badge">Developer</span>
+            </a>
+            <a class="tool-card" href="json-to-csv.html" data-name="json to csv converter data">
+                <div class="icon">📊</div>
+                <h3>JSON to CSV</h3>
+                <p>Convert JSON data to CSV format and download.</p>
+                <span class="badge">Data</span>
+            </a>
+        </div>
     </main>
 
-    <!-- Ad Slot: Bottom Banner -->
-    <div class="ad-slot ad-banner" id="ad-bottom">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-3112605892426625"
-             data-ad-slot="auto"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+    <div class="ad-slot ad-banner">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <footer>
         <p>ToolPulse — All processing happens in your browser. Nothing is uploaded or stored.</p>
-        <p class="footer-links">
-            <a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> ·
-            Built with ❤️
-        </p>
+        <p class="footer-links"><a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> · Built with ❤️</p>
     </footer>
 
-    <script src="app.js"></script>
+    <script>
+        // Theme
+        (function() {
+            const btn = document.getElementById('themeToggle');
+            const saved = localStorage.getItem('tp-theme');
+            if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); btn.textContent = '☀️'; }
+            btn.addEventListener('click', () => {
+                const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+                document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+                btn.textContent = isLight ? '🌙' : '☀️';
+                localStorage.setItem('tp-theme', isLight ? 'dark' : 'light');
+            });
+        })();
+        // Search
+        document.getElementById('toolSearch').addEventListener('input', function() {
+            const q = this.value.toLowerCase();
+            document.querySelectorAll('.tool-card').forEach(c => {
+                c.style.display = c.dataset.name.includes(q) ? '' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>

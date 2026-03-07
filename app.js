@@ -667,5 +667,330 @@ function renderRegexTester(container) {
 }
 function escapeHTML(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
+// ── NEW TOOLS ───────────────────────────────────────────────────
+
+// 16. Markdown Preview
+window.render_markdown_preview = function(container) {
+    container.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div class="field"><label class="label">Markdown</label>
+                <textarea id="mdIn" rows="15" placeholder="# Hello World\n\nWrite **markdown** here..."></textarea>
+            </div>
+            <div class="field"><label class="label">Preview</label>
+                <div id="mdOut" style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem;min-height:300px;overflow:auto"></div>
+            </div>
+        </div>
+    `;
+    document.getElementById('mdIn').addEventListener('input', function() {
+        let md = this.value;
+        // Simple markdown parser
+        md = md.replace(/^### (.*$)/gm, '<h3>$1</h3>');
+        md = md.replace(/^## (.*$)/gm, '<h2>$1</h2>');
+        md = md.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+        md = md.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        md = md.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        md = md.replace(/`(.*?)`/g, '<code style="background:var(--border);padding:2px 6px;border-radius:4px">$1</code>');
+        md = md.replace(/^\- (.*$)/gm, '<li>$1</li>');
+        md = md.replace(/^\d+\. (.*$)/gm, '<li>$1</li>');
+        md = md.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:var(--accent)">$1</a>');
+        md = md.replace(/\n\n/g, '<br><br>');
+        document.getElementById('mdOut').innerHTML = md;
+    });
+};
+
+// 17. Image to Base64
+window.render_image_to_base64 = function(container) {
+    container.innerHTML = `
+        <div class="field"><label class="label">Select Image</label>
+            <input type="file" id="imgFile" accept="image/*" style="padding:0.5rem">
+        </div>
+        <div id="imgPreview" style="margin:1rem 0"></div>
+        <div class="output-area" id="imgB64Out" style="max-height:200px;overflow:auto"><button class="copy-btn" onclick="copyText(document.getElementById('imgB64Out').innerText, this)">Copy</button>Base64 string will appear here</div>
+        <div class="field" style="margin-top:1rem"><label class="label">Data URI (for HTML/CSS)</label>
+            <div class="output-area" id="imgDataUri" style="max-height:100px;overflow:auto"><button class="copy-btn" onclick="copyText(document.getElementById('imgDataUri').innerText, this)">Copy</button></div>
+        </div>
+    `;
+    document.getElementById('imgFile').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            const dataUri = ev.target.result;
+            const b64 = dataUri.split(',')[1];
+            document.getElementById('imgB64Out').textContent = b64;
+            document.getElementById('imgDataUri').textContent = dataUri;
+            document.getElementById('imgPreview').innerHTML = '<img src="' + dataUri + '" style="max-width:300px;max-height:200px;border-radius:var(--radius-sm)">';
+        };
+        reader.readAsDataURL(file);
+    });
+};
+
+// 18. Diff Checker
+window.render_diff_checker = function(container) {
+    container.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div class="field"><label class="label">Original Text</label>
+                <textarea id="diffA" rows="10" placeholder="Paste original text..."></textarea>
+            </div>
+            <div class="field"><label class="label">Modified Text</label>
+                <textarea id="diffB" rows="10" placeholder="Paste modified text..."></textarea>
+            </div>
+        </div>
+        <div class="btn-row"><button class="btn" onclick="runDiff()">Compare</button></div>
+        <div id="diffOut" style="margin-top:1rem"></div>
+    `;
+};
+window.runDiff = function() {
+    const a = document.getElementById('diffA').value.split('\n');
+    const b = document.getElementById('diffB').value.split('\n');
+    let html = '<div style="font-family:monospace;font-size:0.85rem">';
+    const max = Math.max(a.length, b.length);
+    let added = 0, removed = 0, unchanged = 0;
+    for (let i = 0; i < max; i++) {
+        const la = a[i] !== undefined ? a[i] : null;
+        const lb = b[i] !== undefined ? b[i] : null;
+        if (la === lb) {
+            html += `<div style="padding:2px 8px;color:var(--text-muted)">&nbsp; ${escapeHTML(la || '')}</div>`;
+            unchanged++;
+        } else {
+            if (la !== null) { html += `<div style="padding:2px 8px;background:rgba(225,112,85,0.15);color:var(--danger)">- ${escapeHTML(la)}</div>`; removed++; }
+            if (lb !== null) { html += `<div style="padding:2px 8px;background:rgba(0,184,148,0.15);color:var(--success)">+ ${escapeHTML(lb)}</div>`; added++; }
+        }
+    }
+    html += '</div>';
+    document.getElementById('diffOut').innerHTML = `
+        <div class="stats-grid" style="margin-bottom:1rem">
+            <div class="stat-box"><div class="value" style="color:var(--success)">${added}</div><div class="label">Added</div></div>
+            <div class="stat-box"><div class="value" style="color:var(--danger)">${removed}</div><div class="label">Removed</div></div>
+            <div class="stat-box"><div class="value">${unchanged}</div><div class="label">Unchanged</div></div>
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem;max-height:400px;overflow:auto">${html}</div>
+    `;
+};
+
+// 19. CSS Minifier
+window.render_css_minifier = function(container) {
+    container.innerHTML = `
+        <div class="field"><label class="label">CSS Code</label>
+            <textarea id="cssIn" rows="10" placeholder="body {\n  margin: 0;\n  padding: 0;\n}"></textarea>
+        </div>
+        <div class="btn-row">
+            <button class="btn" onclick="minifyCSS()">Minify</button>
+            <button class="btn btn-secondary" onclick="beautifyCSS()">Beautify</button>
+        </div>
+        <div class="output-area" id="cssOut"><button class="copy-btn" onclick="copyText(document.getElementById('cssOut').innerText, this)">Copy</button>Result here</div>
+        <div id="cssSavings" style="margin-top:0.5rem;color:var(--text-muted);font-size:0.85rem"></div>
+    `;
+};
+window.minifyCSS = function() {
+    const css = document.getElementById('cssIn').value;
+    const min = css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{}:;,])\s*/g, '$1').replace(/;}/g, '}').trim();
+    document.getElementById('cssOut').textContent = min;
+    const saved = ((1 - min.length / css.length) * 100).toFixed(1);
+    document.getElementById('cssSavings').textContent = `📉 ${css.length} → ${min.length} bytes (${saved}% smaller)`;
+};
+window.beautifyCSS = function() {
+    let css = document.getElementById('cssIn').value;
+    css = css.replace(/\s*{\s*/g, ' {\n  ').replace(/\s*}\s*/g, '\n}\n\n').replace(/;\s*/g, ';\n  ').replace(/\n  \n}/g, '\n}');
+    document.getElementById('cssOut').textContent = css.trim();
+};
+
+// 20. JavaScript Minifier
+window.render_javascript_minifier = function(container) {
+    container.innerHTML = `
+        <div class="field"><label class="label">JavaScript Code</label>
+            <textarea id="jsIn" rows="10" placeholder="function hello() {\n  console.log('world');\n}"></textarea>
+        </div>
+        <div class="btn-row"><button class="btn" onclick="minifyJS()">Minify</button></div>
+        <div class="output-area" id="jsOut"><button class="copy-btn" onclick="copyText(document.getElementById('jsOut').innerText, this)">Copy</button>Result here</div>
+        <div id="jsSavings" style="margin-top:0.5rem;color:var(--text-muted);font-size:0.85rem"></div>
+    `;
+};
+window.minifyJS = function() {
+    const js = document.getElementById('jsIn').value;
+    const min = js.replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\n\s*\n/g, '\n').replace(/^\s+/gm, '').replace(/\s+$/gm, '').replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+    document.getElementById('jsOut').textContent = min;
+    const saved = ((1 - min.length / js.length) * 100).toFixed(1);
+    document.getElementById('jsSavings').textContent = `📉 ${js.length} → ${min.length} bytes (${saved}% smaller)`;
+};
+
+// 21. HTML Entity Encoder/Decoder
+window.render_html_encoder = function(container) {
+    container.innerHTML = `
+        <div class="field"><label class="label">Input</label>
+            <textarea id="htmlIn" rows="6" placeholder="<div class=&quot;hello&quot;>World & Friends</div>"></textarea>
+        </div>
+        <div class="btn-row">
+            <button class="btn" onclick="htmlEncode()">Encode</button>
+            <button class="btn btn-secondary" onclick="htmlDecode()">Decode</button>
+        </div>
+        <div class="output-area" id="htmlOut"><button class="copy-btn" onclick="copyText(document.getElementById('htmlOut').innerText, this)">Copy</button>Result here</div>
+    `;
+};
+window.htmlEncode = function() {
+    const text = document.getElementById('htmlIn').value;
+    const div = document.createElement('div');
+    div.textContent = text;
+    document.getElementById('htmlOut').textContent = div.innerHTML;
+};
+window.htmlDecode = function() {
+    const text = document.getElementById('htmlIn').value;
+    const div = document.createElement('div');
+    div.innerHTML = text;
+    document.getElementById('htmlOut').textContent = div.textContent;
+};
+
+// 22. Mortgage Calculator
+window.render_mortgage_calculator = function(container) {
+    container.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div class="field"><label class="label">Home Price ($)</label><input type="number" id="mortPrice" value="350000"></div>
+            <div class="field"><label class="label">Down Payment ($)</label><input type="number" id="mortDown" value="70000"></div>
+            <div class="field"><label class="label">Interest Rate (%)</label><input type="number" id="mortRate" value="6.5" step="0.1"></div>
+            <div class="field"><label class="label">Loan Term (years)</label><select id="mortTerm"><option value="30" selected>30 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div>
+        </div>
+        <div class="btn-row"><button class="btn" onclick="calcMortgage()">Calculate</button></div>
+        <div class="stats-grid" id="mortOut">
+            <div class="stat-box"><div class="value" id="mortMonthly">—</div><div class="label">Monthly Payment</div></div>
+            <div class="stat-box"><div class="value" id="mortTotal">—</div><div class="label">Total Payment</div></div>
+            <div class="stat-box"><div class="value" id="mortInterest">—</div><div class="label">Total Interest</div></div>
+            <div class="stat-box"><div class="value" id="mortLoan">—</div><div class="label">Loan Amount</div></div>
+        </div>
+    `;
+};
+window.calcMortgage = function() {
+    const price = parseFloat(document.getElementById('mortPrice').value);
+    const down = parseFloat(document.getElementById('mortDown').value);
+    const rate = parseFloat(document.getElementById('mortRate').value) / 100 / 12;
+    const term = parseInt(document.getElementById('mortTerm').value) * 12;
+    const loan = price - down;
+    const monthly = loan * (rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+    const total = monthly * term;
+    const fmt = n => '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+    document.getElementById('mortMonthly').textContent = fmt(monthly);
+    document.getElementById('mortTotal').textContent = fmt(total);
+    document.getElementById('mortInterest').textContent = fmt(total - loan);
+    document.getElementById('mortLoan').textContent = fmt(loan);
+};
+
+// 23. BMI Calculator
+window.render_bmi_calculator = function(container) {
+    container.innerHTML = `
+        <div class="check-row" style="margin-bottom:1rem">
+            <label><input type="radio" name="bmiUnit" value="imperial" checked onclick="toggleBMIUnits()"> Imperial (lbs/ft)</label>
+            <label><input type="radio" name="bmiUnit" value="metric" onclick="toggleBMIUnits()"> Metric (kg/cm)</label>
+        </div>
+        <div id="bmiImperial">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+                <div class="field"><label class="label">Weight (lbs)</label><input type="number" id="bmiLbs" value="170"></div>
+                <div class="field"><label class="label">Height (ft)</label><input type="number" id="bmiFt" value="5"></div>
+                <div class="field"><label class="label">Height (in)</label><input type="number" id="bmiIn" value="10"></div>
+            </div>
+        </div>
+        <div id="bmiMetric" style="display:none">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+                <div class="field"><label class="label">Weight (kg)</label><input type="number" id="bmiKg" value="77"></div>
+                <div class="field"><label class="label">Height (cm)</label><input type="number" id="bmiCm" value="178"></div>
+            </div>
+        </div>
+        <div class="btn-row"><button class="btn" onclick="calcBMI()">Calculate BMI</button></div>
+        <div class="stats-grid" id="bmiOut">
+            <div class="stat-box"><div class="value" id="bmiVal">—</div><div class="label">Your BMI</div></div>
+            <div class="stat-box"><div class="value" id="bmiCat" style="font-size:1rem">—</div><div class="label">Category</div></div>
+        </div>
+    `;
+};
+window.toggleBMIUnits = function() {
+    const imperial = document.querySelector('input[name="bmiUnit"]:checked').value === 'imperial';
+    document.getElementById('bmiImperial').style.display = imperial ? '' : 'none';
+    document.getElementById('bmiMetric').style.display = imperial ? 'none' : '';
+};
+window.calcBMI = function() {
+    const imperial = document.querySelector('input[name="bmiUnit"]:checked').value === 'imperial';
+    let bmi;
+    if (imperial) {
+        const lbs = parseFloat(document.getElementById('bmiLbs').value);
+        const inches = parseFloat(document.getElementById('bmiFt').value) * 12 + parseFloat(document.getElementById('bmiIn').value);
+        bmi = (lbs / (inches * inches)) * 703;
+    } else {
+        const kg = parseFloat(document.getElementById('bmiKg').value);
+        const m = parseFloat(document.getElementById('bmiCm').value) / 100;
+        bmi = kg / (m * m);
+    }
+    document.getElementById('bmiVal').textContent = bmi.toFixed(1);
+    let cat;
+    if (bmi < 18.5) cat = 'Underweight';
+    else if (bmi < 25) cat = '✅ Normal';
+    else if (bmi < 30) cat = '⚠️ Overweight';
+    else cat = '🔴 Obese';
+    document.getElementById('bmiCat').textContent = cat;
+};
+
+// 24. Number Base Converter
+window.render_number_base_converter = function(container) {
+    container.innerHTML = `
+        <div class="field"><label class="label">Input Number</label><input type="text" id="baseIn" value="255" placeholder="Enter a number..."></div>
+        <div class="field"><label class="label">Input Base</label>
+            <select id="baseFrom"><option value="10" selected>Decimal (10)</option><option value="2">Binary (2)</option><option value="8">Octal (8)</option><option value="16">Hexadecimal (16)</option></select>
+        </div>
+        <div class="btn-row"><button class="btn" onclick="convertBase()">Convert</button></div>
+        <div class="stats-grid">
+            <div class="stat-box"><div class="value" id="baseBin" style="font-size:1rem;word-break:break-all">—</div><div class="label">Binary (2)</div></div>
+            <div class="stat-box"><div class="value" id="baseOct" style="font-size:1rem">—</div><div class="label">Octal (8)</div></div>
+            <div class="stat-box"><div class="value" id="baseDec" style="font-size:1rem">—</div><div class="label">Decimal (10)</div></div>
+            <div class="stat-box"><div class="value" id="baseHex" style="font-size:1rem">—</div><div class="label">Hex (16)</div></div>
+        </div>
+    `;
+};
+window.convertBase = function() {
+    const input = document.getElementById('baseIn').value.trim();
+    const base = parseInt(document.getElementById('baseFrom').value);
+    const num = parseInt(input, base);
+    if (isNaN(num)) { document.getElementById('baseDec').textContent = '❌ Invalid'; return; }
+    document.getElementById('baseBin').textContent = num.toString(2);
+    document.getElementById('baseOct').textContent = num.toString(8);
+    document.getElementById('baseDec').textContent = num.toString(10);
+    document.getElementById('baseHex').textContent = num.toString(16).toUpperCase();
+};
+
+// 25. JSON to CSV
+window.render_json_to_csv = function(container) {
+    container.innerHTML = `
+        <div class="field"><label class="label">JSON Array</label>
+            <textarea id="j2cIn" rows="8" placeholder='[{"name":"Alice","age":30},{"name":"Bob","age":25}]'></textarea>
+        </div>
+        <div class="btn-row">
+            <button class="btn" onclick="jsonToCsv()">Convert to CSV</button>
+            <button class="btn btn-secondary" onclick="downloadCsv()">Download CSV</button>
+        </div>
+        <div class="output-area" id="j2cOut"><button class="copy-btn" onclick="copyText(document.getElementById('j2cOut').innerText, this)">Copy</button>CSV output here</div>
+    `;
+};
+window.jsonToCsv = function() {
+    try {
+        const data = JSON.parse(document.getElementById('j2cIn').value);
+        if (!Array.isArray(data) || data.length === 0) { document.getElementById('j2cOut').textContent = '❌ Input must be a non-empty JSON array'; return; }
+        const headers = Object.keys(data[0]);
+        let csv = headers.join(',') + '\n';
+        data.forEach(row => {
+            csv += headers.map(h => {
+                let val = row[h] !== undefined ? String(row[h]) : '';
+                if (val.includes(',') || val.includes('"') || val.includes('\n')) val = '"' + val.replace(/"/g, '""') + '"';
+                return val;
+            }).join(',') + '\n';
+        });
+        document.getElementById('j2cOut').textContent = csv;
+    } catch (e) { document.getElementById('j2cOut').textContent = '❌ Invalid JSON: ' + e.message; }
+};
+window.downloadCsv = function() {
+    const csv = document.getElementById('j2cOut').innerText;
+    if (!csv || csv.startsWith('❌')) return;
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'data.csv';
+    a.click();
+};
+
 // ── Init ────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', init);
