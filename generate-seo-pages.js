@@ -8,7 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://toolpulse-free.surge.sh';
+const SITE_URL = 'https://alexchalu.github.io/toolpulse';
 const AD_CLIENT = 'ca-pub-3112605892426625';
 
 // High-traffic conversion pairs
