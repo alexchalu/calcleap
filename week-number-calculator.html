@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unix Timestamp Converter — Epoch Time — Free Online | ToolPulse</title>
-    <meta name="description" content="Convert Unix timestamps to human-readable dates and vice versa. Current epoch time displayed live.">
-    <meta name="keywords" content="unix timestamp converter, epoch converter, unix time, timestamp to date, epoch time">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/unix-timestamp-converter.html">
-    <meta property="og:title" content="Unix Timestamp Converter — Epoch Time — ToolPulse">
-    <meta property="og:description" content="Convert Unix timestamps to human-readable dates and vice versa. Current epoch time displayed live.">
+    <title>Week Number Calculator — What Week Is It? — Free Online | ToolPulse</title>
+    <meta name="description" content="Find the current week number, or the week number for any date. ISO 8601 week numbering.">
+    <meta name="keywords" content="week number, what week is it, current week number, ISO week, week of year">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/week-number-calculator.html">
+    <meta property="og:title" content="Week Number Calculator — What Week Is It? — ToolPulse">
+    <meta property="og:description" content="Find the current week number, or the week number for any date. ISO 8601 week numbering.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alexchalu.github.io/toolpulse/unix-timestamp-converter.html">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>">
+    <meta property="og:url" content="https://alexchalu.github.io/toolpulse/week-number-calculator.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗓️</text></svg>">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebApplication","name":"Unix Timestamp Converter — Epoch Time","description":"Convert Unix timestamps to human-readable dates and vice versa. Current epoch time displayed live.","url":"https://alexchalu.github.io/toolpulse/unix-timestamp-converter.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Week Number Calculator — What Week Is It?","description":"Find the current week number, or the week number for any date. ISO 8601 week numbering.","url":"https://alexchalu.github.io/toolpulse/week-number-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a Unix timestamp?","acceptedAnswer":{"@type":"Answer","text":"A Unix timestamp is the number of seconds since January 1, 1970 (UTC), also known as the Unix epoch. It's widely used in programming and databases."}},{"@type":"Question","name":"Why do developers use Unix timestamps?","acceptedAnswer":{"@type":"Answer","text":"Unix timestamps are timezone-independent, easy to compare and sort, compact to store, and unambiguous — unlike date strings that vary by locale and format."}},{"@type":"Question","name":"What is the Year 2038 problem?","acceptedAnswer":{"@type":"Answer","text":"32-bit systems store Unix time as a signed integer, which overflows on January 19, 2038. Most modern systems use 64-bit integers, which won't overflow for billions of years."}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the ISO week number?","acceptedAnswer":{"@type":"Answer","text":"ISO 8601 defines week 1 as the week containing the first Thursday of the year. Weeks start on Monday. Most of the world uses this standard."}},{"@type":"Question","name":"What week of the year is it right now?","acceptedAnswer":{"@type":"Answer","text":"Use this calculator with today's date to find the current week number. The year has 52 or 53 weeks."}},{"@type":"Question","name":"Why do some years have 53 weeks?","acceptedAnswer":{"@type":"Answer","text":"A year has 53 ISO weeks when January 1 is a Thursday (or Wednesday/Thursday in a leap year). This happens roughly every 5-6 years."}}]}
     </script>
     <style>
         :root{--bg:#0a0e1a;--surface:#111827;--surface2:#1f2937;--border:#374151;--text:#f3f4f6;--muted:#9ca3af;--accent:#6366f1;--accent2:#4f46e5;--glow:rgba(99,102,241,0.12);--radius:12px}
@@ -60,35 +60,35 @@
     <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
     <main>
         <nav style="margin-bottom:1rem"><a href="index.html" style="color:var(--accent);font-weight:600;text-decoration:none">← All Tools</a></nav>
-        <h1>⏱️ Unix Timestamp Converter</h1>
-        <p class="sub">Convert between Unix timestamps (epoch time) and human-readable dates. Current time updates live.</p>
+        <h1>🗓️ Week Number Calculator</h1>
+        <p class="sub">Find the ISO week number for any date. What week of the year is it?</p>
         <div class="calc">
-            <div class="field"><label class="label">Unix Timestamp</label><input type="number" id="ts" value=""></div>
+            <div class="field"><label class="label">Select Date</label><input type="date" id="dt"></div>
 
             <button class="btn" onclick="calc()">Calculate</button>
-            <p style="margin-top:1rem;text-align:center;color:var(--muted);font-size:.9rem">Current Unix Time: <span id="live" style="font-family:monospace;color:var(--accent);font-weight:700"></span> <button onclick="now()" style="margin-left:.5rem;padding:.3rem .6rem;background:var(--accent);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.8rem">Use Now</button></p>
+            
             <div class="results">
-                <div class="stat"><div class="val" id="r-utc">—</div><div class="lbl">UTC Time</div></div>
-<div class="stat"><div class="val" id="r-local">—</div><div class="lbl">Local Time</div></div>
-<div class="stat"><div class="val" id="r-iso">—</div><div class="lbl">ISO 8601</div></div>
-<div class="stat"><div class="val" id="r-rel">—</div><div class="lbl">Relative</div></div>
-<div class="stat"><div class="val" id="r-ms">—</div><div class="lbl">Milliseconds</div></div>
+                <div class="stat"><div class="val" id="r-week">—</div><div class="lbl">Week Number</div></div>
+<div class="stat"><div class="val" id="r-iso">—</div><div class="lbl">ISO Week</div></div>
+<div class="stat"><div class="val" id="r-doy">—</div><div class="lbl">Day of Year</div></div>
 <div class="stat"><div class="val" id="r-day">—</div><div class="lbl">Day of Week</div></div>
+<div class="stat"><div class="val" id="r-pct">—</div><div class="lbl">Year Progress</div></div>
+<div class="stat"><div class="val" id="r-remain">—</div><div class="lbl">Weeks Remaining</div></div>
 
             </div>
         </div>
         <div class="ad" style="padding:0"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
         <div class="faq"><h2>Frequently Asked Questions</h2>
-            <h3>What is a Unix timestamp?</h3><p>A Unix timestamp is the number of seconds since January 1, 1970 (UTC), also known as the Unix epoch. It's widely used in programming and databases.</p>
-<h3>Why do developers use Unix timestamps?</h3><p>Unix timestamps are timezone-independent, easy to compare and sort, compact to store, and unambiguous — unlike date strings that vary by locale and format.</p>
-<h3>What is the Year 2038 problem?</h3><p>32-bit systems store Unix time as a signed integer, which overflows on January 19, 2038. Most modern systems use 64-bit integers, which won't overflow for billions of years.</p>
+            <h3>What is the ISO week number?</h3><p>ISO 8601 defines week 1 as the week containing the first Thursday of the year. Weeks start on Monday. Most of the world uses this standard.</p>
+<h3>What week of the year is it right now?</h3><p>Use this calculator with today's date to find the current week number. The year has 52 or 53 weeks.</p>
+<h3>Why do some years have 53 weeks?</h3><p>A year has 53 ISO weeks when January 1 is a Thursday (or Wednesday/Thursday in a leap year). This happens roughly every 5-6 years.</p>
 
         </div>
         <div class="embed-box">
             <h2 style="font-size:1.1rem;margin-bottom:.75rem">📋 Embed This Tool</h2>
             <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem">Add this tool to your website for free:</p>
             <div style="position:relative">
-                <textarea id="embed-code" readonly style="width:100%;height:80px;padding:.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:monospace;font-size:.8rem;resize:none">&lt;iframe src="https://alexchalu.github.io/toolpulse/unix-timestamp-converter.html" width="100%" height="550" frameborder="0" style="border:1px solid #e5e7eb;border-radius:12px"&gt;&lt;/iframe&gt;
+                <textarea id="embed-code" readonly style="width:100%;height:80px;padding:.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:monospace;font-size:.8rem;resize:none">&lt;iframe src="https://alexchalu.github.io/toolpulse/week-number-calculator.html" width="100%" height="550" frameborder="0" style="border:1px solid #e5e7eb;border-radius:12px"&gt;&lt;/iframe&gt;
 &lt;p style="font-size:12px;text-align:center"&gt;Tool by &lt;a href="https://alexchalu.github.io/toolpulse/"&gt;ToolPulse&lt;/a&gt;&lt;/p&gt;</textarea>
                 <button onclick="navigator.clipboard.writeText(document.getElementById('embed-code').value);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="position:absolute;top:8px;right:8px;padding:.35rem .75rem;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;font-weight:600">Copy</button>
             </div>
@@ -101,23 +101,24 @@
         if(s==='light'){document.documentElement.setAttribute('data-theme','light');b.textContent='☀️'}
         b.addEventListener('click',()=>{const l=document.documentElement.getAttribute('data-theme')==='light';document.documentElement.setAttribute('data-theme',l?'dark':'light');b.textContent=l?'🌙':'☀️';localStorage.setItem('tp-theme',l?'dark':'light')});
         
+function getWeek(d){const t=new Date(d.valueOf());const n=((d.getDay()+6)%7);t.setDate(t.getDate()-n+3);const jan4=new Date(t.getFullYear(),0,4);const diff=t-jan4;return 1+Math.round(diff/604800000);}
 function calc(){
-    const ts=parseInt(document.getElementById('ts').value);
-    if(isNaN(ts)){alert('Please enter a valid timestamp');return}
-    const ms=ts>1e12?ts:ts*1000;
-    const d=new Date(ms);
-    const opts={weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',timeZoneName:'short'};
-    document.getElementById('r-utc').textContent=d.toUTCString();
-    document.getElementById('r-local').textContent=d.toLocaleString('en-US',opts);
-    document.getElementById('r-iso').textContent=d.toISOString();
-    document.getElementById('r-rel').textContent=timeAgo(d);
-    document.getElementById('r-ms').textContent=ms.toLocaleString()+' ms';
-    document.getElementById('r-day').textContent=d.toLocaleDateString('en-US',{weekday:'long'});
+    const d=new Date(document.getElementById('dt').value);
+    if(isNaN(d)){alert('Please select a date');return}
+    const wk=getWeek(d);
+    const yr=d.getFullYear();
+    const doy=Math.floor((d-new Date(yr,0,0))/(1000*60*60*24));
+    const totalWeeks=yr%4===0&&(yr%100!==0||yr%400===0)?52:52;
+    const pct=(wk/totalWeeks*100).toFixed(1);
+    const dayNames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    document.getElementById('r-week').textContent='Week '+wk;
+    document.getElementById('r-iso').textContent=yr+'-W'+(wk<10?'0':'')+wk;
+    document.getElementById('r-doy').textContent='Day '+doy+' of '+yr;
+    document.getElementById('r-day').textContent=dayNames[d.getDay()];
+    document.getElementById('r-pct').textContent=pct+'% through the year';
+    document.getElementById('r-remain').textContent=(52-wk)+' weeks remaining';
 }
-function timeAgo(d){const s=Math.floor((new Date()-d)/1000);if(s<0)return'in the future';if(s<60)return s+' seconds ago';if(s<3600)return Math.floor(s/60)+' minutes ago';if(s<86400)return Math.floor(s/3600)+' hours ago';return Math.floor(s/86400)+' days ago';}
-function now(){document.getElementById('ts').value=Math.floor(Date.now()/1000);calc();}
-setInterval(()=>{document.getElementById('live').textContent=Math.floor(Date.now()/1000)},1000);
-document.getElementById('ts').value=Math.floor(Date.now()/1000);
+document.getElementById('dt').value=new Date().toISOString().split('T')[0];
 
     </script>
 </body>
