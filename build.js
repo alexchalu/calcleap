@@ -140,7 +140,7 @@ function generateToolPage(tool, allTools) {
 
     <footer>
         <p>ToolPulse — All processing happens in your browser. Nothing is uploaded or stored.</p>
-        <p class="footer-links"><a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> · Built with ❤️</p>
+        <p class="footer-links"><a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> · <a href="https://alexchalu.github.io/smartcalc/">Financial Calculators</a> · Built with ❤️</p>
     </footer>
 
     <script src="app.js"></script>
@@ -272,7 +272,7 @@ function generateIndex(allTools) {
 
     <footer>
         <p>ToolPulse — All processing happens in your browser. Nothing is uploaded or stored.</p>
-        <p class="footer-links"><a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> · Built with ❤️</p>
+        <p class="footer-links"><a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> · <a href="https://alexchalu.github.io/smartcalc/">Financial Calculators</a> · Built with ❤️</p>
     </footer>
 
     <script>
