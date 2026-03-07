@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paycheck Calculator — Free Online Calculator | ToolPulse</title>
+<meta name="description" content="Calculate your net take-home pay after taxes and deductions from your gross salary.">
+<meta name="keywords" content="paycheck calculator, take home pay calculator, net pay calculator, salary after taxes, paycheck estimator">
+<link rel="canonical" href="https://alexchalu.github.io/toolpulse/calc/paycheck-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Paycheck Calculator","description":"Calculate your net take-home pay after taxes and deductions from your gross salary.","url":"https://alexchalu.github.io/toolpulse/calc/paycheck-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+:root{--bg:#0a0e1a;--s:#111827;--s2:#1f2937;--b:#374151;--t:#f3f4f6;--m:#9ca3af;--a:#6366f1;--a2:#4f46e5;--g:rgba(99,102,241,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+header{background:var(--s);border-bottom:1px solid var(--b);padding:.75rem 1.5rem;position:sticky;top:0;z-index:100}
+.hi{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:1rem}
+.logo{font-size:1.2rem;font-weight:800;color:var(--a);text-decoration:none}
+.tag{color:var(--m);font-size:.8rem;flex:1}
+main{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
+h1{font-size:1.6rem;margin-bottom:.5rem}
+.sub{color:var(--m);margin-bottom:1.5rem;font-size:.9rem}
+.calc{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.5rem}
+.field{margin-bottom:1rem}
+.label{display:block;font-weight:600;margin-bottom:.4rem;font-size:.85rem}
+input[type="number"],input[type="text"],select{width:100%;padding:.7rem .9rem;background:var(--s2);border:1px solid var(--b);border-radius:8px;color:var(--t);font-size:.9rem;outline:none}
+input:focus,select:focus{border-color:var(--a);box-shadow:0 0 0 3px var(--g)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.btn{padding:.65rem 1.2rem;background:var(--a);color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+.btn:hover{background:var(--a2)}
+.result{margin-top:1.5rem;padding:1.5rem;background:var(--s2);border-radius:10px;text-align:center}
+.result .val{font-size:2rem;font-weight:800;color:var(--a)}
+.result .lbl{font-size:.8rem;color:var(--m);margin-top:.25rem}
+.results-grid{margin-top:1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem}
+.stat{background:var(--s2);border-radius:8px;padding:.75rem;text-align:center}
+.stat .val{font-size:1.2rem;font-weight:800;color:var(--a)}
+.stat .lbl{font-size:.7rem;color:var(--m)}
+.ad{max-width:800px;margin:1rem auto;padding:0 1.5rem}
+.info{margin-top:2rem;padding:1.5rem;background:var(--s);border:1px solid var(--b);border-radius:12px;font-size:.85rem;color:var(--m);line-height:1.8}
+.info h2{color:var(--t);font-size:1.1rem;margin-bottom:.75rem}
+.info h3{color:var(--a);font-size:.95rem;margin:1rem 0 .4rem}
+.related{margin-top:2rem}
+.related h2{font-size:1.1rem;margin-bottom:.75rem}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.5rem}
+.rel-link{background:var(--s);border:1px solid var(--b);border-radius:8px;padding:.75rem;text-decoration:none;color:var(--t);font-size:.8rem;transition:.2s}
+.rel-link:hover{border-color:var(--a)}
+footer{text-align:center;padding:1.5rem;color:var(--m);font-size:.8rem;border-top:1px solid var(--b);margin-top:2rem}
+footer a{color:var(--a);text-decoration:none}
+@media(max-width:600px){.row{grid-template-columns:1fr}.results-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="hi"><a href="../index.html" class="logo">🔧 ToolPulse</a><span class="tag">Free Online Calculators & Tools</span></div></header>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<main>
+<h1>Paycheck Calculator</h1>
+<p class="sub">Calculate your net take-home pay after taxes and deductions from your gross salary.</p>
+<div class="calc"><div class="row"><div class="field"><label class="label">Gross Pay (per period)</label><input type="number" id="gross" value="3500"></div><div class="field"><label class="label">Pay Period</label><select id="period"><option value="26">Bi-Weekly</option><option value="24">Semi-Monthly</option><option value="52">Weekly</option><option value="12">Monthly</option></select></div></div>
+<div class="row"><div class="field"><label class="label">Federal Tax Bracket (%)</label><input type="number" id="fed" value="22"></div><div class="field"><label class="label">State Tax (%)</label><input type="number" id="state" value="5"></div></div>
+<div class="row"><div class="field"><label class="label">401(k) Contribution (%)</label><input type="number" id="k401" value="6"></div><div class="field"><label class="label">Other Deductions ($)</label><input type="number" id="other" value="150"></div></div>
+<button class="btn" onclick="calc()">Calculate Paycheck</button><div class="results-grid" id="out"></div></div>
+</main>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<footer><a href="../index.html">ToolPulse</a> · <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> · Free online calculators</footer>
+<script>
+const $=id=>document.getElementById(id);
+const fmt=(n,d=2)=>typeof n==='number'?n.toLocaleString('en-US',{maximumFractionDigits:d}):'—';
+function calc(){const g=+$('gross').value;const per=+$('period').value;const fed=g*$('fed').value/100;const state=g*$('state').value/100;const ss=g*0.062;const med=g*0.0145;const k=g*$('k401').value/100;const oth=+$('other').value;const net=g-fed-state-ss-med-k-oth;const annual=net*per;
+$('out').innerHTML='<div class="stat"><div class="val" style="color:#22c55e">$'+fmt(net,2)+'</div><div class="lbl">Net Pay</div></div><div class="stat"><div class="val">$'+fmt(fed,2)+'</div><div class="lbl">Federal Tax</div></div><div class="stat"><div class="val">$'+fmt(state,2)+'</div><div class="lbl">State Tax</div></div><div class="stat"><div class="val">$'+fmt(ss+med,2)+'</div><div class="lbl">FICA</div></div><div class="stat"><div class="val">$'+fmt(k,2)+'</div><div class="lbl">401(k)</div></div><div class="stat"><div class="val" style="color:#22c55e">$'+fmt(annual,0)+'</div><div class="lbl">Annual Net</div></div>'}
+if(typeof calc==='function')calc();
+</script>
+</body>
+</html>
