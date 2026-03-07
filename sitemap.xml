@@ -26,4 +26,40 @@
     <url><loc>https://toolpulse-free.surge.sh/bmi-calculator.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
     <url><loc>https://toolpulse-free.surge.sh/number-base-converter.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
     <url><loc>https://toolpulse-free.surge.sh/json-to-csv.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-meters-to-feet.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-feet-to-meters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-miles-to-kilometers.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-kilometers-to-miles.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-inches-to-centimeters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-centimeters-to-inches.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-yards-to-meters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-meters-to-yards.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-feet-to-inches.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-inches-to-feet.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-miles-to-feet.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-meters-to-centimeters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-centimeters-to-millimeters.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-millimeters-to-inches.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-kilograms-to-pounds.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-pounds-to-kilograms.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-ounces-to-grams.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-grams-to-ounces.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-stones-to-pounds.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-pounds-to-stones.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-kilograms-to-grams.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-tonnes-to-pounds.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-pounds-to-ounces.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-celsius-to-fahrenheit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-fahrenheit-to-celsius.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-celsius-to-kelvin.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-kelvin-to-celsius.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-fahrenheit-to-kelvin.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-megabytes-to-gigabytes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-gigabytes-to-megabytes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-gigabytes-to-terabytes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-terabytes-to-gigabytes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-kilobytes-to-megabytes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-megabytes-to-kilobytes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-bits-to-bytes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://toolpulse-free.surge.sh/convert-bytes-to-kilobytes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
