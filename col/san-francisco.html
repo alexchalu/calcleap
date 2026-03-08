@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Francisco Cost of Living Calculator 2026 - Free Estimate</title>
+    <meta name="description" content="Calculate cost of living in San Francisco, CA. Compare rent, groceries, transportation, utilities. Free San Francisco living expense calculator 2026.">
+    <meta name="keywords" content="San Francisco cost of living, San Francisco living expenses, cost of living calculator San Francisco, San Francisco rent prices, moving to San Francisco">
+    <link rel="stylesheet" href="/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+    <style>
+      .col-container { max-width: 900px; margin: 2rem auto; padding: 0 2rem; }
+      .calc-card { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 2rem 0; }
+      .calc-card h2 { color: #2c3e50; margin-top: 0; }
+      .input-group { margin: 1.5rem 0; }
+      .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: #34495e; }
+      .input-group select, .input-group input { width: 100%; padding: 0.75rem; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 1rem; }
+      .calc-button { background: #3498db; color: white; border: none; padding: 1rem 2rem; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; width: 100%; margin-top: 1rem; }
+      .calc-button:hover { background: #2980b9; }
+      .result-box { background: #e8f5e9; border-left: 4px solid #4caf50; padding: 1.5rem; margin: 2rem 0; border-radius: 6px; }
+      .result-value { font-size: 2rem; font-weight: bold; color: #1b5e20; margin: 1rem 0; }
+      .breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+      .breakdown-item { background: #f8f9fa; padding: 1rem; border-radius: 6px; }
+      .breakdown-item .label { font-size: 0.9rem; color: #666; }
+      .breakdown-item .value { font-size: 1.3rem; font-weight: bold; color: #2c3e50; }
+      .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+      .stat-card { background: #f8f9fa; padding: 1rem; border-radius: 8px; text-align: center; }
+      .stat-card .value { font-size: 1.5rem; font-weight: bold; color: #3498db; }
+      .stat-card .label { font-size: 0.85rem; color: #666; margin-top: 0.5rem; }
+      .ad-container { margin: 2rem 0; text-align: center; min-height: 90px; }
+      .info-box { background: #fff3e0; border-left: 4px solid #ff9800; padding: 1.5rem; margin: 2rem 0; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <div class="col-container">
+        <h1>💰 San Francisco Cost of Living Calculator</h1>
+        <p>Calculate your monthly expenses in San Francisco, CA. Compare rent, groceries, transportation, and utilities to plan your budget.</p>
+
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="value">176</div>
+                <div class="label">Cost of Living Index</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">$3,600</div>
+                <div class="label">Avg. 1BR Rent</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">$480</div>
+                <div class="label">Monthly Groceries</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">$98</div>
+                <div class="label">Transit Pass</div>
+            </div>
+        </div>
+
+        <div class="calc-card">
+            <h2>Calculate Your San Francisco Living Costs</h2>
+            
+            <div class="input-group">
+                <label>Housing Type</label>
+                <select id="housingType">
+                    <option value="studio">Studio Apartment</option>
+                    <option value="1br" selected>1 Bedroom Apartment</option>
+                    <option value="2br">2 Bedroom Apartment</option>
+                    <option value="3br">3 Bedroom Apartment</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Household Size</label>
+                <select id="householdSize">
+                    <option value="1" selected>1 person</option>
+                    <option value="2">2 people</option>
+                    <option value="3">3 people</option>
+                    <option value="4">4 people</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Lifestyle</label>
+                <select id="lifestyle">
+                    <option value="frugal">Frugal (cook at home, public transit)</option>
+                    <option value="moderate" selected>Moderate (balanced lifestyle)</option>
+                    <option value="comfortable">Comfortable (eat out often, drive)</option>
+                </select>
+            </div>
+
+            <button class="calc-button" onclick="calculate()">Calculate Living Costs</button>
+
+            <div id="results" style="display:none;">
+                <div class="result-box">
+                    <h3>Your Estimated San Francisco Monthly Budget</h3>
+                    <div class="result-value" id="totalCost"></div>
+                    
+                    <div class="breakdown">
+                        <div class="breakdown-item">
+                            <div class="label">🏠 Housing</div>
+                            <div class="value" id="housingCost"></div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="label">🍽️ Groceries</div>
+                            <div class="value" id="groceryCost"></div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="label">🚇 Transportation</div>
+                            <div class="value" id="transportCost"></div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="label">💡 Utilities</div>
+                            <div class="value" id="utilityCost"></div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="label">🎭 Entertainment</div>
+                            <div class="value" id="entertainmentCost"></div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="label">📱 Other</div>
+                            <div class="value" id="otherCost"></div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>Annual cost:</strong> <span id="annualCost"></span></p>
+                    <p><strong>Recommended income:</strong> <span id="recIncome"></span> (budgeting 30% for housing)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-box">
+            <h3>About Living in San Francisco</h3>
+            <p><strong>Cost of Living Index:</strong> 176 (national average = 100). San Francisco is 76% more expensive than the US average.</p>
+            <p><strong>Housing:</strong> The biggest expense in San Francisco. Average 1BR apartment costs $3,600/month.</p>
+            <p><strong>Transportation:</strong> Good public transit system. Monthly pass costs $98.</p>
+        </div>
+
+        <h2>San Francisco Living Costs Breakdown (2026)</h2>
+        <ul>
+            <li><strong>Studio apartment:</strong> $2,800/month</li>
+            <li><strong>1 bedroom:</strong> $3,600/month</li>
+            <li><strong>Groceries (1 person):</strong> $480/month</li>
+            <li><strong>Transit pass:</strong> $98/month</li>
+            <li><strong>Utilities:</strong> $120/month (electric, gas, water)</li>
+        </ul>
+
+        <h2>Tips for Living in San Francisco</h2>
+        <ul>
+            <li>Consider neighborhoods outside downtown for cheaper rent (20-40% savings)</li>
+            <li>Use public transit when possible - cheaper than car ownership</li>
+            <li>Cook at home - eating out costs 3-4x more than groceries</li>
+            <li>Look for roommates to split housing costs</li>
+        </ul>
+
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <h2>Related Calculators</h2>
+        <ul>
+            <li><a href="/calc/budget.html">Budget Calculator</a></li>
+            <li><a href="/calc/salary.html">Salary Calculator</a></li>
+            <li><a href="/">All Tools</a></li>
+        </ul>
+
+        <p><a href="/">← Back to ToolPulse</a></p>
+    </div>
+
+    <script>
+    const cityData = {
+        rentStudio: 2800,
+        rent1br: 3600,
+        rent2br: 5040,
+        rent3br: 6480,
+        groceries: 480,
+        transport: 98,
+        utilities: 120
+    };
+
+    function calculate() {
+        const housingType = document.getElementById('housingType').value;
+        const householdSize = parseInt(document.getElementById('householdSize').value);
+        const lifestyle = document.getElementById('lifestyle').value;
+
+        // Housing cost
+        const rentCosts = {
+            studio: cityData.rentStudio,
+            '1br': cityData.rent1br,
+            '2br': cityData.rent2br,
+            '3br': cityData.rent3br
+        };
+        const housingCost = rentCosts[housingType];
+
+        // Groceries (scales with household size)
+        const groceryMultiplier = { frugal: 0.8, moderate: 1, comfortable: 1.3 };
+        const groceryCost = Math.round(cityData.groceries * householdSize * 0.7 * groceryMultiplier[lifestyle]);
+
+        // Transportation
+        const transportMultiplier = { frugal: 1, moderate: 1.5, comfortable: 3 };
+        const transportCost = Math.round(cityData.transport * householdSize * 0.8 * transportMultiplier[lifestyle]);
+
+        // Utilities
+        const utilityCost = cityData.utilities;
+
+        // Entertainment
+        const entertainmentAmounts = { frugal: 100, moderate: 250, comfortable: 500 };
+        const entertainmentCost = entertainmentAmounts[lifestyle] * householdSize * 0.7;
+
+        // Other (phone, internet, misc)
+        const otherCost = 150 + (householdSize - 1) * 50;
+
+        const totalCost = housingCost + groceryCost + transportCost + utilityCost + entertainmentCost + otherCost;
+        const annualCost = totalCost * 12;
+        const recIncome = Math.round((housingCost / 0.3) * 12);
+
+        document.getElementById('housingCost').textContent = '$' + housingCost.toLocaleString();
+        document.getElementById('groceryCost').textContent = '$' + groceryCost.toLocaleString();
+        document.getElementById('transportCost').textContent = '$' + transportCost.toLocaleString();
+        document.getElementById('utilityCost').textContent = '$' + utilityCost.toLocaleString();
+        document.getElementById('entertainmentCost').textContent = '$' + entertainmentCost.toLocaleString();
+        document.getElementById('otherCost').textContent = '$' + otherCost.toLocaleString();
+        document.getElementById('totalCost').textContent = '$' + Math.round(totalCost).toLocaleString() + '/month';
+        document.getElementById('annualCost').textContent = '$' + annualCost.toLocaleString();
+        document.getElementById('recIncome').textContent = '$' + recIncome.toLocaleString() + '/year';
+        
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    }
+    </script>
+</body>
+</html>
