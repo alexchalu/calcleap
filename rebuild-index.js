@@ -21,6 +21,12 @@ const categories = [
             { name: 'Discount Calculator', desc: 'Sale price & savings', url: 'calc/discount-calculator.html' },
             { name: 'Tip Calculator', desc: 'Split bills & calculate tips', url: 'calc/tip-calculator.html' },
             { name: 'Percentage Calculator', desc: 'What is X% of Y?', url: 'calc/percentage-calculator.html' },
+            { name: 'Compound Interest', desc: 'Savings & investment growth', url: 'calc/compound-interest.html' },
+            { name: 'Inflation Calculator', desc: 'Purchasing power over time', url: 'calc/inflation-calculator.html' },
+            { name: 'Retirement Calculator', desc: 'Are you on track to retire?', url: 'calc/retirement-calculator.html' },
+            { name: 'Debt-to-Income Ratio', desc: 'DTI for mortgage eligibility', url: 'calc/debt-to-income.html' },
+            { name: 'Car Loan Calculator', desc: 'Auto loan payments & interest', url: 'calc/car-loan-calculator.html' },
+            { name: 'Net Pay Calculator', desc: 'Take-home after all taxes', url: 'calc/net-pay-calculator.html' },
         ]
     },
     {
@@ -32,6 +38,9 @@ const categories = [
             { name: 'Body Fat Calculator', desc: 'Navy method body fat %', url: 'calc/body-fat-calculator.html' },
             { name: 'Ideal Weight', desc: '4 medical formulas', url: 'calc/ideal-weight.html' },
             { name: 'Pregnancy Due Date', desc: 'Estimated delivery date', url: 'calc/pregnancy-due-date.html' },
+            { name: 'BAC Calculator', desc: 'Blood alcohol level estimate', url: 'calc/bac-calculator.html' },
+            { name: 'Sleep Calculator', desc: 'Optimal sleep cycle times', url: 'calc/sleep-calculator.html' },
+            { name: 'Running Pace', desc: 'Pace, speed & race times', url: 'calc/pace-calculator.html' },
         ]
     },
     {
@@ -84,6 +93,8 @@ const categories = [
         tools: [
             { name: 'Gas Mileage (MPG)', desc: 'Fuel economy calculator', url: 'calc/gas-mileage-calculator.html' },
             { name: 'Electricity Cost', desc: 'Appliance energy costs', url: 'calc/electricity-cost.html' },
+            { name: 'Concrete Calculator', desc: 'How much concrete you need', url: 'calc/concrete-calculator.html' },
+            { name: 'Screen Size', desc: 'TV & monitor dimensions', url: 'calc/screen-size-calculator.html' },
         ]
     },
     {
@@ -112,6 +123,7 @@ const categories = [
             { name: 'Password Generator', desc: 'Strong secure passwords', url: 'calc/password-generator.html' },
             { name: 'Lorem Ipsum', desc: 'Generate placeholder text', url: 'lorem-ipsum-generator.html' },
             { name: 'QR Code Generator', desc: 'Create QR codes', url: 'qr-code-generator.html' },
+            { name: 'HEX to RGB', desc: 'Color code converter', url: 'calc/hex-to-rgb.html' },
         ]
     },
     {
