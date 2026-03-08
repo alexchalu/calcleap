@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Gains Tax Calculator - Free Online Tax Calculator | ToolPulse</title>
+    <meta name="description" content="Calculate tax on investment profits and stock sales. Fast, accurate, and completely free. No signup required.">
+    <meta name="keywords" content="capital gains tax calculator, stock profit tax, investment tax calculator">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/capital-gains-tax.html">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">🛠️ ToolPulse</a></h1>
+            <p>Free tools for developers and creators</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="tool-container">
+            <h2>Capital Gains Tax Calculator</h2>
+            <p class="tool-description">Calculate tax on investment profits and stock sales</p>
+
+            <div class="tool-form">
+                
+                <div class="form-group">
+                    <label for="purchasePrice">Purchase Price ($)</label>
+                    <input type="number" id="purchasePrice" class="form-control" placeholder="10000" >
+                </div>
+                <div class="form-group">
+                    <label for="salePrice">Sale Price ($)</label>
+                    <input type="number" id="salePrice" class="form-control" placeholder="15000" >
+                </div>
+                <div class="form-group">
+                    <label for="holdingPeriod">Holding Period</label>
+                    <select id="holdingPeriod" class="form-control">
+                        <option value="Short-term (< 1 year)">Short-term (< 1 year)</option><option value="Long-term (> 1 year)">Long-term (> 1 year)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="income">Annual Income ($)</label>
+                    <input type="number" id="income" class="form-control" placeholder="80000" >
+                </div>
+
+                <button onclick="calculate()" class="btn-primary">Calculate</button>
+                <button onclick="clearForm()" class="btn-secondary">Clear</button>
+            </div>
+
+            <div id="result" class="result-container"></div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="9876543210" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About This Calculator</h3>
+            <p>Calculate tax on investment profits and stock sales. This tool provides quick estimates for tax planning purposes. Always consult a tax professional for specific advice.</p>
+            
+            <h4>Related Tools</h4>
+            <ul class="related-tools">
+                <li><a href="index.html">All ToolPulse Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs Wellness Tools</a></li>
+            </ul>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ToolPulse | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function calculate() {
+            
+      const purchase = parseFloat(document.getElementById('purchasePrice').value) || 0;
+      const sale = parseFloat(document.getElementById('salePrice').value) || 0;
+      const holding = document.getElementById('holdingPeriod').value;
+      const income = parseFloat(document.getElementById('income').value) || 0;
+      
+      const gain = sale - purchase;
+      
+      let taxRate;
+      if (holding.includes('Short-term')) {
+        // Short-term = ordinary income tax (simplified to 22% bracket)
+        taxRate = 0.22;
+      } else {
+        // Long-term rates based on income
+        if (income <= 44625) taxRate = 0;
+        else if (income <= 492300) taxRate = 0.15;
+        else taxRate = 0.20;
+      }
+      
+      const tax = gain * taxRate;
+      const netGain = gain - tax;
+      
+      document.getElementById('result').innerHTML = 
+        '<div class="result-card">' +
+        '<h3>Capital Gains Tax</h3>' +
+        '<p><strong>Capital Gain:</strong> $' + gain.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</p>' +
+        '<p><strong>Tax Rate:</strong> ' + (taxRate * 100) + '%</p>' +
+        '<p><strong>Tax Owed:</strong> <span class="highlight">$' + tax.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</span></p>' +
+        '<p><strong>Net Profit After Tax:</strong> $' + netGain.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</p>' +
+        '<p style="font-size: 0.9em; color: #666;">Note: ' + holding + '</p>' +
+        '</div>';
+    
+        }
+
+        function clearForm() {
+            document.querySelectorAll('input, select').forEach(el => {
+                if (el.type === 'checkbox') el.checked = false;
+                else el.value = '';
+            });
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

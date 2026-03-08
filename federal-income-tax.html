@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federal Income Tax Calculator - Free Online Tax Calculator | ToolPulse</title>
+    <meta name="description" content="Calculate your federal income tax based on 2024 tax brackets. Fast, accurate, and completely free. No signup required.">
+    <meta name="keywords" content="federal income tax calculator, tax bracket calculator, income tax estimator">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/federal-income-tax.html">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">🛠️ ToolPulse</a></h1>
+            <p>Free tools for developers and creators</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="tool-container">
+            <h2>Federal Income Tax Calculator</h2>
+            <p class="tool-description">Calculate your federal income tax based on 2024 tax brackets</p>
+
+            <div class="tool-form">
+                
+                <div class="form-group">
+                    <label for="income">Annual Income ($)</label>
+                    <input type="number" id="income" class="form-control" placeholder="75000" >
+                </div>
+                <div class="form-group">
+                    <label for="filingStatus">Filing Status</label>
+                    <select id="filingStatus" class="form-control">
+                        <option value="Single">Single</option><option value="Married Filing Jointly">Married Filing Jointly</option><option value="Married Filing Separately">Married Filing Separately</option><option value="Head of Household">Head of Household</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deductions">Total Deductions ($)</label>
+                    <input type="number" id="deductions" class="form-control" placeholder="13850" >
+                </div>
+
+                <button onclick="calculate()" class="btn-primary">Calculate</button>
+                <button onclick="clearForm()" class="btn-secondary">Clear</button>
+            </div>
+
+            <div id="result" class="result-container"></div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="9876543210" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About This Calculator</h3>
+            <p>Calculate your federal income tax based on 2024 tax brackets. This tool provides quick estimates for tax planning purposes. Always consult a tax professional for specific advice.</p>
+            
+            <h4>Related Tools</h4>
+            <ul class="related-tools">
+                <li><a href="index.html">All ToolPulse Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs Wellness Tools</a></li>
+            </ul>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ToolPulse | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function calculate() {
+            
+      const income = parseFloat(document.getElementById('income').value) || 0;
+      const deductions = parseFloat(document.getElementById('deductions').value) || 0;
+      const filingStatus = document.getElementById('filingStatus').value;
+      
+      const taxableIncome = Math.max(0, income - deductions);
+      
+      // 2024 tax brackets (simplified)
+      const brackets = {
+        'Single': [
+          { limit: 11600, rate: 0.10 },
+          { limit: 47150, rate: 0.12 },
+          { limit: 100525, rate: 0.22 },
+          { limit: 191950, rate: 0.24 },
+          { limit: 243725, rate: 0.32 },
+          { limit: 609350, rate: 0.35 },
+          { limit: Infinity, rate: 0.37 }
+        ],
+        'Married Filing Jointly': [
+          { limit: 23200, rate: 0.10 },
+          { limit: 94300, rate: 0.12 },
+          { limit: 201050, rate: 0.22 },
+          { limit: 383900, rate: 0.24 },
+          { limit: 487450, rate: 0.32 },
+          { limit: 731200, rate: 0.35 },
+          { limit: Infinity, rate: 0.37 }
+        ]
+      };
+      
+      const bracketList = brackets[filingStatus] || brackets['Single'];
+      let tax = 0;
+      let remaining = taxableIncome;
+      let prevLimit = 0;
+      
+      for (const bracket of bracketList) {
+        const amountInBracket = Math.min(remaining, bracket.limit - prevLimit);
+        tax += amountInBracket * bracket.rate;
+        remaining -= amountInBracket;
+        prevLimit = bracket.limit;
+        if (remaining <= 0) break;
+      }
+      
+      const effectiveRate = (tax / income * 100).toFixed(2);
+      
+      document.getElementById('result').innerHTML = 
+        '<div class="result-card">' +
+        '<h3>Tax Results</h3>' +
+        '<p><strong>Taxable Income:</strong> $' + taxableIncome.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</p>' +
+        '<p><strong>Federal Tax Owed:</strong> <span class="highlight">$' + tax.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</span></p>' +
+        '<p><strong>Effective Tax Rate:</strong> ' + effectiveRate + '%</p>' +
+        '<p><strong>After-Tax Income:</strong> $' + (income - tax).toLocaleString('en-US', {minimumFractionDigits: 2}) + '</p>' +
+        '</div>';
+    
+        }
+
+        function clearForm() {
+            document.querySelectorAll('input, select').forEach(el => {
+                if (el.type === 'checkbox') el.checked = false;
+                else el.value = '';
+            });
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

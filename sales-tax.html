@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Tax Calculator - Free Online Tax Calculator | ToolPulse</title>
+    <meta name="description" content="Calculate sales tax and total price for purchases. Fast, accurate, and completely free. No signup required.">
+    <meta name="keywords" content="sales tax calculator, tax on purchase, total price calculator">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/sales-tax.html">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">🛠️ ToolPulse</a></h1>
+            <p>Free tools for developers and creators</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="tool-container">
+            <h2>Sales Tax Calculator</h2>
+            <p class="tool-description">Calculate sales tax and total price for purchases</p>
+
+            <div class="tool-form">
+                
+                <div class="form-group">
+                    <label for="price">Item Price ($)</label>
+                    <input type="number" id="price" class="form-control" placeholder="100" >
+                </div>
+                <div class="form-group">
+                    <label for="taxRate">Sales Tax Rate (%)</label>
+                    <input type="number" id="taxRate" class="form-control" placeholder="7.5" step="0.1">
+                </div>
+
+                <button onclick="calculate()" class="btn-primary">Calculate</button>
+                <button onclick="clearForm()" class="btn-secondary">Clear</button>
+            </div>
+
+            <div id="result" class="result-container"></div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="9876543210" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About This Calculator</h3>
+            <p>Calculate sales tax and total price for purchases. This tool provides quick estimates for tax planning purposes. Always consult a tax professional for specific advice.</p>
+            
+            <h4>Related Tools</h4>
+            <ul class="related-tools">
+                <li><a href="index.html">All ToolPulse Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs Wellness Tools</a></li>
+            </ul>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ToolPulse | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function calculate() {
+            
+      const price = parseFloat(document.getElementById('price').value) || 0;
+      const rate = parseFloat(document.getElementById('taxRate').value) || 0;
+      
+      const tax = price * (rate / 100);
+      const total = price + tax;
+      
+      document.getElementById('result').innerHTML = 
+        '<div class="result-card">' +
+        '<h3>Sales Tax Breakdown</h3>' +
+        '<p><strong>Subtotal:</strong> $' + price.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</p>' +
+        '<p><strong>Sales Tax (' + rate + '%):</strong> $' + tax.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</p>' +
+        '<p class="highlight"><strong>Total Price:</strong> $' + total.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</p>' +
+        '</div>';
+    
+        }
+
+        function clearForm() {
+            document.querySelectorAll('input, select').forEach(el => {
+                if (el.type === 'checkbox') el.checked = false;
+                else el.value = '';
+            });
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
