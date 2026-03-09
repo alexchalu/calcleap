@@ -1,0 +1,392 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// High-CPC insurance calculators ($15-80/click)
+const calculators = [
+  {
+    slug: 'car-insurance-estimator',
+    title: 'Car Insurance Cost Estimator',
+    desc: 'Estimate your auto insurance premium based on age, vehicle, and driving record',
+    category: 'Auto Insurance',
+    inputs: [
+      { id: 'age', label: 'Your Age', type: 'number', min: 16, max: 100, default: 30 },
+      { id: 'gender', label: 'Gender', type: 'select', options: ['Male', 'Female', 'Other'] },
+      { id: 'vehicle-value', label: 'Vehicle Value ($)', type: 'number', min: 0, default: 25000 },
+      { id: 'vehicle-age', label: 'Vehicle Age (years)', type: 'number', min: 0, max: 30, default: 5 },
+      { id: 'zip', label: 'ZIP Code', type: 'text', placeholder: '12345' },
+      { id: 'accidents', label: 'Accidents (last 3 years)', type: 'number', min: 0, max: 10, default: 0 },
+      { id: 'tickets', label: 'Tickets (last 3 years)', type: 'number', min: 0, max: 10, default: 0 },
+      { id: 'coverage', label: 'Coverage Level', type: 'select', options: ['Liability Only', 'Standard', 'Full Coverage'] },
+    ]
+  },
+  {
+    slug: 'pet-insurance-calculator',
+    title: 'Pet Insurance Cost Calculator',
+    desc: 'Calculate monthly pet insurance premiums for your dog or cat',
+    category: 'Pet Insurance',
+    inputs: [
+      { id: 'pet-type', label: 'Pet Type', type: 'select', options: ['Dog', 'Cat'] },
+      { id: 'pet-age', label: 'Pet Age (years)', type: 'number', min: 0, max: 20, default: 3 },
+      { id: 'breed', label: 'Breed', type: 'text', placeholder: 'e.g. Labrador, Persian' },
+      { id: 'coverage-type', label: 'Coverage Type', type: 'select', options: ['Accident Only', 'Accident + Illness', 'Comprehensive'] },
+      { id: 'deductible', label: 'Annual Deductible', type: 'select', options: ['$100', '$250', '$500', '$1000'] },
+      { id: 'reimbursement', label: 'Reimbursement %', type: 'select', options: ['70%', '80%', '90%'] },
+    ]
+  },
+  {
+    slug: 'homeowners-insurance-calculator',
+    title: 'Homeowners Insurance Calculator',
+    desc: 'Estimate homeowners insurance premiums based on home value and location',
+    category: 'Home Insurance',
+    inputs: [
+      { id: 'home-value', label: 'Home Value ($)', type: 'number', min: 0, default: 300000 },
+      { id: 'rebuild-cost', label: 'Estimated Rebuild Cost ($)', type: 'number', min: 0, default: 250000 },
+      { id: 'zip', label: 'ZIP Code', type: 'text', placeholder: '12345' },
+      { id: 'deductible', label: 'Deductible', type: 'select', options: ['$500', '$1000', '$2500', '$5000'] },
+      { id: 'coverage-amount', label: 'Coverage Amount', type: 'select', options: ['Actual Cash Value', 'Replacement Cost', 'Guaranteed Replacement'] },
+      { id: 'claims', label: 'Claims (last 5 years)', type: 'number', min: 0, max: 10, default: 0 },
+    ]
+  },
+  {
+    slug: 'renters-insurance-calculator',
+    title: 'Renters Insurance Calculator',
+    desc: 'Calculate renters insurance cost for your apartment or rental home',
+    category: 'Renters Insurance',
+    inputs: [
+      { id: 'coverage-amount', label: 'Personal Property Coverage ($)', type: 'number', min: 0, default: 30000 },
+      { id: 'liability', label: 'Liability Coverage ($)', type: 'number', min: 0, default: 100000 },
+      { id: 'zip', label: 'ZIP Code', type: 'text', placeholder: '12345' },
+      { id: 'deductible', label: 'Deductible', type: 'select', options: ['$250', '$500', '$1000'] },
+      { id: 'claims', label: 'Claims History', type: 'select', options: ['None', '1 claim', '2+ claims'] },
+    ]
+  },
+  {
+    slug: 'motorcycle-insurance-calculator',
+    title: 'Motorcycle Insurance Calculator',
+    desc: 'Estimate motorcycle insurance premiums based on bike type and rider experience',
+    category: 'Motorcycle Insurance',
+    inputs: [
+      { id: 'bike-value', label: 'Motorcycle Value ($)', type: 'number', min: 0, default: 12000 },
+      { id: 'bike-type', label: 'Bike Type', type: 'select', options: ['Cruiser', 'Sport', 'Touring', 'Off-Road', 'Scooter'] },
+      { id: 'cc', label: 'Engine Size (cc)', type: 'number', min: 0, default: 750 },
+      { id: 'age', label: 'Your Age', type: 'number', min: 16, max: 100, default: 30 },
+      { id: 'experience', label: 'Years Riding', type: 'number', min: 0, max: 50, default: 5 },
+      { id: 'coverage', label: 'Coverage Type', type: 'select', options: ['Liability Only', 'Liability + Collision', 'Full Coverage'] },
+    ]
+  },
+  {
+    slug: 'boat-insurance-calculator',
+    title: 'Boat Insurance Calculator',
+    desc: 'Calculate boat insurance costs based on vessel type and value',
+    category: 'Boat Insurance',
+    inputs: [
+      { id: 'boat-value', label: 'Boat Value ($)', type: 'number', min: 0, default: 50000 },
+      { id: 'boat-type', label: 'Boat Type', type: 'select', options: ['Sailboat', 'Powerboat', 'Yacht', 'Fishing Boat', 'Jet Ski'] },
+      { id: 'length', label: 'Boat Length (feet)', type: 'number', min: 0, default: 25 },
+      { id: 'age', label: 'Boat Age (years)', type: 'number', min: 0, max: 50, default: 10 },
+      { id: 'usage', label: 'Usage', type: 'select', options: ['Recreational', 'Fishing', 'Racing', 'Liveaboard'] },
+      { id: 'deductible', label: 'Deductible', type: 'select', options: ['$500', '$1000', '$2500'] },
+    ]
+  },
+  {
+    slug: 'rv-insurance-calculator',
+    title: 'RV Insurance Calculator',
+    desc: 'Estimate RV and motorhome insurance premiums',
+    category: 'RV Insurance',
+    inputs: [
+      { id: 'rv-value', label: 'RV Value ($)', type: 'number', min: 0, default: 80000 },
+      { id: 'rv-type', label: 'RV Type', type: 'select', options: ['Class A Motorhome', 'Class B Motorhome', 'Class C Motorhome', 'Travel Trailer', 'Fifth Wheel'] },
+      { id: 'length', label: 'RV Length (feet)', type: 'number', min: 0, default: 30 },
+      { id: 'usage', label: 'Usage', type: 'select', options: ['Occasional Recreation', 'Frequent Travel', 'Full-Time Living'] },
+      { id: 'deductible', label: 'Deductible', type: 'select', options: ['$500', '$1000', '$2500'] },
+    ]
+  },
+  {
+    slug: 'umbrella-insurance-calculator',
+    title: 'Umbrella Insurance Calculator',
+    desc: 'Calculate umbrella liability insurance coverage needs',
+    category: 'Umbrella Insurance',
+    inputs: [
+      { id: 'net-worth', label: 'Net Worth ($)', type: 'number', min: 0, default: 500000 },
+      { id: 'income', label: 'Annual Income ($)', type: 'number', min: 0, default: 100000 },
+      { id: 'properties', label: 'Properties Owned', type: 'number', min: 0, max: 10, default: 1 },
+      { id: 'vehicles', label: 'Vehicles Owned', type: 'number', min: 0, max: 10, default: 2 },
+      { id: 'risk-factors', label: 'Risk Factors', type: 'select', options: ['Low (desk job)', 'Medium (some travel)', 'High (public-facing, travel)'] },
+    ]
+  },
+];
+
+function generateHTML(calc) {
+  const inputsHTML = calc.inputs.map(input => {
+    if (input.type === 'select') {
+      return `
+        <div class="input-group">
+          <label for="${input.id}">${input.label}:</label>
+          <select id="${input.id}">
+            ${input.options.map(opt => `<option value="${opt}">${opt}</option>`).join('\n')}
+          </select>
+        </div>`;
+    } else {
+      return `
+        <div class="input-group">
+          <label for="${input.id}">${input.label}:</label>
+          <input type="${input.type}" id="${input.id}" ${input.placeholder ? `placeholder="${input.placeholder}"` : ''} ${input.min !== undefined ? `min="${input.min}"` : ''} ${input.max !== undefined ? `max="${input.max}"` : ''} ${input.default !== undefined ? `value="${input.default}"` : ''}>
+        </div>`;
+    }
+  }).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${calc.title} - Free ${calc.category} Estimator | ToolPulse</title>
+    <meta name="description" content="${calc.desc}. Free ${calc.category.toLowerCase()} calculator. Get instant estimates and compare rates.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${calc.slug}.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calc-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calc-box h2 { margin-bottom: 1.5rem; color: #667eea; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input, .input-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #667eea; }
+        .calc-btn { background: #667eea; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.3s; }
+        .calc-btn:hover { background: #5568d3; }
+        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .result-box h3 { color: #667eea; margin-bottom: 1rem; }
+        .result-box .price { font-size: 2rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
+        .result-box .detail { margin: 0.5rem 0; color: #555; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
+        .info-section p { margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>${calc.title}</h1>
+            <p>${calc.desc}</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calc-box">
+            <h2>Calculate ${calc.category} Cost</h2>
+            ${inputsHTML}
+            <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
+            <div class="result-box" id="result">
+                <h3>Estimated ${calc.category} Premium</h3>
+                <div class="price" id="monthly"></div>
+                <div class="detail" id="annual"></div>
+                <div class="detail" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    💡 This is an estimate. Actual rates vary by insurer, location, and individual factors. Get quotes from multiple providers for best rates.
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About ${calc.category}</h3>
+            <p>This ${calc.title.toLowerCase()} helps you estimate your insurance costs. Factors affecting your premium include:</p>
+            <ul>
+                <li>Your age and experience</li>
+                <li>Location and ZIP code</li>
+                <li>Coverage type and limits</li>
+                <li>Deductible amount</li>
+                <li>Claims and driving history</li>
+                <li>Value of insured property</li>
+            </ul>
+            <p><strong>How to save on insurance:</strong></p>
+            <ul>
+                <li>Compare quotes from multiple insurers</li>
+                <li>Bundle policies (auto + home)</li>
+                <li>Increase deductibles to lower premiums</li>
+                <li>Ask about discounts (safe driver, good student, etc.)</li>
+                <li>Maintain good credit and claims history</li>
+            </ul>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>More Insurance & Financial Calculators</h3>
+            <ul>
+                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            // Simple estimation logic - in reality, insurance uses complex actuarial tables
+            let monthly = 0;
+            
+            ${calc.slug === 'car-insurance-estimator' ? `
+            const age = parseInt(document.getElementById('age').value) || 30;
+            const vehicleValue = parseInt(document.getElementById('vehicle-value').value) || 25000;
+            const accidents = parseInt(document.getElementById('accidents').value) || 0;
+            const tickets = parseInt(document.getElementById('tickets').value) || 0;
+            const coverage = document.getElementById('coverage').value;
+            
+            // Base rate
+            monthly = 80;
+            
+            // Age factor
+            if (age < 25) monthly += 50;
+            else if (age < 30) monthly += 20;
+            else if (age > 65) monthly += 15;
+            
+            // Vehicle value
+            monthly += vehicleValue * 0.0015;
+            
+            // Accidents & tickets
+            monthly += accidents * 30;
+            monthly += tickets * 15;
+            
+            // Coverage
+            if (coverage === 'Standard') monthly *= 1.3;
+            else if (coverage === 'Full Coverage') monthly *= 1.8;
+            ` : ''}
+            
+            ${calc.slug === 'pet-insurance-calculator' ? `
+            const petType = document.getElementById('pet-type').value;
+            const petAge = parseInt(document.getElementById('pet-age').value) || 3;
+            const coverageType = document.getElementById('coverage-type').value;
+            const deductible = document.getElementById('deductible').value;
+            
+            monthly = 30;
+            if (petType === 'Dog') monthly += 15;
+            monthly += petAge * 3;
+            
+            if (coverageType === 'Accident + Illness') monthly *= 1.5;
+            else if (coverageType === 'Comprehensive') monthly *= 2.2;
+            
+            if (deductible === '$100') monthly += 20;
+            else if (deductible === '$250') monthly += 10;
+            ` : ''}
+            
+            ${calc.slug === 'homeowners-insurance-calculator' ? `
+            const homeValue = parseInt(document.getElementById('home-value').value) || 300000;
+            const claims = parseInt(document.getElementById('claims').value) || 0;
+            const deductible = document.getElementById('deductible').value;
+            
+            monthly = homeValue * 0.0035 / 12;
+            monthly += claims * 15;
+            
+            if (deductible === '$500') monthly += 20;
+            else if (deductible === '$1000') monthly += 10;
+            ` : ''}
+            
+            ${calc.slug === 'renters-insurance-calculator' ? `
+            const coverage = parseInt(document.getElementById('coverage-amount').value) || 30000;
+            const liability = parseInt(document.getElementById('liability').value) || 100000;
+            
+            monthly = 15 + (coverage / 5000) + (liability / 50000);
+            ` : ''}
+            
+            ${calc.slug === 'motorcycle-insurance-calculator' ? `
+            const bikeValue = parseInt(document.getElementById('bike-value').value) || 12000;
+            const bikeType = document.getElementById('bike-type').value;
+            const age = parseInt(document.getElementById('age').value) || 30;
+            const experience = parseInt(document.getElementById('experience').value) || 5;
+            
+            monthly = 60;
+            monthly += bikeValue * 0.003;
+            
+            if (bikeType === 'Sport') monthly *= 1.8;
+            else if (bikeType === 'Cruiser') monthly *= 1.2;
+            
+            if (age < 25) monthly += 50;
+            if (experience < 2) monthly += 40;
+            ` : ''}
+            
+            ${calc.slug === 'boat-insurance-calculator' ? `
+            const boatValue = parseInt(document.getElementById('boat-value').value) || 50000;
+            const boatAge = parseInt(document.getElementById('age').value) || 10;
+            
+            monthly = boatValue * 0.015 / 12;
+            if (boatAge > 20) monthly *= 1.3;
+            ` : ''}
+            
+            ${calc.slug === 'rv-insurance-calculator' ? `
+            const rvValue = parseInt(document.getElementById('rv-value').value) || 80000;
+            const usage = document.getElementById('usage').value;
+            
+            monthly = rvValue * 0.01 / 12;
+            if (usage === 'Frequent Travel') monthly *= 1.3;
+            else if (usage === 'Full-Time Living') monthly *= 1.6;
+            ` : ''}
+            
+            ${calc.slug === 'umbrella-insurance-calculator' ? `
+            const netWorth = parseInt(document.getElementById('net-worth').value) || 500000;
+            const properties = parseInt(document.getElementById('properties').value) || 1;
+            
+            const coverage = Math.max(1000000, netWorth * 2);
+            monthly = (coverage / 1000000) * 15;
+            monthly += properties * 5;
+            ` : ''}
+            
+            monthly = Math.max(10, monthly);
+            const annual = monthly * 12;
+            
+            document.getElementById('monthly').textContent = '$' + monthly.toFixed(2) + '/month';
+            document.getElementById('annual').textContent = 'Annual Premium: $' + annual.toFixed(2);
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>`;
+}
+
+// Generate all pages
+let count = 0;
+calculators.forEach(calc => {
+  const html = generateHTML(calc);
+  fs.writeFileSync(path.join(__dirname, `${calc.slug}.html`), html);
+  count++;
+  console.log(`✓ Generated ${calc.slug}.html`);
+});
+
+console.log(`\n✅ Generated ${count} insurance calculator pages`);
+console.log('💰 HIGH CPC NICHE: Insurance calculators ($15-80/click)');
+console.log('📝 Next: Update sitemap.xml and rebuild-index.js');

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Insurance Cost Calculator - Free Pet Insurance Estimator | ToolPulse</title>
-    <meta name="description" content="Calculate monthly pet insurance premiums for your dog or cat. Free pet insurance calculator. Get instant estimates and compare rates.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/pet-insurance-calculator.html">
+    <title>Renters Insurance Calculator - Free Renters Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Calculate renters insurance cost for your apartment or rental home. Free renters insurance calculator. Get instant estimates and compare rates.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/renters-insurance-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Pet Insurance Cost Calculator</h1>
-            <p>Calculate monthly pet insurance premiums for your dog or cat</p>
+            <h1>Renters Insurance Calculator</h1>
+            <p>Calculate renters insurance cost for your apartment or rental home</p>
         </div>
     </div>
 
@@ -54,56 +54,43 @@
         </div>
 
         <div class="calc-box">
-            <h2>Calculate Pet Insurance Cost</h2>
+            <h2>Calculate Renters Insurance Cost</h2>
             
         <div class="input-group">
-          <label for="pet-type">Pet Type:</label>
-          <select id="pet-type">
-            <option value="Dog">Dog</option>
-<option value="Cat">Cat</option>
-          </select>
+          <label for="coverage-amount">Personal Property Coverage ($):</label>
+          <input type="number" id="coverage-amount"  min="0"  value="30000">
         </div>
 
         <div class="input-group">
-          <label for="pet-age">Pet Age (years):</label>
-          <input type="number" id="pet-age"  min="0" max="20" value="3">
+          <label for="liability">Liability Coverage ($):</label>
+          <input type="number" id="liability"  min="0"  value="100000">
         </div>
 
         <div class="input-group">
-          <label for="breed">Breed:</label>
-          <input type="text" id="breed" placeholder="e.g. Labrador, Persian"   >
+          <label for="zip">ZIP Code:</label>
+          <input type="text" id="zip" placeholder="12345"   >
         </div>
 
         <div class="input-group">
-          <label for="coverage-type">Coverage Type:</label>
-          <select id="coverage-type">
-            <option value="Accident Only">Accident Only</option>
-<option value="Accident + Illness">Accident + Illness</option>
-<option value="Comprehensive">Comprehensive</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="deductible">Annual Deductible:</label>
+          <label for="deductible">Deductible:</label>
           <select id="deductible">
-            <option value="$100">$100</option>
-<option value="$250">$250</option>
+            <option value="$250">$250</option>
 <option value="$500">$500</option>
 <option value="$1000">$1000</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="reimbursement">Reimbursement %:</label>
-          <select id="reimbursement">
-            <option value="70%">70%</option>
-<option value="80%">80%</option>
-<option value="90%">90%</option>
+          <label for="claims">Claims History:</label>
+          <select id="claims">
+            <option value="None">None</option>
+<option value="1 claim">1 claim</option>
+<option value="2+ claims">2+ claims</option>
           </select>
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
             <div class="result-box" id="result">
-                <h3>Estimated Pet Insurance Premium</h3>
+                <h3>Estimated Renters Insurance Premium</h3>
                 <div class="price" id="monthly"></div>
                 <div class="detail" id="annual"></div>
                 <div class="detail" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
@@ -119,8 +106,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Pet Insurance</h3>
-            <p>This pet insurance cost calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
+            <h3>About Renters Insurance</h3>
+            <p>This renters insurance calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
             <ul>
                 <li>Your age and experience</li>
                 <li>Location and ZIP code</li>
@@ -170,24 +157,14 @@
             
             
             
-            const petType = document.getElementById('pet-type').value;
-            const petAge = parseInt(document.getElementById('pet-age').value) || 3;
-            const coverageType = document.getElementById('coverage-type').value;
-            const deductible = document.getElementById('deductible').value;
-            
-            monthly = 30;
-            if (petType === 'Dog') monthly += 15;
-            monthly += petAge * 3;
-            
-            if (coverageType === 'Accident + Illness') monthly *= 1.5;
-            else if (coverageType === 'Comprehensive') monthly *= 2.2;
-            
-            if (deductible === '$100') monthly += 20;
-            else if (deductible === '$250') monthly += 10;
             
             
             
             
+            const coverage = parseInt(document.getElementById('coverage-amount').value) || 30000;
+            const liability = parseInt(document.getElementById('liability').value) || 100000;
+            
+            monthly = 15 + (coverage / 5000) + (liability / 50000);
             
             
             

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Insurance Cost Calculator - Free Pet Insurance Estimator | ToolPulse</title>
-    <meta name="description" content="Calculate monthly pet insurance premiums for your dog or cat. Free pet insurance calculator. Get instant estimates and compare rates.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/pet-insurance-calculator.html">
+    <title>Car Insurance Cost Estimator - Free Auto Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Estimate your auto insurance premium based on age, vehicle, and driving record. Free auto insurance calculator. Get instant estimates and compare rates.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/car-insurance-estimator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Pet Insurance Cost Calculator</h1>
-            <p>Calculate monthly pet insurance premiums for your dog or cat</p>
+            <h1>Car Insurance Cost Estimator</h1>
+            <p>Estimate your auto insurance premium based on age, vehicle, and driving record</p>
         </div>
     </div>
 
@@ -54,56 +54,58 @@
         </div>
 
         <div class="calc-box">
-            <h2>Calculate Pet Insurance Cost</h2>
+            <h2>Calculate Auto Insurance Cost</h2>
             
         <div class="input-group">
-          <label for="pet-type">Pet Type:</label>
-          <select id="pet-type">
-            <option value="Dog">Dog</option>
-<option value="Cat">Cat</option>
+          <label for="age">Your Age:</label>
+          <input type="number" id="age"  min="16" max="100" value="30">
+        </div>
+
+        <div class="input-group">
+          <label for="gender">Gender:</label>
+          <select id="gender">
+            <option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="Other">Other</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="pet-age">Pet Age (years):</label>
-          <input type="number" id="pet-age"  min="0" max="20" value="3">
+          <label for="vehicle-value">Vehicle Value ($):</label>
+          <input type="number" id="vehicle-value"  min="0"  value="25000">
         </div>
 
         <div class="input-group">
-          <label for="breed">Breed:</label>
-          <input type="text" id="breed" placeholder="e.g. Labrador, Persian"   >
+          <label for="vehicle-age">Vehicle Age (years):</label>
+          <input type="number" id="vehicle-age"  min="0" max="30" value="5">
         </div>
 
         <div class="input-group">
-          <label for="coverage-type">Coverage Type:</label>
-          <select id="coverage-type">
-            <option value="Accident Only">Accident Only</option>
-<option value="Accident + Illness">Accident + Illness</option>
-<option value="Comprehensive">Comprehensive</option>
-          </select>
+          <label for="zip">ZIP Code:</label>
+          <input type="text" id="zip" placeholder="12345"   >
         </div>
 
         <div class="input-group">
-          <label for="deductible">Annual Deductible:</label>
-          <select id="deductible">
-            <option value="$100">$100</option>
-<option value="$250">$250</option>
-<option value="$500">$500</option>
-<option value="$1000">$1000</option>
-          </select>
+          <label for="accidents">Accidents (last 3 years):</label>
+          <input type="number" id="accidents"  min="0" max="10" value="0">
         </div>
 
         <div class="input-group">
-          <label for="reimbursement">Reimbursement %:</label>
-          <select id="reimbursement">
-            <option value="70%">70%</option>
-<option value="80%">80%</option>
-<option value="90%">90%</option>
+          <label for="tickets">Tickets (last 3 years):</label>
+          <input type="number" id="tickets"  min="0" max="10" value="0">
+        </div>
+
+        <div class="input-group">
+          <label for="coverage">Coverage Level:</label>
+          <select id="coverage">
+            <option value="Liability Only">Liability Only</option>
+<option value="Standard">Standard</option>
+<option value="Full Coverage">Full Coverage</option>
           </select>
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
             <div class="result-box" id="result">
-                <h3>Estimated Pet Insurance Premium</h3>
+                <h3>Estimated Auto Insurance Premium</h3>
                 <div class="price" id="monthly"></div>
                 <div class="detail" id="annual"></div>
                 <div class="detail" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
@@ -119,8 +121,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Pet Insurance</h3>
-            <p>This pet insurance cost calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
+            <h3>About Auto Insurance</h3>
+            <p>This car insurance cost estimator helps you estimate your insurance costs. Factors affecting your premium include:</p>
             <ul>
                 <li>Your age and experience</li>
                 <li>Location and ZIP code</li>
@@ -168,22 +170,32 @@
             let monthly = 0;
             
             
+            const age = parseInt(document.getElementById('age').value) || 30;
+            const vehicleValue = parseInt(document.getElementById('vehicle-value').value) || 25000;
+            const accidents = parseInt(document.getElementById('accidents').value) || 0;
+            const tickets = parseInt(document.getElementById('tickets').value) || 0;
+            const coverage = document.getElementById('coverage').value;
+            
+            // Base rate
+            monthly = 80;
+            
+            // Age factor
+            if (age < 25) monthly += 50;
+            else if (age < 30) monthly += 20;
+            else if (age > 65) monthly += 15;
+            
+            // Vehicle value
+            monthly += vehicleValue * 0.0015;
+            
+            // Accidents & tickets
+            monthly += accidents * 30;
+            monthly += tickets * 15;
+            
+            // Coverage
+            if (coverage === 'Standard') monthly *= 1.3;
+            else if (coverage === 'Full Coverage') monthly *= 1.8;
             
             
-            const petType = document.getElementById('pet-type').value;
-            const petAge = parseInt(document.getElementById('pet-age').value) || 3;
-            const coverageType = document.getElementById('coverage-type').value;
-            const deductible = document.getElementById('deductible').value;
-            
-            monthly = 30;
-            if (petType === 'Dog') monthly += 15;
-            monthly += petAge * 3;
-            
-            if (coverageType === 'Accident + Illness') monthly *= 1.5;
-            else if (coverageType === 'Comprehensive') monthly *= 2.2;
-            
-            if (deductible === '$100') monthly += 20;
-            else if (deductible === '$250') monthly += 10;
             
             
             

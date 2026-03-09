@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Insurance Cost Calculator - Free Pet Insurance Estimator | ToolPulse</title>
-    <meta name="description" content="Calculate monthly pet insurance premiums for your dog or cat. Free pet insurance calculator. Get instant estimates and compare rates.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/pet-insurance-calculator.html">
+    <title>Motorcycle Insurance Calculator - Free Motorcycle Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Estimate motorcycle insurance premiums based on bike type and rider experience. Free motorcycle insurance calculator. Get instant estimates and compare rates.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/motorcycle-insurance-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Pet Insurance Cost Calculator</h1>
-            <p>Calculate monthly pet insurance premiums for your dog or cat</p>
+            <h1>Motorcycle Insurance Calculator</h1>
+            <p>Estimate motorcycle insurance premiums based on bike type and rider experience</p>
         </div>
     </div>
 
@@ -54,56 +54,50 @@
         </div>
 
         <div class="calc-box">
-            <h2>Calculate Pet Insurance Cost</h2>
+            <h2>Calculate Motorcycle Insurance Cost</h2>
             
         <div class="input-group">
-          <label for="pet-type">Pet Type:</label>
-          <select id="pet-type">
-            <option value="Dog">Dog</option>
-<option value="Cat">Cat</option>
+          <label for="bike-value">Motorcycle Value ($):</label>
+          <input type="number" id="bike-value"  min="0"  value="12000">
+        </div>
+
+        <div class="input-group">
+          <label for="bike-type">Bike Type:</label>
+          <select id="bike-type">
+            <option value="Cruiser">Cruiser</option>
+<option value="Sport">Sport</option>
+<option value="Touring">Touring</option>
+<option value="Off-Road">Off-Road</option>
+<option value="Scooter">Scooter</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="pet-age">Pet Age (years):</label>
-          <input type="number" id="pet-age"  min="0" max="20" value="3">
+          <label for="cc">Engine Size (cc):</label>
+          <input type="number" id="cc"  min="0"  value="750">
         </div>
 
         <div class="input-group">
-          <label for="breed">Breed:</label>
-          <input type="text" id="breed" placeholder="e.g. Labrador, Persian"   >
+          <label for="age">Your Age:</label>
+          <input type="number" id="age"  min="16" max="100" value="30">
         </div>
 
         <div class="input-group">
-          <label for="coverage-type">Coverage Type:</label>
-          <select id="coverage-type">
-            <option value="Accident Only">Accident Only</option>
-<option value="Accident + Illness">Accident + Illness</option>
-<option value="Comprehensive">Comprehensive</option>
-          </select>
+          <label for="experience">Years Riding:</label>
+          <input type="number" id="experience"  min="0" max="50" value="5">
         </div>
 
         <div class="input-group">
-          <label for="deductible">Annual Deductible:</label>
-          <select id="deductible">
-            <option value="$100">$100</option>
-<option value="$250">$250</option>
-<option value="$500">$500</option>
-<option value="$1000">$1000</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="reimbursement">Reimbursement %:</label>
-          <select id="reimbursement">
-            <option value="70%">70%</option>
-<option value="80%">80%</option>
-<option value="90%">90%</option>
+          <label for="coverage">Coverage Type:</label>
+          <select id="coverage">
+            <option value="Liability Only">Liability Only</option>
+<option value="Liability + Collision">Liability + Collision</option>
+<option value="Full Coverage">Full Coverage</option>
           </select>
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
             <div class="result-box" id="result">
-                <h3>Estimated Pet Insurance Premium</h3>
+                <h3>Estimated Motorcycle Insurance Premium</h3>
                 <div class="price" id="monthly"></div>
                 <div class="detail" id="annual"></div>
                 <div class="detail" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
@@ -119,8 +113,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Pet Insurance</h3>
-            <p>This pet insurance cost calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
+            <h3>About Motorcycle Insurance</h3>
+            <p>This motorcycle insurance calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
             <ul>
                 <li>Your age and experience</li>
                 <li>Location and ZIP code</li>
@@ -170,26 +164,25 @@
             
             
             
-            const petType = document.getElementById('pet-type').value;
-            const petAge = parseInt(document.getElementById('pet-age').value) || 3;
-            const coverageType = document.getElementById('coverage-type').value;
-            const deductible = document.getElementById('deductible').value;
-            
-            monthly = 30;
-            if (petType === 'Dog') monthly += 15;
-            monthly += petAge * 3;
-            
-            if (coverageType === 'Accident + Illness') monthly *= 1.5;
-            else if (coverageType === 'Comprehensive') monthly *= 2.2;
-            
-            if (deductible === '$100') monthly += 20;
-            else if (deductible === '$250') monthly += 10;
             
             
             
             
             
             
+            const bikeValue = parseInt(document.getElementById('bike-value').value) || 12000;
+            const bikeType = document.getElementById('bike-type').value;
+            const age = parseInt(document.getElementById('age').value) || 30;
+            const experience = parseInt(document.getElementById('experience').value) || 5;
+            
+            monthly = 60;
+            monthly += bikeValue * 0.003;
+            
+            if (bikeType === 'Sport') monthly *= 1.8;
+            else if (bikeType === 'Cruiser') monthly *= 1.2;
+            
+            if (age < 25) monthly += 50;
+            if (experience < 2) monthly += 40;
             
             
             

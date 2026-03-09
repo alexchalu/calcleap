@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Insurance Cost Calculator - Free Pet Insurance Estimator | ToolPulse</title>
-    <meta name="description" content="Calculate monthly pet insurance premiums for your dog or cat. Free pet insurance calculator. Get instant estimates and compare rates.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/pet-insurance-calculator.html">
+    <title>Umbrella Insurance Calculator - Free Umbrella Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Calculate umbrella liability insurance coverage needs. Free umbrella insurance calculator. Get instant estimates and compare rates.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/umbrella-insurance-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Pet Insurance Cost Calculator</h1>
-            <p>Calculate monthly pet insurance premiums for your dog or cat</p>
+            <h1>Umbrella Insurance Calculator</h1>
+            <p>Calculate umbrella liability insurance coverage needs</p>
         </div>
     </div>
 
@@ -54,56 +54,39 @@
         </div>
 
         <div class="calc-box">
-            <h2>Calculate Pet Insurance Cost</h2>
+            <h2>Calculate Umbrella Insurance Cost</h2>
             
         <div class="input-group">
-          <label for="pet-type">Pet Type:</label>
-          <select id="pet-type">
-            <option value="Dog">Dog</option>
-<option value="Cat">Cat</option>
-          </select>
+          <label for="net-worth">Net Worth ($):</label>
+          <input type="number" id="net-worth"  min="0"  value="500000">
         </div>
 
         <div class="input-group">
-          <label for="pet-age">Pet Age (years):</label>
-          <input type="number" id="pet-age"  min="0" max="20" value="3">
+          <label for="income">Annual Income ($):</label>
+          <input type="number" id="income"  min="0"  value="100000">
         </div>
 
         <div class="input-group">
-          <label for="breed">Breed:</label>
-          <input type="text" id="breed" placeholder="e.g. Labrador, Persian"   >
+          <label for="properties">Properties Owned:</label>
+          <input type="number" id="properties"  min="0" max="10" value="1">
         </div>
 
         <div class="input-group">
-          <label for="coverage-type">Coverage Type:</label>
-          <select id="coverage-type">
-            <option value="Accident Only">Accident Only</option>
-<option value="Accident + Illness">Accident + Illness</option>
-<option value="Comprehensive">Comprehensive</option>
-          </select>
+          <label for="vehicles">Vehicles Owned:</label>
+          <input type="number" id="vehicles"  min="0" max="10" value="2">
         </div>
 
         <div class="input-group">
-          <label for="deductible">Annual Deductible:</label>
-          <select id="deductible">
-            <option value="$100">$100</option>
-<option value="$250">$250</option>
-<option value="$500">$500</option>
-<option value="$1000">$1000</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="reimbursement">Reimbursement %:</label>
-          <select id="reimbursement">
-            <option value="70%">70%</option>
-<option value="80%">80%</option>
-<option value="90%">90%</option>
+          <label for="risk-factors">Risk Factors:</label>
+          <select id="risk-factors">
+            <option value="Low (desk job)">Low (desk job)</option>
+<option value="Medium (some travel)">Medium (some travel)</option>
+<option value="High (public-facing, travel)">High (public-facing, travel)</option>
           </select>
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
             <div class="result-box" id="result">
-                <h3>Estimated Pet Insurance Premium</h3>
+                <h3>Estimated Umbrella Insurance Premium</h3>
                 <div class="price" id="monthly"></div>
                 <div class="detail" id="annual"></div>
                 <div class="detail" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
@@ -119,8 +102,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Pet Insurance</h3>
-            <p>This pet insurance cost calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
+            <h3>About Umbrella Insurance</h3>
+            <p>This umbrella insurance calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
             <ul>
                 <li>Your age and experience</li>
                 <li>Location and ZIP code</li>
@@ -170,20 +153,6 @@
             
             
             
-            const petType = document.getElementById('pet-type').value;
-            const petAge = parseInt(document.getElementById('pet-age').value) || 3;
-            const coverageType = document.getElementById('coverage-type').value;
-            const deductible = document.getElementById('deductible').value;
-            
-            monthly = 30;
-            if (petType === 'Dog') monthly += 15;
-            monthly += petAge * 3;
-            
-            if (coverageType === 'Accident + Illness') monthly *= 1.5;
-            else if (coverageType === 'Comprehensive') monthly *= 2.2;
-            
-            if (deductible === '$100') monthly += 20;
-            else if (deductible === '$250') monthly += 10;
             
             
             
@@ -196,6 +165,12 @@
             
             
             
+            const netWorth = parseInt(document.getElementById('net-worth').value) || 500000;
+            const properties = parseInt(document.getElementById('properties').value) || 1;
+            
+            const coverage = Math.max(1000000, netWorth * 2);
+            monthly = (coverage / 1000000) * 15;
+            monthly += properties * 5;
             
             
             monthly = Math.max(10, monthly);

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Insurance Cost Calculator - Free Pet Insurance Estimator | ToolPulse</title>
-    <meta name="description" content="Calculate monthly pet insurance premiums for your dog or cat. Free pet insurance calculator. Get instant estimates and compare rates.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/pet-insurance-calculator.html">
+    <title>Boat Insurance Calculator - Free Boat Insurance Estimator | ToolPulse</title>
+    <meta name="description" content="Calculate boat insurance costs based on vessel type and value. Free boat insurance calculator. Get instant estimates and compare rates.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/boat-insurance-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Pet Insurance Cost Calculator</h1>
-            <p>Calculate monthly pet insurance premiums for your dog or cat</p>
+            <h1>Boat Insurance Calculator</h1>
+            <p>Calculate boat insurance costs based on vessel type and value</p>
         </div>
     </div>
 
@@ -54,56 +54,55 @@
         </div>
 
         <div class="calc-box">
-            <h2>Calculate Pet Insurance Cost</h2>
+            <h2>Calculate Boat Insurance Cost</h2>
             
         <div class="input-group">
-          <label for="pet-type">Pet Type:</label>
-          <select id="pet-type">
-            <option value="Dog">Dog</option>
-<option value="Cat">Cat</option>
+          <label for="boat-value">Boat Value ($):</label>
+          <input type="number" id="boat-value"  min="0"  value="50000">
+        </div>
+
+        <div class="input-group">
+          <label for="boat-type">Boat Type:</label>
+          <select id="boat-type">
+            <option value="Sailboat">Sailboat</option>
+<option value="Powerboat">Powerboat</option>
+<option value="Yacht">Yacht</option>
+<option value="Fishing Boat">Fishing Boat</option>
+<option value="Jet Ski">Jet Ski</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="pet-age">Pet Age (years):</label>
-          <input type="number" id="pet-age"  min="0" max="20" value="3">
+          <label for="length">Boat Length (feet):</label>
+          <input type="number" id="length"  min="0"  value="25">
         </div>
 
         <div class="input-group">
-          <label for="breed">Breed:</label>
-          <input type="text" id="breed" placeholder="e.g. Labrador, Persian"   >
+          <label for="age">Boat Age (years):</label>
+          <input type="number" id="age"  min="0" max="50" value="10">
         </div>
 
         <div class="input-group">
-          <label for="coverage-type">Coverage Type:</label>
-          <select id="coverage-type">
-            <option value="Accident Only">Accident Only</option>
-<option value="Accident + Illness">Accident + Illness</option>
-<option value="Comprehensive">Comprehensive</option>
+          <label for="usage">Usage:</label>
+          <select id="usage">
+            <option value="Recreational">Recreational</option>
+<option value="Fishing">Fishing</option>
+<option value="Racing">Racing</option>
+<option value="Liveaboard">Liveaboard</option>
           </select>
         </div>
 
         <div class="input-group">
-          <label for="deductible">Annual Deductible:</label>
+          <label for="deductible">Deductible:</label>
           <select id="deductible">
-            <option value="$100">$100</option>
-<option value="$250">$250</option>
-<option value="$500">$500</option>
+            <option value="$500">$500</option>
 <option value="$1000">$1000</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="reimbursement">Reimbursement %:</label>
-          <select id="reimbursement">
-            <option value="70%">70%</option>
-<option value="80%">80%</option>
-<option value="90%">90%</option>
+<option value="$2500">$2500</option>
           </select>
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
             <div class="result-box" id="result">
-                <h3>Estimated Pet Insurance Premium</h3>
+                <h3>Estimated Boat Insurance Premium</h3>
                 <div class="price" id="monthly"></div>
                 <div class="detail" id="annual"></div>
                 <div class="detail" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
@@ -119,8 +118,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Pet Insurance</h3>
-            <p>This pet insurance cost calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
+            <h3>About Boat Insurance</h3>
+            <p>This boat insurance calculator helps you estimate your insurance costs. Factors affecting your premium include:</p>
             <ul>
                 <li>Your age and experience</li>
                 <li>Location and ZIP code</li>
@@ -170,20 +169,6 @@
             
             
             
-            const petType = document.getElementById('pet-type').value;
-            const petAge = parseInt(document.getElementById('pet-age').value) || 3;
-            const coverageType = document.getElementById('coverage-type').value;
-            const deductible = document.getElementById('deductible').value;
-            
-            monthly = 30;
-            if (petType === 'Dog') monthly += 15;
-            monthly += petAge * 3;
-            
-            if (coverageType === 'Accident + Illness') monthly *= 1.5;
-            else if (coverageType === 'Comprehensive') monthly *= 2.2;
-            
-            if (deductible === '$100') monthly += 20;
-            else if (deductible === '$250') monthly += 10;
             
             
             
@@ -192,6 +177,11 @@
             
             
             
+            const boatValue = parseInt(document.getElementById('boat-value').value) || 50000;
+            const boatAge = parseInt(document.getElementById('age').value) || 10;
+            
+            monthly = boatValue * 0.015 / 12;
+            if (boatAge > 20) monthly *= 1.3;
             
             
             

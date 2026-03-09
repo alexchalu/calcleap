@@ -206,6 +206,20 @@ const categories = [
         name: '🛡️ Insurance Calculators',
         id: 'insurance',
         tools: [
+            { name: 'Car Insurance', desc: 'Auto insurance cost estimator', url: 'car-insurance-estimator.html' },
+            { name: 'Pet Insurance', desc: 'Dog & cat insurance costs', url: 'pet-insurance-calculator.html' },
+            { name: 'Homeowners Insurance', desc: 'Home insurance premium calculator', url: 'homeowners-insurance-calculator.html' },
+            { name: 'Renters Insurance', desc: 'Renters insurance estimator', url: 'renters-insurance-calculator.html' },
+            { name: 'Motorcycle Insurance', desc: 'Bike insurance cost calculator', url: 'motorcycle-insurance-calculator.html' },
+            { name: 'Boat Insurance', desc: 'Watercraft insurance estimator', url: 'boat-insurance-calculator.html' },
+            { name: 'RV Insurance', desc: 'Motorhome insurance calculator', url: 'rv-insurance-calculator.html' },
+            { name: 'Umbrella Insurance', desc: 'Liability coverage calculator', url: 'umbrella-insurance-calculator.html' },
+        ]
+    },
+    {
+        name: '🛡️ Insurance Calculators',
+        id: 'insurance',
+        tools: [
             { name: 'Car Insurance Cost', desc: 'Estimate auto insurance premiums', url: 'calc/car-insurance-estimator.html' },
             { name: 'Pet Insurance Cost', desc: 'Dog & cat insurance calculator', url: 'calc/pet-insurance-calculator.html' },
         ]
