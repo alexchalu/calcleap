@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HELOC Payment Calculator - Free Home Equity Tool | ToolPulse</title>
-    <meta name="description" content="Calculate Home Equity Line of Credit payments and compare draw vs repayment periods.. Free home equity calculator with instant results.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/heloc-payment-calculator.html">
+    <title>Debt Consolidation Calculator - Free Debt Consolidation Tool | ToolPulse</title>
+    <meta name="description" content="See if consolidating your debts will save you money on interest and monthly payments.. Free debt consolidation calculator with instant results.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/debt-consolidation-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>HELOC Payment Calculator</h1>
-            <p>Calculate Home Equity Line of Credit payments and compare draw vs repayment periods.</p>
+            <h1>Debt Consolidation Calculator</h1>
+            <p>See if consolidating your debts will save you money on interest and monthly payments.</p>
         </div>
     </div>
 
@@ -53,31 +53,36 @@
         </div>
 
         <div class="calc-box">
-            <h2>Home Equity Calculator</h2>
+            <h2>Debt Consolidation Calculator</h2>
             
         <div class="input-group">
-          <label for="credit-limit">HELOC Credit Limit ($):</label>
-          <input type="number" id="credit-limit"  min="0"   value="100000">
+          <label for="total-debt">Total Debt Amount ($):</label>
+          <input type="number" id="total-debt"  min="0"   value="25000">
         </div>
 
         <div class="input-group">
-          <label for="amount-drawn">Amount Drawn ($):</label>
-          <input type="number" id="amount-drawn"  min="0"   value="50000">
+          <label for="avg-rate">Average Interest Rate (%):</label>
+          <input type="number" id="avg-rate"  min="0" max="30" step="0.1" value="18">
         </div>
 
         <div class="input-group">
-          <label for="interest-rate">Interest Rate (%):</label>
-          <input type="number" id="interest-rate"  min="0" max="20" step="0.01" value="7.5">
+          <label for="monthly-payment">Current Monthly Payment ($):</label>
+          <input type="number" id="monthly-payment"  min="0"   value="750">
         </div>
 
         <div class="input-group">
-          <label for="draw-period">Draw Period (years):</label>
-          <input type="number" id="draw-period"  min="1" max="20"  value="10">
+          <label for="consolidation-rate">Consolidation Loan Rate (%):</label>
+          <input type="number" id="consolidation-rate"  min="0" max="20" step="0.1" value="10">
         </div>
 
         <div class="input-group">
-          <label for="repay-period">Repayment Period (years):</label>
-          <input type="number" id="repay-period"  min="1" max="30"  value="20">
+          <label for="consolidation-term">Consolidation Term (years):</label>
+          <select id="consolidation-term">
+            <option value="3">3</option>
+<option value="5">5</option>
+<option value="7">7</option>
+<option value="10">10</option>
+          </select>
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate</button>
             <div class="result-box" id="result"></div>
@@ -89,8 +94,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Home Equity</h3>
-            <p>Use this heloc payment calculator to make informed financial decisions. All calculations are estimates based on the information provided.</p>
+            <h3>About Debt Consolidation</h3>
+            <p>Use this debt consolidation calculator to make informed financial decisions. All calculations are estimates based on the information provided.</p>
             <h3>More Financial Tools</h3>
             <ul>
                 <li><a href="index.html">ToolPulse Home - All Tools</a></li>
@@ -120,18 +125,6 @@
             
             
             
-            const drawn = parseFloat(document.getElementById('amount-drawn').value);
-            const rate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
-            const drawYears = parseFloat(document.getElementById('draw-period').value);
-            const repayYears = parseFloat(document.getElementById('repay-period').value);
-            
-            const drawPayment = drawn * rate;
-            const repayMonths = repayYears * 12;
-            const repayPayment = drawn * (rate * Math.pow(1 + rate, repayMonths)) / (Math.pow(1 + rate, repayMonths) - 1);
-            
-            html += '<div class="result-value">Draw Period: $' + drawPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Repayment Period: $' + repayPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Interest-only for ' + drawYears + ' years, then principal + interest</div>';
             
             
             
@@ -140,6 +133,20 @@
             
             
             
+            const debt = parseFloat(document.getElementById('total-debt').value);
+            const avgRate = parseFloat(document.getElementById('avg-rate').value) / 100 / 12;
+            const currentPayment = parseFloat(document.getElementById('monthly-payment').value);
+            const newRate = parseFloat(document.getElementById('consolidation-rate').value) / 100 / 12;
+            const term = parseInt(document.getElementById('consolidation-term').value) * 12;
+            
+            const newPayment = debt * (newRate * Math.pow(1 + newRate, term)) / (Math.pow(1 + newRate, term) - 1);
+            const savings = currentPayment - newPayment;
+            const totalSavings = savings * term;
+            
+            html += '<div class="result-value">New Payment: $' + newPayment.toFixed(2) + '/month</div>';
+            html += '<div class="result-detail">Current Payment: $' + currentPayment.toFixed(2) + '/month</div>';
+            html += '<div class="result-detail">Monthly Savings: $' + savings.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Total Savings Over ' + (term/12) + ' Years: $' + totalSavings.toFixed(2) + '</div>';
             
             
             resultBox.innerHTML = html;

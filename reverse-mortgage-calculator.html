@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HELOC Payment Calculator - Free Home Equity Tool | ToolPulse</title>
-    <meta name="description" content="Calculate Home Equity Line of Credit payments and compare draw vs repayment periods.. Free home equity calculator with instant results.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/heloc-payment-calculator.html">
+    <title>Reverse Mortgage Calculator - Free Reverse Mortgage Tool | ToolPulse</title>
+    <meta name="description" content="Estimate how much you can borrow with a reverse mortgage (HECM).. Free reverse mortgage calculator with instant results.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/reverse-mortgage-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -41,8 +41,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>HELOC Payment Calculator</h1>
-            <p>Calculate Home Equity Line of Credit payments and compare draw vs repayment periods.</p>
+            <h1>Reverse Mortgage Calculator</h1>
+            <p>Estimate how much you can borrow with a reverse mortgage (HECM).</p>
         </div>
     </div>
 
@@ -53,31 +53,26 @@
         </div>
 
         <div class="calc-box">
-            <h2>Home Equity Calculator</h2>
+            <h2>Reverse Mortgage Calculator</h2>
             
         <div class="input-group">
-          <label for="credit-limit">HELOC Credit Limit ($):</label>
-          <input type="number" id="credit-limit"  min="0"   value="100000">
+          <label for="home-value">Home Value ($):</label>
+          <input type="number" id="home-value"  min="0"   value="400000">
         </div>
 
         <div class="input-group">
-          <label for="amount-drawn">Amount Drawn ($):</label>
-          <input type="number" id="amount-drawn"  min="0"   value="50000">
+          <label for="youngest-age">Youngest Borrower Age:</label>
+          <input type="number" id="youngest-age"  min="62" max="100"  value="65">
         </div>
 
         <div class="input-group">
-          <label for="interest-rate">Interest Rate (%):</label>
-          <input type="number" id="interest-rate"  min="0" max="20" step="0.01" value="7.5">
+          <label for="mortgage-balance">Existing Mortgage Balance ($):</label>
+          <input type="number" id="mortgage-balance"  min="0"   value="0">
         </div>
 
         <div class="input-group">
-          <label for="draw-period">Draw Period (years):</label>
-          <input type="number" id="draw-period"  min="1" max="20"  value="10">
-        </div>
-
-        <div class="input-group">
-          <label for="repay-period">Repayment Period (years):</label>
-          <input type="number" id="repay-period"  min="1" max="30"  value="20">
+          <label for="interest-rate">Expected Interest Rate (%):</label>
+          <input type="number" id="interest-rate"  min="0" max="10" step="0.1" value="5.5">
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate</button>
             <div class="result-box" id="result"></div>
@@ -89,8 +84,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Home Equity</h3>
-            <p>Use this heloc payment calculator to make informed financial decisions. All calculations are estimates based on the information provided.</p>
+            <h3>About Reverse Mortgage</h3>
+            <p>Use this reverse mortgage calculator to make informed financial decisions. All calculations are estimates based on the information provided.</p>
             <h3>More Financial Tools</h3>
             <ul>
                 <li><a href="index.html">ToolPulse Home - All Tools</a></li>
@@ -120,24 +115,27 @@
             
             
             
-            const drawn = parseFloat(document.getElementById('amount-drawn').value);
-            const rate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
-            const drawYears = parseFloat(document.getElementById('draw-period').value);
-            const repayYears = parseFloat(document.getElementById('repay-period').value);
-            
-            const drawPayment = drawn * rate;
-            const repayMonths = repayYears * 12;
-            const repayPayment = drawn * (rate * Math.pow(1 + rate, repayMonths)) / (Math.pow(1 + rate, repayMonths) - 1);
-            
-            html += '<div class="result-value">Draw Period: $' + drawPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Repayment Period: $' + repayPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Interest-only for ' + drawYears + ' years, then principal + interest</div>';
             
             
             
             
             
             
+            const homeValue = parseFloat(document.getElementById('home-value').value);
+            const age = parseInt(document.getElementById('youngest-age').value);
+            const mortgageBalance = parseFloat(document.getElementById('mortgage-balance').value);
+            
+            let plf = 0.40;
+            if (age >= 70) plf = 0.50;
+            else if (age >= 65) plf = 0.45;
+            
+            const maxLoan = homeValue * plf;
+            const available = maxLoan - mortgageBalance;
+            
+            html += '<div class="result-value">Available: $' + available.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Maximum Loan: $' + maxLoan.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Existing Mortgage: $' + mortgageBalance.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Principal Limit Factor: ' + (plf * 100).toFixed(0) + '%</div>';
             
             
             

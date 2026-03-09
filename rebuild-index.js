@@ -8,6 +8,12 @@ const categories = [
         name: '💰 Financial Calculators',
         id: 'finance',
         tools: [
+            { name: 'Mortgage Refinance', desc: 'Should you refinance?', url: 'mortgage-refinance-calculator.html' },
+            { name: 'HELOC Payment', desc: 'Home equity line of credit', url: 'heloc-payment-calculator.html' },
+            { name: '401k Withdrawal', desc: 'Early withdrawal taxes', url: '401k-withdrawal-calculator.html' },
+            { name: 'Roth IRA Conversion', desc: 'Traditional to Roth tax impact', url: 'roth-ira-conversion-calculator.html' },
+            { name: 'Reverse Mortgage', desc: 'How much can you borrow?', url: 'reverse-mortgage-calculator.html' },
+            { name: 'Debt Consolidation', desc: 'Combine debts to save', url: 'debt-consolidation-calculator.html' },
             { name: 'Mortgage Payment', desc: 'Monthly payment with taxes & PMI', url: 'calc/mortgage-payment.html' },
             { name: 'Paycheck Calculator', desc: 'Take-home pay after taxes', url: 'calc/paycheck-calculator.html' },
             { name: 'Personal Loan', desc: 'Loan payments & amortization', url: 'calc/personal-loan-calculator.html' },
