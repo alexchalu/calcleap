@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hectares to Acres Converter - Free Area Conversion | ToolPulse</title>
-    <meta name="description" content="Convert hectares to acres instantly. Free area converter for real estate, land measurement, and property calculations.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-hectares-to-acres.html">
+    <title>Acres to Square Miles Converter - Free Area Conversion | ToolPulse</title>
+    <meta name="description" content="Convert acres to square miles instantly. Free area converter for real estate, land measurement, and property calculations.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-acres-to-square-miles.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -42,7 +42,7 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Hectares to Acres Converter</h1>
+            <h1>Acres to Square Miles Converter</h1>
             <p>Free online area converter for real estate, land, and property measurements</p>
         </div>
     </div>
@@ -55,13 +55,13 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Hectares to Acres</h2>
+            <h2>Convert Acres to Square Miles</h2>
             <div class="input-group">
-                <label for="input-value">Enter Hectares:</label>
+                <label for="input-value">Enter Acres:</label>
                 <input type="number" id="input-value" placeholder="Enter area value" step="any" value="1">
             </div>
             <div class="result-box" id="result">
-                <strong>Result: </strong><span id="result-value">1 Hectares = 2.4710 Acres</span>
+                <strong>Result: </strong><span id="result-value">1 Acres = 0.001563 Square Miles</span>
             </div>
         </div>
 
@@ -72,8 +72,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Hectares to Acres Conversion</h3>
-            <p>This free online area converter helps you quickly convert hectares to acres. Perfect for:</p>
+            <h3>About Acres to Square Miles Conversion</h3>
+            <p>This free online area converter helps you quickly convert acres to square miles. Perfect for:</p>
             <ul>
                 <li>Real estate property calculations</li>
                 <li>Land measurement and surveying</li>
@@ -87,8 +87,8 @@
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>Hectares</th>
                             <th>Acres</th>
+                            <th>Square Miles</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -120,7 +120,7 @@
     </div>
 
     <script>
-        const formula = (v) => (v * 2.47105).toFixed(4);
+        const formula = (v) => (v / 640).toFixed(6);
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
         const tableEl = document.getElementById('reference-table');
@@ -136,7 +136,7 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' Hectares = ' + result + ' Acres';
+            resultEl.textContent = value + ' Acres = ' + result + ' Square Miles';
         });
         
         // Generate reference table

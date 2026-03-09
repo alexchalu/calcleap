@@ -1,11 +1,56 @@
-<!DOCTYPE html>
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// Common area conversions (high search volume)
+const conversions = [
+  // Sq Feet to others
+  { from: 'square-feet', fromName: 'Square Feet', to: 'square-meters', toName: 'Square Meters', formula: (v) => (v * 0.092903).toFixed(4) },
+  { from: 'square-feet', fromName: 'Square Feet', to: 'acres', toName: 'Acres', formula: (v) => (v / 43560).toFixed(6) },
+  { from: 'square-feet', fromName: 'Square Feet', to: 'square-yards', toName: 'Square Yards', formula: (v) => (v / 9).toFixed(4) },
+  
+  // Sq Meters to others
+  { from: 'square-meters', fromName: 'Square Meters', to: 'square-feet', toName: 'Square Feet', formula: (v) => (v * 10.7639).toFixed(4) },
+  { from: 'square-meters', fromName: 'Square Meters', to: 'acres', toName: 'Acres', formula: (v) => (v / 4046.86).toFixed(6) },
+  { from: 'square-meters', fromName: 'Square Meters', to: 'hectares', toName: 'Hectares', formula: (v) => (v / 10000).toFixed(6) },
+  
+  // Acres to others
+  { from: 'acres', fromName: 'Acres', to: 'square-feet', toName: 'Square Feet', formula: (v) => (v * 43560).toFixed(2) },
+  { from: 'acres', fromName: 'Acres', to: 'square-meters', toName: 'Square Meters', formula: (v) => (v * 4046.86).toFixed(2) },
+  { from: 'acres', fromName: 'Acres', to: 'hectares', toName: 'Hectares', formula: (v) => (v * 0.404686).toFixed(6) },
+  { from: 'acres', fromName: 'Acres', to: 'square-miles', toName: 'Square Miles', formula: (v) => (v / 640).toFixed(6) },
+  
+  // Hectares to others
+  { from: 'hectares', fromName: 'Hectares', to: 'acres', toName: 'Acres', formula: (v) => (v * 2.47105).toFixed(4) },
+  { from: 'hectares', fromName: 'Hectares', to: 'square-meters', toName: 'Square Meters', formula: (v) => (v * 10000).toFixed(2) },
+  { from: 'hectares', fromName: 'Hectares', to: 'square-feet', toName: 'Square Feet', formula: (v) => (v * 107639).toFixed(2) },
+  
+  // Sq Yards
+  { from: 'square-yards', fromName: 'Square Yards', to: 'square-feet', toName: 'Square Feet', formula: (v) => (v * 9).toFixed(4) },
+  { from: 'square-yards', fromName: 'Square Yards', to: 'square-meters', toName: 'Square Meters', formula: (v) => (v * 0.836127).toFixed(4) },
+  
+  // Sq Miles
+  { from: 'square-miles', fromName: 'Square Miles', to: 'acres', toName: 'Acres', formula: (v) => (v * 640).toFixed(2) },
+  { from: 'square-miles', fromName: 'Square Miles', to: 'square-kilometers', toName: 'Square Kilometers', formula: (v) => (v * 2.58999).toFixed(4) },
+  
+  // Sq Kilometers
+  { from: 'square-kilometers', fromName: 'Square Kilometers', to: 'square-miles', toName: 'Square Miles', formula: (v) => (v / 2.58999).toFixed(4) },
+  { from: 'square-kilometers', fromName: 'Square Kilometers', to: 'hectares', toName: 'Hectares', formula: (v) => (v * 100).toFixed(2) },
+  { from: 'square-kilometers', fromName: 'Square Kilometers', to: 'acres', toName: 'Acres', formula: (v) => (v * 247.105).toFixed(2) },
+];
+
+function generatePage(conv) {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hectares to Acres Converter - Free Area Conversion | ToolPulse</title>
-    <meta name="description" content="Convert hectares to acres instantly. Free area converter for real estate, land measurement, and property calculations.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-hectares-to-acres.html">
+    <title>${conv.fromName} to ${conv.toName} Converter - Free Area Conversion | ToolPulse</title>
+    <meta name="description" content="Convert ${conv.fromName.toLowerCase()} to ${conv.toName.toLowerCase()} instantly. Free area converter for real estate, land measurement, and property calculations.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -42,7 +87,7 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Hectares to Acres Converter</h1>
+            <h1>${conv.fromName} to ${conv.toName} Converter</h1>
             <p>Free online area converter for real estate, land, and property measurements</p>
         </div>
     </div>
@@ -55,13 +100,13 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Hectares to Acres</h2>
+            <h2>Convert ${conv.fromName} to ${conv.toName}</h2>
             <div class="input-group">
-                <label for="input-value">Enter Hectares:</label>
+                <label for="input-value">Enter ${conv.fromName}:</label>
                 <input type="number" id="input-value" placeholder="Enter area value" step="any" value="1">
             </div>
             <div class="result-box" id="result">
-                <strong>Result: </strong><span id="result-value">1 Hectares = 2.4710 Acres</span>
+                <strong>Result: </strong><span id="result-value">1 ${conv.fromName} = ${conv.formula(1)} ${conv.toName}</span>
             </div>
         </div>
 
@@ -72,8 +117,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Hectares to Acres Conversion</h3>
-            <p>This free online area converter helps you quickly convert hectares to acres. Perfect for:</p>
+            <h3>About ${conv.fromName} to ${conv.toName} Conversion</h3>
+            <p>This free online area converter helps you quickly convert ${conv.fromName.toLowerCase()} to ${conv.toName.toLowerCase()}. Perfect for:</p>
             <ul>
                 <li>Real estate property calculations</li>
                 <li>Land measurement and surveying</li>
@@ -87,8 +132,8 @@
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>Hectares</th>
-                            <th>Acres</th>
+                            <th>${conv.fromName}</th>
+                            <th>${conv.toName}</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -120,7 +165,7 @@
     </div>
 
     <script>
-        const formula = (v) => (v * 2.47105).toFixed(4);
+        const formula = ${conv.formula.toString()};
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
         const tableEl = document.getElementById('reference-table');
@@ -136,7 +181,7 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' Hectares = ' + result + ' Acres';
+            resultEl.textContent = value + ' ${conv.fromName} = ' + result + ' ${conv.toName}';
         });
         
         // Generate reference table
@@ -149,4 +194,18 @@
         });
     </script>
 </body>
-</html>
+</html>`;
+}
+
+// Generate all pages
+let count = 0;
+conversions.forEach(conv => {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  const html = generatePage(conv);
+  fs.writeFileSync(path.join(__dirname, `${slug}.html`), html);
+  count++;
+  console.log(`✓ Generated ${slug}.html`);
+});
+
+console.log(`\n✅ Generated ${count} area conversion pages`);
+console.log('📝 Next: Update sitemap.xml and rebuild-index.js');

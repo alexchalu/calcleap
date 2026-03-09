@@ -116,6 +116,22 @@ const categories = [
         ]
     },
     {
+        name: '🏘️ Area Conversions',
+        id: 'area',
+        tools: [
+            { name: 'Sq Ft to Sq M', desc: 'Square Feet to Square Meters', url: 'convert-square-feet-to-square-meters.html' },
+            { name: 'Sq Ft to Acres', desc: 'Square Feet to Acres', url: 'convert-square-feet-to-acres.html' },
+            { name: 'Sq M to Sq Ft', desc: 'Square Meters to Square Feet', url: 'convert-square-meters-to-square-feet.html' },
+            { name: 'Sq M to Acres', desc: 'Square Meters to Acres', url: 'convert-square-meters-to-acres.html' },
+            { name: 'Acres to Sq Ft', desc: 'Acres to Square Feet', url: 'convert-acres-to-square-feet.html' },
+            { name: 'Acres to Sq M', desc: 'Acres to Square Meters', url: 'convert-acres-to-square-meters.html' },
+            { name: 'Acres to Hectares', desc: 'Acres to Hectares', url: 'convert-acres-to-hectares.html' },
+            { name: 'Hectares to Acres', desc: 'Hectares to Acres', url: 'convert-hectares-to-acres.html' },
+            { name: 'Sq Miles to Acres', desc: 'Square Miles to Acres', url: 'convert-square-miles-to-acres.html' },
+            { name: 'Sq KM to Sq Miles', desc: 'Square Kilometers to Square Miles', url: 'convert-square-kilometers-to-square-miles.html' },
+        ]
+    },
+    {
         name: '🔧 Developer Tools',
         id: 'dev',
         tools: [
