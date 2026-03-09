@@ -40,6 +40,22 @@ const categories = [
         ]
     },
     {
+        name: '🗽 State Tax Calculators',
+        id: 'state-tax',
+        tools: [
+            { name: 'California Tax', desc: 'CA income tax calculator', url: 'california-income-tax-calculator.html' },
+            { name: 'Texas Tax', desc: 'TX income tax (no state tax)', url: 'texas-income-tax-calculator.html' },
+            { name: 'Florida Tax', desc: 'FL income tax (no state tax)', url: 'florida-income-tax-calculator.html' },
+            { name: 'New York Tax', desc: 'NY income tax calculator', url: 'new-york-income-tax-calculator.html' },
+            { name: 'Pennsylvania Tax', desc: 'PA income tax calculator', url: 'pennsylvania-income-tax-calculator.html' },
+            { name: 'Illinois Tax', desc: 'IL income tax calculator', url: 'illinois-income-tax-calculator.html' },
+            { name: 'Ohio Tax', desc: 'OH income tax calculator', url: 'ohio-income-tax-calculator.html' },
+            { name: 'Georgia Tax', desc: 'GA income tax calculator', url: 'georgia-income-tax-calculator.html' },
+            { name: 'North Carolina Tax', desc: 'NC income tax calculator', url: 'north-carolina-income-tax-calculator.html' },
+            { name: 'Michigan Tax', desc: 'MI income tax calculator', url: 'michigan-income-tax-calculator.html' },
+        ]
+    },
+    {
         name: '🏘️ Real Estate Investment',
         id: 'real-estate',
         tools: [
