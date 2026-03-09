@@ -102,6 +102,18 @@ const categories = [
         ]
     },
     {
+        name: '₿ Cryptocurrency',
+        id: 'crypto',
+        tools: [
+            { name: 'Bitcoin Profit', desc: 'BTC investment ROI calculator', url: 'bitcoin-profit-calculator.html' },
+            { name: 'Ethereum Calculator', desc: 'ETH profit & conversion', url: 'ethereum-calculator.html' },
+            { name: 'Crypto Tax', desc: 'Capital gains tax on crypto', url: 'crypto-tax-calculator.html' },
+            { name: 'Crypto Mining', desc: 'Mining profitability calculator', url: 'crypto-mining-calculator.html' },
+            { name: 'Dogecoin Calculator', desc: 'DOGE profit calculator', url: 'dogecoin-calculator.html' },
+            { name: 'Crypto Portfolio', desc: 'Track portfolio value', url: 'crypto-portfolio-tracker.html' },
+        ]
+    },
+    {
         name: '⚖️ Health & Fitness',
         id: 'health',
         tools: [
