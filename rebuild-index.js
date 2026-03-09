@@ -104,6 +104,7 @@ const categories = [
             { name: 'Days Until', desc: 'Countdown to any date', url: 'calc/days-until.html' },
             { name: 'Hours Calculator', desc: 'Time between hours', url: 'calc/hours-calculator.html' },
             { name: 'Time Zone Converter', desc: 'Convert world time zones', url: 'calc/time-zone-converter.html' },
+            { name: 'Timezone Meeting Planner', desc: 'Find best meeting time across zones', url: 'timezone-meeting-planner.html' },
             { name: 'Countdown Timer', desc: 'Timer & stopwatch', url: 'calc/countdown-timer.html' },
         ]
     },

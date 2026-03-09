@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timezone Meeting Planner - Find Best Meeting Time Across Time Zones | ToolPulse</title>
+    <meta name="description" content="Free timezone meeting planner. Find the best meeting time across multiple time zones. Perfect for remote teams, international calls, and global collaboration.">
+    <meta name="keywords" content="timezone meeting planner, time zone converter, best meeting time, international meeting scheduler">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/timezone-meeting-planner.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .tool-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .tool-box h2 { margin-bottom: 1.5rem; color: #667eea; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .form-group input, .form-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #667eea; }
+        .timezone-row { display: grid; grid-template-columns: 1fr 2fr auto; gap: 1rem; align-items: end; margin-bottom: 1rem; padding: 1rem; background: #f9fafb; border-radius: 8px; }
+        .btn { background: #667eea; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
+        .btn:hover { background: #5568d3; }
+        .btn-secondary { background: #48bb78; }
+        .btn-secondary:hover { background: #38a169; }
+        .btn-remove { background: #f56565; padding: 0.75rem 1rem; }
+        .btn-remove:hover { background: #e53e3e; }
+        .results-grid { display: grid; gap: 1rem; margin-top: 1.5rem; }
+        .time-card { background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%); border-radius: 8px; padding: 1.5rem; border-left: 4px solid #667eea; }
+        .time-card.good { border-left-color: #48bb78; background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%); }
+        .time-card.warning { border-left-color: #ed8936; background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%); }
+        .time-card.bad { border-left-color: #f56565; background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%); }
+        .time-card-header { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.75rem; color: #2d3748; }
+        .time-details { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .time-details span { font-size: 0.95rem; }
+        .time-value { font-weight: 600; color: #667eea; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) { .timezone-row { grid-template-columns: 1fr; } .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🌍 Timezone Meeting Planner</h1>
+            <p>Find the best meeting time across multiple time zones</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="tool-box">
+            <h2>Add Team Members & Time Zones</h2>
+            <div id="timezones-container"></div>
+            <button class="btn btn-secondary" onclick="addTimezone()">+ Add Another Time Zone</button>
+            
+            <div class="form-group" style="margin-top: 2rem;">
+                <label for="meeting-time">Proposed Meeting Time (in first timezone)</label>
+                <input type="time" id="meeting-time" value="14:00">
+            </div>
+            
+            <button class="btn" onclick="calculateTimes()">Calculate Meeting Times</button>
+            
+            <div id="results" style="display: none;">
+                <h3 style="margin: 2rem 0 1rem; color: #667eea;">Meeting Times for All Participants</h3>
+                <div id="results-container" class="results-grid"></div>
+            </div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About Timezone Meeting Planner</h3>
+            <p>This free tool helps remote teams and international collaborators find meeting times that work across different time zones. Perfect for:</p>
+            <ul>
+                <li>Remote team meetings</li>
+                <li>International client calls</li>
+                <li>Global webinars and conferences</li>
+                <li>Virtual events across continents</li>
+            </ul>
+            
+            <h3 style="margin-top: 1.5rem;">Tips for Scheduling Across Time Zones</h3>
+            <ul>
+                <li><strong>Aim for 9am-5pm:</strong> Try to keep all participants within business hours</li>
+                <li><strong>Rotate inconvenient times:</strong> Share the burden of early/late meetings</li>
+                <li><strong>Use async communication:</strong> Not everything needs a meeting</li>
+                <li><strong>Record meetings:</strong> For those in very inconvenient time zones</li>
+                <li><strong>Consider daylight saving:</strong> Time zones can shift twice a year</li>
+            </ul>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>More Time & Date Tools</h3>
+            <ul>
+                <li><a href="index.html">ToolPulse Home - 500+ Tools</a></li>
+                <li><a href="calc/time-zone-converter.html">Time Zone Converter</a></li>
+                <li><a href="calc/date-difference.html">Date Difference Calculator</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Tools</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+        </div>
+    </div>
+
+    <script>
+        const commonTimezones = [
+            { name: 'Pacific Time (US)', offset: -8, dst: true },
+            { name: 'Mountain Time (US)', offset: -7, dst: true },
+            { name: 'Central Time (US)', offset: -6, dst: true },
+            { name: 'Eastern Time (US)', offset: -5, dst: true },
+            { name: 'London (GMT/BST)', offset: 0, dst: true },
+            { name: 'Paris/Berlin (CET)', offset: 1, dst: true },
+            { name: 'Dubai (GST)', offset: 4, dst: false },
+            { name: 'India (IST)', offset: 5.5, dst: false },
+            { name: 'Singapore (SGT)', offset: 8, dst: false },
+            { name: 'Tokyo (JST)', offset: 9, dst: false },
+            { name: 'Sydney (AEDT)', offset: 11, dst: true },
+            { name: 'Auckland (NZDT)', offset: 13, dst: true },
+        ];
+
+        let timezoneCount = 0;
+
+        function addTimezone() {
+            timezoneCount++;
+            const container = document.getElementById('timezones-container');
+            const row = document.createElement('div');
+            row.className = 'timezone-row';
+            row.id = `tz-${timezoneCount}`;
+            
+            row.innerHTML = `
+                <div class="form-group" style="margin: 0;">
+                    <label>Name/Location</label>
+                    <input type="text" id="name-${timezoneCount}" placeholder="e.g., Sarah (New York)">
+                </div>
+                <div class="form-group" style="margin: 0;">
+                    <label>Time Zone</label>
+                    <select id="timezone-${timezoneCount}">
+                        ${commonTimezones.map((tz, i) => `<option value="${i}">${tz.name} (UTC${tz.offset >= 0 ? '+' : ''}${tz.offset})</option>`).join('')}
+                    </select>
+                </div>
+                <button class="btn btn-remove" onclick="removeTimezone('tz-${timezoneCount}')">Remove</button>
+            `;
+            
+            container.appendChild(row);
+        }
+
+        function removeTimezone(id) {
+            document.getElementById(id).remove();
+        }
+
+        function calculateTimes() {
+            const rows = document.querySelectorAll('.timezone-row');
+            if (rows.length === 0) {
+                alert('Please add at least one timezone');
+                return;
+            }
+
+            const meetingTimeInput = document.getElementById('meeting-time').value;
+            const [hours, minutes] = meetingTimeInput.split(':').map(Number);
+
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.innerHTML = '';
+
+            const participants = [];
+            rows.forEach((row, index) => {
+                const id = row.id.split('-')[1];
+                const name = document.getElementById(`name-${id}`).value || `Participant ${index + 1}`;
+                const tzIndex = parseInt(document.getElementById(`timezone-${id}`).value);
+                const tz = commonTimezones[tzIndex];
+                
+                // Calculate time in this timezone
+                let localHours = hours;
+                if (index > 0) {
+                    // Offset from first timezone
+                    const firstTzIndex = parseInt(document.querySelector('.timezone-row select').value);
+                    const firstTz = commonTimezones[firstTzIndex];
+                    const diff = tz.offset - firstTz.offset;
+                    localHours = hours + diff;
+                }
+                
+                // Handle day wraparound
+                let day = '';
+                if (localHours < 0) {
+                    localHours += 24;
+                    day = ' (prev day)';
+                } else if (localHours >= 24) {
+                    localHours -= 24;
+                    day = ' (next day)';
+                }
+                
+                const timeString = `${String(localHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+                
+                // Determine if time is good/warning/bad
+                let quality = 'good';
+                if (localHours < 7 || localHours >= 22) {
+                    quality = 'bad';
+                } else if (localHours < 9 || localHours >= 19) {
+                    quality = 'warning';
+                }
+                
+                participants.push({ name, tz: tz.name, time: timeString, day, quality, hours: localHours });
+            });
+
+            participants.forEach(p => {
+                const card = document.createElement('div');
+                card.className = `time-card ${p.quality}`;
+                
+                let qualityEmoji = '✅';
+                let qualityText = 'Good time';
+                if (p.quality === 'warning') {
+                    qualityEmoji = '⚠️';
+                    qualityText = 'Early/late';
+                } else if (p.quality === 'bad') {
+                    qualityEmoji = '❌';
+                    qualityText = 'Outside work hours';
+                }
+                
+                card.innerHTML = `
+                    <div class="time-card-header">${p.name}</div>
+                    <div class="time-details">
+                        <span>Time Zone:</span>
+                        <span class="time-value">${p.tz}</span>
+                    </div>
+                    <div class="time-details">
+                        <span>Meeting Time:</span>
+                        <span class="time-value" style="font-size: 1.3rem;">${p.time}${p.day}</span>
+                    </div>
+                    <div class="time-details">
+                        <span>Status:</span>
+                        <span>${qualityEmoji} ${qualityText}</span>
+                    </div>
+                `;
+                
+                resultsContainer.appendChild(card);
+            });
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Initialize with 3 timezones
+        addTimezone();
+        addTimezone();
+        addTimezone();
+    </script>
+</body>
+</html>
