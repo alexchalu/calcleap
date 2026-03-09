@@ -1,11 +1,65 @@
-<!DOCTYPE html>
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// High-search-volume area conversions (real estate, land, construction)
+const conversions = [
+  // US Real Estate
+  { from: 'square-feet', to: 'square-meters', name: 'Square Feet to Square Meters', abbr: ['sq ft', 'm²'] },
+  { from: 'square-meters', to: 'square-feet', name: 'Square Meters to Square Feet', abbr: ['m²', 'sq ft'] },
+  { from: 'square-feet', to: 'acres', name: 'Square Feet to Acres', abbr: ['sq ft', 'acres'] },
+  { from: 'acres', to: 'square-feet', name: 'Acres to Square Feet', abbr: ['acres', 'sq ft'] },
+  { from: 'acres', to: 'hectares', name: 'Acres to Hectares', abbr: ['acres', 'ha'] },
+  { from: 'hectares', to: 'acres', name: 'Hectares to Acres', abbr: ['ha', 'acres'] },
+  { from: 'acres', to: 'square-meters', name: 'Acres to Square Meters', abbr: ['acres', 'm²'] },
+  { from: 'square-meters', to: 'acres', name: 'Square Meters to Acres', abbr: ['m²', 'acres'] },
+  
+  // Metric
+  { from: 'square-meters', to: 'hectares', name: 'Square Meters to Hectares', abbr: ['m²', 'ha'] },
+  { from: 'hectares', to: 'square-meters', name: 'Hectares to Square Meters', abbr: ['ha', 'm²'] },
+  { from: 'square-kilometers', to: 'square-miles', name: 'Square Kilometers to Square Miles', abbr: ['km²', 'mi²'] },
+  { from: 'square-miles', to: 'square-kilometers', name: 'Square Miles to Square Kilometers', abbr: ['mi²', 'km²'] },
+  
+  // Smaller units
+  { from: 'square-inches', to: 'square-centimeters', name: 'Square Inches to Square Centimeters', abbr: ['in²', 'cm²'] },
+  { from: 'square-centimeters', to: 'square-inches', name: 'Square Centimeters to Square Inches', abbr: ['cm²', 'in²'] },
+  { from: 'square-yards', to: 'square-meters', name: 'Square Yards to Square Meters', abbr: ['yd²', 'm²'] },
+  { from: 'square-meters', to: 'square-yards', name: 'Square Meters to Square Yards', abbr: ['m²', 'yd²'] },
+];
+
+// Conversion formulas (to square meters as base unit)
+const formulas = {
+  'square-feet-square-meters': (ft) => (ft * 0.092903).toFixed(4),
+  'square-meters-square-feet': (m) => (m / 0.092903).toFixed(2),
+  'square-feet-acres': (ft) => (ft / 43560).toFixed(6),
+  'acres-square-feet': (ac) => (ac * 43560).toFixed(2),
+  'acres-hectares': (ac) => (ac * 0.404686).toFixed(4),
+  'hectares-acres': (ha) => (ha / 0.404686).toFixed(4),
+  'acres-square-meters': (ac) => (ac * 4046.86).toFixed(2),
+  'square-meters-acres': (m) => (m / 4046.86).toFixed(6),
+  'square-meters-hectares': (m) => (m / 10000).toFixed(6),
+  'hectares-square-meters': (ha) => (ha * 10000).toFixed(2),
+  'square-kilometers-square-miles': (km) => (km * 0.386102).toFixed(4),
+  'square-miles-square-kilometers': (mi) => (mi / 0.386102).toFixed(4),
+  'square-inches-square-centimeters': (inch) => (inch * 6.4516).toFixed(4),
+  'square-centimeters-square-inches': (cm) => (cm / 6.4516).toFixed(4),
+  'square-yards-square-meters': (yd) => (yd * 0.836127).toFixed(4),
+  'square-meters-square-yards': (m) => (m / 0.836127).toFixed(4),
+};
+
+function generatePage(conv) {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  const formulaKey = `${conv.from}-${conv.to}`;
+  
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acres to Square Feet Converter - Free Area Conversion Tool | ToolPulse</title>
-    <meta name="description" content="Convert acres to square feet instantly. Free acres to square feet converter for real estate, land measurement, and construction. Accurate results.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-acres-to-square-feet.html">
+    <title>${conv.name} Converter - Free Area Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert ${conv.from.replace(/-/g, ' ')} to ${conv.to.replace(/-/g, ' ')} instantly. Free ${conv.name.toLowerCase()} converter for real estate, land measurement, and construction. Accurate results.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -42,8 +96,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Acres to Square Feet Converter</h1>
-            <p>Free online acres to square feet converter for real estate and land measurement</p>
+            <h1>${conv.name} Converter</h1>
+            <p>Free online ${conv.from.replace(/-/g, ' ')} to ${conv.to.replace(/-/g, ' ')} converter for real estate and land measurement</p>
         </div>
     </div>
 
@@ -55,9 +109,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Acres to Square Feet</h2>
+            <h2>Convert ${conv.name}</h2>
             <div class="input-group">
-                <label for="input-value">Enter acres (acres):</label>
+                <label for="input-value">Enter ${conv.from.replace(/-/g, ' ')} (${conv.abbr[0]}):</label>
                 <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
@@ -72,8 +126,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Acres to Square Feet Conversion</h3>
-            <p>This free online converter helps you quickly convert acres to square feet. Perfect for:</p>
+            <h3>About ${conv.name} Conversion</h3>
+            <p>This free online converter helps you quickly convert ${conv.from.replace(/-/g, ' ')} to ${conv.to.replace(/-/g, ' ')}. Perfect for:</p>
             <ul>
                 <li>Real estate listings and property measurements</li>
                 <li>Land surveying and lot size calculations</li>
@@ -87,8 +141,8 @@
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>acres</th>
-                            <th>sq ft</th>
+                            <th>${conv.abbr[0]}</th>
+                            <th>${conv.abbr[1]}</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -123,8 +177,8 @@
     </div>
 
     <script>
-        const formulaKey = 'acres-square-feet';
-        const formulas = {};
+        const formulaKey = '${formulaKey}';
+        const formulas = ${JSON.stringify(formulas, null, 2)};
         
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
@@ -133,7 +187,7 @@
         function convert(value) {
             const formula = formulas[formulaKey];
             if (!formula) return 'Error';
-            return eval(formula.toString().replace(/^\(.*?\)\s*=>/, 'return ') + '(' + value + ')');
+            return eval(formula.toString().replace(/^\\(.*?\\)\\s*=>/, 'return ') + '(' + value + ')');
         }
         
         inputEl.addEventListener('input', () => {
@@ -143,7 +197,7 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' acres = ' + result + ' sq ft';
+            resultEl.textContent = value + ' ${conv.abbr[0]} = ' + result + ' ${conv.abbr[1]}';
         });
         
         // Generate reference table
@@ -156,4 +210,18 @@
         });
     </script>
 </body>
-</html>
+</html>`;
+}
+
+// Generate all pages
+let count = 0;
+conversions.forEach(conv => {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  const html = generatePage(conv);
+  fs.writeFileSync(path.join(__dirname, `${slug}.html`), html);
+  count++;
+  console.log(`✓ Generated ${slug}.html`);
+});
+
+console.log(`\n✅ Generated ${count} area conversion pages`);
+console.log('📝 Next: Update sitemap.xml and rebuild-index.js to include these pages');

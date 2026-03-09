@@ -2437,6 +2437,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-square-centimeters-to-square-inches.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-square-feet-to-acres.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -2450,6 +2456,12 @@
   </url>
   <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-square-feet-to-square-yards.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-square-inches-to-square-centimeters.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2486,6 +2498,12 @@
   </url>
   <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-square-meters-to-square-feet.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-square-meters-to-square-yards.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acres to Square Feet Converter - Free Area Conversion Tool | ToolPulse</title>
-    <meta name="description" content="Convert acres to square feet instantly. Free acres to square feet converter for real estate, land measurement, and construction. Accurate results.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-acres-to-square-feet.html">
+    <title>Square Inches to Square Centimeters Converter - Free Area Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert square inches to square centimeters instantly. Free square inches to square centimeters converter for real estate, land measurement, and construction. Accurate results.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-square-inches-to-square-centimeters.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -42,8 +42,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Acres to Square Feet Converter</h1>
-            <p>Free online acres to square feet converter for real estate and land measurement</p>
+            <h1>Square Inches to Square Centimeters Converter</h1>
+            <p>Free online square inches to square centimeters converter for real estate and land measurement</p>
         </div>
     </div>
 
@@ -55,9 +55,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Acres to Square Feet</h2>
+            <h2>Convert Square Inches to Square Centimeters</h2>
             <div class="input-group">
-                <label for="input-value">Enter acres (acres):</label>
+                <label for="input-value">Enter square inches (in²):</label>
                 <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
@@ -72,8 +72,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Acres to Square Feet Conversion</h3>
-            <p>This free online converter helps you quickly convert acres to square feet. Perfect for:</p>
+            <h3>About Square Inches to Square Centimeters Conversion</h3>
+            <p>This free online converter helps you quickly convert square inches to square centimeters. Perfect for:</p>
             <ul>
                 <li>Real estate listings and property measurements</li>
                 <li>Land surveying and lot size calculations</li>
@@ -87,8 +87,8 @@
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>acres</th>
-                            <th>sq ft</th>
+                            <th>in²</th>
+                            <th>cm²</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -123,7 +123,7 @@
     </div>
 
     <script>
-        const formulaKey = 'acres-square-feet';
+        const formulaKey = 'square-inches-square-centimeters';
         const formulas = {};
         
         const inputEl = document.getElementById('input-value');
@@ -143,7 +143,7 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' acres = ' + result + ' sq ft';
+            resultEl.textContent = value + ' in² = ' + result + ' cm²';
         });
         
         // Generate reference table

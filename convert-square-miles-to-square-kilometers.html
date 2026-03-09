@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Square Miles to Square Kilometers Converter - Free Area Conversion | ToolPulse</title>
-    <meta name="description" content="Convert square miles to square kilometers instantly. Free area converter for real estate, land measurement, and property calculations.">
+    <title>Square Miles to Square Kilometers Converter - Free Area Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert square miles to square kilometers instantly. Free square miles to square kilometers converter for real estate, land measurement, and construction. Accurate results.">
     <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-square-miles-to-square-kilometers.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,7 +14,7 @@
         .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
         .header p { opacity: 0.9; }
         .main { padding: 2rem 0; }
-        .converter-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .converter-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
         .converter-box h2 { margin-bottom: 1.5rem; color: #667eea; }
         .input-group { margin-bottom: 1.5rem; }
         .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
@@ -34,7 +34,7 @@
         .conversion-table tr:hover { background: #f9fafb; }
         .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
         .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
-        .footer a { color: #667eea; text-decoration: none; }
+        .footer a { color: #667eea; text-decoration: none; margin: 0 0.5rem; }
         @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
     <div class="header">
         <div class="container">
             <h1>Square Miles to Square Kilometers Converter</h1>
-            <p>Free online area converter for real estate, land, and property measurements</p>
+            <p>Free online square miles to square kilometers converter for real estate and land measurement</p>
         </div>
     </div>
 
@@ -57,11 +57,11 @@
         <div class="converter-box">
             <h2>Convert Square Miles to Square Kilometers</h2>
             <div class="input-group">
-                <label for="input-value">Enter Square Miles:</label>
-                <input type="number" id="input-value" placeholder="Enter area value" step="any" value="1">
+                <label for="input-value">Enter square miles (mi²):</label>
+                <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
-                <strong>Result: </strong><span id="result-value">1 Square Miles = 2.5900 Square Kilometers</span>
+                <strong>Result: </strong><span id="result-value">Enter a value above</span>
             </div>
         </div>
 
@@ -73,13 +73,13 @@
 
         <div class="info-section">
             <h3>About Square Miles to Square Kilometers Conversion</h3>
-            <p>This free online area converter helps you quickly convert square miles to square kilometers. Perfect for:</p>
+            <p>This free online converter helps you quickly convert square miles to square kilometers. Perfect for:</p>
             <ul>
-                <li>Real estate property calculations</li>
-                <li>Land measurement and surveying</li>
-                <li>Construction and architecture planning</li>
-                <li>Garden and landscape design</li>
-                <li>Agricultural land assessment</li>
+                <li>Real estate listings and property measurements</li>
+                <li>Land surveying and lot size calculations</li>
+                <li>Construction and building planning</li>
+                <li>Gardening and landscaping projects</li>
+                <li>International property comparisons</li>
             </ul>
             
             <h3>Quick Reference Table</h3>
@@ -87,8 +87,8 @@
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>Square Miles</th>
-                            <th>Square Kilometers</th>
+                            <th>mi²</th>
+                            <th>km²</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -103,11 +103,14 @@
         </div>
 
         <div class="info-section">
-            <h3>More Area Converters & Calculators</h3>
+            <h3>More Area Converters</h3>
+            <p>Check out our other area and land measurement conversion tools:</p>
             <ul>
+                <li><a href="convert-square-feet-to-square-meters.html">Square Feet to Square Meters</a></li>
+                <li><a href="convert-acres-to-hectares.html">Acres to Hectares</a></li>
+                <li><a href="convert-square-meters-to-square-feet.html">Square Meters to Square Feet</a></li>
                 <li><a href="index.html">ToolPulse Home - All Tools</a></li>
                 <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
             </ul>
         </div>
     </div>
@@ -120,13 +123,17 @@
     </div>
 
     <script>
-        const formula = (v) => (v * 2.58999).toFixed(4);
+        const formulaKey = 'square-miles-square-kilometers';
+        const formulas = {};
+        
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
         const tableEl = document.getElementById('reference-table');
         
         function convert(value) {
-            return formula(value);
+            const formula = formulas[formulaKey];
+            if (!formula) return 'Error';
+            return eval(formula.toString().replace(/^\(.*?\)\s*=>/, 'return ') + '(' + value + ')');
         }
         
         inputEl.addEventListener('input', () => {
@@ -136,15 +143,15 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' Square Miles = ' + result + ' Square Kilometers';
+            resultEl.textContent = value + ' mi² = ' + result + ' km²';
         });
         
         // Generate reference table
-        const referenceValues = [1, 5, 10, 25, 50, 100, 500, 1000];
+        const referenceValues = [1, 10, 50, 100, 500, 1000, 5000];
         referenceValues.forEach(val => {
             const row = document.createElement('tr');
             const result = convert(val);
-            row.innerHTML = '<td>' + val + '</td><td>' + result + '</td>';
+            row.innerHTML = '<td>' + val.toLocaleString() + '</td><td>' + parseFloat(result).toLocaleString() + '</td>';
             tableEl.appendChild(row);
         });
     </script>
