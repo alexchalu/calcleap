@@ -1111,6 +1111,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-fps-to-mps.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-gallons-to-cups.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1663,6 +1669,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-knots-to-mps.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-kph-to-fps.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1676,6 +1688,12 @@
   </url>
   <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-kph-to-mph.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-kph-to-mps.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2029,7 +2047,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mph-to-mps.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-mph-to-ms.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mps-to-knots.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mps-to-kph.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mps-to-mph.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

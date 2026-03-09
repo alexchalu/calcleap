@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miles per Hour to Knots Converter - Free Speed Conversion Tool | ToolPulse</title>
-    <meta name="description" content="Convert mph to knots instantly. Free miles per hour to knots converter for travel, sports, and vehicle speeds. Accurate results.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-mph-to-knots.html">
+    <title>Meters per Second to Kilometers per Hour Converter - Free Speed Conversion Tool | ToolPulse</title>
+    <meta name="description" content="Convert m/s to km/h instantly. Free meters per second to kilometers per hour converter for travel, sports, and vehicle speeds. Accurate results.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-mps-to-kph.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -42,8 +42,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Miles per Hour to Knots Converter</h1>
-            <p>Free online mph to knots speed converter</p>
+            <h1>Meters per Second to Kilometers per Hour Converter</h1>
+            <p>Free online m/s to km/h speed converter</p>
         </div>
     </div>
 
@@ -55,9 +55,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Miles per Hour to Knots</h2>
+            <h2>Convert Meters per Second to Kilometers per Hour</h2>
             <div class="input-group">
-                <label for="input-value">Enter mph:</label>
+                <label for="input-value">Enter m/s:</label>
                 <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
@@ -72,8 +72,8 @@
         </div>
 
         <div class="info-section">
-            <h3>About Miles per Hour to Knots Conversion</h3>
-            <p>This free online converter helps you quickly convert mph to knots. Perfect for:</p>
+            <h3>About Meters per Second to Kilometers per Hour Conversion</h3>
+            <p>This free online converter helps you quickly convert m/s to km/h. Perfect for:</p>
             <ul>
                 <li>Travel and transportation planning</li>
                 <li>Sports performance tracking</li>
@@ -86,8 +86,8 @@
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>mph</th>
-                            <th>knots</th>
+                            <th>m/s</th>
+                            <th>km/h</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -120,7 +120,7 @@
     </div>
 
     <script>
-        const factor = 0.868976;
+        const factor = 3.6;
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
         const tableEl = document.getElementById('reference-table');
@@ -136,7 +136,7 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' mph = ' + result + ' knots';
+            resultEl.textContent = value + ' m/s = ' + result + ' km/h';
         });
         
         // Generate reference table

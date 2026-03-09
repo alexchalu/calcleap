@@ -85,6 +85,18 @@ const categories = [
         ]
     },
     {
+        name: '🚀 Speed Converters',
+        id: 'speed',
+        tools: [
+            { name: 'MPH to KPH', desc: 'Miles per hour to kilometers per hour', url: 'convert-mph-to-kph.html' },
+            { name: 'KPH to MPH', desc: 'Kilometers per hour to miles per hour', url: 'convert-kph-to-mph.html' },
+            { name: 'MPH to Knots', desc: 'Miles per hour to knots', url: 'convert-mph-to-knots.html' },
+            { name: 'Knots to MPH', desc: 'Knots to miles per hour', url: 'convert-knots-to-mph.html' },
+            { name: 'M/S to MPH', desc: 'Meters per second to mph', url: 'convert-mps-to-mph.html' },
+            { name: 'FPS to MPH', desc: 'Feet per second to mph', url: 'convert-fps-to-mph.html' },
+        ]
+    },
+    {
         name: '💱 Currency Converter',
         id: 'currency',
         tools: [
