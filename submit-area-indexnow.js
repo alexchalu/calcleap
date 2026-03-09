@@ -3,25 +3,21 @@ const https = require('https');
 
 const urls = [
   'https://alexchalu.github.io/toolpulse/convert-square-feet-to-square-meters.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-feet-to-acres.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-feet-to-square-yards.html',
   'https://alexchalu.github.io/toolpulse/convert-square-meters-to-square-feet.html',
+  'https://alexchalu.github.io/toolpulse/convert-square-feet-to-acres.html',
+  'https://alexchalu.github.io/toolpulse/convert-acres-to-square-feet.html',
+  'https://alexchalu.github.io/toolpulse/convert-acres-to-hectares.html',
+  'https://alexchalu.github.io/toolpulse/convert-hectares-to-acres.html',
+  'https://alexchalu.github.io/toolpulse/convert-acres-to-square-meters.html',
   'https://alexchalu.github.io/toolpulse/convert-square-meters-to-acres.html',
   'https://alexchalu.github.io/toolpulse/convert-square-meters-to-hectares.html',
-  'https://alexchalu.github.io/toolpulse/convert-acres-to-square-feet.html',
-  'https://alexchalu.github.io/toolpulse/convert-acres-to-square-meters.html',
-  'https://alexchalu.github.io/toolpulse/convert-acres-to-hectares.html',
-  'https://alexchalu.github.io/toolpulse/convert-acres-to-square-miles.html',
-  'https://alexchalu.github.io/toolpulse/convert-hectares-to-acres.html',
   'https://alexchalu.github.io/toolpulse/convert-hectares-to-square-meters.html',
-  'https://alexchalu.github.io/toolpulse/convert-hectares-to-square-feet.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-yards-to-square-feet.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-yards-to-square-meters.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-miles-to-acres.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-miles-to-square-kilometers.html',
   'https://alexchalu.github.io/toolpulse/convert-square-kilometers-to-square-miles.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-kilometers-to-hectares.html',
-  'https://alexchalu.github.io/toolpulse/convert-square-kilometers-to-acres.html',
+  'https://alexchalu.github.io/toolpulse/convert-square-miles-to-square-kilometers.html',
+  'https://alexchalu.github.io/toolpulse/convert-square-inches-to-square-centimeters.html',
+  'https://alexchalu.github.io/toolpulse/convert-square-centimeters-to-square-inches.html',
+  'https://alexchalu.github.io/toolpulse/convert-square-yards-to-square-meters.html',
+  'https://alexchalu.github.io/toolpulse/convert-square-meters-to-square-yards.html',
 ];
 
 const payload = JSON.stringify({
@@ -45,7 +41,7 @@ const options = {
 const req = https.request(options, (res) => {
   console.log(`✅ IndexNow response: ${res.statusCode}`);
   if (res.statusCode === 200) {
-    console.log('✅ Successfully submitted 20 area conversion URLs to IndexNow');
+    console.log('✅ Successfully submitted 16 area conversion URLs to IndexNow');
   }
 });
 
