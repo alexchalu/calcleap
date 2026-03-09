@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Panel ROI Calculator - Calculate Solar Investment Return | ToolPulse</title>
+    <meta name="description" content="Free solar panel ROI calculator. Calculate payback period, savings, and return on investment for residential solar panels. Compare electricity costs vs solar savings.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/calc/solar-panel-roi-calculator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calculator-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calculator-box h2 { margin-bottom: 1.5rem; color: #d97706; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input, .input-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #f59e0b; }
+        .input-group small { color: #777; font-size: 0.85rem; }
+        .btn { background: #f59e0b; color: white; border: none; padding: 0.85rem 2rem; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; transition: background 0.3s; }
+        .btn:hover { background: #d97706; }
+        .results { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .results.show { display: block; }
+        .result-item { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #fef3c7; }
+        .result-item:last-child { border-bottom: none; margin-bottom: 0; }
+        .result-item strong { color: #d97706; font-size: 1.1rem; }
+        .result-value { font-size: 1.3rem; color: #92400e; font-weight: 700; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #d97706; margin-bottom: 1rem; }
+        .info-section p { margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #f59e0b; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>☀️ Solar Panel ROI Calculator</h1>
+            <p>Calculate your solar panel return on investment, payback period, and lifetime savings</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calculator-box">
+            <h2>Calculate Your Solar ROI</h2>
+            
+            <div class="input-group">
+                <label for="system-cost">Solar System Cost ($)</label>
+                <input type="number" id="system-cost" value="20000" step="500">
+                <small>Total installation cost before incentives</small>
+            </div>
+
+            <div class="input-group">
+                <label for="federal-tax">Federal Tax Credit (%)</label>
+                <input type="number" id="federal-tax" value="30" step="1">
+                <small>Currently 30% through 2032</small>
+            </div>
+
+            <div class="input-group">
+                <label for="state-incentive">State/Local Incentives ($)</label>
+                <input type="number" id="state-incentive" value="0" step="100">
+                <small>Additional rebates or incentives</small>
+            </div>
+
+            <div class="input-group">
+                <label for="monthly-bill">Current Monthly Electric Bill ($)</label>
+                <input type="number" id="monthly-bill" value="150" step="10">
+                <small>Your average monthly electricity cost</small>
+            </div>
+
+            <div class="input-group">
+                <label for="offset">Solar Offset (%)</label>
+                <input type="number" id="offset" value="90" step="5">
+                <small>% of electricity bill covered by solar (typically 80-100%)</small>
+            </div>
+
+            <div class="input-group">
+                <label for="rate-increase">Annual Electricity Rate Increase (%)</label>
+                <input type="number" id="rate-increase" value="3" step="0.5">
+                <small>Average is 2-4% per year</small>
+            </div>
+
+            <div class="input-group">
+                <label for="system-life">System Lifespan (years)</label>
+                <input type="number" id="system-life" value="25" step="1">
+                <small>Most panels are warrantied for 25 years</small>
+            </div>
+
+            <button class="btn" onclick="calculateROI()">Calculate Solar ROI</button>
+
+            <div class="results" id="results">
+                <div class="result-item">
+                    <strong>Net System Cost (After Incentives):</strong><br>
+                    <span class="result-value" id="net-cost">$0</span>
+                </div>
+                <div class="result-item">
+                    <strong>Annual Savings (Year 1):</strong><br>
+                    <span class="result-value" id="annual-savings">$0</span>
+                </div>
+                <div class="result-item">
+                    <strong>Payback Period:</strong><br>
+                    <span class="result-value" id="payback">0 years</span>
+                </div>
+                <div class="result-item">
+                    <strong>Total 25-Year Savings:</strong><br>
+                    <span class="result-value" id="total-savings">$0</span>
+                </div>
+                <div class="result-item">
+                    <strong>Return on Investment (ROI):</strong><br>
+                    <span class="result-value" id="roi">0%</span>
+                </div>
+                <div class="result-item">
+                    <strong>Break-Even Point:</strong><br>
+                    <span class="result-value" id="break-even">Year 0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567891" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About Solar Panel ROI</h3>
+            <p>Solar panel return on investment (ROI) depends on several factors:</p>
+            <ul>
+                <li><strong>System Cost:</strong> Average residential solar costs $15,000-$25,000</li>
+                <li><strong>Federal Tax Credit:</strong> 30% ITC through 2032, then steps down</li>
+                <li><strong>Electricity Savings:</strong> Replaces grid electricity with solar power</li>
+                <li><strong>Rate Increases:</strong> Utility rates typically increase 2-4% annually</li>
+                <li><strong>System Lifespan:</strong> Solar panels last 25-30+ years</li>
+            </ul>
+
+            <h3>How Solar ROI is Calculated</h3>
+            <p><strong>1. Net Cost:</strong> System cost minus federal tax credit and incentives</p>
+            <p><strong>2. Annual Savings:</strong> Monthly bill × offset percentage × 12</p>
+            <p><strong>3. Payback Period:</strong> Net cost ÷ annual savings</p>
+            <p><strong>4. Lifetime Savings:</strong> Cumulative savings over system lifespan accounting for rate increases</p>
+            <p><strong>5. ROI:</strong> (Total savings - Net cost) ÷ Net cost × 100</p>
+
+            <h3>Typical Payback Periods by State</h3>
+            <ul>
+                <li><strong>California:</strong> 5-7 years (high electricity rates, strong sun)</li>
+                <li><strong>Florida:</strong> 7-9 years (moderate rates, excellent sun)</li>
+                <li><strong>Texas:</strong> 8-10 years (low rates, good sun)</li>
+                <li><strong>Northeast:</strong> 8-12 years (high rates, moderate sun)</li>
+                <li><strong>Midwest:</strong> 10-15 years (moderate rates and sun)</li>
+            </ul>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>Maximizing Your Solar ROI</h3>
+            <ul>
+                <li>Get multiple quotes (at least 3-5 installers)</li>
+                <li>Take advantage of all available incentives</li>
+                <li>Consider financing options (cash vs. loan vs. lease)</li>
+                <li>Optimize system size for your actual usage</li>
+                <li>Choose high-efficiency panels for limited roof space</li>
+                <li>Factor in net metering policies in your area</li>
+                <li>Account for potential battery storage costs</li>
+            </ul>
+
+            <h3>More Financial Calculators</h3>
+            <p>Check out our other tools:</p>
+            <ul>
+                <li><a href="../index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Investment & Loan Calculators</a></li>
+                <li><a href="mortgage-payment.html">Mortgage Payment Calculator</a></li>
+                <li><a href="roi-calculator.html">Investment ROI Calculator</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online calculators and tools.</p>
+            <p><a href="../index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Disclaimer: This calculator provides estimates only. Actual solar ROI varies by location, installation quality, and local policies. Consult with certified solar installers for accurate quotes.</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateROI() {
+            // Get inputs
+            const systemCost = parseFloat(document.getElementById('system-cost').value) || 0;
+            const federalTax = parseFloat(document.getElementById('federal-tax').value) || 0;
+            const stateIncentive = parseFloat(document.getElementById('state-incentive').value) || 0;
+            const monthlyBill = parseFloat(document.getElementById('monthly-bill').value) || 0;
+            const offset = parseFloat(document.getElementById('offset').value) || 0;
+            const rateIncrease = parseFloat(document.getElementById('rate-increase').value) || 0;
+            const systemLife = parseFloat(document.getElementById('system-life').value) || 25;
+
+            // Calculate net cost
+            const federalCredit = systemCost * (federalTax / 100);
+            const netCost = systemCost - federalCredit - stateIncentive;
+
+            // Calculate first year savings
+            const annualSavings = (monthlyBill * (offset / 100)) * 12;
+
+            // Calculate payback period
+            const paybackYears = netCost / annualSavings;
+
+            // Calculate total lifetime savings with rate increases
+            let totalSavings = 0;
+            let currentAnnualSavings = annualSavings;
+            for (let year = 1; year <= systemLife; year++) {
+                totalSavings += currentAnnualSavings;
+                currentAnnualSavings *= (1 + rateIncrease / 100);
+            }
+
+            // Calculate ROI
+            const roi = ((totalSavings - netCost) / netCost) * 100;
+
+            // Update results
+            document.getElementById('net-cost').textContent = '$' + netCost.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('annual-savings').textContent = '$' + annualSavings.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('payback').textContent = paybackYears.toFixed(1) + ' years';
+            document.getElementById('total-savings').textContent = '$' + totalSavings.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('roi').textContent = roi.toFixed(0) + '%';
+            document.getElementById('break-even').textContent = 'Year ' + Math.ceil(paybackYears);
+
+            // Show results
+            document.getElementById('results').classList.add('show');
+        }
+    </script>
+</body>
+</html>

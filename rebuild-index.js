@@ -27,6 +27,7 @@ const categories = [
             { name: 'Debt-to-Income Ratio', desc: 'DTI for mortgage eligibility', url: 'calc/debt-to-income.html' },
             { name: 'Car Loan Calculator', desc: 'Auto loan payments & interest', url: 'calc/car-loan-calculator.html' },
             { name: 'Net Pay Calculator', desc: 'Take-home after all taxes', url: 'calc/net-pay-calculator.html' },
+            { name: 'Solar Panel ROI', desc: 'Solar investment return & payback', url: 'calc/solar-panel-roi-calculator.html' },
         ]
     },
     {
@@ -127,9 +128,10 @@ const categories = [
         ]
     },
     {
-        name: '🍳 Cooking Conversions',
+        name: '🍳 Cooking & Food',
         id: 'cooking',
         tools: [
+            { name: 'Recipe Scaler', desc: 'Scale recipes up or down', url: 'calc/recipe-scaler.html' },
             { name: '°F to °C', desc: 'Fahrenheit to Celsius', url: 'convert-fahrenheit-to-celsius.html' },
             { name: '°C to °F', desc: 'Celsius to Fahrenheit', url: 'convert-celsius-to-fahrenheit.html' },
             { name: 'Cups to ML', desc: 'Cups to Milliliters', url: 'convert-cups-to-ml.html' },

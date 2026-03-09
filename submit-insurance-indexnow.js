@@ -2,8 +2,8 @@
 const https = require('https');
 
 const urls = [
-  'https://alexchalu.github.io/toolpulse/car-insurance-calculator.html',
-  'https://alexchalu.github.io/toolpulse/pet-insurance-calculator.html',
+  'https://alexchalu.github.io/toolpulse/calc/car-insurance-estimator.html',
+  'https://alexchalu.github.io/toolpulse/calc/pet-insurance-calculator.html',
 ];
 
 const payload = JSON.stringify({
@@ -27,7 +27,7 @@ const options = {
 const req = https.request(options, (res) => {
   console.log(`✅ IndexNow response: ${res.statusCode}`);
   if (res.statusCode === 200) {
-    console.log('✅ Successfully submitted 2 insurance URLs to IndexNow (Bing + Yandex)');
+    console.log('✅ Successfully submitted 2 insurance calculator URLs to IndexNow');
   }
 });
 

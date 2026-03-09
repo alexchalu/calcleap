@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Scaler Calculator - Scale Recipe Ingredients Up or Down | ToolPulse</title>
+    <meta name="description" content="Free recipe scaler calculator. Easily double, halve, or adjust recipe quantities for any number of servings. Perfect for cooking and meal planning.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/calc/recipe-scaler.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calculator-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calculator-box h2 { margin-bottom: 1.5rem; color: #059669; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .input-group input:focus { outline: none; border-color: #10b981; }
+        .quick-btns { display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap; }
+        .quick-btn { padding: 0.5rem 1rem; background: #d1fae5; color: #065f46; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 600; }
+        .quick-btn:hover { background: #a7f3d0; }
+        .btn { background: #10b981; color: white; border: none; padding: 0.85rem 2rem; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; transition: background 0.3s; }
+        .btn:hover { background: #059669; }
+        .ingredient-list { margin-top: 1.5rem; }
+        .ingredient-item { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; align-items: center; }
+        .ingredient-item input { flex: 1; }
+        .remove-btn { background: #ef4444; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+        .remove-btn:hover { background: #dc2626; }
+        .add-btn { background: #10b981; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; margin-top: 0.5rem; }
+        .add-btn:hover { background: #059669; }
+        .results { background: #ecfdf5; border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .results.show { display: block; }
+        .results h3 { color: #059669; margin-bottom: 1rem; }
+        .result-ingredient { padding: 0.75rem; background: white; border-radius: 6px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
+        .result-ingredient strong { color: #065f46; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #059669; margin-bottom: 1rem; }
+        .info-section p { margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #10b981; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🍳 Recipe Scaler Calculator</h1>
+            <p>Easily scale recipe ingredients up or down for any number of servings</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calculator-box">
+            <h2>Scale Your Recipe</h2>
+            
+            <div class="input-group">
+                <label for="original-servings">Original Servings</label>
+                <input type="number" id="original-servings" value="4" min="1" step="1">
+            </div>
+
+            <div class="input-group">
+                <label for="new-servings">Desired Servings</label>
+                <input type="number" id="new-servings" value="8" min="1" step="1">
+                <div class="quick-btns">
+                    <button class="quick-btn" onclick="setServings(1)">÷4 (Quarter)</button>
+                    <button class="quick-btn" onclick="setServings(0.5)">÷2 (Half)</button>
+                    <button class="quick-btn" onclick="setServings(1.5)">×1.5</button>
+                    <button class="quick-btn" onclick="setServings(2)">×2 (Double)</button>
+                    <button class="quick-btn" onclick="setServings(3)">×3 (Triple)</button>
+                </div>
+            </div>
+
+            <div class="ingredient-list">
+                <h3 style="color: #059669; margin-bottom: 1rem;">Ingredients</h3>
+                <div id="ingredients">
+                    <div class="ingredient-item">
+                        <input type="number" class="ingredient-amount" placeholder="Amount" value="2" step="any">
+                        <input type="text" class="ingredient-unit" placeholder="Unit (cups, tbsp, etc.)" value="cups">
+                        <input type="text" class="ingredient-name" placeholder="Ingredient name" value="flour">
+                        <button class="remove-btn" onclick="removeIngredient(this)">Remove</button>
+                    </div>
+                    <div class="ingredient-item">
+                        <input type="number" class="ingredient-amount" placeholder="Amount" value="1" step="any">
+                        <input type="text" class="ingredient-unit" placeholder="Unit" value="tsp">
+                        <input type="text" class="ingredient-name" placeholder="Ingredient name" value="salt">
+                        <button class="remove-btn" onclick="removeIngredient(this)">Remove</button>
+                    </div>
+                    <div class="ingredient-item">
+                        <input type="number" class="ingredient-amount" placeholder="Amount" value="3" step="any">
+                        <input type="text" class="ingredient-unit" placeholder="Unit" value="">
+                        <input type="text" class="ingredient-name" placeholder="Ingredient name" value="eggs">
+                        <button class="remove-btn" onclick="removeIngredient(this)">Remove</button>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="addIngredient()">+ Add Ingredient</button>
+            </div>
+
+            <button class="btn" onclick="scaleRecipe()" style="margin-top: 1.5rem;">Scale Recipe</button>
+
+            <div class="results" id="results">
+                <h3>Scaled Recipe</h3>
+                <div id="scaled-ingredients"></div>
+            </div>
+        </div>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567891" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>How to Use the Recipe Scaler</h3>
+            <p>1. Enter the original number of servings the recipe makes</p>
+            <p>2. Enter how many servings you want to make</p>
+            <p>3. Add your ingredients with amounts, units, and names</p>
+            <p>4. Click "Scale Recipe" to get adjusted ingredient amounts</p>
+            <p>Use the quick buttons to instantly double, halve, or triple your recipe!</p>
+
+            <h3>Recipe Scaling Tips</h3>
+            <ul>
+                <li><strong>Spices & Seasonings:</strong> When doubling, start with 1.5x and taste/adjust</li>
+                <li><strong>Baking:</strong> Be precise with measurements—baking is chemistry!</li>
+                <li><strong>Liquids:</strong> When scaling down, reduce slightly more than the ratio suggests</li>
+                <li><strong>Cook Time:</strong> Larger batches may need more time; smaller batches cook faster</li>
+                <li><strong>Pan Size:</strong> Make sure your cookware can accommodate the scaled recipe</li>
+            </ul>
+
+            <h3>Common Scaling Scenarios</h3>
+            <p><strong>Doubling a Recipe:</strong> Perfect for meal prep or feeding a crowd</p>
+            <p><strong>Halving a Recipe:</strong> Great for single servings or trying new recipes</p>
+            <p><strong>Tripling a Recipe:</strong> Ideal for parties or batch cooking</p>
+            <p><strong>Scaling to 1.5x:</strong> When you need just a bit more than the original</p>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>More Cooking Tools</h3>
+            <p>Check out our other cooking and kitchen calculators:</p>
+            <ul>
+                <li><a href="../convert-cups-to-ml.html">Cups to Milliliters Converter</a></li>
+                <li><a href="../convert-fahrenheit-to-celsius.html">°F to °C Temperature Converter</a></li>
+                <li><a href="../convert-ounces-to-grams.html">Ounces to Grams Converter</a></li>
+                <li><a href="../index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Nutrition & Health</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online calculators and tools.</p>
+            <p><a href="../index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+        </div>
+    </div>
+
+    <script>
+        function setServings(multiplier) {
+            const original = parseFloat(document.getElementById('original-servings').value) || 1;
+            document.getElementById('new-servings').value = Math.round(original * multiplier * 10) / 10;
+        }
+
+        function addIngredient() {
+            const container = document.getElementById('ingredients');
+            const newItem = document.createElement('div');
+            newItem.className = 'ingredient-item';
+            newItem.innerHTML = `
+                <input type="number" class="ingredient-amount" placeholder="Amount" step="any">
+                <input type="text" class="ingredient-unit" placeholder="Unit (cups, tbsp, etc.)">
+                <input type="text" class="ingredient-name" placeholder="Ingredient name">
+                <button class="remove-btn" onclick="removeIngredient(this)">Remove</button>
+            `;
+            container.appendChild(newItem);
+        }
+
+        function removeIngredient(btn) {
+            btn.parentElement.remove();
+        }
+
+        function scaleRecipe() {
+            const originalServings = parseFloat(document.getElementById('original-servings').value) || 1;
+            const newServings = parseFloat(document.getElementById('new-servings').value) || 1;
+            const ratio = newServings / originalServings;
+
+            const ingredientItems = document.querySelectorAll('.ingredient-item');
+            const resultsContainer = document.getElementById('scaled-ingredients');
+            resultsContainer.innerHTML = '';
+
+            ingredientItems.forEach(item => {
+                const amount = parseFloat(item.querySelector('.ingredient-amount').value);
+                const unit = item.querySelector('.ingredient-unit').value.trim();
+                const name = item.querySelector('.ingredient-name').value.trim();
+
+                if (amount && name) {
+                    const scaledAmount = amount * ratio;
+                    const formattedAmount = formatAmount(scaledAmount);
+                    
+                    const resultDiv = document.createElement('div');
+                    resultDiv.className = 'result-ingredient';
+                    resultDiv.innerHTML = `
+                        <span><strong>${formattedAmount}</strong> ${unit} ${name}</span>
+                        <span style="color: #6b7280;">×${ratio.toFixed(2)}</span>
+                    `;
+                    resultsContainer.appendChild(resultDiv);
+                }
+            });
+
+            document.getElementById('results').classList.add('show');
+        }
+
+        function formatAmount(num) {
+            // Convert to fraction if it's a common cooking fraction
+            const fractions = {
+                0.125: '⅛',
+                0.25: '¼',
+                0.333: '⅓',
+                0.375: '⅜',
+                0.5: '½',
+                0.625: '⅝',
+                0.666: '⅔',
+                0.75: '¾',
+                0.875: '⅞'
+            };
+
+            const whole = Math.floor(num);
+            const decimal = num - whole;
+            
+            // Check if decimal matches a common fraction
+            for (let [dec, frac] of Object.entries(fractions)) {
+                if (Math.abs(decimal - parseFloat(dec)) < 0.02) {
+                    return whole > 0 ? `${whole} ${frac}` : frac;
+                }
+            }
+            
+            // Otherwise, round to 2 decimal places
+            return num.toFixed(2).replace(/\.00$/, '');
+        }
+    </script>
+</body>
+</html>
