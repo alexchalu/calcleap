@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Megabytes to Kilobytes Converter - Free Data Storage Calculator | ToolPulse</title>
-    <meta name="description" content="Convert MB to KB instantly. Free data storage converter for files, hard drives, and memory. Binary (1024-based) calculations.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-mb-to-kb.html">
+    <title>Kilobytes to Megabytes Converter - Free Data Storage Calculator | ToolPulse</title>
+    <meta name="description" content="Convert KB to MB instantly. Free data storage converter for files, hard drives, and memory. Binary (1024-based) calculations.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-kb-to-mb.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -40,7 +40,7 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Megabytes to Kilobytes Converter</h1>
+            <h1>Kilobytes to Megabytes Converter</h1>
             <p>Free online data storage converter - Binary (1024-based) calculation</p>
         </div>
     </div>
@@ -53,9 +53,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Megabytes to Kilobytes</h2>
+            <h2>Convert Kilobytes to Megabytes</h2>
             <div class="input-group">
-                <label for="input-value">Enter MB:</label>
+                <label for="input-value">Enter KB:</label>
                 <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
@@ -70,7 +70,7 @@
         </div>
 
         <div class="info-section">
-            <h3>About Megabytes to Kilobytes Conversion</h3>
+            <h3>About Kilobytes to Megabytes Conversion</h3>
             <p>This converter uses binary (base-2) calculations where 1 KB = 1024 bytes (not 1000). This is the standard for computer memory and storage.</p>
             
             <h3>Quick Reference Table</h3>
@@ -78,8 +78,8 @@
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>MB</th>
                             <th>KB</th>
+                            <th>MB</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -121,7 +121,7 @@
     </div>
 
     <script>
-        const multiplier = 1024;
+        const multiplier = 0.0009765625;
         
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
@@ -138,11 +138,11 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' MB = ' + result + ' KB';
+            resultEl.textContent = value + ' KB = ' + result + ' MB';
         });
         
         // Generate reference table - smart values based on units
-        const isLargeToSmall = 1024 > 1;
+        const isLargeToSmall = 0.0009765625 > 1;
         const referenceValues = isLargeToSmall 
             ? [1, 5, 10, 100, 1000]
             : [1, 10, 100, 1000, 10000, 100000];

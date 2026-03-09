@@ -541,7 +541,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-bytes-to-gb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-bytes-to-kb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-bytes-to-kilobytes.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-bytes-to-mb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-bytes-to-tb.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1087,6 +1111,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-gb-to-bytes.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-gb-to-kb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-gb-to-mb.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1453,6 +1489,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-kb-to-bytes.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-kb-to-gb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-kb-to-mb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-kb-to-tb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-kelvin-to-celsius.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1711,7 +1771,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mb-to-bytes.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mb-to-gb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-mb-to-kb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-mb-to-tb.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2491,7 +2569,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-tb-to-bytes.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/convert-tb-to-gb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-tb-to-kb.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/convert-tb-to-mb.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

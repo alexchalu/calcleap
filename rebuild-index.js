@@ -132,6 +132,20 @@ const categories = [
         ]
     },
     {
+        name: '💾 Data Storage',
+        id: 'storage',
+        tools: [
+            { name: 'KB to MB', desc: 'Kilobytes to Megabytes', url: 'convert-kb-to-mb.html' },
+            { name: 'MB to GB', desc: 'Megabytes to Gigabytes', url: 'convert-mb-to-gb.html' },
+            { name: 'GB to TB', desc: 'Gigabytes to Terabytes', url: 'convert-gb-to-tb.html' },
+            { name: 'MB to KB', desc: 'Megabytes to Kilobytes', url: 'convert-mb-to-kb.html' },
+            { name: 'GB to MB', desc: 'Gigabytes to Megabytes', url: 'convert-gb-to-mb.html' },
+            { name: 'TB to GB', desc: 'Terabytes to Gigabytes', url: 'convert-tb-to-gb.html' },
+            { name: 'Bytes to KB', desc: 'Bytes to Kilobytes', url: 'convert-bytes-to-kb.html' },
+            { name: 'Bytes to MB', desc: 'Bytes to Megabytes', url: 'convert-bytes-to-mb.html' },
+        ]
+    },
+    {
         name: '🔧 Developer Tools',
         id: 'dev',
         tools: [

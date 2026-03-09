@@ -3,108 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terabytes to Gigabytes Converter — Free Online | ToolPulse</title>
-    <meta name="description" content="Convert Terabytes to Gigabytes instantly. Free online data converter with conversion table and formula.">
-    <meta name="keywords" content="tb to gb, convert tb to gb, terabytes to gigabytes, data converter">
+    <title>Terabytes to Gigabytes Converter - Free Data Storage Calculator | ToolPulse</title>
+    <meta name="description" content="Convert TB to GB instantly. Free data storage converter for files, hard drives, and memory. Binary (1024-based) calculations.">
     <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-tb-to-gb.html">
-    <meta property="og:title" content="Terabytes to Gigabytes Converter — ToolPulse">
-    <meta property="og:description" content="Convert Terabytes to Gigabytes instantly. Free online data converter with conversion table and formula.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebApplication","name":"Terabytes to Gigabytes Converter","description":"Convert Terabytes to Gigabytes instantly. Free online data converter with conversion table and formula.","url":"https://alexchalu.github.io/toolpulse/convert-tb-to-gb.html","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-    </script>
     <style>
-        :root{--bg:#0a0e1a;--surface:#111827;--surface2:#1f2937;--border:#374151;--text:#f3f4f6;--muted:#9ca3af;--accent:#6366f1;--accent2:#4f46e5;--glow:rgba(99,102,241,0.15);--radius:12px}
-        [data-theme="light"]{--bg:#f9fafb;--surface:#fff;--surface2:#f3f4f6;--border:#e5e7eb;--text:#1f2937;--muted:#6b7280}
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-        header{background:var(--surface);border-bottom:1px solid var(--border);padding:1rem 1.5rem;position:sticky;top:0;z-index:100}
-        .hi{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:1rem}
-        .logo{font-size:1.4rem;font-weight:800;color:var(--accent);text-decoration:none}
-        .tag{color:var(--muted);font-size:.85rem;flex:1}
-        .tb{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.4rem .7rem;font-size:1rem;cursor:pointer}
-        main{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
-        h1{font-size:1.6rem;margin-bottom:.5rem}
-        .sub{color:var(--muted);margin-bottom:2rem}
-        .calc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem}
-        .row{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:end}
-        .field label{display:block;font-weight:600;margin-bottom:.5rem;font-size:.9rem}
-        input[type="number"]{width:100%;padding:.8rem 1rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1.1rem;outline:none}
-        input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--glow)}
-        .swap{padding:.6rem .8rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:1.2rem;align-self:center;margin-top:1.2rem}
-        .swap:hover{border-color:var(--accent)}
-        .result{margin-top:1.5rem;padding:1.25rem;background:var(--surface2);border-radius:8px;text-align:center;font-size:1.3rem;font-weight:700;color:var(--accent)}
-        .formula{margin-top:1rem;padding:1rem;background:var(--surface2);border-radius:8px;font-size:.9rem;color:var(--muted);text-align:center}
-        .formula code{color:var(--accent);font-weight:600}
-        table{width:100%;border-collapse:collapse;margin-top:1.5rem}
-        th,td{padding:.6rem 1rem;text-align:left;border-bottom:1px solid var(--border);font-size:.9rem}
-        th{color:var(--muted);font-weight:600;font-size:.8rem;text-transform:uppercase}
-        td:nth-child(2){color:var(--accent);font-weight:600}
-        .ad{max-width:800px;margin:1.5rem auto;padding:0 1.5rem}
-        .faq{margin-top:2.5rem;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
-        .faq h2{font-size:1.1rem;margin-bottom:1rem}
-        .faq h3{font-size:.95rem;margin:1rem 0 .5rem;color:var(--accent)}
-        .faq p{color:var(--muted);font-size:.9rem;line-height:1.7}
-        .related{margin-top:2rem}
-        .related h2{font-size:1.1rem;margin-bottom:.75rem}
-        .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.6rem}
-        .rcard{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;text-decoration:none;color:var(--text);font-size:.85rem;transition:.2s}
-        .rcard:hover{border-color:var(--accent)}
-        footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);margin-top:3rem}
-        footer a{color:var(--accent);text-decoration:none}
-        @media(max-width:600px){.row{grid-template-columns:1fr;gap:.5rem}.swap{margin:0 auto}.tag{display:none}}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .converter-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .converter-box h2 { margin-bottom: 1.5rem; color: #667eea; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .input-group input:focus { outline: none; border-color: #667eea; }
+        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1rem; border-radius: 6px; margin-top: 1rem; }
+        .result-box strong { color: #667eea; font-size: 1.2rem; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
+        .info-section p { margin-bottom: 1rem; }
+        .table-wrapper { overflow-x: auto; }
+        .conversion-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .conversion-table th, .conversion-table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #e0e6ed; }
+        .conversion-table th { background: #f0f4ff; color: #667eea; font-weight: 600; }
+        .conversion-table tr:hover { background: #f9fafb; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
     </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header><div class="hi"><a href="index.html" class="logo">🔧 ToolPulse</a><p class="tag">Free Online Tools</p><button class="tb" id="tb">🌙</button></div></header>
-    <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-    <main>
-        <nav style="margin-bottom:1rem"><a href="index.html" style="color:var(--accent);font-weight:600;text-decoration:none">← All Tools</a></nav>
-        <h1>Terabytes to Gigabytes</h1>
-        <p class="sub">Convert Terabytes to Gigabytes instantly. Free online data converter with conversion table and formula.</p>
-        <div class="calc">
-            <div class="row">
-                <div class="field"><label>Terabytes</label><input type="number" id="from" value="1" oninput="convert()"></div>
-                <button class="swap" onclick="swap()" title="Swap">⇄</button>
-                <div class="field"><label>Gigabytes</label><input type="number" id="to" readonly></div>
+    <div class="header">
+        <div class="container">
+            <h1>Terabytes to Gigabytes Converter</h1>
+            <p>Free online data storage converter - Binary (1024-based) calculation</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="converter-box">
+            <h2>Convert Terabytes to Gigabytes</h2>
+            <div class="input-group">
+                <label for="input-value">Enter TB:</label>
+                <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
-            <div class="result" id="res">1 Terabytes = 1024 Gigabytes</div>
-            <div class="formula">Formula: <code>1 Terabytes = 1024 Gigabytes</code></div>
-            <table>
-                <thead><tr><th>Terabytes</th><th>Gigabytes</th></tr></thead>
-                <tbody><tr><td>1</td><td>1,024</td></tr>
-<tr><td>5</td><td>5,120</td></tr>
-<tr><td>10</td><td>10,240</td></tr>
-<tr><td>25</td><td>25,600</td></tr>
-<tr><td>50</td><td>51,200</td></tr>
-<tr><td>100</td><td>102,400</td></tr>
-<tr><td>250</td><td>256,000</td></tr>
-<tr><td>500</td><td>512,000</td></tr>
-<tr><td>1,000</td><td>1,024,000</td></tr>
-</tbody>
-            </table>
+            <div class="result-box" id="result">
+                <strong>Result: </strong><span id="result-value">Enter a value above</span>
+            </div>
         </div>
-        <div class="ad" style="padding:0"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-        <div class="faq"><h2>Data Conversion FAQ</h2>
-            <h3>How do I convert terabytes to gigabytes?</h3>
-            <p>Multiply the value in terabytes by 1024. For example, 10 terabytes = 1.024e+04 gigabytes.</p>
-            <h3>What is 1 terabytes in gigabytes?</h3>
-            <p>1 terabytes equals 1024 gigabytes.</p>
-            <h3>How do I convert gigabytes back to terabytes?</h3>
-            <p>Divide the value in gigabytes by 1024, or multiply by 0.000976562.</p>
+
+        <!-- Ad Slot 2 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567891" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
-    </main>
-    <div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-    <footer><p>ToolPulse — All conversions happen in your browser.</p><p><a href="index.html">Home</a> · <a href="https://alexchalu.github.io/smartcalc/">Financial Calculators</a></p></footer>
+
+        <div class="info-section">
+            <h3>About Terabytes to Gigabytes Conversion</h3>
+            <p>This converter uses binary (base-2) calculations where 1 KB = 1024 bytes (not 1000). This is the standard for computer memory and storage.</p>
+            
+            <h3>Quick Reference Table</h3>
+            <div class="table-wrapper">
+                <table class="conversion-table">
+                    <thead>
+                        <tr>
+                            <th>TB</th>
+                            <th>GB</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reference-table"></tbody>
+                </table>
+            </div>
+
+            <h3>Common File Sizes</h3>
+            <ul>
+                <li>MP3 song: ~3-5 MB</li>
+                <li>High-res photo: ~5-15 MB</li>
+                <li>HD movie: ~4-8 GB</li>
+                <li>4K movie: ~20-100 GB</li>
+                <li>Hard drive: 500 GB - 2 TB</li>
+            </ul>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>More Data Storage Converters</h3>
+            <p>Check out our other storage conversion tools:</p>
+            <ul>
+                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a> | <a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs</a></p>
+        </div>
+    </div>
+
     <script>
-        const b=document.getElementById('tb');const s=localStorage.getItem('tp-theme');
-        if(s==='light'){document.documentElement.setAttribute('data-theme','light');b.textContent='☀️'}
-        b.addEventListener('click',()=>{const l=document.documentElement.getAttribute('data-theme')==='light';document.documentElement.setAttribute('data-theme',l?'dark':'light');b.textContent=l?'🌙':'☀️';localStorage.setItem('tp-theme',l?'dark':'light')});
-        const F=1024;
-        function convert(){const v=+document.getElementById('from').value;const r=v*F;document.getElementById('to').value=r>=100?r.toFixed(0):r>=1?r.toFixed(2):r.toFixed(4);document.getElementById('res').textContent=v+' Terabytes = '+(r>=100?r.toFixed(0):r>=1?r.toFixed(2):r.toFixed(4))+' Gigabytes'}
-        function swap(){window.location.href='convert-gb-to-tb.html'}
-        convert();
+        const multiplier = 1024;
+        
+        const inputEl = document.getElementById('input-value');
+        const resultEl = document.getElementById('result-value');
+        const tableEl = document.getElementById('reference-table');
+        
+        function convert(value) {
+            return (value * multiplier).toFixed(6).replace(/\.?0+$/, '');
+        }
+        
+        inputEl.addEventListener('input', () => {
+            const value = parseFloat(inputEl.value);
+            if (isNaN(value)) {
+                resultEl.textContent = 'Enter a valid number';
+                return;
+            }
+            const result = convert(value);
+            resultEl.textContent = value + ' TB = ' + result + ' GB';
+        });
+        
+        // Generate reference table - smart values based on units
+        const isLargeToSmall = 1024 > 1;
+        const referenceValues = isLargeToSmall 
+            ? [1, 5, 10, 100, 1000]
+            : [1, 10, 100, 1000, 10000, 100000];
+        
+        referenceValues.forEach(val => {
+            const row = document.createElement('tr');
+            const result = convert(val);
+            row.innerHTML = '<td>' + val.toLocaleString() + '</td><td>' + parseFloat(result).toLocaleString() + '</td>';
+            tableEl.appendChild(row);
+        });
     </script>
 </body>
 </html>

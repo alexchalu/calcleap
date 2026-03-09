@@ -1,11 +1,52 @@
-<!DOCTYPE html>
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// Data storage conversions - high search volume
+const conversions = [
+  // Bytes to everything
+  { from: 'bytes', to: 'kb', name: 'Bytes to Kilobytes', mult: 1/1024 },
+  { from: 'bytes', to: 'mb', name: 'Bytes to Megabytes', mult: 1/(1024*1024) },
+  { from: 'bytes', to: 'gb', name: 'Bytes to Gigabytes', mult: 1/(1024*1024*1024) },
+  { from: 'bytes', to: 'tb', name: 'Bytes to Terabytes', mult: 1/(1024*1024*1024*1024) },
+  
+  // KB conversions
+  { from: 'kb', to: 'bytes', name: 'Kilobytes to Bytes', mult: 1024 },
+  { from: 'kb', to: 'mb', name: 'Kilobytes to Megabytes', mult: 1/1024 },
+  { from: 'kb', to: 'gb', name: 'Kilobytes to Gigabytes', mult: 1/(1024*1024) },
+  { from: 'kb', to: 'tb', name: 'Kilobytes to Terabytes', mult: 1/(1024*1024*1024) },
+  
+  // MB conversions
+  { from: 'mb', to: 'bytes', name: 'Megabytes to Bytes', mult: 1024*1024 },
+  { from: 'mb', to: 'kb', name: 'Megabytes to Kilobytes', mult: 1024 },
+  { from: 'mb', to: 'gb', name: 'Megabytes to Gigabytes', mult: 1/1024 },
+  { from: 'mb', to: 'tb', name: 'Megabytes to Terabytes', mult: 1/(1024*1024) },
+  
+  // GB conversions
+  { from: 'gb', to: 'bytes', name: 'Gigabytes to Bytes', mult: 1024*1024*1024 },
+  { from: 'gb', to: 'kb', name: 'Gigabytes to Kilobytes', mult: 1024*1024 },
+  { from: 'gb', to: 'mb', name: 'Gigabytes to Megabytes', mult: 1024 },
+  { from: 'gb', to: 'tb', name: 'Gigabytes to Terabytes', mult: 1/1024 },
+  
+  // TB conversions
+  { from: 'tb', to: 'bytes', name: 'Terabytes to Bytes', mult: 1024*1024*1024*1024 },
+  { from: 'tb', to: 'kb', name: 'Terabytes to Kilobytes', mult: 1024*1024*1024 },
+  { from: 'tb', to: 'mb', name: 'Terabytes to Megabytes', mult: 1024*1024 },
+  { from: 'tb', to: 'gb', name: 'Terabytes to Gigabytes', mult: 1024 },
+];
+
+function generatePage(conv) {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Megabytes to Kilobytes Converter - Free Data Storage Calculator | ToolPulse</title>
-    <meta name="description" content="Convert MB to KB instantly. Free data storage converter for files, hard drives, and memory. Binary (1024-based) calculations.">
-    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/convert-mb-to-kb.html">
+    <title>${conv.name} Converter - Free Data Storage Calculator | ToolPulse</title>
+    <meta name="description" content="Convert ${conv.from.toUpperCase()} to ${conv.to.toUpperCase()} instantly. Free data storage converter for files, hard drives, and memory. Binary (1024-based) calculations.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
@@ -40,7 +81,7 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Megabytes to Kilobytes Converter</h1>
+            <h1>${conv.name} Converter</h1>
             <p>Free online data storage converter - Binary (1024-based) calculation</p>
         </div>
     </div>
@@ -53,9 +94,9 @@
         </div>
 
         <div class="converter-box">
-            <h2>Convert Megabytes to Kilobytes</h2>
+            <h2>Convert ${conv.name}</h2>
             <div class="input-group">
-                <label for="input-value">Enter MB:</label>
+                <label for="input-value">Enter ${conv.from.toUpperCase()}:</label>
                 <input type="number" id="input-value" placeholder="Enter value" step="any">
             </div>
             <div class="result-box" id="result">
@@ -70,7 +111,7 @@
         </div>
 
         <div class="info-section">
-            <h3>About Megabytes to Kilobytes Conversion</h3>
+            <h3>About ${conv.name} Conversion</h3>
             <p>This converter uses binary (base-2) calculations where 1 KB = 1024 bytes (not 1000). This is the standard for computer memory and storage.</p>
             
             <h3>Quick Reference Table</h3>
@@ -78,8 +119,8 @@
                 <table class="conversion-table">
                     <thead>
                         <tr>
-                            <th>MB</th>
-                            <th>KB</th>
+                            <th>${conv.from.toUpperCase()}</th>
+                            <th>${conv.to.toUpperCase()}</th>
                         </tr>
                     </thead>
                     <tbody id="reference-table"></tbody>
@@ -121,14 +162,14 @@
     </div>
 
     <script>
-        const multiplier = 1024;
+        const multiplier = ${conv.mult};
         
         const inputEl = document.getElementById('input-value');
         const resultEl = document.getElementById('result-value');
         const tableEl = document.getElementById('reference-table');
         
         function convert(value) {
-            return (value * multiplier).toFixed(6).replace(/\.?0+$/, '');
+            return (value * multiplier).toFixed(6).replace(/\\.?0+$/, '');
         }
         
         inputEl.addEventListener('input', () => {
@@ -138,11 +179,11 @@
                 return;
             }
             const result = convert(value);
-            resultEl.textContent = value + ' MB = ' + result + ' KB';
+            resultEl.textContent = value + ' ${conv.from.toUpperCase()} = ' + result + ' ${conv.to.toUpperCase()}';
         });
         
         // Generate reference table - smart values based on units
-        const isLargeToSmall = 1024 > 1;
+        const isLargeToSmall = ${conv.mult} > 1;
         const referenceValues = isLargeToSmall 
             ? [1, 5, 10, 100, 1000]
             : [1, 10, 100, 1000, 10000, 100000];
@@ -155,4 +196,18 @@
         });
     </script>
 </body>
-</html>
+</html>`;
+}
+
+// Generate all pages
+let count = 0;
+conversions.forEach(conv => {
+  const slug = `convert-${conv.from}-to-${conv.to}`;
+  const html = generatePage(conv);
+  fs.writeFileSync(path.join(__dirname, `${slug}.html`), html);
+  count++;
+  console.log(`✓ Generated ${slug}.html`);
+});
+
+console.log(`\n✅ Generated ${count} data storage conversion pages`);
+console.log('📝 Next: Update sitemap.xml and rebuild-index.js to include these pages');
