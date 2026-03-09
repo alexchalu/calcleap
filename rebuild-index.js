@@ -91,6 +91,18 @@ const categories = [
         name: '🚀 Speed Converters',
         id: 'speed',
         tools: [
+            { name: 'MPH to KPH', desc: 'Miles per hour to km/h', url: 'convert-mph-to-kph.html' },
+            { name: 'KPH to MPH', desc: 'Kilometers per hour to mph', url: 'convert-kph-to-mph.html' },
+            { name: 'MPH to Knots', desc: 'Miles per hour to knots', url: 'convert-mph-to-knots.html' },
+            { name: 'Knots to MPH', desc: 'Knots to miles per hour', url: 'convert-knots-to-mph.html' },
+            { name: 'KPH to Knots', desc: 'Km/h to knots', url: 'convert-kph-to-knots.html' },
+            { name: 'Mach to MPH', desc: 'Mach number to mph', url: 'convert-mach-to-mph.html' },
+        ]
+    },
+    {
+        name: '🚀 Speed Converters',
+        id: 'speed',
+        tools: [
             { name: 'MPH to KPH', desc: 'Miles per hour to kilometers per hour', url: 'convert-mph-to-kph.html' },
             { name: 'KPH to MPH', desc: 'Kilometers per hour to miles per hour', url: 'convert-kph-to-mph.html' },
             { name: 'MPH to Knots', desc: 'Miles per hour to knots', url: 'convert-mph-to-knots.html' },

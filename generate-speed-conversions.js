@@ -15,20 +15,20 @@ const conversions = [
   { from: 'kph', to: 'mps', name: 'Kilometers per Hour to Meters per Second', fromUnit: 'km/h', toUnit: 'm/s', factor: 0.277778 },
   { from: 'kph', to: 'knots', name: 'Kilometers per Hour to Knots', fromUnit: 'km/h', toUnit: 'knots', factor: 0.539957 },
   
-  // Meters per second conversions
-  { from: 'mps', to: 'mph', name: 'Meters per Second to Miles per Hour', fromUnit: 'm/s', toUnit: 'mph', factor: 2.23694 },
-  { from: 'mps', to: 'kph', name: 'Meters per Second to Kilometers per Hour', fromUnit: 'm/s', toUnit: 'km/h', factor: 3.6 },
-  { from: 'mps', to: 'knots', name: 'Meters per Second to Knots', fromUnit: 'm/s', toUnit: 'knots', factor: 1.94384 },
-  
   // Knots conversions
   { from: 'knots', to: 'mph', name: 'Knots to Miles per Hour', fromUnit: 'knots', toUnit: 'mph', factor: 1.15078 },
   { from: 'knots', to: 'kph', name: 'Knots to Kilometers per Hour', fromUnit: 'knots', toUnit: 'km/h', factor: 1.852 },
   { from: 'knots', to: 'mps', name: 'Knots to Meters per Second', fromUnit: 'knots', toUnit: 'm/s', factor: 0.514444 },
   
-  // Feet per second
-  { from: 'fps', to: 'mph', name: 'Feet per Second to Miles per Hour', fromUnit: 'ft/s', toUnit: 'mph', factor: 0.681818 },
-  { from: 'fps', to: 'mps', name: 'Feet per Second to Meters per Second', fromUnit: 'ft/s', toUnit: 'm/s', factor: 0.3048 },
-  { from: 'mph', to: 'fps', name: 'Miles per Hour to Feet per Second', fromUnit: 'mph', toUnit: 'ft/s', factor: 1.46667 },
+  // Meters per second
+  { from: 'mps', to: 'mph', name: 'Meters per Second to Miles per Hour', fromUnit: 'm/s', toUnit: 'mph', factor: 2.23694 },
+  { from: 'mps', to: 'kph', name: 'Meters per Second to Kilometers per Hour', fromUnit: 'm/s', toUnit: 'km/h', factor: 3.6 },
+  { from: 'mps', to: 'knots', name: 'Meters per Second to Knots', fromUnit: 'm/s', toUnit: 'knots', factor: 1.94384 },
+  
+  // Speed of light / Mach (for fun/completeness)
+  { from: 'mach', to: 'mph', name: 'Mach to Miles per Hour', fromUnit: 'Mach', toUnit: 'mph', factor: 767.269 },
+  { from: 'mach', to: 'kph', name: 'Mach to Kilometers per Hour', fromUnit: 'Mach', toUnit: 'km/h', factor: 1234.8 },
+  { from: 'mph', to: 'mach', name: 'Miles per Hour to Mach', fromUnit: 'mph', toUnit: 'Mach', factor: 0.00130332 },
 ];
 
 function generatePage(conv) {
@@ -40,7 +40,7 @@ function generatePage(conv) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${conv.name} Converter - Free Speed Conversion Tool | ToolPulse</title>
-    <meta name="description" content="Convert ${conv.fromUnit} to ${conv.toUnit} instantly. Free ${conv.name.toLowerCase()} converter for travel, sports, and vehicle speeds. Accurate results.">
+    <meta name="description" content="Convert ${conv.fromUnit} to ${conv.toUnit} instantly. Free ${conv.name.toLowerCase()} converter. Accurate speed conversions for travel, vehicles, and navigation.">
     <link rel="canonical" href="https://alexchalu.github.io/toolpulse/${slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,7 +79,7 @@ function generatePage(conv) {
     <div class="header">
         <div class="container">
             <h1>${conv.name} Converter</h1>
-            <p>Free online ${conv.fromUnit} to ${conv.toUnit} speed converter</p>
+            <p>Free online ${conv.fromUnit} to ${conv.toUnit} converter for speed calculations</p>
         </div>
     </div>
 
@@ -111,10 +111,10 @@ function generatePage(conv) {
             <h3>About ${conv.name} Conversion</h3>
             <p>This free online converter helps you quickly convert ${conv.fromUnit} to ${conv.toUnit}. Perfect for:</p>
             <ul>
-                <li>Travel and transportation planning</li>
-                <li>Sports performance tracking</li>
-                <li>Vehicle speedometer readings</li>
-                <li>Weather and wind speed calculations</li>
+                <li>Travel planning and navigation</li>
+                <li>Vehicle speedometer conversions</li>
+                <li>Aviation and maritime calculations</li>
+                <li>Sports and racing</li>
             </ul>
             
             <h3>Quick Reference Table</h3>
@@ -176,7 +176,7 @@ function generatePage(conv) {
         });
         
         // Generate reference table
-        const referenceValues = [1, 5, 10, 20, 30, 50, 60, 100];
+        const referenceValues = [10, 20, 30, 50, 60, 100, 200, 500];
         referenceValues.forEach(val => {
             const row = document.createElement('tr');
             const result = convert(val);
@@ -199,4 +199,3 @@ conversions.forEach(conv => {
 });
 
 console.log(`\n✅ Generated ${count} speed conversion pages`);
-console.log('📝 Next: Update sitemap.xml and rebuild-index.js');
