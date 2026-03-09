@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annuity Calculator - Free Annuity Tool | ToolPulse</title>
+    <meta name="description" content="Calculate annuity payments and compare immediate vs deferred annuities.. Free annuity calculator with instant results.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/annuity-calculator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calc-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calc-box h2 { margin-bottom: 1.5rem; color: #667eea; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input, .input-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #667eea; }
+        .calc-btn { background: #667eea; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.3s; }
+        .calc-btn:hover { background: #5568d3; }
+        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .result-box h3 { color: #667eea; margin-bottom: 1rem; }
+        .result-value { font-size: 1.8rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
+        .result-detail { margin: 0.5rem 0; color: #555; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
+        .info-section p { margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Annuity Calculator</h1>
+            <p>Calculate annuity payments and compare immediate vs deferred annuities.</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calc-box">
+            <h2>Annuity Calculator</h2>
+            
+        <div class="input-group">
+          <label for="principal">Principal Amount ($):</label>
+          <input type="number" id="principal"  min="0"   value="250000">
+        </div>
+
+        <div class="input-group">
+          <label for="age">Your Age:</label>
+          <input type="number" id="age"  min="40" max="90"  value="65">
+        </div>
+
+        <div class="input-group">
+          <label for="annuity-type">Annuity Type:</label>
+          <select id="annuity-type">
+            <option value="Immediate">Immediate</option>
+<option value="Deferred (5 years)">Deferred (5 years)</option>
+<option value="Deferred (10 years)">Deferred (10 years)</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="payment-period">Payment Period:</label>
+          <select id="payment-period">
+            <option value="Life Only">Life Only</option>
+<option value="Life + 10 Years Certain">Life + 10 Years Certain</option>
+<option value="Life + 20 Years Certain">Life + 20 Years Certain</option>
+<option value="Joint Life">Joint Life</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="rate">Payout Rate (%):</label>
+          <input type="number" id="rate"  min="0" max="10" step="0.1" value="5">
+        </div>
+            <button class="calc-btn" onclick="calculate()">Calculate</button>
+            <div class="result-box" id="result"></div>
+        </div>
+
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About Annuity</h3>
+            <p>Use this annuity calculator to plan your retirement. All calculations are estimates for informational purposes.</p>
+            <h3>More Retirement & Financial Tools</h3>
+            <ul>
+                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+            </ul>
+        </div>
+
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p><a href="index.html">Home</a></p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const resultBox = document.getElementById('result');
+            let html = '<h3>Results</h3>';
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            const principal = parseFloat(document.getElementById('principal').value);
+            const age = parseInt(document.getElementById('age').value);
+            const rate = parseFloat(document.getElementById('rate').value) / 100;
+            
+            const monthlyPayment = (principal * rate) / 12;
+            const annualPayment = monthlyPayment * 12;
+            const lifetimePayments = annualPayment * (90 - age);
+            
+            html += '<div class="result-value">Monthly Payment: $' + monthlyPayment.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Annual Payment: $' + annualPayment.toFixed(2) + '</div>';
+            html += '<div class="result-detail">Estimated Lifetime Payments: $' + lifetimePayments.toLocaleString() + '</div>';
+            html += '<div class="result-detail">Principal: $' + principal.toLocaleString() + '</div>';
+            
+            
+            
+            
+            resultBox.innerHTML = html;
+            resultBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

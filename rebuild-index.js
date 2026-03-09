@@ -46,6 +46,18 @@ const categories = [
         ]
     },
     {
+        name: '🏖️ Retirement Planning',
+        id: 'retirement',
+        tools: [
+            { name: 'Early Retirement (FIRE)', desc: 'When can you retire early?', url: 'early-retirement-calculator.html' },
+            { name: 'Social Security', desc: 'Estimate SS benefits', url: 'social-security-calculator.html' },
+            { name: 'Pension Calculator', desc: 'Calculate pension benefits', url: 'pension-calculator.html' },
+            { name: 'RMD Calculator', desc: 'Required minimum distributions', url: 'required-minimum-distribution-calculator.html' },
+            { name: 'Annuity Calculator', desc: 'Annuity payment estimator', url: 'annuity-calculator.html' },
+            { name: 'Retirement Withdrawal', desc: 'Safe withdrawal rates', url: 'retirement-withdrawal-calculator.html' },
+        ]
+    },
+    {
         name: '🗽 State Tax Calculators',
         id: 'state-tax',
         tools: [

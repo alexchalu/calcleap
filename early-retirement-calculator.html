@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Retirement Calculator - Free Early Retirement Tool | ToolPulse</title>
+    <meta name="description" content="Calculate when you can retire early using the FIRE method (Financial Independence, Retire Early).. Free early retirement calculator with instant results.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/early-retirement-calculator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calc-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calc-box h2 { margin-bottom: 1.5rem; color: #667eea; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input, .input-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #667eea; }
+        .calc-btn { background: #667eea; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.3s; }
+        .calc-btn:hover { background: #5568d3; }
+        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .result-box h3 { color: #667eea; margin-bottom: 1rem; }
+        .result-value { font-size: 1.8rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
+        .result-detail { margin: 0.5rem 0; color: #555; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
+        .info-section p { margin-bottom: 1rem; }
+        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section ul li { margin-bottom: 0.5rem; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Early Retirement Calculator</h1>
+            <p>Calculate when you can retire early using the FIRE method (Financial Independence, Retire Early).</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calc-box">
+            <h2>Early Retirement Calculator</h2>
+            
+        <div class="input-group">
+          <label for="current-age">Current Age:</label>
+          <input type="number" id="current-age"  min="18" max="100"  value="30">
+        </div>
+
+        <div class="input-group">
+          <label for="current-savings">Current Savings ($):</label>
+          <input type="number" id="current-savings"  min="0"   value="50000">
+        </div>
+
+        <div class="input-group">
+          <label for="annual-income">Annual Income ($):</label>
+          <input type="number" id="annual-income"  min="0"   value="75000">
+        </div>
+
+        <div class="input-group">
+          <label for="annual-expenses">Annual Expenses ($):</label>
+          <input type="number" id="annual-expenses"  min="0"   value="40000">
+        </div>
+
+        <div class="input-group">
+          <label for="savings-rate">Monthly Savings ($):</label>
+          <input type="number" id="savings-rate"  min="0"   value="2000">
+        </div>
+
+        <div class="input-group">
+          <label for="return-rate">Expected Return (%):</label>
+          <input type="number" id="return-rate"  min="0" max="20" step="0.1" value="7">
+        </div>
+            <button class="calc-btn" onclick="calculate()">Calculate</button>
+            <div class="result-box" id="result"></div>
+        </div>
+
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About Early Retirement</h3>
+            <p>Use this early retirement calculator to plan your retirement. All calculations are estimates for informational purposes.</p>
+            <h3>More Retirement & Financial Tools</h3>
+            <ul>
+                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+            </ul>
+        </div>
+
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p><a href="index.html">Home</a></p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const resultBox = document.getElementById('result');
+            let html = '<h3>Results</h3>';
+            
+            
+            const currentAge = parseInt(document.getElementById('current-age').value);
+            const currentSavings = parseFloat(document.getElementById('current-savings').value);
+            const annualExpenses = parseFloat(document.getElementById('annual-expenses').value);
+            const monthlySavings = parseFloat(document.getElementById('savings-rate').value);
+            const returnRate = parseFloat(document.getElementById('return-rate').value) / 100;
+            
+            const targetAmount = annualExpenses * 25; // 4% rule
+            const annualSavings = monthlySavings * 12;
+            const monthlyReturn = returnRate / 12;
+            
+            let balance = currentSavings;
+            let years = 0;
+            while (balance < targetAmount && years < 50) {
+                balance = balance * (1 + returnRate) + annualSavings;
+                years++;
+            }
+            
+            const retirementAge = currentAge + years;
+            
+            html += '<div class="result-value">Retire at Age: ' + retirementAge + '</div>';
+            html += '<div class="result-detail">Years Until Retirement: ' + years + '</div>';
+            html += '<div class="result-detail">Target Amount: $' + targetAmount.toLocaleString() + '</div>';
+            html += '<div class="result-detail">Projected Balance: $' + balance.toFixed(0).toLocaleString() + '</div>';
+            html += '<div class="result-detail">Annual Expenses: $' + annualExpenses.toLocaleString() + '</div>';
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            resultBox.innerHTML = html;
+            resultBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -37,6 +37,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/annuity-calculator.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/arizona-income-tax-calculator.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3493,6 +3499,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/early-retirement-calculator.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/earthquake-insurance-calculator.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3907,6 +3919,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/pension-calculator.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/percentage-calculator.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3955,6 +3973,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alexchalu.github.io/toolpulse/required-minimum-distribution-calculator.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/retirement-withdrawal-calculator.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alexchalu.github.io/toolpulse/revenue-per-employee-calculator.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3986,6 +4016,12 @@
   </url>
   <url>
     <loc>https://alexchalu.github.io/toolpulse/sales-tax.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alexchalu.github.io/toolpulse/social-security-calculator.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
