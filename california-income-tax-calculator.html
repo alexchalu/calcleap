@@ -354,6 +354,19 @@ canvas{max-width:100%;margin:1rem 0}
             document.getElementById('ss-tax').textContent = '-$' + Math.round(ssTax).toLocaleString();
             document.getElementById('medicare-tax').textContent = '-$' + Math.round(medicareTax).toLocaleString();
             document.getElementById('net-pay').textContent = '$' + Math.round(takeHome).toLocaleString();
+
+            // Bar chart breakdown
+            const maxVal = Math.max(federalTax, stateTax, ssTax, medicareTax, takeHome) || 1;
+            const chartDiv = document.getElementById('tax-chart');
+            if (income > 0) {
+                chartDiv.innerHTML = '<div style="margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Tax Breakdown</h3>'
+                + '<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">Federal Tax</span><span style="font-weight:600">$' + Math.round(federalTax).toLocaleString() + '</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:' + (federalTax/maxVal*100).toFixed(1) + '%;height:100%;background:#0071e3;border-radius:6px;transition:width .5s ease"></div></div></div>'
+                + '<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">CA State Tax</span><span style="font-weight:600">$' + Math.round(stateTax).toLocaleString() + '</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:' + (stateTax/maxVal*100).toFixed(1) + '%;height:100%;background:#34c759;border-radius:6px;transition:width .5s ease"></div></div></div>'
+                + '<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">Social Security</span><span style="font-weight:600">$' + Math.round(ssTax).toLocaleString() + '</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:' + (ssTax/maxVal*100).toFixed(1) + '%;height:100%;background:#ff9500;border-radius:6px;transition:width .5s ease"></div></div></div>'
+                + '<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">Medicare</span><span style="font-weight:600">$' + Math.round(medicareTax).toLocaleString() + '</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:' + (medicareTax/maxVal*100).toFixed(1) + '%;height:100%;background:#af52de;border-radius:6px;transition:width .5s ease"></div></div></div>'
+                + '<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">Take-Home Pay</span><span style="font-weight:600">$' + Math.round(takeHome).toLocaleString() + '</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:' + (takeHome/maxVal*100).toFixed(1) + '%;height:100%;background:#30d158;border-radius:6px;transition:width .5s ease"></div></div></div>'
+                + '</div>';
+            } else { chartDiv.innerHTML = ''; }
         }
 
         incomeEl.addEventListener('input', calculateTaxes);
@@ -362,5 +375,6 @@ canvas{max-width:100%;margin:1rem 0}
         // Initial calculation
         calculateTaxes();
     </script>
+<div id="tax-chart"></div>
 </body>
 </html>

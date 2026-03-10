@@ -298,6 +298,16 @@ canvas{max-width:100%;margin:1rem 0}
             
             
             
+            // Bar chart
+            const totalFees = buyFees + sellFees;
+            const maxVal = Math.max(totalCost, netProceeds, Math.abs(profit), totalFees) || 1;
+            html += '<div style="margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Investment Breakdown</h3>'
+            + '<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">Total Cost</span><span style="font-weight:600">$' + totalCost.toFixed(2) + '</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:' + (totalCost/maxVal*100).toFixed(1) + '%;height:100%;background:#0071e3;border-radius:6px;transition:width .5s ease"></div></div></div>'
+            + '<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">Net Proceeds</span><span style="font-weight:600">$' + netProceeds.toFixed(2) + '</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:' + (netProceeds/maxVal*100).toFixed(1) + '%;height:100%;background:#34c759;border-radius:6px;transition:width .5s ease"></div></div></div>'
+            + '<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">' + (profit >= 0 ? 'Profit' : 'Loss') + '</span><span style="font-weight:600;color:' + (profit >= 0 ? '#34c759' : '#ff3b30') + '">$' + profit.toFixed(2) + '</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:' + (Math.abs(profit)/maxVal*100).toFixed(1) + '%;height:100%;background:' + (profit >= 0 ? '#30d158' : '#ff3b30') + ';border-radius:6px;transition:width .5s ease"></div></div></div>'
+            + '<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">Total Fees</span><span style="font-weight:600">$' + totalFees.toFixed(2) + '</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:' + (totalFees/maxVal*100).toFixed(1) + '%;height:100%;background:#ff9500;border-radius:6px;transition:width .5s ease"></div></div></div>'
+            + '</div>';
+
             resultBox.innerHTML = html;
             resultBox.style.display = 'block';
         }
