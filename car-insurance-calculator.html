@@ -424,7 +424,33 @@ function calculateInsurance() {
         </p>
     `;
 
-    document.getElementById('result-content').innerHTML = resultContent;
+    // Premium factors bar chart
+    const premFactors = [
+        { label: 'Base Premium', value: 800 },
+        { label: 'Age Factor', value: Math.round(annualPremium * 0.25) },
+        { label: 'Vehicle Value', value: Math.round(annualPremium * 0.20) },
+        { label: 'Coverage Level', value: Math.round(annualPremium * 0.20) },
+        { label: 'Driving Record', value: Math.round(annualPremium * 0.15) },
+        { label: 'Location', value: Math.round(annualPremium * 0.10) },
+        { label: 'Mileage', value: Math.round(annualPremium * 0.10) }
+    ];
+    const maxPF = Math.max(...premFactors.map(f => f.value), 1);
+    const pfColors = ['#0071e3','#34c759','#ff9500','#af52de','#ff3b30','#5ac8fa','#ffcc00'];
+    let pfChart = '<div style="margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Premium Factors</h3>';
+    premFactors.forEach((f, i) => {
+        const pct = Math.round((f.value / maxPF) * 100);
+        pfChart += '<div style="margin-bottom:.75rem">';
+        pfChart += '<div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem">';
+        pfChart += '<span style="color:#6e6e73">' + f.label + '</span>';
+        pfChart += '<span style="font-weight:600">$' + f.value.toLocaleString() + '</span>';
+        pfChart += '</div>';
+        pfChart += '<div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden">';
+        pfChart += '<div style="width:' + pct + '%;height:100%;background:' + pfColors[i] + ';border-radius:6px;transition:width .5s ease"></div>';
+        pfChart += '</div></div>';
+    });
+    pfChart += '</div>';
+
+    document.getElementById('result-content').innerHTML = resultContent + pfChart;
     document.getElementById('result').style.display = 'block';
     document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

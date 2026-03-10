@@ -227,7 +227,7 @@ canvas{max-width:100%;margin:1rem 0}
             <a href="home-insurance-calculator.html" class="related-link">🏡 Home Insurance</a>
             <a href="business-insurance-calculator.html" class="related-link">🏢 Business Insurance</a>
             <a href="umbrella-insurance-calculator.html" class="related-link">☂️ Umbrella Insurance</a>
-            <a href="long-term-care-calculator.html" class="related-link">🏥 Long-Term Care</a>
+            <a href="long-term-care-insurance-calculator.html" class="related-link">🏥 Long-Term Care</a>
             <a href="travel-insurance-calculator.html" class="related-link">✈️ Travel Insurance</a>
             <a href="renters-insurance-calculator.html" class="related-link">🏠 Renters Insurance</a>
         </div>
@@ -312,6 +312,31 @@ function calculateInsurance() {
         html += '<div style="font-size:.85rem;color:#6ee7b7;margin-top:.25rem">You have ' + fmt(existingCoverage - totalNeeded) + ' in excess coverage</div>';
         html += '</div>';
     }
+
+    // Bar chart breakdown
+    const components = [
+        { label: 'Income Replacement', value: incomeReplacement },
+        { label: 'Mortgage Balance', value: mortgageBalance },
+        { label: 'Outstanding Debts', value: outstandingDebts },
+        { label: 'Education Fund', value: educationFund },
+        { label: 'Funeral & Final Expenses', value: funeralCosts }
+    ];
+    const maxComp = Math.max(...components.map(c => c.value), 1);
+    const barColors = ['#0071e3','#34c759','#ff9500','#af52de','#ff3b30'];
+    let chartHtml = '<div style="margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Coverage Breakdown</h3>';
+    components.forEach((c, i) => {
+        const pct = Math.round((c.value / maxComp) * 100);
+        chartHtml += '<div style="margin-bottom:.75rem">';
+        chartHtml += '<div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem">';
+        chartHtml += '<span style="color:#6e6e73">' + c.label + '</span>';
+        chartHtml += '<span style="font-weight:600">' + fmt(c.value) + '</span>';
+        chartHtml += '</div>';
+        chartHtml += '<div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden">';
+        chartHtml += '<div style="width:' + pct + '%;height:100%;background:' + barColors[i] + ';border-radius:6px;transition:width .5s ease"></div>';
+        chartHtml += '</div></div>';
+    });
+    chartHtml += '</div>';
+    html += chartHtml;
 
     const resultBox = document.getElementById('result');
     resultBox.innerHTML = html;

@@ -289,6 +289,33 @@ function calc(){
 
   $('out').innerHTML='<div class="stat"><div class="val">$'+fmt(monthlyPremium,0)+'</div><div class="lbl">Monthly Premium</div></div><div class="stat"><div class="val">$'+fmt(annualPremium,0)+'</div><div class="lbl">Annual Premium</div></div><div class="stat"><div class="val">'+fmt(coverageRatio,0)+'%</div><div class="lbl">Coverage Ratio</div></div><div class="stat"><div class="val">$'+fmt(deductible,0)+'</div><div class="lbl">Your Deductible</div></div><div class="stat"><div class="val">$'+fmt(coverage,0)+'</div><div class="lbl">Coverage Amount</div></div><div class="stat"><div class="val">'+fmt(annualPremium/coverage*100,2)+'%</div><div class="lbl">Rate</div></div>';
 
+  // Coverage breakdown bar chart
+  var personalProperty=Math.round(coverage*0.5);
+  var liability=Math.round(coverage*0.25);
+  var dwelling=coverage;
+  var homeBarItems=[
+    {label:'Dwelling Coverage',value:dwelling,color:'#0071e3'},
+    {label:'Personal Property (est. 50%)',value:personalProperty,color:'#34c759'},
+    {label:'Liability (est. 25%)',value:liability,color:'#ff9500'},
+    {label:'Deductible',value:deductible,color:'#af52de'}
+  ];
+  var homeMaxBar=Math.max(dwelling,1);
+  var homeChart='<div style="margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Coverage Breakdown</h3>';
+  for(var hi=0;hi<homeBarItems.length;hi++){
+    var hb=homeBarItems[hi];
+    var hPct=Math.round((hb.value/homeMaxBar)*100);
+    homeChart+='<div style="margin-bottom:.75rem">';
+    homeChart+='<div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem">';
+    homeChart+='<span style="color:#6e6e73">'+hb.label+'</span>';
+    homeChart+='<span style="font-weight:600">$'+fmt(hb.value,0)+'</span>';
+    homeChart+='</div>';
+    homeChart+='<div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden">';
+    homeChart+='<div style="width:'+hPct+'%;height:100%;background:'+hb.color+';border-radius:6px;transition:width .5s ease"></div>';
+    homeChart+='</div></div>';
+  }
+  homeChart+='</div>';
+  $('out').innerHTML+= homeChart;
+
   let riskHTML='<div class="risk-factors"><h3>📊 Risk Factor Breakdown</h3>';
   for(const f of factors){riskHTML+='<div class="risk-item"><span class="label2">'+f.label+'</span><span class="impact '+f.cls+'">'+f.impact+'</span></div>'}
   riskHTML+='</div>';

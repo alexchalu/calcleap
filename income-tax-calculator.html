@@ -209,13 +209,13 @@ canvas{max-width:100%;margin:1rem 0}
     <div class="section">
         <h3>Related Tax & Finance Tools</h3>
         <div class="related-grid">
-            <a href="capital-gains-tax-calculator.html" class="related-link">📈 Capital Gains Tax</a>
-            <a href="california-tax-calculator.html" class="related-link">🌴 California State Tax</a>
-            <a href="new-york-tax-calculator.html" class="related-link">🗽 New York State Tax</a>
-            <a href="texas-tax-calculator.html" class="related-link">⛶ Texas Tax Info</a>
-            <a href="florida-tax-calculator.html" class="related-link">🌊 Florida Tax Info</a>
-            <a href="paycheck-calculator.html" class="related-link">💵 Paycheck Calculator</a>
-            <a href="quarterly-tax-calculator.html" class="related-link">📅 Quarterly Tax</a>
+            <a href="calc/capital-gains-tax-calculator.html" class="related-link">📈 Capital Gains Tax</a>
+            <a href="california-tax.html" class="related-link">🌴 California State Tax</a>
+            <a href="new-york-tax.html" class="related-link">🗽 New York State Tax</a>
+            <a href="texas-tax.html" class="related-link">⛶ Texas Tax Info</a>
+            <a href="florida-tax.html" class="related-link">🌊 Florida Tax Info</a>
+            <a href="calc/paycheck-calculator.html" class="related-link">💵 Paycheck Calculator</a>
+            <a href="quarterly-tax.html" class="related-link">📅 Quarterly Tax</a>
             <a href="mortgage-refinance-calculator.html" class="related-link">🏠 Mortgage Refinance</a>
         </div>
     </div>
@@ -344,6 +344,44 @@ function calculateTax() {
         html += '<tr class="' + (b.active ? 'active' : '') + '"><td>' + rangeStr + '</td><td>' + (b.rate * 100) + '%</td><td>' + fmt(b.taxed) + '</td><td>' + fmt(b.tax) + '</td></tr>';
     }
     html += '</tbody></table></div>';
+
+    // Tax bracket visualization bars
+    const activeBrackets = bracketDetails.filter(b => b.active);
+    const maxBracketTax = Math.max(...activeBrackets.map(b => b.tax), 1);
+    const bracketColors = ['#34c759','#0071e3','#5ac8fa','#ff9500','#af52de','#ff3b30','#ff2d55'];
+    let bracketChart = '<div style="margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Tax by Bracket</h3>';
+    activeBrackets.forEach((b, i) => {
+        const pct = Math.round((b.tax / maxBracketTax) * 100);
+        bracketChart += '<div style="margin-bottom:.75rem">';
+        bracketChart += '<div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem">';
+        bracketChart += '<span style="color:#6e6e73">' + (b.rate * 100) + '% Bracket</span>';
+        bracketChart += '<span style="font-weight:600">' + fmt(b.tax) + '</span>';
+        bracketChart += '</div>';
+        bracketChart += '<div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden">';
+        bracketChart += '<div style="width:' + pct + '%;height:100%;background:' + bracketColors[i % bracketColors.length] + ';border-radius:6px;transition:width .5s ease"></div>';
+        bracketChart += '</div></div>';
+    });
+    // Income split: tax vs take-home
+    bracketChart += '<div style="margin-top:1.25rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Income Split</h3>';
+    const incomeItems = [
+        { label: 'Take-Home Pay', value: takeHome, color: '#34c759' },
+        { label: 'Federal Tax', value: tax, color: '#ff3b30' },
+        { label: 'Deduction', value: deduction, color: '#0071e3' }
+    ];
+    const maxInc = Math.max(...incomeItems.map(x => x.value), 1);
+    incomeItems.forEach(x => {
+        const pct = Math.round((x.value / maxInc) * 100);
+        bracketChart += '<div style="margin-bottom:.75rem">';
+        bracketChart += '<div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem">';
+        bracketChart += '<span style="color:#6e6e73">' + x.label + '</span>';
+        bracketChart += '<span style="font-weight:600">' + fmt(x.value) + '</span>';
+        bracketChart += '</div>';
+        bracketChart += '<div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden">';
+        bracketChart += '<div style="width:' + pct + '%;height:100%;background:' + x.color + ';border-radius:6px;transition:width .5s ease"></div>';
+        bracketChart += '</div></div>';
+    });
+    bracketChart += '</div></div>';
+    html += bracketChart;
 
     const resultBox = document.getElementById('result');
     resultBox.innerHTML = html;

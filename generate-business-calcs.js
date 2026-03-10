@@ -393,7 +393,7 @@ function generateJS(calc) {
       const assetValue = (revenue * 0.5) + (profit * 3);
       const average = (revenueValue + earningsValue + assetValue) / 3;
       
-      return [
+      const _results = [
         { label: 'Revenue Multiple Method', value: '$' + revenueValue.toLocaleString() },
         { label: 'Earnings Multiple Method', value: '$' + earningsValue.toLocaleString() },
         { label: 'Asset-Based Method', value: '$' + assetValue.toLocaleString() },
@@ -413,7 +413,7 @@ function generateJS(calc) {
       const units = Math.ceil(fixed / contribution);
       const revenue = units * price;
       
-      return [
+      const _results = [
         { label: 'Break-Even Units', value: units.toLocaleString() + ' units/month' },
         { label: 'Break-Even Revenue', value: '$' + revenue.toLocaleString() + '/month' },
         { label: 'Contribution Margin', value: '$' + contribution.toFixed(2) + ' per unit' },
@@ -431,7 +431,7 @@ function generateJS(calc) {
       const total = onetime + operating;
       const cushion = total * 1.2;
       
-      return [
+      const _results = [
         { label: 'One-Time Startup Costs', value: '$' + onetime.toLocaleString() },
         { label: 'Operating Costs (' + months + ' months)', value: '$' + operating.toLocaleString() },
         { label: 'Total Startup Cost', value: '$' + total.toLocaleString() },
@@ -450,7 +450,7 @@ function generateJS(calc) {
       const endBalance = balance + monthly;
       const runway = balance / expenses;
       
-      return [
+      const _results = [
         { label: 'Monthly Cash Flow', value: '$' + monthly.toLocaleString() + (monthly >= 0 ? ' (Positive)' : ' (Negative)') },
         { label: 'Annual Cash Flow', value: '$' + annual.toLocaleString() },
         { label: 'Ending Cash Balance', value: '$' + endBalance.toLocaleString() },
@@ -468,7 +468,7 @@ function generateJS(calc) {
       const state = payroll * (stateRate - 0.062);
       const total = fica + futa + state;
       
-      return [
+      const _results = [
         { label: 'FICA (Social Security + Medicare)', value: '$' + fica.toLocaleString() },
         { label: 'FUTA (Federal Unemployment)', value: '$' + futa.toLocaleString() },
         { label: 'State Taxes (estimate)', value: '$' + state.toLocaleString() },
@@ -488,7 +488,7 @@ function generateJS(calc) {
       const total = payment * months;
       const interest = total - amount;
       
-      return [
+      const _results = [
         { label: 'Monthly Payment', value: '$' + payment.toFixed(2) },
         { label: 'Total Paid', value: '$' + total.toLocaleString() },
         { label: 'Total Interest', value: '$' + interest.toLocaleString() },
@@ -508,7 +508,7 @@ function generateJS(calc) {
       if (turnover > 4) health = 'Good';
       if (turnover > 8) health = 'Excellent';
       
-      return [
+      const _results = [
         { label: 'Inventory Turnover Ratio', value: turnover.toFixed(2) + 'x per year' },
         { label: 'Days to Sell Inventory', value: days.toFixed(0) + ' days' },
         { label: 'Health Assessment', value: health },
@@ -526,7 +526,7 @@ function generateJS(calc) {
       const daily = hourly * 8;
       const monthly = income / 12;
       
-      return [
+      const _results = [
         { label: 'Minimum Hourly Rate', value: '$' + hourly.toFixed(2) },
         { label: 'Daily Rate (8 hours)', value: '$' + daily.toFixed(2) },
         { label: 'Monthly Income Goal', value: '$' + monthly.toLocaleString() },
@@ -543,7 +543,7 @@ function generateJS(calc) {
       const annual = purchase * frequency;
       const clv = annual * lifespan;
       
-      return [
+      const _results = [
         { label: 'Annual Value per Customer', value: '$' + annual.toFixed(2) },
         { label: 'Customer Lifetime Value (CLV)', value: '$' + clv.toFixed(2) },
         { label: 'Max Acquisition Cost (33% rule)', value: '$' + (clv * 0.33).toFixed(2) },
@@ -562,7 +562,7 @@ function generateJS(calc) {
       if (rate > 5) benchmark = 'Good';
       if (rate > 10) benchmark = 'Excellent';
       
-      return [
+      const _results = [
         { label: 'Conversion Rate', value: rate.toFixed(2) + '%' },
         { label: 'Visitors Needed for 1 Conversion', value: Math.ceil(1 / (conversions / visitors)) },
         { label: 'Performance', value: benchmark },
@@ -577,7 +577,7 @@ function generateJS(calc) {
       const profit = revenue - cogs;
       const margin = (profit / revenue) * 100;
       
-      return [
+      const _results = [
         { label: 'Gross Profit', value: '$' + profit.toLocaleString() },
         { label: 'Gross Profit Margin', value: margin.toFixed(2) + '%' },
         { label: 'Cost Ratio', value: ((cogs / revenue) * 100).toFixed(2) + '%' },
@@ -596,7 +596,7 @@ function generateJS(calc) {
       if (perEmployee > 250000) benchmark = 'Good';
       if (perEmployee > 500000) benchmark = 'Excellent';
       
-      return [
+      const _results = [
         { label: 'Revenue per Employee', value: '$' + perEmployee.toLocaleString() },
         { label: 'Monthly Revenue per Employee', value: '$' + (perEmployee / 12).toLocaleString() },
         { label: 'Productivity Benchmark', value: benchmark },

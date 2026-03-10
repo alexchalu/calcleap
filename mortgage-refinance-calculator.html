@@ -216,14 +216,14 @@ canvas{max-width:100%;margin:1rem 0}
     <div class="section">
         <h3>Related Financial Tools</h3>
         <div class="related-grid">
-            <a href="compound-interest-calculator.html" class="related-link">📈 Compound Interest</a>
-            <a href="retirement-calculator.html" class="related-link">🏖️ Retirement Calculator</a>
+            <a href="invest/compound-interest-calculator.html" class="related-link">📈 Compound Interest</a>
+            <a href="calc/retirement-calculator.html" class="related-link">🏖️ Retirement Calculator</a>
             <a href="home-insurance-calculator.html" class="related-link">🏡 Home Insurance</a>
             <a href="heloc-payment-calculator.html" class="related-link">🏦 HELOC Payment</a>
-            <a href="mortgage-payment-calculator.html" class="related-link">💳 Mortgage Payment</a>
-            <a href="rent-vs-buy-calculator.html" class="related-link">🔑 Rent vs Buy</a>
+            <a href="calc/mortgage-payment.html" class="related-link">💳 Mortgage Payment</a>
+            <a href="calc/rent-vs-buy.html" class="related-link">🔑 Rent vs Buy</a>
             <a href="debt-consolidation-calculator.html" class="related-link">💰 Debt Consolidation</a>
-            <a href="401k-calculator.html" class="related-link">📊 401k Calculator</a>
+            <a href="invest/401k-calculator.html" class="related-link">📊 401k Calculator</a>
         </div>
     </div>
 
@@ -300,6 +300,33 @@ function calculate() {
         html += '<div class="result-detail" style="color:#f87171;font-weight:700;font-size:1.1rem">❌ Refinancing would cost you more per month</div>';
     }
     html += '</div>';
+
+    // Old vs New comparison bar chart
+    const refiMax = Math.max(currentPayment, newPayment, 1);
+    const refiItems = [
+        { label: 'Current Monthly Payment', value: currentPayment, color: '#ff3b30' },
+        { label: 'New Monthly Payment', value: newPayment, color: '#34c759' },
+        { label: 'Monthly Savings', value: Math.abs(monthlySavings), color: '#0071e3' },
+        { label: 'Total Current Interest', value: totalCurrentInterest, color: '#ff9500' },
+        { label: 'Total New Interest', value: totalNewInterest, color: '#af52de' },
+        { label: 'Closing Costs', value: closingCosts, color: '#5ac8fa' }
+    ];
+    const refiBarMax = Math.max(...refiItems.map(r => r.value), 1);
+    let refiChart = '<div style="margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Payment Comparison</h3>';
+    refiItems.forEach(r => {
+        const pct = Math.round((r.value / refiBarMax) * 100);
+        const fmtVal = '$' + r.value.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        refiChart += '<div style="margin-bottom:.75rem">';
+        refiChart += '<div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem">';
+        refiChart += '<span style="color:#6e6e73">' + r.label + '</span>';
+        refiChart += '<span style="font-weight:600">' + fmtVal + '</span>';
+        refiChart += '</div>';
+        refiChart += '<div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden">';
+        refiChart += '<div style="width:' + pct + '%;height:100%;background:' + r.color + ';border-radius:6px;transition:width .5s ease"></div>';
+        refiChart += '</div></div>';
+    });
+    refiChart += '</div>';
+    html += refiChart;
 
     resultBox.innerHTML = html;
     resultBox.style.display = 'block';
