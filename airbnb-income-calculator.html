@@ -1,81 +1,11 @@
-#!/usr/bin/env node
-
-const fs = require('fs');
-const path = require('path');
-
-// High-CPC real estate calculators
-const calculators = [
-  {
-    slug: 'home-equity-loan-calculator',
-    title: 'Home Equity Loan Calculator',
-    desc: 'Calculate home equity loan payments, total interest, and how much you can borrow based on your home value.',
-    category: 'Home Equity'
-  },
-  {
-    slug: 'cash-out-refinance-calculator',
-    title: 'Cash-Out Refinance Calculator',
-    desc: 'Compare cash-out refinance vs home equity loan. Calculate new monthly payments and cash available.',
-    category: 'Refinance'
-  },
-  {
-    slug: 'rental-income-calculator',
-    title: 'Rental Income Calculator',
-    desc: 'Calculate rental property cash flow, ROI, and cap rate. Analyze investment property profitability.',
-    category: 'Real Estate Investment'
-  },
-  {
-    slug: 'house-flipping-calculator',
-    title: 'House Flipping Calculator',
-    desc: 'Calculate house flip profit potential including purchase, renovation, holding costs, and sale proceeds.',
-    category: 'Real Estate Investment'
-  },
-  {
-    slug: 'airbnb-income-calculator',
-    title: 'Airbnb Income Calculator',
-    desc: 'Estimate Airbnb rental income and profitability. Compare short-term vs long-term rental income.',
-    category: 'Vacation Rental'
-  },
-  {
-    slug: 'home-appreciation-calculator',
-    title: 'Home Appreciation Calculator',
-    desc: 'Calculate home value appreciation over time. Estimate future home equity and investment growth.',
-    category: 'Home Value'
-  },
-  {
-    slug: 'closing-cost-calculator',
-    title: 'Closing Cost Calculator',
-    desc: 'Estimate total closing costs when buying a home including fees, taxes, and insurance.',
-    category: 'Home Buying'
-  },
-  {
-    slug: 'fha-loan-calculator',
-    title: 'FHA Loan Calculator',
-    desc: 'Calculate FHA loan payments with mortgage insurance. See if you qualify for FHA financing.',
-    category: 'Mortgage'
-  },
-  {
-    slug: 'va-loan-calculator',
-    title: 'VA Loan Calculator',
-    desc: 'Calculate VA loan benefits for veterans. Compare VA loan vs conventional mortgage savings.',
-    category: 'VA Mortgage'
-  },
-  {
-    slug: 'jumbo-loan-calculator',
-    title: 'Jumbo Loan Calculator',
-    desc: 'Calculate jumbo mortgage payments for high-value properties above conforming loan limits.',
-    category: 'Jumbo Mortgage'
-  },
-];
-
-function generateHTML(calc) {
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${calc.title} - Free ${calc.category} Tool | CalcLeap</title>
-    <meta name="description" content="${calc.desc}. Free online calculator with visual charts and instant results.">
-    <link rel="canonical" href="https://calcleap.com/${calc.slug}.html">
+    <title>Airbnb Income Calculator - Free Vacation Rental Tool | CalcLeap</title>
+    <meta name="description" content="Estimate Airbnb rental income and profitability. Compare short-term vs long-term rental income.. Free online calculator with visual charts and instant results.">
+    <link rel="canonical" href="https://calcleap.com/airbnb-income-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
@@ -117,8 +47,8 @@ function generateHTML(calc) {
 <body>
     <div class="header">
         <div class="container">
-            <h1>${calc.title}</h1>
-            <p>${calc.desc}</p>
+            <h1>Airbnb Income Calculator</h1>
+            <p>Estimate Airbnb rental income and profitability. Compare short-term vs long-term rental income.</p>
         </div>
     </div>
 
@@ -127,7 +57,7 @@ function generateHTML(calc) {
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Calculate ${calc.category} Details</h2>
+            <h2>Calculate Vacation Rental Details</h2>
             <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your information below to see detailed calculations and visualizations.</p>
             <div class="input-group">
                 <label for="amount">Property Value / Loan Amount ($):</label>
@@ -159,10 +89,10 @@ function generateHTML(calc) {
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="info-section">
-            <h3>About ${calc.title}</h3>
-            <p>${calc.desc}</p>
-            <h3>Key Factors in ${calc.category}</h3>
-            <p>When evaluating ${calc.category.toLowerCase()} options, consider:</p>
+            <h3>About Airbnb Income Calculator</h3>
+            <p>Estimate Airbnb rental income and profitability. Compare short-term vs long-term rental income.</p>
+            <h3>Key Factors in Vacation Rental</h3>
+            <p>When evaluating vacation rental options, consider:</p>
             <ul>
                 <li>Current interest rates and market conditions</li>
                 <li>Your credit score and qualification requirements</li>
@@ -214,7 +144,7 @@ function generateHTML(calc) {
             const totalPaid = monthlyPayment * months;
             const totalInterest = totalPaid - loanAmount;
             
-            let html = '<h3>Your ${calc.category} Breakdown</h3>';
+            let html = '<h3>Your Vacation Rental Breakdown</h3>';
             html += '<div class="result-value">$' + monthlyPayment.toFixed(2).toLocaleString() + '/month</div>';
             html += '<div class="result-detail"><strong>Property Value:</strong> $' + amount.toLocaleString() + '</div>';
             html += '<div class="result-detail"><strong>Down Payment:</strong> $' + down.toLocaleString() + ' (' + ((down/amount)*100).toFixed(1) + '%)</div>';
@@ -242,17 +172,4 @@ function generateHTML(calc) {
         }
     </script>
 </body>
-</html>`;
-}
-
-let count = 0;
-calculators.forEach(calc => {
-  const html = generateHTML(calc);
-  fs.writeFileSync(path.join(__dirname, `${calc.slug}.html`), html);
-  count++;
-  console.log(`✓ Generated ${calc.slug}.html`);
-});
-
-console.log(`\n✅ Generated ${count} real estate calculators with Apple design + visual charts`);
-console.log('💰 High-CPC niche: real estate/mortgage ($15-60/click)');
-console.log('📝 Next: Update sitemap and push');
+</html>
