@@ -12,7 +12,7 @@ document.getElementById('calculator-form').innerHTML = `
         <label>Customer Lifespan (years)</label>
         <input type="number" id="lifespan" placeholder="5" step="0.5">
       </div>
-      <button class="btn" onclick="calculate()">Calculate CLV</button>`;
+      <button class="calc-btn" onclick="calculate()">Calculate CLV</button>`;
 
 function calculate() {
   
@@ -25,18 +25,16 @@ function calculate() {
       const annual = purchase * frequency;
       const clv = annual * lifespan;
       
-      return [
+      const _results = [
         { label: 'Annual Value per Customer', value: '$' + annual.toFixed(2) },
         { label: 'Customer Lifetime Value (CLV)', value: '$' + clv.toFixed(2) },
         { label: 'Max Acquisition Cost (33% rule)', value: '$' + (clv * 0.33).toFixed(2) },
       ];
-  
-  const resultBox = document.getElementById('result');
-  const resultContent = document.getElementById('result-content');
-  
-  resultContent.innerHTML = arguments[0].map(item => 
-    '<div class="result-item"><span class="result-label">' + item.label + '</span><span class="result-value">' + item.value + '</span></div>'
-  ).join('');
-  
-  resultBox.classList.add('show');
+
+  var resultBox = document.getElementById('result');
+  var resultContent = document.getElementById('result-content');
+  resultContent.innerHTML = _results.map(function(item) {
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="color:#6e6e73;font-size:.875rem">' + item.label + '</span><span style="font-weight:700;font-size:1rem;color:#1d1d1f">' + item.value + '</span></div>';
+  }).join('');
+  resultBox.style.display = 'block';
 }

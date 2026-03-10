@@ -12,7 +12,7 @@ document.getElementById('calculator-form').innerHTML = `
         <label>Loan Term (Years)</label>
         <input type="number" id="years" placeholder="5" step="1">
       </div>
-      <button class="btn" onclick="calculate()">Calculate Payment</button>`;
+      <button class="calc-btn" onclick="calculate()">Calculate Payment</button>`;
 
 function calculate() {
   
@@ -27,19 +27,17 @@ function calculate() {
       const total = payment * months;
       const interest = total - amount;
       
-      return [
+      const _results = [
         { label: 'Monthly Payment', value: '$' + payment.toFixed(2) },
         { label: 'Total Paid', value: '$' + total.toLocaleString() },
         { label: 'Total Interest', value: '$' + interest.toLocaleString() },
         { label: 'Interest as % of Loan', value: ((interest / amount) * 100).toFixed(1) + '%' },
       ];
-  
-  const resultBox = document.getElementById('result');
-  const resultContent = document.getElementById('result-content');
-  
-  resultContent.innerHTML = arguments[0].map(item => 
-    '<div class="result-item"><span class="result-label">' + item.label + '</span><span class="result-value">' + item.value + '</span></div>'
-  ).join('');
-  
-  resultBox.classList.add('show');
+
+  var resultBox = document.getElementById('result');
+  var resultContent = document.getElementById('result-content');
+  resultContent.innerHTML = _results.map(function(item) {
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="color:#6e6e73;font-size:.875rem">' + item.label + '</span><span style="font-weight:700;font-size:1rem;color:#1d1d1f">' + item.value + '</span></div>';
+  }).join('');
+  resultBox.style.display = 'block';
 }

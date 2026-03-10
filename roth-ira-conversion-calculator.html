@@ -16,7 +16,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--white:#fff;--bg:#fafafa;--surface:#fff;--border:rgba(0,0,0,.06);--border-hover:rgba(0,0,0,.12);--text:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-subtle:rgba(0,113,227,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.04);--radius:16px;--radius-sm:12px;--max-w:1120px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.47059;letter-spacing:-.022em}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.5;letter-spacing:-.022em}
 a{color:inherit;text-decoration:none}
 
 /* Nav */
@@ -27,44 +27,48 @@ a{color:inherit;text-decoration:none}
 .cl-nav-links{display:flex;align-items:center;gap:.25rem}
 .cl-nav-links a{font-size:.8125rem;font-weight:400;color:var(--text-secondary);padding:.5rem .75rem;border-radius:8px;transition:all .2s ease}
 .cl-nav-links a:hover{color:var(--text);background:rgba(0,0,0,.03)}
-.cl-nav-links a.active{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* Content area */
+.container,main,.main-content{max-width:var(--max-w);margin:0 auto;padding:1rem 2rem 3rem;background:transparent}
+
+/* Calculator cards */
+.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);margin-bottom:1.5rem}
+
+/* Headings */
+h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;color:var(--text);margin-bottom:.5rem}
+h2{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;color:var(--text);margin-bottom:.75rem}
+h3{font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.5rem}
+
+/* Hero section */
+.hero{text-align:left;padding:1rem 0 1.5rem}
+.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em}
+.hero p{font-size:1rem;color:var(--text-secondary);max-width:640px}
 
 /* Breadcrumb */
-.cl-breadcrumb{max-width:var(--max-w);margin:0 auto;padding:1rem 2rem .5rem;font-size:.8125rem;color:var(--text-tertiary)}
-.cl-breadcrumb a{color:var(--text-secondary);transition:color .15s}
-.cl-breadcrumb a:hover{color:var(--accent)}
-.cl-breadcrumb span{margin:0 .4rem;opacity:.5}
-
-/* Page hero */
-.cl-hero{max-width:var(--max-w);margin:0 auto;padding:.5rem 2rem 1.5rem;text-align:left}
-.cl-hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5rem}
-.cl-hero p{font-size:1rem;color:var(--text-secondary);max-width:640px;line-height:1.5}
-
-/* Calculator card */
-.cl-calc-card{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
-.cl-calc-inner{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm)}
+.breadcrumb{font-size:.8125rem;color:var(--text-tertiary);margin-bottom:.5rem;padding:.5rem 0}
+.breadcrumb a{color:var(--text-secondary);transition:color .15s}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 .4rem;opacity:.5}
 
 /* Inputs */
-.calc-card,.calc-box{background:var(--white) !important;border:1px solid var(--border) !important;border-radius:var(--radius) !important;color:var(--text) !important}
-input[type="number"],input[type="text"],select,textarea{background:var(--bg) !important;border:1px solid var(--border) !important;border-radius:8px !important;color:var(--text) !important;font-family:var(--font) !important;padding:.65rem .85rem !important;font-size:.9375rem !important;outline:none !important;transition:border-color .2s !important}
-input:focus,select:focus,textarea:focus{border-color:var(--accent) !important;box-shadow:0 0 0 3px rgba(0,113,227,.1) !important}
-label{font-size:.8125rem !important;font-weight:600 !important;color:var(--text) !important;margin-bottom:.35rem !important;display:block !important;letter-spacing:.01em !important}
+input[type="number"],input[type="text"],input[type="email"],input[type="date"],select,textarea{background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--font);padding:.65rem .85rem;font-size:.9375rem;outline:none;transition:border-color .2s;width:100%;margin-bottom:.5rem}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
+label{font-size:.8125rem;font-weight:600;color:var(--text);margin-bottom:.35rem;display:block;letter-spacing:.01em}
 
-/* Buttons */
-.calc-btn,button[onclick*="calculate"],button[onclick*="calc"],button[onclick*="convert"],button[onclick*="generate"],button[onclick*="format"]{background:var(--accent) !important;color:#fff !important;border:none !important;padding:.75rem 2rem !important;border-radius:var(--radius-sm) !important;font-size:.9375rem !important;font-weight:600 !important;cursor:pointer !important;font-family:var(--font) !important;transition:all .2s !important;letter-spacing:-.01em !important}
-.calc-btn:hover,button[onclick*="calculate"]:hover,button[onclick*="calc"]:hover{background:var(--accent-hover) !important}
+/* Primary buttons */
+.calc-btn,button.calculate-btn,.btn-primary,input[type="submit"]{background:var(--accent);color:#fff;border:none;padding:.75rem 2rem;border-radius:var(--radius-sm);font-size:.9375rem;font-weight:600;cursor:pointer;font-family:var(--font);transition:all .2s;letter-spacing:-.01em;margin:.75rem 0}
+.calc-btn:hover,button.calculate-btn:hover,.btn-primary:hover{background:var(--accent-hover)}
 
 /* Toggle buttons */
-.toggle-btn{background:var(--bg) !important;color:var(--text-secondary) !important;border:1px solid var(--border) !important;border-radius:8px !important;padding:.5rem 1rem !important;font-size:.8125rem !important;font-weight:500 !important;cursor:pointer !important;font-family:var(--font) !important;transition:all .2s !important}
-.toggle-btn.active{background:var(--accent) !important;color:#fff !important;border-color:var(--accent) !important}
+.toggle-btn,.tab-btn{background:var(--bg);color:var(--text-secondary);border:1px solid var(--border);border-radius:8px;padding:.5rem 1rem;font-size:.8125rem;font-weight:500;cursor:pointer;font-family:var(--font);transition:all .2s}
+.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-/* Result */
-.result-box,.result,.result-card{background:var(--accent-subtle) !important;border:1px solid rgba(0,113,227,.15) !important;border-radius:var(--radius-sm) !important;color:var(--text) !important;padding:1.25rem !important;margin-top:1rem !important}
-.result-box h3,.result h3{color:var(--text) !important;font-weight:700 !important}
+/* Result areas */
+.result-box,.result,.result-card,.results{background:var(--accent-subtle);border:1px solid rgba(0,113,227,.15);border-radius:var(--radius-sm);color:var(--text);padding:1.25rem;margin-top:1rem}
+.result-box h3,.result h3,.result-card h3{color:var(--text);font-weight:700}
 
 /* Sections */
-.section,.info-section,.faq-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-top:1.5rem}
-.section h3,.info-section h3{font-size:1.125rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;color:var(--text)}
+.section,.info-section,.faq-section,.about-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-top:1.5rem}
 
 /* FAQ */
 .faq-item{padding:1rem 0;border-bottom:1px solid var(--border)}
@@ -72,31 +76,34 @@ label{font-size:.8125rem !important;font-weight:600 !important;color:var(--text)
 .faq-q{font-weight:600;font-size:.9375rem;margin-bottom:.5rem;color:var(--text)}
 .faq-a{font-size:.875rem;color:var(--text-secondary);line-height:1.6}
 
-/* Table */
-table,.bmi-table{width:100%;border-collapse:collapse;font-size:.875rem}
-table th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;border-bottom:2px solid var(--border);font-size:.8125rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-tertiary)}
-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.75rem 0}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.65rem .75rem;border-bottom:2px solid var(--border);font-size:.8125rem;color:var(--text-tertiary)}
+td{padding:.6rem .75rem;border-bottom:1px solid var(--border);color:var(--text-secondary)}
 
 /* Related tools */
 .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.5rem}
 .related-link,.related-card{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:.8125rem;color:var(--text-secondary);transition:all .2s;text-decoration:none}
-.related-link:hover,.related-card:hover{border-color:var(--border-hover);color:var(--accent)}
+.related-link:hover{border-color:var(--border-hover);color:var(--accent)}
 
-/* Ad slots */
-.cl-ad{max-width:var(--max-w);margin:1.5rem auto;padding:0 2rem}
+/* Grid helpers */
+.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1rem}
+.input-row{display:flex;gap:.75rem}
+.input-group,.form-group{display:flex;flex-direction:column;gap:.25rem;margin-bottom:.75rem}
 
-/* Container/main overrides */
-.container,main{max-width:var(--max-w) !important;margin:0 auto !important;padding:0 2rem 3rem !important;background:transparent !important}
+/* Chart containers */
+canvas{max-width:100%;margin:1rem 0}
+.chart-container{margin:1.5rem 0;background:var(--white);border-radius:var(--radius-sm);padding:1rem}
 
 /* Color dots */
 .color-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
 
-/* Grid */
-.input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1rem}
-.input-row{display:flex;gap:.75rem}
-.input-group{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.5rem}
+/* Footer override */
+.footer,.site-footer{background:var(--white);border-top:1px solid var(--border);padding:2rem;margin-top:2rem;color:var(--text-secondary);font-size:.85rem}
+.footer a{color:var(--text-secondary)}
+.footer a:hover{color:var(--text)}
 
-/* Footer */
+/* Apple footer */
 .cl-footer{border-top:1px solid var(--border);padding:3rem 2rem 2rem;margin-top:3rem;background:var(--white)}
 .cl-footer-inner{max-width:var(--max-w);margin:0 auto}
 .cl-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
@@ -110,10 +117,10 @@ table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--t
 /* Responsive */
 @media(max-width:768px){
   .cl-nav-links{display:none}
-  .cl-hero h1{font-size:1.5rem}
-  .cl-hero,.cl-breadcrumb,.cl-calc-card,.cl-ad,.container,main{padding-left:1.25rem !important;padding-right:1.25rem !important}
+  h1{font-size:1.5rem}
+  .container,main,.main-content{padding:1rem 1.25rem 2rem}
   .cl-footer-grid{grid-template-columns:1fr;gap:1.5rem}
-  .input-grid{grid-template-columns:1fr}
+  .input-grid,.form-grid{grid-template-columns:1fr}
   .related-grid{grid-template-columns:1fr 1fr}
 }
 </style>
@@ -122,9 +129,9 @@ table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--t
 
 <nav class="cl-nav">
   <div class="cl-nav-inner">
-    <a href="/" class="cl-logo">Calc<span>Leap</span></a>
+    <a href="index.html" class="cl-logo">Calc<span>Leap</span></a>
     <div class="cl-nav-links">
-      <a href="index.html#finance" class="active">Finance</a>
+      <a href="index.html#finance">Finance</a>
       <a href="index.html#insurance">Insurance</a>
       <a href="index.html#tax">Tax</a>
       <a href="index.html#health">Health</a>
@@ -139,15 +146,12 @@ table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--t
   <a href="index.html">Home</a><span>›</span><a href="index.html#finance">Finance</a><span>›</span>Roth IRA Conversion Calculator
 </div>
 
-<div class="cl-hero">
-  <h1>Roth IRA Conversion Calculator</h1>
+<h1>Roth IRA Conversion Calculator</h1>
   <p>Calculate the tax impact of converting a traditional IRA to a Roth IRA.. Free ira conversion calculator with instant results.</p>
 </div>
 
 <div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
-<div class="cl-calc-card">
-<div class="cl-calc-inner">
 <div class="header">
         <div class="container">
             <h1>Roth IRA Conversion Calculator</h1>
@@ -263,45 +267,9 @@ table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--t
             resultBox.style.display = 'block';
         }
     </script>
-</div>
-</div>
-
 <div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
-<footer class="cl-footer">
-  <div class="cl-footer-inner">
-    <div class="cl-footer-grid">
-      <div>
-        <a class="cl-logo" href="index.html">Calc<span style="color:var(--accent)">Leap</span></a>
-        <p style="margin-top:.5rem">Fast, beautiful, and private calculators for everyone. Built with care, free forever.</p>
-      </div>
-      <div>
-        <h5>Popular</h5>
-        <a href="bmi-calculator.html">BMI Calculator</a>
-        <a href="calc/mortgage-payment.html">Mortgage</a>
-        <a href="income-tax-calculator.html">Income Tax</a>
-        <a href="calc/compound-interest.html">Compound Interest</a>
-      </div>
-      <div>
-        <h5>Categories</h5>
-        <a href="index.html#finance">Financial</a>
-        <a href="index.html#insurance">Insurance</a>
-        <a href="index.html#health">Health</a>
-        <a href="index.html#converters">Converters</a>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <a href="about.html">About</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="contact.html">Contact</a>
-        <a href="blog/index.html">Blog</a>
-      </div>
-    </div>
-    <div class="cl-footer-bottom">
-      <p>© 2026 CalcLeap. All calculations are for informational purposes only.</p>
-    </div>
-  </div>
-</footer>
+
 
 <script>
         function calculate() {

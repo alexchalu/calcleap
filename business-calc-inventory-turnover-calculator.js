@@ -8,7 +8,7 @@ document.getElementById('calculator-form').innerHTML = `
         <label>Average Inventory ($)</label>
         <input type="number" id="inventory" placeholder="50000" step="1000">
       </div>
-      <button class="btn" onclick="calculate()">Calculate Turnover Ratio</button>`;
+      <button class="calc-btn" onclick="calculate()">Calculate Turnover Ratio</button>`;
 
 function calculate() {
   
@@ -24,18 +24,16 @@ function calculate() {
       if (turnover > 4) health = 'Good';
       if (turnover > 8) health = 'Excellent';
       
-      return [
+      const _results = [
         { label: 'Inventory Turnover Ratio', value: turnover.toFixed(2) + 'x per year' },
         { label: 'Days to Sell Inventory', value: days.toFixed(0) + ' days' },
         { label: 'Health Assessment', value: health },
       ];
-  
-  const resultBox = document.getElementById('result');
-  const resultContent = document.getElementById('result-content');
-  
-  resultContent.innerHTML = arguments[0].map(item => 
-    '<div class="result-item"><span class="result-label">' + item.label + '</span><span class="result-value">' + item.value + '</span></div>'
-  ).join('');
-  
-  resultBox.classList.add('show');
+
+  var resultBox = document.getElementById('result');
+  var resultContent = document.getElementById('result-content');
+  resultContent.innerHTML = _results.map(function(item) {
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="color:#6e6e73;font-size:.875rem">' + item.label + '</span><span style="font-weight:700;font-size:1rem;color:#1d1d1f">' + item.value + '</span></div>';
+  }).join('');
+  resultBox.style.display = 'block';
 }

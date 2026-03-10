@@ -12,7 +12,7 @@ document.getElementById('calculator-form').innerHTML = `
         <label>Starting Cash Balance ($)</label>
         <input type="number" id="balance" placeholder="20000" step="1000">
       </div>
-      <button class="btn" onclick="calculate()">Calculate Cash Flow</button>`;
+      <button class="calc-btn" onclick="calculate()">Calculate Cash Flow</button>`;
 
 function calculate() {
   
@@ -27,19 +27,17 @@ function calculate() {
       const endBalance = balance + monthly;
       const runway = balance / expenses;
       
-      return [
+      const _results = [
         { label: 'Monthly Cash Flow', value: '$' + monthly.toLocaleString() + (monthly >= 0 ? ' (Positive)' : ' (Negative)') },
         { label: 'Annual Cash Flow', value: '$' + annual.toLocaleString() },
         { label: 'Ending Cash Balance', value: '$' + endBalance.toLocaleString() },
         { label: 'Cash Runway (if negative)', value: runway > 0 ? runway.toFixed(1) + ' months' : 'N/A' },
       ];
-  
-  const resultBox = document.getElementById('result');
-  const resultContent = document.getElementById('result-content');
-  
-  resultContent.innerHTML = arguments[0].map(item => 
-    '<div class="result-item"><span class="result-label">' + item.label + '</span><span class="result-value">' + item.value + '</span></div>'
-  ).join('');
-  
-  resultBox.classList.add('show');
+
+  var resultBox = document.getElementById('result');
+  var resultContent = document.getElementById('result-content');
+  resultContent.innerHTML = _results.map(function(item) {
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="color:#6e6e73;font-size:.875rem">' + item.label + '</span><span style="font-weight:700;font-size:1rem;color:#1d1d1f">' + item.value + '</span></div>';
+  }).join('');
+  resultBox.style.display = 'block';
 }

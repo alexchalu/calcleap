@@ -12,7 +12,7 @@ document.getElementById('calculator-form').innerHTML = `
         <label>Weeks Worked per Year</label>
         <input type="number" id="weeks" placeholder="48" step="1">
       </div>
-      <button class="btn" onclick="calculate()">Calculate Hourly Rate</button>`;
+      <button class="calc-btn" onclick="calculate()">Calculate Hourly Rate</button>`;
 
 function calculate() {
   
@@ -27,19 +27,17 @@ function calculate() {
       const daily = hourly * 8;
       const monthly = income / 12;
       
-      return [
+      const _results = [
         { label: 'Minimum Hourly Rate', value: '$' + hourly.toFixed(2) },
         { label: 'Daily Rate (8 hours)', value: '$' + daily.toFixed(2) },
         { label: 'Monthly Income Goal', value: '$' + monthly.toLocaleString() },
         { label: 'Total Billable Hours/Year', value: totalHours.toLocaleString() },
       ];
-  
-  const resultBox = document.getElementById('result');
-  const resultContent = document.getElementById('result-content');
-  
-  resultContent.innerHTML = arguments[0].map(item => 
-    '<div class="result-item"><span class="result-label">' + item.label + '</span><span class="result-value">' + item.value + '</span></div>'
-  ).join('');
-  
-  resultBox.classList.add('show');
+
+  var resultBox = document.getElementById('result');
+  var resultContent = document.getElementById('result-content');
+  resultContent.innerHTML = _results.map(function(item) {
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="color:#6e6e73;font-size:.875rem">' + item.label + '</span><span style="font-weight:700;font-size:1rem;color:#1d1d1f">' + item.value + '</span></div>';
+  }).join('');
+  resultBox.style.display = 'block';
 }

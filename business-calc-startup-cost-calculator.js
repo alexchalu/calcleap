@@ -13,7 +13,7 @@ document.getElementById('calculator-form').innerHTML = `
         <label>Months Until Profitable</label>
         <input type="number" id="months" placeholder="12" step="1">
       </div>
-      <button class="btn" onclick="calculate()">Calculate Total Startup Cost</button>`;
+      <button class="calc-btn" onclick="calculate()">Calculate Total Startup Cost</button>`;
 
 function calculate() {
   
@@ -27,19 +27,17 @@ function calculate() {
       const total = onetime + operating;
       const cushion = total * 1.2;
       
-      return [
+      const _results = [
         { label: 'One-Time Startup Costs', value: '$' + onetime.toLocaleString() },
         { label: 'Operating Costs (' + months + ' months)', value: '$' + operating.toLocaleString() },
         { label: 'Total Startup Cost', value: '$' + total.toLocaleString() },
         { label: 'Recommended w/ Cushion (20%)', value: '$' + cushion.toLocaleString() },
       ];
-  
-  const resultBox = document.getElementById('result');
-  const resultContent = document.getElementById('result-content');
-  
-  resultContent.innerHTML = arguments[0].map(item => 
-    '<div class="result-item"><span class="result-label">' + item.label + '</span><span class="result-value">' + item.value + '</span></div>'
-  ).join('');
-  
-  resultBox.classList.add('show');
+
+  var resultBox = document.getElementById('result');
+  var resultContent = document.getElementById('result-content');
+  resultContent.innerHTML = _results.map(function(item) {
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="color:#6e6e73;font-size:.875rem">' + item.label + '</span><span style="font-weight:700;font-size:1rem;color:#1d1d1f">' + item.value + '</span></div>';
+  }).join('');
+  resultBox.style.display = 'block';
 }
