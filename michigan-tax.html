@@ -2,62 +2,155 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Michigan Tax Calculator 2026 — Income, Sales & Property Tax | CalcLeap</title>
 <meta name="description" content="Calculate your Michigan taxes for 2026. Income tax rate: 4.25%. Sales tax: 6%. Property tax: 1.54%. Free calculator with detailed breakdown.">
-<meta name="keywords" content="Michigan tax calculator, MI income tax, Michigan sales tax, Michigan property tax, Michigan tax rate 2026">
 <link rel="canonical" href="https://calcleap.com/michigan-tax.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/michigan-tax.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Michigan Tax Calculator","url":"https://calcleap.com/michigan-tax.html","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculate Michigan income tax, sales tax, and property tax for 2026."}
 </script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Michigan income tax rate in 2026?","acceptedAnswer":{"@type":"Answer","text":"Michigan has an income tax rate of 4.25% (Flat rate). Flat income tax."}},{"@type":"Question","name":"What is the Michigan sales tax rate?","acceptedAnswer":{"@type":"Answer","text":"The Michigan state sales tax rate is 6%. Local jurisdictions may add additional sales tax."}},{"@type":"Question","name":"What is the average Michigan property tax rate?","acceptedAnswer":{"@type":"Answer","text":"The average effective property tax rate in Michigan is 1.54% of assessed home value."}}]}
-</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0a;--surface:#141414;--border:#252525;--text:#e0e0e0;--muted:#888;--accent:#4f8ff7;--accent2:#22c55e;--red:#ef4444}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-.container{max-width:800px;margin:0 auto;padding:20px}
-h1{font-size:1.8rem;margin-bottom:8px}
-.subtitle{color:var(--muted);margin-bottom:24px;font-size:0.95rem}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px}
-.card h2{font-size:1.2rem;margin-bottom:16px;color:var(--accent)}
-.tax-overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
-.tax-stat{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
-.tax-stat .label{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-.tax-stat .value{font-size:1.5rem;font-weight:700;margin-top:4px}
-.tax-stat .value.green{color:var(--accent2)}
-.tax-stat .value.red{color:var(--red)}
-.tax-stat .value.blue{color:var(--accent)}
-label{display:block;font-size:0.85rem;color:var(--muted);margin-bottom:4px}
-input,select{width:100%;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;margin-bottom:12px}
-input:focus{border-color:var(--accent);outline:none}
-button{background:var(--accent);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:1rem;cursor:pointer;width:100%;font-weight:600}
-button:hover{opacity:0.9}
-.result{margin-top:16px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:8px}
-.result-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none;font-weight:700;font-size:1.1rem;color:var(--accent)}
-.result-row .label{color:var(--muted)}
-table{width:100%;border-collapse:collapse;margin-top:12px}
-th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
-th{color:var(--muted);font-size:0.8rem;text-transform:uppercase}
-.faq{margin-top:20px}
-.faq h3{font-size:1rem;margin-bottom:8px;color:var(--text)}
-.faq p{color:var(--muted);margin-bottom:16px;font-size:0.9rem}
-.breadcrumb{font-size:0.85rem;color:var(--muted);margin-bottom:16px}
-.breadcrumb a{color:var(--accent);text-decoration:none}
-.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
-.related a{display:block;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;font-size:0.9rem}
-.related a:hover{border-color:var(--accent)}
-.ad-slot{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:16px 0;min-height:90px;text-align:center}
-footer{text-align:center;padding:24px;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);margin-top:32px}
-footer a{color:var(--accent);text-decoration:none}
-@media(max-width:600px){h1{font-size:1.4rem}.tax-overview{grid-template-columns:1fr}}
+:root{--white:#fff;--bg:#fafafa;--surface:#fff;--border:rgba(0,0,0,.06);--border-hover:rgba(0,0,0,.12);--text:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-subtle:rgba(0,113,227,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.04);--radius:16px;--radius-sm:12px;--max-w:1120px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.47059;letter-spacing:-.022em}
+a{color:inherit;text-decoration:none}
+
+/* Nav */
+.cl-nav{position:sticky;top:0;z-index:100;background:rgba(251,251,253,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.cl-nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.cl-logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+.cl-logo span{color:var(--accent)}
+.cl-nav-links{display:flex;align-items:center;gap:.25rem}
+.cl-nav-links a{font-size:.8125rem;font-weight:400;color:var(--text-secondary);padding:.5rem .75rem;border-radius:8px;transition:all .2s ease}
+.cl-nav-links a:hover{color:var(--text);background:rgba(0,0,0,.03)}
+.cl-nav-links a.active{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* Breadcrumb */
+.cl-breadcrumb{max-width:var(--max-w);margin:0 auto;padding:1rem 2rem .5rem;font-size:.8125rem;color:var(--text-tertiary)}
+.cl-breadcrumb a{color:var(--text-secondary);transition:color .15s}
+.cl-breadcrumb a:hover{color:var(--accent)}
+.cl-breadcrumb span{margin:0 .4rem;opacity:.5}
+
+/* Page hero */
+.cl-hero{max-width:var(--max-w);margin:0 auto;padding:.5rem 2rem 1.5rem;text-align:left}
+.cl-hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5rem}
+.cl-hero p{font-size:1rem;color:var(--text-secondary);max-width:640px;line-height:1.5}
+
+/* Calculator card */
+.cl-calc-card{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+.cl-calc-inner{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm)}
+
+/* Inputs */
+.calc-card,.calc-box{background:var(--white) !important;border:1px solid var(--border) !important;border-radius:var(--radius) !important;color:var(--text) !important}
+input[type="number"],input[type="text"],select,textarea{background:var(--bg) !important;border:1px solid var(--border) !important;border-radius:8px !important;color:var(--text) !important;font-family:var(--font) !important;padding:.65rem .85rem !important;font-size:.9375rem !important;outline:none !important;transition:border-color .2s !important}
+input:focus,select:focus,textarea:focus{border-color:var(--accent) !important;box-shadow:0 0 0 3px rgba(0,113,227,.1) !important}
+label{font-size:.8125rem !important;font-weight:600 !important;color:var(--text) !important;margin-bottom:.35rem !important;display:block !important;letter-spacing:.01em !important}
+
+/* Buttons */
+.calc-btn,button[onclick*="calculate"],button[onclick*="calc"],button[onclick*="convert"],button[onclick*="generate"],button[onclick*="format"]{background:var(--accent) !important;color:#fff !important;border:none !important;padding:.75rem 2rem !important;border-radius:var(--radius-sm) !important;font-size:.9375rem !important;font-weight:600 !important;cursor:pointer !important;font-family:var(--font) !important;transition:all .2s !important;letter-spacing:-.01em !important}
+.calc-btn:hover,button[onclick*="calculate"]:hover,button[onclick*="calc"]:hover{background:var(--accent-hover) !important}
+
+/* Toggle buttons */
+.toggle-btn{background:var(--bg) !important;color:var(--text-secondary) !important;border:1px solid var(--border) !important;border-radius:8px !important;padding:.5rem 1rem !important;font-size:.8125rem !important;font-weight:500 !important;cursor:pointer !important;font-family:var(--font) !important;transition:all .2s !important}
+.toggle-btn.active{background:var(--accent) !important;color:#fff !important;border-color:var(--accent) !important}
+
+/* Result */
+.result-box,.result,.result-card{background:var(--accent-subtle) !important;border:1px solid rgba(0,113,227,.15) !important;border-radius:var(--radius-sm) !important;color:var(--text) !important;padding:1.25rem !important;margin-top:1rem !important}
+.result-box h3,.result h3{color:var(--text) !important;font-weight:700 !important}
+
+/* Sections */
+.section,.info-section,.faq-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-top:1.5rem}
+.section h3,.info-section h3{font-size:1.125rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;color:var(--text)}
+
+/* FAQ */
+.faq-item{padding:1rem 0;border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;font-size:.9375rem;margin-bottom:.5rem;color:var(--text)}
+.faq-a{font-size:.875rem;color:var(--text-secondary);line-height:1.6}
+
+/* Table */
+table,.bmi-table{width:100%;border-collapse:collapse;font-size:.875rem}
+table th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;border-bottom:2px solid var(--border);font-size:.8125rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-tertiary)}
+table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+
+/* Related tools */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.5rem}
+.related-link,.related-card{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:.8125rem;color:var(--text-secondary);transition:all .2s;text-decoration:none}
+.related-link:hover,.related-card:hover{border-color:var(--border-hover);color:var(--accent)}
+
+/* Ad slots */
+.cl-ad{max-width:var(--max-w);margin:1.5rem auto;padding:0 2rem}
+
+/* Container/main overrides */
+.container,main{max-width:var(--max-w) !important;margin:0 auto !important;padding:0 2rem 3rem !important;background:transparent !important}
+
+/* Color dots */
+.color-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
+
+/* Grid */
+.input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1rem}
+.input-row{display:flex;gap:.75rem}
+.input-group{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.5rem}
+
+/* Footer */
+.cl-footer{border-top:1px solid var(--border);padding:3rem 2rem 2rem;margin-top:3rem;background:var(--white)}
+.cl-footer-inner{max-width:var(--max-w);margin:0 auto}
+.cl-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.cl-footer h5{font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-tertiary);margin-bottom:.85rem}
+.cl-footer p{font-size:.8125rem;color:var(--text-secondary);line-height:1.6}
+.cl-footer a{display:block;font-size:.8125rem;color:var(--text-secondary);padding:.25rem 0;transition:color .15s}
+.cl-footer a:hover{color:var(--text)}
+.cl-footer-bottom{padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.cl-footer-bottom p{font-size:.75rem;color:var(--text-tertiary)}
+
+/* Responsive */
+@media(max-width:768px){
+  .cl-nav-links{display:none}
+  .cl-hero h1{font-size:1.5rem}
+  .cl-hero,.cl-breadcrumb,.cl-calc-card,.cl-ad,.container,main{padding-left:1.25rem !important;padding-right:1.25rem !important}
+  .cl-footer-grid{grid-template-columns:1fr;gap:1.5rem}
+  .input-grid{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
+
+<nav class="cl-nav">
+  <div class="cl-nav-inner">
+    <a href="/" class="cl-logo">Calc<span>Leap</span></a>
+    <div class="cl-nav-links">
+      <a href="index.html#finance">Finance</a>
+      <a href="index.html#insurance">Insurance</a>
+      <a href="index.html#tax" class="active">Tax</a>
+      <a href="index.html#health">Health</a>
+      <a href="index.html#converters">Converters</a>
+      <a href="index.html#dev">Dev Tools</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="cl-breadcrumb">
+  <a href="index.html">Home</a><span>›</span><a href="index.html#tax">Tax</a><span>›</span>Michigan Tax Calculator 2026
+</div>
+
+<div class="cl-hero">
+  <h1>Michigan Tax Calculator 2026</h1>
+  <p>Calculate your Michigan taxes for 2026. Income tax rate: 4.25%. Sales tax: 6%. Property tax: 1.54%. Free calculator with detailed breakdown.</p>
+</div>
+
+<div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="cl-calc-card">
+<div class="cl-calc-inner">
 <div class="container">
-<div class="breadcrumb"><a href="/toolpulse/">CalcLeap</a> → <a href="/toolpulse/federal-income-tax.html">Tax Calculators</a> → Michigan</div>
 <h1>Michigan Tax Calculator 2026</h1>
 <p class="subtitle">Flat income tax. Calculate your MI income tax, sales tax, and property tax.</p>
 
@@ -151,11 +244,116 @@ footer a{color:var(--accent);text-decoration:none}
 <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
 
-<footer>
-<p><a href="/toolpulse/">← Back to CalcLeap</a> · <a href="/smartcalc/">SmartCalc Financial Calculators</a></p>
-<p style="margin-top:8px">© 2026 CalcLeap. Free online tools & calculators.</p>
-</footer>
+
 </div>
+
+<script>
+const stateRate = '4.25%';
+const stateName = 'Michigan';
+const hasIncomeTax = true;
+const stateSales = 6;
+const stateProp = 1.54;
+
+function fmt(n){return '$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+
+
+function calculate(){
+  const income = parseFloat(document.getElementById('income').value)||0;
+  const ded = parseFloat(document.getElementById('deductions').value)||0;
+  const taxable = Math.max(0, income - ded);
+  // Simplified: use midpoint of rate range
+  const rates = stateRate.match(/[\d.]+/g).map(Number);
+  const effRate = rates.length > 1 ? (rates[0]+rates[rates.length-1])/2/100 : rates[0]/100;
+  const stateTax = taxable * effRate;
+  const fedTax = taxable * 0.22; // Simplified federal estimate
+  const totalTax = stateTax + fedTax;
+  const takeHome = income - totalTax;
+  
+  document.getElementById('result').style.display='block';
+  document.getElementById('result').innerHTML=
+    '<div class="result-row"><span class="label">Gross Income</span><span>'+fmt(income)+'</span></div>'+
+    '<div class="result-row"><span class="label">Deductions</span><span>-'+fmt(ded)+'</span></div>'+
+    '<div class="result-row"><span class="label">Taxable Income</span><span>'+fmt(taxable)+'</span></div>'+
+    '<div class="result-row"><span class="label">MI State Tax (est ~'+(rates.length>1?(rates[0]+rates[rates.length-1])/2:rates[0])+'%)</span><span>'+fmt(stateTax)+'</span></div>'+
+    '<div class="result-row"><span class="label">Federal Tax (est ~22%)</span><span>'+fmt(fedTax)+'</span></div>'+
+    '<div class="result-row"><span class="label">Estimated Take-Home</span><span>'+fmt(takeHome)+'</span></div>';
+}
+calculate();
+
+
+function calcSales(){
+  const amt = parseFloat(document.getElementById('purchase').value)||0;
+  const local = parseFloat(document.getElementById('localTax').value)||0;
+  const combined = stateSales + local;
+  const tax = amt * combined / 100;
+  document.getElementById('salesResult').style.display='block';
+  document.getElementById('salesResult').innerHTML=
+    '<div class="result-row"><span class="label">Purchase Amount</span><span>'+fmt(amt)+'</span></div>'+
+    '<div class="result-row"><span class="label">State Tax (6%)</span><span>'+fmt(amt*stateSales/100)+'</span></div>'+
+    '<div class="result-row"><span class="label">Local Tax ('+local+'%)</span><span>'+fmt(amt*local/100)+'</span></div>'+
+    '<div class="result-row"><span class="label">Total with Tax</span><span>'+fmt(amt+tax)+'</span></div>';
+}
+
+function calcProperty(){
+  const val = parseFloat(document.getElementById('homeValue').value)||0;
+  const ratio = parseFloat(document.getElementById('assessRatio').value)||100;
+  const assessed = val * ratio / 100;
+  const annual = assessed * stateProp / 100;
+  document.getElementById('propResult').style.display='block';
+  document.getElementById('propResult').innerHTML=
+    '<div class="result-row"><span class="label">Home Value</span><span>'+fmt(val)+'</span></div>'+
+    '<div class="result-row"><span class="label">Assessed Value ('+ratio+'%)</span><span>'+fmt(assessed)+'</span></div>'+
+    '<div class="result-row"><span class="label">Annual Property Tax</span><span>'+fmt(annual)+'</span></div>'+
+    '<div class="result-row"><span class="label">Monthly Property Tax</span><span>'+fmt(annual/12)+'</span></div>';
+}
+
+// Populate related states
+const allStates = [{"name":"Alabama","slug":"alabama","rate":"2-5%"},{"name":"Alaska","slug":"alaska","rate":"0%"},{"name":"Arizona","slug":"arizona","rate":"2.5%"},{"name":"Arkansas","slug":"arkansas","rate":"2-4.7%"},{"name":"California","slug":"california","rate":"1-13.3%"},{"name":"Colorado","slug":"colorado","rate":"4.4%"},{"name":"Connecticut","slug":"connecticut","rate":"3-6.99%"},{"name":"Delaware","slug":"delaware","rate":"2.2-6.6%"},{"name":"Florida","slug":"florida","rate":"0%"},{"name":"Georgia","slug":"georgia","rate":"5.49%"},{"name":"Hawaii","slug":"hawaii","rate":"1.4-11%"},{"name":"Idaho","slug":"idaho","rate":"5.8%"},{"name":"Illinois","slug":"illinois","rate":"4.95%"},{"name":"Indiana","slug":"indiana","rate":"3.05%"},{"name":"Iowa","slug":"iowa","rate":"4.4-5.7%"},{"name":"Kansas","slug":"kansas","rate":"3.1-5.7%"},{"name":"Kentucky","slug":"kentucky","rate":"4%"},{"name":"Louisiana","slug":"louisiana","rate":"1.85-4.25%"},{"name":"Maine","slug":"maine","rate":"5.8-7.15%"},{"name":"Maryland","slug":"maryland","rate":"2-5.75%"},{"name":"Massachusetts","slug":"massachusetts","rate":"5%"},{"name":"Michigan","slug":"michigan","rate":"4.25%"},{"name":"Minnesota","slug":"minnesota","rate":"5.35-9.85%"},{"name":"Mississippi","slug":"mississippi","rate":"0-5%"},{"name":"Missouri","slug":"missouri","rate":"2-4.95%"},{"name":"Montana","slug":"montana","rate":"4.7-6.75%"},{"name":"Nebraska","slug":"nebraska","rate":"2.46-5.84%"},{"name":"Nevada","slug":"nevada","rate":"0%"},{"name":"New Hampshire","slug":"new-hampshire","rate":"0%"},{"name":"New Jersey","slug":"new-jersey","rate":"1.4-10.75%"},{"name":"New Mexico","slug":"new-mexico","rate":"1.7-5.9%"},{"name":"New York","slug":"new-york","rate":"4-10.9%"},{"name":"North Carolina","slug":"north-carolina","rate":"4.5%"},{"name":"North Dakota","slug":"north-dakota","rate":"0-2.5%"},{"name":"Ohio","slug":"ohio","rate":"0-3.5%"},{"name":"Oklahoma","slug":"oklahoma","rate":"0.25-4.75%"},{"name":"Oregon","slug":"oregon","rate":"4.75-9.9%"},{"name":"Pennsylvania","slug":"pennsylvania","rate":"3.07%"},{"name":"Rhode Island","slug":"rhode-island","rate":"3.75-5.99%"},{"name":"South Carolina","slug":"south-carolina","rate":"0-6.4%"},{"name":"South Dakota","slug":"south-dakota","rate":"0%"},{"name":"Tennessee","slug":"tennessee","rate":"0%"},{"name":"Texas","slug":"texas","rate":"0%"},{"name":"Utah","slug":"utah","rate":"4.65%"},{"name":"Vermont","slug":"vermont","rate":"3.35-8.75%"},{"name":"Virginia","slug":"virginia","rate":"2-5.75%"},{"name":"Washington","slug":"washington","rate":"0%"},{"name":"West Virginia","slug":"west-virginia","rate":"2.36-5.12%"},{"name":"Wisconsin","slug":"wisconsin","rate":"3.5-7.65%"},{"name":"Wyoming","slug":"wyoming","rate":"0%"}];
+const current = 'Michigan';
+const related = allStates.filter(s=>s.name!==current).sort(()=>Math.random()-0.5).slice(0,8);
+document.getElementById('relatedStates').innerHTML = related.map(s=>
+  '<a href="/toolpulse/'+s.slug+'-tax.html">'+s.name+' Tax Calculator<br><small style="color:var(--muted)">Income: '+s.rate+'</small></a>'
+).join('');
+</script>
+</div>
+</div>
+
+<div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<footer class="cl-footer">
+  <div class="cl-footer-inner">
+    <div class="cl-footer-grid">
+      <div>
+        <a class="cl-logo" href="index.html">Calc<span style="color:var(--accent)">Leap</span></a>
+        <p style="margin-top:.5rem">Fast, beautiful, and private calculators for everyone. Built with care, free forever.</p>
+      </div>
+      <div>
+        <h5>Popular</h5>
+        <a href="bmi-calculator.html">BMI Calculator</a>
+        <a href="calc/mortgage-payment.html">Mortgage</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="calc/compound-interest.html">Compound Interest</a>
+      </div>
+      <div>
+        <h5>Categories</h5>
+        <a href="index.html#finance">Financial</a>
+        <a href="index.html#insurance">Insurance</a>
+        <a href="index.html#health">Health</a>
+        <a href="index.html#converters">Converters</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog/index.html">Blog</a>
+      </div>
+    </div>
+    <div class="cl-footer-bottom">
+      <p>© 2026 CalcLeap. All calculations are for informational purposes only.</p>
+    </div>
+  </div>
+</footer>
 
 <script>
 const stateRate = '4.25%';

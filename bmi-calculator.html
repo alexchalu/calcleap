@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator — Free Body Mass Index Tool | CalcLeap</title>
-    <meta name="description" content="Calculate your Body Mass Index (BMI) instantly. Supports imperial and metric units. See your BMI category, healthy weight range, and visual BMI scale.">
-    <link rel="canonical" href="https://calcleap.com/bmi-calculator.html">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-    <meta property="og:title" content="BMI Calculator — CalcLeap">
-    <meta property="og:description" content="Calculate your Body Mass Index (BMI) with height and weight. Metric and imperial units.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://calcleap.com/bmi-calculator.html">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-    <script type="application/ld+json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator — Free Body Mass Index Tool | CalcLeap</title>
+<meta name="description" content="Calculate your Body Mass Index (BMI) instantly. Supports imperial and metric units. See your BMI category, healthy weight range, and visual BMI scale.">
+<link rel="canonical" href="https://calcleap.com/bmi-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="BMI Calculator — CalcLeap">
+<meta property="og:description" content="Calculate your Body Mass Index (BMI) with height and weight. Metric and imperial units.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/bmi-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
@@ -25,81 +25,142 @@
         "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
     }
     </script>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0e1a;color:#f3f4f6;line-height:1.6}
-        a{color:#6366f1;text-decoration:none}a:hover{color:#818cf8}
-        .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
-        .breadcrumb{padding:1rem 0;font-size:.85rem;color:#9ca3af}.breadcrumb a{color:#9ca3af}.breadcrumb a:hover{color:#6366f1}.breadcrumb span{margin:0 .5rem;color:#4b5563}
-        .hero{text-align:center;padding:2.5rem 0 1.5rem}
-        .hero h1{font-size:2.2rem;font-weight:800;margin-bottom:.75rem;background:linear-gradient(135deg,#6366f1,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .hero p{color:#9ca3af;font-size:1.05rem;max-width:640px;margin:0 auto}
-        .calc-card{background:#111827;border:1px solid #374151;border-radius:16px;padding:2rem;margin-bottom:2rem}
-        .calc-card h2{font-size:1.3rem;color:#f3f4f6;margin-bottom:1.5rem}
-        .toggle-group{display:flex;background:#1f2937;border-radius:10px;padding:4px;margin-bottom:1.5rem;max-width:300px}
-        .toggle-btn{flex:1;padding:.6rem 1rem;text-align:center;border:none;background:none;color:#9ca3af;font-size:.9rem;font-weight:600;border-radius:8px;cursor:pointer;transition:all .2s}
-        .toggle-btn.active{background:#6366f1;color:#fff}
-        .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-        .input-group label{display:block;margin-bottom:.4rem;font-weight:600;color:#9ca3af;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px}
-        .input-group input{width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:1rem;transition:border .2s}
-        .input-group input:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
-        .input-row{display:flex;gap:.75rem}
-        .input-row .input-group{flex:1}
-        .calc-btn{background:#6366f1;color:#fff;border:none;padding:1rem 2rem;font-size:1.05rem;font-weight:700;border-radius:10px;cursor:pointer;width:100%;margin-top:1.5rem;transition:background .2s}
-        .calc-btn:hover{background:#4f46e5}
-        .result-box{background:#1f2937;border:1px solid #374151;border-radius:12px;padding:2rem;margin-top:1.5rem;display:none;text-align:center}
-        .bmi-value{font-size:3.5rem;font-weight:900;margin:.5rem 0}
-        .bmi-category{font-size:1.2rem;font-weight:700;margin-bottom:.5rem}
-        .bmi-detail{color:#9ca3af;font-size:.95rem;margin:.25rem 0}
-        .bmi-gauge{position:relative;height:32px;border-radius:16px;margin:1.5rem 0;overflow:visible;display:flex}
-        .gauge-segment{height:100%}
-        .gauge-segment:first-child{border-radius:16px 0 0 16px}
-        .gauge-segment:last-child{border-radius:0 16px 16px 0}
-        .gauge-marker{position:absolute;top:-8px;width:4px;height:48px;background:#fff;border-radius:2px;transform:translateX(-50%);box-shadow:0 0 8px rgba(255,255,255,.5);transition:left .4s}
-        .gauge-labels{display:flex;justify-content:space-between;font-size:.75rem;color:#9ca3af;margin-top:.25rem;padding:0 .25rem}
-        .section{background:#111827;border:1px solid #374151;border-radius:16px;padding:2rem;margin-bottom:2rem}
-        .section h3{color:#f3f4f6;font-size:1.2rem;margin-bottom:1rem}
-        .section p{color:#9ca3af;margin-bottom:1rem;font-size:.95rem}
-        .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;margin-top:1rem}
-        .related-link{display:flex;align-items:center;gap:.5rem;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:10px;color:#f3f4f6;font-size:.9rem;font-weight:500;transition:border-color .2s,background .2s}
-        .related-link:hover{border-color:#6366f1;background:#1e2540;color:#f3f4f6}
-        .faq-item{border-bottom:1px solid #374151;padding:1.25rem 0}.faq-item:last-child{border-bottom:none}
-        .faq-q{font-weight:700;color:#f3f4f6;margin-bottom:.5rem;font-size:1rem}
-        .faq-a{color:#9ca3af;font-size:.92rem;line-height:1.7}
-        .bmi-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:1rem}
-        .bmi-table th{text-align:left;padding:.6rem;color:#9ca3af;border-bottom:1px solid #374151;font-size:.8rem;text-transform:uppercase}
-        .bmi-table td{padding:.6rem;border-bottom:1px solid #1f2937;color:#d1d5db}
-        .bmi-table .color-dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:.5rem}
-        @media(max-width:768px){.hero h1{font-size:1.6rem}.input-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}}
-        @media(max-width:480px){.related-grid{grid-template-columns:1fr}}
-    </style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#fafafa;--surface:#fff;--border:rgba(0,0,0,.06);--border-hover:rgba(0,0,0,.12);--text:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-subtle:rgba(0,113,227,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.04);--radius:16px;--radius-sm:12px;--max-w:1120px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.47059;letter-spacing:-.022em}
+a{color:inherit;text-decoration:none}
+
+/* Nav */
+.cl-nav{position:sticky;top:0;z-index:100;background:rgba(251,251,253,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.cl-nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.cl-logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+.cl-logo span{color:var(--accent)}
+.cl-nav-links{display:flex;align-items:center;gap:.25rem}
+.cl-nav-links a{font-size:.8125rem;font-weight:400;color:var(--text-secondary);padding:.5rem .75rem;border-radius:8px;transition:all .2s ease}
+.cl-nav-links a:hover{color:var(--text);background:rgba(0,0,0,.03)}
+.cl-nav-links a.active{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* Breadcrumb */
+.cl-breadcrumb{max-width:var(--max-w);margin:0 auto;padding:1rem 2rem .5rem;font-size:.8125rem;color:var(--text-tertiary)}
+.cl-breadcrumb a{color:var(--text-secondary);transition:color .15s}
+.cl-breadcrumb a:hover{color:var(--accent)}
+.cl-breadcrumb span{margin:0 .4rem;opacity:.5}
+
+/* Page hero */
+.cl-hero{max-width:var(--max-w);margin:0 auto;padding:.5rem 2rem 1.5rem;text-align:left}
+.cl-hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5rem}
+.cl-hero p{font-size:1rem;color:var(--text-secondary);max-width:640px;line-height:1.5}
+
+/* Calculator card */
+.cl-calc-card{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+.cl-calc-inner{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm)}
+
+/* Inputs */
+.calc-card,.calc-box{background:var(--white) !important;border:1px solid var(--border) !important;border-radius:var(--radius) !important;color:var(--text) !important}
+input[type="number"],input[type="text"],select,textarea{background:var(--bg) !important;border:1px solid var(--border) !important;border-radius:8px !important;color:var(--text) !important;font-family:var(--font) !important;padding:.65rem .85rem !important;font-size:.9375rem !important;outline:none !important;transition:border-color .2s !important}
+input:focus,select:focus,textarea:focus{border-color:var(--accent) !important;box-shadow:0 0 0 3px rgba(0,113,227,.1) !important}
+label{font-size:.8125rem !important;font-weight:600 !important;color:var(--text) !important;margin-bottom:.35rem !important;display:block !important;letter-spacing:.01em !important}
+
+/* Buttons */
+.calc-btn,button[onclick*="calculate"],button[onclick*="calc"],button[onclick*="convert"],button[onclick*="generate"],button[onclick*="format"]{background:var(--accent) !important;color:#fff !important;border:none !important;padding:.75rem 2rem !important;border-radius:var(--radius-sm) !important;font-size:.9375rem !important;font-weight:600 !important;cursor:pointer !important;font-family:var(--font) !important;transition:all .2s !important;letter-spacing:-.01em !important}
+.calc-btn:hover,button[onclick*="calculate"]:hover,button[onclick*="calc"]:hover{background:var(--accent-hover) !important}
+
+/* Toggle buttons */
+.toggle-btn{background:var(--bg) !important;color:var(--text-secondary) !important;border:1px solid var(--border) !important;border-radius:8px !important;padding:.5rem 1rem !important;font-size:.8125rem !important;font-weight:500 !important;cursor:pointer !important;font-family:var(--font) !important;transition:all .2s !important}
+.toggle-btn.active{background:var(--accent) !important;color:#fff !important;border-color:var(--accent) !important}
+
+/* Result */
+.result-box,.result,.result-card{background:var(--accent-subtle) !important;border:1px solid rgba(0,113,227,.15) !important;border-radius:var(--radius-sm) !important;color:var(--text) !important;padding:1.25rem !important;margin-top:1rem !important}
+.result-box h3,.result h3{color:var(--text) !important;font-weight:700 !important}
+
+/* Sections */
+.section,.info-section,.faq-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-top:1.5rem}
+.section h3,.info-section h3{font-size:1.125rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;color:var(--text)}
+
+/* FAQ */
+.faq-item{padding:1rem 0;border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;font-size:.9375rem;margin-bottom:.5rem;color:var(--text)}
+.faq-a{font-size:.875rem;color:var(--text-secondary);line-height:1.6}
+
+/* Table */
+table,.bmi-table{width:100%;border-collapse:collapse;font-size:.875rem}
+table th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;border-bottom:2px solid var(--border);font-size:.8125rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-tertiary)}
+table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+
+/* Related tools */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.5rem}
+.related-link,.related-card{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:.8125rem;color:var(--text-secondary);transition:all .2s;text-decoration:none}
+.related-link:hover,.related-card:hover{border-color:var(--border-hover);color:var(--accent)}
+
+/* Ad slots */
+.cl-ad{max-width:var(--max-w);margin:1.5rem auto;padding:0 2rem}
+
+/* Container/main overrides */
+.container,main{max-width:var(--max-w) !important;margin:0 auto !important;padding:0 2rem 3rem !important;background:transparent !important}
+
+/* Color dots */
+.color-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
+
+/* Grid */
+.input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1rem}
+.input-row{display:flex;gap:.75rem}
+.input-group{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.5rem}
+
+/* Footer */
+.cl-footer{border-top:1px solid var(--border);padding:3rem 2rem 2rem;margin-top:3rem;background:var(--white)}
+.cl-footer-inner{max-width:var(--max-w);margin:0 auto}
+.cl-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.cl-footer h5{font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-tertiary);margin-bottom:.85rem}
+.cl-footer p{font-size:.8125rem;color:var(--text-secondary);line-height:1.6}
+.cl-footer a{display:block;font-size:.8125rem;color:var(--text-secondary);padding:.25rem 0;transition:color .15s}
+.cl-footer a:hover{color:var(--text)}
+.cl-footer-bottom{padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.cl-footer-bottom p{font-size:.75rem;color:var(--text-tertiary)}
+
+/* Responsive */
+@media(max-width:768px){
+  .cl-nav-links{display:none}
+  .cl-hero h1{font-size:1.5rem}
+  .cl-hero,.cl-breadcrumb,.cl-calc-card,.cl-ad,.container,main{padding-left:1.25rem !important;padding-right:1.25rem !important}
+  .cl-footer-grid{grid-template-columns:1fr;gap:1.5rem}
+  .input-grid{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+}
+</style>
 </head>
 <body>
-<header style="background:#111827;border-bottom:1px solid #374151;padding:0;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)">
-<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:.75rem 1.5rem;gap:1rem;flex-wrap:wrap">
-<a href="index.html" style="font-size:1.4rem;font-weight:800;color:#6366f1;text-decoration:none">⚡ CalcLeap</a>
-<nav style="display:flex;gap:.25rem;flex:1;margin-left:1rem;flex-wrap:wrap">
-<a href="index.html" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Home</a>
-<a href="index.html#finance" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Finance</a>
-<a href="index.html#insurance" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Insurance</a>
-<a href="index.html#health" style="color:#f3f4f6;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px;background:#1f2937">Health</a>
-<a href="index.html#dev" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Dev Tools</a>
-<a href="index.html#convert" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Converters</a>
+
+<nav class="cl-nav">
+  <div class="cl-nav-inner">
+    <a href="/" class="cl-logo">Calc<span>Leap</span></a>
+    <div class="cl-nav-links">
+      <a href="index.html#finance">Finance</a>
+      <a href="index.html#insurance">Insurance</a>
+      <a href="index.html#tax">Tax</a>
+      <a href="index.html#health" class="active">Health</a>
+      <a href="index.html#converters">Converters</a>
+      <a href="index.html#dev">Dev Tools</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
 </nav>
+
+<div class="cl-breadcrumb">
+  <a href="index.html">Home</a><span>›</span><a href="index.html#health">Health</a><span>›</span>BMI Calculator
 </div>
-</header>
 
-<main class="container">
-    <div class="breadcrumb">
-        <a href="index.html">Home</a><span>›</span><a href="index.html#health">Health</a><span>›</span>BMI Calculator
-    </div>
+<div class="cl-hero">
+  <h1>BMI Calculator</h1>
+  <p>Calculate your Body Mass Index instantly. See your BMI category, healthy weight range, and a visual gauge.</p>
+</div>
 
-    <div class="hero">
-        <h1>⚖️ BMI Calculator</h1>
-        <p>Calculate your Body Mass Index instantly. See your BMI category, healthy weight range, and a visual gauge.</p>
-    </div>
+<div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
-    <div style="max-width:1200px;margin:1.5rem auto;padding:0">
+<div class="cl-calc-card">
+<div class="cl-calc-inner">
+<div style="max-width:1200px;margin:1.5rem auto;padding:0">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
     </div>
@@ -207,26 +268,44 @@
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
     </div>
-</main>
+</div>
+</div>
 
-<footer style="background:#111827;border-top:1px solid #374151;padding:3rem 1.5rem;margin-top:3rem">
-<div style="max-width:1200px;margin:0 auto">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem">
-<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">CalcLeap</h4><p style="color:#9ca3af;font-size:.85rem;line-height:1.6">2,000+ free calculators and tools. Fast, accurate, private.</p></div>
-<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Popular</h4>
-<a href="bmi-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">BMI Calculator</a>
-<a href="mortgage-refinance-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Mortgage Calculator</a>
-<a href="json-formatter.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">JSON Formatter</a>
-<a href="password-generator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Password Generator</a></div>
-<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Company</h4>
-<a href="about.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">About</a>
-<a href="privacy.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Privacy Policy</a>
-<a href="contact.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Contact</a></div>
-</div>
-<div style="text-align:center;padding-top:2rem;border-top:1px solid #374151">
-<p style="color:#9ca3af;font-size:.8rem">© 2026 CalcLeap. All calculations are for informational purposes only.</p>
-</div>
-</div>
+<div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<footer class="cl-footer">
+  <div class="cl-footer-inner">
+    <div class="cl-footer-grid">
+      <div>
+        <a class="cl-logo" href="index.html">Calc<span style="color:var(--accent)">Leap</span></a>
+        <p style="margin-top:.5rem">Fast, beautiful, and private calculators for everyone. Built with care, free forever.</p>
+      </div>
+      <div>
+        <h5>Popular</h5>
+        <a href="bmi-calculator.html">BMI Calculator</a>
+        <a href="calc/mortgage-payment.html">Mortgage</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="calc/compound-interest.html">Compound Interest</a>
+      </div>
+      <div>
+        <h5>Categories</h5>
+        <a href="index.html#finance">Financial</a>
+        <a href="index.html#insurance">Insurance</a>
+        <a href="index.html#health">Health</a>
+        <a href="index.html#converters">Converters</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog/index.html">Blog</a>
+      </div>
+    </div>
+    <div class="cl-footer-bottom">
+      <p>© 2026 CalcLeap. All calculations are for informational purposes only.</p>
+    </div>
+  </div>
 </footer>
 
 <script>

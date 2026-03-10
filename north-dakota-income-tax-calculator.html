@@ -1,43 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>North Dakota Income Tax Calculator - Free ND Tax Tool | CalcLeap</title>
-    <meta name="description" content="Calculate North Dakota state income tax and take-home pay. Free ND income tax calculator with federal tax estimates.">
-    <link rel="canonical" href="https://calcleap.com/north-dakota-income-tax-calculator.html">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-        .header p { opacity: 0.9; }
-        .main { padding: 2rem 0; }
-        .calc-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
-        .calc-box h2 { margin-bottom: 1.5rem; color: #667eea; }
-        .input-group { margin-bottom: 1.5rem; }
-        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
-        .input-group input, .input-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
-        .input-group input:focus, .input-group select:focus { outline: none; border-color: #667eea; }
-        .calc-btn { background: #667eea; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.3s; }
-        .calc-btn:hover { background: #5568d3; }
-        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
-        .result-box h3 { color: #667eea; margin-bottom: 1rem; }
-        .result-value { font-size: 1.8rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
-        .result-detail { margin: 0.5rem 0; color: #555; }
-        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
-        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
-        .info-section p { margin-bottom: 1rem; }
-        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
-        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
-        .footer a { color: #667eea; text-decoration: none; }
-        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
-    </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>North Dakota Income Tax Calculator - Free ND Tax Tool | CalcLeap</title>
+<meta name="description" content="Calculate North Dakota state income tax and take-home pay. Free ND income tax calculator with federal tax estimates.">
+<link rel="canonical" href="https://calcleap.com/north-dakota-income-tax-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/north-dakota-income-tax-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#fafafa;--surface:#fff;--border:rgba(0,0,0,.06);--border-hover:rgba(0,0,0,.12);--text:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-subtle:rgba(0,113,227,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.04);--radius:16px;--radius-sm:12px;--max-w:1120px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.47059;letter-spacing:-.022em}
+a{color:inherit;text-decoration:none}
+
+/* Nav */
+.cl-nav{position:sticky;top:0;z-index:100;background:rgba(251,251,253,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.cl-nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.cl-logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+.cl-logo span{color:var(--accent)}
+.cl-nav-links{display:flex;align-items:center;gap:.25rem}
+.cl-nav-links a{font-size:.8125rem;font-weight:400;color:var(--text-secondary);padding:.5rem .75rem;border-radius:8px;transition:all .2s ease}
+.cl-nav-links a:hover{color:var(--text);background:rgba(0,0,0,.03)}
+.cl-nav-links a.active{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* Breadcrumb */
+.cl-breadcrumb{max-width:var(--max-w);margin:0 auto;padding:1rem 2rem .5rem;font-size:.8125rem;color:var(--text-tertiary)}
+.cl-breadcrumb a{color:var(--text-secondary);transition:color .15s}
+.cl-breadcrumb a:hover{color:var(--accent)}
+.cl-breadcrumb span{margin:0 .4rem;opacity:.5}
+
+/* Page hero */
+.cl-hero{max-width:var(--max-w);margin:0 auto;padding:.5rem 2rem 1.5rem;text-align:left}
+.cl-hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5rem}
+.cl-hero p{font-size:1rem;color:var(--text-secondary);max-width:640px;line-height:1.5}
+
+/* Calculator card */
+.cl-calc-card{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+.cl-calc-inner{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm)}
+
+/* Inputs */
+.calc-card,.calc-box{background:var(--white) !important;border:1px solid var(--border) !important;border-radius:var(--radius) !important;color:var(--text) !important}
+input[type="number"],input[type="text"],select,textarea{background:var(--bg) !important;border:1px solid var(--border) !important;border-radius:8px !important;color:var(--text) !important;font-family:var(--font) !important;padding:.65rem .85rem !important;font-size:.9375rem !important;outline:none !important;transition:border-color .2s !important}
+input:focus,select:focus,textarea:focus{border-color:var(--accent) !important;box-shadow:0 0 0 3px rgba(0,113,227,.1) !important}
+label{font-size:.8125rem !important;font-weight:600 !important;color:var(--text) !important;margin-bottom:.35rem !important;display:block !important;letter-spacing:.01em !important}
+
+/* Buttons */
+.calc-btn,button[onclick*="calculate"],button[onclick*="calc"],button[onclick*="convert"],button[onclick*="generate"],button[onclick*="format"]{background:var(--accent) !important;color:#fff !important;border:none !important;padding:.75rem 2rem !important;border-radius:var(--radius-sm) !important;font-size:.9375rem !important;font-weight:600 !important;cursor:pointer !important;font-family:var(--font) !important;transition:all .2s !important;letter-spacing:-.01em !important}
+.calc-btn:hover,button[onclick*="calculate"]:hover,button[onclick*="calc"]:hover{background:var(--accent-hover) !important}
+
+/* Toggle buttons */
+.toggle-btn{background:var(--bg) !important;color:var(--text-secondary) !important;border:1px solid var(--border) !important;border-radius:8px !important;padding:.5rem 1rem !important;font-size:.8125rem !important;font-weight:500 !important;cursor:pointer !important;font-family:var(--font) !important;transition:all .2s !important}
+.toggle-btn.active{background:var(--accent) !important;color:#fff !important;border-color:var(--accent) !important}
+
+/* Result */
+.result-box,.result,.result-card{background:var(--accent-subtle) !important;border:1px solid rgba(0,113,227,.15) !important;border-radius:var(--radius-sm) !important;color:var(--text) !important;padding:1.25rem !important;margin-top:1rem !important}
+.result-box h3,.result h3{color:var(--text) !important;font-weight:700 !important}
+
+/* Sections */
+.section,.info-section,.faq-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-top:1.5rem}
+.section h3,.info-section h3{font-size:1.125rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;color:var(--text)}
+
+/* FAQ */
+.faq-item{padding:1rem 0;border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;font-size:.9375rem;margin-bottom:.5rem;color:var(--text)}
+.faq-a{font-size:.875rem;color:var(--text-secondary);line-height:1.6}
+
+/* Table */
+table,.bmi-table{width:100%;border-collapse:collapse;font-size:.875rem}
+table th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;border-bottom:2px solid var(--border);font-size:.8125rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-tertiary)}
+table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+
+/* Related tools */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.5rem}
+.related-link,.related-card{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:.8125rem;color:var(--text-secondary);transition:all .2s;text-decoration:none}
+.related-link:hover,.related-card:hover{border-color:var(--border-hover);color:var(--accent)}
+
+/* Ad slots */
+.cl-ad{max-width:var(--max-w);margin:1.5rem auto;padding:0 2rem}
+
+/* Container/main overrides */
+.container,main{max-width:var(--max-w) !important;margin:0 auto !important;padding:0 2rem 3rem !important;background:transparent !important}
+
+/* Color dots */
+.color-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
+
+/* Grid */
+.input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1rem}
+.input-row{display:flex;gap:.75rem}
+.input-group{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.5rem}
+
+/* Footer */
+.cl-footer{border-top:1px solid var(--border);padding:3rem 2rem 2rem;margin-top:3rem;background:var(--white)}
+.cl-footer-inner{max-width:var(--max-w);margin:0 auto}
+.cl-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.cl-footer h5{font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-tertiary);margin-bottom:.85rem}
+.cl-footer p{font-size:.8125rem;color:var(--text-secondary);line-height:1.6}
+.cl-footer a{display:block;font-size:.8125rem;color:var(--text-secondary);padding:.25rem 0;transition:color .15s}
+.cl-footer a:hover{color:var(--text)}
+.cl-footer-bottom{padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.cl-footer-bottom p{font-size:.75rem;color:var(--text-tertiary)}
+
+/* Responsive */
+@media(max-width:768px){
+  .cl-nav-links{display:none}
+  .cl-hero h1{font-size:1.5rem}
+  .cl-hero,.cl-breadcrumb,.cl-calc-card,.cl-ad,.container,main{padding-left:1.25rem !important;padding-right:1.25rem !important}
+  .cl-footer-grid{grid-template-columns:1fr;gap:1.5rem}
+  .input-grid{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+}
+</style>
 </head>
 <body>
-    <div class="header">
+
+<nav class="cl-nav">
+  <div class="cl-nav-inner">
+    <a href="/" class="cl-logo">Calc<span>Leap</span></a>
+    <div class="cl-nav-links">
+      <a href="index.html#finance">Finance</a>
+      <a href="index.html#insurance">Insurance</a>
+      <a href="index.html#tax" class="active">Tax</a>
+      <a href="index.html#health">Health</a>
+      <a href="index.html#converters">Converters</a>
+      <a href="index.html#dev">Dev Tools</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="cl-breadcrumb">
+  <a href="index.html">Home</a><span>›</span><a href="index.html#tax">Tax</a><span>›</span>North Dakota Income Tax Calculator
+</div>
+
+<div class="cl-hero">
+  <h1>North Dakota Income Tax Calculator</h1>
+  <p>Calculate North Dakota state income tax and take-home pay. Free ND income tax calculator with federal tax estimates.</p>
+</div>
+
+<div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="cl-calc-card">
+<div class="cl-calc-inner">
+<div class="header">
         <div class="container">
             <h1>North Dakota Income Tax Calculator</h1>
             <p>Calculate North Dakota state income tax and take-home pay for 2026</p>
@@ -99,6 +210,96 @@
     </div>
 
     <script>
+        function calculate() {
+            const resultBox = document.getElementById('result');
+            let html = '';
+            
+            
+    const income = parseFloat(document.getElementById('income').value);
+    const filingStatus = document.getElementById('filing').value;
+    
+    // Simplified state tax calculation
+    let stateTax = 0;
+    
+    // Progressive tax brackets (simplified)
+    if (income <= 50000) {
+      stateTax = income * 0.014499999999999999;
+    } else if (income <= 100000) {
+      stateTax = 50000 * 0.014499999999999999 + (income - 50000) * 0.02175;
+    } else {
+      stateTax = 50000 * 0.014499999999999999 + 50000 * 0.02175 + (income - 100000) * 0.028999999999999998;
+    }
+    
+    
+    // Federal tax (simplified)
+    let federalTax = 0;
+    if (income <= 44725) {
+      federalTax = income * 0.12;
+    } else if (income <= 95375) {
+      federalTax = 5367 + (income - 44725) * 0.22;
+    } else if (income <= 182100) {
+      federalTax = 16710 + (income - 95375) * 0.24;
+    } else {
+      federalTax = 37584 + (income - 182100) * 0.32;
+    }
+    
+    const totalTax = stateTax + federalTax;
+    const effectiveRate = (totalTax / income) * 100;
+    const takeHome = income - totalTax;
+    
+    html += '<div class="result-value">Take-Home Pay: $' + takeHome.toLocaleString() + '</div>';
+    html += '<div class="result-detail">Gross Income: $' + income.toLocaleString() + '</div>';
+    html += '<div class="result-detail">North Dakota State Tax: $' + stateTax.toFixed(2).toLocaleString() + '</div>';
+    html += '<div class="result-detail">Federal Tax: $' + federalTax.toFixed(2).toLocaleString() + '</div>';
+    html += '<div class="result-detail">Total Tax: $' + totalTax.toFixed(2).toLocaleString() + '</div>';
+    html += '<div class="result-detail">Effective Tax Rate: ' + effectiveRate.toFixed(2) + '%</div>';
+  
+            
+            resultBox.innerHTML = '<h3>Tax Results</h3>' + html;
+            resultBox.style.display = 'block';
+        }
+    </script>
+</div>
+</div>
+
+<div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<footer class="cl-footer">
+  <div class="cl-footer-inner">
+    <div class="cl-footer-grid">
+      <div>
+        <a class="cl-logo" href="index.html">Calc<span style="color:var(--accent)">Leap</span></a>
+        <p style="margin-top:.5rem">Fast, beautiful, and private calculators for everyone. Built with care, free forever.</p>
+      </div>
+      <div>
+        <h5>Popular</h5>
+        <a href="bmi-calculator.html">BMI Calculator</a>
+        <a href="calc/mortgage-payment.html">Mortgage</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="calc/compound-interest.html">Compound Interest</a>
+      </div>
+      <div>
+        <h5>Categories</h5>
+        <a href="index.html#finance">Financial</a>
+        <a href="index.html#insurance">Insurance</a>
+        <a href="index.html#health">Health</a>
+        <a href="index.html#converters">Converters</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog/index.html">Blog</a>
+      </div>
+    </div>
+    <div class="cl-footer-bottom">
+      <p>© 2026 CalcLeap. All calculations are for informational purposes only.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
         function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
