@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montana Workers' Compensation Calculator | CalcLeap</title>
+    <meta name="description" content="Calculate workers' compensation insurance costs in Montana (MT). Estimate premiums by industry, payroll, and experience modification rate. Free Montana workers' comp calculator.">
+    <link rel="canonical" href="https://calcleap.com/workers-comp/montana.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Montana Workers' Compensation Calculator",
+        "description": "Calculate workers' comp insurance premiums in Montana",
+        "url": "https://calcleap.com/workers-comp/montana.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif; background:#fafafa; color:#1d1d1f; line-height:1.6; }
+        .nav { background:rgba(255,255,255,0.72); backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid #d2d2d7; padding:12px 0; position:sticky; top:0; z-index:100; }
+        .nav-inner { max-width:980px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; }
+        .nav a { color:#1d1d1f; text-decoration:none; font-size:14px; }
+        .nav .logo { font-weight:700; font-size:18px; color:#0071e3; }
+        .breadcrumb { max-width:980px; margin:16px auto 0; padding:0 20px; font-size:13px; color:#86868b; }
+        .breadcrumb a { color:#0071e3; text-decoration:none; }
+        .hero { max-width:980px; margin:0 auto; padding:40px 20px 20px; text-align:center; }
+        .hero h1 { font-size:clamp(28px,4vw,42px); font-weight:700; letter-spacing:-0.02em; margin-bottom:12px; }
+        .hero p { font-size:18px; color:#86868b; max-width:600px; margin:0 auto; }
+        .card { background:#fff; border-radius:16px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:32px; margin:20px auto; max-width:980px; }
+        .form-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px; }
+        .field label { display:block; font-size:13px; font-weight:600; color:#86868b; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px; }
+        .field input, .field select { width:100%; padding:12px 16px; border:1px solid #d2d2d7; border-radius:10px; font-size:16px; background:#fafafa; transition:border-color 0.2s; }
+        .field input:focus, .field select:focus { outline:none; border-color:#0071e3; background:#fff; }
+        .btn { display:inline-block; background:#0071e3; color:#fff; border:none; padding:14px 32px; border-radius:980px; font-size:17px; font-weight:600; cursor:pointer; transition:background 0.2s; margin-top:20px; }
+        .btn:hover { background:#0077ED; }
+        .results { display:none; }
+        .result-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin:20px 0; }
+        .result-box { background:#f5f5f7; border-radius:12px; padding:20px; text-align:center; }
+        .result-box .label { font-size:13px; color:#86868b; text-transform:uppercase; letter-spacing:0.5px; }
+        .result-box .value { font-size:28px; font-weight:700; color:#1d1d1f; margin-top:4px; }
+        .result-box .value.accent { color:#0071e3; }
+        table { width:100%; border-collapse:collapse; margin:20px 0; }
+        th, td { padding:12px 16px; text-align:left; border-bottom:1px solid #e5e5e7; font-size:14px; }
+        th { background:#f5f5f7; font-weight:600; color:#86868b; text-transform:uppercase; font-size:12px; letter-spacing:0.5px; }
+        .info-section { max-width:980px; margin:20px auto; padding:0 20px; }
+        .info-section h2 { font-size:24px; font-weight:700; margin:30px 0 12px; }
+        .info-section h3 { font-size:18px; font-weight:600; margin:20px 0 8px; }
+        .info-section p, .info-section li { font-size:15px; line-height:1.7; color:#424245; }
+        .info-section ul { padding-left:20px; }
+        .info-section li { margin-bottom:6px; }
+        .faq { max-width:980px; margin:30px auto; padding:0 20px; }
+        .faq h2 { font-size:24px; font-weight:700; margin-bottom:16px; }
+        .faq-item { border-bottom:1px solid #e5e5e7; }
+        .faq-q { padding:16px 0; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; }
+        .faq-a { padding:0 0 16px; color:#424245; display:none; }
+        .faq-item.open .faq-a { display:block; }
+        .related { max-width:980px; margin:30px auto; padding:0 20px; }
+        .related h2 { font-size:20px; font-weight:700; margin-bottom:12px; }
+        .related-link { display:inline-block; padding:8px 16px; background:#f5f5f7; border-radius:8px; margin:4px; text-decoration:none; color:#0071e3; font-size:14px; }
+        .related-link:hover { background:#e8e8ed; }
+        .ad-slot { max-width:980px; margin:20px auto; padding:0 20px; text-align:center; min-height:90px; }
+        .chart-container { max-width:600px; margin:20px auto; }
+        .bar { display:flex; align-items:center; margin:8px 0; }
+        .bar-label { width:140px; font-size:13px; font-weight:600; }
+        .bar-fill { height:28px; border-radius:6px; background:linear-gradient(90deg,#0071e3,#34aadc); transition:width 0.6s ease; position:relative; min-width:2px; }
+        .bar-value { margin-left:8px; font-size:13px; font-weight:600; }
+        footer { text-align:center; padding:40px 20px; color:#86868b; font-size:13px; border-top:1px solid #e5e5e7; margin-top:40px; }
+        footer a { color:#0071e3; text-decoration:none; }
+        .alert-box { margin:20px; }
+        @media(max-width:600px) { .form-grid { grid-template-columns:1fr; } .result-grid { grid-template-columns:1fr 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="logo">CalcLeap</a><a href="/">All Tools</a></div></nav>
+    <div class="breadcrumb"><a href="/">Home</a> → <a href="index.html">Workers' Comp</a> → Montana</div>
+    
+    <div class="hero">
+        <h1>Montana Workers' Comp Calculator</h1>
+        <p>Estimate your workers' compensation insurance premium in Montana (MT). Enter your payroll and industry to get an instant quote estimate.</p>
+    </div>
+
+    
+
+    <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="1234567890" data-ad-format="auto"></ins></div>
+
+    <div class="card">
+        <h2 style="font-size:20px;margin-bottom:20px;">Calculate Your Premium</h2>
+        <div class="form-grid">
+            <div class="field">
+                <label>Annual Payroll ($)</label>
+                <input type="number" id="payroll" value="250000" min="0" step="1000">
+            </div>
+            <div class="field">
+                <label>Number of Employees</label>
+                <input type="number" id="employees" value="5" min="1" max="10000">
+            </div>
+            <div class="field">
+                <label>Industry / Class Code</label>
+                <select id="industry">
+                                <option value="office" data-mod="0.3">Office/Clerical (Class 8810)</option>
+            <option value="retail" data-mod="0.7">Retail Store (Class 8017)</option>
+            <option value="restaurant" data-mod="1.2">Restaurant (Class 9082)</option>
+            <option value="construction" data-mod="3.5">Construction (Class 5403)</option>
+            <option value="manufacturing" data-mod="2.1">Manufacturing (Class 3632)</option>
+            <option value="healthcare" data-mod="1.5">Healthcare (Class 8833)</option>
+            <option value="trucking" data-mod="4.2">Trucking/Transport (Class 7219)</option>
+            <option value="landscaping" data-mod="3.8">Landscaping (Class 0042)</option>
+            <option value="plumbing" data-mod="2.4">Plumbing (Class 5183)</option>
+            <option value="electrical" data-mod="2.2">Electrical (Class 5190)</option>
+            <option value="roofing" data-mod="8.5">Roofing (Class 5551)</option>
+            <option value="tech" data-mod="0.25">Technology/IT (Class 8859)</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Experience Mod Rate (EMR)</label>
+                <input type="number" id="emr" value="1.0" min="0.5" max="2.0" step="0.01">
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <button class="btn" onclick="calculate()">Calculate Premium</button>
+        </div>
+
+        <div class="results" id="results">
+            <hr style="border:none;border-top:1px solid #e5e5e7;margin:24px 0;">
+            <h3 style="font-size:18px;margin-bottom:16px;">Your Estimated Workers' Comp Premium</h3>
+            <div class="result-grid">
+                <div class="result-box"><div class="label">Annual Premium</div><div class="value accent" id="r-annual">$0</div></div>
+                <div class="result-box"><div class="label">Monthly Cost</div><div class="value" id="r-monthly">$0</div></div>
+                <div class="result-box"><div class="label">Cost Per Employee</div><div class="value" id="r-per-emp">$0</div></div>
+                <div class="result-box"><div class="label">Rate Per $100 Payroll</div><div class="value" id="r-rate">$0</div></div>
+            </div>
+
+            <h3 style="font-size:16px;margin:20px 0 12px;">Premium Breakdown by Classification</h3>
+            <div class="chart-container" id="chart"></div>
+
+            <h3 style="font-size:16px;margin:20px 0 12px;">Industry Comparison</h3>
+            <table>
+                <thead><tr><th>Industry</th><th>Rate/$100</th><th>Est. Premium</th><th>Monthly</th></tr></thead>
+                <tbody id="comp-table"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="1234567891" data-ad-format="auto"></ins></div>
+
+    <div class="info-section">
+        <h2>Workers' Compensation in Montana</h2>
+        <p>Workers' compensation insurance is required for most employers in Montana. The state base rate index averages approximately <strong>$1.32 per $100 of payroll</strong>, though actual rates vary significantly by industry classification code and your company's claims history.</p>
+        
+        <h3>Key Montana Workers' Comp Facts</h3>
+        <ul>
+            <li><strong>Average Rate:</strong> $1.32 per $100 of payroll</li>
+            <li><strong>State Minimum Wage:</strong> $10.30/hour</li>
+            <li><strong>State Fund:</strong> Competitive — private insurers available</li>
+            <li><strong>Exemptions:</strong> Varies by business type and employee count</li>
+            <li><strong>Filing Deadline:</strong> Must obtain coverage before first employee starts</li>
+        </ul>
+
+        <h3>How Montana Workers' Comp Premiums Are Calculated</h3>
+        <p>Your workers' comp premium in Montana is calculated using this formula:</p>
+        <p style="background:#f5f5f7;padding:16px;border-radius:10px;font-family:monospace;text-align:center;margin:12px 0;">
+            Premium = (Payroll ÷ 100) × Class Rate × Experience Mod Rate
+        </p>
+        <ul>
+            <li><strong>Class Rate:</strong> Based on your industry's NCCI classification code and risk level</li>
+            <li><strong>Experience Modification Rate (EMR):</strong> Your company's claims history vs. industry average (1.0 = average)</li>
+            <li><strong>Payroll:</strong> Total annual employee wages subject to workers' comp</li>
+        </ul>
+
+        <h3>Highest-Risk Industries in Montana</h3>
+        <p>Industries with the highest workers' comp rates in Montana include roofing ($8-12 per $100), trucking ($4-6 per $100), and construction ($3-5 per $100). Office and technology workers have the lowest rates, typically under $0.50 per $100 of payroll.</p>
+
+        <h3>How to Lower Your Workers' Comp Costs</h3>
+        <ul>
+            <li><strong>Safety programs:</strong> Implement workplace safety training to reduce claims</li>
+            <li><strong>Return-to-work programs:</strong> Get injured employees back to light duty faster</li>
+            <li><strong>Classify correctly:</strong> Ensure employees are in the right class codes</li>
+            <li><strong>Shop around:</strong> Compare quotes from multiple private insurers</li>
+            <li><strong>Pay-as-you-go:</strong> Use monthly premium payments based on actual payroll</li>
+            <li><strong>Drug-free workplace:</strong> Many states offer premium discounts for drug-free programs</li>
+        </ul>
+    </div>
+
+    <div class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><div class="faq-q">Is workers' comp required in Montana? <span>+</span></div><div class="faq-a">Yes, most employers in Montana are required to carry workers' compensation insurance. Some exceptions may apply for sole proprietors or very small businesses.</div></div>
+        <div class="faq-item"><div class="faq-q">How much does workers' comp cost in Montana? <span>+</span></div><div class="faq-a">The average rate in Montana is approximately $1.32 per $100 of payroll. For a business with $250,000 in annual payroll, that's roughly $3,300/year before experience modification. Actual costs vary by industry — office workers pay much less than construction or roofing.</div></div>
+        <div class="faq-item"><div class="faq-q">What does workers' comp cover in Montana? <span>+</span></div><div class="faq-a">Workers' compensation in Montana covers medical expenses for work-related injuries, lost wages (typically 2/3 of average weekly wage), rehabilitation costs, and death benefits for families of workers killed on the job.</div></div>
+        <div class="faq-item"><div class="faq-q">What is an Experience Modification Rate (EMR)? <span>+</span></div><div class="faq-a">Your EMR compares your company's claims history to the industry average. An EMR of 1.0 means you're average. Below 1.0 means fewer claims (lower premium), above 1.0 means more claims (higher premium). A new business typically starts at 1.0.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I get workers' comp for just myself as a sole proprietor? <span>+</span></div><div class="faq-a">In Montana, sole proprietors and independent contractors can typically opt into workers' comp coverage voluntarily. This is sometimes called a "ghost policy" and may be required by general contractors before they'll hire you as a subcontractor.</div></div>
+        <div class="faq-item"><div class="faq-q">What happens if I don't have workers' comp in Montana? <span>+</span></div><div class="faq-a">Operating without required workers' compensation insurance in Montana can result in significant fines, criminal penalties, and personal liability for employee injuries. The state may also issue a stop-work order until coverage is obtained.</div></div>
+    </div>
+
+    <div class="related">
+        <h2>Workers' Comp Calculators by State</h2>
+        <div>
+                        <a href="mississippi.html" class="related-link">Mississippi</a>
+            <a href="missouri.html" class="related-link">Missouri</a>
+            <a href="nebraska.html" class="related-link">Nebraska</a>
+            <a href="nevada.html" class="related-link">Nevada</a>
+            <a href="new-hampshire.html" class="related-link">New Hampshire</a>
+            <a href="new-jersey.html" class="related-link">New Jersey</a>
+            <a href="index.html" class="related-link" style="background:#0071e3;color:#fff;">All 50 States →</a>
+        </div>
+    </div>
+
+    <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="1234567892" data-ad-format="auto"></ins></div>
+
+    <footer>
+        <p>&copy; 2026 <a href="/">CalcLeap</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/contact.html">Contact</a></p>
+        <p style="margin-top:8px;">This calculator provides estimates only. Actual premiums depend on your insurer, claims history, and specific classification. Consult a licensed insurance agent for accurate quotes.</p>
+    </footer>
+
+    <script>
+    const STATE_RATE = 1.32;
+    const industries = {"office":{"name":"Office/Clerical","mod":0.3},"retail":{"name":"Retail Store","mod":0.7},"restaurant":{"name":"Restaurant","mod":1.2},"construction":{"name":"Construction","mod":3.5},"manufacturing":{"name":"Manufacturing","mod":2.1},"healthcare":{"name":"Healthcare","mod":1.5},"trucking":{"name":"Trucking/Transport","mod":4.2},"landscaping":{"name":"Landscaping","mod":3.8},"plumbing":{"name":"Plumbing","mod":2.4},"electrical":{"name":"Electrical","mod":2.2},"roofing":{"name":"Roofing","mod":8.5},"tech":{"name":"Technology/IT","mod":0.25}};
+
+    function fmt(n) { return '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}); }
+
+    function calculate() {
+        const payroll = parseFloat(document.getElementById('payroll').value) || 0;
+        const employees = parseInt(document.getElementById('employees').value) || 1;
+        const sel = document.getElementById('industry');
+        const industryKey = sel.value;
+        const emr = parseFloat(document.getElementById('emr').value) || 1.0;
+        
+        const mod = industries[industryKey].mod;
+        const effectiveRate = STATE_RATE * mod * emr;
+        const annual = (payroll / 100) * effectiveRate;
+        const monthly = annual / 12;
+        const perEmp = annual / employees;
+
+        document.getElementById('r-annual').textContent = fmt(annual);
+        document.getElementById('r-monthly').textContent = fmt(monthly);
+        document.getElementById('r-per-emp').textContent = fmt(perEmp);
+        document.getElementById('r-rate').textContent = '$' + effectiveRate.toFixed(2);
+
+        // Comparison table
+        let tbody = '';
+        const sorted = Object.entries(industries).sort((a,b) => b[1].mod - a[1].mod);
+        for (const [k, v] of sorted) {
+            const r = STATE_RATE * v.mod * emr;
+            const p = (payroll / 100) * r;
+            const highlight = k === industryKey ? ' style="background:#f0f7ff;font-weight:600;"' : '';
+            tbody += '<tr' + highlight + '><td>' + v.name + '</td><td>$' + r.toFixed(2) + '</td><td>' + fmt(p) + '</td><td>' + fmt(p/12) + '</td></tr>';
+        }
+        document.getElementById('comp-table').innerHTML = tbody;
+
+        // Bar chart
+        let chart = '';
+        const maxRate = STATE_RATE * 8.5 * emr;
+        for (const [k, v] of sorted.slice(0, 8)) {
+            const r = STATE_RATE * v.mod * emr;
+            const w = Math.max(2, (r / maxRate) * 100);
+            const highlight = k === industryKey ? 'background:linear-gradient(90deg,#34c759,#30d158);' : '';
+            chart += '<div class="bar"><span class="bar-label">' + v.name + '</span><div class="bar-fill" style="width:' + w + '%;' + highlight + '"></div><span class="bar-value">$' + r.toFixed(2) + '</span></div>';
+        }
+        document.getElementById('chart').innerHTML = chart;
+
+        document.getElementById('results').style.display = 'block';
+    }
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+            q.parentElement.classList.toggle('open');
+            q.querySelector('span').textContent = q.parentElement.classList.contains('open') ? '−' : '+';
+        });
+    });
+
+    // Auto-calculate on load
+    calculate();
+    // Recalculate on input change
+    ['payroll','employees','industry','emr'].forEach(id => {
+        document.getElementById(id).addEventListener('input', calculate);
+    });
+    </script>
+</body>
+</html>

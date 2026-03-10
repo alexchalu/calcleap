@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workers' Compensation Calculator by State | CalcLeap</title>
+    <meta name="description" content="Calculate workers' compensation insurance costs for all 50 US states. Compare rates by industry and state. Free workers' comp premium estimator.">
+    <link rel="canonical" href="https://calcleap.com/workers-comp/index.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX" crossorigin="anonymous"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif; background:#fafafa; color:#1d1d1f; line-height:1.6; }
+        .nav { background:rgba(255,255,255,0.72); backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid #d2d2d7; padding:12px 0; position:sticky; top:0; z-index:100; }
+        .nav-inner { max-width:980px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; }
+        .nav a { color:#1d1d1f; text-decoration:none; font-size:14px; }
+        .nav .logo { font-weight:700; font-size:18px; color:#0071e3; }
+        .hero { max-width:980px; margin:0 auto; padding:40px 20px 20px; text-align:center; }
+        .hero h1 { font-size:clamp(28px,4vw,42px); font-weight:700; letter-spacing:-0.02em; margin-bottom:12px; }
+        .hero p { font-size:18px; color:#86868b; max-width:700px; margin:0 auto; }
+        .search { max-width:500px; margin:20px auto; }
+        .search input { width:100%; padding:14px 20px; border:1px solid #d2d2d7; border-radius:980px; font-size:16px; background:#fff; }
+        .search input:focus { outline:none; border-color:#0071e3; }
+        .card { background:#fff; border-radius:16px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:24px; margin:20px auto; max-width:980px; overflow-x:auto; }
+        table { width:100%; border-collapse:collapse; }
+        th, td { padding:12px 16px; text-align:left; border-bottom:1px solid #e5e5e7; font-size:14px; }
+        th { background:#f5f5f7; font-weight:600; color:#86868b; text-transform:uppercase; font-size:12px; letter-spacing:0.5px; cursor:pointer; }
+        th:hover { color:#0071e3; }
+        .highlight { background:#f0f7ff; }
+        .info { max-width:980px; margin:30px auto; padding:0 20px; }
+        .info h2 { font-size:24px; font-weight:700; margin:24px 0 12px; }
+        .info p { font-size:15px; color:#424245; line-height:1.7; margin-bottom:12px; }
+        .ad-slot { max-width:980px; margin:20px auto; text-align:center; min-height:90px; }
+        footer { text-align:center; padding:40px 20px; color:#86868b; font-size:13px; border-top:1px solid #e5e5e7; margin-top:40px; }
+        footer a { color:#0071e3; text-decoration:none; }
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="logo">CalcLeap</a><a href="/">All Tools</a></div></nav>
+    
+    <div class="hero">
+        <h1>Workers' Compensation Calculator</h1>
+        <p>Compare workers' comp insurance rates across all 50 US states. Click any state for a detailed premium calculator with industry-specific rates.</p>
+    </div>
+
+    <div class="search"><input type="text" id="search" placeholder="Search states..." oninput="filterTable()"></div>
+
+    <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="1234567890" data-ad-format="auto"></ins></div>
+
+    <div class="card">
+        <table id="stateTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">State ↕</th>
+                    <th onclick="sortTable(1)">Code</th>
+                    <th onclick="sortTable(2)">Avg Rate/$100 ↕</th>
+                    <th onclick="sortTable(3)">Min Wage ↕</th>
+                    <th onclick="sortTable(4)">Market Type</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr><td><a href="alaska.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Alaska</a></td><td>AK</td><td>$2.15</td><td>$11.73</td><td>Competitive</td></tr>
+<tr><td><a href="hawaii.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Hawaii</a></td><td>HI</td><td>$2.08</td><td>$14.00</td><td>Competitive</td></tr>
+<tr><td><a href="washington.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Washington</a></td><td>WA</td><td>$1.48</td><td>$16.28</td><td>State Fund</td></tr>
+<tr><td><a href="california.html" style="color:#0071e3;text-decoration:none;font-weight:600;">California</a></td><td>CA</td><td>$1.45</td><td>$16.00</td><td>Competitive</td></tr>
+<tr><td><a href="connecticut.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Connecticut</a></td><td>CT</td><td>$1.41</td><td>$16.35</td><td>Competitive</td></tr>
+<tr><td><a href="west-virginia.html" style="color:#0071e3;text-decoration:none;font-weight:600;">West Virginia</a></td><td>WV</td><td>$1.36</td><td>$8.75</td><td>Competitive</td></tr>
+<tr><td><a href="louisiana.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Louisiana</a></td><td>LA</td><td>$1.35</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="new-jersey.html" style="color:#0071e3;text-decoration:none;font-weight:600;">New Jersey</a></td><td>NJ</td><td>$1.33</td><td>$15.49</td><td>Competitive</td></tr>
+<tr><td><a href="montana.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Montana</a></td><td>MT</td><td>$1.32</td><td>$10.30</td><td>Competitive</td></tr>
+<tr><td><a href="delaware.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Delaware</a></td><td>DE</td><td>$1.31</td><td>$13.25</td><td>Competitive</td></tr>
+<tr><td><a href="south-carolina.html" style="color:#0071e3;text-decoration:none;font-weight:600;">South Carolina</a></td><td>SC</td><td>$1.31</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="vermont.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Vermont</a></td><td>VT</td><td>$1.29</td><td>$13.67</td><td>Competitive</td></tr>
+<tr><td><a href="rhode-island.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Rhode Island</a></td><td>RI</td><td>$1.28</td><td>$14.00</td><td>Competitive</td></tr>
+<tr><td><a href="minnesota.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Minnesota</a></td><td>MN</td><td>$1.27</td><td>$11.13</td><td>Competitive</td></tr>
+<tr><td><a href="new-york.html" style="color:#0071e3;text-decoration:none;font-weight:600;">New York</a></td><td>NY</td><td>$1.25</td><td>$15.00</td><td>Competitive</td></tr>
+<tr><td><a href="georgia.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Georgia</a></td><td>GA</td><td>$1.24</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="maine.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Maine</a></td><td>ME</td><td>$1.22</td><td>$14.15</td><td>Competitive</td></tr>
+<tr><td><a href="pennsylvania.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Pennsylvania</a></td><td>PA</td><td>$1.21</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="new-hampshire.html" style="color:#0071e3;text-decoration:none;font-weight:600;">New Hampshire</a></td><td>NH</td><td>$1.20</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="illinois.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Illinois</a></td><td>IL</td><td>$1.19</td><td>$14.00</td><td>Competitive</td></tr>
+<tr><td><a href="iowa.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Iowa</a></td><td>IA</td><td>$1.18</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="oregon.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Oregon</a></td><td>OR</td><td>$1.18</td><td>$14.70</td><td>Competitive</td></tr>
+<tr><td><a href="massachusetts.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Massachusetts</a></td><td>MA</td><td>$1.17</td><td>$15.00</td><td>Competitive</td></tr>
+<tr><td><a href="oklahoma.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Oklahoma</a></td><td>OK</td><td>$1.16</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="mississippi.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Mississippi</a></td><td>MS</td><td>$1.15</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="wisconsin.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Wisconsin</a></td><td>WI</td><td>$1.15</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="michigan.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Michigan</a></td><td>MI</td><td>$1.14</td><td>$10.33</td><td>Competitive</td></tr>
+<tr><td><a href="alabama.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Alabama</a></td><td>AL</td><td>$1.13</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="maryland.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Maryland</a></td><td>MD</td><td>$1.12</td><td>$15.00</td><td>Competitive</td></tr>
+<tr><td><a href="nebraska.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Nebraska</a></td><td>NE</td><td>$1.11</td><td>$12.00</td><td>Competitive</td></tr>
+<tr><td><a href="idaho.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Idaho</a></td><td>ID</td><td>$1.10</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="north-carolina.html" style="color:#0071e3;text-decoration:none;font-weight:600;">North Carolina</a></td><td>NC</td><td>$1.10</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="missouri.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Missouri</a></td><td>MO</td><td>$1.09</td><td>$12.30</td><td>Competitive</td></tr>
+<tr><td><a href="kentucky.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Kentucky</a></td><td>KY</td><td>$1.08</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="new-mexico.html" style="color:#0071e3;text-decoration:none;font-weight:600;">New Mexico</a></td><td>NM</td><td>$1.08</td><td>$12.00</td><td>Competitive</td></tr>
+<tr><td><a href="tennessee.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Tennessee</a></td><td>TN</td><td>$1.07</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="arizona.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Arizona</a></td><td>AZ</td><td>$1.05</td><td>$14.35</td><td>Competitive</td></tr>
+<tr><td><a href="south-dakota.html" style="color:#0071e3;text-decoration:none;font-weight:600;">South Dakota</a></td><td>SD</td><td>$1.05</td><td>$11.20</td><td>Competitive</td></tr>
+<tr><td><a href="wyoming.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Wyoming</a></td><td>WY</td><td>$1.05</td><td>$7.25</td><td>State Fund</td></tr>
+<tr><td><a href="kansas.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Kansas</a></td><td>KS</td><td>$1.04</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="nevada.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Nevada</a></td><td>NV</td><td>$1.02</td><td>$12.00</td><td>Competitive</td></tr>
+<tr><td><a href="florida.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Florida</a></td><td>FL</td><td>$1.01</td><td>$13.00</td><td>Competitive</td></tr>
+<tr><td><a href="texas.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Texas</a></td><td>TX</td><td>$0.98</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="arkansas.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Arkansas</a></td><td>AR</td><td>$0.97</td><td>$11.00</td><td>Competitive</td></tr>
+<tr><td><a href="virginia.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Virginia</a></td><td>VA</td><td>$0.93</td><td>$12.00</td><td>Competitive</td></tr>
+<tr><td><a href="ohio.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Ohio</a></td><td>OH</td><td>$0.91</td><td>$10.45</td><td>State Fund</td></tr>
+<tr><td><a href="north-dakota.html" style="color:#0071e3;text-decoration:none;font-weight:600;">North Dakota</a></td><td>ND</td><td>$0.88</td><td>$7.25</td><td>State Fund</td></tr>
+<tr><td><a href="utah.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Utah</a></td><td>UT</td><td>$0.84</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="indiana.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Indiana</a></td><td>IN</td><td>$0.82</td><td>$7.25</td><td>Competitive</td></tr>
+<tr><td><a href="colorado.html" style="color:#0071e3;text-decoration:none;font-weight:600;">Colorado</a></td><td>CO</td><td>$0.81</td><td>$14.42</td><td>Competitive</td></tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info">
+        <h2>Understanding Workers' Compensation Insurance</h2>
+        <p>Workers' compensation insurance is a mandatory form of business insurance in most US states that covers medical costs and lost wages for employees who are injured or become ill on the job. Premiums are calculated based on your industry classification, total payroll, and claims history (experience modification rate).</p>
+        
+        <h2>Monopolistic vs. Competitive States</h2>
+        <p>Most states have a competitive workers' comp market where employers can purchase coverage from private insurers. However, four states — <strong>North Dakota, Ohio, Washington, and Wyoming</strong> — have monopolistic state funds, meaning all employers must purchase coverage through the state.</p>
+        
+        <h2>How Rates Are Determined</h2>
+        <p>Workers' comp rates are set based on NCCI (National Council on Compensation Insurance) classification codes that categorize businesses by risk level. High-risk industries like roofing and trucking pay significantly more than low-risk office work. Your experience modification rate (EMR) further adjusts your premium based on your company's specific claims history.</p>
+    </div>
+
+    <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="1234567891" data-ad-format="auto"></ins></div>
+
+    <footer>
+        <p>&copy; 2026 <a href="/">CalcLeap</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/contact.html">Contact</a></p>
+    </footer>
+
+    <script>
+    function filterTable() {
+        const q = document.getElementById('search').value.toLowerCase();
+        document.querySelectorAll('#tableBody tr').forEach(r => {
+            r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none';
+        });
+    }
+    function sortTable(col) {
+        const tbody = document.getElementById('tableBody');
+        const rows = Array.from(tbody.rows);
+        const asc = tbody.dataset.sortCol == col && tbody.dataset.sortDir !== 'asc';
+        rows.sort((a, b) => {
+            let av = a.cells[col].textContent.replace('$','');
+            let bv = b.cells[col].textContent.replace('$','');
+            if (!isNaN(parseFloat(av))) return asc ? parseFloat(av)-parseFloat(bv) : parseFloat(bv)-parseFloat(av);
+            return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+        });
+        rows.forEach(r => tbody.appendChild(r));
+        tbody.dataset.sortCol = col;
+        tbody.dataset.sortDir = asc ? 'asc' : 'desc';
+    }
+    </script>
+</body>
+</html>
