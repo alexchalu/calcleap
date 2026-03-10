@@ -114,6 +114,18 @@ const categories = [
         ]
     },
     {
+        name: '🏠 Property Tax by State',
+        id: 'property-tax',
+        tools: [
+            { name: 'California Property Tax', desc: 'CA property tax calculator', url: 'california-property-tax-calculator.html' },
+            { name: 'Texas Property Tax', desc: 'TX property tax calculator', url: 'texas-property-tax-calculator.html' },
+            { name: 'Florida Property Tax', desc: 'FL property tax calculator', url: 'florida-property-tax-calculator.html' },
+            { name: 'New York Property Tax', desc: 'NY property tax calculator', url: 'new-york-property-tax-calculator.html' },
+            { name: 'New Jersey Property Tax', desc: 'NJ property tax calculator', url: 'new-jersey-property-tax-calculator.html' },
+            { name: 'Illinois Property Tax', desc: 'IL property tax calculator', url: 'illinois-property-tax-calculator.html' },
+        ]
+    },
+    {
         name: '🏙️ Cost of Living by City',
         id: 'city-col',
         tools: [
