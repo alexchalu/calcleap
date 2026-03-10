@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TOOL_NAME}} — Free Online Calculator | CalcLeap</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+<meta name="keywords" content="{{KEYWORDS}}">
+<link rel="canonical" href="https://calcleap.com/{{FILENAME}}">
+<meta property="og:title" content="{{TOOL_NAME}} — CalcLeap">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/{{FILENAME}}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "{{TOOL_NAME}}",
+    "description": "{{META_DESCRIPTION}}",
+    "url": "https://calcleap.com/{{FILENAME}}",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<style>
+:root{--bg:#0a0e1a;--s:#111827;--s2:#1f2937;--b:#374151;--t:#f3f4f6;--m:#9ca3af;--a:#6366f1;--a2:#4f46e5;--g:rgba(99,102,241,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+
+/* === HEADER & NAV === */
+.cl-header{background:var(--s);border-bottom:1px solid var(--b);padding:0;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.cl-header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:.75rem 1.5rem;gap:1rem;flex-wrap:wrap}
+.cl-logo{font-size:1.4rem;font-weight:800;color:var(--a);text-decoration:none}
+.cl-nav{display:flex;gap:.25rem;flex:1;margin-left:1rem;flex-wrap:wrap}
+.cl-nav a{color:var(--m);text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px;transition:color .2s}
+.cl-nav a:hover{color:var(--t)}
+.cl-mobile-toggle{display:none;background:none;border:1px solid var(--b);color:var(--t);font-size:1.2rem;padding:.3rem .6rem;border-radius:6px;cursor:pointer}
+
+/* === BREADCRUMBS === */
+.cl-breadcrumbs{max-width:1200px;margin:0 auto;padding:.75rem 1.5rem;font-size:.85rem;color:var(--m)}
+.cl-breadcrumbs a{color:var(--a);text-decoration:none}
+.cl-breadcrumbs a:hover{text-decoration:underline}
+.cl-breadcrumbs .sep{margin:0 .5rem}
+
+/* === MAIN LAYOUT === */
+.cl-main{max-width:1200px;margin:0 auto;padding:0 1.5rem 3rem;display:grid;grid-template-columns:1fr 300px;gap:2rem}
+.cl-content{min-width:0}
+.cl-sidebar{display:flex;flex-direction:column;gap:1.5rem}
+
+/* === CALCULATOR BOX === */
+.cl-calc{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:2rem;margin-bottom:2rem}
+.cl-calc h1{font-size:1.8rem;margin-bottom:.5rem}
+.cl-calc .cl-desc{color:var(--m);margin-bottom:1.5rem;font-size:.95rem}
+
+/* === FORM ELEMENTS === */
+.cl-field{margin-bottom:1.25rem}
+.cl-label{display:block;font-weight:600;margin-bottom:.4rem;font-size:.85rem;color:var(--t)}
+.cl-input,.cl-select{width:100%;padding:.7rem .9rem;background:var(--s2);border:1px solid var(--b);border-radius:8px;color:var(--t);font-size:.9rem;outline:none;font-family:inherit;transition:border-color .2s}
+.cl-input:focus,.cl-select:focus{border-color:var(--a);box-shadow:0 0 0 3px var(--g)}
+.cl-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.cl-btn{padding:.75rem 1.5rem;background:var(--a);color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;width:100%;transition:background .2s}
+.cl-btn:hover{background:var(--a2)}
+
+/* === RESULTS === */
+.cl-results{margin-top:1.5rem;padding:1.5rem;background:var(--s2);border-radius:10px;display:none}
+.cl-results.show{display:block}
+.cl-results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin-top:1rem}
+.cl-stat{background:var(--s);border:1px solid var(--b);border-radius:8px;padding:1rem;text-align:center}
+.cl-stat .val{font-size:1.3rem;font-weight:800;color:var(--a)}
+.cl-stat .lbl{font-size:.75rem;color:var(--m);margin-top:.25rem}
+
+/* === AD SLOTS === */
+.cl-ad{max-width:1200px;margin:1.5rem auto;padding:0 1.5rem}
+
+/* === SIDEBAR === */
+.cl-sidebar-box{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.25rem}
+.cl-sidebar-box h3{font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--t)}
+.cl-related-link{display:block;color:var(--m);text-decoration:none;font-size:.85rem;padding:.5rem .75rem;border-radius:6px;transition:all .2s;margin-bottom:.25rem}
+.cl-related-link:hover{background:var(--g);color:var(--t)}
+
+/* === FAQ === */
+.cl-faq{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:2rem;margin-top:2rem}
+.cl-faq h2{font-size:1.3rem;margin-bottom:1.5rem}
+.cl-faq-item{border-bottom:1px solid var(--b);padding:1rem 0}
+.cl-faq-item:last-child{border-bottom:none}
+.cl-faq-q{font-weight:700;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.cl-faq-q::after{content:'▸';transition:transform .2s}
+.cl-faq-q.open::after{transform:rotate(90deg)}
+.cl-faq-a{color:var(--m);font-size:.9rem;line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s ease}
+.cl-faq-a.open{max-height:500px;padding-top:.75rem}
+
+/* === FOOTER === */
+.cl-footer{background:var(--s);border-top:1px solid var(--b);padding:3rem 1.5rem;margin-top:3rem}
+.cl-footer-inner{max-width:1200px;margin:0 auto}
+.cl-footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem}
+.cl-footer h4{color:var(--t);font-size:.95rem;margin-bottom:1rem}
+.cl-footer p{color:var(--m);font-size:.85rem;line-height:1.6}
+.cl-footer a{display:block;color:var(--m);text-decoration:none;font-size:.85rem;padding:.25rem 0;transition:color .2s}
+.cl-footer a:hover{color:var(--t)}
+.cl-footer-bottom{text-align:center;padding-top:2rem;border-top:1px solid var(--b)}
+
+/* === RESPONSIVE === */
+@media(max-width:900px){
+    .cl-main{grid-template-columns:1fr}
+    .cl-sidebar{order:2}
+    .cl-nav{display:none}
+    .cl-mobile-toggle{display:block}
+    .cl-nav.show{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--s);border-top:1px solid var(--b);flex-direction:column;padding:1rem;z-index:200}
+}
+@media(max-width:600px){
+    .cl-calc{padding:1.25rem}
+    .cl-calc h1{font-size:1.4rem}
+    .cl-row{grid-template-columns:1fr}
+    .cl-results-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="cl-header">
+<div class="cl-header-inner">
+    <a href="index.html" class="cl-logo">⚡ CalcLeap</a>
+    <nav class="cl-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="index.html#finance">Finance</a>
+        <a href="index.html#insurance">Insurance</a>
+        <a href="index.html#health">Health</a>
+        <a href="index.html#dev">Dev Tools</a>
+        <a href="index.html#convert">Converters</a>
+    </nav>
+    <button class="cl-mobile-toggle" onclick="document.getElementById('mainNav').classList.toggle('show')">☰</button>
+</div>
+</header>
+
+<!-- ===== BREADCRUMBS ===== -->
+<div class="cl-breadcrumbs">
+    <a href="index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="index.html#{{CATEGORY_ID}}">{{CATEGORY_NAME}}</a>
+    <span class="sep">›</span>
+    <span>{{TOOL_NAME}}</span>
+</div>
+
+<!-- ===== AD SLOT 1 ===== -->
+<div class="cl-ad">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="cl-main">
+    <div class="cl-content">
+        <!-- Calculator Box -->
+        <div class="cl-calc">
+            <h1>{{ICON}} {{TOOL_NAME}}</h1>
+            <p class="cl-desc">{{META_DESCRIPTION}}</p>
+
+            <!-- ===== CALCULATOR FORM (replace this section) ===== -->
+            <div class="cl-row">
+                <div class="cl-field">
+                    <label class="cl-label">Input 1</label>
+                    <input type="number" class="cl-input" id="input1" value="0">
+                </div>
+                <div class="cl-field">
+                    <label class="cl-label">Input 2</label>
+                    <input type="number" class="cl-input" id="input2" value="0">
+                </div>
+            </div>
+            <button class="cl-btn" onclick="calculate()">Calculate</button>
+
+            <!-- Results -->
+            <div class="cl-results" id="results">
+                <h3 style="margin-bottom:.5rem">Results</h3>
+                <div class="cl-results-grid" id="resultsGrid">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+            <!-- ===== END CALCULATOR FORM ===== -->
+        </div>
+
+        <!-- ===== AD SLOT 2 ===== -->
+        <div style="margin:1.5rem 0">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+        </div>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <div class="cl-faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="cl-faq-item">
+                <div class="cl-faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                    What is {{TOOL_NAME}}?
+                </div>
+                <div class="cl-faq-a">
+                    {{FAQ_ANSWER_1}}
+                </div>
+            </div>
+            <div class="cl-faq-item">
+                <div class="cl-faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                    How do I use this calculator?
+                </div>
+                <div class="cl-faq-a">
+                    {{FAQ_ANSWER_2}}
+                </div>
+            </div>
+            <div class="cl-faq-item">
+                <div class="cl-faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                    Is this tool accurate?
+                </div>
+                <div class="cl-faq-a">
+                    Our calculator uses industry-standard formulas and up-to-date data to provide accurate estimates. However, results are for informational purposes only and should not replace professional advice.
+                </div>
+            </div>
+            <!-- Add more FAQ items as needed -->
+        </div>
+    </div>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="cl-sidebar">
+        <!-- Related Tools -->
+        <div class="cl-sidebar-box">
+            <h3>🔗 Related Tools</h3>
+            <a href="{{RELATED_1_URL}}" class="cl-related-link">{{RELATED_1_NAME}}</a>
+            <a href="{{RELATED_2_URL}}" class="cl-related-link">{{RELATED_2_NAME}}</a>
+            <a href="{{RELATED_3_URL}}" class="cl-related-link">{{RELATED_3_NAME}}</a>
+            <a href="{{RELATED_4_URL}}" class="cl-related-link">{{RELATED_4_NAME}}</a>
+            <a href="{{RELATED_5_URL}}" class="cl-related-link">{{RELATED_5_NAME}}</a>
+            <a href="{{RELATED_6_URL}}" class="cl-related-link">{{RELATED_6_NAME}}</a>
+        </div>
+
+        <!-- Ad Slot 3 (Sidebar) -->
+        <div class="cl-sidebar-box" style="padding:0;border:none;background:none">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+        </div>
+
+        <!-- Back to Category -->
+        <div class="cl-sidebar-box">
+            <h3>📂 Browse Category</h3>
+            <a href="index.html#{{CATEGORY_ID}}" class="cl-related-link" style="color:var(--a);font-weight:600">← Back to {{CATEGORY_NAME}}</a>
+            <a href="index.html" class="cl-related-link">View All Tools →</a>
+        </div>
+    </aside>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="cl-footer">
+<div class="cl-footer-inner">
+    <div class="cl-footer-grid">
+        <div>
+            <h4>CalcLeap</h4>
+            <p>2,000+ free calculators and tools. Fast, accurate, private. No signup required.</p>
+        </div>
+        <div>
+            <h4>Popular Tools</h4>
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="mortgage-refinance-calculator.html">Mortgage Calculator</a>
+            <a href="json-formatter.html">JSON Formatter</a>
+            <a href="password-generator.html">Password Generator</a>
+        </div>
+        <div>
+            <h4>Categories</h4>
+            <a href="index.html#finance">Financial</a>
+            <a href="index.html#health">Health & Fitness</a>
+            <a href="index.html#dev">Developer Tools</a>
+            <a href="index.html#convert">Unit Converters</a>
+        </div>
+        <div>
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
+            <a href="sitemap.xml">Sitemap</a>
+        </div>
+    </div>
+    <div class="cl-footer-bottom">
+        <p style="color:var(--m);font-size:.8rem">© 2026 CalcLeap. All calculations are for informational purposes only.</p>
+        <p style="color:#6b7280;font-size:.75rem;margin-top:.5rem">All tools run in your browser. 100% free, 100% private.</p>
+    </div>
+</div>
+</footer>
+
+<script>
+// ===== CALCULATOR LOGIC (replace this section) =====
+function calculate() {
+    const results = document.getElementById('results');
+    const grid = document.getElementById('resultsGrid');
+    // Your calculation logic here
+    grid.innerHTML = '<div class="cl-stat"><div class="val">$0</div><div class="lbl">Result</div></div>';
+    results.classList.add('show');
+}
+</script>
+</body>
+</html>
