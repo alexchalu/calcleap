@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>529 College Savings Plan Calculator by State — All 50 States | CalcLeap</title>
+<meta name="description" content="Compare 529 college savings plans across all 50 states. Calculate tax benefits, growth projections, and find the best plan for your family.">
+<link rel="canonical" href="https://calcleap.com/529/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"529 College Savings Plan Calculator by State","description":"Compare 529 plans across all 50 states with tax benefits, growth projections, and college cost estimates.","url":"https://calcleap.com/529/","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#fafafa;--surface:#fff;--border:rgba(0,0,0,.06);--border-hover:rgba(0,0,0,.12);--text:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-subtle:rgba(0,113,227,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.04);--radius:16px;--radius-sm:12px;--max-w:1120px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5;letter-spacing:-.022em}
+a{color:inherit;text-decoration:none}
+.cl-nav{position:sticky;top:0;z-index:100;background:rgba(251,251,253,.72);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.cl-nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.cl-logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em}.cl-logo span{color:var(--accent)}
+.cl-nav-links{display:flex;align-items:center;gap:.25rem}
+.cl-nav-links a{font-size:.8125rem;font-weight:400;color:var(--text-secondary);padding:.5rem .75rem;border-radius:8px;transition:all .2s}
+.cl-nav-links a:hover{color:var(--text);background:rgba(0,0,0,.03)}
+main{max-width:var(--max-w);margin:0 auto;padding:1rem 2rem 3rem}
+.breadcrumb{font-size:.8125rem;color:var(--text-tertiary);margin-bottom:.5rem;padding:.5rem 0}
+.breadcrumb a{color:var(--text-secondary)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 .4rem;opacity:.5}
+.hero{text-align:left;padding:1rem 0 1.5rem}
+.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em}
+.hero p{font-size:1rem;color:var(--text-secondary);max-width:640px;margin-top:.5rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);margin-bottom:1.5rem}
+h2{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem}
+.tag{display:inline-block;padding:.25rem .6rem;border-radius:6px;font-size:.75rem;font-weight:600}
+.tag.green{background:rgba(52,199,89,.1);color:#34c759}
+.tag.orange{background:rgba(255,149,0,.1);color:#ff9500}
+table{width:100%;border-collapse:collapse;font-size:.8125rem;margin:.75rem 0}
+th{text-align:left;padding:.6rem .75rem;border-bottom:2px solid var(--border);color:var(--text-secondary);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;cursor:pointer}
+th:hover{color:var(--accent)}
+td{padding:.6rem .75rem;border-bottom:1px solid var(--border)}
+tr:hover{background:var(--accent-subtle)}
+input[type="text"]{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.65rem .85rem;font-size:.9375rem;width:100%;margin-bottom:1rem;outline:none;font-family:var(--font)}
+input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;margin-top:1rem}
+.related-card{padding:1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);transition:all .2s}
+.related-card:hover{border-color:var(--accent);box-shadow:var(--shadow-md)}
+.related-card h4{font-size:.875rem;margin-bottom:.25rem}
+.related-card p{font-size:.75rem;color:var(--text-secondary)}
+.section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-top:1.5rem}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+.stat-card{text-align:center;padding:1.25rem;background:var(--accent-subtle);border-radius:var(--radius-sm)}
+.stat-card .value{font-size:1.5rem;font-weight:700;color:var(--accent)}
+.stat-card .label{font-size:.75rem;color:var(--text-secondary);margin-top:.25rem}
+.ad-slot{margin:1.5rem 0}
+.footer{max-width:var(--max-w);margin:3rem auto 0;padding:2rem;text-align:center;font-size:.8125rem;color:var(--text-tertiary);border-top:1px solid var(--border)}
+.footer a{color:var(--text-secondary)}.footer a:hover{color:var(--accent)}
+.faq-item{padding:1rem 0;border-bottom:1px solid var(--border)}.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;font-size:.9375rem;margin-bottom:.5rem}
+.faq-a{font-size:.875rem;color:var(--text-secondary);line-height:1.6}
+@media(max-width:768px){table{font-size:.7rem}td,th{padding:.4rem}}
+</style>
+</head>
+<body>
+<nav class="cl-nav"><div class="cl-nav-inner"><a href="https://calcleap.com/" class="cl-logo">Calc<span>Leap</span></a><div class="cl-nav-links"><a href="https://calcleap.com/">Home</a><a href="https://calcleap.com/529/">529 Plans</a><a href="https://calcleap.com/about.html">About</a></div></div></nav>
+<main>
+<div class="breadcrumb"><a href="https://calcleap.com/">Home</a><span>›</span>529 College Savings Plans</div>
+<div class="hero">
+<h1>529 College Savings Plan Calculator — All 50 States</h1>
+<p>Compare 529 plans across every US state. Calculate tax benefits, savings growth, and projected college costs. Find the best plan for your family.</p>
+</div>
+
+<div class="stat-grid">
+<div class="stat-card"><div class="value">35</div><div class="label">States with Tax Deduction</div></div>
+<div class="stat-card"><div class="value">$529K</div><div class="label">Avg Max Balance</div></div>
+<div class="stat-card"><div class="value">$27.4K</div><div class="label">Avg Annual College Cost</div></div>
+<div class="stat-card"><div class="value">100%</div><div class="label">Tax-Free Growth</div></div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="card">
+<h2>🎓 Featured State Plans</h2>
+<div class="related-grid"><a href="california.html" class="related-card"><h4>🎓 California</h4><p>ScholarShare 529</p><p style="margin-top:.25rem">⚠️ No state tax deduction</p></a><a href="florida.html" class="related-card"><h4>🎓 Florida</h4><p>Florida 529 Savings Plan</p><p style="margin-top:.25rem">⚠️ No state tax deduction</p></a><a href="illinois.html" class="related-card"><h4>🎓 Illinois</h4><p>Bright Start 529</p><p style="margin-top:.25rem">✅ Tax deduction: $10,000 single / $20,000 married</p></a><a href="new-jersey.html" class="related-card"><h4>🎓 New Jersey</h4><p>NJBEST 529 College Savings Plan</p><p style="margin-top:.25rem">✅ Tax deduction: $10,000 (income under $200K)</p></a><a href="new-york.html" class="related-card"><h4>🎓 New York</h4><p>NY 529 Direct Plan</p><p style="margin-top:.25rem">✅ Tax deduction: $5,000 single / $10,000 married</p></a><a href="ohio.html" class="related-card"><h4>🎓 Ohio</h4><p>Ohio 529 Plan (CollegeAdvantage)</p><p style="margin-top:.25rem">✅ Tax deduction: $4,000 per beneficiary</p></a><a href="pennsylvania.html" class="related-card"><h4>🎓 Pennsylvania</h4><p>PA 529 Investment Plan</p><p style="margin-top:.25rem">✅ Tax deduction: $17,000 single / $34,000 married</p></a><a href="texas.html" class="related-card"><h4>🎓 Texas</h4><p>Texas College Savings Plan (Lonestar 529)</p><p style="margin-top:.25rem">⚠️ No state tax deduction</p></a></div>
+</div>
+
+<div class="card">
+<h2>📊 All 50 States + DC</h2>
+<input type="text" id="search" placeholder="Search by state name..." oninput="filterTable()">
+<div style="overflow-x:auto">
+<table id="stateTable">
+<thead><tr><th onclick="sortTable(0)">State</th><th onclick="sortTable(1)">Plan Name</th><th onclick="sortTable(2)">Tax Deduction?</th><th onclick="sortTable(3)">Max Deduction</th><th onclick="sortTable(4)">Max Balance</th><th onclick="sortTable(5)">Avg College Cost</th><th onclick="sortTable(6)">Rating</th></tr></thead>
+<tbody><tr>
+<td><a href="alabama.html" style="color:var(--accent);font-weight:600">Alabama</a></td>
+<td>CollegeCounts 529</td>
+<td><span class="tag green">Yes</span></td>
+<td>Unlimited (up to $5,000 single / $10,000 married)</td>
+<td>$450,000</td>
+<td>$24,500</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="alaska.html" style="color:var(--accent);font-weight:600">Alaska</a></td>
+<td>T. Rowe Price College Savings Plan</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$475,000</td>
+<td>$19,800</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="arizona.html" style="color:var(--accent);font-weight:600">Arizona</a></td>
+<td>Arizona Family College Savings Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$2,000 single / $4,000 married</td>
+<td>$531,000</td>
+<td>$27,200</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="arkansas.html" style="color:var(--accent);font-weight:600">Arkansas</a></td>
+<td>GIFT College Investing Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$5,000 single / $10,000 married</td>
+<td>$366,000</td>
+<td>$22,800</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="california.html" style="color:var(--accent);font-weight:600">California</a></td>
+<td>ScholarShare 529</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$529,000</td>
+<td>$36,200</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="colorado.html" style="color:var(--accent);font-weight:600">Colorado</a></td>
+<td>CollegeInvest Direct Portfolio</td>
+<td><span class="tag green">Yes</span></td>
+<td>Unlimited</td>
+<td>$500,000</td>
+<td>$28,400</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="connecticut.html" style="color:var(--accent);font-weight:600">Connecticut</a></td>
+<td>CHET 529 College Savings Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$5,000 single / $10,000 married</td>
+<td>$550,000</td>
+<td>$39,500</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="delaware.html" style="color:var(--accent);font-weight:600">Delaware</a></td>
+<td>Delaware 529 Education Savings Plan</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$350,000</td>
+<td>$30,200</td>
+<td>⭐⭐⭐</td>
+</tr><tr>
+<td><a href="florida.html" style="color:var(--accent);font-weight:600">Florida</a></td>
+<td>Florida 529 Savings Plan</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$418,000</td>
+<td>$28,900</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="georgia.html" style="color:var(--accent);font-weight:600">Georgia</a></td>
+<td>Path2College 529 Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$4,000 single / $8,000 married</td>
+<td>$235,000</td>
+<td>$26,300</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="hawaii.html" style="color:var(--accent);font-weight:600">Hawaii</a></td>
+<td>HI529 Hawaii College Savings</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$305,000</td>
+<td>$28,700</td>
+<td>⭐⭐⭐</td>
+</tr><tr>
+<td><a href="idaho.html" style="color:var(--accent);font-weight:600">Idaho</a></td>
+<td>IDeal Idaho 529 Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$6,000 single / $12,000 married</td>
+<td>$500,000</td>
+<td>$25,100</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="illinois.html" style="color:var(--accent);font-weight:600">Illinois</a></td>
+<td>Bright Start 529</td>
+<td><span class="tag green">Yes</span></td>
+<td>$10,000 single / $20,000 married</td>
+<td>$450,000</td>
+<td>$33,400</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="indiana.html" style="color:var(--accent);font-weight:600">Indiana</a></td>
+<td>CollegeChoice 529 Direct</td>
+<td><span class="tag green">Yes</span></td>
+<td>$7,500 credit on $5,000 contribution</td>
+<td>$450,000</td>
+<td>$24,800</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="iowa.html" style="color:var(--accent);font-weight:600">Iowa</a></td>
+<td>College Savings Iowa</td>
+<td><span class="tag green">Yes</span></td>
+<td>$3,785 single / $7,570 married (2026)</td>
+<td>$420,000</td>
+<td>$24,200</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="kansas.html" style="color:var(--accent);font-weight:600">Kansas</a></td>
+<td>Learning Quest 529</td>
+<td><span class="tag green">Yes</span></td>
+<td>$3,000 single / $6,000 married</td>
+<td>$450,000</td>
+<td>$24,600</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="kentucky.html" style="color:var(--accent);font-weight:600">Kentucky</a></td>
+<td>KY Saves 529</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$450,000</td>
+<td>$25,500</td>
+<td>⭐⭐⭐</td>
+</tr><tr>
+<td><a href="louisiana.html" style="color:var(--accent);font-weight:600">Louisiana</a></td>
+<td>START Saving Program</td>
+<td><span class="tag green">Yes</span></td>
+<td>$2,400 single / $4,800 married</td>
+<td>$500,000</td>
+<td>$25,800</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="maine.html" style="color:var(--accent);font-weight:600">Maine</a></td>
+<td>NextGen 529</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$520,000</td>
+<td>$30,500</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="maryland.html" style="color:var(--accent);font-weight:600">Maryland</a></td>
+<td>Maryland 529</td>
+<td><span class="tag green">Yes</span></td>
+<td>$2,500 per account per year</td>
+<td>$500,000</td>
+<td>$31,200</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="massachusetts.html" style="color:var(--accent);font-weight:600">Massachusetts</a></td>
+<td>U.Fund College Investing Plan</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$500,000</td>
+<td>$42,100</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="michigan.html" style="color:var(--accent);font-weight:600">Michigan</a></td>
+<td>Michigan Education Savings Program</td>
+<td><span class="tag green">Yes</span></td>
+<td>$5,000 single / $10,000 married</td>
+<td>$500,000</td>
+<td>$28,600</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="minnesota.html" style="color:var(--accent);font-weight:600">Minnesota</a></td>
+<td>Minnesota 529 College Savings Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$1,500 single / $3,000 married (credit + deduction)</td>
+<td>$425,000</td>
+<td>$29,800</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="mississippi.html" style="color:var(--accent);font-weight:600">Mississippi</a></td>
+<td>Mississippi Affordable College Savings</td>
+<td><span class="tag green">Yes</span></td>
+<td>$10,000 single / $20,000 married</td>
+<td>$235,000</td>
+<td>$22,500</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="missouri.html" style="color:var(--accent);font-weight:600">Missouri</a></td>
+<td>MOST 529 Education Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$8,000 single / $16,000 married</td>
+<td>$550,000</td>
+<td>$25,200</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="montana.html" style="color:var(--accent);font-weight:600">Montana</a></td>
+<td>Achieve Montana</td>
+<td><span class="tag green">Yes</span></td>
+<td>$3,000 single / $6,000 married</td>
+<td>$396,000</td>
+<td>$23,800</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="nebraska.html" style="color:var(--accent);font-weight:600">Nebraska</a></td>
+<td>NEST 529 College Savings Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$5,000 single / $10,000 married</td>
+<td>$500,000</td>
+<td>$24,400</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="nevada.html" style="color:var(--accent);font-weight:600">Nevada</a></td>
+<td>SSGA Upromise 529 Plan</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$500,000</td>
+<td>$25,600</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="new-hampshire.html" style="color:var(--accent);font-weight:600">New Hampshire</a></td>
+<td>UNIQUE College Investing Plan</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$569,135</td>
+<td>$34,200</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="new-jersey.html" style="color:var(--accent);font-weight:600">New Jersey</a></td>
+<td>NJBEST 529 College Savings Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$10,000 (income under $200K)</td>
+<td>$305,000</td>
+<td>$35,800</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="new-mexico.html" style="color:var(--accent);font-weight:600">New Mexico</a></td>
+<td>The Education Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>Unlimited</td>
+<td>$500,000</td>
+<td>$24,100</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="new-york.html" style="color:var(--accent);font-weight:600">New York</a></td>
+<td>NY 529 Direct Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$5,000 single / $10,000 married</td>
+<td>$520,000</td>
+<td>$38,500</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="north-carolina.html" style="color:var(--accent);font-weight:600">North Carolina</a></td>
+<td>NC 529 Plan</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$450,000</td>
+<td>$26,800</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="north-dakota.html" style="color:var(--accent);font-weight:600">North Dakota</a></td>
+<td>College SAVE</td>
+<td><span class="tag green">Yes</span></td>
+<td>$5,000 single / $10,000 married</td>
+<td>$269,000</td>
+<td>$22,100</td>
+<td>⭐⭐⭐</td>
+</tr><tr>
+<td><a href="ohio.html" style="color:var(--accent);font-weight:600">Ohio</a></td>
+<td>Ohio 529 Plan (CollegeAdvantage)</td>
+<td><span class="tag green">Yes</span></td>
+<td>$4,000 per beneficiary</td>
+<td>$517,000</td>
+<td>$27,400</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="oklahoma.html" style="color:var(--accent);font-weight:600">Oklahoma</a></td>
+<td>Oklahoma 529 College Savings Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$10,000 single / $20,000 married</td>
+<td>$450,000</td>
+<td>$23,500</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="oregon.html" style="color:var(--accent);font-weight:600">Oregon</a></td>
+<td>Oregon College Savings Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$150 credit ($300 married) or deduction</td>
+<td>$400,000</td>
+<td>$29,600</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="pennsylvania.html" style="color:var(--accent);font-weight:600">Pennsylvania</a></td>
+<td>PA 529 Investment Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$17,000 single / $34,000 married</td>
+<td>$511,758</td>
+<td>$33,100</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="rhode-island.html" style="color:var(--accent);font-weight:600">Rhode Island</a></td>
+<td>CollegeBound 529</td>
+<td><span class="tag green">Yes</span></td>
+<td>$500 single / $1,000 married</td>
+<td>$520,000</td>
+<td>$32,400</td>
+<td>⭐⭐⭐</td>
+</tr><tr>
+<td><a href="south-carolina.html" style="color:var(--accent);font-weight:600">South Carolina</a></td>
+<td>Future Scholar 529</td>
+<td><span class="tag green">Yes</span></td>
+<td>Unlimited</td>
+<td>$540,000</td>
+<td>$26,100</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="south-dakota.html" style="color:var(--accent);font-weight:600">South Dakota</a></td>
+<td>CollegeAccess 529</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$350,000</td>
+<td>$23,200</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="tennessee.html" style="color:var(--accent);font-weight:600">Tennessee</a></td>
+<td>TNStars College Savings 529</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$350,000</td>
+<td>$25,400</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="texas.html" style="color:var(--accent);font-weight:600">Texas</a></td>
+<td>Texas College Savings Plan (Lonestar 529)</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$500,000</td>
+<td>$27,600</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="utah.html" style="color:var(--accent);font-weight:600">Utah</a></td>
+<td>my529</td>
+<td><span class="tag green">Yes</span></td>
+<td>$2,290 single / $4,580 married credit</td>
+<td>$525,000</td>
+<td>$25,300</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="vermont.html" style="color:var(--accent);font-weight:600">Vermont</a></td>
+<td>Vermont Higher Education Investment Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$250 single / $500 married credit</td>
+<td>$550,000</td>
+<td>$33,800</td>
+<td>⭐⭐⭐</td>
+</tr><tr>
+<td><a href="virginia.html" style="color:var(--accent);font-weight:600">Virginia</a></td>
+<td>Virginia529 Invest529</td>
+<td><span class="tag green">Yes</span></td>
+<td>$4,000 per account</td>
+<td>$550,000</td>
+<td>$29,200</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="washington.html" style="color:var(--accent);font-weight:600">Washington</a></td>
+<td>DreamAhead College Investment Plan</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$500,000</td>
+<td>$28,300</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="west-virginia.html" style="color:var(--accent);font-weight:600">West Virginia</a></td>
+<td>SMART529 WV Direct</td>
+<td><span class="tag green">Yes</span></td>
+<td>Unlimited</td>
+<td>$340,000</td>
+<td>$21,800</td>
+<td>⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="wisconsin.html" style="color:var(--accent);font-weight:600">Wisconsin</a></td>
+<td>Edvest 529</td>
+<td><span class="tag green">Yes</span></td>
+<td>$3,860 single / $5,790 married (2026)</td>
+<td>$527,000</td>
+<td>$26,700</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr><tr>
+<td><a href="wyoming.html" style="color:var(--accent);font-weight:600">Wyoming</a></td>
+<td>WY529 College Savings Plan</td>
+<td><span class="tag orange">No</span></td>
+<td>—</td>
+<td>$350,000</td>
+<td>$22,900</td>
+<td>⭐⭐⭐</td>
+</tr><tr>
+<td><a href="district-of-columbia.html" style="color:var(--accent);font-weight:600">District of Columbia</a></td>
+<td>DC College Savings Plan</td>
+<td><span class="tag green">Yes</span></td>
+<td>$4,000 single / $8,000 married</td>
+<td>$500,000</td>
+<td>$35,200</td>
+<td>⭐⭐⭐⭐</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="section">
+<h2>❓ Frequently Asked Questions</h2>
+<div class="faq-item"><div class="faq-q">Do I have to use my own state's 529 plan?</div><div class="faq-a">No. You can use any state's 529 plan regardless of where you live. However, 35 states offer tax deductions or credits only for contributions to their own state's plan. If your state offers a deduction, use your state's plan first to capture the tax benefit.</div></div>
+<div class="faq-item"><div class="faq-q">What's the best 529 plan overall?</div><div class="faq-a">The "best" plan depends on your state. If your state offers a tax deduction, your state's plan is usually the best starting point. For states without deductions (CA, DE, HI, KY, ME, NC), popular choices include Utah's my529, Nevada's Vanguard plan, and New York's Direct Plan — all known for low fees and strong investment options.</div></div>
+<div class="faq-item"><div class="faq-q">Can I have multiple 529 plans?</div><div class="faq-a">Yes! There's no limit on the number of 529 accounts you can open. Many families open their state's plan (for the tax deduction) plus a second plan with lower fees or better investment options. Each beneficiary has their own contribution limits per state.</div></div>
+<div class="faq-item"><div class="faq-q">What if my child doesn't go to college?</div><div class="faq-a">You have many options: change the beneficiary to a sibling, cousin, or even yourself; use for trade schools or apprenticeship programs; use up to $10K for K-12 tuition; pay up to $10K in student loans; or roll up to $35,000 into the beneficiary's Roth IRA (after 15 years). You can also simply withdraw funds (paying tax + 10% penalty on earnings only).</div></div>
+<div class="faq-item"><div class="faq-q">How much should I save in a 529 plan?</div><div class="faq-a">A common goal is to save 1/3 of projected college costs (the other 2/3 coming from income, financial aid, and scholarships). For a 4-year public university, that's roughly $200-$400/month starting from birth. Use our state-specific calculators above to get a personalized projection.</div></div>
+</div>
+
+</main>
+<footer class="footer"><p>© 2026 <a href="https://calcleap.com/">CalcLeap</a> — Free Financial Calculators</p><p style="margin-top:.5rem"><a href="https://calcleap.com/about.html">About</a> · <a href="https://calcleap.com/privacy.html">Privacy</a> · <a href="https://calcleap.com/contact.html">Contact</a></p></footer>
+<script>
+function filterTable(){const q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('#stateTable tbody tr').forEach(r=>{r.style.display=r.cells[0].textContent.toLowerCase().includes(q)?'':'none'})}
+function sortTable(n){const t=document.getElementById('stateTable'),rows=Array.from(t.tBodies[0].rows);let asc=t.dataset.sortCol==n?t.dataset.sortDir!=='asc':'true';rows.sort((a,b)=>{let x=a.cells[n].textContent,y=b.cells[n].textContent;const xn=parseFloat(x.replace(/[^0-9.-]/g,'')),yn=parseFloat(y.replace(/[^0-9.-]/g,''));if(!isNaN(xn)&&!isNaN(yn))return asc?xn-yn:yn-xn;return asc?x.localeCompare(y):y.localeCompare(x)});rows.forEach(r=>t.tBodies[0].appendChild(r));t.dataset.sortCol=n;t.dataset.sortDir=asc?'asc':'desc'}
+</script>
+</body>
+</html>

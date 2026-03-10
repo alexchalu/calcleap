@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New York 529 College Savings Plan Calculator — Free | CalcLeap</title>
+<meta name="description" content="Calculate your New York 529 plan savings and tax benefits. NY 529 Direct Plan growth projections, state tax deductions, and college cost estimates for NY families.">
+<link rel="canonical" href="https://calcleap.com/529/new-york.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/529/new-york.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"New York 529 College Savings Calculator","description":"Calculate 529 plan savings, tax benefits, and college cost projections for New York families.","url":"https://calcleap.com/529/new-york.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#fafafa;--surface:#fff;--border:rgba(0,0,0,.06);--border-hover:rgba(0,0,0,.12);--text:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-subtle:rgba(0,113,227,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.04);--radius:16px;--radius-sm:12px;--max-w:1120px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5;letter-spacing:-.022em}
+a{color:inherit;text-decoration:none}
+.cl-nav{position:sticky;top:0;z-index:100;background:rgba(251,251,253,.72);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.cl-nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.cl-logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em}.cl-logo span{color:var(--accent)}
+.cl-nav-links{display:flex;align-items:center;gap:.25rem}
+.cl-nav-links a{font-size:.8125rem;font-weight:400;color:var(--text-secondary);padding:.5rem .75rem;border-radius:8px;transition:all .2s}
+.cl-nav-links a:hover{color:var(--text);background:rgba(0,0,0,.03)}
+main{max-width:var(--max-w);margin:0 auto;padding:1rem 2rem 3rem}
+.breadcrumb{font-size:.8125rem;color:var(--text-tertiary);margin-bottom:.5rem;padding:.5rem 0}
+.breadcrumb a{color:var(--text-secondary);transition:color .15s}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 .4rem;opacity:.5}
+.hero{text-align:left;padding:1rem 0 1.5rem}
+.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em}
+.hero p{font-size:1rem;color:var(--text-secondary);max-width:640px;margin-top:.5rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);margin-bottom:1.5rem}
+h2{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem}
+h3{font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+label{font-size:.8125rem;font-weight:600;margin-bottom:.35rem;display:block;letter-spacing:.01em}
+input[type="number"],select{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.65rem .85rem;font-size:.9375rem;width:100%;margin-bottom:.5rem;outline:none;font-family:var(--font);transition:border-color .2s}
+input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
+.btn{background:var(--accent);color:#fff;border:none;padding:.75rem 2rem;border-radius:var(--radius-sm);font-size:.9375rem;font-weight:600;cursor:pointer;font-family:var(--font);transition:all .2s;margin:.75rem 0;width:100%}
+.btn:hover{background:var(--accent-hover)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:768px){.grid{grid-template-columns:1fr}}
+.result-box{background:var(--accent-subtle);border:1px solid rgba(0,113,227,.15);border-radius:var(--radius-sm);padding:1.25rem;margin-top:1rem}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem}
+.result-item{text-align:center;padding:1rem;background:var(--white);border-radius:var(--radius-sm);border:1px solid var(--border)}
+.result-item .value{font-size:1.5rem;font-weight:700;color:var(--accent)}
+.result-item .label{font-size:.75rem;color:var(--text-secondary);margin-top:.25rem}
+.chart-container{position:relative;margin:1.5rem 0;height:300px;display:flex;align-items:flex-end;gap:2px;padding:1rem 0}
+.chart-bar-group{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px}
+.chart-bar{width:100%;border-radius:4px 4px 0 0;transition:height .5s ease;min-width:8px}
+.chart-bar.contributions{background:var(--accent)}
+.chart-bar.earnings{background:#34c759}
+.chart-label{font-size:.6rem;color:var(--text-tertiary);text-align:center;margin-top:4px}
+.legend{display:flex;gap:1.5rem;margin-top:.5rem;font-size:.8125rem}
+.legend-item{display:flex;align-items:center;gap:.4rem}
+.legend-dot{width:12px;height:12px;border-radius:3px}
+table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.75rem 0}
+th{text-align:left;padding:.6rem .75rem;border-bottom:2px solid var(--border);color:var(--text-secondary);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+td{padding:.6rem .75rem;border-bottom:1px solid var(--border)}
+tr:hover{background:var(--accent-subtle)}
+.tag{display:inline-block;padding:.25rem .6rem;background:var(--accent-subtle);color:var(--accent);border-radius:6px;font-size:.75rem;font-weight:600;margin:.25rem .25rem 0 0}
+.tag.green{background:rgba(52,199,89,.1);color:#34c759}
+.tag.orange{background:rgba(255,149,0,.1);color:#ff9500}
+.info-row{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.info-row:last-child{border-bottom:none}
+.info-row .lbl{color:var(--text-secondary)}.info-row .val{font-weight:600}
+.faq-item{padding:1rem 0;border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;font-size:.9375rem;margin-bottom:.5rem}
+.faq-a{font-size:.875rem;color:var(--text-secondary);line-height:1.6}
+.section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-top:1.5rem}
+.ad-slot{margin:1.5rem 0}
+.footer{max-width:var(--max-w);margin:3rem auto 0;padding:2rem;text-align:center;font-size:.8125rem;color:var(--text-tertiary);border-top:1px solid var(--border)}
+.footer a{color:var(--text-secondary)}
+.footer a:hover{color:var(--accent)}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.related-card{padding:1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);transition:all .2s}
+.related-card:hover{border-color:var(--accent);box-shadow:var(--shadow-md)}
+.related-card h4{font-size:.875rem;margin-bottom:.25rem}
+.related-card p{font-size:.75rem;color:var(--text-secondary)}
+</style>
+</head>
+<body>
+<nav class="cl-nav"><div class="cl-nav-inner"><a href="https://calcleap.com/" class="cl-logo">Calc<span>Leap</span></a><div class="cl-nav-links"><a href="https://calcleap.com/">Home</a><a href="https://calcleap.com/529/">529 Plans</a><a href="https://calcleap.com/about.html">About</a></div></div></nav>
+<main>
+<div class="breadcrumb"><a href="https://calcleap.com/">Home</a><span>›</span><a href="https://calcleap.com/529/">529 Plans</a><span>›</span>New York</div>
+<div class="hero">
+<h1>New York 529 College Savings Plan Calculator</h1>
+<p>Calculate your NY 529 Direct Plan savings growth, tax benefits, and projected college costs for NY families. Free, instant results.</p>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="card">
+<h2>🎓 Calculate Your 529 Savings</h2>
+<div class="grid">
+<div>
+<label for="childAge">Child's Current Age</label>
+<select id="childAge"><option value="0">Newborn</option><option value="1">1 year</option><option value="2">2 years</option><option value="3" selected>3 years</option><option value="4">4 years</option><option value="5">5 years</option><option value="6">6 years</option><option value="7">7 years</option><option value="8">8 years</option><option value="9">9 years</option><option value="10">10 years</option><option value="11">11 years</option><option value="12">12 years</option><option value="13">13 years</option><option value="14">14 years</option><option value="15">15 years</option><option value="16">16 years</option><option value="17">17 years</option></select>
+<label for="collegeAge">College Start Age</label>
+<select id="collegeAge"><option value="18" selected>18</option><option value="17">17</option><option value="19">19</option><option value="20">20</option></select>
+<label for="currentSavings">Current 529 Balance ($)</label>
+<input type="number" id="currentSavings" value="0" min="0" step="100">
+<label for="monthlyContrib">Monthly Contribution ($)</label>
+<input type="number" id="monthlyContrib" value="830" min="0" step="25">
+</div>
+<div>
+<label for="lumpSum">Annual Lump Sum ($)</label>
+<input type="number" id="lumpSum" value="0" min="0" step="100">
+<label for="returnRate">Expected Annual Return (%)</label>
+<select id="returnRate"><option value="4">Conservative (4%)</option><option value="6" selected>Moderate (6%)</option><option value="8">Aggressive (8%)</option><option value="10">Very Aggressive (10%)</option></select>
+<label for="collegeCost">Annual College Cost ($)</label>
+<input type="number" id="collegeCost" value="38500" min="0" step="100">
+<label for="costInflation">College Cost Inflation (%)</label>
+<select id="costInflation"><option value="3">Low (3%)</option><option value="5" selected>Average (5%)</option><option value="7">High (7%)</option></select>
+</div>
+</div>
+<button class="btn" onclick="calculate()">Calculate My 529 Savings</button>
+<div id="results" style="display:none">
+<div class="result-grid" id="resultGrid"></div>
+<div id="chartArea" style="margin-top:1.5rem"></div>
+<div style="margin-top:1rem"><h3>Year-by-Year Growth</h3>
+<div style="overflow-x:auto"><table id="growthTable"><thead><tr><th>Year</th><th>Age</th><th>Contributions</th><th>Earnings</th><th>Balance</th></tr></thead><tbody></tbody></table></div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>💰 New York State Tax Benefits</h2>
+<div class="info-row"><span class="lbl">State Plan</span><span class="val">NY 529 Direct Plan</span></div>
+<div class="info-row"><span class="lbl">Tax Deduction</span><span class="val">Full</span></div>
+<div class="info-row"><span class="lbl">Maximum Deduction</span><span class="val">$5,000 single / $10,000 married</span></div>
+<div class="info-row"><span class="lbl">State Tax Rate</span><span class="val">6%</span></div>
+<div class="info-row"><span class="lbl">Max Account Balance</span><span class="val">$520,000</span></div>
+<div class="info-row"><span class="lbl">Plan Manager</span><span class="val">Vanguard</span></div>
+<div class="result-box"><p style="font-size:.875rem">💡 <strong>New York residents</strong> can deduct up to <strong>$5,000 single / $10,000 married</strong> from state taxable income. At a 6% state tax rate, that's real money back in your pocket every year.</p></div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="section">
+<h2>📊 New York College Cost Overview</h2>
+<div class="info-row"><span class="lbl">Avg Annual College Cost (NY)</span><span class="val">$38,500</span></div>
+<div class="info-row"><span class="lbl">4-Year Total (Today)</span><span class="val">$154,000</span></div>
+<div class="info-row"><span class="lbl">4-Year Cost in 18 Years (5% inflation)</span><span class="val">$370,619</span></div>
+<p style="margin-top:1rem;font-size:.875rem;color:var(--text-secondary)">College costs in New York average <strong>$38,500/year</strong> for in-state public universities (tuition + room & board). With college cost inflation averaging 5% annually, families starting today need to save significantly more than the current sticker price. Starting early with a 529 plan harnesses compound growth to close the gap.</p>
+</div>
+
+<div class="section">
+<h2>📚 What Is a 529 Plan?</h2>
+<p style="font-size:.875rem;color:var(--text-secondary);line-height:1.7">A 529 plan is a tax-advantaged savings plan designed to encourage saving for future education costs. Named after Section 529 of the Internal Revenue Code, these plans offer powerful tax benefits:</p>
+<ul style="margin:1rem 0 0 1.5rem;font-size:.875rem;color:var(--text-secondary);line-height:1.8">
+<li><strong>Tax-free growth</strong> — Investment earnings grow free from federal (and usually state) income tax</li>
+<li><strong>Tax-free withdrawals</strong> — When used for qualified education expenses (tuition, room & board, books, computers)</li>
+<li><strong>High contribution limits</strong> — New York's plan allows up to $520,000 per beneficiary</li>
+<li><strong>Superfunding</strong> — Contribute up to 5x the annual gift tax exclusion ($90,000 single / $180,000 married in 2026) in one year</li>
+<li><strong>K-12 tuition</strong> — Up to $10,000/year can be used for K-12 private school tuition</li>
+<li><strong>Student loan repayment</strong> — Up to $10,000 lifetime can be used to repay student loans</li>
+<li><strong>Roth IRA rollover</strong> — Starting 2024, unused 529 funds can roll to beneficiary's Roth IRA (up to $35,000 lifetime)</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>🏆 NY 529 Direct Plan — Key Features</h2>
+<div class="info-row"><span class="lbl">Plan Rating</span><span class="val">⭐⭐⭐⭐⭐</span></div>
+<div class="info-row"><span class="lbl">Investment Manager</span><span class="val">Vanguard</span></div>
+<div class="info-row"><span class="lbl">Maximum Balance</span><span class="val">$520,000</span></div>
+<div class="info-row"><span class="lbl">Minimum Contribution</span><span class="val">$25 (most plans)</span></div>
+<div class="info-row"><span class="lbl">Investment Options</span><span class="val">Age-based, static, individual funds</span></div>
+<p style="margin-top:1rem;font-size:.875rem;color:var(--text-secondary)">The NY 529 Direct Plan offers age-based portfolios that automatically adjust from aggressive to conservative as your child approaches college age. Most plans also offer static allocation and individual fund options for hands-on investors.</p>
+</div>
+
+<div class="section">
+<h2>🧮 New York Tax Savings Example</h2>
+<p style="font-size:.875rem;color:var(--text-secondary);line-height:1.7">Here's how the NY state tax deduction can boost your savings:</p>
+<table>
+<thead><tr><th>Annual Contribution</th><th>State Tax Rate</th><th>Annual Tax Savings</th><th>18-Year Tax Savings</th></tr></thead>
+<tbody>
+<tr><td>$2,000</td><td>6%</td><td>$120</td><td>$2,160</td></tr>
+<tr><td>$5,000</td><td>6%</td><td>$300</td><td>$5,400</td></tr>
+<tr><td>$10,000</td><td>6%</td><td>$600</td><td>$10,800</td></tr>
+</tbody>
+</table>
+<p style="margin-top:.75rem;font-size:.8125rem;color:var(--text-tertiary)">* Tax savings are approximate. Actual savings depend on your marginal tax rate and deduction limits.</p>
+</div>
+
+<div class="section">
+<h2>❓ Frequently Asked Questions</h2>
+<div class="faq-item"><div class="faq-q">Can I use New York's 529 plan for out-of-state colleges?</div><div class="faq-a">Yes! 529 plan funds can be used at any accredited college or university nationwide, as well as many international institutions. You're not limited to NY schools.</div></div>
+<div class="faq-item"><div class="faq-q">What happens to unused 529 funds?</div><div class="faq-a">You have several options: change the beneficiary to another family member, use for K-12 tuition ($10K/year limit), pay student loans ($10K lifetime limit), or roll up to $35,000 into the beneficiary's Roth IRA (15-year account minimum). Non-qualified withdrawals incur income tax + 10% penalty on earnings only.</div></div>
+<div class="faq-item"><div class="faq-q">How does New York's 529 plan compare to other states?</div><div class="faq-a">New York offers a state tax deduction of $5,000 single / $10,000 married, which is a significant benefit. Combined with the NY 529 Direct Plan's strong investment options from Vanguard, it's one of the better plans available.</div></div>
+<div class="faq-item"><div class="faq-q">What counts as a qualified 529 expense?</div><div class="faq-a">Qualified expenses include: tuition and fees, room and board (on or off campus), books and supplies, computers and software, internet service, and special needs equipment. K-12 tuition (up to $10K/year) and student loan payments (up to $10K lifetime) also qualify.</div></div>
+<div class="faq-item"><div class="faq-q">Can grandparents contribute to a NY 529 plan?</div><div class="faq-a">Absolutely! Anyone can contribute — parents, grandparents, aunts, uncles, friends. As of 2024, grandparent-owned 529 plans no longer impact financial aid eligibility on the FAFSA, making them an excellent estate planning tool. In New York, the contributor (grandparent) can claim the state tax deduction.</div></div>
+<div class="faq-item"><div class="faq-q">When should I start saving in a 529 plan?</div><div class="faq-a">The earlier the better! Starting at birth gives you 18 years of compound growth. Even modest monthly contributions of $200-$400 can grow to $80,000-$160,000+ by college age. In New York, with average annual college costs of $38,500, early and consistent saving is critical.</div></div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="section">
+<h2>🔗 Related Calculators</h2>
+<div class="related-grid">
+<a href="https://calcleap.com/calc/compound-interest-calculator.html" class="related-card"><h4>Compound Interest</h4><p>See how your investments grow over time</p></a>
+<a href="https://calcleap.com/calc/student-loan-forgiveness.html" class="related-card"><h4>Student Loan Forgiveness</h4><p>PSLF and IDR forgiveness estimator</p></a>
+<a href="https://calcleap.com/calc/roth-ira-calculator.html" class="related-card"><h4>Roth IRA Calculator</h4><p>Plan your tax-free retirement savings</p></a>
+<a href="https://calcleap.com/calc/401k-calculator.html" class="related-card"><h4>401(k) Calculator</h4><p>Maximize your employer match</p></a>
+<a href="https://calcleap.com/calc/investment-return-calculator.html" class="related-card"><h4>Investment Returns</h4><p>Calculate ROI on any investment</p></a>
+<a href="https://calcleap.com/529/" class="related-card"><h4>All 529 Plans by State</h4><p>Compare plans across all 50 states</p></a>
+</div>
+</div>
+
+</main>
+<footer class="footer"><p>© 2026 <a href="https://calcleap.com/">CalcLeap</a> — Free Financial Calculators</p><p style="margin-top:.5rem"><a href="https://calcleap.com/about.html">About</a> · <a href="https://calcleap.com/privacy.html">Privacy</a> · <a href="https://calcleap.com/contact.html">Contact</a></p><p style="margin-top:.5rem;font-size:.75rem">Last updated: March 2026. Data is for educational purposes. Consult a financial advisor for personalized advice.</p></footer>
+<script>
+function fmt(n){return'$'+Math.round(n).toLocaleString()}
+function calculate(){
+  const childAge=+document.getElementById('childAge').value;
+  const collegeAge=+document.getElementById('collegeAge').value;
+  const current=+document.getElementById('currentSavings').value;
+  const monthly=+document.getElementById('monthlyContrib').value;
+  const lump=+document.getElementById('lumpSum').value;
+  const rate=+document.getElementById('returnRate').value/100;
+  const collegeCost=+document.getElementById('collegeCost').value;
+  const inflation=+document.getElementById('costInflation').value/100;
+  const years=Math.max(collegeAge-childAge,1);
+  let balance=current,totalContrib=current,rows=[];
+  for(let y=1;y<=years;y++){
+    const annualContrib=monthly*12+lump;
+    totalContrib+=annualContrib;
+    balance=(balance+annualContrib)*(1+rate);
+    const earnings=balance-totalContrib;
+    rows.push({year:y,age:childAge+y,contrib:totalContrib,earnings:Math.max(0,earnings),balance});
+  }
+  const totalEarnings=balance-totalContrib;
+  const projectedCost=collegeCost*((Math.pow(1+inflation,years+4)-Math.pow(1+inflation,years))/inflation);
+  const coverage=Math.min(100,balance/projectedCost*100);
+  const stateTaxSaved=(monthly*12+lump)*0.06*years;
+  document.getElementById('resultGrid').innerHTML=
+    '<div class="result-item"><div class="value">'+fmt(balance)+'</div><div class="label">Total 529 Balance</div></div>'+
+    '<div class="result-item"><div class="value">'+fmt(totalContrib)+'</div><div class="label">Total Contributions</div></div>'+
+    '<div class="result-item"><div class="value">'+fmt(totalEarnings)+'</div><div class="label">Tax-Free Earnings</div></div>'+
+    '<div class="result-item"><div class="value">'+fmt(projectedCost)+'</div><div class="label">Projected 4-Year Cost</div></div>'+
+    '<div class="result-item"><div class="value">'+coverage.toFixed(1)+'%</div><div class="label">College Cost Coverage</div></div>'+
+    (stateTaxSaved>0?'<div class="result-item"><div class="value">'+fmt(stateTaxSaved)+'</div><div class="label">State Tax Saved</div></div>':'');
+  const maxBal=Math.max(...rows.map(r=>r.balance));
+  let chartHtml='<h3>Savings Growth Chart</h3><div class="chart-container">';
+  rows.forEach(r=>{
+    const ch=Math.max(2,(r.contrib/maxBal)*260);
+    const eh=Math.max(0,((r.balance-r.contrib)/maxBal)*260);
+    chartHtml+='<div class="chart-bar-group"><div class="chart-bar earnings" style="height:'+eh+'px" title="Earnings: '+fmt(r.earnings)+'"></div><div class="chart-bar contributions" style="height:'+ch+'px" title="Contributions: '+fmt(r.contrib)+'"></div><div class="chart-label">'+(r.year%2===0||rows.length<=10?r.year:'')+'</div></div>';
+  });
+  chartHtml+='</div><div class="legend"><div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>Contributions</div><div class="legend-item"><div class="legend-dot" style="background:#34c759"></div>Tax-Free Earnings</div></div>';
+  document.getElementById('chartArea').innerHTML=chartHtml;
+  const tbody=document.querySelector('#growthTable tbody');
+  tbody.innerHTML='';
+  rows.forEach(r=>{
+    tbody.innerHTML+='<tr><td>'+r.year+'</td><td>'+r.age+'</td><td>'+fmt(r.contrib)+'</td><td>'+fmt(r.earnings)+'</td><td>'+fmt(r.balance)+'</td></tr>';
+  });
+  document.getElementById('results').style.display='block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.addEventListener('DOMContentLoaded',calculate);
+</script>
+</body>
+</html>

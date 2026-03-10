@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orlando, FL Cost of Living Calculator | Compare Salary & Expenses | ToolPulse</title>
+    <meta name="description" content="Calculate cost of living in Orlando, FL. Compare rent, salary, and expenses. Free Orlando COL calculator with salary comparison.">
+    <link rel="canonical" href="https://alexchalu.github.io/toolpulse/orlando-cost-of-living-calculator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .main { padding: 2rem 0; }
+        .calc-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .calc-box h2 { margin-bottom: 1.5rem; color: #667eea; }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: #f0f4ff; padding: 1rem; border-radius: 8px; border-left: 4px solid #667eea; }
+        .stat-card h3 { font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; }
+        .stat-card .value { font-size: 1.5rem; font-weight: 700; color: #667eea; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        .input-group input, .input-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #667eea; }
+        .calc-btn { background: #667eea; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.3s; }
+        .calc-btn:hover { background: #5568d3; }
+        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
+        .result-box h3 { color: #667eea; margin-bottom: 1rem; }
+        .result-value { font-size: 1.6rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
+        .result-detail { margin: 0.5rem 0; color: #555; }
+        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
+        .info-section p { margin-bottom: 1rem; }
+        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
+        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } .stat-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Orlando, FL Cost of Living Calculator</h1>
+            <p>Compare salary and living expenses in Orlando</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        <div class="calc-box">
+            <h2>Orlando Quick Stats</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <h3>Cost of Living Index</h3>
+                    <div class="value">100</div>
+                    <small>US Average = 100</small>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Rent</h3>
+                    <div class="value">$1,700/mo</div>
+                    <small>1-bedroom apartment</small>
+                </div>
+                <div class="stat-card">
+                    <h3>Median Income</h3>
+                    <div class="value">$56,000</div>
+                    <small>Per year</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="calc-box">
+            <h2>Compare Your Salary</h2>
+            <div class="input-group">
+                <label for="current-city">Your Current City:</label>
+                <input type="text" id="current-city" value="National Average" placeholder="e.g. Seattle, WA">
+            </div>
+            <div class="input-group">
+                <label for="current-salary">Your Current Salary ($):</label>
+                <input type="number" id="current-salary" min="0" value="60000">
+            </div>
+            <button class="calc-btn" onclick="calculate()">Calculate Equivalent Salary in Orlando</button>
+            <div class="result-box" id="result">
+                <h3>Results</h3>
+            </div>
+        </div>
+
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="info-section">
+            <h3>About Living in Orlando, FL</h3>
+            <p>The cost of living in Orlando is 0% lower than the US national average.</p>
+            <p><strong>Key expenses in Orlando:</strong></p>
+            <ul>
+                <li>Housing: Below average</li>
+                <li>Average 1-bedroom rent: $1,700/month</li>
+                <li>Median household income: $56,000/year</li>
+            </ul>
+            <h3>More Tools</h3>
+            <ul>
+                <li><a href="index.html">ToolPulse Home - All Tools</a></li>
+                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
+                <li><a href="fl-income-tax-calculator.html">FL Income Tax Calculator</a></li>
+            </ul>
+        </div>
+
+        <div class="ad-placeholder">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 ToolPulse. Free online tools and calculators.</p>
+            <p><a href="index.html">Home</a></p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const currentSalary = parseFloat(document.getElementById('current-salary').value);
+            const targetCOL = 100;
+            
+            const equivalentSalary = currentSalary * (targetCOL / 100);
+            const difference = equivalentSalary - currentSalary;
+            const percentChange = ((equivalentSalary - currentSalary) / currentSalary) * 100;
+            
+            let html = '<h3>Equivalent Salary in Orlando</h3>';
+            html += '<div class="result-value">$' + equivalentSalary.toFixed(0).toLocaleString() + '/year</div>';
+            html += '<div class="result-detail">Your Current Salary: $' + currentSalary.toLocaleString() + '</div>';
+            html += '<div class="result-detail">Difference: $' + Math.abs(difference).toFixed(0).toLocaleString() + ' (' + Math.abs(percentChange).toFixed(1) + '% ' + (difference >= 0 ? 'higher' : 'lower') + ')</div>';
+            html += '<div class="result-detail" style="margin-top: 1rem;">A salary of $' + equivalentSalary.toFixed(0).toLocaleString() + ' in Orlando would give you similar purchasing power to $' + currentSalary.toLocaleString() + ' in your current location.</div>';
+            
+            document.getElementById('result').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
