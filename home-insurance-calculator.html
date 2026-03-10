@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Home Insurance Calculator — Free Estimate | CalcLeap</title>
+<meta name="description" content="Estimate your home insurance premium based on home value, construction type, location risk, and deductible. Free online home insurance calculator.">
+<meta name="keywords" content="home insurance calculator, homeowners insurance estimate, home insurance cost, insurance premium calculator, house insurance">
+<link rel="canonical" href="https://calcleap.com/home-insurance-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Home Insurance Calculator","description":"Estimate your home insurance premium based on home value, construction, and risk factors.","url":"https://calcleap.com/home-insurance-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0e1a;color:#f3f4f6;line-height:1.6}
+a{color:#6366f1;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.breadcrumb{padding:1rem 0;font-size:.85rem;color:#9ca3af}.breadcrumb a{color:#9ca3af}.breadcrumb a:hover{color:#6366f1}
+h1{font-size:2rem;font-weight:800;margin-bottom:.5rem}
+.sub{color:#9ca3af;font-size:1rem;margin-bottom:2rem;max-width:700px}
+.tool-card{background:#111827;border:1px solid #374151;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+.field{margin-bottom:1rem}
+.label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.4rem}
+input[type=number],select{width:100%;padding:.7rem .9rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.9rem;outline:none;font-family:inherit}
+input:focus,select:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+.btn{padding:.75rem 1.5rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;font-family:inherit}
+.btn:hover{background:#4f46e5}
+.result-hero{margin-top:1.5rem;padding:2rem;background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(99,102,241,.05));border:1px solid rgba(99,102,241,.3);border-radius:12px;text-align:center}
+.result-hero .big{font-size:2.5rem;font-weight:800;color:#6366f1}
+.result-hero .small{font-size:1rem;color:#9ca3af;margin-top:.25rem}
+.results-grid{margin-top:1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem}
+.stat{background:#1f2937;border-radius:10px;padding:1rem;text-align:center}
+.stat .val{font-size:1.3rem;font-weight:800;color:#6366f1}
+.stat .lbl{font-size:.75rem;color:#9ca3af;margin-top:.25rem}
+.risk-factors{margin-top:1.5rem;padding:1.25rem;background:#1f2937;border-radius:10px}
+.risk-factors h3{font-size:.95rem;margin-bottom:.75rem;color:#f3f4f6}
+.risk-item{display:flex;justify-content:space-between;padding:.4rem 0;font-size:.85rem;border-bottom:1px solid #374151}
+.risk-item:last-child{border-bottom:none}
+.risk-item .label2{color:#9ca3af}
+.risk-item .impact{font-weight:600}
+.impact.low{color:#22c55e}.impact.med{color:#eab308}.impact.high{color:#ef4444}
+.section{margin-top:3rem}
+.section h2{font-size:1.4rem;font-weight:700;margin-bottom:1rem}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem}
+.related-link{display:block;padding:.75rem 1rem;background:#111827;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.85rem;font-weight:600;text-decoration:none;transition:border-color .2s}
+.related-link:hover{border-color:#6366f1;text-decoration:none}
+.faq-item{background:#111827;border:1px solid #374151;border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+.faq-q{padding:1rem 1.25rem;font-weight:600;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{background:#1f2937}
+.faq-a{padding:0 1.25rem 1rem;color:#9ca3af;font-size:.9rem;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-arrow{transition:transform .2s;color:#9ca3af}
+@media(max-width:600px){h1{font-size:1.5rem}.row,.row3{grid-template-columns:1fr}.results-grid{grid-template-columns:1fr 1fr}.result-hero .big{font-size:1.8rem}}
+</style>
+</head><body>
+
+<header style="background:#111827;border-bottom:1px solid #374151;padding:0;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)">
+<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:.75rem 1.5rem;gap:1rem;flex-wrap:wrap">
+<a href="index.html" style="font-size:1.4rem;font-weight:800;color:#6366f1;text-decoration:none">⚡ CalcLeap</a>
+<nav style="display:flex;gap:.25rem;flex:1;margin-left:1rem;flex-wrap:wrap">
+<a href="index.html" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Home</a>
+<a href="index.html#finance" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Finance</a>
+<a href="index.html#insurance" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Insurance</a>
+<a href="index.html#health" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Health</a>
+<a href="index.html#dev" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Dev Tools</a>
+<a href="index.html#convert" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Converters</a>
+</nav>
+</div>
+</header>
+
+<div style="max-width:1200px;margin:1.5rem auto;padding:0 1.5rem">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<div class="container">
+<div class="breadcrumb"><a href="index.html">Home</a> › <a href="index.html#insurance">Insurance</a> › Home Insurance Calculator</div>
+<h1>Home Insurance Calculator</h1>
+<p class="sub">Estimate your homeowners insurance premium based on your property details, construction type, location risk, and deductible preferences.</p>
+
+<div class="tool-card">
+<div class="row">
+<div class="field"><label class="label">Home Value ($)</label><input type="number" id="homeValue" value="350000"></div>
+<div class="field"><label class="label">Square Footage</label><input type="number" id="sqft" value="2000"></div>
+</div>
+<div class="row3">
+<div class="field"><label class="label">Year Built</label><input type="number" id="yearBuilt" value="2000"></div>
+<div class="field"><label class="label">Construction Type</label>
+<select id="construction"><option value="wood">Wood Frame</option><option value="brick">Brick</option><option value="concrete">Concrete</option></select>
+</div>
+<div class="field"><label class="label">Location Risk</label>
+<select id="risk"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select>
+</div>
+</div>
+<div class="row">
+<div class="field"><label class="label">Deductible ($)</label>
+<select id="deductible"><option value="500">$500</option><option value="1000" selected>$1,000</option><option value="2500">$2,500</option><option value="5000">$5,000</option></select>
+</div>
+<div class="field"><label class="label">Coverage Amount ($)</label><input type="number" id="coverage" value="350000"></div>
+</div>
+<button class="btn" onclick="calc()">🏠 Estimate Premium</button>
+<div id="resultHero"></div>
+<div class="results-grid" id="out"></div>
+<div id="riskFactors"></div>
+</div>
+</div>
+
+<div style="max-width:1200px;margin:1.5rem auto;padding:0 1.5rem">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<div class="container">
+<div class="section">
+<h2>Related Calculators</h2>
+<div class="related-grid">
+<a href="car-insurance-calculator.html" class="related-link">🚗 Car Insurance</a>
+<a href="life-insurance-calculator.html" class="related-link">❤️ Life Insurance</a>
+<a href="flood-insurance-calculator.html" class="related-link">🌊 Flood Insurance</a>
+<a href="earthquake-insurance-calculator.html" class="related-link">🌍 Earthquake Insurance</a>
+<a href="renters-insurance-calculator.html" class="related-link">🏢 Renters Insurance</a>
+<a href="umbrella-insurance-calculator.html" class="related-link">☂️ Umbrella Insurance</a>
+<a href="homeowners-insurance-calculator.html" class="related-link">🏡 Homeowners Insurance</a>
+</div>
+</div>
+
+<div class="section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is home insurance premium calculated?<span class="faq-arrow">▼</span></div><div class="faq-a">Home insurance premiums are based on several factors: the replacement cost of your home, construction materials, location and natural disaster risk, age of the home, deductible amount, claims history, and credit score. This calculator uses a base rate model adjusted by these risk factors to provide an estimate.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the difference between home value and coverage amount?<span class="faq-arrow">▼</span></div><div class="faq-a">Home value (market value) includes land, which doesn't need to be insured. Coverage amount should be the replacement cost — how much it would cost to rebuild your home from scratch. This is typically less than market value in expensive land areas, but can be more in areas with high construction costs.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the deductible affect my premium?<span class="faq-arrow">▼</span></div><div class="faq-a">A higher deductible lowers your annual premium because you're agreeing to pay more out-of-pocket before insurance kicks in. Going from a $500 to a $2,500 deductible can reduce premiums by 15-25%. Choose a deductible you can comfortably afford in an emergency.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does home insurance cover floods and earthquakes?<span class="faq-arrow">▼</span></div><div class="faq-a">No. Standard homeowners insurance does NOT cover flood or earthquake damage. You need separate flood insurance (often through NFIP) and earthquake insurance policies. If you're in a high-risk area for either, these additional policies are strongly recommended.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How can I lower my home insurance premium?<span class="faq-arrow">▼</span></div><div class="faq-a">Common ways to reduce premiums: (1) increase your deductible, (2) bundle with auto insurance for multi-policy discounts, (3) install security systems and smoke detectors, (4) improve your roof, (5) maintain a claims-free history, (6) improve your credit score, and (7) shop around and compare quotes from multiple insurers.</div></div>
+</div>
+</div>
+
+<div style="max-width:1200px;margin:1.5rem auto;padding:0 1.5rem">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<footer style="background:#111827;border-top:1px solid #374151;padding:3rem 1.5rem;margin-top:3rem">
+<div style="max-width:1200px;margin:0 auto">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem">
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">CalcLeap</h4><p style="color:#9ca3af;font-size:.85rem;line-height:1.6">2,000+ free calculators and tools. Fast, accurate, private.</p></div>
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Popular</h4>
+<a href="bmi-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">BMI Calculator</a>
+<a href="mortgage-refinance-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Mortgage Calculator</a>
+<a href="json-formatter.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">JSON Formatter</a>
+<a href="password-generator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Password Generator</a></div>
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Company</h4>
+<a href="about.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">About</a>
+<a href="privacy.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Privacy Policy</a>
+<a href="contact.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Contact</a></div>
+</div>
+<div style="text-align:center;padding-top:2rem;border-top:1px solid #374151">
+<p style="color:#9ca3af;font-size:.8rem">© 2026 CalcLeap. All calculations are for informational purposes only.</p>
+</div>
+</div>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const fmt=(n,d=2)=>typeof n==='number'?n.toLocaleString('en-US',{maximumFractionDigits:d}):'—';
+
+function calc(){
+  const homeValue=+$('homeValue').value;
+  const sqft=+$('sqft').value;
+  const yearBuilt=+$('yearBuilt').value;
+  const construction=$('construction').value;
+  const risk=$('risk').value;
+  const deductible=+$('deductible').value;
+  const coverage=+$('coverage').value;
+
+  // Base rate: ~0.35% of coverage
+  let baseRate=0.0035;
+  const factors=[];
+
+  // Construction type adjustment
+  const constructionMult={wood:1.15,brick:1.0,concrete:0.9};
+  const constructionLabel={wood:'Wood Frame (+15%)',brick:'Brick (baseline)',concrete:'Concrete (-10%)'};
+  const constructionClass={wood:'high',brick:'med',concrete:'low'};
+  baseRate*=constructionMult[construction];
+  factors.push({label:'Construction',impact:constructionLabel[construction],cls:constructionClass[construction]});
+
+  // Age adjustment
+  const currentYear=2026;
+  const age=currentYear-yearBuilt;
+  let ageMult=1.0;let ageLabel='';let ageCls='low';
+  if(age>50){ageMult=1.3;ageLabel='50+ years (+30%)';ageCls='high'}
+  else if(age>30){ageMult=1.2;ageLabel='30-50 years (+20%)';ageCls='high'}
+  else if(age>15){ageMult=1.1;ageLabel='15-30 years (+10%)';ageCls='med'}
+  else{ageMult=1.0;ageLabel='Under 15 years (no surcharge)';ageCls='low'}
+  baseRate*=ageMult;
+  factors.push({label:'Home Age',impact:ageLabel,cls:ageCls});
+
+  // Location risk
+  const riskMult={low:0.85,medium:1.0,high:1.35};
+  const riskLabel={low:'Low Risk (-15%)',medium:'Medium Risk (baseline)',high:'High Risk (+35%)'};
+  const riskCls={low:'low',medium:'med',high:'high'};
+  baseRate*=riskMult[risk];
+  factors.push({label:'Location Risk',impact:riskLabel[risk],cls:riskCls[risk]});
+
+  // Deductible adjustment
+  const deductMult={500:1.15,1000:1.0,2500:0.85,5000:0.75};
+  const deductLabel={500:'$500 (+15%)',1000:'$1,000 (baseline)',2500:'$2,500 (-15%)',5000:'$5,000 (-25%)'};
+  const deductCls={500:'high',1000:'med',2500:'low',5000:'low'};
+  baseRate*=deductMult[deductible];
+  factors.push({label:'Deductible',impact:deductLabel[deductible],cls:deductCls[deductible]});
+
+  // Square footage adjustment (above/below 2000 sqft baseline)
+  const sqftMult=sqft>3000?1.15:sqft>2000?1.05:sqft<1000?0.9:1.0;
+  const sqftLabel=sqft>3000?'Large (3000+ sqft, +15%)':sqft>2000?'Above average (+5%)':sqft<1000?'Small (<1000 sqft, -10%)':'Average (no adjustment)';
+  const sqftCls=sqft>3000?'high':sqft>2000?'med':'low';
+  baseRate*=sqftMult;
+  factors.push({label:'Square Footage',impact:sqftLabel,cls:sqftCls});
+
+  const annualPremium=coverage*baseRate;
+  const monthlyPremium=annualPremium/12;
+  const coverageRatio=(coverage/homeValue*100);
+
+  $('resultHero').innerHTML='<div class="result-hero"><div class="big">$'+fmt(annualPremium,0)+'/yr</div><div class="small">Estimated Annual Premium · $'+fmt(monthlyPremium,0)+'/month</div></div>';
+
+  $('out').innerHTML='<div class="stat"><div class="val">$'+fmt(monthlyPremium,0)+'</div><div class="lbl">Monthly Premium</div></div><div class="stat"><div class="val">$'+fmt(annualPremium,0)+'</div><div class="lbl">Annual Premium</div></div><div class="stat"><div class="val">'+fmt(coverageRatio,0)+'%</div><div class="lbl">Coverage Ratio</div></div><div class="stat"><div class="val">$'+fmt(deductible,0)+'</div><div class="lbl">Your Deductible</div></div><div class="stat"><div class="val">$'+fmt(coverage,0)+'</div><div class="lbl">Coverage Amount</div></div><div class="stat"><div class="val">'+fmt(annualPremium/coverage*100,2)+'%</div><div class="lbl">Rate</div></div>';
+
+  let riskHTML='<div class="risk-factors"><h3>📊 Risk Factor Breakdown</h3>';
+  for(const f of factors){riskHTML+='<div class="risk-item"><span class="label2">'+f.label+'</span><span class="impact '+f.cls+'">'+f.impact+'</span></div>'}
+  riskHTML+='</div>';
+  $('riskFactors').innerHTML=riskHTML;
+}
+calc();
+</script>
+</body></html>

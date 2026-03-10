@@ -1,189 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Formatter & Validator — Free Online Tool | CalcLeap</title>
-    <meta name="description" content="Format, validate, and minify JSON data instantly. Free online JSON beautifier with syntax highlighting.">
-    <meta name="keywords" content="json formatter, json validator, json beautifier, json minifier, format json online, pretty print json">
-    <link rel="canonical" href="https://calcleap.com/json-formatter.html">
-    
-    <meta property="og:title" content="JSON Formatter & Validator — CalcLeap">
-    <meta property="og:description" content="Format, validate, and minify JSON data instantly. Free online JSON beautifier with syntax highlighting.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://calcleap.com/json-formatter.html">
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-    
-    
-    
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "JSON Formatter & Validator",
-        "description": "Format, validate, and minify JSON data instantly. Free online JSON beautifier with syntax highlighting.",
-        "url": "https://calcleap.com/json-formatter.html",
-        "applicationCategory": "UtilityApplication",
-        "operatingSystem": "Any",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "CalcLeap",
-            "url": "https://calcleap.com"
-        }
-    }
-    </script>
-</head>
-<body>
-    <header>
-        <div class="header-inner">
-            <a href="index.html" class="logo">⚡ CalcLeap</a>
-            <p class="tagline">Free tools. No signup. 100% private.</p>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
-        </div>
-    </header>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JSON Formatter & Validator — Free Online Tool | CalcLeap</title>
+<meta name="description" content="Format, minify, and validate JSON online for free. Instant results with syntax highlighting and error detection.">
+<meta name="keywords" content="json formatter, json validator, json beautifier, json minifier, format json online, json parser">
+<link rel="canonical" href="https://calcleap.com/json-formatter.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JSON Formatter & Validator","description":"Format, minify, and validate JSON online for free.","url":"https://calcleap.com/json-formatter.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0e1a;color:#f3f4f6;line-height:1.6}
+a{color:#6366f1;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.breadcrumb{padding:1rem 0;font-size:.85rem;color:#9ca3af}.breadcrumb a{color:#9ca3af}.breadcrumb a:hover{color:#6366f1}
+h1{font-size:2rem;font-weight:800;margin-bottom:.5rem}
+.sub{color:#9ca3af;font-size:1rem;margin-bottom:2rem;max-width:700px}
+.tool-card{background:#111827;border:1px solid #374151;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+.btn-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.btn{padding:.6rem 1.2rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit}
+.btn:hover{background:#4f46e5}
+.btn-secondary{background:#1f2937;color:#f3f4f6;border:1px solid #374151}
+.btn-secondary:hover{background:#374151}
+textarea{width:100%;padding:1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.9rem;font-family:'Courier New',monospace;resize:vertical;outline:none;min-height:200px}
+textarea:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12)}
+.status{margin-top:.75rem;padding:.5rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600}
+.status.valid{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
+.status.invalid{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2)}
+.status.neutral{background:#1f2937;color:#9ca3af;border:1px solid #374151}
+label.lbl{display:block;font-weight:600;font-size:.85rem;margin-bottom:.5rem;color:#f3f4f6}
+.section{margin-top:3rem}
+.section h2{font-size:1.4rem;font-weight:700;margin-bottom:1rem}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem}
+.related-link{display:block;padding:.75rem 1rem;background:#111827;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.85rem;font-weight:600;text-decoration:none;transition:border-color .2s}
+.related-link:hover{border-color:#6366f1;text-decoration:none}
+.faq-item{background:#111827;border:1px solid #374151;border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+.faq-q{padding:1rem 1.25rem;font-weight:600;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{background:#1f2937}
+.faq-a{padding:0 1.25rem 1rem;color:#9ca3af;font-size:.9rem;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-arrow{transition:transform .2s;color:#9ca3af}
+@media(max-width:600px){h1{font-size:1.5rem}.btn-row{flex-direction:column}.btn{width:100%}}
+</style>
+</head><body>
 
-    <!-- Ad: Top -->
-    <div class="ad-slot ad-banner">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+<header style="background:#111827;border-bottom:1px solid #374151;padding:0;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)">
+<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:.75rem 1.5rem;gap:1rem;flex-wrap:wrap">
+<a href="index.html" style="font-size:1.4rem;font-weight:800;color:#6366f1;text-decoration:none">⚡ CalcLeap</a>
+<nav style="display:flex;gap:.25rem;flex:1;margin-left:1rem;flex-wrap:wrap">
+<a href="index.html" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Home</a>
+<a href="index.html#finance" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Finance</a>
+<a href="index.html#insurance" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Insurance</a>
+<a href="index.html#health" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Health</a>
+<a href="index.html#dev" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Dev Tools</a>
+<a href="index.html#convert" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Converters</a>
+</nav>
+</div>
+</header>
 
-    <main style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;">
-        <nav style="margin-bottom:1rem"><a href="index.html" style="color:var(--accent);text-decoration:none;font-weight:600">← All Tools</a></nav>
-        <h1>{ } JSON Formatter & Validator</h1>
-        <p style="color:var(--text-muted);margin-bottom:2rem">Format, validate, and minify JSON data instantly. Free online JSON beautifier with syntax highlighting.</p>
-        
-        <div class="tool-content" id="toolContent"></div>
+<div style="max-width:1200px;margin:1.5rem auto;padding:0 1.5rem">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
 
-        <!-- Ad: Mid Content -->
-        <div class="ad-slot" style="margin:2rem 0">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+<div class="container">
+<div class="breadcrumb"><a href="index.html">Home</a> › <a href="index.html#dev">Developer Tools</a> › JSON Formatter</div>
+<h1>JSON Formatter & Validator</h1>
+<p class="sub">Paste your JSON data below to format, minify, or validate it instantly. All processing happens in your browser — nothing is sent to any server.</p>
 
-        <!-- Related Tools -->
-        <section style="margin-top:3rem">
-            <h2 style="font-size:1.3rem;margin-bottom:1rem">More Free Tools</h2>
-            <div class="tool-grid">
-                
-                <a class="tool-card" href="word-counter.html">
-                    <div class="icon">📝</div>
-                    <h3>Word Counter</h3>
-                    <p>Count words, characters, sentences, and paragraphs instantly.</p>
-                    <span class="badge">Writing</span>
-                </a>
-                <a class="tool-card" href="password-generator.html">
-                    <div class="icon">🔐</div>
-                    <h3>Password Generator</h3>
-                    <p>Generate strong, secure random passwords.</p>
-                    <span class="badge">Security</span>
-                </a>
-                <a class="tool-card" href="qr-code-generator.html">
-                    <div class="icon">📱</div>
-                    <h3>QR Code Generator</h3>
-                    <p>Create QR codes for URLs, text, WiFi credentials, and more.</p>
-                    <span class="badge">Utility</span>
-                </a>
-                <a class="tool-card" href="base64-encoder-decoder.html">
-                    <div class="icon">🔄</div>
-                    <h3>Base64 Codec</h3>
-                    <p>Encode text to Base64 or decode Base64 strings instantly.</p>
-                    <span class="badge">Developer</span>
-                </a>
-                <a class="tool-card" href="color-converter.html">
-                    <div class="icon">🎨</div>
-                    <h3>Color Converter</h3>
-                    <p>Convert colors between HEX, RGB, and HSL formats.</p>
-                    <span class="badge">Design</span>
-                </a>
-                <a class="tool-card" href="hash-generator.html">
-                    <div class="icon">🔒</div>
-                    <h3>Hash Generator</h3>
-                    <p>Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text.</p>
-                    <span class="badge">Security</span>
-                </a>
-            </div>
-        </section>
-    
-        <div class="embed-box" style="margin-top:2rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:12px">
-            <h2 style="font-size:1.1rem;margin-bottom:.75rem">📋 Embed This Tool</h2>
-            <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem">Add this tool to your website for free:</p>
-            <div style="position:relative">
-                <textarea id="embed-code" readonly style="width:100%;height:80px;padding:.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:monospace;font-size:.8rem;resize:none">&lt;iframe src="https://calcleap.com/json-formatter.html" width="100%" height="600" frameborder="0" style="border:1px solid #e5e7eb;border-radius:12px"&gt;&lt;/iframe&gt;
-&lt;p style="font-size:12px;text-align:center"&gt;Tool by &lt;a href="https://calcleap.com/"&gt;CalcLeap&lt;/a&gt;&lt;/p&gt;</textarea>
-                <button onclick="navigator.clipboard.writeText(document.getElementById('embed-code').value);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="position:absolute;top:8px;right:8px;padding:.35rem .75rem;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;font-weight:600">Copy</button>
-            </div>
-        </div>
-    </main>
+<div class="tool-card">
+<label class="lbl">Input JSON</label>
+<textarea id="jsonInput" placeholder='Paste your JSON here, e.g. {"name":"CalcLeap","version":1}'>{"name":"CalcLeap","tools":["calculator","formatter","generator"],"version":2.0,"active":true}</textarea>
+<div class="btn-row" style="margin-top:1rem">
+<button class="btn" onclick="formatJSON()">✨ Format</button>
+<button class="btn btn-secondary" onclick="minifyJSON()">📦 Minify</button>
+<button class="btn btn-secondary" onclick="validateJSON()">✅ Validate</button>
+<button class="btn btn-secondary" onclick="copyOutput()">📋 Copy</button>
+<button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+</div>
+<label class="lbl">Output</label>
+<textarea id="jsonOutput" readonly placeholder="Formatted output will appear here..."></textarea>
+<div id="status" class="status neutral">Paste JSON above and click Format, Minify, or Validate.</div>
+</div>
+</div>
 
-    <!-- Ad: Bottom -->
-    <div class="ad-slot ad-banner">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+<div style="max-width:1200px;margin:1.5rem auto;padding:0 1.5rem">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
 
-    <footer>
-        <p>CalcLeap — All processing happens in your browser. Nothing is uploaded or stored.</p>
-        <p class="footer-links"><a href="https://github.com/alexchalu/toolpulse" target="_blank">GitHub</a> · <a href="https://alexchalu.github.io/smartcalc/">Financial Calculators</a> · Built with ❤️</p>
-    </footer>
+<div class="container">
+<div class="section">
+<h2>Related Tools</h2>
+<div class="related-grid">
+<a href="base64-encoder.html" class="related-link">🔐 Base64 Encoder</a>
+<a href="hash-generator.html" class="related-link">🔑 Hash Generator</a>
+<a href="uuid-generator.html" class="related-link">🆔 UUID Generator</a>
+<a href="url-encoder.html" class="related-link">🔗 URL Encoder</a>
+<a href="css-minifier.html" class="related-link">🎨 CSS Minifier</a>
+<a href="js-minifier.html" class="related-link">⚙️ JS Minifier</a>
+<a href="html-encoder.html" class="related-link">📄 HTML Encoder</a>
+</div>
+</div>
 
-    <script src="app.js"></script>
-    <script>
-        // Theme setup
-        (function() {
-            const btn = document.getElementById('themeToggle');
-            const saved = localStorage.getItem('tp-theme');
-            if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); btn.textContent = '☀️'; }
-            btn.addEventListener('click', () => {
-                const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-                document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
-                btn.textContent = isLight ? '🌙' : '☀️';
-                localStorage.setItem('tp-theme', isLight ? 'dark' : 'light');
-            });
-        })();
-        // Render tool
-        document.addEventListener('DOMContentLoaded', function() {
-            const toolId = 'json-formatter';
-            const container = document.getElementById('toolContent');
-            if (!container) return;
-            
-            // Map page IDs to app.js tool IDs
-            const idMap = {
-                'password-generator': 'password-gen',
-                'qr-code-generator': 'qr-generator',
-                'base64-encoder-decoder': 'base64',
-                'hash-generator': 'hash-gen',
-                'uuid-generator': 'uuid-gen',
-                'url-encoder-decoder': 'url-codec',
-                'text-case-converter': 'text-case',
-                'lorem-ipsum-generator': 'lorem-ipsum',
-                'unix-timestamp-converter': 'timestamp',
-                'percentage-calculator': 'percentage-calc',
-            };
-            const lookupId = idMap[toolId] || toolId;
-            
-            // Try _toolRenderers from app.js first
-            if (window._toolRenderers && window._toolRenderers[lookupId]) {
-                window._toolRenderers[lookupId](container);
-            }
-            // Then try window.render_xxx for new tools
-            else {
-                const fn = window['render_' + toolId.replace(/-/g, '_')];
-                if (fn) fn(container);
-            }
-        });
-    </script>
-</body>
-</html>
+<div class="section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is JSON formatting?<span class="faq-arrow">▼</span></div><div class="faq-a">JSON formatting (also called "pretty-printing") adds proper indentation and line breaks to compressed JSON data, making it easier to read and debug. Our formatter uses 2-space indentation by default.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is my JSON data safe when using this tool?<span class="faq-arrow">▼</span></div><div class="faq-a">Yes. All processing happens entirely in your browser using JavaScript. Your JSON data is never sent to any server, stored, or logged. It stays completely private on your device.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the difference between Format and Minify?<span class="faq-arrow">▼</span></div><div class="faq-a">Format adds whitespace and indentation for readability. Minify removes all unnecessary whitespace to produce the smallest possible output — useful for APIs, configuration files, and reducing payload sizes.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What JSON errors can this tool detect?<span class="faq-arrow">▼</span></div><div class="faq-a">The validator catches all standard JSON syntax errors including: missing or extra commas, unquoted keys, single quotes instead of double quotes, trailing commas, unclosed brackets or braces, and invalid escape sequences.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a size limit for JSON input?<span class="faq-arrow">▼</span></div><div class="faq-a">There's no hard limit imposed by the tool. However, very large JSON files (over 10MB) may cause your browser to slow down. For extremely large files, consider using a desktop JSON editor or command-line tools like jq.</div></div>
+</div>
+</div>
+
+<div style="max-width:1200px;margin:1.5rem auto;padding:0 1.5rem">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<footer style="background:#111827;border-top:1px solid #374151;padding:3rem 1.5rem;margin-top:3rem">
+<div style="max-width:1200px;margin:0 auto">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem">
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">CalcLeap</h4><p style="color:#9ca3af;font-size:.85rem;line-height:1.6">2,000+ free calculators and tools. Fast, accurate, private.</p></div>
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Popular</h4>
+<a href="bmi-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">BMI Calculator</a>
+<a href="mortgage-refinance-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Mortgage Calculator</a>
+<a href="json-formatter.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">JSON Formatter</a>
+<a href="password-generator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Password Generator</a></div>
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Company</h4>
+<a href="about.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">About</a>
+<a href="privacy.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Privacy Policy</a>
+<a href="contact.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Contact</a></div>
+</div>
+<div style="text-align:center;padding-top:2rem;border-top:1px solid #374151">
+<p style="color:#9ca3af;font-size:.8rem">© 2026 CalcLeap. All calculations are for informational purposes only.</p>
+</div>
+</div>
+</footer>
+
+<script>
+function formatJSON(){
+  const input=document.getElementById('jsonInput').value.trim();
+  const status=document.getElementById('status');
+  const output=document.getElementById('jsonOutput');
+  if(!input){status.className='status invalid';status.textContent='⚠️ Please paste some JSON first.';output.value='';return}
+  try{const parsed=JSON.parse(input);output.value=JSON.stringify(parsed,null,2);status.className='status valid';status.textContent='✅ Valid JSON — formatted with 2-space indentation.'}
+  catch(e){output.value='';status.className='status invalid';status.textContent='❌ Invalid JSON: '+e.message}
+}
+function minifyJSON(){
+  const input=document.getElementById('jsonInput').value.trim();
+  const status=document.getElementById('status');
+  const output=document.getElementById('jsonOutput');
+  if(!input){status.className='status invalid';status.textContent='⚠️ Please paste some JSON first.';output.value='';return}
+  try{const parsed=JSON.parse(input);output.value=JSON.stringify(parsed);const saved=input.length-output.value.length;status.className='status valid';status.textContent='✅ Minified — saved '+saved+' characters ('+Math.round(saved/input.length*100)+'% reduction).'}
+  catch(e){output.value='';status.className='status invalid';status.textContent='❌ Invalid JSON: '+e.message}
+}
+function validateJSON(){
+  const input=document.getElementById('jsonInput').value.trim();
+  const status=document.getElementById('status');
+  const output=document.getElementById('jsonOutput');
+  if(!input){status.className='status invalid';status.textContent='⚠️ Please paste some JSON first.';output.value='';return}
+  try{const parsed=JSON.parse(input);const type=Array.isArray(parsed)?'Array':'Object';const keys=Array.isArray(parsed)?parsed.length:Object.keys(parsed).length;output.value=JSON.stringify(parsed,null,2);status.className='status valid';status.textContent='✅ Valid JSON — Type: '+type+', Top-level entries: '+keys+', Size: '+input.length+' chars.'}
+  catch(e){output.value='';status.className='status invalid';status.textContent='❌ Invalid JSON: '+e.message}
+}
+function copyOutput(){
+  const output=document.getElementById('jsonOutput');
+  const status=document.getElementById('status');
+  if(!output.value){status.className='status invalid';status.textContent='⚠️ Nothing to copy — format or minify first.';return}
+  navigator.clipboard.writeText(output.value).then(()=>{status.className='status valid';status.textContent='📋 Copied to clipboard!'}).catch(()=>{output.select();document.execCommand('copy');status.className='status valid';status.textContent='📋 Copied to clipboard!'})
+}
+function clearAll(){
+  document.getElementById('jsonInput').value='';
+  document.getElementById('jsonOutput').value='';
+  document.getElementById('status').className='status neutral';
+  document.getElementById('status').textContent='Cleared. Paste new JSON above.';
+}
+</script>
+</body></html>

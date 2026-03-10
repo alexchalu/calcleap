@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator 2024 - Free Federal Tax Estimator | CalcLeap</title>
+    <meta name="description" content="Calculate your 2024 federal income tax. Estimate taxable income, tax owed, effective tax rate, and marginal rate for all filing statuses. Free instant results.">
+    <link rel="canonical" href="https://calcleap.com/income-tax-calculator.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Income Tax Calculator",
+        "description": "Calculate your 2024 federal income tax with all filing statuses and brackets.",
+        "url": "https://calcleap.com/income-tax-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+    }
+    </script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0e1a;color:#f3f4f6;line-height:1.6}
+        a{color:#6366f1;text-decoration:none}a:hover{color:#818cf8}
+        .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+        .breadcrumb{padding:1rem 0;font-size:.85rem;color:#9ca3af}.breadcrumb a{color:#9ca3af}.breadcrumb a:hover{color:#6366f1}.breadcrumb span{margin:0 .5rem;color:#4b5563}
+        .hero{text-align:center;padding:2.5rem 0 1.5rem}
+        .hero h1{font-size:2.2rem;font-weight:800;margin-bottom:.75rem;background:linear-gradient(135deg,#6366f1,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{color:#9ca3af;font-size:1.05rem;max-width:640px;margin:0 auto}
+        .calc-card{background:#111827;border:1px solid #374151;border-radius:16px;padding:2rem;margin-bottom:2rem}
+        .calc-card h2{font-size:1.3rem;color:#f3f4f6;margin-bottom:1.5rem}
+        .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+        .input-group{margin-bottom:0}
+        .input-group.full{grid-column:1/-1}
+        .input-group label{display:block;margin-bottom:.4rem;font-weight:600;color:#9ca3af;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px}
+        .input-group input,.input-group select{width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:1rem;transition:border .2s}
+        .input-group input:focus,.input-group select:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+        .radio-group{display:flex;gap:.75rem;flex-wrap:wrap}
+        .radio-label{display:flex;align-items:center;gap:.4rem;padding:.6rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;cursor:pointer;font-size:.9rem;transition:border-color .2s}
+        .radio-label:has(input:checked){border-color:#6366f1;background:#1e2540}
+        .radio-label input{accent-color:#6366f1}
+        .calc-btn{background:#6366f1;color:#fff;border:none;padding:1rem 2rem;font-size:1.05rem;font-weight:700;border-radius:10px;cursor:pointer;width:100%;margin-top:1.5rem;transition:background .2s}
+        .calc-btn:hover{background:#4f46e5}
+        .result-box{background:#1f2937;border:1px solid #374151;border-radius:12px;padding:1.5rem;margin-top:1.5rem;display:none}
+        .result-box h3{color:#6366f1;margin-bottom:1rem;font-size:1.1rem}
+        .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+        .result-card{background:#111827;border:1px solid #374151;border-radius:10px;padding:1.25rem;text-align:center}
+        .result-card .label{font-size:.8rem;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.35rem}
+        .result-card .value{font-size:1.5rem;font-weight:800;color:#6366f1}
+        .result-card .value.green{color:#34d399}
+        .bracket-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.9rem}
+        .bracket-table th{text-align:left;padding:.6rem;color:#9ca3af;border-bottom:1px solid #374151;font-size:.8rem;text-transform:uppercase}
+        .bracket-table td{padding:.6rem;border-bottom:1px solid #1f2937;color:#d1d5db}
+        .bracket-table tr.active{background:rgba(99,102,241,.1)}
+        .bracket-table tr.active td{color:#f3f4f6;font-weight:600}
+        .section{background:#111827;border:1px solid #374151;border-radius:16px;padding:2rem;margin-bottom:2rem}
+        .section h3{color:#f3f4f6;font-size:1.2rem;margin-bottom:1rem}
+        .section p{color:#9ca3af;margin-bottom:1rem;font-size:.95rem}
+        .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;margin-top:1rem}
+        .related-link{display:flex;align-items:center;gap:.5rem;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:10px;color:#f3f4f6;font-size:.9rem;font-weight:500;transition:border-color .2s,background .2s}
+        .related-link:hover{border-color:#6366f1;background:#1e2540;color:#f3f4f6}
+        .faq-item{border-bottom:1px solid #374151;padding:1.25rem 0}.faq-item:last-child{border-bottom:none}
+        .faq-q{font-weight:700;color:#f3f4f6;margin-bottom:.5rem;font-size:1rem}
+        .faq-a{color:#9ca3af;font-size:.92rem;line-height:1.7}
+        #itemized-row{display:none}
+        @media(max-width:768px){.hero h1{font-size:1.6rem}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}.radio-group{flex-direction:column}}
+        @media(max-width:480px){.result-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<header style="background:#111827;border-bottom:1px solid #374151;padding:0;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)">
+<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:.75rem 1.5rem;gap:1rem;flex-wrap:wrap">
+<a href="index.html" style="font-size:1.4rem;font-weight:800;color:#6366f1;text-decoration:none">⚡ CalcLeap</a>
+<nav style="display:flex;gap:.25rem;flex:1;margin-left:1rem;flex-wrap:wrap">
+<a href="index.html" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Home</a>
+<a href="index.html#finance" style="color:#f3f4f6;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px;background:#1f2937">Finance</a>
+<a href="index.html#insurance" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Insurance</a>
+<a href="index.html#health" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Health</a>
+<a href="index.html#dev" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Dev Tools</a>
+<a href="index.html#convert" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Converters</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+    <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span><a href="index.html#finance">Finance</a><span>›</span>Income Tax Calculator
+    </div>
+
+    <div class="hero">
+        <h1>🧾 Income Tax Calculator</h1>
+        <p>Estimate your 2024 federal income tax. See your taxable income, tax owed, effective rate, and marginal bracket.</p>
+    </div>
+
+    <div style="max-width:1200px;margin:1.5rem auto;padding:0">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+
+    <div class="calc-card">
+        <h2>Enter Your Tax Information</h2>
+        <div class="input-grid">
+            <div class="input-group full">
+                <label>Filing Status</label>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="filing-status" value="single" checked> Single</label>
+                    <label class="radio-label"><input type="radio" name="filing-status" value="married-jointly"> Married Filing Jointly</label>
+                    <label class="radio-label"><input type="radio" name="filing-status" value="married-separately"> Married Filing Separately</label>
+                    <label class="radio-label"><input type="radio" name="filing-status" value="head-of-household"> Head of Household</label>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="gross-income">Gross Annual Income ($)</label>
+                <input type="number" id="gross-income" min="0" value="85000" placeholder="85000">
+            </div>
+            <div class="input-group">
+                <label for="deduction-type">Deduction Type</label>
+                <select id="deduction-type" onchange="toggleItemized()">
+                    <option value="standard">Standard Deduction</option>
+                    <option value="itemized">Itemized Deductions</option>
+                </select>
+            </div>
+            <div class="input-group" id="itemized-row">
+                <label for="itemized-amount">Itemized Deduction Amount ($)</label>
+                <input type="number" id="itemized-amount" min="0" value="0" placeholder="25000">
+            </div>
+        </div>
+        <button class="calc-btn" onclick="calculateTax()">Calculate Federal Tax</button>
+        <div class="result-box" id="result"></div>
+    </div>
+
+    <div style="max-width:1200px;margin:1.5rem auto;padding:0">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+
+    <div class="section">
+        <h3>Related Tax & Finance Tools</h3>
+        <div class="related-grid">
+            <a href="capital-gains-tax-calculator.html" class="related-link">📈 Capital Gains Tax</a>
+            <a href="california-tax-calculator.html" class="related-link">🌴 California State Tax</a>
+            <a href="new-york-tax-calculator.html" class="related-link">🗽 New York State Tax</a>
+            <a href="texas-tax-calculator.html" class="related-link">⛶ Texas Tax Info</a>
+            <a href="florida-tax-calculator.html" class="related-link">🌊 Florida Tax Info</a>
+            <a href="paycheck-calculator.html" class="related-link">💵 Paycheck Calculator</a>
+            <a href="quarterly-tax-calculator.html" class="related-link">📅 Quarterly Tax</a>
+            <a href="mortgage-refinance-calculator.html" class="related-link">🏠 Mortgage Refinance</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-item">
+            <div class="faq-q">What are the 2024 federal income tax brackets?</div>
+            <div class="faq-a">For 2024, there are seven federal tax brackets: 10%, 12%, 22%, 24%, 32%, 35%, and 37%. The income thresholds vary by filing status. For single filers, the brackets start at $11,600 (10%), $47,150 (12%), $100,525 (22%), $191,950 (24%), $243,725 (32%), $609,350 (35%), and above (37%).</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Should I take the standard deduction or itemize?</div>
+            <div class="faq-a">Take whichever is larger. The 2024 standard deduction is $14,600 for single filers, $29,200 for married filing jointly, $14,600 for married filing separately, and $21,900 for head of household. Itemize only if your deductible expenses (mortgage interest, state/local taxes, charitable donations, medical expenses) exceed the standard deduction.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">What's the difference between marginal and effective tax rate?</div>
+            <div class="faq-a">Your marginal tax rate is the rate applied to your last dollar of income — your highest bracket. Your effective tax rate is the average rate across all your income (total tax ÷ gross income). For example, someone earning $100,000 might have a 22% marginal rate but only a ~15% effective rate because the first portions of income are taxed at lower brackets.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Does this calculator include state income tax?</div>
+            <div class="faq-a">No, this calculator estimates federal income tax only. State income tax varies significantly — some states like Texas and Florida have no income tax, while others like California can add 9–13% on top. Check our state-specific calculators for complete estimates.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Are Social Security and Medicare taxes included?</div>
+            <div class="faq-a">This calculator focuses on federal income tax only. Social Security tax (6.2% on income up to $168,600 in 2024) and Medicare tax (1.45% on all income, plus 0.9% additional Medicare tax on income over $200,000) are separate payroll taxes not included in these results.</div>
+        </div>
+    </div>
+
+    <div style="max-width:1200px;margin:1.5rem auto;padding:0">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+</main>
+
+<footer style="background:#111827;border-top:1px solid #374151;padding:3rem 1.5rem;margin-top:3rem">
+<div style="max-width:1200px;margin:0 auto">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem">
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">CalcLeap</h4><p style="color:#9ca3af;font-size:.85rem;line-height:1.6">2,000+ free calculators and tools. Fast, accurate, private.</p></div>
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Popular</h4>
+<a href="bmi-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">BMI Calculator</a>
+<a href="mortgage-refinance-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Mortgage Calculator</a>
+<a href="json-formatter.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">JSON Formatter</a>
+<a href="password-generator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Password Generator</a></div>
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Company</h4>
+<a href="about.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">About</a>
+<a href="privacy.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Privacy Policy</a>
+<a href="contact.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Contact</a></div>
+</div>
+<div style="text-align:center;padding-top:2rem;border-top:1px solid #374151">
+<p style="color:#9ca3af;font-size:.8rem">© 2026 CalcLeap. All calculations are for informational purposes only.</p>
+</div>
+</div>
+</footer>
+
+<script>
+function toggleItemized() {
+    document.getElementById('itemized-row').style.display =
+        document.getElementById('deduction-type').value === 'itemized' ? '' : 'none';
+}
+
+function calculateTax() {
+    const filingStatus = document.querySelector('input[name="filing-status"]:checked').value;
+    const grossIncome = parseFloat(document.getElementById('gross-income').value) || 0;
+    const deductionType = document.getElementById('deduction-type').value;
+    const itemizedAmount = parseFloat(document.getElementById('itemized-amount').value) || 0;
+
+    // 2024 Standard Deductions
+    const standardDeductions = {
+        'single': 14600,
+        'married-jointly': 29200,
+        'married-separately': 14600,
+        'head-of-household': 21900
+    };
+
+    // 2024 Tax Brackets
+    const brackets = {
+        'single': [
+            [11600, 0.10], [47150, 0.12], [100525, 0.22], [191950, 0.24],
+            [243725, 0.32], [609350, 0.35], [Infinity, 0.37]
+        ],
+        'married-jointly': [
+            [23200, 0.10], [94300, 0.12], [201050, 0.22], [383900, 0.24],
+            [487450, 0.32], [731200, 0.35], [Infinity, 0.37]
+        ],
+        'married-separately': [
+            [11600, 0.10], [47150, 0.12], [100525, 0.22], [191950, 0.24],
+            [243725, 0.32], [365600, 0.35], [Infinity, 0.37]
+        ],
+        'head-of-household': [
+            [16550, 0.10], [63100, 0.12], [100500, 0.22], [191950, 0.24],
+            [243700, 0.32], [609350, 0.35], [Infinity, 0.37]
+        ]
+    };
+
+    const deduction = deductionType === 'standard' ? standardDeductions[filingStatus] : itemizedAmount;
+    const taxableIncome = Math.max(0, grossIncome - deduction);
+
+    // Calculate tax
+    let tax = 0;
+    let prevLimit = 0;
+    let marginalRate = 0.10;
+    const statusBrackets = brackets[filingStatus];
+    const bracketDetails = [];
+
+    for (const [limit, rate] of statusBrackets) {
+        const bracketIncome = Math.min(taxableIncome, limit) - prevLimit;
+        if (bracketIncome <= 0) {
+            bracketDetails.push({ from: prevLimit, to: limit, rate, taxed: 0, tax: 0, active: false });
+            prevLimit = limit;
+            continue;
+        }
+        const bracketTax = bracketIncome * rate;
+        tax += bracketTax;
+        marginalRate = rate;
+        bracketDetails.push({ from: prevLimit, to: limit, rate, taxed: bracketIncome, tax: bracketTax, active: true });
+        prevLimit = limit;
+        if (taxableIncome <= limit) break;
+    }
+
+    const effectiveRate = grossIncome > 0 ? (tax / grossIncome) * 100 : 0;
+    const monthlyTax = tax / 12;
+    const takeHome = grossIncome - tax;
+
+    const fmt = n => '$' + n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+    let html = '<h3>2024 Federal Tax Estimate</h3>';
+    html += '<div class="result-grid">';
+    html += '<div class="result-card"><div class="label">Taxable Income</div><div class="value">' + fmt(taxableIncome) + '</div></div>';
+    html += '<div class="result-card"><div class="label">Federal Tax Owed</div><div class="value">' + fmt(tax) + '</div></div>';
+    html += '<div class="result-card"><div class="label">Effective Rate</div><div class="value green">' + effectiveRate.toFixed(1) + '%</div></div>';
+    html += '<div class="result-card"><div class="label">Marginal Rate</div><div class="value">' + (marginalRate * 100).toFixed(0) + '%</div></div>';
+    html += '</div>';
+    html += '<div style="margin-top:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem">';
+    html += '<div class="result-card"><div class="label">Monthly Tax</div><div class="value">' + fmt(monthlyTax) + '</div></div>';
+    html += '<div class="result-card"><div class="label">After-Tax Income</div><div class="value green">' + fmt(takeHome) + '</div></div>';
+    html += '</div>';
+
+    // Bracket breakdown table
+    html += '<div style="margin-top:1.5rem"><h4 style="color:#9ca3af;font-size:.85rem;text-transform:uppercase;margin-bottom:.75rem">Tax Bracket Breakdown</h4>';
+    html += '<table class="bracket-table"><thead><tr><th>Bracket</th><th>Rate</th><th>Income Taxed</th><th>Tax</th></tr></thead><tbody>';
+    for (const b of bracketDetails) {
+        if (b.from >= taxableIncome && !b.active) continue;
+        const rangeStr = fmt(b.from) + ' – ' + (b.to === Infinity ? '∞' : fmt(b.to));
+        html += '<tr class="' + (b.active ? 'active' : '') + '"><td>' + rangeStr + '</td><td>' + (b.rate * 100) + '%</td><td>' + fmt(b.taxed) + '</td><td>' + fmt(b.tax) + '</td></tr>';
+    }
+    html += '</tbody></table></div>';
+
+    const resultBox = document.getElementById('result');
+    resultBox.innerHTML = html;
+    resultBox.style.display = 'block';
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Retirement Calculator — Free Online | CalcLeap</title>
-<meta name="description" content="Calculate how much you need to save for retirement. See if you're on track to retire comfortably with our free retirement planning calculator.">
-<meta name="keywords" content="retirement calculator, retirement savings, how much to retire, retirement planning, 401k calculator, retirement age">
-<link rel="canonical" href="https://calcleap.com/calc/retirement-calculator.html">
+<title>Compound Interest Calculator — Free Online | CalcLeap</title>
+<meta name="description" content="Calculate compound interest with monthly contributions. See how your investment grows over time with a detailed year-by-year breakdown.">
+<meta name="keywords" content="compound interest calculator, interest calculator, savings calculator, investment growth, compound interest formula, monthly contributions">
+<link rel="canonical" href="https://calcleap.com/calc/compound-interest-calculator.html">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Retirement Calculator","description":"Calculate how much you need to save for retirement and see if you're on track.","url":"https://calcleap.com/calc/retirement-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Compound Interest Calculator","description":"Calculate compound interest with monthly contributions and see detailed year-by-year growth.","url":"https://calcleap.com/calc/compound-interest-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0e1a;color:#f3f4f6;line-height:1.6}
@@ -17,8 +17,8 @@ h1{font-size:2rem;font-weight:800;margin-bottom:.5rem}
 .tool-card{background:#111827;border:1px solid #374151;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
 .field{margin-bottom:1rem}
 .label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.4rem}
-input[type=number]{width:100%;padding:.7rem .9rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.9rem;outline:none;font-family:inherit}
-input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12)}
+input[type=number],select{width:100%;padding:.7rem .9rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:.9rem;outline:none;font-family:inherit}
+input:focus,select:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
 .btn{padding:.75rem 1.5rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;font-family:inherit}
 .btn:hover{background:#4f46e5}
@@ -26,9 +26,11 @@ input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12)}
 .stat{background:#1f2937;border-radius:10px;padding:1rem;text-align:center}
 .stat .val{font-size:1.3rem;font-weight:800;color:#6366f1}
 .stat .lbl{font-size:.75rem;color:#9ca3af;margin-top:.25rem}
-.status-banner{margin-top:1.5rem;padding:1.25rem;border-radius:10px;text-align:center;font-size:1.1rem;font-weight:700}
-.status-banner.on-track{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
-.status-banner.short{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2)}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:1.5rem}
+th,td{padding:.6rem .75rem;text-align:right;border-bottom:1px solid #374151}
+th{color:#9ca3af;font-weight:600;font-size:.75rem;text-transform:uppercase;background:#1f2937;position:sticky;top:0}
+td:first-child,th:first-child{text-align:left}
+.table-wrap{max-height:400px;overflow-y:auto;border-radius:8px;border:1px solid #374151}
 .section{margin-top:3rem}
 .section h2{font-size:1.4rem;font-weight:700;margin-bottom:1rem}
 .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem}
@@ -65,26 +67,25 @@ input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12)}
 </div>
 
 <div class="container">
-<div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../index.html#finance">Finance</a> › Retirement Calculator</div>
-<h1>Retirement Calculator</h1>
-<p class="sub">Find out if you're on track for retirement. Enter your current savings, contributions, and goals to see a complete projection of your retirement readiness.</p>
+<div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../index.html#finance">Finance</a> › Compound Interest Calculator</div>
+<h1>Compound Interest Calculator</h1>
+<p class="sub">Calculate how your money grows with compound interest and regular monthly contributions. See a detailed year-by-year breakdown of your investment growth.</p>
 
 <div class="tool-card">
 <div class="row">
-<div class="field"><label class="label">Current Age</label><input type="number" id="age" value="30"></div>
-<div class="field"><label class="label">Retirement Age</label><input type="number" id="retAge" value="65"></div>
+<div class="field"><label class="label">Initial Investment ($)</label><input type="number" id="principal" value="10000"></div>
+<div class="field"><label class="label">Monthly Contribution ($)</label><input type="number" id="monthly" value="500"></div>
 </div>
 <div class="row">
-<div class="field"><label class="label">Current Savings ($)</label><input type="number" id="savings" value="50000"></div>
-<div class="field"><label class="label">Monthly Contribution ($)</label><input type="number" id="monthly" value="1000"></div>
+<div class="field"><label class="label">Annual Interest Rate (%)</label><input type="number" id="rate" value="7" step="0.1"></div>
+<div class="field"><label class="label">Investment Period (Years)</label><input type="number" id="years" value="20"></div>
 </div>
-<div class="row">
-<div class="field"><label class="label">Expected Annual Return (%)</label><input type="number" id="returnRate" value="7" step="0.1"></div>
-<div class="field"><label class="label">Desired Annual Income ($)</label><input type="number" id="income" value="80000"></div>
+<div class="field"><label class="label">Compound Frequency</label>
+<select id="freq"><option value="12" selected>Monthly</option><option value="4">Quarterly</option><option value="1">Annually</option><option value="365">Daily</option></select>
 </div>
-<button class="btn" onclick="calc()">🏖️ Calculate Retirement</button>
-<div id="statusBanner"></div>
+<button class="btn" onclick="calc()">📈 Calculate</button>
 <div class="results-grid" id="out"></div>
+<div id="tableWrap"></div>
 </div>
 </div>
 
@@ -97,22 +98,22 @@ input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12)}
 <div class="section">
 <h2>Related Calculators</h2>
 <div class="related-grid">
-<a href="compound-interest-calculator.html" class="related-link">📈 Compound Interest</a>
+<a href="retirement-calculator.html" class="related-link">🏖️ Retirement Calculator</a>
 <a href="../calc/401k-calculator.html" class="related-link">💼 401k Calculator</a>
-<a href="../calc/social-security-calculator.html" class="related-link">🏛️ Social Security</a>
-<a href="../calc/early-retirement-calculator.html" class="related-link">🔥 Early Retirement</a>
-<a href="../calc/pension-calculator.html" class="related-link">📋 Pension Calculator</a>
-<a href="../calc/roth-ira-calculator.html" class="related-link">📊 Roth IRA</a>
+<a href="../calc/roth-ira-calculator.html" class="related-link">📊 Roth IRA Calculator</a>
+<a href="../calc/investment-return-calculator.html" class="related-link">📈 Investment Return</a>
+<a href="../calc/savings-goal-calculator.html" class="related-link">🎯 Savings Goal</a>
+<a href="../mortgage-refinance-calculator.html" class="related-link">🏠 Mortgage Calculator</a>
 </div>
 </div>
 
 <div class="section">
 <h2>Frequently Asked Questions</h2>
-<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the 25x rule for retirement?<span class="faq-arrow">▼</span></div><div class="faq-a">The 25x rule (also known as the 4% rule) suggests you need 25 times your desired annual retirement income saved before you retire. For example, if you want $80,000/year in retirement, you'd need $2,000,000 saved. This allows you to withdraw 4% per year, which historically has sustained a 30-year retirement.</div></div>
-<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What rate of return should I expect?<span class="faq-arrow">▼</span></div><div class="faq-a">The S&P 500 has historically returned about 10% annually (7% after inflation). A balanced portfolio of stocks and bonds typically returns 6-8%. Conservative investors might use 5-6%, while aggressive investors might use 8-10%. The default 7% represents a moderate, inflation-adjusted expectation.</div></div>
-<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much should I save for retirement each month?<span class="faq-arrow">▼</span></div><div class="faq-a">Financial advisors commonly recommend saving 15-20% of your gross income for retirement. However, the right amount depends on your age, current savings, retirement goals, and expected Social Security benefits. The earlier you start, the less you need to save each month thanks to compound interest.</div></div>
-<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does this calculator account for Social Security?<span class="faq-arrow">▼</span></div><div class="faq-a">No, this calculator shows only your personal savings projection. Social Security benefits would supplement your retirement income. To get a more complete picture, you can reduce your "Desired Annual Income" by your expected Social Security benefit (check ssa.gov for your estimate).</div></div>
-<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What if I'm behind on retirement savings?<span class="faq-arrow">▼</span></div><div class="faq-a">If the calculator shows you're short, consider: (1) increasing monthly contributions even by small amounts, (2) taking advantage of employer 401k matching, (3) using catch-up contributions if you're 50+, (4) delaying retirement by a few years, or (5) reducing your expected retirement expenses. Even small changes early can have a massive impact over time.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is compound interest?<span class="faq-arrow">▼</span></div><div class="faq-a">Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods. Unlike simple interest (which only earns on the principal), compound interest creates a snowball effect where your money grows exponentially over time. Albert Einstein reportedly called it "the eighth wonder of the world."</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does compound frequency affect my returns?<span class="faq-arrow">▼</span></div><div class="faq-a">More frequent compounding leads to slightly higher returns. Daily compounding earns more than monthly, which earns more than quarterly, which earns more than annual. However, the difference is usually small — the biggest factors are your interest rate, time horizon, and contribution amount.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the Rule of 72?<span class="faq-arrow">▼</span></div><div class="faq-a">The Rule of 72 is a quick way to estimate how long it takes to double your money. Divide 72 by your annual interest rate — for example, at 7% interest, your money doubles in approximately 72 ÷ 7 ≈ 10.3 years. This rule works well for rates between 2-15%.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why are regular contributions so powerful?<span class="faq-arrow">▼</span></div><div class="faq-a">Regular contributions dramatically accelerate wealth building through dollar-cost averaging and compounding. For example, $500/month invested at 7% for 20 years turns into about $260,000 — but only $120,000 of that is your contributions. The rest is compound interest working in your favor.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does this calculator account for taxes and inflation?<span class="faq-arrow">▼</span></div><div class="faq-a">This calculator shows nominal (pre-tax, pre-inflation) returns. For a more realistic picture, you can reduce the interest rate by your expected inflation rate (typically 2-3%) and consider that investment gains may be taxed. Tax-advantaged accounts like 401(k)s and Roth IRAs can help reduce the tax impact.</div></div>
 </div>
 </div>
 
@@ -145,19 +146,18 @@ input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12)}
 const $=id=>document.getElementById(id);
 const fmt=(n,d=2)=>typeof n==='number'?n.toLocaleString('en-US',{maximumFractionDigits:d}):'—';
 function calc(){
-  const age=+$('age').value,ret=+$('retAge').value,sav=+$('savings').value,m=+$('monthly').value,r=+$('returnRate').value/100,inc=+$('income').value;
-  const years=ret-age;
-  let balance=sav;
-  for(let i=0;i<years*12;i++){balance=balance*(1+r/12)+m}
-  const needed=inc*25;
-  const gap=needed-balance;
-  const onTrack=balance>=needed;
-  const totalContrib=sav+m*12*years;
-  const interestEarned=balance-totalContrib;
-
-  $('statusBanner').innerHTML='<div class="status-banner '+(onTrack?'on-track':'short')+'">'+(onTrack?'✅ You\'re on track! Projected savings exceed your target by $'+fmt(Math.abs(gap),0):'⚠️ You\'re $'+fmt(gap,0)+' short of your retirement target')+'</div>';
-
-  $('out').innerHTML='<div class="stat"><div class="val" style="font-size:1.5rem;color:'+(onTrack?'#22c55e':'#ef4444')+'">$'+fmt(balance,0)+'</div><div class="lbl">Projected at Retirement</div></div><div class="stat"><div class="val">$'+fmt(needed,0)+'</div><div class="lbl">Target Needed (25× Rule)</div></div><div class="stat"><div class="val">'+years+' yrs</div><div class="lbl">Years to Retirement</div></div><div class="stat"><div class="val">$'+fmt(totalContrib,0)+'</div><div class="lbl">Total Contributions</div></div><div class="stat"><div class="val" style="color:#22c55e">$'+fmt(interestEarned,0)+'</div><div class="lbl">Interest Earned</div></div><div class="stat"><div class="val">$'+fmt(inc/12,0)+'/mo</div><div class="lbl">Retirement Income</div></div>';
+  const P=+$('principal').value,m=+$('monthly').value,r=+$('rate').value/100,y=+$('years').value,n=+$('freq').value;
+  let balance=P;const totalContrib=P+m*12*y;
+  let rows='<div class="table-wrap"><table><tr><th>Year</th><th>Contributions</th><th>Interest</th><th>Balance</th></tr>';
+  for(let yr=1;yr<=y;yr++){
+    for(let i=0;i<12;i++){balance+=m;balance*=(1+r/n)}
+    const contrib=P+m*12*yr;const interest=balance-contrib;
+    rows+='<tr><td>'+yr+'</td><td>$'+fmt(contrib,0)+'</td><td>$'+fmt(interest,0)+'</td><td style="font-weight:700;color:#6366f1">$'+fmt(balance,0)+'</td></tr>';
+  }
+  rows+='</table></div>';
+  const totalInterest=balance-totalContrib;
+  $('out').innerHTML='<div class="stat"><div class="val" style="font-size:1.5rem;color:#22c55e">$'+fmt(balance,0)+'</div><div class="lbl">Final Balance</div></div><div class="stat"><div class="val">$'+fmt(totalContrib,0)+'</div><div class="lbl">Total Contributions</div></div><div class="stat"><div class="val">$'+fmt(totalInterest,0)+'</div><div class="lbl">Total Interest Earned</div></div><div class="stat"><div class="val">'+fmt(totalInterest/totalContrib*100,0)+'%</div><div class="lbl">Interest / Contributions</div></div>';
+  $('tableWrap').innerHTML=rows;
 }
 calc();
 </script>

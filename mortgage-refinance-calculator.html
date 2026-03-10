@@ -4,164 +4,248 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mortgage Refinance Calculator - Free Mortgage Refinance Tool | CalcLeap</title>
-    <meta name="description" content="Calculate if refinancing your mortgage will save you money. Compare monthly payments and total interest.. Free mortgage refinance calculator with instant results.">
+    <meta name="description" content="Calculate if refinancing your mortgage will save you money. Compare monthly payments, total interest, and break-even timeline. Free mortgage refinance calculator with instant results.">
     <link rel="canonical" href="https://calcleap.com/mortgage-refinance-calculator.html">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-        .header p { opacity: 0.9; }
-        .main { padding: 2rem 0; }
-        .calc-box { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
-        .calc-box h2 { margin-bottom: 1.5rem; color: #667eea; }
-        .input-group { margin-bottom: 1.5rem; }
-        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
-        .input-group input, .input-group select { width: 100%; padding: 0.75rem; border: 2px solid #e0e6ed; border-radius: 6px; font-size: 1rem; transition: border 0.3s; }
-        .input-group input:focus, .input-group select:focus { outline: none; border-color: #667eea; }
-        .calc-btn { background: #667eea; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.3s; }
-        .calc-btn:hover { background: #5568d3; }
-        .result-box { background: #f0f4ff; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem; display: none; }
-        .result-box h3 { color: #667eea; margin-bottom: 1rem; }
-        .result-value { font-size: 1.8rem; font-weight: 700; color: #667eea; margin: 0.5rem 0; }
-        .result-detail { margin: 0.5rem 0; color: #555; }
-        .info-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
-        .info-section h3 { color: #667eea; margin-bottom: 1rem; }
-        .info-section p { margin-bottom: 1rem; }
-        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-        .info-section ul li { margin-bottom: 0.5rem; }
-        .ad-placeholder { background: #f0f0f0; border: 2px dashed #ccc; padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center; }
-        .footer { background: #2d3748; color: white; padding: 2rem 0; text-align: center; }
-        .footer a { color: #667eea; text-decoration: none; }
-        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
-    </style>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mortgage Refinance Calculator",
+        "description": "Calculate if refinancing your mortgage will save you money. Compare monthly payments and total interest.",
+        "url": "https://calcleap.com/mortgage-refinance-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+    }
+    </script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0e1a;color:#f3f4f6;line-height:1.6}
+        a{color:#6366f1;text-decoration:none}
+        a:hover{color:#818cf8}
+        .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+        .breadcrumb{padding:1rem 0;font-size:.85rem;color:#9ca3af}
+        .breadcrumb a{color:#9ca3af}
+        .breadcrumb a:hover{color:#6366f1}
+        .breadcrumb span{margin:0 .5rem;color:#4b5563}
+        .hero{text-align:center;padding:2.5rem 0 1.5rem}
+        .hero h1{font-size:2.2rem;font-weight:800;margin-bottom:.75rem;background:linear-gradient(135deg,#6366f1,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{color:#9ca3af;font-size:1.05rem;max-width:640px;margin:0 auto}
+        .calc-card{background:#111827;border:1px solid #374151;border-radius:16px;padding:2rem;margin-bottom:2rem}
+        .calc-card h2{font-size:1.3rem;color:#f3f4f6;margin-bottom:1.5rem}
+        .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+        .input-group{margin-bottom:0}
+        .input-group label{display:block;margin-bottom:.4rem;font-weight:600;color:#9ca3af;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px}
+        .input-group input,.input-group select{width:100%;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:1rem;transition:border .2s}
+        .input-group input:focus,.input-group select:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+        .calc-btn{background:#6366f1;color:#fff;border:none;padding:1rem 2rem;font-size:1.05rem;font-weight:700;border-radius:10px;cursor:pointer;width:100%;margin-top:1.5rem;transition:background .2s}
+        .calc-btn:hover{background:#4f46e5}
+        .result-box{background:#1f2937;border:1px solid #374151;border-radius:12px;padding:1.5rem;margin-top:1.5rem;display:none}
+        .result-box h3{color:#6366f1;margin-bottom:1rem;font-size:1.1rem}
+        .result-value{font-size:2rem;font-weight:800;color:#6366f1;margin:.5rem 0}
+        .result-detail{margin:.5rem 0;color:#9ca3af;font-size:.95rem}
+        .result-detail strong{color:#f3f4f6}
+        .section{background:#111827;border:1px solid #374151;border-radius:16px;padding:2rem;margin-bottom:2rem}
+        .section h3{color:#f3f4f6;font-size:1.2rem;margin-bottom:1rem}
+        .section p{color:#9ca3af;margin-bottom:1rem;font-size:.95rem}
+        .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;margin-top:1rem}
+        .related-link{display:flex;align-items:center;gap:.5rem;padding:.75rem 1rem;background:#1f2937;border:1px solid #374151;border-radius:10px;color:#f3f4f6;font-size:.9rem;font-weight:500;transition:border-color .2s,background .2s}
+        .related-link:hover{border-color:#6366f1;background:#1e2540;color:#f3f4f6}
+        .faq-item{border-bottom:1px solid #374151;padding:1.25rem 0}
+        .faq-item:last-child{border-bottom:none}
+        .faq-q{font-weight:700;color:#f3f4f6;margin-bottom:.5rem;font-size:1rem;cursor:pointer}
+        .faq-a{color:#9ca3af;font-size:.92rem;line-height:1.7}
+        @media(max-width:768px){.hero h1{font-size:1.6rem}.input-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:480px){.related-grid{grid-template-columns:1fr}}
+    </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <h1>Mortgage Refinance Calculator</h1>
-            <p>Calculate if refinancing your mortgage will save you money. Compare monthly payments and total interest.</p>
+<header style="background:#111827;border-bottom:1px solid #374151;padding:0;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)">
+<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:.75rem 1.5rem;gap:1rem;flex-wrap:wrap">
+<a href="index.html" style="font-size:1.4rem;font-weight:800;color:#6366f1;text-decoration:none">⚡ CalcLeap</a>
+<nav style="display:flex;gap:.25rem;flex:1;margin-left:1rem;flex-wrap:wrap">
+<a href="index.html" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Home</a>
+<a href="index.html#finance" style="color:#f3f4f6;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px;background:#1f2937">Finance</a>
+<a href="index.html#insurance" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Insurance</a>
+<a href="index.html#health" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Health</a>
+<a href="index.html#dev" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Dev Tools</a>
+<a href="index.html#convert" style="color:#9ca3af;text-decoration:none;font-size:.85rem;font-weight:600;padding:.4rem .6rem;border-radius:6px">Converters</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+    <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span><a href="index.html#finance">Finance</a><span>›</span>Mortgage Refinance Calculator
+    </div>
+
+    <div class="hero">
+        <h1>🏠 Mortgage Refinance Calculator</h1>
+        <p>Calculate if refinancing your mortgage will save you money. Compare monthly payments, total interest, and find your break-even point.</p>
+    </div>
+
+    <!-- Ad Slot 1 -->
+    <div style="max-width:1200px;margin:1.5rem auto;padding:0">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+
+    <div class="calc-card">
+        <h2>Enter Your Mortgage Details</h2>
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="current-balance">Current Loan Balance ($)</label>
+                <input type="number" id="current-balance" min="0" value="250000" placeholder="250000">
+            </div>
+            <div class="input-group">
+                <label for="current-rate">Current Interest Rate (%)</label>
+                <input type="number" id="current-rate" min="0" max="20" step="0.01" value="6.5" placeholder="6.5">
+            </div>
+            <div class="input-group">
+                <label for="current-years">Years Remaining</label>
+                <input type="number" id="current-years" min="1" max="30" value="25" placeholder="25">
+            </div>
+            <div class="input-group">
+                <label for="new-rate">New Interest Rate (%)</label>
+                <input type="number" id="new-rate" min="0" max="20" step="0.01" value="5.5" placeholder="5.5">
+            </div>
+            <div class="input-group">
+                <label for="new-term">New Loan Term (Years)</label>
+                <select id="new-term">
+                    <option value="15">15 years</option>
+                    <option value="20">20 years</option>
+                    <option value="30" selected>30 years</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="closing-costs">Closing Costs ($)</label>
+                <input type="number" id="closing-costs" min="0" value="3000" placeholder="3000">
+            </div>
+        </div>
+        <button class="calc-btn" onclick="calculate()">Calculate Refinance Savings</button>
+        <div class="result-box" id="result"></div>
+    </div>
+
+    <!-- Ad Slot 2 -->
+    <div style="max-width:1200px;margin:1.5rem auto;padding:0">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+
+    <!-- Related Tools -->
+    <div class="section">
+        <h3>Related Financial Tools</h3>
+        <div class="related-grid">
+            <a href="compound-interest-calculator.html" class="related-link">📈 Compound Interest</a>
+            <a href="retirement-calculator.html" class="related-link">🏖️ Retirement Calculator</a>
+            <a href="home-insurance-calculator.html" class="related-link">🏡 Home Insurance</a>
+            <a href="heloc-payment-calculator.html" class="related-link">🏦 HELOC Payment</a>
+            <a href="mortgage-payment-calculator.html" class="related-link">💳 Mortgage Payment</a>
+            <a href="rent-vs-buy-calculator.html" class="related-link">🔑 Rent vs Buy</a>
+            <a href="debt-consolidation-calculator.html" class="related-link">💰 Debt Consolidation</a>
+            <a href="401k-calculator.html" class="related-link">📊 401k Calculator</a>
         </div>
     </div>
 
-    <div class="main container">
-        <div class="ad-placeholder">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <!-- FAQ -->
+    <div class="section">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-item">
+            <div class="faq-q">When does it make sense to refinance my mortgage?</div>
+            <div class="faq-a">Refinancing typically makes sense when you can lower your interest rate by at least 0.5–1%, plan to stay in the home long enough to recoup closing costs (past the break-even point), or need to switch from an adjustable-rate to a fixed-rate mortgage. Use the break-even month result above to see how long it will take to recover your closing costs.</div>
         </div>
-
-        <div class="calc-box">
-            <h2>Mortgage Refinance Calculator</h2>
-            
-        <div class="input-group">
-          <label for="current-balance">Current Loan Balance ($):</label>
-          <input type="number" id="current-balance"  min="0"   value="250000">
+        <div class="faq-item">
+            <div class="faq-q">What are typical closing costs for a refinance?</div>
+            <div class="faq-a">Closing costs usually range from 2–5% of the loan amount and include appraisal fees, title insurance, origination fees, and recording fees. On a $250,000 loan, expect $5,000–$12,500. Some lenders offer "no-closing-cost" refinances, but they usually charge a higher interest rate to compensate.</div>
         </div>
-
-        <div class="input-group">
-          <label for="current-rate">Current Interest Rate (%):</label>
-          <input type="number" id="current-rate"  min="0" max="20" step="0.01" value="6.5">
+        <div class="faq-item">
+            <div class="faq-q">Should I refinance to a shorter or longer term?</div>
+            <div class="faq-a">A shorter term (e.g., 15 years) means higher monthly payments but significantly less total interest paid. A longer term (e.g., 30 years) lowers monthly payments but costs more over the life of the loan. Choose based on your monthly budget and financial goals.</div>
         </div>
-
-        <div class="input-group">
-          <label for="current-years">Years Remaining:</label>
-          <input type="number" id="current-years"  min="1" max="30"  value="25">
+        <div class="faq-item">
+            <div class="faq-q">What credit score do I need to refinance?</div>
+            <div class="faq-a">Most conventional lenders require a minimum credit score of 620, though you'll get the best rates with a score of 740 or higher. FHA streamline refinances may accept scores as low as 580. Higher scores typically qualify for lower interest rates, which means more savings.</div>
         </div>
-
-        <div class="input-group">
-          <label for="new-rate">New Interest Rate (%):</label>
-          <input type="number" id="new-rate"  min="0" max="20" step="0.01" value="5.5">
-        </div>
-
-        <div class="input-group">
-          <label for="new-term">New Loan Term (years):</label>
-          <select id="new-term">
-            <option value="15">15</option>
-<option value="20">20</option>
-<option value="30">30</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="closing-costs">Closing Costs ($):</label>
-          <input type="number" id="closing-costs"  min="0"   value="3000">
-        </div>
-            <button class="calc-btn" onclick="calculate()">Calculate</button>
-            <div class="result-box" id="result"></div>
-        </div>
-
-        <div class="ad-placeholder">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
-        <div class="info-section">
-            <h3>About Mortgage Refinance</h3>
-            <p>Use this mortgage refinance calculator to make informed financial decisions. All calculations are estimates based on the information provided.</p>
-            <h3>More Financial Tools</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://alexchalu.github.io/smartcalc/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://alexchalu.github.io/healthcalcs/">HealthCalcs - Health & Wellness</a></li>
-            </ul>
-        </div>
-
-        <div class="ad-placeholder">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <div class="faq-item">
+            <div class="faq-q">How long does the refinancing process take?</div>
+            <div class="faq-a">The refinancing process typically takes 30–45 days from application to closing, though it can take longer during busy periods. Steps include application, appraisal, underwriting, and closing. Having your financial documents organized can speed up the process.</div>
         </div>
     </div>
 
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://alexchalu.github.io/smartcalc/">SmartCalc</a></p>
-        </div>
+    <!-- Ad Slot 3 -->
+    <div style="max-width:1200px;margin:1.5rem auto;padding:0">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
     </div>
+</main>
 
-    <script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let html = '<h3>Results</h3>';
-            
-            
-            const balance = parseFloat(document.getElementById('current-balance').value);
-            const currentRate = parseFloat(document.getElementById('current-rate').value) / 100 / 12;
-            const currentYears = parseFloat(document.getElementById('current-years').value);
-            const newRate = parseFloat(document.getElementById('new-rate').value) / 100 / 12;
-            const newTerm = parseInt(document.getElementById('new-term').value);
-            const closingCosts = parseFloat(document.getElementById('closing-costs').value);
-            
-            const currentMonths = currentYears * 12;
-            const currentPayment = balance * (currentRate * Math.pow(1 + currentRate, currentMonths)) / (Math.pow(1 + currentRate, currentMonths) - 1);
-            
-            const newMonths = newTerm * 12;
-            const newPayment = balance * (newRate * Math.pow(1 + newRate, newMonths)) / (Math.pow(1 + newRate, newMonths) - 1);
-            
-            const monthlySavings = currentPayment - newPayment;
-            const breakEvenMonths = Math.ceil(closingCosts / monthlySavings);
-            
-            html += '<div class="result-value">$' + newPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Current Payment: $' + currentPayment.toFixed(2) + '/month</div>';
-            html += '<div class="result-detail">Monthly Savings: $' + monthlySavings.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Break-even: ' + breakEvenMonths + ' months</div>';
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
+<footer style="background:#111827;border-top:1px solid #374151;padding:3rem 1.5rem;margin-top:3rem">
+<div style="max-width:1200px;margin:0 auto">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem">
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">CalcLeap</h4><p style="color:#9ca3af;font-size:.85rem;line-height:1.6">2,000+ free calculators and tools. Fast, accurate, private.</p></div>
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Popular</h4>
+<a href="bmi-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">BMI Calculator</a>
+<a href="mortgage-refinance-calculator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Mortgage Calculator</a>
+<a href="json-formatter.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">JSON Formatter</a>
+<a href="password-generator.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Password Generator</a></div>
+<div><h4 style="color:#f3f4f6;font-size:.95rem;margin-bottom:1rem">Company</h4>
+<a href="about.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">About</a>
+<a href="privacy.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Privacy Policy</a>
+<a href="contact.html" style="display:block;color:#9ca3af;text-decoration:none;font-size:.85rem;padding:.25rem 0">Contact</a></div>
+</div>
+<div style="text-align:center;padding-top:2rem;border-top:1px solid #374151">
+<p style="color:#9ca3af;font-size:.8rem">© 2026 CalcLeap. All calculations are for informational purposes only.</p>
+</div>
+</div>
+</footer>
+
+<script>
+function calculate() {
+    const resultBox = document.getElementById('result');
+    let html = '<h3>Refinance Results</h3>';
+
+    const balance = parseFloat(document.getElementById('current-balance').value);
+    const currentRate = parseFloat(document.getElementById('current-rate').value) / 100 / 12;
+    const currentYears = parseFloat(document.getElementById('current-years').value);
+    const newRate = parseFloat(document.getElementById('new-rate').value) / 100 / 12;
+    const newTerm = parseInt(document.getElementById('new-term').value);
+    const closingCosts = parseFloat(document.getElementById('closing-costs').value);
+
+    const currentMonths = currentYears * 12;
+    const currentPayment = balance * (currentRate * Math.pow(1 + currentRate, currentMonths)) / (Math.pow(1 + currentRate, currentMonths) - 1);
+
+    const newMonths = newTerm * 12;
+    const newPayment = balance * (newRate * Math.pow(1 + newRate, newMonths)) / (Math.pow(1 + newRate, newMonths) - 1);
+
+    const monthlySavings = currentPayment - newPayment;
+    const breakEvenMonths = Math.ceil(closingCosts / monthlySavings);
+
+    const totalCurrentInterest = (currentPayment * currentMonths) - balance;
+    const totalNewInterest = (newPayment * newMonths) - balance;
+    const lifetimeSavings = totalCurrentInterest - totalNewInterest - closingCosts;
+
+    html += '<div class="result-value">$' + newPayment.toFixed(2) + '/month</div>';
+    html += '<div class="result-detail"><strong>Current Payment:</strong> $' + currentPayment.toFixed(2) + '/month</div>';
+    html += '<div class="result-detail"><strong>New Payment:</strong> $' + newPayment.toFixed(2) + '/month</div>';
+    html += '<div class="result-detail"><strong>Monthly Savings:</strong> $' + monthlySavings.toFixed(2) + '</div>';
+    html += '<div class="result-detail"><strong>Break-even Point:</strong> ' + breakEvenMonths + ' months (' + (breakEvenMonths / 12).toFixed(1) + ' years)</div>';
+    html += '<div class="result-detail"><strong>Total Current Interest:</strong> $' + totalCurrentInterest.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</div>';
+    html += '<div class="result-detail"><strong>Total New Interest:</strong> $' + totalNewInterest.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</div>';
+    html += '<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #374151">';
+    if (monthlySavings > 0) {
+        html += '<div class="result-detail" style="color:#34d399;font-weight:700;font-size:1.1rem">✅ Refinancing saves you $' + monthlySavings.toFixed(2) + '/month</div>';
+    } else {
+        html += '<div class="result-detail" style="color:#f87171;font-weight:700;font-size:1.1rem">❌ Refinancing would cost you more per month</div>';
+    }
+    html += '</div>';
+
+    resultBox.innerHTML = html;
+    resultBox.style.display = 'block';
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
 </body>
 </html>
