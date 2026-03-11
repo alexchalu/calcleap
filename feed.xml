@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>CalcLeap — Free Online Calculators</title>
+<link>https://calcleap.com</link>
+<description>Free online calculators for finance, tax, insurance, health, and more. Professional-grade tools with visual results.</description>
+<language>en-us</language>
+<lastBuildDate>Wed, 11 Mar 2026 16:00:00 GMT</lastBuildDate>
+<atom:link href="https://calcleap.com/feed.xml" rel="self" type="application/rss+xml"/>
+<item><title>Income Tax Calculator 2024</title><link>https://calcleap.com/income-tax-calculator.html</link><description>Calculate federal income tax, see your bracket, effective rate, and take-home pay.</description></item>
+<item><title>BMI Calculator</title><link>https://calcleap.com/bmi-calculator.html</link><description>Calculate Body Mass Index with visual gauge and health recommendations.</description></item>
+<item><title>Mortgage Payment Calculator</title><link>https://calcleap.com/calc/mortgage-payment.html</link><description>Calculate monthly mortgage payments, amortization schedule, and total interest.</description></item>
+<item><title>Life Insurance Calculator</title><link>https://calcleap.com/life-insurance-calculator.html</link><description>Estimate how much life insurance coverage you need based on income, debts, and dependents.</description></item>
+<item><title>Compound Interest Calculator</title><link>https://calcleap.com/calc/compound-interest.html</link><description>See how your money grows with compound interest over time.</description></item>
+<item><title>Car Insurance Calculator</title><link>https://calcleap.com/car-insurance-calculator.html</link><description>Estimate auto insurance premiums by state, age, vehicle, and coverage level.</description></item>
+<item><title>Retirement Calculator</title><link>https://calcleap.com/calc/retirement-calculator.html</link><description>Plan your retirement savings with projections for 401k, IRA, and Social Security.</description></item>
+<item><title>Sleep Calculator</title><link>https://calcleap.com/calc/sleep-calculator.html</link><description>Find the perfect bedtime based on 90-minute sleep cycles.</description></item>
+<item><title>Paycheck Calculator</title><link>https://calcleap.com/calc/paycheck-calculator.html</link><description>Calculate take-home pay after federal and state taxes.</description></item>
+<item><title>JSON Formatter</title><link>https://calcleap.com/json-formatter.html</link><description>Format, validate, and beautify JSON data instantly.</description></item>
+</channel>
+</rss>
