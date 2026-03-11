@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Card Payoff Calculator — How Long to Pay Off Your Balance | CalcLeap</title>
+<meta name="description" content="Calculate how long it will take to pay off your credit card balance. See total interest cost and find the best payoff strategy. Free credit card payoff calculator.">
+<link rel="canonical" href="https://calcleap.com/calc/credit-card-payoff.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Credit Card Payoff Calculator","description":"Calculate how long to pay off credit card debt and total interest cost.","url":"https://calcleap.com/calc/credit-card-payoff.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#f5f5f7;--surface:#fff;--border:rgba(0,0,0,.08);--text:#1d1d1f;--text-2:#424245;--text-3:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--shadow:0 2px 12px rgba(0,0,0,.06);--r:16px;--r-sm:12px;--r-xs:8px;--mw:980px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}.logo{font-size:1.1rem;font-weight:700}.logo span{color:var(--accent)}.nav-links{display:flex;gap:.15rem}.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}.card h2{font-size:1.1rem;font-weight:700;margin-bottom:1.25rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem}.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}.form-group input{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}.form-group input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.btn{display:inline-flex;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.results{display:none;margin-top:1.5rem}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-bottom:1.5rem}
+.stat{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}.stat .val{font-size:1.75rem;font-weight:800;letter-spacing:-.03em}.stat .lbl{font-size:.75rem;color:var(--text-3);margin-top:.25rem;text-transform:uppercase}
+.ad-slot{margin:1.5rem 0}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}.info-card h3{font-size:1rem;font-weight:700;margin-bottom:1rem}.info-card p,.info-card li{font-size:.9rem;color:var(--text-2);line-height:1.6;margin-bottom:.75rem}.info-card ul{padding-left:1.2rem}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;margin-bottom:1rem}th{background:var(--bg);font-weight:600;text-align:left;padding:.5rem .75rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}td{padding:.5rem .75rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}.related-grid a{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:.85rem 1rem;font-size:.85rem;font-weight:500;transition:all .15s;display:block}.related-grid a:hover{border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow)}
+.footer{background:var(--white);border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 2rem}.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;font-size:.8rem;color:var(--text-3)}.footer-inner a{color:var(--text-3);transition:color .15s}.footer-inner a:hover{color:var(--accent)}.footer h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-2);margin-bottom:.75rem}.footer-bottom{text-align:center;margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--border);font-size:.75rem}
+@media(max-width:600px){.page-title{font-size:1.65rem}.card{padding:1.25rem}.footer-inner{grid-template-columns:repeat(2,1fr)}.stat-grid{grid-template-columns:1fr 1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
+<div class="page">
+<div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">Calculators</a><span class="sep">›</span>Credit Card Payoff</div>
+<h1 class="page-title">Credit Card Payoff Calculator</h1>
+<p class="page-desc">Find out how long it will take to pay off your credit card and how much interest you'll pay. Compare minimum payments vs. fixed amounts.</p>
+
+<div class="card">
+<h2>Enter Your Card Details</h2>
+<div class="form-group"><label>Current Balance ($)</label><input type="number" id="balance" value="8000" min="0"></div>
+<div class="form-group"><label>Annual Interest Rate (APR %)</label><input type="number" id="apr" value="22.99" min="0" max="50" step="0.01"></div>
+<div class="form-group"><label>Monthly Payment ($)</label><input type="number" id="payment" value="250" min="0"></div>
+<div class="form-group"><label>Minimum Payment (% of balance, min $25)</label><input type="number" id="minPctInput" value="2" min="1" max="5" step="0.5"></div>
+<button class="btn" onclick="calculate()">Calculate Payoff</button>
+<div class="results" id="results">
+<div class="stat-grid" id="stats"></div>
+<div id="comparison" style="margin-top:1rem"></div>
+<div id="schedule" style="margin-top:1.5rem"></div>
+</div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+<div class="info-card">
+<h3>How Credit Card Interest Works</h3>
+<p>Credit card interest is calculated daily using your Annual Percentage Rate (APR) divided by 365. If you carry a balance, interest compounds — meaning you pay interest on interest. Even a 20% APR costs far more than 20% of your balance per year due to compounding.</p>
+<p><strong>Example:</strong> An $8,000 balance at 22.99% APR with $250/month payments costs $2,485 in interest and takes 42 months to pay off. Making only minimum payments on the same balance would cost over $10,000 in interest and take 20+ years.</p>
+<p><strong>The minimum payment trap:</strong> Credit card companies set minimum payments (typically 2% of balance or $25, whichever is greater) intentionally low. This maximizes interest revenue. Always pay more than the minimum.</p>
+</div>
+
+<div class="info-card">
+<h3>Strategies to Pay Off Credit Cards Faster</h3>
+<ul>
+<li><strong>Avalanche method:</strong> Pay minimums on all cards, then put extra money toward the highest APR card first. Saves the most money mathematically.</li>
+<li><strong>Snowball method:</strong> Pay minimums on all cards, then put extra toward the smallest balance first. Provides psychological wins that keep you motivated.</li>
+<li><strong>Balance transfer:</strong> Move high-APR debt to a 0% intro APR card (typically 12-21 months). Watch for transfer fees (3-5%) and pay off before the promo period ends.</li>
+<li><strong>Debt consolidation loan:</strong> Personal loans often have lower rates (8-15%) than credit cards (20-29%). Fixed payments with a set payoff date.</li>
+<li><strong>Negotiate your rate:</strong> Call your card issuer and ask for a lower APR. Mention competing offers. Success rate is surprisingly high for customers in good standing.</li>
+</ul>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+<div class="info-card">
+<h3>Frequently Asked Questions</h3>
+<p><strong>How long does it take to pay off $10,000 in credit card debt?</strong><br>At 22% APR with $300/month payments: ~44 months. With minimum payments only: 20+ years and over $15,000 in interest. Every extra dollar you pay saves money.</p>
+<p><strong>Is it better to pay off one card or spread payments?</strong><br>Always make minimum payments on all cards to avoid late fees. Then focus extra money on one card — either highest APR (avalanche) or smallest balance (snowball).</p>
+<p><strong>Should I close cards after paying them off?</strong><br>Usually no. Keeping cards open with zero balance improves your credit utilization ratio. Only close if there's an annual fee you can't justify.</p>
+<p><strong>What's a good credit card APR?</strong><br>As of 2026, average APR is ~24%. Good credit (740+) may qualify for 15-18%. Excellent credit may get 12-15% or 0% intro offers. Store cards often charge 25-30%.</p>
+<p><strong>Does paying more than minimum help my credit score?</strong><br>Paying more reduces your credit utilization faster, which directly improves your score. Utilization below 30% is good; below 10% is ideal.</p>
+</div>
+
+<div class="info-card">
+<h3>Related Tools</h3>
+<div class="related-grid">
+<a href="/calc/credit-score-simulator.html">Credit Score Simulator</a>
+<a href="/calc/debt-snowball-calculator.html">Debt Snowball Calculator</a>
+<a href="/calc/debt-to-income.html">Debt-to-Income Calculator</a>
+<a href="/calc/personal-loan-calculator.html">Personal Loan Calculator</a>
+<a href="/calc/compound-interest-calculator.html">Compound Interest Calculator</a>
+<a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+</div>
+</div>
+</div>
+
+<footer class="footer"><div class="footer-inner"><div><h4>Company</h4><a href="/about.html">About CalcLeap</a><br><a href="/contact.html">Contact</a><br><a href="/privacy.html">Privacy Policy</a></div><div><h4>Popular</h4><a href="/calc/mortgage-payment.html">Mortgage</a><br><a href="/calc/compound-interest-calculator.html">Compound Interest</a><br><a href="/calc/retirement-calculator.html">Retirement</a></div><div><h4>Finance</h4><a href="/calc/personal-loan-calculator.html">Personal Loan</a><br><a href="/calc/car-loan-calculator.html">Car Loan</a><br><a href="/calc/student-loan-calculator.html">Student Loan</a></div><div><h4>Resources</h4><a href="/blog/">Blog</a><br><a href="/sitemap.xml">Sitemap</a></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved. For informational purposes only.</div></footer>
+
+<script>
+function payoff(bal,apr,pmt){
+  const mr=apr/100/12;let b=bal,months=0,totalInt=0;
+  if(pmt<=b*mr)return{months:Infinity,totalInterest:Infinity,totalPaid:Infinity};
+  while(b>0.01&&months<600){
+    const interest=b*mr;totalInt+=interest;b+=interest-pmt;months++;
+    if(b<0)b=0;
+  }
+  return{months,totalInterest:totalInt,totalPaid:bal+totalInt};
+}
+
+function calculate(){
+  const bal=parseFloat(document.getElementById('balance').value)||0;
+  const apr=parseFloat(document.getElementById('apr').value)||0;
+  const pmt=parseFloat(document.getElementById('payment').value)||0;
+  const minPct=parseFloat(document.getElementById('minPctInput').value)||2;
+
+  const fixed=payoff(bal,apr,pmt);
+
+  // Minimum payment scenario
+  const mr=apr/100/12;let mb=bal,mMonths=0,mInt=0;
+  while(mb>0.01&&mMonths<600){
+    const interest=mb*mr;mInt+=interest;
+    const minPay=Math.max(mb*minPct/100,25);
+    mb+=interest-minPay;mMonths++;
+    if(mb<0)mb=0;
+  }
+  const minResult={months:mMonths,totalInterest:mInt,totalPaid:bal+mInt};
+
+  const yrs=Math.floor(fixed.months/12),mos=fixed.months%12;
+  const mYrs=Math.floor(minResult.months/12),mMos=minResult.months%12;
+
+  document.getElementById('stats').innerHTML=`
+    <div class="stat"><div class="val">${yrs>0?yrs+'y ':''}${mos}m</div><div class="lbl">Time to Pay Off</div></div>
+    <div class="stat"><div class="val" style="color:#ef4444">$${fixed.totalInterest.toLocaleString(undefined,{maximumFractionDigits:0})}</div><div class="lbl">Total Interest</div></div>
+    <div class="stat"><div class="val">$${fixed.totalPaid.toLocaleString(undefined,{maximumFractionDigits:0})}</div><div class="lbl">Total Paid</div></div>
+    <div class="stat"><div class="val" style="color:#22c55e">$${(minResult.totalInterest-fixed.totalInterest).toLocaleString(undefined,{maximumFractionDigits:0})}</div><div class="lbl">Saved vs Minimum</div></div>
+  `;
+
+  // Comparison chart
+  const maxVal=Math.max(fixed.totalPaid,minResult.totalPaid);
+  document.getElementById('comparison').innerHTML=`
+    <h3 style="font-size:.95rem;font-weight:700;margin-bottom:.75rem">$${pmt}/mo Fixed vs Minimum Payments</h3>
+    <svg width="100%" height="100" viewBox="0 0 500 100">
+      <rect x="120" y="10" width="${fixed.totalPaid/maxVal*340}" height="28" rx="4" fill="#0071e3"/>
+      <text x="115" y="30" text-anchor="end" font-size="11" fill="#86868b" font-weight="600">$${pmt}/mo</text>
+      <text x="${125+fixed.totalPaid/maxVal*340}" y="30" font-size="11" fill="#1d1d1f" font-weight="700">${yrs>0?yrs+'y ':''}${mos}m • $${fixed.totalPaid.toLocaleString(undefined,{maximumFractionDigits:0})}</text>
+      <rect x="120" y="55" width="${minResult.totalPaid/maxVal*340}" height="28" rx="4" fill="#ef4444" opacity=".7"/>
+      <text x="115" y="75" text-anchor="end" font-size="11" fill="#86868b" font-weight="600">Min</text>
+      <text x="${125+minResult.totalPaid/maxVal*340}" y="75" font-size="11" fill="#1d1d1f" font-weight="700">${mYrs>0?mYrs+'y ':''}${mMos}m • $${minResult.totalPaid.toLocaleString(undefined,{maximumFractionDigits:0})}</text>
+    </svg>
+  `;
+
+  // Amortization schedule (first 12 months + last)
+  let b2=bal,rows='';
+  for(let i=1;i<=Math.min(fixed.months,24);i++){
+    const int=b2*(apr/100/12);b2=Math.max(0,b2+int-pmt);
+    if(i<=12||i===fixed.months)rows+=`<tr><td>${i}</td><td>$${pmt.toFixed(0)}</td><td>$${int.toFixed(0)}</td><td>$${(pmt-int).toFixed(0)}</td><td>$${b2.toFixed(0)}</td></tr>`;
+    else if(i===13)rows+=`<tr><td colspan="5" style="text-align:center;color:var(--text-3)">···</td></tr>`;
+  }
+  document.getElementById('schedule').innerHTML=`
+    <h3 style="font-size:.95rem;font-weight:700;margin-bottom:.75rem">Payment Schedule</h3>
+    <div style="overflow-x:auto"><table><tr><th>Month</th><th>Payment</th><th>Interest</th><th>Principal</th><th>Balance</th></tr>${rows}</table></div>
+  `;
+
+  document.getElementById('results').style.display='block';
+}
+</script>
+</body>
+</html>

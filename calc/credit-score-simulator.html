@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Score Simulator — See How Actions Affect Your Score | CalcLeap</title>
+<meta name="description" content="Simulate how paying off debt, opening new accounts, or missing payments affects your credit score. Free credit score simulator with instant results.">
+<link rel="canonical" href="https://calcleap.com/calc/credit-score-simulator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Credit Score Simulator — CalcLeap">
+<meta property="og:description" content="See how different financial actions could affect your credit score.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/calc/credit-score-simulator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Credit Score Simulator","description":"Simulate how different actions affect your credit score.","url":"https://calcleap.com/calc/credit-score-simulator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#f5f5f7;--surface:#fff;--border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);--text:#1d1d1f;--text-2:#424245;--text-3:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);--shadow:0 2px 12px rgba(0,0,0,.06);--r:16px;--r-sm:12px;--r-xs:8px;--mw:980px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group select,.form-group input{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group select:focus,.form-group input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.btn{display:inline-flex;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.results{display:none;margin-top:1.5rem}
+.gauge-wrap{text-align:center;margin:1.5rem 0}
+.gauge-svg{width:260px;height:140px}
+.score-display{font-size:3rem;font-weight:800;letter-spacing:-.04em;margin-top:.5rem}
+.score-label{font-size:.85rem;color:var(--text-3);margin-top:.25rem}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-top:1.25rem}
+.impact-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;text-align:center}
+.impact-item .delta{font-size:1.5rem;font-weight:800}
+.impact-item .delta.pos{color:#22c55e}
+.impact-item .delta.neg{color:#ef4444}
+.impact-item .label{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
+.ad-slot{margin:1.5rem 0}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card p,.info-card li{font-size:.9rem;color:var(--text-2);line-height:1.6;margin-bottom:.75rem}
+.info-card ul{padding-left:1.2rem}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.related-grid a{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:.85rem 1rem;font-size:.85rem;font-weight:500;transition:all .15s;display:block}
+.related-grid a:hover{border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow)}
+.footer{background:var(--white);border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 2rem}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;font-size:.8rem;color:var(--text-3)}
+.footer-inner a{color:var(--text-3);transition:color .15s}.footer-inner a:hover{color:var(--accent)}
+.footer h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-2);margin-bottom:.75rem}
+.footer-bottom{text-align:center;margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--border);font-size:.75rem}
+@media(max-width:600px){.page-title{font-size:1.65rem}.card{padding:1.25rem}.footer-inner{grid-template-columns:repeat(2,1fr)}.impact-grid{grid-template-columns:1fr 1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
+
+<div class="page">
+<div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">Calculators</a><span class="sep">›</span>Credit Score Simulator</div>
+<h1 class="page-title">Credit Score Simulator</h1>
+<p class="page-desc">See how paying off debt, opening new credit, or missing a payment could impact your credit score. Make smarter financial decisions.</p>
+
+<div class="card">
+<h2>Your Current Credit Profile</h2>
+<div class="form-group"><label>Current Credit Score</label><input type="number" id="currentScore" value="700" min="300" max="850"></div>
+<div class="form-group"><label>Total Credit Card Balances ($)</label><input type="number" id="totalBalance" value="5000" min="0"></div>
+<div class="form-group"><label>Total Credit Limits ($)</label><input type="number" id="totalLimit" value="20000" min="100"></div>
+<div class="form-group"><label>Number of Open Accounts</label><input type="number" id="numAccounts" value="4" min="0" max="50"></div>
+<div class="form-group"><label>Credit History Length (years)</label><input type="number" id="historyYears" value="7" min="0" max="60"></div>
+<div class="form-group"><label>Late Payments (last 2 years)</label><input type="number" id="latePayments" value="0" min="0" max="24"></div>
+<h2 style="margin-top:1.5rem">Simulate an Action</h2>
+<div class="form-group"><label>Choose Action</label>
+<select id="action">
+<option value="payoff">Pay off credit card debt</option>
+<option value="newcard">Open a new credit card</option>
+<option value="closedcard">Close a credit card</option>
+<option value="latepayment">Miss a payment (30 days)</option>
+<option value="hardpull">Apply for new credit (hard inquiry)</option>
+<option value="increaseLimit">Get a credit limit increase</option>
+<option value="paydown50">Pay down 50% of balances</option>
+<option value="collection">Account sent to collections</option>
+</select></div>
+<div class="form-group" id="amountGroup"><label>Amount ($)</label><input type="number" id="actionAmount" value="5000" min="0"></div>
+<button class="btn" onclick="simulate()">Simulate Impact</button>
+<div class="results" id="results">
+<div class="gauge-wrap"><div class="score-display" id="newScore">—</div><div class="score-label" id="scoreRange">—</div></div>
+<div class="impact-grid" id="impactGrid"></div>
+<div id="chartArea" style="margin-top:1.5rem"></div>
+</div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+<div class="info-card">
+<h3>How Credit Scores Work</h3>
+<p>Your FICO credit score (300–850) is calculated from five key factors. Understanding these can help you make decisions that improve your score over time.</p>
+<table>
+<tr><th>Factor</th><th>Weight</th><th>Description</th></tr>
+<tr><td><strong>Payment History</strong></td><td>35%</td><td>Whether you pay on time — the single biggest factor</td></tr>
+<tr><td><strong>Credit Utilization</strong></td><td>30%</td><td>How much of your available credit you're using</td></tr>
+<tr><td><strong>Length of History</strong></td><td>15%</td><td>How long your accounts have been open</td></tr>
+<tr><td><strong>Credit Mix</strong></td><td>10%</td><td>Variety of credit types (cards, loans, mortgage)</td></tr>
+<tr><td><strong>New Credit</strong></td><td>10%</td><td>Recent inquiries and new accounts</td></tr>
+</table>
+</div>
+
+<div class="info-card">
+<h3>Credit Score Ranges</h3>
+<table>
+<tr><th>Range</th><th>Rating</th><th>Typical APR Impact</th></tr>
+<tr><td>800–850</td><td>Exceptional</td><td>Lowest rates available (best terms)</td></tr>
+<tr><td>740–799</td><td>Very Good</td><td>Better than average rates</td></tr>
+<tr><td>670–739</td><td>Good</td><td>Average rates; most lenders approve</td></tr>
+<tr><td>580–669</td><td>Fair</td><td>Higher rates; subprime lenders</td></tr>
+<tr><td>300–579</td><td>Poor</td><td>Very high rates or denial; secured cards only</td></tr>
+</table>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+<div class="info-card">
+<h3>Frequently Asked Questions</h3>
+<p><strong>How accurate is this simulator?</strong><br>This provides estimates based on general FICO scoring principles. Actual score changes depend on your full credit report, which includes details we don't capture here. Use this as directional guidance, not an exact prediction.</p>
+<p><strong>Does checking my own credit hurt my score?</strong><br>No. Checking your own credit is a "soft inquiry" and doesn't affect your score. Only "hard inquiries" from lenders when you apply for credit have a small negative impact (typically 5-10 points for 12 months).</p>
+<p><strong>How fast can I improve my credit score?</strong><br>Paying down credit card balances can improve your score within 1-2 billing cycles. Removing negative marks takes longer — late payments stay on your report for 7 years, bankruptcies for 7-10 years.</p>
+<p><strong>What's the fastest way to raise my credit score?</strong><br>Lower your credit utilization ratio below 30% (ideally under 10%). Pay all bills on time. Don't close old accounts. Avoid unnecessary hard inquiries. Consider becoming an authorized user on a family member's old account.</p>
+<p><strong>How long do hard inquiries affect my score?</strong><br>Hard inquiries affect your FICO score for 12 months, though they remain on your credit report for 2 years. Multiple inquiries for the same type of loan (mortgage, auto) within a 14-45 day window typically count as one.</p>
+<p><strong>Should I close credit cards I don't use?</strong><br>Generally no. Closing a card reduces your total available credit, increasing your utilization ratio. It also shortens your average account age over time. Keep old cards open with occasional small purchases.</p>
+</div>
+
+<div class="info-card">
+<h3>Related Tools</h3>
+<div class="related-grid">
+<a href="/calc/debt-to-income.html">Debt-to-Income Calculator</a>
+<a href="/calc/personal-loan-calculator.html">Personal Loan Calculator</a>
+<a href="/calc/credit-card-payoff.html">Credit Card Payoff Calculator</a>
+<a href="/calc/debt-snowball-calculator.html">Debt Snowball Calculator</a>
+<a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+<a href="/calc/car-loan-calculator.html">Car Loan Calculator</a>
+<a href="/calc/student-loan-calculator.html">Student Loan Calculator</a>
+<a href="/calc/compound-interest-calculator.html">Compound Interest Calculator</a>
+</div>
+</div>
+</div>
+
+<footer class="footer"><div class="footer-inner"><div><h4>Company</h4><a href="/about.html">About CalcLeap</a><br><a href="/contact.html">Contact</a><br><a href="/privacy.html">Privacy Policy</a></div><div><h4>Popular</h4><a href="/calc/mortgage-payment.html">Mortgage</a><br><a href="/calc/compound-interest-calculator.html">Compound Interest</a><br><a href="/calc/retirement-calculator.html">Retirement</a></div><div><h4>Finance</h4><a href="/calc/personal-loan-calculator.html">Personal Loan</a><br><a href="/calc/car-loan-calculator.html">Car Loan</a><br><a href="/calc/student-loan-calculator.html">Student Loan</a></div><div><h4>Resources</h4><a href="/blog/">Blog</a><br><a href="/sitemap.xml">Sitemap</a></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved. For informational purposes only.</div></footer>
+
+<script>
+const actionEl=document.getElementById('action'),amountGroup=document.getElementById('amountGroup');
+actionEl.addEventListener('change',()=>{const v=actionEl.value;amountGroup.style.display=['payoff','increaseLimit','paydown50','newcard'].includes(v)?'flex':'none'});
+
+function simulate(){
+  const score=parseInt(document.getElementById('currentScore').value)||700;
+  const balance=parseFloat(document.getElementById('totalBalance').value)||0;
+  const limit=parseFloat(document.getElementById('totalLimit').value)||1;
+  const accounts=parseInt(document.getElementById('numAccounts').value)||1;
+  const years=parseInt(document.getElementById('historyYears').value)||1;
+  const late=parseInt(document.getElementById('latePayments').value)||0;
+  const action=actionEl.value;
+  const amount=parseFloat(document.getElementById('actionAmount').value)||0;
+
+  const util=balance/limit*100;
+  let delta=0,newUtil=util,explanation='';
+
+  switch(action){
+    case 'payoff':{
+      const paid=Math.min(amount,balance);
+      newUtil=(balance-paid)/limit*100;
+      if(util>30&&newUtil<=10)delta=Math.round(40+Math.random()*20);
+      else if(util>30&&newUtil<=30)delta=Math.round(20+Math.random()*15);
+      else if(util>10&&newUtil<=10)delta=Math.round(15+Math.random()*10);
+      else delta=Math.round(5+Math.random()*10);
+      explanation=`Paying off $${paid.toLocaleString()} reduces utilization from ${util.toFixed(1)}% to ${newUtil.toFixed(1)}%.`;
+      break;
+    }
+    case 'newcard':{
+      const newLimit=amount||5000;
+      newUtil=balance/(limit+newLimit)*100;
+      delta=Math.round(-5+((util-newUtil)*0.8));
+      if(delta<-10)delta=-10;
+      explanation=`New $${newLimit.toLocaleString()} limit lowers utilization to ${newUtil.toFixed(1)}%, but hard inquiry costs ~5 pts.`;
+      break;
+    }
+    case 'closedcard':{
+      const cardLimit=limit/accounts;
+      const newLim=limit-cardLimit;
+      newUtil=newLim>0?balance/newLim*100:100;
+      delta=Math.round(-5-(newUtil-util)*0.5);
+      if(years>5)delta-=3;
+      explanation=`Closing reduces available credit. Utilization rises to ${newUtil.toFixed(1)}%.`;
+      break;
+    }
+    case 'latepayment':{
+      if(score>=750)delta=Math.round(-60-Math.random()*30);
+      else if(score>=670)delta=Math.round(-40-Math.random()*20);
+      else delta=Math.round(-20-Math.random()*15);
+      explanation='A 30-day late payment is the most damaging single event for credit scores.';
+      break;
+    }
+    case 'hardpull':{
+      delta=Math.round(-5-Math.random()*7);
+      explanation='Hard inquiries typically cost 5-10 points and affect your score for 12 months.';
+      break;
+    }
+    case 'increaseLimit':{
+      const inc=amount||5000;
+      newUtil=balance/(limit+inc)*100;
+      delta=Math.round((util-newUtil)*0.6);
+      explanation=`Credit limit increase to $${(limit+inc).toLocaleString()} lowers utilization to ${newUtil.toFixed(1)}%.`;
+      break;
+    }
+    case 'paydown50':{
+      const newBal=balance*0.5;
+      newUtil=newBal/limit*100;
+      delta=Math.round((util-newUtil)*0.5+5);
+      explanation=`Paying down 50% reduces balance to $${newBal.toLocaleString()}, utilization to ${newUtil.toFixed(1)}%.`;
+      break;
+    }
+    case 'collection':{
+      delta=Math.round(-80-Math.random()*40);
+      explanation='Collections are severe negative marks. They remain on your report for 7 years.';
+      break;
+    }
+  }
+
+  const newScore=Math.max(300,Math.min(850,score+delta));
+  const range=newScore>=800?'Exceptional':newScore>=740?'Very Good':newScore>=670?'Good':newScore>=580?'Fair':'Poor';
+  const rangeColor=newScore>=740?'#22c55e':newScore>=670?'#0071e3':newScore>=580?'#f59e0b':'#ef4444';
+
+  document.getElementById('newScore').textContent=newScore;
+  document.getElementById('newScore').style.color=rangeColor;
+  document.getElementById('scoreRange').textContent=`${range} • ${delta>=0?'+':''}${delta} points`;
+
+  const grid=document.getElementById('impactGrid');
+  grid.innerHTML=`
+    <div class="impact-item"><div class="delta ${delta>=0?'pos':'neg'}">${delta>=0?'+':''}${delta}</div><div class="label">Score Change</div></div>
+    <div class="impact-item"><div class="delta">${newScore}</div><div class="label">New Score</div></div>
+    <div class="impact-item"><div class="delta">${newUtil.toFixed(1)}%</div><div class="label">New Utilization</div></div>
+    <div class="impact-item"><div class="delta" style="font-size:1rem">${range}</div><div class="label">Credit Rating</div></div>
+  `;
+
+  // Bar chart
+  const chart=document.getElementById('chartArea');
+  const maxS=850,barW=280;
+  chart.innerHTML=`
+    <svg width="100%" height="80" viewBox="0 0 400 80">
+      <rect x="60" y="10" width="${score/maxS*barW}" height="22" rx="4" fill="#86868b" opacity=".3"/>
+      <text x="55" y="26" text-anchor="end" font-size="11" fill="#86868b" font-weight="600">Before</text>
+      <text x="${62+score/maxS*barW}" y="26" font-size="12" fill="#1d1d1f" font-weight="700">${score}</text>
+      <rect x="60" y="45" width="${newScore/maxS*barW}" height="22" rx="4" fill="${rangeColor}"/>
+      <text x="55" y="61" text-anchor="end" font-size="11" fill="#86868b" font-weight="600">After</text>
+      <text x="${62+newScore/maxS*barW}" y="61" font-size="12" fill="#1d1d1f" font-weight="700">${newScore}</text>
+    </svg>
+    <p style="font-size:.85rem;color:var(--text-2);margin-top:.75rem">${explanation}</p>
+  `;
+
+  document.getElementById('results').style.display='block';
+}
+</script>
+</body>
+</html>
