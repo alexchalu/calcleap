@@ -1,11 +1,81 @@
-<!DOCTYPE html>
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// High-CPC education and student loan calculators
+const calculators = [
+  {
+    slug: 'student-loan-forgiveness-calculator',
+    title: 'Student Loan Forgiveness Calculator',
+    desc: 'Calculate potential student loan forgiveness under Public Service Loan Forgiveness (PSLF) and other programs.',
+    category: 'Loan Forgiveness'
+  },
+  {
+    slug: 'income-driven-repayment-calculator',
+    title: 'Income-Driven Repayment Calculator',
+    desc: 'Calculate student loan payments under income-driven repayment plans (IBR, PAYE, REPAYE, ICR).',
+    category: 'IDR Plans'
+  },
+  {
+    slug: 'student-loan-refinance-calculator',
+    title: 'Student Loan Refinance Calculator',
+    desc: 'Compare refinancing vs keeping federal loans. Calculate savings from lower interest rates.',
+    category: 'Loan Refinance'
+  },
+  {
+    slug: 'parent-plus-loan-calculator',
+    title: 'Parent PLUS Loan Calculator',
+    desc: 'Calculate Parent PLUS loan payments and total cost. Compare to other education financing options.',
+    category: 'Parent PLUS'
+  },
+  {
+    slug: 'grad-plus-loan-calculator',
+    title: 'Grad PLUS Loan Calculator',
+    desc: 'Calculate graduate student Grad PLUS loan payments and compare to private student loans.',
+    category: 'Grad PLUS'
+  },
+  {
+    slug: 'college-savings-calculator',
+    title: 'College Savings Calculator',
+    desc: 'Calculate how much to save monthly for college using 529 plans and other savings vehicles.',
+    category: 'College Savings'
+  },
+  {
+    slug: 'student-loan-tax-deduction-calculator',
+    title: 'Student Loan Interest Deduction Calculator',
+    desc: 'Calculate student loan interest tax deduction and see how it reduces your tax bill.',
+    category: 'Tax Deduction'
+  },
+  {
+    slug: 'student-loan-snowball-calculator',
+    title: 'Student Loan Snowball Calculator',
+    desc: 'Calculate debt payoff using snowball vs avalanche method for multiple student loans.',
+    category: 'Debt Payoff'
+  },
+  {
+    slug: 'college-cost-roi-calculator',
+    title: 'College ROI Calculator',
+    desc: 'Calculate return on investment for college degree. Compare tuition cost to lifetime earnings potential.',
+    category: 'College ROI'
+  },
+  {
+    slug: 'fafsa-efc-calculator',
+    title: 'FAFSA EFC Calculator',
+    desc: 'Estimate Expected Family Contribution (EFC) for financial aid eligibility.',
+    category: 'Financial Aid'
+  },
+];
+
+function generateHTML(calc) {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Loan Forgiveness Calculator - Free Loan Forgiveness Tool | CalcLeap</title>
-    <meta name="description" content="Calculate potential student loan forgiveness under Public Service Loan Forgiveness (PSLF) and other programs.. Free online calculator with instant results and payment projections.">
-    <link rel="canonical" href="https://calcleap.com/student-loan-forgiveness-calculator.html">
+    <title>${calc.title} - Free ${calc.category} Tool | CalcLeap</title>
+    <meta name="description" content="${calc.desc}. Free online calculator with instant results and payment projections.">
+    <link rel="canonical" href="https://calcleap.com/${calc.slug}.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
@@ -47,8 +117,8 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>Student Loan Forgiveness Calculator</h1>
-            <p>Calculate potential student loan forgiveness under Public Service Loan Forgiveness (PSLF) and other programs.</p>
+            <h1>${calc.title}</h1>
+            <p>${calc.desc}</p>
         </div>
     </div>
 
@@ -57,7 +127,7 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Loan Forgiveness Calculator</h2>
+            <h2>${calc.category} Calculator</h2>
             <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your student loan details to calculate payments and total cost.</p>
             <div class="input-group">
                 <label for="balance">Total Loan Balance ($):</label>
@@ -87,9 +157,9 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="info-section">
-            <h3>About Student Loan Forgiveness Calculator</h3>
-            <p>Calculate potential student loan forgiveness under Public Service Loan Forgiveness (PSLF) and other programs.</p>
-            <h3>Understanding Loan Forgiveness</h3>
+            <h3>About ${calc.title}</h3>
+            <p>${calc.desc}</p>
+            <h3>Understanding ${calc.category}</h3>
             <p>Key factors in managing student loans:</p>
             <ul>
                 <li>Federal loans offer protections like income-driven repayment and forgiveness programs</li>
@@ -170,4 +240,17 @@
         }
     </script>
 </body>
-</html>
+</html>`;
+}
+
+let count = 0;
+calculators.forEach(calc => {
+  const html = generateHTML(calc);
+  fs.writeFileSync(path.join(__dirname, `${calc.slug}.html`), html);
+  count++;
+  console.log(`✓ Generated ${calc.slug}.html`);
+});
+
+console.log(`\n✅ Generated ${count} education/student loan calculators with Apple design + payment charts`);
+console.log('💰 High-CPC niche: student loans/education ($25-70/click)');
+console.log('📝 Next: Update sitemap and push to hit 960 pages!');

@@ -919,6 +919,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calcleap.com/college-cost-roi-calculator.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/college-savings-calculator.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calcleap.com/color-converter.html</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -3949,6 +3961,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calcleap.com/fafsa-efc-calculator.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calcleap.com/federal-income-tax.html</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -4034,6 +4052,12 @@
   </url>
   <url>
     <loc>https://calcleap.com/google0490a1330efaf94c.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/grad-plus-loan-calculator.html</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4184,6 +4208,12 @@
   </url>
   <url>
     <loc>https://calcleap.com/image-to-base64.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/income-driven-repayment-calculator.html</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4999,6 +5029,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calcleap.com/parent-plus-loan-calculator.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://calcleap.com/password-generator.html</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -5378,6 +5414,24 @@
   </url>
   <url>
     <loc>https://calcleap.com/student-loan-forgiveness-calculator.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/student-loan-refinance-calculator.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/student-loan-snowball-calculator.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calcleap.com/student-loan-tax-deduction-calculator.html</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
