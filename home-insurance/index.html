@@ -207,7 +207,7 @@ td a{color:var(--accent);font-weight:500}td a:hover{text-decoration:underline}
           <div class="lw-savings-amt">$480+</div>
           <div class="lw-savings-lbl">Average annual savings when comparing quotes</div>
         </div>
-        <p>A licensed insurance agent will reach out shortly with personalized rates from top-rated carriers.</p>
+        <p>We are opening a comparison tool where you can see real quotes from top carriers. A licensed agent may also follow up with personalized rates.</p>
         <div class="lw-carriers" style="margin-top:1.25rem">
           <span class="lw-carrier">State Farm</span><span class="lw-carrier">Allstate</span><span class="lw-carrier">Progressive</span><span class="lw-carrier">Geico</span><span class="lw-carrier">Liberty Mutual</span><span class="lw-carrier">Nationwide</span>
         </div>
@@ -247,6 +247,7 @@ function lwSubmit(){
     body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:"🔥 "+itype+" Lead — "+zp,insurance_type:itype,source:location.href,timestamp:d.ts})
   }).catch(function(){});
   show(4);
+  setTimeout(function(){window.open("https://www.policygenius.com/","_blank")},2000);
   if(typeof gtag!=="undefined")gtag("event","lead_submit",{event_category:"lead_gen",event_label:itype});
 }
 window["lwNext_"+fid]=lwNext;
