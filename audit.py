@@ -50,9 +50,9 @@ for fpath in sorted(all_files):
         results['dup_h1'].append(fpath)
         issues.append(f'H1:{h1_count}')
     
-    # 2. Excess ads
-    ad_count = html.count('adsbygoogle')
-    if ad_count > 7:
+    # 2. Excess ads (count actual <ins> tags, not text mentions)
+    ad_count = len(re.findall(r'<ins class="adsbygoogle"', html))
+    if ad_count > 3:
         results['excess_ads'].append(fpath)
         issues.append(f'ADS:{ad_count}')
     
