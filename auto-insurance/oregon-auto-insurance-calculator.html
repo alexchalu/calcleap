@@ -209,6 +209,26 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .result-grid{grid-template-columns:1fr}
 }
 
+
+/* === LEAD CAPTURE FORM === */
+.lead-form-section{background:linear-gradient(135deg,#0071e3 0%,#005bb5 100%);border-radius:var(--r);padding:2rem;margin:1.5rem 0;color:#fff;position:relative;overflow:hidden}
+.lead-form-section::before{content:'';position:absolute;top:-50%;right:-30%;width:300px;height:300px;background:rgba(255,255,255,.05);border-radius:50%}
+.lead-form-section h3{font-size:1.3rem;font-weight:700;margin-bottom:.35rem;letter-spacing:-.02em}
+.lead-form-section .lead-subtitle{font-size:.9rem;opacity:.85;margin-bottom:1.25rem;line-height:1.4}
+.lead-form-section .lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.lead-form-section input{padding:.7rem .85rem;font-size:.9rem;font-family:var(--font);background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:var(--r-xs);color:#fff;outline:none;transition:all .2s;width:100%}
+.lead-form-section input::placeholder{color:rgba(255,255,255,.6)}
+.lead-form-section input:focus{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.5)}
+.lead-form-section .lead-btn{grid-column:1/-1;padding:.8rem;font-size:1rem;font-weight:700;font-family:var(--font);background:#fff;color:#0071e3;border:none;border-radius:var(--r-xs);cursor:pointer;transition:all .2s;margin-top:.25rem}
+.lead-form-section .lead-btn:hover{background:#f0f0f0;transform:translateY(-1px);box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.lead-form-section .lead-privacy{font-size:.7rem;opacity:.6;margin-top:.75rem;text-align:center}
+.lead-form-section .lead-success{display:none;text-align:center;padding:1.5rem 0}
+.lead-form-section .lead-success h4{font-size:1.2rem;margin-bottom:.5rem}
+.lead-form-section .lead-success p{opacity:.8;font-size:.9rem}
+.lead-badges{display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap}
+.lead-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.15);padding:.25rem .6rem;border-radius:100px;font-size:.72rem;font-weight:600}
+@media(max-width:600px){.lead-form-section .lead-grid{grid-template-columns:1fr}}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the minimum auto insurance required in Oregon?", "acceptedAnswer": {"@type": "Answer", "text": "Oregon requires minimum liability coverage of 25/50/20 (bodily injury per person/per accident/property damage in thousands). Personal Injury Protection (PIP) is also required. However, these minimums are often insufficient for serious accidents — most experts recommend at least 100/300/100."}}, {"@type": "Question", "name": "How much does car insurance cost in Oregon?", "acceptedAnswer": {"@type": "Answer", "text": "The average car insurance premium in Oregon is approximately $1,650 per year ($138/month). Your actual rate depends on your age, driving record, vehicle, credit score, coverage level, and location within the state."}}, {"@type": "Question", "name": "Is Oregon a no-fault or at-fault state?", "acceptedAnswer": {"@type": "Answer", "text": "Oregon is an at-fault (tort) state. The driver who causes the accident is financially responsible for the other party's injuries and property damage."}}, {"@type": "Question", "name": "What is the uninsured motorist rate in Oregon?", "acceptedAnswer": {"@type": "Answer", "text": "Approximately 6.8% of drivers in Oregon are uninsured. This is below the national average of 12.6%, but uninsured motorist coverage is still recommended for protection."}}, {"@type": "Question", "name": "Does Oregon require full coverage?", "acceptedAnswer": {"@type": "Answer", "text": "No, Oregon only requires liability insurance. However, if you have a car loan or lease, your lender will almost certainly require collision and comprehensive coverage (\"full coverage\"). Even if you own your car outright, full coverage is recommended for vehicles worth more than $5,000."}}, {"@type": "Question", "name": "How can I get the cheapest car insurance in Oregon?", "acceptedAnswer": {"@type": "Answer", "text": "To get the cheapest rates in Oregon: compare quotes from at least 5 insurers, maintain a clean driving record, raise your deductible, bundle home and auto policies, ask about all available discounts (good student, low mileage, safe driver), and improve your credit score."}}]}</script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
@@ -221,6 +241,58 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <p class="page-desc">Estimate your car insurance premium in Oregon. The state average is <strong>$1,650/year</strong> — ranked #23 out of 50 states. Compare coverage levels and discover ways to save.</p>
 
 <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
+
+<!-- LEAD CAPTURE FORM -->
+<div class="lead-form-section" id="leadForm_oregonautoinsurancecalculator">
+  <h3>💰 Get Free Auto Insurance Quotes</h3>
+  <p class="lead-subtitle">Compare rates from top providers. Takes 30 seconds — no obligation, no spam.</p>
+  <div class="lead-badges">
+    <span class="lead-badge">✓ Free quotes</span>
+    <span class="lead-badge">✓ No obligation</span>
+    <span class="lead-badge">✓ Save up to 40%</span>
+    <span class="lead-badge">✓ Top-rated providers</span>
+  </div>
+  <form id="leadFormEl_oregonautoinsurancecalculator" onsubmit="return submitLead_oregonautoinsurancecalculator(event)">
+    <div class="lead-grid">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="zip" placeholder="ZIP Code" required pattern="[0-9]{5}" maxlength="5">
+      <input type="hidden" name="insurance_type" value="Auto Insurance">
+      <input type="hidden" name="source_page" value="">
+      <button type="submit" class="lead-btn">Get My Free Quotes →</button>
+    </div>
+  </form>
+  <div class="lead-success" id="leadSuccess_oregonautoinsurancecalculator">
+    <h4>✅ Quote Request Received!</h4>
+    <p>A licensed agent will contact you shortly with personalized auto insurance quotes. Average savings: $480/year.</p>
+  </div>
+  <p class="lead-privacy">🔒 Your info is secure and never shared with spammers. By submitting, you agree to be contacted by licensed insurance agents.</p>
+</div>
+<script>
+function submitLead_oregonautoinsurancecalculator(e){
+  e.preventDefault();
+  var f=e.target;
+  var d={name:f.name.value,email:f.email.value,phone:f.phone.value,zip:f.zip.value,type:"Auto Insurance",page:location.href,ts:new Date().toISOString()};
+  // Store lead in localStorage backup
+  var leads=JSON.parse(localStorage.getItem('calcleap_leads')||'[]');
+  leads.push(d);localStorage.setItem('calcleap_leads',JSON.stringify(leads));
+  // Send via Formsubmit.co (free, no signup)
+  fetch('https://formsubmit.co/ajax/alexmathewc@gmail.com',{
+    method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({name:d.name,email:d.email,phone:d.phone,zip:d.zip,_subject:'🔥 New '+'Auto Insurance'+' Lead from CalcLeap',insurance_type:'Auto Insurance',source_page:location.href,timestamp:d.ts})
+  }).catch(function(){});
+  // Show success
+  f.style.display='none';
+  document.getElementById('leadSuccess_oregonautoinsurancecalculator').style.display='block';
+  // Track conversion
+  if(typeof gtag!=='undefined')gtag('event','lead_submit',{event_category:'lead_gen',event_label:'Auto Insurance'});
+  return false;
+}
+document.querySelector('#leadFormEl_oregonautoinsurancecalculator [name=source_page]').value=location.href;
+</script>
+<!-- END LEAD CAPTURE -->
 
 <div class="card">
 <h2>🚗 Estimate Your Oregon Car Insurance Premium</h2>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DUI Cost Calculator by State — Fines, Penalties & Total Expenses All 50 States | CalcLeap</title>
+<meta name="description" content="Calculate the total cost of a DUI in every US state. Compare fines, penalties, insurance increases, and total expenses. Free DUI cost calculators for all 50 states.">
+<link rel="canonical" href="https://calcleap.com/dui/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#f5f5f7;--surface:#fff;--border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);--text:#1d1d1f;--text-2:#424245;--text-3:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);--shadow:0 2px 12px rgba(0,0,0,.06);--r:16px;--r-sm:12px;--r-xs:8px;--mw:980px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group select,.form-group input{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group select:focus,.form-group input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn{display:inline-flex;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.results{display:none;margin-top:1.5rem}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.5rem}
+.result-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
+.result-card .label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.25rem}
+.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
+.result-card .sub{font-size:.78rem;color:var(--text-3);margin-top:.15rem}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1.5rem}
+.stat-card{background:var(--accent-bg);border:1px solid rgba(0,113,227,.12);border-radius:var(--r-sm);padding:1rem;text-align:center}
+.stat-card .val{font-size:1.3rem;font-weight:800;color:var(--accent)}
+.stat-card .lbl{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-top:.15rem}
+.ad-slot{margin:1.5rem 0}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card p,.info-card li{font-size:.9rem;color:var(--text-2);line-height:1.6;margin-bottom:.5rem}
+.info-card ul{padding-left:1.25rem}
+.calc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.calc-btn{display:inline-flex;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem}
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.radio-group{display:flex;gap:.5rem;flex-wrap:wrap}
+.radio-label{padding:.5rem 1rem;border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;cursor:pointer;transition:all .2s}
+.radio-label:hover{border-color:var(--accent)}
+.radio-label.active{background:var(--accent-bg);border-color:var(--accent);color:var(--accent)}
+.result-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.5rem;margin-top:1rem}
+.result-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.result-row:last-child{border:none}
+.result-value{font-weight:700;color:var(--accent)}
+.converter-box{background:var(--white);padding:1.5rem;border-radius:var(--r);border:1px solid var(--border)}
+.swap-btn{background:var(--accent-bg);border:1px solid rgba(0,113,227,.12);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.rate-display{font-size:.85rem;color:var(--text-3);text-align:center;margin:.5rem 0}
+.conversion-table{width:100%;border-collapse:collapse}
+.conversion-table th,.conversion-table td{padding:.6rem;text-align:left;border-bottom:1px solid var(--border);font-size:.85rem}
+.tool-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:all .2s}
+.tool-card:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(0,113,227,.1)}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+.tool-content{flex:1}
+.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;margin-top:.75rem}
+.bar{background:var(--bg);border-radius:4px;height:24px;overflow:hidden;margin:.25rem 0}
+.bar-fill{height:100%;border-radius:4px;background:var(--accent);transition:width .5s}
+.bar-label{font-size:.78rem;color:var(--text-3)}
+.badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.72rem;font-weight:600}
+.field{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1rem}
+.row{display:flex;gap:1rem;align-items:center}
+.toggle-group{display:flex;gap:.25rem;background:var(--bg);border-radius:var(--r-xs);padding:.2rem}
+.toggle-btn{padding:.4rem .8rem;border:none;background:transparent;border-radius:6px;font-size:.82rem;cursor:pointer;transition:all .2s}
+.toggle-btn.active{background:var(--white);box-shadow:var(--shadow)}
+.tab-btn{padding:.5rem 1rem;border:1px solid var(--border);background:var(--white);border-radius:var(--r-xs);font-size:.85rem;cursor:pointer;transition:all .2s}
+.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.5rem;margin-top:.75rem}
+.related-grid a{display:block;padding:.6rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.82rem;font-weight:500;color:var(--text-2);transition:all .15s}
+.related-grid a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+.faq-item{border-bottom:1px solid var(--border);padding:1rem 0}
+.faq-item:last-child{border:none}
+.faq-q{font-weight:700;font-size:.92rem;margin-bottom:.5rem;color:var(--text)}
+.faq-a{font-size:.88rem;color:var(--text-2);line-height:1.6}
+.footer{background:var(--white);border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;font-size:.8rem;color:var(--text-3)}
+.footer-col h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem;color:var(--text-2)}
+.footer-col a{display:block;padding:.2rem 0;color:var(--text-3);transition:color .15s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.75rem}
+@media(max-width:768px){.page-title{font-size:1.5rem}.form-row,.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:repeat(2,1fr)}}</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a class="logo" href="/">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/auto-insurance/">Auto Insurance</a><a href="/life-insurance/">Life Insurance</a></div></div></nav>
+<div class="page">
+<div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span>DUI Costs</div>
+<h1 class="page-title">DUI Cost Calculator by State</h1>
+<p class="page-desc">Compare the true cost of a DUI across all 50 states. Select your state to calculate fines, attorney fees, insurance increases, and total expenses.</p>
+
+<div class="stat-grid">
+<div class="stat-card"><div class="val">$7,000-$28,000</div><div class="lbl">Cost Range (1st Offense)</div></div>
+<div class="stat-card"><div class="val">$40-$100+</div><div class="lbl">CPC Value</div></div>
+<div class="stat-card"><div class="val">50</div><div class="lbl">State Calculators</div></div>
+<div class="stat-card"><div class="val">Free</div><div class="lbl">Instant Estimates</div></div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="card">
+<h2>Select Your State</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.5rem">
+<a href="alabama-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Alabama</span><span style="color:var(--accent);font-weight:700">$10,000-$15,000</span></a>
+<a href="alaska-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Alaska</span><span style="color:var(--accent);font-weight:700">$15,000-$25,000</span></a>
+<a href="arizona-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Arizona</span><span style="color:var(--accent);font-weight:700">$12,000-$20,000</span></a>
+<a href="arkansas-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Arkansas</span><span style="color:var(--accent);font-weight:700">$8,000-$14,000</span></a>
+<a href="california-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>California</span><span style="color:var(--accent);font-weight:700">$15,000-$25,000</span></a>
+<a href="colorado-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Colorado</span><span style="color:var(--accent);font-weight:700">$10,000-$18,000</span></a>
+<a href="connecticut-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Connecticut</span><span style="color:var(--accent);font-weight:700">$12,000-$22,000</span></a>
+<a href="delaware-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Delaware</span><span style="color:var(--accent);font-weight:700">$10,000-$18,000</span></a>
+<a href="florida-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Florida</span><span style="color:var(--accent);font-weight:700">$12,000-$22,000</span></a>
+<a href="georgia-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Georgia</span><span style="color:var(--accent);font-weight:700">$10,000-$18,000</span></a>
+<a href="hawaii-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Hawaii</span><span style="color:var(--accent);font-weight:700">$8,000-$15,000</span></a>
+<a href="idaho-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Idaho</span><span style="color:var(--accent);font-weight:700">$10,000-$18,000</span></a>
+<a href="illinois-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Illinois</span><span style="color:var(--accent);font-weight:700">$12,000-$25,000</span></a>
+<a href="indiana-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Indiana</span><span style="color:var(--accent);font-weight:700">$10,000-$18,000</span></a>
+<a href="iowa-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Iowa</span><span style="color:var(--accent);font-weight:700">$9,000-$16,000</span></a>
+<a href="kansas-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Kansas</span><span style="color:var(--accent);font-weight:700">$9,000-$16,000</span></a>
+<a href="kentucky-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Kentucky</span><span style="color:var(--accent);font-weight:700">$8,000-$15,000</span></a>
+<a href="louisiana-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Louisiana</span><span style="color:var(--accent);font-weight:700">$10,000-$20,000</span></a>
+<a href="maine-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Maine</span><span style="color:var(--accent);font-weight:700">$8,000-$15,000</span></a>
+<a href="maryland-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Maryland</span><span style="color:var(--accent);font-weight:700">$10,000-$18,000</span></a>
+<a href="massachusetts-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Massachusetts</span><span style="color:var(--accent);font-weight:700">$15,000-$25,000</span></a>
+<a href="michigan-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Michigan</span><span style="color:var(--accent);font-weight:700">$12,000-$22,000</span></a>
+<a href="minnesota-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Minnesota</span><span style="color:var(--accent);font-weight:700">$10,000-$20,000</span></a>
+<a href="mississippi-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Mississippi</span><span style="color:var(--accent);font-weight:700">$7,000-$14,000</span></a>
+<a href="missouri-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Missouri</span><span style="color:var(--accent);font-weight:700">$9,000-$17,000</span></a>
+<a href="montana-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Montana</span><span style="color:var(--accent);font-weight:700">$8,000-$15,000</span></a>
+<a href="nebraska-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Nebraska</span><span style="color:var(--accent);font-weight:700">$9,000-$17,000</span></a>
+<a href="nevada-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Nevada</span><span style="color:var(--accent);font-weight:700">$10,000-$20,000</span></a>
+<a href="new-hampshire-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>New Hampshire</span><span style="color:var(--accent);font-weight:700">$9,000-$16,000</span></a>
+<a href="new-jersey-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>New Jersey</span><span style="color:var(--accent);font-weight:700">$15,000-$28,000</span></a>
+<a href="new-mexico-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>New Mexico</span><span style="color:var(--accent);font-weight:700">$9,000-$17,000</span></a>
+<a href="new-york-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>New York</span><span style="color:var(--accent);font-weight:700">$15,000-$28,000</span></a>
+<a href="north-carolina-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>North Carolina</span><span style="color:var(--accent);font-weight:700">$10,000-$20,000</span></a>
+<a href="north-dakota-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>North Dakota</span><span style="color:var(--accent);font-weight:700">$7,000-$13,000</span></a>
+<a href="ohio-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Ohio</span><span style="color:var(--accent);font-weight:700">$10,000-$20,000</span></a>
+<a href="oklahoma-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Oklahoma</span><span style="color:var(--accent);font-weight:700">$9,000-$17,000</span></a>
+<a href="oregon-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Oregon</span><span style="color:var(--accent);font-weight:700">$12,000-$22,000</span></a>
+<a href="pennsylvania-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Pennsylvania</span><span style="color:var(--accent);font-weight:700">$12,000-$22,000</span></a>
+<a href="rhode-island-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Rhode Island</span><span style="color:var(--accent);font-weight:700">$9,000-$17,000</span></a>
+<a href="south-carolina-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>South Carolina</span><span style="color:var(--accent);font-weight:700">$10,000-$20,000</span></a>
+<a href="south-dakota-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>South Dakota</span><span style="color:var(--accent);font-weight:700">$7,000-$14,000</span></a>
+<a href="tennessee-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Tennessee</span><span style="color:var(--accent);font-weight:700">$10,000-$20,000</span></a>
+<a href="texas-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Texas</span><span style="color:var(--accent);font-weight:700">$12,000-$25,000</span></a>
+<a href="utah-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Utah</span><span style="color:var(--accent);font-weight:700">$10,000-$18,000</span></a>
+<a href="vermont-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Vermont</span><span style="color:var(--accent);font-weight:700">$8,000-$15,000</span></a>
+<a href="virginia-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Virginia</span><span style="color:var(--accent);font-weight:700">$10,000-$20,000</span></a>
+<a href="washington-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Washington</span><span style="color:var(--accent);font-weight:700">$12,000-$22,000</span></a>
+<a href="west-virginia-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>West Virginia</span><span style="color:var(--accent);font-weight:700">$8,000-$15,000</span></a>
+<a href="wisconsin-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Wisconsin</span><span style="color:var(--accent);font-weight:700">$10,000-$20,000</span></a>
+<a href="wyoming-dui-cost-calculator.html" style="display:flex;justify-content:space-between;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);font-size:.85rem;font-weight:500;color:var(--text-2);transition:all .15s"><span>Wyoming</span><span style="color:var(--accent);font-weight:700">$8,000-$16,000</span></a>
+</div>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="info-card">
+<h3>🚨 Most Expensive States for DUI</h3>
+<ul>
+<li><strong>New Jersey:</strong> $15,000-$28,000 — Highest insurance surcharges in the nation</li>
+<li><strong>New York:</strong> $15,000-$28,000 — High fines plus mandatory surcharges</li>
+<li><strong>California:</strong> $15,000-$25,000 — Penalty assessments can triple base fines</li>
+<li><strong>Massachusetts:</strong> $15,000-$25,000 — Lifetime lookback period</li>
+<li><strong>Alaska:</strong> $15,000-$25,000 — High base fines + remote towing costs</li>
+</ul>
+</div>
+
+<div class="info-card">
+<h3>💡 Least Expensive States for DUI (Still Costly)</h3>
+<ul>
+<li><strong>Mississippi:</strong> $7,000-$14,000 — Lowest base fines</li>
+<li><strong>North Dakota:</strong> $7,000-$13,000 — Lower insurance impacts</li>
+<li><strong>South Dakota:</strong> $7,000-$14,000 — Lower cost of living</li>
+<li><strong>Arkansas:</strong> $8,000-$14,000 — Lower attorney fees</li>
+<li><strong>Hawaii:</strong> $8,000-$15,000 — Lower SR-22 costs</li>
+</ul>
+</div>
+
+<div class="info-card">
+<h3>📊 State DUI Law Comparison</h3>
+<p><strong>Strictest BAC Limit:</strong> Utah (0.05 — only state below 0.08)</p>
+<p><strong>Lifetime Lookback:</strong> Colorado, Florida, Illinois, Indiana, Massachusetts, Oregon, Vermont (prior DUIs never expire)</p>
+<p><strong>Mandatory Ignition Interlock (All Offenses):</strong> Alaska, Arizona, California, Colorado, Connecticut, Hawaii, Idaho, Illinois, Iowa, Louisiana, Maryland, Michigan, Minnesota, Nevada, New Jersey, New Mexico, New York, Ohio, Oregon, Tennessee, Utah, Virginia, Washington</p>
+<p><strong>No Felony DUI Statute:</strong> New Jersey (DUI is always a traffic offense, though penalties are severe)</p>
+</div>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="info-card">
+<h3>❓ Frequently Asked Questions</h3>
+<div class="faq-item"><div class="faq-q">How much does a first DUI cost?</div><div class="faq-a">The total cost of a first DUI ranges from $7,000 to $28,000 depending on your state, BAC level, whether there was an accident, and attorney fees. The average across all states is approximately $10,000-$15,000.</div></div>
+<div class="faq-item"><div class="faq-q">What is SR-22 insurance?</div><div class="faq-a">SR-22 is a certificate of financial responsibility filed by your insurance company with the state DMV. It proves you carry minimum liability coverage. After a DUI, most states require SR-22 for 3 years. It typically increases your insurance premiums by $1,200-$4,500 per year.</div></div>
+<div class="faq-item"><div class="faq-q">Can I avoid jail time for a first DUI?</div><div class="faq-a">Many states allow alternatives to jail for first-time DUI offenders, including community service, probation, and house arrest. However, some states have mandatory minimum jail sentences even for first offenses (e.g., Arizona requires 10 days).</div></div>
+<div class="faq-item"><div class="faq-q">How long does a DUI affect my insurance?</div><div class="faq-a">A DUI typically affects your insurance rates for 3-5 years, depending on your state and insurance company. Some insurers check records back 7-10 years. Expect to pay 30-100% more for auto insurance after a DUI conviction.</div></div>
+</div>
+</div>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-col"><h4>Calculators</h4><a href="/auto-insurance/">Auto Insurance</a><a href="/life-insurance/">Life Insurance</a><a href="/home-insurance/">Home Insurance</a><a href="/health-insurance/">Health Insurance</a></div><div class="footer-col"><h4>By State</h4><a href="/dui/">DUI Costs</a><a href="/workers-comp/">Workers' Comp</a><a href="/disability-insurance/">Disability Insurance</a><a href="/social-security/">Social Security</a></div><div class="footer-col"><h4>Resources</h4><a href="/529/">529 Plans</a><a href="/childcare/">Childcare Costs</a><a href="/nursing-home/">Nursing Home</a><a href="/medicaid/">Medicaid</a></div><div class="footer-col"><h4>About</h4><a href="/about.html">About CalcLeap</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div></div><div class="footer-bottom">© 2026 CalcLeap. Free financial calculators and tools.</div></footer>
+</body>
+</html>
