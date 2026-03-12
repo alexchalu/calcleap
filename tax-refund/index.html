@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Refund Calculator by State 2026 | All 50 States | CalcLeap</title>
+    <meta name="description" content="Free tax refund calculators for all 50 US states. Estimate your federal and state tax refund for 2026. Compare refund amounts, tax rates, and filing deadlines.">
+    <link rel="canonical" href="https://calcleap.com/tax-refund/">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7513498242498681" crossorigin="anonymous"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif; background:#f5f5f7; color:#1d1d1f; line-height:1.6; }
+        .nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid rgba(0,0,0,0.1); padding:12px 20px; }
+        .nav a { color:#0071e3; text-decoration:none; font-weight:500; font-size:14px; }
+        .page { max-width:980px; margin:0 auto; padding:40px 20px 60px; }
+        .page-title { font-size:clamp(28px,4vw,42px); font-weight:700; letter-spacing:-0.02em; margin-bottom:8px; }
+        .subtitle { font-size:18px; color:#6e6e73; margin-bottom:32px; }
+        .card { background:#fff; border-radius:18px; padding:28px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:24px; }
+        .search { width:100%; padding:14px 18px; border:1px solid #d2d2d7; border-radius:12px; font-size:16px; font-family:inherit; margin-bottom:24px; }
+        .search:focus { outline:none; border-color:#0071e3; }
+        .state-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
+        .state-card { display:block; background:#fff; border-radius:14px; padding:18px; text-decoration:none; color:#1d1d1f; box-shadow:0 1px 6px rgba(0,0,0,0.06); transition:transform 0.2s,box-shadow 0.2s; }
+        .state-card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,0.12); }
+        .state-card .name { font-weight:600; font-size:16px; margin-bottom:4px; }
+        .state-card .rate { font-size:13px; color:#0071e3; }
+        .state-card .refund { font-size:13px; color:#6e6e73; }
+        .state-card .badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600; background:#e8f5e9; color:#2e7d32; margin-top:4px; }
+        ins { display:block; margin:20px auto; border-radius:12px; overflow:hidden; }
+        .footer { background:#1d1d1f; color:#86868b; padding:40px 20px; text-align:center; margin-top:60px; }
+        .footer a { color:#2997ff; text-decoration:none; }
+        .info-card { background:#fff; border-radius:18px; padding:28px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:24px; }
+        .info-card h2 { font-size:22px; margin-bottom:12px; }
+        .info-card p { color:#424245; margin-bottom:10px; }
+        @media(max-width:600px) { .state-grid { grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); } }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="https://calcleap.com/">← CalcLeap Home</a>
+    </nav>
+    <div class="page">
+        <h1 class="page-title">Tax Refund Calculator by State 2026</h1>
+        <p class="subtitle">Estimate your federal and state tax refund. Choose your state below.</p>
+        
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7513498242498681" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({})</script>
+        
+        <input type="text" class="search" placeholder="🔍 Search states..." oninput="filterStates(this.value)">
+        
+        <div class="state-grid" id="stateGrid">
+            <a href="alabama.html" class="state-card" data-name="alabama">
+                <div class="name">Alabama</div>
+                <div class="rate">Rate: 2-5%</div>
+                <div class="refund">Avg Refund: $2,847</div>
+                
+            </a>
+            <a href="alaska.html" class="state-card" data-name="alaska">
+                <div class="name">Alaska</div>
+                <div class="rate">Rate: 0%</div>
+                <div class="refund">Avg Refund: $3,412</div>
+                <span class="badge">No Tax</span>
+            </a>
+            <a href="arizona.html" class="state-card" data-name="arizona">
+                <div class="name">Arizona</div>
+                <div class="rate">Rate: 2.5%</div>
+                <div class="refund">Avg Refund: $2,956</div>
+                
+            </a>
+            <a href="arkansas.html" class="state-card" data-name="arkansas">
+                <div class="name">Arkansas</div>
+                <div class="rate">Rate: 2-4.4%</div>
+                <div class="refund">Avg Refund: $2,634</div>
+                
+            </a>
+            <a href="california.html" class="state-card" data-name="california">
+                <div class="name">California</div>
+                <div class="rate">Rate: 1-13.3%</div>
+                <div class="refund">Avg Refund: $3,187</div>
+                
+            </a>
+            <a href="colorado.html" class="state-card" data-name="colorado">
+                <div class="name">Colorado</div>
+                <div class="rate">Rate: 4.4%</div>
+                <div class="refund">Avg Refund: $2,891</div>
+                
+            </a>
+            <a href="connecticut.html" class="state-card" data-name="connecticut">
+                <div class="name">Connecticut</div>
+                <div class="rate">Rate: 3-6.99%</div>
+                <div class="refund">Avg Refund: $3,045</div>
+                
+            </a>
+            <a href="delaware.html" class="state-card" data-name="delaware">
+                <div class="name">Delaware</div>
+                <div class="rate">Rate: 2.2-6.6%</div>
+                <div class="refund">Avg Refund: $2,756</div>
+                
+            </a>
+            <a href="florida.html" class="state-card" data-name="florida">
+                <div class="name">Florida</div>
+                <div class="rate">Rate: 0%</div>
+                <div class="refund">Avg Refund: $3,234</div>
+                <span class="badge">No Tax</span>
+            </a>
+            <a href="georgia.html" class="state-card" data-name="georgia">
+                <div class="name">Georgia</div>
+                <div class="rate">Rate: 5.49%</div>
+                <div class="refund">Avg Refund: $2,823</div>
+                
+            </a>
+            <a href="hawaii.html" class="state-card" data-name="hawaii">
+                <div class="name">Hawaii</div>
+                <div class="rate">Rate: 1.4-11%</div>
+                <div class="refund">Avg Refund: $2,567</div>
+                
+            </a>
+            <a href="idaho.html" class="state-card" data-name="idaho">
+                <div class="name">Idaho</div>
+                <div class="rate">Rate: 5.695%</div>
+                <div class="refund">Avg Refund: $2,734</div>
+                
+            </a>
+            <a href="illinois.html" class="state-card" data-name="illinois">
+                <div class="name">Illinois</div>
+                <div class="rate">Rate: 4.95%</div>
+                <div class="refund">Avg Refund: $2,912</div>
+                
+            </a>
+            <a href="indiana.html" class="state-card" data-name="indiana">
+                <div class="name">Indiana</div>
+                <div class="rate">Rate: 3.05%</div>
+                <div class="refund">Avg Refund: $2,678</div>
+                
+            </a>
+            <a href="iowa.html" class="state-card" data-name="iowa">
+                <div class="name">Iowa</div>
+                <div class="rate">Rate: 4.4-5.7%</div>
+                <div class="refund">Avg Refund: $2,789</div>
+                
+            </a>
+            <a href="kansas.html" class="state-card" data-name="kansas">
+                <div class="name">Kansas</div>
+                <div class="rate">Rate: 3.1-5.7%</div>
+                <div class="refund">Avg Refund: $2,845</div>
+                
+            </a>
+            <a href="kentucky.html" class="state-card" data-name="kentucky">
+                <div class="name">Kentucky</div>
+                <div class="rate">Rate: 4%</div>
+                <div class="refund">Avg Refund: $2,634</div>
+                
+            </a>
+            <a href="louisiana.html" class="state-card" data-name="louisiana">
+                <div class="name">Louisiana</div>
+                <div class="rate">Rate: 1.85-4.25%</div>
+                <div class="refund">Avg Refund: $2,723</div>
+                
+            </a>
+            <a href="maine.html" class="state-card" data-name="maine">
+                <div class="name">Maine</div>
+                <div class="rate">Rate: 5.8-7.15%</div>
+                <div class="refund">Avg Refund: $2,567</div>
+                
+            </a>
+            <a href="maryland.html" class="state-card" data-name="maryland">
+                <div class="name">Maryland</div>
+                <div class="rate">Rate: 2-5.75%</div>
+                <div class="refund">Avg Refund: $2,912</div>
+                
+            </a>
+            <a href="massachusetts.html" class="state-card" data-name="massachusetts">
+                <div class="name">Massachusetts</div>
+                <div class="rate">Rate: 5%</div>
+                <div class="refund">Avg Refund: $3,123</div>
+                
+            </a>
+            <a href="michigan.html" class="state-card" data-name="michigan">
+                <div class="name">Michigan</div>
+                <div class="rate">Rate: 4.25%</div>
+                <div class="refund">Avg Refund: $2,845</div>
+                
+            </a>
+            <a href="minnesota.html" class="state-card" data-name="minnesota">
+                <div class="name">Minnesota</div>
+                <div class="rate">Rate: 5.35-9.85%</div>
+                <div class="refund">Avg Refund: $2,934</div>
+                
+            </a>
+            <a href="mississippi.html" class="state-card" data-name="mississippi">
+                <div class="name">Mississippi</div>
+                <div class="rate">Rate: 0-5%</div>
+                <div class="refund">Avg Refund: $2,456</div>
+                
+            </a>
+            <a href="missouri.html" class="state-card" data-name="missouri">
+                <div class="name">Missouri</div>
+                <div class="rate">Rate: 2-4.95%</div>
+                <div class="refund">Avg Refund: $2,734</div>
+                
+            </a>
+            <a href="montana.html" class="state-card" data-name="montana">
+                <div class="name">Montana</div>
+                <div class="rate">Rate: 4.7-6.75%</div>
+                <div class="refund">Avg Refund: $2,612</div>
+                
+            </a>
+            <a href="nebraska.html" class="state-card" data-name="nebraska">
+                <div class="name">Nebraska</div>
+                <div class="rate">Rate: 2.46-5.84%</div>
+                <div class="refund">Avg Refund: $2,789</div>
+                
+            </a>
+            <a href="nevada.html" class="state-card" data-name="nevada">
+                <div class="name">Nevada</div>
+                <div class="rate">Rate: 0%</div>
+                <div class="refund">Avg Refund: $3,156</div>
+                <span class="badge">No Tax</span>
+            </a>
+            <a href="new-hampshire.html" class="state-card" data-name="new hampshire">
+                <div class="name">New Hampshire</div>
+                <div class="rate">Rate: 0%</div>
+                <div class="refund">Avg Refund: $3,034</div>
+                <span class="badge">No Tax</span>
+            </a>
+            <a href="new-jersey.html" class="state-card" data-name="new jersey">
+                <div class="name">New Jersey</div>
+                <div class="rate">Rate: 1.4-10.75%</div>
+                <div class="refund">Avg Refund: $3,267</div>
+                
+            </a>
+            <a href="new-mexico.html" class="state-card" data-name="new mexico">
+                <div class="name">New Mexico</div>
+                <div class="rate">Rate: 1.7-5.9%</div>
+                <div class="refund">Avg Refund: $2,678</div>
+                
+            </a>
+            <a href="new-york.html" class="state-card" data-name="new york">
+                <div class="name">New York</div>
+                <div class="rate">Rate: 4-10.9%</div>
+                <div class="refund">Avg Refund: $3,345</div>
+                
+            </a>
+            <a href="north-carolina.html" class="state-card" data-name="north carolina">
+                <div class="name">North Carolina</div>
+                <div class="rate">Rate: 4.5%</div>
+                <div class="refund">Avg Refund: $2,756</div>
+                
+            </a>
+            <a href="north-dakota.html" class="state-card" data-name="north dakota">
+                <div class="name">North Dakota</div>
+                <div class="rate">Rate: 0-2.5%</div>
+                <div class="refund">Avg Refund: $2,912</div>
+                
+            </a>
+            <a href="ohio.html" class="state-card" data-name="ohio">
+                <div class="name">Ohio</div>
+                <div class="rate">Rate: 0-3.5%</div>
+                <div class="refund">Avg Refund: $2,723</div>
+                
+            </a>
+            <a href="oklahoma.html" class="state-card" data-name="oklahoma">
+                <div class="name">Oklahoma</div>
+                <div class="rate">Rate: 0.25-4.75%</div>
+                <div class="refund">Avg Refund: $2,645</div>
+                
+            </a>
+            <a href="oregon.html" class="state-card" data-name="oregon">
+                <div class="name">Oregon</div>
+                <div class="rate">Rate: 4.75-9.9%</div>
+                <div class="refund">Avg Refund: $2,834</div>
+                
+            </a>
+            <a href="pennsylvania.html" class="state-card" data-name="pennsylvania">
+                <div class="name">Pennsylvania</div>
+                <div class="rate">Rate: 3.07%</div>
+                <div class="refund">Avg Refund: $2,867</div>
+                
+            </a>
+            <a href="rhode-island.html" class="state-card" data-name="rhode island">
+                <div class="name">Rhode Island</div>
+                <div class="rate">Rate: 3.75-5.99%</div>
+                <div class="refund">Avg Refund: $2,623</div>
+                
+            </a>
+            <a href="south-carolina.html" class="state-card" data-name="south carolina">
+                <div class="name">South Carolina</div>
+                <div class="rate">Rate: 0-6.4%</div>
+                <div class="refund">Avg Refund: $2,567</div>
+                
+            </a>
+            <a href="south-dakota.html" class="state-card" data-name="south dakota">
+                <div class="name">South Dakota</div>
+                <div class="rate">Rate: 0%</div>
+                <div class="refund">Avg Refund: $3,089</div>
+                <span class="badge">No Tax</span>
+            </a>
+            <a href="tennessee.html" class="state-card" data-name="tennessee">
+                <div class="name">Tennessee</div>
+                <div class="rate">Rate: 0%</div>
+                <div class="refund">Avg Refund: $2,945</div>
+                <span class="badge">No Tax</span>
+            </a>
+            <a href="texas.html" class="state-card" data-name="texas">
+                <div class="name">Texas</div>
+                <div class="rate">Rate: 0%</div>
+                <div class="refund">Avg Refund: $3,278</div>
+                <span class="badge">No Tax</span>
+            </a>
+            <a href="utah.html" class="state-card" data-name="utah">
+                <div class="name">Utah</div>
+                <div class="rate">Rate: 4.65%</div>
+                <div class="refund">Avg Refund: $2,912</div>
+                
+            </a>
+            <a href="vermont.html" class="state-card" data-name="vermont">
+                <div class="name">Vermont</div>
+                <div class="rate">Rate: 3.35-8.75%</div>
+                <div class="refund">Avg Refund: $2,534</div>
+                
+            </a>
+            <a href="virginia.html" class="state-card" data-name="virginia">
+                <div class="name">Virginia</div>
+                <div class="rate">Rate: 2-5.75%</div>
+                <div class="refund">Avg Refund: $2,823</div>
+                
+            </a>
+            <a href="washington.html" class="state-card" data-name="washington">
+                <div class="name">Washington</div>
+                <div class="rate">Rate: 0%</div>
+                <div class="refund">Avg Refund: $3,367</div>
+                <span class="badge">No Tax</span>
+            </a>
+            <a href="west-virginia.html" class="state-card" data-name="west virginia">
+                <div class="name">West Virginia</div>
+                <div class="rate">Rate: 2.36-5.12%</div>
+                <div class="refund">Avg Refund: $2,534</div>
+                
+            </a>
+            <a href="wisconsin.html" class="state-card" data-name="wisconsin">
+                <div class="name">Wisconsin</div>
+                <div class="rate">Rate: 3.5-7.65%</div>
+                <div class="refund">Avg Refund: $2,756</div>
+                
+            </a>
+            <a href="wyoming.html" class="state-card" data-name="wyoming">
+                <div class="name">Wyoming</div>
+                <div class="rate">Rate: 0%</div>
+                <div class="refund">Avg Refund: $3,145</div>
+                <span class="badge">No Tax</span>
+            </a>
+        </div>
+        
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7513498242498681" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({})</script>
+        
+        <div class="info-card">
+            <h2>About Tax Refund Calculators</h2>
+            <p>Our free tax refund calculators help you estimate your federal and state tax refund for the 2025 tax year (filed in 2026). Each state calculator includes state-specific tax rates, brackets, filing deadlines, and tips to maximize your refund.</p>
+            <p><strong>Average Federal Refund:</strong> The IRS reported an average refund of $3,167 for the 2025 filing season. Your actual refund depends on your income, withholdings, deductions, and credits.</p>
+            <p><strong>9 States With No Income Tax:</strong> Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. Residents of these states only receive a federal refund.</p>
+        </div>
+        
+        <div class="info-card">
+            <h2>Key Tax Dates for 2026</h2>
+            <ul style="padding-left:20px">
+                <li><strong>January 27, 2026:</strong> IRS begins accepting tax returns</li>
+                <li><strong>April 15, 2026:</strong> Federal filing deadline (most states)</li>
+                <li><strong>April 20, 2026:</strong> Hawaii filing deadline</li>
+                <li><strong>April 30, 2026:</strong> Delaware, Iowa filing deadline</li>
+                <li><strong>May 1, 2026:</strong> Virginia filing deadline</li>
+                <li><strong>May 15, 2026:</strong> Louisiana filing deadline</li>
+                <li><strong>October 15, 2026:</strong> Extended filing deadline</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2026 CalcLeap. Free tax refund calculators for all 50 states.</p>
+        <p style="margin-top:8px"><a href="https://calcleap.com/">Home</a> · <a href="https://calcleap.com/tax-refund/">Tax Refund Calculators</a></p>
+    </footer>
+    
+    <script>
+    function filterStates(q) {
+        const cards = document.querySelectorAll('.state-card');
+        q = q.toLowerCase();
+        cards.forEach(c => {
+            c.style.display = c.dataset.name.includes(q) ? '' : 'none';
+        });
+    }
+    </script>
+</body>
+</html>
