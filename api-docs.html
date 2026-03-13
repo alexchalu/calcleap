@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CalcLeap API — Free Financial Calculator API for Developers</title>
+<meta name="description" content="Free API for financial calculations. Mortgage, compound interest, retirement planning, loans, BMI, tips, and more. 100 free requests/day. No credit card required.">
+<meta name="keywords" content="financial calculator API, mortgage API, compound interest API, retirement calculator API, free calculator API">
+<link rel="canonical" href="https://calcleap.com/api-docs.html">
+<meta property="og:title" content="CalcLeap API — Free Financial Calculator API for Developers">
+<meta property="og:description" content="Free API for financial calculations. 100 requests/day free. No credit card required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/api-docs.html">
+<meta property="og:image" content="https://calcleap.com/og-api.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CalcLeap API — Free Financial Calculator API">
+<meta name="twitter:description" content="Free API for financial calculations. 100 requests/day free.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<style>
+/* ========================================
+   CalcLeap API Docs — Professional Design
+   ======================================== */
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --white: #ffffff;
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --border: rgba(0,0,0,.08);
+  --border-hover: rgba(0,0,0,.14);
+  --text: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #86868b;
+  --accent: #0071e3;
+  --accent-hover: #0077ED;
+  --accent-dark: #0056b3;
+  --accent-subtle: rgba(0,113,227,.08);
+  --success: #34c759;
+  --warning: #ff9500;
+  --error: #ff3b30;
+  --code-bg: #f6f8fa;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.1), 0 4px 16px rgba(0,0,0,.06);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --max-w: 1280px;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  letter-spacing: -.022em;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--accent-hover); }
+
+/* === NAVIGATION === */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(251,251,253,.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 52px;
+}
+
+.nav-logo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+.nav-links a {
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: .5rem .875rem;
+  border-radius: 8px;
+  transition: all .2s ease;
+}
+
+.nav-links a:hover {
+  background: var(--accent-subtle);
+  color: var(--accent);
+}
+
+.nav-links a.active {
+  background: var(--accent);
+  color: white;
+}
+
+/* === HERO === */
+.hero {
+  background: linear-gradient(135deg, rgba(0,113,227,.04) 0%, rgba(0,113,227,.02) 100%);
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.hero h1 .accent { 
+  background: linear-gradient(135deg, var(--accent) 0%, #0056b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 1.35rem;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all .2s;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,113,227,.25);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,113,227,.3);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-hover);
+  background: var(--bg);
+}
+
+/* === CONTENT === */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.docs-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 80px;
+}
+
+.sidebar h3 {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 1rem;
+}
+
+.sidebar nav a {
+  display: block;
+  font-size: .9375rem;
+  color: var(--text-secondary);
+  padding: .5rem .75rem;
+  border-radius: 8px;
+  margin-bottom: .25rem;
+  transition: all .2s;
+}
+
+.sidebar nav a:hover {
+  background: var(--accent-subtle);
+  color: var(--accent);
+}
+
+.sidebar nav a.active {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.main-content {
+  min-width: 0;
+}
+
+section {
+  margin-bottom: 5rem;
+  scroll-margin-top: 80px;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 3rem 0 1rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  color: var(--text-secondary);
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* === ENDPOINT CARD === */
+.endpoint {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.endpoint-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.method {
+  display: inline-block;
+  padding: .375rem .75rem;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 6px;
+  background: var(--success);
+  color: white;
+  letter-spacing: .05em;
+}
+
+.endpoint-path {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.endpoint-desc {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.params {
+  margin-bottom: 1.5rem;
+}
+
+.params h5 {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: .75rem;
+}
+
+.param {
+  display: flex;
+  gap: 1rem;
+  padding: .75rem;
+  background: var(--bg);
+  border-radius: 8px;
+  margin-bottom: .5rem;
+}
+
+.param-name {
+  font-family: var(--font-mono);
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--accent);
+  min-width: 140px;
+}
+
+.param-desc {
+  font-size: .875rem;
+  color: var(--text-secondary);
+}
+
+/* === TRY IT PANEL === */
+.try-it {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.try-it h5 {
+  font-size: .875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.try-it-form {
+  display: grid;
+  gap: .875rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: grid;
+  gap: .375rem;
+}
+
+.form-group label {
+  font-size: .8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+  padding: .625rem .875rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: .875rem;
+  background: white;
+  transition: all .2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+.try-it-result {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: .8125rem;
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+}
+
+.try-it-result.show {
+  display: block;
+}
+
+.try-it-result.success {
+  border-color: var(--success);
+  background: rgba(52,199,89,.04);
+}
+
+.try-it-result.error {
+  border-color: var(--error);
+  background: rgba(255,59,48,.04);
+  color: var(--error);
+}
+
+/* === CODE EXAMPLES === */
+.code-examples {
+  margin: 1.5rem 0;
+}
+
+.code-tabs {
+  display: flex;
+  gap: .5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.code-tab {
+  padding: .625rem 1.125rem;
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.code-tab:hover {
+  color: var(--accent);
+}
+
+.code-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.code-content {
+  display: none;
+}
+
+.code-content.active {
+  display: block;
+}
+
+pre {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: .875rem;
+  line-height: 1.6;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: .875rem;
+}
+
+pre code {
+  color: inherit;
+}
+
+.code-comment { color: #6a9955; }
+.code-string { color: #ce9178; }
+.code-number { color: #b5cea8; }
+.code-keyword { color: #569cd6; }
+.code-function { color: #dcdcaa; }
+.code-property { color: #9cdcfe; }
+
+/* === PRICING === */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.pricing-card {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: all .3s;
+}
+
+.pricing-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.pricing-card.featured {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.pricing-card.featured::before {
+  content: 'POPULAR';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: white;
+  padding: .375rem .875rem;
+  font-size: .75rem;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: .05em;
+}
+
+.pricing-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.pricing-price {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.pricing-price small {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.pricing-desc {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: .9375rem;
+}
+
+.pricing-features {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-features li {
+  list-style: none;
+  padding: .5rem 0;
+  color: var(--text-secondary);
+  font-size: .9375rem;
+}
+
+.pricing-features li::before {
+  content: '✓';
+  color: var(--success);
+  font-weight: 700;
+  margin-right: .75rem;
+}
+
+/* === FOOTER === */
+footer {
+  background: white;
+  border-top: 1px solid var(--border);
+  padding: 3rem 2rem 2rem;
+}
+
+.footer-content {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-grid h5 {
+  font-size: .875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.footer-grid a {
+  display: block;
+  font-size: .875rem;
+  color: var(--text-secondary);
+  margin-bottom: .625rem;
+  transition: color .2s;
+}
+
+.footer-grid a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: .875rem;
+}
+
+.footer-bottom p {
+  margin-bottom: .5rem;
+  color: var(--text-tertiary);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 968px) {
+  .docs-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    position: static;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 4rem 1.5rem 3rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .container {
+    padding: 3rem 1.5rem;
+  }
+  
+  .endpoint {
+    padding: 1.5rem;
+  }
+  
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="api-docs.html" class="active">API Docs</a>
+      <a href="https://github.com/alexchalu/calcleap-api" target="_blank">GitHub</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>CalcLeap <span class="accent">API</span></h1>
+  <p>Free Financial Calculator API for Developers. Simple, fast, reliable. No credit card required.</p>
+  <div class="hero-actions">
+    <a href="#getting-started" class="btn btn-primary">Get Started →</a>
+    <a href="https://github.com/alexchalu/calcleap-api" class="btn btn-secondary" target="_blank">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+      </svg>
+      View on GitHub
+    </a>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="docs-layout">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Navigation</h3>
+      <nav>
+        <a href="#getting-started">Getting Started</a>
+        <a href="#authentication">Authentication</a>
+        <a href="#endpoints">Endpoints</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Getting Started -->
+      <section id="getting-started">
+        <h2>Getting Started</h2>
+        <p>The CalcLeap API provides instant access to financial calculations via simple HTTP requests. All endpoints return JSON and are available over HTTPS.</p>
+        
+        <h4>Base URL</h4>
+        <pre><code>https://calcleap.com</code></pre>
+        
+        <h4>Quick Example</h4>
+        <div class="code-examples">
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="showCode(this, 'quick-js')">JavaScript</button>
+            <button class="code-tab" onclick="showCode(this, 'quick-py')">Python</button>
+            <button class="code-tab" onclick="showCode(this, 'quick-curl')">cURL</button>
+          </div>
+          <div class="code-content active" id="quick-js">
+            <pre><code><span class="code-comment">// Fetch mortgage calculation</span>
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">'https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30'</span>);
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();
+console.<span class="code-function">log</span>(data);</code></pre>
+          </div>
+          <div class="code-content" id="quick-py">
+            <pre><code><span class="code-comment"># Fetch mortgage calculation</span>
+<span class="code-keyword">import</span> requests
+
+response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/mortgage'</span>, params={
+    <span class="code-string">'principal'</span>: <span class="code-number">300000</span>,
+    <span class="code-string">'rate'</span>: <span class="code-number">6.5</span>,
+    <span class="code-string">'years'</span>: <span class="code-number">30</span>
+})
+data = response.<span class="code-function">json</span>()
+<span class="code-function">print</span>(data)</code></pre>
+          </div>
+          <div class="code-content" id="quick-curl">
+            <pre><code><span class="code-comment"># Fetch mortgage calculation</span>
+curl "https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30"</code></pre>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Authentication -->
+      <section id="authentication">
+        <h2>Authentication</h2>
+        <p><strong>No authentication required for free tier.</strong> All endpoints are publicly accessible with rate limits applied per IP address.</p>
+        <p>For Pro and Enterprise plans, include your API key in the request header:</p>
+        <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+      </section>
+      
+      <!-- Endpoints -->
+      <section id="endpoints">
+        <h2>API Endpoints</h2>
+        
+        <!-- Mortgage Calculator -->
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/mortgage</span>
+          </div>
+          <p class="endpoint-desc">Calculate monthly mortgage payment, total payment, and total interest.</p>
+          
+          <div class="params">
+            <h5>Parameters</h5>
+            <div class="param">
+              <span class="param-name">principal</span>
+              <span class="param-desc">Loan amount (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">rate</span>
+              <span class="param-desc">Annual interest rate as percentage (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">years</span>
+              <span class="param-desc">Loan term in years (number, required)</span>
+            </div>
+          </div>
+          
+          <div class="try-it">
+            <h5>Try It</h5>
+            <form class="try-it-form" onsubmit="return tryEndpoint(event, 'mortgage')">
+              <div class="form-group">
+                <label>Principal ($)</label>
+                <input type="number" name="principal" value="300000" required>
+              </div>
+              <div class="form-group">
+                <label>Rate (%)</label>
+                <input type="number" step="0.01" name="rate" value="6.5" required>
+              </div>
+              <div class="form-group">
+                <label>Years</label>
+                <input type="number" name="years" value="30" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+            <div class="try-it-result" id="result-mortgage"></div>
+          </div>
+          
+          <div class="code-examples">
+            <div class="code-tabs">
+              <button class="code-tab active" onclick="showCode(this, 'mortgage-js')">JavaScript</button>
+              <button class="code-tab" onclick="showCode(this, 'mortgage-py')">Python</button>
+              <button class="code-tab" onclick="showCode(this, 'mortgage-curl')">cURL</button>
+            </div>
+            <div class="code-content active" id="mortgage-js">
+              <pre><code><span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(
+  <span class="code-string">'https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30'</span>
+);
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();
+<span class="code-comment">// Response: { monthlyPayment: 1896.20, totalPayment: 682632, totalInterest: 382632 }</span></code></pre>
+            </div>
+            <div class="code-content" id="mortgage-py">
+              <pre><code><span class="code-keyword">import</span> requests
+
+response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/mortgage'</span>, params={
+    <span class="code-string">'principal'</span>: <span class="code-number">300000</span>,
+    <span class="code-string">'rate'</span>: <span class="code-number">6.5</span>,
+    <span class="code-string">'years'</span>: <span class="code-number">30</span>
+})
+data = response.<span class="code-function">json</span>()
+<span class="code-comment"># Response: { 'monthlyPayment': 1896.20, 'totalPayment': 682632, 'totalInterest': 382632 }</span></code></pre>
+            </div>
+            <div class="code-content" id="mortgage-curl">
+              <pre><code>curl "https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30"</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Compound Interest Calculator -->
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/compound</span>
+          </div>
+          <p class="endpoint-desc">Calculate compound interest with optional regular contributions.</p>
+          
+          <div class="params">
+            <h5>Parameters</h5>
+            <div class="param">
+              <span class="param-name">principal</span>
+              <span class="param-desc">Initial investment amount (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">rate</span>
+              <span class="param-desc">Annual interest rate as percentage (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">years</span>
+              <span class="param-desc">Investment period in years (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">contribution</span>
+              <span class="param-desc">Regular contribution amount (number, default: 0)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">compounding</span>
+              <span class="param-desc">Compounding frequency: annually, monthly, daily (string, default: annually)</span>
+            </div>
+          </div>
+          
+          <div class="try-it">
+            <h5>Try It</h5>
+            <form class="try-it-form" onsubmit="return tryEndpoint(event, 'compound')">
+              <div class="form-group">
+                <label>Principal ($)</label>
+                <input type="number" name="principal" value="10000" required>
+              </div>
+              <div class="form-group">
+                <label>Rate (%)</label>
+                <input type="number" step="0.01" name="rate" value="7" required>
+              </div>
+              <div class="form-group">
+                <label>Years</label>
+                <input type="number" name="years" value="10" required>
+              </div>
+              <div class="form-group">
+                <label>Monthly Contribution ($)</label>
+                <input type="number" name="contribution" value="500">
+              </div>
+              <div class="form-group">
+                <label>Compounding</label>
+                <select name="compounding">
+                  <option value="annually">Annually</option>
+                  <option value="monthly" selected>Monthly</option>
+                  <option value="daily">Daily</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+            <div class="try-it-result" id="result-compound"></div>
+          </div>
+          
+          <div class="code-examples">
+            <div class="code-tabs">
+              <button class="code-tab active" onclick="showCode(this, 'compound-js')">JavaScript</button>
+              <button class="code-tab" onclick="showCode(this, 'compound-py')">Python</button>
+              <button class="code-tab" onclick="showCode(this, 'compound-curl')">cURL</button>
+            </div>
+            <div class="code-content active" id="compound-js">
+              <pre><code><span class="code-keyword">const</span> params = <span class="code-keyword">new</span> <span class="code-function">URLSearchParams</span>({
+  principal: <span class="code-number">10000</span>,
+  rate: <span class="code-number">7</span>,
+  years: <span class="code-number">10</span>,
+  contribution: <span class="code-number">500</span>,
+  compounding: <span class="code-string">'monthly'</span>
+});
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/compound?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
+            </div>
+            <div class="code-content" id="compound-py">
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/compound'</span>, params={
+    <span class="code-string">'principal'</span>: <span class="code-number">10000</span>,
+    <span class="code-string">'rate'</span>: <span class="code-number">7</span>,
+    <span class="code-string">'years'</span>: <span class="code-number">10</span>,
+    <span class="code-string">'contribution'</span>: <span class="code-number">500</span>,
+    <span class="code-string">'compounding'</span>: <span class="code-string">'monthly'</span>
+})</code></pre>
+            </div>
+            <div class="code-content" id="compound-curl">
+              <pre><code>curl "https://calcleap.com/api/compound?principal=10000&rate=7&years=10&contribution=500&compounding=monthly"</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Retirement Calculator -->
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/retirement</span>
+          </div>
+          <p class="endpoint-desc">Calculate retirement savings projections based on age and contributions.</p>
+          
+          <div class="params">
+            <h5>Parameters</h5>
+            <div class="param">
+              <span class="param-name">currentAge</span>
+              <span class="param-desc">Current age (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">retireAge</span>
+              <span class="param-desc">Retirement age (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">currentSavings</span>
+              <span class="param-desc">Current retirement savings (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">monthlyContribution</span>
+              <span class="param-desc">Monthly contribution amount (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">annualReturn</span>
+              <span class="param-desc">Expected annual return as percentage (number, required)</span>
+            </div>
+          </div>
+          
+          <div class="try-it">
+            <h5>Try It</h5>
+            <form class="try-it-form" onsubmit="return tryEndpoint(event, 'retirement')">
+              <div class="form-group">
+                <label>Current Age</label>
+                <input type="number" name="currentAge" value="35" required>
+              </div>
+              <div class="form-group">
+                <label>Retirement Age</label>
+                <input type="number" name="retireAge" value="65" required>
+              </div>
+              <div class="form-group">
+                <label>Current Savings ($)</label>
+                <input type="number" name="currentSavings" value="50000" required>
+              </div>
+              <div class="form-group">
+                <label>Monthly Contribution ($)</label>
+                <input type="number" name="monthlyContribution" value="1000" required>
+              </div>
+              <div class="form-group">
+                <label>Annual Return (%)</label>
+                <input type="number" step="0.01" name="annualReturn" value="7" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+            <div class="try-it-result" id="result-retirement"></div>
+          </div>
+          
+          <div class="code-examples">
+            <div class="code-tabs">
+              <button class="code-tab active" onclick="showCode(this, 'retirement-js')">JavaScript</button>
+              <button class="code-tab" onclick="showCode(this, 'retirement-py')">Python</button>
+              <button class="code-tab" onclick="showCode(this, 'retirement-curl')">cURL</button>
+            </div>
+            <div class="code-content active" id="retirement-js">
+              <pre><code><span class="code-keyword">const</span> params = <span class="code-keyword">new</span> <span class="code-function">URLSearchParams</span>({
+  currentAge: <span class="code-number">35</span>,
+  retireAge: <span class="code-number">65</span>,
+  currentSavings: <span class="code-number">50000</span>,
+  monthlyContribution: <span class="code-number">1000</span>,
+  annualReturn: <span class="code-number">7</span>
+});
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/retirement?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
+            </div>
+            <div class="code-content" id="retirement-py">
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/retirement'</span>, params={
+    <span class="code-string">'currentAge'</span>: <span class="code-number">35</span>,
+    <span class="code-string">'retireAge'</span>: <span class="code-number">65</span>,
+    <span class="code-string">'currentSavings'</span>: <span class="code-number">50000</span>,
+    <span class="code-string">'monthlyContribution'</span>: <span class="code-number">1000</span>,
+    <span class="code-string">'annualReturn'</span>: <span class="code-number">7</span>
+})</code></pre>
+            </div>
+            <div class="code-content" id="retirement-curl">
+              <pre><code>curl "https://calcleap.com/api/retirement?currentAge=35&retireAge=65&currentSavings=50000&monthlyContribution=1000&annualReturn=7"</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Loan Calculator -->
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/loan</span>
+          </div>
+          <p class="endpoint-desc">Calculate loan payments with optional down payment.</p>
+          
+          <div class="params">
+            <h5>Parameters</h5>
+            <div class="param">
+              <span class="param-name">amount</span>
+              <span class="param-desc">Loan amount (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">rate</span>
+              <span class="param-desc">Annual interest rate as percentage (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">months</span>
+              <span class="param-desc">Loan term in months (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">downPayment</span>
+              <span class="param-desc">Down payment amount (number, default: 0)</span>
+            </div>
+          </div>
+          
+          <div class="try-it">
+            <h5>Try It</h5>
+            <form class="try-it-form" onsubmit="return tryEndpoint(event, 'loan')">
+              <div class="form-group">
+                <label>Amount ($)</label>
+                <input type="number" name="amount" value="25000" required>
+              </div>
+              <div class="form-group">
+                <label>Rate (%)</label>
+                <input type="number" step="0.01" name="rate" value="5.5" required>
+              </div>
+              <div class="form-group">
+                <label>Months</label>
+                <input type="number" name="months" value="60" required>
+              </div>
+              <div class="form-group">
+                <label>Down Payment ($)</label>
+                <input type="number" name="downPayment" value="5000">
+              </div>
+              <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+            <div class="try-it-result" id="result-loan"></div>
+          </div>
+          
+          <div class="code-examples">
+            <div class="code-tabs">
+              <button class="code-tab active" onclick="showCode(this, 'loan-js')">JavaScript</button>
+              <button class="code-tab" onclick="showCode(this, 'loan-py')">Python</button>
+              <button class="code-tab" onclick="showCode(this, 'loan-curl')">cURL</button>
+            </div>
+            <div class="code-content active" id="loan-js">
+              <pre><code><span class="code-keyword">const</span> params = <span class="code-keyword">new</span> <span class="code-function">URLSearchParams</span>({
+  amount: <span class="code-number">25000</span>,
+  rate: <span class="code-number">5.5</span>,
+  months: <span class="code-number">60</span>,
+  downPayment: <span class="code-number">5000</span>
+});
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/loan?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
+            </div>
+            <div class="code-content" id="loan-py">
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/loan'</span>, params={
+    <span class="code-string">'amount'</span>: <span class="code-number">25000</span>,
+    <span class="code-string">'rate'</span>: <span class="code-number">5.5</span>,
+    <span class="code-string">'months'</span>: <span class="code-number">60</span>,
+    <span class="code-string">'downPayment'</span>: <span class="code-number">5000</span>
+})</code></pre>
+            </div>
+            <div class="code-content" id="loan-curl">
+              <pre><code>curl "https://calcleap.com/api/loan?amount=25000&rate=5.5&months=60&downPayment=5000"</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Insurance Calculator -->
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/insurance</span>
+          </div>
+          <p class="endpoint-desc">Estimate insurance costs for auto or home insurance.</p>
+          
+          <div class="params">
+            <h5>Parameters</h5>
+            <div class="param">
+              <span class="param-name">type</span>
+              <span class="param-desc">Insurance type: auto or home (string, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">state</span>
+              <span class="param-desc">US state abbreviation (string, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">age</span>
+              <span class="param-desc">Age of insured (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">coverage</span>
+              <span class="param-desc">Coverage amount (number, required)</span>
+            </div>
+          </div>
+          
+          <div class="try-it">
+            <h5>Try It</h5>
+            <form class="try-it-form" onsubmit="return tryEndpoint(event, 'insurance')">
+              <div class="form-group">
+                <label>Type</label>
+                <select name="type">
+                  <option value="auto">Auto</option>
+                  <option value="home">Home</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>State</label>
+                <input type="text" name="state" value="CA" required maxlength="2">
+              </div>
+              <div class="form-group">
+                <label>Age</label>
+                <input type="number" name="age" value="35" required>
+              </div>
+              <div class="form-group">
+                <label>Coverage ($)</label>
+                <input type="number" name="coverage" value="100000" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+            <div class="try-it-result" id="result-insurance"></div>
+          </div>
+          
+          <div class="code-examples">
+            <div class="code-tabs">
+              <button class="code-tab active" onclick="showCode(this, 'insurance-js')">JavaScript</button>
+              <button class="code-tab" onclick="showCode(this, 'insurance-py')">Python</button>
+              <button class="code-tab" onclick="showCode(this, 'insurance-curl')">cURL</button>
+            </div>
+            <div class="code-content active" id="insurance-js">
+              <pre><code><span class="code-keyword">const</span> params = <span class="code-keyword">new</span> <span class="code-function">URLSearchParams</span>({
+  type: <span class="code-string">'auto'</span>,
+  state: <span class="code-string">'CA'</span>,
+  age: <span class="code-number">35</span>,
+  coverage: <span class="code-number">100000</span>
+});
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/insurance?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
+            </div>
+            <div class="code-content" id="insurance-py">
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/insurance'</span>, params={
+    <span class="code-string">'type'</span>: <span class="code-string">'auto'</span>,
+    <span class="code-string">'state'</span>: <span class="code-string">'CA'</span>,
+    <span class="code-string">'age'</span>: <span class="code-number">35</span>,
+    <span class="code-string">'coverage'</span>: <span class="code-number">100000</span>
+})</code></pre>
+            </div>
+            <div class="code-content" id="insurance-curl">
+              <pre><code>curl "https://calcleap.com/api/insurance?type=auto&state=CA&age=35&coverage=100000"</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <!-- BMI Calculator -->
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/bmi</span>
+          </div>
+          <p class="endpoint-desc">Calculate Body Mass Index with category classification.</p>
+          
+          <div class="params">
+            <h5>Parameters</h5>
+            <div class="param">
+              <span class="param-name">weight</span>
+              <span class="param-desc">Body weight (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">height</span>
+              <span class="param-desc">Height (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">unit</span>
+              <span class="param-desc">Unit system: imperial or metric (string, default: imperial)</span>
+            </div>
+          </div>
+          
+          <div class="try-it">
+            <h5>Try It</h5>
+            <form class="try-it-form" onsubmit="return tryEndpoint(event, 'bmi')">
+              <div class="form-group">
+                <label>Weight</label>
+                <input type="number" name="weight" value="180" required>
+              </div>
+              <div class="form-group">
+                <label>Height</label>
+                <input type="number" name="height" value="70" required>
+              </div>
+              <div class="form-group">
+                <label>Unit</label>
+                <select name="unit">
+                  <option value="imperial">Imperial (lbs/in)</option>
+                  <option value="metric">Metric (kg/cm)</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+            <div class="try-it-result" id="result-bmi"></div>
+          </div>
+          
+          <div class="code-examples">
+            <div class="code-tabs">
+              <button class="code-tab active" onclick="showCode(this, 'bmi-js')">JavaScript</button>
+              <button class="code-tab" onclick="showCode(this, 'bmi-py')">Python</button>
+              <button class="code-tab" onclick="showCode(this, 'bmi-curl')">cURL</button>
+            </div>
+            <div class="code-content active" id="bmi-js">
+              <pre><code><span class="code-keyword">const</span> params = <span class="code-keyword">new</span> <span class="code-function">URLSearchParams</span>({
+  weight: <span class="code-number">180</span>,
+  height: <span class="code-number">70</span>,
+  unit: <span class="code-string">'imperial'</span>
+});
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/bmi?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
+            </div>
+            <div class="code-content" id="bmi-py">
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/bmi'</span>, params={
+    <span class="code-string">'weight'</span>: <span class="code-number">180</span>,
+    <span class="code-string">'height'</span>: <span class="code-number">70</span>,
+    <span class="code-string">'unit'</span>: <span class="code-string">'imperial'</span>
+})</code></pre>
+            </div>
+            <div class="code-content" id="bmi-curl">
+              <pre><code>curl "https://calcleap.com/api/bmi?weight=180&height=70&unit=imperial"</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tip Calculator -->
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/tip</span>
+          </div>
+          <p class="endpoint-desc">Calculate tip and split bill among multiple people.</p>
+          
+          <div class="params">
+            <h5>Parameters</h5>
+            <div class="param">
+              <span class="param-name">bill</span>
+              <span class="param-desc">Bill amount (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">tipPercent</span>
+              <span class="param-desc">Tip percentage (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">people</span>
+              <span class="param-desc">Number of people splitting bill (number, default: 1)</span>
+            </div>
+          </div>
+          
+          <div class="try-it">
+            <h5>Try It</h5>
+            <form class="try-it-form" onsubmit="return tryEndpoint(event, 'tip')">
+              <div class="form-group">
+                <label>Bill ($)</label>
+                <input type="number" step="0.01" name="bill" value="85.50" required>
+              </div>
+              <div class="form-group">
+                <label>Tip (%)</label>
+                <input type="number" step="0.1" name="tipPercent" value="20" required>
+              </div>
+              <div class="form-group">
+                <label>People</label>
+                <input type="number" name="people" value="4">
+              </div>
+              <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+            <div class="try-it-result" id="result-tip"></div>
+          </div>
+          
+          <div class="code-examples">
+            <div class="code-tabs">
+              <button class="code-tab active" onclick="showCode(this, 'tip-js')">JavaScript</button>
+              <button class="code-tab" onclick="showCode(this, 'tip-py')">Python</button>
+              <button class="code-tab" onclick="showCode(this, 'tip-curl')">cURL</button>
+            </div>
+            <div class="code-content active" id="tip-js">
+              <pre><code><span class="code-keyword">const</span> params = <span class="code-keyword">new</span> <span class="code-function">URLSearchParams</span>({
+  bill: <span class="code-number">85.50</span>,
+  tipPercent: <span class="code-number">20</span>,
+  people: <span class="code-number">4</span>
+});
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/tip?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
+            </div>
+            <div class="code-content" id="tip-py">
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/tip'</span>, params={
+    <span class="code-string">'bill'</span>: <span class="code-number">85.50</span>,
+    <span class="code-string">'tipPercent'</span>: <span class="code-number">20</span>,
+    <span class="code-string">'people'</span>: <span class="code-number">4</span>
+})</code></pre>
+            </div>
+            <div class="code-content" id="tip-curl">
+              <pre><code>curl "https://calcleap.com/api/tip?bill=85.50&tipPercent=20&people=4"</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Percentage Calculator -->
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/percentage</span>
+          </div>
+          <p class="endpoint-desc">Calculate percentage operations: what is X% of Y, percentage increase/decrease, or percentage change.</p>
+          
+          <div class="params">
+            <h5>Parameters</h5>
+            <div class="param">
+              <span class="param-name">value</span>
+              <span class="param-desc">Base value (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">percentage</span>
+              <span class="param-desc">Percentage value (number, required)</span>
+            </div>
+            <div class="param">
+              <span class="param-name">type</span>
+              <span class="param-desc">Calculation type: of, increase, decrease, or change (string, required)</span>
+            </div>
+          </div>
+          
+          <div class="try-it">
+            <h5>Try It</h5>
+            <form class="try-it-form" onsubmit="return tryEndpoint(event, 'percentage')">
+              <div class="form-group">
+                <label>Value</label>
+                <input type="number" step="0.01" name="value" value="1000" required>
+              </div>
+              <div class="form-group">
+                <label>Percentage</label>
+                <input type="number" step="0.01" name="percentage" value="15" required>
+              </div>
+              <div class="form-group">
+                <label>Type</label>
+                <select name="type">
+                  <option value="of">X% of Y</option>
+                  <option value="increase">Percentage Increase</option>
+                  <option value="decrease">Percentage Decrease</option>
+                  <option value="change">Percentage Change</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+            <div class="try-it-result" id="result-percentage"></div>
+          </div>
+          
+          <div class="code-examples">
+            <div class="code-tabs">
+              <button class="code-tab active" onclick="showCode(this, 'percentage-js')">JavaScript</button>
+              <button class="code-tab" onclick="showCode(this, 'percentage-py')">Python</button>
+              <button class="code-tab" onclick="showCode(this, 'percentage-curl')">cURL</button>
+            </div>
+            <div class="code-content active" id="percentage-js">
+              <pre><code><span class="code-keyword">const</span> params = <span class="code-keyword">new</span> <span class="code-function">URLSearchParams</span>({
+  value: <span class="code-number">1000</span>,
+  percentage: <span class="code-number">15</span>,
+  type: <span class="code-string">'of'</span>
+});
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/percentage?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
+            </div>
+            <div class="code-content" id="percentage-py">
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/percentage'</span>, params={
+    <span class="code-string">'value'</span>: <span class="code-number">1000</span>,
+    <span class="code-string">'percentage'</span>: <span class="code-number">15</span>,
+    <span class="code-string">'type'</span>: <span class="code-string">'of'</span>
+})</code></pre>
+            </div>
+            <div class="code-content" id="percentage-curl">
+              <pre><code>curl "https://calcleap.com/api/percentage?value=1000&percentage=15&type=of"</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Pricing -->
+      <section id="pricing">
+        <h2>Pricing</h2>
+        <p>Choose the plan that fits your needs. All plans include access to all endpoints.</p>
+        
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-name">Free</div>
+            <div class="pricing-price">$0<small>/month</small></div>
+            <div class="pricing-desc">Perfect for testing and small projects</div>
+            <ul class="pricing-features">
+              <li>100 requests per day</li>
+              <li>All 8 endpoints</li>
+              <li>Rate limited by IP</li>
+              <li>Community support</li>
+              <li>No credit card required</li>
+            </ul>
+            <a href="#getting-started" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+          </div>
+          
+          <div class="pricing-card featured">
+            <div class="pricing-name">Pro</div>
+            <div class="pricing-price">$9<small>/month</small></div>
+            <div class="pricing-desc">For production apps and services</div>
+            <ul class="pricing-features">
+              <li>10,000 requests per day</li>
+              <li>All 8 endpoints</li>
+              <li>API key authentication</li>
+              <li>Priority email support</li>
+              <li>99.9% uptime SLA</li>
+            </ul>
+            <a href="mailto:alexmathewc@gmail.com?subject=CalcLeap%20API%20Pro%20Plan" class="btn btn-primary" style="width: 100%;">Contact Sales</a>
+          </div>
+          
+          <div class="pricing-card">
+            <div class="pricing-name">Enterprise</div>
+            <div class="pricing-price">Custom</div>
+            <div class="pricing-desc">For high-volume applications</div>
+            <ul class="pricing-features">
+              <li>Unlimited requests</li>
+              <li>Custom endpoints</li>
+              <li>Dedicated support</li>
+              <li>SLA guarantees</li>
+              <li>On-premise deployment option</li>
+            </ul>
+            <a href="mailto:alexmathewc@gmail.com?subject=CalcLeap%20API%20Enterprise" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-grid">
+      <div>
+        <h5>Popular Tools</h5>
+        <a href="calc/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="calc/bmi-calculator.html">BMI Calculator</a>
+        <a href="calc/compound-interest.html">Compound Interest</a>
+        <a href="password-generator.html">Password Generator</a>
+      </div>
+      <div>
+        <h5>Developers</h5>
+        <a href="api-docs.html">API Documentation</a>
+        <a href="https://github.com/alexchalu/calcleap-api" target="_blank">GitHub Repository</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div>
+        <h5>Categories</h5>
+        <a href="index.html#finance">Financial</a>
+        <a href="index.html#insurance">Insurance</a>
+        <a href="index.html#health">Health & Fitness</a>
+        <a href="index.html#dev">Developer Tools</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="contact.html">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CalcLeap. All calculations are for informational purposes only.</p>
+      <p>Free · Private · No signup</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Code tab switching
+function showCode(btn, id) {
+  const parent = btn.closest('.code-examples');
+  parent.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active'));
+  parent.querySelectorAll('.code-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  parent.querySelector('#' + id).classList.add('active');
+}
+
+// Try It functionality
+async function tryEndpoint(event, endpoint) {
+  event.preventDefault();
+  const form = event.target;
+  const resultDiv = document.getElementById('result-' + endpoint);
+  
+  // Build query string from form data
+  const formData = new FormData(form);
+  const params = new URLSearchParams();
+  for (let [key, value] of formData.entries()) {
+    if (value) params.append(key, value);
+  }
+  
+  const url = `https://calcleap.com/api/${endpoint}?${params.toString()}`;
+  
+  try {
+    resultDiv.textContent = 'Loading...';
+    resultDiv.className = 'try-it-result show';
+    
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    resultDiv.className = 'try-it-result show success';
+    resultDiv.textContent = JSON.stringify(data, null, 2);
+  } catch (error) {
+    resultDiv.className = 'try-it-result show error';
+    resultDiv.textContent = 'Error: ' + error.message;
+  }
+  
+  return false;
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Highlight active section in sidebar
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.sidebar nav a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (scrollY >= sectionTop - 100) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
