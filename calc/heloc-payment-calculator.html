@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free HELOC payment calculator. Calculate monthly payments for home equity lines of credit during draw and repayment periods. Compare interest-only vs principal+interest payments.">
-  <meta name="keywords" content="heloc payment calculator, home equity line of credit calculator, heloc calculator, home equity calculator, heloc interest calculator">
+  <meta name="description" content="Free HELOC payment calculator. Calculate monthly payments, total interest, and payment schedules for Home Equity Lines of Credit. Compare draw and repayment periods.">
+  <meta name="keywords" content="heloc payment calculator, heloc calculator, home equity line of credit calculator, heloc interest calculator, home equity payment calculator">
   <title>HELOC Payment Calculator - Home Equity Line of Credit | CalcLeap</title>
   <link rel="canonical" href="https://calcleap.com/calc/heloc-payment-calculator.html">
   <style>
@@ -147,55 +147,34 @@
       font-size: 28px;
       font-weight: 700;
     }
-    .timeline {
+    .phase-breakdown {
       background: white;
       color: #1d1d1f;
       padding: 24px;
       border-radius: 12px;
       margin-top: 20px;
     }
-    .phase {
-      padding: 20px;
-      border-left: 4px solid #0071e3;
-      margin-bottom: 20px;
-      background: #f5f5f7;
-      border-radius: 8px;
-    }
-    .phase:last-child {
-      margin-bottom: 0;
-    }
-    .phase-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #0071e3;
-      margin-bottom: 12px;
-    }
-    .phase-detail {
-      display: flex;
-      justify-content: space-between;
-      margin: 8px 0;
-      font-size: 15px;
-    }
-    .breakdown {
-      background: white;
-      color: #1d1d1f;
-      padding: 24px;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-    .breakdown-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 0;
+    .phase-section {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
       border-bottom: 1px solid #e5e5e7;
     }
-    .breakdown-row:last-child {
+    .phase-section:last-child {
       border-bottom: none;
-      font-weight: 700;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .phase-header {
       font-size: 18px;
-      margin-top: 8px;
-      padding-top: 16px;
-      border-top: 2px solid #0071e3;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #0071e3;
+    }
+    .phase-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 15px;
     }
     .info {
       background: #d1ecf1;
@@ -204,6 +183,14 @@
       border-radius: 8px;
       margin-top: 16px;
       color: #0c5460;
+    }
+    .warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 16px;
+      color: #856404;
     }
     .section {
       margin: 48px 0;
@@ -312,7 +299,7 @@
 
   <div class="page">
     <h1 class="page-title">HELOC Payment Calculator</h1>
-    <p class="subtitle">Calculate monthly payments for your Home Equity Line of Credit</p>
+    <p class="subtitle">Calculate payments and interest for your Home Equity Line of Credit</p>
 
     <!-- Ad Slot 1 -->
     <ins class="adsbygoogle"
@@ -326,18 +313,18 @@
     <div class="calc-card">
       <div class="input-grid">
         <div class="input-group">
-          <label for="creditLine">HELOC Credit Line Amount ($)</label>
-          <input type="number" id="creditLine" value="100000" min="0" step="5000">
+          <label for="creditLimit">HELOC Credit Limit ($)</label>
+          <input type="number" id="creditLimit" value="100000" min="0" step="1000">
         </div>
         
         <div class="input-group">
-          <label for="currentBalance">Current Outstanding Balance ($)</label>
-          <input type="number" id="currentBalance" value="50000" min="0" step="1000">
+          <label for="balanceUsed">Amount You'll Borrow ($)</label>
+          <input type="number" id="balanceUsed" value="50000" min="0" step="1000">
         </div>
 
         <div class="input-group">
           <label for="interestRate">Interest Rate (APR %)</label>
-          <input type="number" id="interestRate" value="7.5" min="0" max="25" step="0.1">
+          <input type="number" id="interestRate" value="7.5" min="0" max="30" step="0.01">
         </div>
 
         <div class="input-group">
@@ -349,23 +336,14 @@
           <label for="repaymentPeriod">Repayment Period (Years)</label>
           <input type="number" id="repaymentPeriod" value="20" min="1" max="30" step="1">
         </div>
-
-        <div class="input-group">
-          <label for="yearsInDraw">Years Already in Draw Period</label>
-          <input type="number" id="yearsInDraw" value="0" min="0" max="15" step="1">
-        </div>
       </div>
 
       <button class="calc-btn" onclick="calculate()">Calculate HELOC Payments</button>
 
       <div id="results" class="result-box">
-        <h3 style="margin-bottom: 20px; font-size: 24px;">Your HELOC Payment Breakdown</h3>
+        <h3 style="margin-bottom: 20px; font-size: 24px;">Your HELOC Payment Summary</h3>
         
         <div class="result-grid">
-          <div class="result-card">
-            <div class="lbl">Current Monthly Payment</div>
-            <div class="val" id="currentPayment">$0</div>
-          </div>
           <div class="result-card">
             <div class="lbl">Draw Period Payment</div>
             <div class="val" id="drawPayment">$0</div>
@@ -378,49 +356,63 @@
             <div class="lbl">Total Interest Paid</div>
             <div class="val" id="totalInterest">$0</div>
           </div>
+          <div class="result-card">
+            <div class="lbl">Total Amount Paid</div>
+            <div class="val" id="totalPaid">$0</div>
+          </div>
         </div>
 
-        <div class="timeline">
-          <h4 style="font-size: 18px; margin-bottom: 16px;">Payment Timeline</h4>
-          
-          <div class="phase">
-            <div class="phase-title">Draw Period (<span id="drawYearsRemaining">10</span> years)</div>
-            <div class="phase-detail">
+        <div class="phase-breakdown">
+          <div class="phase-section">
+            <div class="phase-header">Draw Period (<span id="drawYears"></span> years)</div>
+            <div class="phase-row">
               <span>Monthly Payment (Interest-Only)</span>
-              <strong id="drawPhasePayment">$312.50</strong>
+              <span id="drawMonthly">$0</span>
             </div>
-            <div class="phase-detail">
-              <span>Total Paid During Draw Period</span>
-              <strong id="drawPhaseTotalPaid">$37,500</strong>
+            <div class="phase-row">
+              <span>Total Paid During Draw</span>
+              <span id="drawTotal">$0</span>
             </div>
-            <div class="phase-detail">
+            <div class="phase-row">
               <span>Remaining Balance After Draw</span>
-              <strong id="drawPhaseBalance">$50,000</strong>
+              <span id="drawBalance">$0</span>
             </div>
-            <p style="margin-top: 12px; font-size: 14px; color: #6e6e73;">During the draw period, you typically make interest-only payments. You can borrow, repay, and re-borrow up to your credit limit.</p>
           </div>
 
-          <div class="phase">
-            <div class="phase-title">Repayment Period (<span id="repayYears">20</span> years)</div>
-            <div class="phase-detail">
+          <div class="phase-section">
+            <div class="phase-header">Repayment Period (<span id="repayYears"></span> years)</div>
+            <div class="phase-row">
               <span>Monthly Payment (Principal + Interest)</span>
-              <strong id="repayPhasePayment">$403.13</strong>
+              <span id="repayMonthly">$0</span>
             </div>
-            <div class="phase-detail">
+            <div class="phase-row">
               <span>Total Paid During Repayment</span>
-              <strong id="repayPhaseTotalPaid">$96,751</strong>
+              <span id="repayTotal">$0</span>
             </div>
-            <div class="phase-detail">
+            <div class="phase-row">
+              <span>Interest Paid During Repayment</span>
+              <span id="repayInterest">$0</span>
+            </div>
+          </div>
+
+          <div class="phase-section">
+            <div class="phase-header">Lifetime Totals</div>
+            <div class="phase-row">
+              <span>Amount Borrowed</span>
+              <span id="borrowed">$0</span>
+            </div>
+            <div class="phase-row">
               <span>Total Interest Paid</span>
-              <strong id="repayPhaseInterest">$46,751</strong>
+              <span id="lifetimeInterest">$0</span>
             </div>
-            <p style="margin-top: 12px; font-size: 14px; color: #6e6e73;">During repayment, you can no longer borrow. You must pay principal + interest until the balance reaches $0.</p>
+            <div class="phase-row">
+              <span>Total Amount Repaid</span>
+              <span id="lifetimeTotal">$0</span>
+            </div>
           </div>
         </div>
 
-        <div class="info">
-          <strong>💡 Payment Shock Warning:</strong> Your payment will increase by <strong id="paymentIncrease">$90.63</strong> when the repayment period starts. Plan ahead for this increase to avoid financial strain.
-        </div>
+        <div id="warnings"></div>
       </div>
     </div>
 
@@ -436,85 +428,117 @@
     <div class="section">
       <h2>Understanding HELOCs (Home Equity Lines of Credit)</h2>
       
-      <p>A Home Equity Line of Credit (HELOC) is a revolving credit line secured by your home equity. Unlike a traditional home equity loan that provides a lump sum, a HELOC works like a credit card—you can borrow, repay, and borrow again up to your credit limit during the draw period.</p>
+      <p>A Home Equity Line of Credit (HELOC) is a revolving line of credit secured by your home's equity. Unlike a traditional loan where you receive a lump sum, a HELOC works more like a credit card—you can borrow, repay, and borrow again up to your credit limit during the draw period. HELOCs typically have two phases: the draw period and the repayment period.</p>
 
       <h3>How HELOC Payments Work</h3>
       
-      <p>HELOCs typically have two distinct phases:</p>
+      <p><strong>Draw Period (typically 5-10 years):</strong> During this phase, you can borrow money up to your credit limit and make minimum monthly payments. Most HELOCs require interest-only payments during the draw period, meaning your payment only covers the interest charges—your principal balance doesn't decrease. Some lenders allow you to pay down principal if you choose.</p>
 
-      <p><strong>1. Draw Period (Usually 5-10 years):</strong> During this phase, you can borrow money up to your credit limit and typically make interest-only payments. Some lenders require minimum monthly payments of 1-2% of the outstanding balance. You can continue to borrow and repay as needed, similar to a credit card.</p>
+      <p><strong>Repayment Period (typically 10-20 years):</strong> Once the draw period ends, you enter the repayment period. You can no longer borrow money, and your payments increase significantly because you're now paying both principal and interest to fully repay the balance over the remaining term. This is often called the "payment shock" because monthly payments can double or triple.</p>
 
-      <p><strong>2. Repayment Period (Usually 10-20 years):</strong> Once the draw period ends, you can no longer borrow. Your payment switches to principal + interest, fully amortizing the remaining balance over the repayment term. This often results in a significant payment increase known as "payment shock."</p>
-
-      <h3>HELOC Payment Example</h3>
+      <h3>HELOC vs. Home Equity Loan: Key Differences</h3>
       
-      <p>Let's say you have a $100,000 HELOC at 7.5% APR with a 10-year draw period and 20-year repayment period. You've borrowed $50,000:</p>
+      <p><strong>HELOC (Line of Credit):</strong></p>
       <ul>
-        <li><strong>Draw Period Payment:</strong> $312.50/month (interest-only on $50,000)</li>
-        <li><strong>Total Paid During Draw:</strong> $37,500 over 10 years (all interest, no principal reduction)</li>
-        <li><strong>Repayment Period Payment:</strong> $403.13/month (principal + interest)</li>
-        <li><strong>Total Paid During Repayment:</strong> $96,751 over 20 years</li>
-        <li><strong>Total Interest Paid:</strong> $84,251 over the life of the HELOC</li>
-        <li><strong>Payment Increase:</strong> $90.63/month when repayment starts</li>
+        <li>Revolving credit—borrow, repay, borrow again during draw period</li>
+        <li>Variable interest rate (usually tied to prime rate)</li>
+        <li>Interest-only payments during draw period</li>
+        <li>Flexibility to borrow only what you need, when you need it</li>
+        <li>Payment amount can change as rates fluctuate</li>
+        <li>Best for ongoing expenses (renovations, college tuition over multiple years)</li>
       </ul>
 
-      <h3>HELOC vs Home Equity Loan: Key Differences</h3>
-      
-      <p><strong>HELOC:</strong> Variable interest rate, revolving credit line, interest-only payments during draw period, flexibility to borrow as needed, typically lower closing costs.</p>
-
-      <p><strong>Home Equity Loan:</strong> Fixed interest rate, lump sum disbursement, fixed monthly payments from day one, predictable payment schedule, better for one-time expenses.</p>
-
-      <p><strong>Which is better?</strong> Choose a HELOC if you need ongoing access to funds (home renovations done in stages, college tuition over multiple years) or want lower initial payments. Choose a home equity loan if you need a specific amount once and want predictable fixed payments.</p>
-
-      <h3>HELOC Interest Rates & How They're Calculated</h3>
-      
-      <p>Most HELOCs have variable interest rates tied to the Prime Rate plus a margin. For example, if Prime Rate is 5.5% and your margin is 2%, your APR would be 7.5%. When the Fed raises or lowers rates, your HELOC rate adjusts accordingly—typically quarterly or monthly.</p>
-
-      <p><strong>Rate caps:</strong> Many HELOCs have periodic caps (limiting how much the rate can change in one adjustment) and lifetime caps (maximum rate over the loan's life). A common structure is a 2% periodic cap and 18% lifetime cap.</p>
-
-      <p><strong>Introductory rates:</strong> Some lenders offer promotional rates for the first 6-12 months. Always calculate payments using the fully-indexed rate (Prime + margin) to avoid surprises.</p>
-
-      <h3>How Much Can You Borrow with a HELOC?</h3>
-      
-      <p>Lenders typically allow you to borrow up to 80-90% of your home's appraised value minus any existing mortgage balance.</p>
-
-      <p><strong>Formula:</strong> (Home Value × Combined Loan-to-Value Ratio) - Mortgage Balance = Maximum HELOC</p>
-
-      <p><strong>Example:</strong> Home worth $400,000, mortgage balance $250,000, lender allows 85% CLTV:</p>
+      <p><strong>Home Equity Loan:</strong></p>
       <ul>
-        <li>($400,000 × 0.85) - $250,000 = $90,000 maximum HELOC</li>
+        <li>Lump sum disbursement—receive all funds at once</li>
+        <li>Fixed interest rate (payment never changes)</li>
+        <li>Fixed monthly payment from day one (principal + interest)</li>
+        <li>Predictable repayment schedule</li>
+        <li>Better for one-time expenses (debt consolidation, major purchase)</li>
       </ul>
 
-      <p><strong>Credit score impact:</strong> To qualify for the best rates and highest credit limits, you typically need a credit score of 700+, stable income, and a debt-to-income ratio below 43%.</p>
-
-      <h3>Smart Strategies for Managing Your HELOC</h3>
+      <h3>Example HELOC Payment Calculation</h3>
       
-      <p><strong>1. Pay more than the minimum:</strong> Making principal payments during the draw period reduces your balance and lowers future repayment-period payments. Even an extra $100/month can save thousands in interest.</p>
+      <p>Let's say you have a $100,000 HELOC at 7.5% APR. You borrow $50,000. With a 10-year draw period and 20-year repayment period:</p>
 
-      <p><strong>2. Plan for payment shock:</strong> If you're in year 8 of a 10-year draw period, start budgeting for the higher repayment payment now. Consider making the repayment-period payment during the final years of the draw period to avoid sudden financial strain.</p>
+      <p><strong>Draw Period (Years 1-10):</strong></p>
+      <ul>
+        <li>Monthly interest-only payment: $312.50 ($50,000 × 7.5% ÷ 12)</li>
+        <li>Total paid: $37,500 (all interest)</li>
+        <li>Balance after 10 years: Still $50,000</li>
+      </ul>
 
-      <p><strong>3. Convert to a fixed-rate loan:</strong> Many lenders allow you to convert all or part of your HELOC balance to a fixed-rate loan, protecting you from rising interest rates. This is especially valuable if rates are low or expected to increase.</p>
+      <p><strong>Repayment Period (Years 11-30):</strong></p>
+      <ul>
+        <li>Monthly payment: $403.04 (principal + interest)</li>
+        <li>Total paid: $96,729.60</li>
+        <li>Interest paid during repayment: $46,729.60</li>
+      </ul>
 
-      <p><strong>4. Use for high-ROI investments:</strong> HELOCs make sense for home improvements that increase property value, debt consolidation at lower rates, or emergency funds. Avoid using them for vacations, cars, or depreciating assets.</p>
+      <p><strong>Lifetime Totals:</strong></p>
+      <ul>
+        <li>Total interest paid: $84,229.60</li>
+        <li>Total repaid: $134,229.60 on a $50,000 loan</li>
+      </ul>
 
-      <p><strong>5. Monitor your home value:</strong> If home values drop significantly, your lender can freeze or reduce your credit line. This happened widely during the 2008 housing crisis. Maintain equity cushion and don't max out your HELOC.</p>
+      <p>This example shows why it's often smart to make principal payments during the draw period if you can afford it—you'll save tens of thousands in interest.</p>
 
-      <h3>Tax Implications of HELOCs</h3>
+      <h3>HELOC Interest Rates: How They Work</h3>
       
-      <p>Under current tax law (as of 2023), HELOC interest is tax-deductible only if you use the funds to "buy, build, or substantially improve" the home securing the loan. Interest on up to $750,000 of qualified home loans (including your mortgage and HELOC combined) may be deductible.</p>
+      <p>Most HELOCs have variable interest rates tied to the prime rate plus a margin (typically 0-3%). When the Federal Reserve raises or lowers rates, your HELOC rate usually adjusts within 30-60 days. This means your payment can increase or decrease over time.</p>
 
-      <p><strong>Not deductible:</strong> HELOC interest used for credit card debt consolidation, car purchases, vacations, or other personal expenses is not tax-deductible. Consult a tax professional for advice specific to your situation.</p>
+      <p><strong>Example:</strong> If prime rate is 7% and your lender adds a 0.5% margin, your rate is 7.5%. If the Fed raises rates and prime goes to 8%, your rate becomes 8.5% and your payment increases accordingly.</p>
 
-      <h3>Risks & Considerations</h3>
+      <p>Some HELOCs offer an introductory fixed rate (e.g., 3.99% for the first 12 months), then convert to variable. Read the fine print carefully.</p>
+
+      <h3>Tax Deductibility of HELOC Interest</h3>
+      
+      <p>Under current tax law (Tax Cuts and Jobs Act), HELOC interest is only deductible if you use the funds to "buy, build, or substantially improve" the home that secures the loan. If you use HELOC funds for other purposes (debt consolidation, car purchase, vacation), the interest is NOT tax deductible.</p>
+
+      <p>The deduction is limited to interest on up to $750,000 of combined mortgage and HELOC debt ($375,000 if married filing separately). Always consult a tax professional for your specific situation.</p>
+
+      <h3>Risks of HELOCs</h3>
+      
+      <p><strong>Payment Shock:</strong> When you transition from interest-only payments to full principal + interest payments, your monthly cost can double or triple. Many homeowners are caught off guard and struggle to afford the higher payment.</p>
+
+      <p><strong>Variable Rate Risk:</strong> If interest rates rise significantly, your payment can increase substantially even during the draw period. A 2-3% rate increase can add hundreds to your monthly payment.</p>
+
+      <p><strong>Home Value Risk:</strong> If your home value drops below your combined mortgage and HELOC balance, you could be "underwater" and unable to sell or refinance without bringing cash to closing.</p>
+
+      <p><strong>Foreclosure Risk:</strong> A HELOC is secured by your home. If you can't make payments, the lender can foreclose, just like with your primary mortgage.</p>
+
+      <h3>Strategies to Minimize HELOC Costs</h3>
+      
+      <p><strong>1. Make principal payments during draw period:</strong> Even small extra payments reduce your balance and save significant interest over the life of the loan.</p>
+
+      <p><strong>2. Pay more than the minimum:</strong> During the draw period, if your minimum is $300/month, paying $500-600/month chips away at principal and reduces your repayment period payment.</p>
+
+      <p><strong>3. Refinance before repayment period:</strong> If you still have a large balance when the draw period ends, consider refinancing into a fixed-rate home equity loan to lock in your rate and avoid payment shock.</p>
+
+      <p><strong>4. Use only what you need:</strong> Just because you have a $100,000 limit doesn't mean you should borrow it all. Borrow conservatively and only for necessary expenses.</p>
+
+      <p><strong>5. Monitor rate changes:</strong> Keep an eye on the prime rate and Federal Reserve announcements. If rates are rising, consider locking in a fixed-rate loan before they go higher.</p>
+
+      <h3>When a HELOC Makes Sense</h3>
       
       <ul>
-        <li><strong>Your home is collateral</strong> – Defaulting on a HELOC can result in foreclosure</li>
-        <li><strong>Variable rates</strong> – Payments can increase significantly if interest rates rise</li>
-        <li><strong>Payment shock</strong> – Sudden payment jumps when the repayment period starts</li>
-        <li><strong>Temptation to overspend</strong> – Easy access to funds can lead to unnecessary debt</li>
-        <li><strong>Closing costs</strong> – Typically 2-5% of the credit line, though some lenders offer no-cost HELOCs with higher rates</li>
-        <li><strong>Annual fees</strong> – Some HELOCs charge $50-$100/year maintenance fees</li>
-        <li><strong>Early closure penalties</strong> – Closing a HELOC within 2-3 years may trigger fees</li>
+        <li>You have ongoing expenses over several years (college tuition, multi-phase renovation)</li>
+        <li>You have strong cash flow and can afford higher payments if rates rise</li>
+        <li>You plan to pay down the balance quickly</li>
+        <li>You want flexibility to borrow only what you need</li>
+        <li>Interest rates are relatively low and stable</li>
+        <li>You have significant home equity (20%+ recommended)</li>
+      </ul>
+
+      <h3>When to Avoid a HELOC</h3>
+      
+      <ul>
+        <li>You need a one-time lump sum (home equity loan is better)</li>
+        <li>You prefer payment predictability (fixed rate is better)</li>
+        <li>Interest rates are rising rapidly</li>
+        <li>You're not confident you can afford higher payments</li>
+        <li>You're close to retirement and want debt-free housing</li>
+        <li>You might sell your home within 5-10 years</li>
       </ul>
     </div>
 
@@ -531,43 +555,43 @@
       <h2>Frequently Asked Questions</h2>
 
       <div class="faq-item">
-        <div class="faq-question">What is the average HELOC interest rate?</div>
-        <div class="faq-answer">As of 2024, HELOC rates typically range from 6.5% to 10% APR, varying based on credit score, home equity, and the lender. Rates are variable and tied to the Prime Rate (currently around 8.5%). Borrowers with excellent credit (740+) and high equity (30%+ in their home) qualify for the best rates. Your rate = Prime Rate + lender margin (typically 0-3%).</div>
+        <div class="faq-question">How much can I borrow with a HELOC?</div>
+        <div class="faq-answer">Most lenders allow you to borrow up to 85% of your home's appraised value, minus your existing mortgage balance. For example, if your home is worth $400,000 and you owe $250,000, you could potentially qualify for a HELOC of up to $90,000 ($400,000 × 0.85 = $340,000 - $250,000 mortgage = $90,000). However, lenders also consider your credit score, income, debt-to-income ratio, and other factors. Typical credit limits range from $10,000 to $500,000.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">Can I pay off my HELOC early?</div>
-        <div class="faq-answer">Yes, HELOCs typically allow early payoff without prepayment penalties during the draw period. However, some lenders charge early closure fees if you close the HELOC within the first 2-3 years (usually $300-$500). Always check your loan agreement. Paying down your balance during the draw period is encouraged and reduces future interest costs, but closing the line entirely may trigger fees.</div>
+        <div class="faq-question">What credit score do I need for a HELOC?</div>
+        <div class="faq-answer">Most lenders require a minimum credit score of 620-680 for HELOC approval, though you'll get the best rates with a score of 740+. A higher score means a lower interest rate margin above prime. For example, excellent credit (760+) might get prime + 0%, while fair credit (640-680) might be prime + 2-3%. Some credit unions and online lenders have programs for borrowers with lower scores, but expect higher rates and fees.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">What happens if I can't make my HELOC payments?</div>
-        <div class="faq-answer">Missing HELOC payments can lead to serious consequences: late fees (typically $25-$50), credit score damage (payment history affects 35% of your score), increased interest rates (some lenders raise rates for delinquent borrowers), and ultimately foreclosure since your home secures the loan. If you're struggling, contact your lender immediately to discuss options like temporary payment reductions, loan modifications, or switching to interest-only payments during hardship.</div>
+        <div class="faq-question">Can I pay off my HELOC early without penalty?</div>
+        <div class="faq-answer">Most HELOCs do not have prepayment penalties, meaning you can pay off the balance anytime without extra fees. However, some lenders charge an "early closure fee" if you close the HELOC within the first 2-3 years (typically $300-$500). This discourages borrowers from opening a HELOC just for the initial low rate, then closing it immediately. Check your loan agreement for any early closure or inactivity fees. Paying down the balance (without closing the line) is always penalty-free.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">How does a HELOC affect my credit score?</div>
-        <div class="faq-answer">A HELOC affects your credit in several ways: (1) Hard inquiry when you apply (temporary 5-10 point drop), (2) New credit line increases available credit, which can lower your credit utilization ratio and improve scores, (3) Payment history impacts 35% of your score—on-time payments help, late payments hurt significantly, (4) HELOCs count toward your total debt load when applying for other loans. Using less than 30% of your HELOC limit helps maintain healthy credit scores.</div>
+        <div class="faq-question">What happens if I don't use my HELOC?</div>
+        <div class="faq-answer">If you don't use your HELOC, you typically don't owe any payments—you only pay interest on the balance you've borrowed. However, some lenders charge an annual fee ($50-$100) or an inactivity fee if you don't draw any funds for an extended period. Additionally, keeping an unused HELOC open can affect your credit utilization ratio and borrowing capacity for other loans. If you don't anticipate using it, consider closing the line to free up borrowing power, but beware of early closure fees.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">Can I get a HELOC with bad credit?</div>
-        <div class="faq-answer">Getting a HELOC with bad credit (below 620) is difficult but possible. You'll face higher interest rates (potentially 10-15% APR), lower credit limits (may be capped at 70-75% CLTV instead of 85-90%), and stricter income verification. Some options: work on improving your credit score first (pay down debt, fix errors, wait 12-24 months after major derogatory events), consider a co-signer with strong credit, or explore FHA cash-out refinancing as an alternative. Credit unions and local banks may be more flexible than large national lenders.</div>
+        <div class="faq-question">Can I convert my HELOC to a fixed-rate loan?</div>
+        <div class="faq-answer">Many lenders offer the option to convert all or part of your HELOC balance to a fixed-rate loan. This is often called a "fixed-rate advance" or "lock option." You can lock in a portion of your balance at a fixed rate for a set term (e.g., 5, 10, or 15 years), protecting you from rate increases. There may be a minimum balance requirement (e.g., $10,000) and a small fee. This is a smart move if rates are rising or you want predictable payments on a specific portion of your debt.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">Should I get a HELOC or a home equity loan?</div>
-        <div class="faq-answer">Choose a HELOC if: you need flexible access to funds over time (home renovation in phases, ongoing college expenses), want lower initial payments (interest-only during draw), or are comfortable with variable rates. Choose a home equity loan if: you need a specific lump sum once, want predictable fixed monthly payments, prefer rate stability, or are financing a one-time expense (debt consolidation, major purchase). HELOCs offer flexibility but expose you to rate risk; home equity loans provide certainty but less flexibility.</div>
+        <div class="faq-question">What's the difference between a HELOC and a cash-out refinance?</div>
+        <div class="faq-answer">A cash-out refinance replaces your entire existing mortgage with a new, larger loan—you receive the difference in cash. A HELOC is a separate second loan that doesn't affect your primary mortgage. Cash-out refinancing makes sense if current mortgage rates are lower than your existing rate, you want a fixed rate, or you need a large lump sum. HELOCs are better for ongoing access to funds, preserving your existing low mortgage rate, or borrowing smaller amounts. Cash-out refis have higher closing costs (2-5% of loan amount) while HELOCs often have minimal or no closing costs.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">What is a HELOC draw period?</div>
-        <div class="faq-answer">The draw period (typically 5-10 years) is the phase when you can actively borrow from your HELOC up to your credit limit. During this time, you usually make interest-only payments on the outstanding balance, though you can pay principal voluntarily. You can borrow, repay, and re-borrow repeatedly—it works like a credit card secured by your home. Once the draw period ends, you enter the repayment period where you can no longer borrow and must pay principal + interest to fully repay the balance.</div>
+        <div class="faq-question">Can I get a HELOC with no closing costs?</div>
+        <div class="faq-answer">Yes, many lenders offer HELOCs with no or low closing costs to attract borrowers. However, read the fine print: some charge higher interest rates to offset the savings, while others charge an early closure fee if you pay off or close the HELOC within 2-3 years. Typical HELOC closing costs (when not waived) include appraisal fee ($300-$600), title search ($200-$400), origination fee (1-2% of credit limit), and recording fees ($50-$200). Shopping multiple lenders can save thousands in fees.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question">Can I refinance my HELOC?</div>
-        <div class="faq-answer">Yes, you can refinance a HELOC in several ways: (1) Refinance into a new HELOC with better terms or lower rates, (2) Convert to a fixed-rate home equity loan for payment stability, (3) Do a cash-out refinance of your first mortgage that pays off both your existing mortgage and HELOC (consolidating into one loan), or (4) Some lenders offer "fixed-rate advance" options within your existing HELOC. Refinancing makes sense if rates have dropped 1%+, you want payment predictability, or you're approaching the end of the draw period and facing payment shock.</div>
+        <div class="faq-question">What happens to my HELOC if my home value drops?</div>
+        <div class="faq-answer">If your home value declines significantly and you become "underwater" (owing more than the home is worth), your lender may freeze or reduce your HELOC credit line to protect against further losses. This happened to many homeowners during the 2008-2012 housing crisis. However, the lender cannot demand immediate repayment of your existing balance—you can continue making regular payments. If you sell the home for less than you owe, you may need to bring cash to closing or negotiate a short sale with the lender. Maintaining at least 20% equity provides a buffer against market downturns.</div>
       </div>
     </div>
   </div>
@@ -578,15 +602,15 @@
         <h4>Popular Calculators</h4>
         <a href="/calc/mortgage-calculator.html">Mortgage Calculator</a>
         <a href="/calc/bmi-calculator.html">BMI Calculator</a>
-        <a href="/calc/compound-interest-calculator.html">Compound Interest</a>
+        <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
         <a href="/calc/loan-calculator.html">Loan Calculator</a>
       </div>
       <div class="footer-section">
-        <h4>Home Equity Tools</h4>
+        <h4>Finance Tools</h4>
         <a href="/calc/heloc-payment-calculator.html">HELOC Calculator</a>
         <a href="/calc/mortgage-refinance-calculator.html">Refinance Calculator</a>
-        <a href="/calc/home-value-calculator.html">Home Value Calculator</a>
-        <a href="/calc/mortgage-payoff-calculator.html">Payoff Calculator</a>
+        <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal</a>
+        <a href="/calc/compound-interest-calculator.html">Compound Interest</a>
       </div>
       <div class="footer-section">
         <h4>Resources</h4>
@@ -607,61 +631,68 @@
 
   <script>
     function calculate() {
-      const creditLine = parseFloat(document.getElementById('creditLine').value);
-      const balance = parseFloat(document.getElementById('currentBalance').value);
+      const creditLimit = parseFloat(document.getElementById('creditLimit').value);
+      const balance = parseFloat(document.getElementById('balanceUsed').value);
       const annualRate = parseFloat(document.getElementById('interestRate').value) / 100;
+      const monthlyRate = annualRate / 12;
       const drawYears = parseInt(document.getElementById('drawPeriod').value);
       const repayYears = parseInt(document.getElementById('repaymentPeriod').value);
-      const yearsInDraw = parseInt(document.getElementById('yearsInDraw').value);
-      
-      const monthlyRate = annualRate / 12;
-      const drawMonthsRemaining = (drawYears - yearsInDraw) * 12;
+      const drawMonths = drawYears * 12;
       const repayMonths = repayYears * 12;
 
-      // Draw period: interest-only payment
+      // Draw period: Interest-only payments
       const drawPayment = balance * monthlyRate;
-      
-      // Total paid during remaining draw period
-      const drawPhaseTotalPaid = drawPayment * drawMonthsRemaining;
-      
-      // Balance at end of draw period (assuming no additional borrowing or principal payments)
-      const balanceAfterDraw = balance;
-      
-      // Repayment period: principal + interest (fully amortizing)
-      const repayPayment = balanceAfterDraw * (monthlyRate * Math.pow(1 + monthlyRate, repayMonths)) / 
-                          (Math.pow(1 + monthlyRate, repayMonths) - 1);
-      
-      // Total paid during repayment
-      const repayPhaseTotalPaid = repayPayment * repayMonths;
-      
-      // Total interest paid
-      const repayPhaseInterest = repayPhaseTotalPaid - balanceAfterDraw;
-      const totalInterest = drawPhaseTotalPaid + repayPhaseInterest;
-      
-      // Payment increase
-      const paymentIncrease = repayPayment - drawPayment;
+      const totalDrawPayments = drawPayment * drawMonths;
+      const balanceAfterDraw = balance; // Balance doesn't decrease with interest-only
 
-      // Determine current payment based on years in draw
-      const currentPayment = yearsInDraw < drawYears ? drawPayment : repayPayment;
+      // Repayment period: Principal + Interest
+      const repayPayment = balance * (monthlyRate * Math.pow(1 + monthlyRate, repayMonths)) / 
+                          (Math.pow(1 + monthlyRate, repayMonths) - 1);
+      const totalRepayPayments = repayPayment * repayMonths;
+      const interestDuringRepay = totalRepayPayments - balance;
+
+      // Lifetime totals
+      const totalInterest = totalDrawPayments + interestDuringRepay;
+      const totalPaid = balance + totalInterest;
 
       // Display results
-      document.getElementById('currentPayment').textContent = '$' + currentPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-      document.getElementById('drawPayment').textContent = '$' + drawPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-      document.getElementById('repayPayment').textContent = '$' + repayPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      document.getElementById('drawPayment').textContent = '$' + drawPayment.toFixed(2);
+      document.getElementById('repayPayment').textContent = '$' + repayPayment.toFixed(2);
       document.getElementById('totalInterest').textContent = '$' + totalInterest.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('totalPaid').textContent = '$' + totalPaid.toLocaleString('en-US', {maximumFractionDigits: 0});
 
-      // Timeline details
-      document.getElementById('drawYearsRemaining').textContent = (drawYears - yearsInDraw);
-      document.getElementById('drawPhasePayment').textContent = '$' + drawPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-      document.getElementById('drawPhaseTotalPaid').textContent = '$' + drawPhaseTotalPaid.toLocaleString('en-US', {maximumFractionDigits: 0});
-      document.getElementById('drawPhaseBalance').textContent = '$' + balanceAfterDraw.toLocaleString('en-US', {maximumFractionDigits: 0});
-      
+      // Breakdown
+      document.getElementById('drawYears').textContent = drawYears;
+      document.getElementById('drawMonthly').textContent = '$' + drawPayment.toFixed(2);
+      document.getElementById('drawTotal').textContent = '$' + totalDrawPayments.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('drawBalance').textContent = '$' + balanceAfterDraw.toLocaleString('en-US', {maximumFractionDigits: 0});
+
       document.getElementById('repayYears').textContent = repayYears;
-      document.getElementById('repayPhasePayment').textContent = '$' + repayPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-      document.getElementById('repayPhaseTotalPaid').textContent = '$' + repayPhaseTotalPaid.toLocaleString('en-US', {maximumFractionDigits: 0});
-      document.getElementById('repayPhaseInterest').textContent = '$' + repayPhaseInterest.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('repayMonthly').textContent = '$' + repayPayment.toFixed(2);
+      document.getElementById('repayTotal').textContent = '$' + totalRepayPayments.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('repayInterest').textContent = '$' + interestDuringRepay.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+      document.getElementById('borrowed').textContent = '$' + balance.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('lifetimeInterest').textContent = '$' + totalInterest.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('lifetimeTotal').textContent = '$' + totalPaid.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+      // Warnings
+      const paymentIncrease = ((repayPayment - drawPayment) / drawPayment * 100).toFixed(0);
+      let warnings = '';
       
-      document.getElementById('paymentIncrease').textContent = '$' + paymentIncrease.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      if (repayPayment > drawPayment * 2) {
+        warnings = '<div class="warning"><strong>⚠ Payment Shock Alert!</strong> Your payment will increase by ' + paymentIncrease + '% (from $' + drawPayment.toFixed(2) + ' to $' + repayPayment.toFixed(2) + ') when the repayment period begins. Consider making principal payments during the draw period to reduce this shock.</div>';
+      }
+
+      if (balance / creditLimit > 0.8) {
+        warnings += '<div class="info"><strong>💡 High Utilization</strong> You\'re planning to use ' + (balance / creditLimit * 100).toFixed(0) + '% of your available credit. High utilization can impact your credit score and leave little emergency cushion.</div>';
+      }
+
+      if (totalInterest > balance) {
+        warnings += '<div class="info"><strong>💡 Interest Cost</strong> You\'ll pay $' + totalInterest.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' in interest over the life of this HELOC—more than the amount you borrowed. Making principal payments during the draw period can save tens of thousands in interest.</div>';
+      }
+
+      document.getElementById('warnings').innerHTML = warnings;
 
       // Show results
       document.getElementById('results').classList.add('show');
