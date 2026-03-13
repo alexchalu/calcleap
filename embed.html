@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embeddable Calculators - CalcLeap</title>
+    <meta name="description" content="Free embeddable calculator widgets for your website. BMI, Mortgage, Compound Interest, Tip, and Age calculators - all free to use!">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+        .header {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #d2d2d7;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1d1d1f;
+        }
+        .subtitle {
+            font-size: 21px;
+            color: #6e6e73;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .intro h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .intro p {
+            font-size: 19px;
+            color: #6e6e73;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 60px;
+            margin-top: 40px;
+        }
+        .calculator-item {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .calculator-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .calculator-icon {
+            font-size: 48px;
+        }
+        .calculator-header h3 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .calculator-description {
+            font-size: 16px;
+            color: #6e6e73;
+            margin-bottom: 24px;
+        }
+        .preview-frame {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #d2d2d7;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        .embed-code-section {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .embed-code-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .code-block {
+            background: #1d1d1f;
+            color: #f5f5f7;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            position: relative;
+        }
+        .copy-button {
+            padding: 8px 16px;
+            background: #0071e3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .copy-button:hover {
+            background: #0077ed;
+        }
+        .copy-button:active {
+            background: #006edb;
+        }
+        .copy-button.copied {
+            background: #34c759;
+        }
+        .features {
+            margin-top: 80px;
+            padding: 60px 40px;
+            background: white;
+            border-radius: 16px;
+        }
+        .features h2 {
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+        .feature-item {
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        .feature-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .feature-item p {
+            font-size: 16px;
+            color: #6e6e73;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 80px;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0071e3 0%, #0077ed 100%);
+            border-radius: 16px;
+            color: white;
+        }
+        .cta h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .cta p {
+            font-size: 21px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: white;
+            color: #0071e3;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            .preview-frame {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Embeddable Calculators</h1>
+        <p class="subtitle">Free, beautiful calculator widgets for your website. Copy and paste to get started in seconds.</p>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Add Professional Calculators to Your Site</h2>
+            <p>Enhance your website with these clean, mobile-responsive calculator widgets. Each calculator is self-contained and works perfectly in any iframe.</p>
+        </div>
+
+        <div class="calculator-grid">
+            <!-- BMI Calculator -->
+            <div class="calculator-item">
+                <div class="calculator-header">
+                    <span class="calculator-icon">⚖️</span>
+                    <h3>BMI Calculator</h3>
+                </div>
+                <p class="calculator-description">
+                    Calculate Body Mass Index from height and weight. Supports both metric and imperial units with instant results.
+                </p>
+                <iframe src="embed/bmi.html" class="preview-frame" title="BMI Calculator Preview"></iframe>
+                <div class="embed-code-section">
+                    <div class="embed-code-label">
+                        <span>Embed Code</span>
+                        <button class="copy-button" onclick="copyCode('bmi')">Copy</button>
+                    </div>
+                    <div class="code-block" id="code-bmi">&lt;iframe src="https://calcleap.com/embed/bmi.html" width="400" height="500" frameborder="0"&gt;&lt;/iframe&gt;
+&lt;p style="text-align:center;font-size:12px;margin-top:8px;"&gt;Powered by &lt;a href="https://calcleap.com" target="_blank"&gt;CalcLeap&lt;/a&gt;&lt;/p&gt;</div>
+                </div>
+            </div>
+
+            <!-- Mortgage Calculator -->
+            <div class="calculator-item">
+                <div class="calculator-header">
+                    <span class="calculator-icon">🏠</span>
+                    <h3>Mortgage Calculator</h3>
+                </div>
+                <p class="calculator-description">
+                    Calculate monthly mortgage payments, total interest, and payment breakdown over the loan term.
+                </p>
+                <iframe src="embed/mortgage.html" class="preview-frame" title="Mortgage Calculator Preview"></iframe>
+                <div class="embed-code-section">
+                    <div class="embed-code-label">
+                        <span>Embed Code</span>
+                        <button class="copy-button" onclick="copyCode('mortgage')">Copy</button>
+                    </div>
+                    <div class="code-block" id="code-mortgage">&lt;iframe src="https://calcleap.com/embed/mortgage.html" width="400" height="500" frameborder="0"&gt;&lt;/iframe&gt;
+&lt;p style="text-align:center;font-size:12px;margin-top:8px;"&gt;Powered by &lt;a href="https://calcleap.com" target="_blank"&gt;CalcLeap&lt;/a&gt;&lt;/p&gt;</div>
+                </div>
+            </div>
+
+            <!-- Compound Interest Calculator -->
+            <div class="calculator-item">
+                <div class="calculator-header">
+                    <span class="calculator-icon">💰</span>
+                    <h3>Compound Interest</h3>
+                </div>
+                <p class="calculator-description">
+                    Calculate investment growth with compound interest. Includes support for regular contributions and multiple compounding frequencies.
+                </p>
+                <iframe src="embed/compound.html" class="preview-frame" title="Compound Interest Calculator Preview"></iframe>
+                <div class="embed-code-section">
+                    <div class="embed-code-label">
+                        <span>Embed Code</span>
+                        <button class="copy-button" onclick="copyCode('compound')">Copy</button>
+                    </div>
+                    <div class="code-block" id="code-compound">&lt;iframe src="https://calcleap.com/embed/compound.html" width="400" height="500" frameborder="0"&gt;&lt;/iframe&gt;
+&lt;p style="text-align:center;font-size:12px;margin-top:8px;"&gt;Powered by &lt;a href="https://calcleap.com" target="_blank"&gt;CalcLeap&lt;/a&gt;&lt;/p&gt;</div>
+                </div>
+            </div>
+
+            <!-- Tip Calculator -->
+            <div class="calculator-item">
+                <div class="calculator-header">
+                    <span class="calculator-icon">💵</span>
+                    <h3>Tip Calculator</h3>
+                </div>
+                <p class="calculator-description">
+                    Calculate tips and split bills effortlessly. Quick tip percentage buttons with custom tip support and bill splitting.
+                </p>
+                <iframe src="embed/tip.html" class="preview-frame" title="Tip Calculator Preview"></iframe>
+                <div class="embed-code-section">
+                    <div class="embed-code-label">
+                        <span>Embed Code</span>
+                        <button class="copy-button" onclick="copyCode('tip')">Copy</button>
+                    </div>
+                    <div class="code-block" id="code-tip">&lt;iframe src="https://calcleap.com/embed/tip.html" width="400" height="500" frameborder="0"&gt;&lt;/iframe&gt;
+&lt;p style="text-align:center;font-size:12px;margin-top:8px;"&gt;Powered by &lt;a href="https://calcleap.com" target="_blank"&gt;CalcLeap&lt;/a&gt;&lt;/p&gt;</div>
+                </div>
+            </div>
+
+            <!-- Age Calculator -->
+            <div class="calculator-item">
+                <div class="calculator-header">
+                    <span class="calculator-icon">🎂</span>
+                    <h3>Age Calculator</h3>
+                </div>
+                <p class="calculator-description">
+                    Calculate precise age from any birthdate. Shows years, months, days, and total time in various units.
+                </p>
+                <iframe src="embed/age.html" class="preview-frame" title="Age Calculator Preview"></iframe>
+                <div class="embed-code-section">
+                    <div class="embed-code-label">
+                        <span>Embed Code</span>
+                        <button class="copy-button" onclick="copyCode('age')">Copy</button>
+                    </div>
+                    <div class="code-block" id="code-age">&lt;iframe src="https://calcleap.com/embed/age.html" width="400" height="500" frameborder="0"&gt;&lt;/iframe&gt;
+&lt;p style="text-align:center;font-size:12px;margin-top:8px;"&gt;Powered by &lt;a href="https://calcleap.com" target="_blank"&gt;CalcLeap&lt;/a&gt;&lt;/p&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>Why Use CalcLeap Embeds?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightweight</h3>
+                    <p>Fast loading with minimal code. Optimized for performance.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile-Responsive</h3>
+                    <p>Perfect on any device, from phones to desktops.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Clean Design</h3>
+                    <p>Apple-inspired interface that looks professional anywhere.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>No Tracking</h3>
+                    <p>Privacy-first. No cookies, no tracking, no data collection.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🆓</div>
+                    <h3>Completely Free</h3>
+                    <p>Use as many as you want. No limits, no fees.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✨</div>
+                    <h3>Self-Contained</h3>
+                    <p>No external dependencies. Everything works out of the box.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Ready to Get Started?</h2>
+            <p>Copy any embed code above and paste it into your website. It's that simple!</p>
+            <a href="https://calcleap.com" class="cta-button">Explore More Tools →</a>
+        </div>
+    </div>
+
+    <script>
+        function copyCode(calcType) {
+            const codeBlock = document.getElementById('code-' + calcType);
+            const button = event.target;
+            const text = codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy. Please select and copy manually.');
+            });
+        }
+    </script>
+</body>
+</html>

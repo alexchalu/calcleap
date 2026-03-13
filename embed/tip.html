@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f5f7;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .calculator {
+            max-width: 360px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 6px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #0071e3;
+        }
+        .tip-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .tip-btn {
+            padding: 12px;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tip-btn:hover {
+            background: #e8e8ed;
+        }
+        .tip-btn.active {
+            background: #0071e3;
+            color: white;
+            border-color: #0071e3;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #0071e3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 8px;
+        }
+        button:hover {
+            background: #0077ed;
+        }
+        button:active {
+            background: #006edb;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f5f5f7;
+            border-radius: 8px;
+            display: none;
+        }
+        .result.show {
+            display: block;
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .result-label {
+            font-size: 14px;
+            color: #6e6e73;
+        }
+        .result-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        .result-value.primary {
+            font-size: 28px;
+            color: #0071e3;
+        }
+        .attribution {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 12px;
+            color: #6e6e73;
+        }
+        .attribution a {
+            color: #0071e3;
+            text-decoration: none;
+        }
+        .attribution a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Tip Calculator</h2>
+        <div class="input-group">
+            <label for="billAmount">Bill Amount ($)</label>
+            <input type="number" id="billAmount" placeholder="50.00" step="0.01">
+        </div>
+        <div class="input-group">
+            <label>Tip Percentage</label>
+            <div class="tip-buttons">
+                <button type="button" class="tip-btn" onclick="selectTip(10)">10%</button>
+                <button type="button" class="tip-btn" onclick="selectTip(15)">15%</button>
+                <button type="button" class="tip-btn active" onclick="selectTip(18)">18%</button>
+                <button type="button" class="tip-btn" onclick="selectTip(20)">20%</button>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="customTip">Custom Tip (%)</label>
+            <input type="number" id="customTip" placeholder="18" step="0.5" value="18">
+        </div>
+        <div class="input-group">
+            <label for="numPeople">Split Between (people)</label>
+            <input type="number" id="numPeople" placeholder="1" min="1" value="1">
+        </div>
+        <button onclick="calculateTip()">Calculate Tip</button>
+        <div class="result" id="result">
+            <div class="result-row">
+                <span class="result-label">Tip Amount</span>
+                <span class="result-value" id="tipAmount">$0.00</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Total Amount</span>
+                <span class="result-value primary" id="totalAmount">$0.00</span>
+            </div>
+            <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 16px 0;">
+            <div class="result-row">
+                <span class="result-label">Per Person</span>
+                <span class="result-value" id="perPerson">$0.00</span>
+            </div>
+        </div>
+        <div class="attribution">
+            Powered by <a href="https://calcleap.com" target="_blank">CalcLeap</a>
+        </div>
+    </div>
+
+    <script>
+        let selectedTipPercent = 18;
+
+        function selectTip(percent) {
+            selectedTipPercent = percent;
+            document.getElementById('customTip').value = percent;
+            
+            // Update button states
+            document.querySelectorAll('.tip-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Update selected tip when custom value changes
+        document.getElementById('customTip').addEventListener('input', function() {
+            selectedTipPercent = parseFloat(this.value) || 0;
+            document.querySelectorAll('.tip-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+        });
+
+        function calculateTip() {
+            const billAmount = parseFloat(document.getElementById('billAmount').value);
+            const tipPercent = parseFloat(document.getElementById('customTip').value) || selectedTipPercent;
+            const numPeople = parseInt(document.getElementById('numPeople').value) || 1;
+
+            if (!billAmount || billAmount <= 0) {
+                alert('Please enter a valid bill amount');
+                return;
+            }
+
+            if (tipPercent < 0) {
+                alert('Tip percentage cannot be negative');
+                return;
+            }
+
+            const tipAmount = billAmount * (tipPercent / 100);
+            const totalAmount = billAmount + tipAmount;
+            const perPerson = totalAmount / numPeople;
+
+            document.getElementById('tipAmount').textContent = '$' + tipAmount.toFixed(2);
+            document.getElementById('totalAmount').textContent = '$' + totalAmount.toFixed(2);
+            document.getElementById('perPerson').textContent = '$' + perPerson.toFixed(2);
+            
+            document.getElementById('result').classList.add('show');
+        }
+
+        // Auto-calculate on input change
+        ['billAmount', 'customTip', 'numPeople'].forEach(id => {
+            document.getElementById(id).addEventListener('input', function() {
+                if (document.getElementById('result').classList.contains('show')) {
+                    calculateTip();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
