@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free home equity loan calculator. Calculate monthly payments, total interest, and compare loan terms. Estimate how much you can borrow based on your home value and mortgage balance.">
+  <meta name="keywords" content="home equity loan calculator, home equity loan payment, second mortgage calculator, home equity borrowing calculator, equity loan rates">
+  <title>Home Equity Loan Calculator - Monthly Payment & Rates | CalcLeap</title>
+  <link rel="canonical" href="https://calcleap.com/calc/home-equity-loan-calculator.html">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+    .nav {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0071e3;
+      text-decoration: none;
+    }
+    .nav-links a {
+      color: #1d1d1f;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #0071e3; }
+    .page {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .page-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+      background: linear-gradient(90deg, #0071e3, #00c3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #6e6e73;
+      margin-bottom: 40px;
+    }
+    .card, .calc-card {
+      background: white;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+    .input-grid {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .input-group label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1d1d1f;
+    }
+    .input-group input, .input-group select {
+      padding: 12px 16px;
+      border: 1px solid #d2d2d7;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.2s;
+      background: #f5f5f7;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: #0071e3;
+      background: white;
+    }
+    .calc-btn {
+      background: #0071e3;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .calc-btn:hover {
+      background: #0077ed;
+      transform: translateY(-1px);
+    }
+    .result-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 28px;
+      border-radius: 14px;
+      margin-top: 24px;
+      display: none;
+    }
+    .result-box.show { display: block; }
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .result-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .result-card .lbl {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+    .result-card .val {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .section {
+      margin: 48px 0;
+    }
+    .section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .section h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 28px 0 16px;
+      color: #0071e3;
+    }
+    .section p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1d1d1f;
+      margin-bottom: 16px;
+    }
+    .section ul {
+      margin: 16px 0 16px 24px;
+    }
+    .section li {
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .faq {
+      margin-top: 48px;
+    }
+    .faq-item {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+    .faq-question {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0071e3;
+      margin-bottom: 12px;
+    }
+    .faq-answer {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1d1d1f;
+    }
+    .footer {
+      background: #1d1d1f;
+      color: white;
+      padding: 48px 20px 32px;
+      margin-top: 80px;
+    }
+    .footer-content {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+    }
+    .footer-section h4 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #f5f5f7;
+    }
+    .footer-section a {
+      display: block;
+      color: #a1a1a6;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .footer-section a:hover {
+      color: #0071e3;
+    }
+    .footer-bottom {
+      max-width: 980px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #424245;
+      text-align: center;
+      font-size: 13px;
+      color: #a1a1a6;
+    }
+    @media (max-width: 768px) {
+      .page-title { font-size: 36px; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="logo">CalcLeap</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/calc/">Calculators</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+    <h1 class="page-title">Home Equity Loan Calculator</h1>
+    <p class="subtitle">Calculate your monthly payment, total interest, and borrowing power</p>
+
+    <!-- Ad Slot 1 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567890"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="calc-card">
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="homeValue">Home Value ($)</label>
+          <input type="number" id="homeValue" value="400000" min="0" step="10000">
+        </div>
+        
+        <div class="input-group">
+          <label for="mortgageBalance">Current Mortgage Balance ($)</label>
+          <input type="number" id="mortgageBalance" value="250000" min="0" step="10000">
+        </div>
+
+        <div class="input-group">
+          <label for="loanAmount">Loan Amount ($)</label>
+          <input type="number" id="loanAmount" value="50000" min="0" step="5000">
+        </div>
+
+        <div class="input-group">
+          <label for="interestRate">Interest Rate (%)</label>
+          <input type="number" id="interestRate" value="7.5" min="0" max="20" step="0.1">
+        </div>
+
+        <div class="input-group">
+          <label for="loanTerm">Loan Term (Years)</label>
+          <select id="loanTerm">
+            <option value="5">5 years</option>
+            <option value="10" selected>10 years</option>
+            <option value="15">15 years</option>
+            <option value="20">20 years</option>
+            <option value="30">30 years</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()">Calculate Payment</button>
+
+      <div id="results" class="result-box">
+        <h3 style="margin-bottom: 20px; font-size: 24px;">Your Home Equity Loan Results</h3>
+        
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="lbl">Monthly Payment</div>
+            <div class="val" id="monthlyPayment">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Total Interest Paid</div>
+            <div class="val" id="totalInterest">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Total Amount Paid</div>
+            <div class="val" id="totalPaid">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Available Equity</div>
+            <div class="val" id="availableEquity">$0</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.15); border-radius: 12px;">
+          <h4 style="font-size: 16px; margin-bottom: 16px;">Equity Breakdown</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Current Home Equity</div>
+              <div style="font-size: 20px; font-weight: 700;" id="currentEquity">$0</div>
+            </div>
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Equity After Loan</div>
+              <div style="font-size: 20px; font-weight: 700;" id="equityAfter">$0</div>
+            </div>
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Loan-to-Value Ratio</div>
+              <div style="font-size: 20px; font-weight: 700;" id="ltv">0%</div>
+            </div>
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Combined LTV</div>
+              <div style="font-size: 20px; font-weight: 700;" id="cltv">0%</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="warnings"></div>
+      </div>
+    </div>
+
+    <!-- Ad Slot 2 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567891"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="section">
+      <h2>Understanding Home Equity Loans</h2>
+      
+      <p>A home equity loan, often called a "second mortgage," allows you to borrow against the equity in your home. Unlike a HELOC (Home Equity Line of Credit), a home equity loan provides a lump sum payment upfront with a fixed interest rate and fixed monthly payments over a set term.</p>
+
+      <h3>How Home Equity Loans Work</h3>
+      
+      <p><strong>Loan Amount:</strong> Most lenders allow you to borrow up to 80-85% of your home's value, minus what you owe on your first mortgage. For example, if your home is worth $400,000 and you owe $250,000, you have $150,000 in equity. At 80% LTV, you could borrow up to $320,000 total ($400,000 × 0.80), meaning you can access up to $70,000 in a home equity loan.</p>
+
+      <p><strong>Fixed Rate & Payment:</strong> Home equity loans have fixed interest rates, so your monthly payment stays the same for the entire loan term. This predictability makes budgeting easier compared to variable-rate HELOCs.</p>
+
+      <p><strong>Loan Terms:</strong> Common terms range from 5 to 30 years. Shorter terms mean higher monthly payments but less total interest paid. Longer terms reduce your monthly payment but increase the total interest cost.</p>
+
+      <h3>Home Equity Loan vs. HELOC: Key Differences</h3>
+      
+      <p><strong>Home Equity Loan (Second Mortgage):</strong></p>
+      <ul>
+        <li>Lump sum payment upfront</li>
+        <li>Fixed interest rate</li>
+        <li>Fixed monthly payments</li>
+        <li>Pay interest on the entire amount from day one</li>
+        <li>Best for: One-time expenses like home renovations, debt consolidation, or major purchases</li>
+      </ul>
+
+      <p><strong>HELOC (Home Equity Line of Credit):</strong></p>
+      <ul>
+        <li>Revolving credit line (like a credit card)</li>
+        <li>Variable interest rate</li>
+        <li>Draw period (typically 10 years) then repayment period (typically 10-20 years)</li>
+        <li>Pay interest only on what you borrow</li>
+        <li>Best for: Ongoing expenses, emergencies, or projects with uncertain costs</li>
+      </ul>
+
+      <h3>Common Uses for Home Equity Loans</h3>
+      
+      <ul>
+        <li><strong>Home improvements:</strong> Kitchen remodels, bathroom upgrades, additions, new roof. These improvements can increase your home's value and the interest may be tax-deductible.</li>
+        <li><strong>Debt consolidation:</strong> Pay off high-interest credit cards, personal loans, or student loans. Home equity rates are typically much lower than credit card rates (7-9% vs. 18-25%).</li>
+        <li><strong>Education expenses:</strong> College tuition, graduate school. Rates are often better than private student loans.</li>
+        <li><strong>Medical bills:</strong> Large medical expenses not covered by insurance.</li>
+        <li><strong>Business funding:</strong> Start or expand a business (though consider SBA loans as an alternative).</li>
+        <li><strong>Emergency expenses:</strong> Major car repairs, urgent home repairs, unexpected financial needs.</li>
+      </ul>
+
+      <h3>Qualification Requirements</h3>
+      
+      <p>To qualify for a home equity loan, lenders typically require:</p>
+      <ul>
+        <li><strong>Sufficient equity:</strong> At least 15-20% equity in your home (80-85% combined loan-to-value ratio)</li>
+        <li><strong>Good credit score:</strong> Usually 620 minimum, but 700+ gets you the best rates</li>
+        <li><strong>Stable income:</strong> Proof of employment and ability to repay</li>
+        <li><strong>Low debt-to-income ratio:</strong> Typically 43% or less (all monthly debt payments ÷ gross monthly income)</li>
+        <li><strong>Home appraisal:</strong> Lender will order an appraisal to confirm your home's current value</li>
+      </ul>
+
+      <h3>Interest Rates & Closing Costs</h3>
+      
+      <p><strong>Current rates:</strong> As of 2026, home equity loan rates typically range from 6.5% to 9%, depending on your credit score, loan amount, and lender. Rates are usually 0.5-1% higher than first mortgage rates but much lower than credit cards or personal loans.</p>
+
+      <p><strong>Closing costs:</strong> Expect to pay 2-5% of the loan amount in closing costs, which may include:</p>
+      <ul>
+        <li>Application fee: $75-$300</li>
+        <li>Appraisal fee: $300-$700</li>
+        <li>Origination fee: 0.5-1% of loan amount</li>
+        <li>Title search and insurance: $700-$1,200</li>
+        <li>Attorney fees: $500-$1,000 (in some states)</li>
+        <li>Recording fees: $50-$250</li>
+      </ul>
+
+      <p>Some lenders offer no-closing-cost home equity loans, but you'll typically pay a higher interest rate to compensate.</p>
+
+      <h3>Tax Deductibility</h3>
+      
+      <p>Under the Tax Cuts and Jobs Act, interest on home equity loans is tax-deductible ONLY if you use the funds to "buy, build, or substantially improve" the home that secures the loan. The deduction is limited to interest on up to $750,000 of total mortgage debt ($375,000 if married filing separately).</p>
+
+      <p><strong>Deductible:</strong> Using a home equity loan to build an addition, remodel the kitchen, or replace the roof.</p>
+      
+      <p><strong>NOT deductible:</strong> Using the loan for debt consolidation, car purchases, vacations, or college tuition.</p>
+
+      <p>Consult a tax professional to understand how this applies to your situation.</p>
+
+      <h3>Risks to Consider</h3>
+      
+      <ul>
+        <li><strong>Foreclosure risk:</strong> Your home is collateral. If you can't make payments, you could lose your home.</li>
+        <li><strong>Reduced equity:</strong> Taking out a home equity loan reduces your ownership stake and could leave you underwater if home values decline.</li>
+        <li><strong>Closing costs:</strong> The 2-5% in fees can add thousands to smaller loans, making them less cost-effective.</li>
+        <li><strong>Extended debt:</strong> A 15-year home equity loan means you're paying for today's expenses for 15 years into the future.</li>
+        <li><strong>Resale complications:</strong> If you sell your home, you must pay off both mortgages from the sale proceeds.</li>
+      </ul>
+
+      <h3>Alternatives to Home Equity Loans</h3>
+      
+      <p><strong>Cash-out refinance:</strong> Replace your existing mortgage with a new, larger one and take the difference in cash. This can make sense if current mortgage rates are lower than your existing rate.</p>
+
+      <p><strong>HELOC:</strong> If you don't need the full amount upfront or prefer flexibility, a HELOC lets you borrow only what you need when you need it.</p>
+
+      <p><strong>Personal loan:</strong> Unsecured personal loans don't put your home at risk, but rates are typically higher (10-15% or more).</p>
+
+      <p><strong>0% balance transfer credit card:</strong> For debt consolidation under $20,000, a 0% intro APR card (12-21 months) can save on interest if you can pay it off during the promo period.</p>
+    </div>
+
+    <!-- Ad Slot 3 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567892"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">How much can I borrow with a home equity loan?</div>
+        <div class="faq-answer">Most lenders allow you to borrow up to 80-85% of your home's value minus your existing mortgage balance. For example, if your home is worth $400,000 and you owe $250,000, you have $150,000 in equity. At 85% combined LTV, you could borrow up to $340,000 total, meaning up to $90,000 via a home equity loan. Factors like credit score, income, and debt-to-income ratio also affect how much you can borrow.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What's the difference between a home equity loan and a HELOC?</div>
+        <div class="faq-answer">A home equity loan gives you a lump sum upfront with a fixed interest rate and fixed monthly payments, similar to a personal loan. A HELOC is a revolving line of credit with a variable rate that you can draw from as needed during a draw period (typically 10 years). Home equity loans are better for one-time expenses with predictable costs, while HELOCs work well for ongoing expenses or projects with uncertain costs.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How long does it take to get a home equity loan?</div>
+        <div class="faq-answer">The typical timeline is 2-6 weeks from application to funding. This includes the appraisal (1-2 weeks), underwriting (1-2 weeks), and closing (scheduled after approval). Some online lenders can close in as little as 2 weeks, while traditional banks may take 4-6 weeks. The speed depends on how quickly you provide documentation, the appraisal scheduling, and the lender's processing time.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is home equity loan interest tax deductible?</div>
+        <div class="faq-answer">Interest is tax-deductible only if you use the loan to buy, build, or substantially improve the home securing the loan. If you use it for debt consolidation, car purchases, or other expenses, the interest is NOT deductible. The deduction is limited to interest on up to $750,000 of total mortgage debt. Keep receipts and documentation if you plan to deduct the interest. Consult a tax professional for personalized advice.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I get a home equity loan with bad credit?</div>
+        <div class="faq-answer">It's possible but challenging. Most lenders require a minimum credit score of 620-640, though some specialized lenders accept scores as low as 580-600 with higher interest rates and lower LTV limits (maybe 70% instead of 85%). You'll also need substantial equity, stable income, and a low debt-to-income ratio. Consider improving your credit score first, as even a 50-point increase can save you thousands in interest over the loan term.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What happens to my home equity loan if I sell my house?</div>
+        <div class="faq-answer">You must pay off the home equity loan (and your first mortgage) when you sell. The loan payoff comes from your sale proceeds. For example, if you sell for $400,000, owe $250,000 on your first mortgage and $50,000 on your home equity loan, you'd pay off $300,000 in debt and receive $100,000 (minus closing costs and commissions). If you don't have enough equity to cover both loans, you'll need to bring cash to closing or negotiate a short sale.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Should I choose a 10-year or 15-year home equity loan term?</div>
+        <div class="faq-answer">A 10-year term means higher monthly payments but less total interest. A 15-year term lowers your monthly payment but increases total interest paid. For example, a $50,000 loan at 7.5% costs $594/month over 10 years ($21,255 total interest) vs. $464/month over 15 years ($33,479 total interest). Choose 10 years if you can afford the higher payment and want to minimize interest. Choose 15 years if you need lower monthly payments or want to keep more cash flow available.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I pay off a home equity loan early without penalty?</div>
+        <div class="faq-answer">Most home equity loans have no prepayment penalties, but some lenders charge a fee if you pay off the loan within the first 2-5 years. Always ask about prepayment penalties before signing. If your loan has no penalty, making extra principal payments can save thousands in interest. Even an extra $100/month on a $50,000 loan at 7.5% can save $5,000+ in interest and shorten the loan by years.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Popular Calculators</h4>
+        <a href="/calc/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="/calc/heloc-calculator.html">HELOC Calculator</a>
+        <a href="/calc/loan-calculator.html">Loan Calculator</a>
+        <a href="/calc/refinance-calculator.html">Refinance Calculator</a>
+      </div>
+      <div class="footer-section">
+        <h4>Finance Tools</h4>
+        <a href="/calc/home-equity-loan-calculator.html">Home Equity Loan</a>
+        <a href="/calc/compound-interest-calculator.html">Compound Interest</a>
+        <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+        <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="/blog/">Financial Blog</a>
+        <a href="/calc/">All Calculators</a>
+        <a href="/about.html">About CalcLeap</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <div class="footer-section">
+        <h4>CalcLeap</h4>
+        <p style="font-size: 14px; color: #a1a1a6; line-height: 1.6;">Free online calculators and tools for finance, health, conversions, and more. Make smarter decisions with CalcLeap.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 CalcLeap. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function calculate() {
+      const homeValue = parseFloat(document.getElementById('homeValue').value);
+      const mortgageBalance = parseFloat(document.getElementById('mortgageBalance').value);
+      const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+      const annualRate = parseFloat(document.getElementById('interestRate').value) / 100;
+      const years = parseInt(document.getElementById('loanTerm').value);
+
+      // Calculate equity
+      const currentEquity = homeValue - mortgageBalance;
+      const equityAfter = currentEquity - loanAmount;
+      const availableEquity = homeValue * 0.85 - mortgageBalance - loanAmount;
+      
+      // Calculate LTV ratios
+      const ltv = ((mortgageBalance / homeValue) * 100).toFixed(1);
+      const cltv = (((mortgageBalance + loanAmount) / homeValue) * 100).toFixed(1);
+
+      // Calculate monthly payment
+      const monthlyRate = annualRate / 12;
+      const numPayments = years * 12;
+      const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
+                            (Math.pow(1 + monthlyRate, numPayments) - 1);
+      
+      const totalPaid = monthlyPayment * numPayments;
+      const totalInterest = totalPaid - loanAmount;
+
+      // Display results
+      document.getElementById('monthlyPayment').textContent = '$' + monthlyPayment.toLocaleString('en-US', {maximumFractionDigits: 2});
+      document.getElementById('totalInterest').textContent = '$' + totalInterest.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('totalPaid').textContent = '$' + totalPaid.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('availableEquity').textContent = availableEquity > 0 ? 
+        '$' + availableEquity.toLocaleString('en-US', {maximumFractionDigits: 0}) : '$0';
+      
+      document.getElementById('currentEquity').textContent = '$' + currentEquity.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('equityAfter').textContent = '$' + equityAfter.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('ltv').textContent = ltv + '%';
+      document.getElementById('cltv').textContent = cltv + '%';
+
+      // Warnings
+      let warnings = '';
+      if (cltv > 85) {
+        warnings += '<div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; border-radius: 8px; margin-top: 16px; color: #856404;"><strong>⚠ High Combined LTV</strong><br>Your combined loan-to-value ratio (' + cltv + '%) exceeds the typical 85% limit. Most lenders won\'t approve this loan amount. Consider reducing your loan amount to ' + Math.floor((homeValue * 0.85 - mortgageBalance)/1000)*1000 + ' or less.</div>';
+      } else if (cltv > 80) {
+        warnings += '<div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; border-radius: 8px; margin-top: 16px; color: #856404;"><strong>💡 Moderate Combined LTV</strong><br>Your combined LTV (' + cltv + '%) is between 80-85%. You may qualify but could face higher interest rates or stricter requirements. Strong credit (700+) and low debt-to-income ratio will help.</div>';
+      }
+
+      if (equityAfter < homeValue * 0.15) {
+        warnings += '<div style="background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 16px; border-radius: 8px; margin-top: 16px; color: #0c5460;"><strong>💡 Low Remaining Equity</strong><br>After this loan, you\'ll have $' + equityAfter.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' equity remaining (' + ((equityAfter/homeValue)*100).toFixed(1) + '% of home value). Consider keeping more equity as a financial cushion for unexpected expenses or market fluctuations.</div>';
+      }
+
+      document.getElementById('warnings').innerHTML = warnings;
+
+      // Show results
+      document.getElementById('results').classList.add('show');
+      
+      // Scroll to results
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>
