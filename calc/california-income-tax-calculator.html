@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>California Income Tax Calculator 2026 — Free CA Tax Estimator | CalcLeap</title>
+<meta name="description" content="Calculate your California state income tax for 2026. Get accurate estimates of CA state tax, federal tax, and take-home pay. Free, fast, and easy to use.">
+<link rel="canonical" href="https://calcleap.com/calc/california-income-tax-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="California Income Tax Calculator 2026 — CalcLeap">
+<meta property="og:description" content="Calculate your California state income tax for 2026. Get accurate estimates of CA state tax, federal tax, and take-home pay.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/calc/california-income-tax-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "California Income Tax Calculator",
+    "description": "Calculate your California state income tax for 2026. Get accurate estimates of CA state tax, federal tax, and take-home pay.",
+    "url": "https://calcleap.com/calc/california-income-tax-calculator.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<style>
+/* === CalcLeap Apple Design System === */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+
+/* === NAV === */
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* === LAYOUT === */
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+
+/* === CALCULATOR CARD === */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+
+.radio-group{display:flex;gap:.5rem;margin-top:.3rem;flex-wrap:wrap}
+.radio-label{display:flex;align-items:center;gap:.4rem;padding:.5rem .9rem;border:1px solid var(--border);border-radius:100px;cursor:pointer;font-size:.85rem;transition:all .2s;text-transform:none;letter-spacing:normal}
+.radio-label:has(input:checked){background:var(--accent-bg);border-color:var(--accent);color:var(--accent)}
+.radio-label input{accent-color:var(--accent);width:16px;height:16px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+
+/* === RESULTS === */
+.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.highlight-box{background:linear-gradient(135deg,#22c55e 0%,#16a34a 100%);color:#fff;border-radius:var(--r-sm);padding:1.5rem;text-align:center;margin-bottom:1.5rem}
+.highlight-box .big{font-size:2.5rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.25rem}
+.highlight-box .label{font-size:.9rem;opacity:.9}
+
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-bottom:1.25rem}
+.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
+.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
+.result-card .value.red{color:#ef4444}
+
+.breakdown-list{margin-top:1rem}
+.breakdown-item{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
+.breakdown-item:last-child{border-bottom:none}
+.breakdown-label{font-size:.9rem;color:var(--text-2)}
+.breakdown-value{font-size:.95rem;font-weight:700}
+
+/* === AD === */
+.ad-slot{margin:1.5rem 0}
+
+/* === INFO SECTIONS === */
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-card ul{margin-left:1.25rem;line-height:1.8}
+.info-card li{font-size:.9rem;color:var(--text-2);margin-bottom:.4rem}
+.info-card p{font-size:.9rem;color:var(--text-2);line-height:1.7;margin-bottom:.75rem}
+
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem;margin:1rem 0}
+th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
+th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
+th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
+td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+
+/* FAQ */
+.faq{border-top:1px solid var(--border);padding:.85rem 0}
+.faq:last-child{border-bottom:none}
+.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+
+/* Related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1.5rem 0}
+.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* === FOOTER === */
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .page{padding:0 1.25rem}
+  .page-title{font-size:1.75rem}
+  .form-row{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .related-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="../index.html#finance">Finance</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#tax">Tax</a>
+      <a href="../index.html#health">Health</a>
+      <a href="../index.html#converters">Converters</a>
+      <a href="../index.html#dev">Dev Tools</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#tax">Tax Calculators</a><span class="sep">›</span>🏛️ California Income Tax
+  </div>
+
+  <h1 class="page-title">🏛️ California Income Tax Calculator 2026</h1>
+  <p class="page-desc">Calculate your California state income tax, federal tax, and take-home pay for 2026. Includes CA's progressive tax brackets and standard deductions.</p>
+
+  <!-- AD SLOT 1 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card">
+    <h2>Calculate Your California Tax</h2>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label>Annual Income ($)</label>
+        <input type="number" id="income" value="80000" step="1000" min="0">
+      </div>
+      <div class="form-group">
+        <label>Filing Status</label>
+        <select id="filingStatus">
+          <option value="single">Single</option>
+          <option value="married">Married Filing Jointly</option>
+          <option value="hoh">Head of Household</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn" onclick="calculate()">Calculate Taxes</button>
+
+    <div class="result-area" id="results">
+      <div class="highlight-box">
+        <div class="big" id="takehome">$0</div>
+        <div class="label">Annual Take-Home Pay</div>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-card">
+          <div class="label">CA State Tax</div>
+          <div class="value red" id="stateTax">$0</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Federal Tax</div>
+          <div class="value red" id="federalTax">$0</div>
+        </div>
+        <div class="result-card">
+          <div class="label">FICA (SS + Medicare)</div>
+          <div class="value red" id="fica">$0</div>
+        </div>
+        <div class="result-card">
+          <div class="label">Effective Tax Rate</div>
+          <div class="value" id="effectiveRate">0%</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;margin:1.5rem 0 .75rem">Tax Breakdown</h3>
+      <div class="breakdown-list">
+        <div class="breakdown-item">
+          <div class="breakdown-label">Gross Income</div>
+          <div class="breakdown-value" id="gross">$0</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-label">CA Standard Deduction</div>
+          <div class="breakdown-value" id="caDeduction">-$0</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-label">CA Taxable Income</div>
+          <div class="breakdown-value" id="caTaxable">$0</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-label">Total Tax (State + Federal + FICA)</div>
+          <div class="breakdown-value" id="totalTax">$0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD SLOT 2 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="info-card">
+    <h3>California Income Tax Rates 2026</h3>
+    <p><strong>California has one of the highest state income tax rates in the U.S.</strong>, with a progressive tax system ranging from 1% to 13.3%. High earners pay significantly more than in most other states.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Income Range (Single)</th>
+          <th>Rate</th>
+          <th>Tax on Range</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>$0 - $10,412</td><td>1.0%</td><td>$0 - $104</td></tr>
+        <tr><td>$10,413 - $24,684</td><td>2.0%</td><td>$104 - $389</td></tr>
+        <tr><td>$24,685 - $38,959</td><td>4.0%</td><td>$389 - $960</td></tr>
+        <tr><td>$38,960 - $54,081</td><td>6.0%</td><td>$960 - $1,867</td></tr>
+        <tr><td>$54,082 - $68,350</td><td>8.0%</td><td>$1,867 - $3,009</td></tr>
+        <tr><td>$68,351 - $349,137</td><td>9.3%</td><td>$3,009 - $29,118</td></tr>
+        <tr><td>$349,138 - $418,961</td><td>10.3%</td><td>$29,118 - $36,309</td></tr>
+        <tr><td>$418,962 - $698,271</td><td>11.3%</td><td>$36,309 - $67,861</td></tr>
+        <tr><td>$698,272 - $1,000,000</td><td>12.3%</td><td>$67,861 - $104,974</td></tr>
+        <tr><td>Over $1,000,000</td><td>13.3%</td><td>$104,974+</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Mental Health Services Tax:</strong> An additional 1% tax applies to income over $1 million, bringing the top marginal rate to 13.3% (the highest in the nation).</p>
+  </div>
+
+  <div class="info-card">
+    <h3>California Standard Deduction 2026</h3>
+    <p>California offers a standard deduction that reduces your taxable income:</p>
+    <ul>
+      <li><strong>Single:</strong> $5,363</li>
+      <li><strong>Married Filing Jointly:</strong> $10,726</li>
+      <li><strong>Head of Household:</strong> $10,726</li>
+    </ul>
+    <p>These deductions are significantly lower than federal standard deductions, resulting in more taxable income at the state level.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>How California Tax Compares to Other States</h3>
+    <p>California's tax burden is among the highest in the nation:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Top Rate</th>
+          <th>$100k Income Tax</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>California</td><td>13.3%</td><td>~$4,500-5,000</td></tr>
+        <tr><td>New York</td><td>10.9%</td><td>~$3,800-4,200</td></tr>
+        <tr><td>New Jersey</td><td>10.75%</td><td>~$3,200-3,600</td></tr>
+        <tr><td>Texas</td><td>0%</td><td>$0</td></tr>
+        <tr><td>Florida</td><td>0%</td><td>$0</td></tr>
+        <tr><td>Washington</td><td>0%</td><td>$0</td></tr>
+      </tbody>
+    </table>
+    <p><strong>A California resident earning $100,000 pays ~$5,000 more per year</strong> in state income tax compared to someone in Texas or Florida.</p>
+  </div>
+
+  <div class="info-card">
+    <h3>Who Pays the Most CA Income Tax?</h3>
+    <p>California's progressive tax structure means high earners bear most of the burden:</p>
+    <ul>
+      <li><strong>Top 1% of earners</strong> (income > $800,000) pay ~50% of all CA income tax</li>
+      <li><strong>Earners over $1 million</strong> face a 13.3% marginal rate on top income</li>
+      <li><strong>Middle-class earners</strong> ($50k-$150k) pay 6-9.3% on most income</li>
+      <li><strong>Low earners</strong> (< $30k) pay 1-4%, often offset by credits</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>California Tax Credits and Deductions</h3>
+    <p>California offers several credits to reduce your tax bill:</p>
+    <ul>
+      <li><strong>Earned Income Tax Credit (CA EITC)</strong> — Up to $3,417 for low-income workers</li>
+      <li><strong>Young Child Tax Credit</strong> — $1,117 per child under 6 (for EITC recipients)</li>
+      <li><strong>Dependent Exemption Credit</strong> — $446 per dependent</li>
+      <li><strong>Renter's Credit</strong> — $60-120 for low-income renters</li>
+      <li><strong>Mortgage Interest Deduction</strong> — Up to $1 million in mortgage debt (state level)</li>
+      <li><strong>Charitable Contributions</strong> — Itemized deductions available</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h3>When Are California Taxes Due?</h3>
+    <p><strong>California tax returns are due April 15th</strong> (or the next business day if it falls on a weekend/holiday), matching the federal deadline.</p>
+    <p><strong>Extension:</strong> You can file for an automatic 6-month extension to October 15th. However, you must still pay any estimated tax owed by April 15th to avoid penalties.</p>
+    <p><strong>Estimated tax payments:</strong> If you're self-employed or have significant non-wage income, you must make quarterly estimated tax payments (April 15, June 15, September 15, January 15).</p>
+  </div>
+
+  <!-- AD SLOT 3 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="info-card">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <div class="faq-q">What is California's income tax rate?</div>
+      <div class="faq-a">California has progressive tax rates from 1% to 13.3%. Most middle-class earners pay 6-9.3% on the majority of their income. High earners (over $1 million) pay the nation's highest state income tax rate at 13.3%.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Do I have to pay both CA state tax and federal tax?</div>
+      <div class="faq-a">Yes. California residents pay both federal income tax (to the IRS) and California state income tax (to the Franchise Tax Board). You file two separate tax returns. Federal taxes cannot be deducted on your CA return, but state taxes can be deducted on your federal return (up to $10,000 SALT cap).</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How much is California state tax on $100,000?</div>
+      <div class="faq-a">For a single filer earning $100,000, California state income tax is approximately $4,800-5,000 (effective rate ~5%). This doesn't include federal tax or FICA.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Does California tax Social Security or retirement income?</div>
+      <div class="faq-a">California does NOT tax Social Security benefits. However, most other retirement income (401k withdrawals, IRA distributions, pensions) is fully taxable at California's normal income tax rates.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Can I claim the federal standard deduction on my CA return?</div>
+      <div class="faq-a">No. California has its own, much lower standard deduction ($5,363 single vs. $14,600 federal in 2026). This means more of your income is taxable at the state level.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">What happens if I move to/from California mid-year?</div>
+      <div class="faq-a">You file as a part-year resident and only pay CA tax on income earned while living in California. You'll need to prorate your income and deductions. California is aggressive about taxing former residents on California-source income (e.g., stock options from a CA employer).</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">Are capital gains taxed differently in California?</div>
+      <div class="faq-a">No. California taxes capital gains (stocks, crypto, real estate) as ordinary income at the same 1-13.3% rates. There's no special lower rate like at the federal level, making CA expensive for investors.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-q">How can I reduce my California tax bill?</div>
+      <div class="faq-a">Maximize retirement contributions (401k, IRA), claim all eligible credits (EITC, dependent credits), itemize deductions if beneficial, consider tax-loss harvesting for investments, and if self-employed, deduct all business expenses. High earners sometimes relocate to no-tax states like Nevada or Texas to avoid CA's 13.3% rate.</div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h3>🔗 Related Calculators</h3>
+    <div class="related-grid">
+      <a href="../income-tax-calculator.html" class="related-link">Federal Income Tax</a>
+      <a href="401k-withdrawal-calculator.html" class="related-link">401k Withdrawal Tax</a>
+      <a href="capital-gains-tax-calculator.html" class="related-link">Capital Gains Tax</a>
+      <a href="payroll-tax-calculator.html" class="related-link">Payroll Tax Calculator</a>
+      <a href="self-employment-tax-calculator.html" class="related-link">Self-Employment Tax</a>
+      <a href="mortgage-payment.html" class="related-link">Mortgage Calculator</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="../index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h5>Popular</h5>
+      <a href="../bmi-calculator.html">BMI Calculator</a>
+      <a href="mortgage-payment.html">Mortgage</a>
+      <a href="../income-tax-calculator.html">Income Tax</a>
+    </div>
+    <div>
+      <h5>Categories</h5>
+      <a href="../index.html#finance">Financial</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#health">Health</a>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. For informational purposes only. Consult a tax professional for advice.</p>
+  </div>
+</footer>
+
+<script>
+function calculate() {
+  const income = parseFloat(document.getElementById('income').value) || 0;
+  const filingStatus = document.getElementById('filingStatus').value;
+
+  // CA Standard Deductions 2026
+  const caStandardDeduction = {
+    'single': 5363,
+    'married': 10726,
+    'hoh': 10726
+  };
+
+  // Federal Standard Deductions 2026 (estimated)
+  const fedStandardDeduction = {
+    'single': 14600,
+    'married': 29200,
+    'hoh': 21900
+  };
+
+  const caDeduction = caStandardDeduction[filingStatus];
+  const fedDeduction = fedStandardDeduction[filingStatus];
+
+  // CA Taxable Income
+  const caTaxableIncome = Math.max(0, income - caDeduction);
+
+  // Calculate CA State Tax (2026 brackets - single filer shown, adjust multiplier for married)
+  let caTax = 0;
+  const brackets = [
+    {limit: 10412, rate: 0.01, base: 0},
+    {limit: 24684, rate: 0.02, base: 104},
+    {limit: 38959, rate: 0.04, base: 389},
+    {limit: 54081, rate: 0.06, base: 960},
+    {limit: 68350, rate: 0.08, base: 1867},
+    {limit: 349137, rate: 0.093, base: 3009},
+    {limit: 418961, rate: 0.103, base: 29118},
+    {limit: 698271, rate: 0.113, base: 36309},
+    {limit: 1000000, rate: 0.123, base: 67861},
+    {limit: Infinity, rate: 0.133, base: 104974}
+  ];
+
+  let remaining = caTaxableIncome;
+  for (let i = 0; i < brackets.length; i++) {
+    const bracket = brackets[i];
+    const prevLimit = i === 0 ? 0 : brackets[i - 1].limit;
+    const taxableInBracket = Math.min(remaining, bracket.limit - prevLimit);
+    
+    if (taxableInBracket > 0) {
+      caTax += taxableInBracket * bracket.rate;
+      remaining -= taxableInBracket;
+    }
+    
+    if (remaining <= 0) break;
+  }
+
+  // Federal Tax (simplified 2026 brackets)
+  const fedTaxableIncome = Math.max(0, income - fedDeduction);
+  let fedTax = 0;
+  const fedBrackets = [
+    {limit: 11600, rate: 0.10},
+    {limit: 47150, rate: 0.12},
+    {limit: 100525, rate: 0.22},
+    {limit: 191950, rate: 0.24},
+    {limit: 243725, rate: 0.32},
+    {limit: 609350, rate: 0.35},
+    {limit: Infinity, rate: 0.37}
+  ];
+
+  remaining = fedTaxableIncome;
+  for (let i = 0; i < fedBrackets.length; i++) {
+    const bracket = fedBrackets[i];
+    const prevLimit = i === 0 ? 0 : fedBrackets[i - 1].limit;
+    const taxableInBracket = Math.min(remaining, bracket.limit - prevLimit);
+    
+    if (taxableInBracket > 0) {
+      fedTax += taxableInBracket * bracket.rate;
+      remaining -= taxableInBracket;
+    }
+    
+    if (remaining <= 0) break;
+  }
+
+  // FICA (Social Security 6.2% up to $168,600, Medicare 1.45% on all, 0.9% additional on income > $200k)
+  const ssLimit = 168600;
+  const ssTax = Math.min(income, ssLimit) * 0.062;
+  const medicareTax = income * 0.0145;
+  const additionalMedicare = income > 200000 ? (income - 200000) * 0.009 : 0;
+  const fica = ssTax + medicareTax + additionalMedicare;
+
+  const totalTax = caTax + fedTax + fica;
+  const takehome = income - totalTax;
+  const effectiveRate = income > 0 ? (totalTax / income * 100).toFixed(1) : 0;
+
+  // Update UI
+  document.getElementById('takehome').textContent = '$' + takehome.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('stateTax').textContent = '$' + caTax.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('federalTax').textContent = '$' + fedTax.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('fica').textContent = '$' + fica.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('effectiveRate').textContent = effectiveRate + '%';
+  
+  document.getElementById('gross').textContent = '$' + income.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('caDeduction').textContent = '-$' + caDeduction.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('caTaxable').textContent = '$' + caTaxableIncome.toLocaleString(undefined, {maximumFractionDigits: 0});
+  document.getElementById('totalTax').textContent = '$' + totalTax.toLocaleString(undefined, {maximumFractionDigits: 0});
+
+  document.getElementById('results').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
