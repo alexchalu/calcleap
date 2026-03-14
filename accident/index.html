@@ -70,7 +70,8 @@ footer a{color:var(--accent)}
 </style>
 </head>
 <body>
-<nav class="nav"><div class="nav-inner">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner">
 <a href="/" class="logo">Calc<span>Leap</span></a>
 <div class="nav-links">
 <a href="/mortgage-calculator.html">Mortgage</a>
@@ -78,7 +79,7 @@ footer a{color:var(--accent)}
 <a href="/calc/retirement-calculator.html">Retirement</a>
 <a href="/accident/">Accident</a>
 </div></div></nav>
-<main class="page">
+<main class="page" id="main-content" role="main">
 <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span>Car Accident Settlement</div>
 <h1 class="page-title">Car Accident Settlement Calculator</h1>
 <p class="page-desc">Select your state to estimate your car accident settlement. Each calculator uses your state's specific fault rules, statute of limitations, and typical settlement ranges.</p>
@@ -108,5 +109,5 @@ footer a{color:var(--accent)}
 <p>Consider hiring a personal injury attorney if: your injuries required surgery or extended treatment, the insurance company disputes fault, you missed significant work time, or the settlement offer seems unreasonably low. Most personal injury attorneys work on contingency (33-40% of settlement).</p>
 </div>
 </main>
-<footer>© 2026 <a href="/">CalcLeap</a> · <a href="/privacy.html">Privacy</a></footer>
+<footer role="contentinfo">© 2026 <a href="/">CalcLeap</a> · <a href="/privacy.html">Privacy</a></footer>
 </body></html>

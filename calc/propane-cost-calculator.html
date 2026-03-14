@@ -260,7 +260,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="nav">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-content">
       <a href="/" class="logo">CalcLeap</a>
       <div class="nav-links">
@@ -271,7 +272,7 @@
     </div>
   </nav>
 
-  <div class="page">
+  <div class="page" id="main-content" role="main">
     <h1 class="page-title">Propane Cost Calculator</h1>
     <p class="subtitle">Calculate your monthly and annual propane costs for heating, cooking, and appliances</p>
 
@@ -290,12 +291,12 @@
       <div class="input-grid">
         <div class="input-group">
           <label for="pricePerGallon">Propane Price ($/gallon)</label>
-          <input type="number" id="pricePerGallon" value="2.75" min="0" max="10" step="0.05">
+          <input type="number" id="pricePerGallon" value="2.75" min="0" max="10" step="0.05" aria-label="Price Per Gallon">
         </div>
         
         <div class="input-group">
           <label for="tankSize">Tank Size (gallons)</label>
-          <select id="tankSize">
+          <select id="tankSize" aria-label="Tank Size">
             <option value="100">100 gallon (portable)</option>
             <option value="250">250 gallon (residential)</option>
             <option value="500" selected>500 gallon (standard home)</option>
@@ -305,7 +306,7 @@
         
         <div class="input-group">
           <label for="homeSize">Home Size (sq ft)</label>
-          <input type="number" id="homeSize" value="2000" min="0" max="10000" step="100">
+          <input type="number" id="homeSize" value="2000" min="0" max="10000" step="100" aria-label="Home Size">
         </div>
       </div>
 
@@ -314,12 +315,12 @@
       <div class="input-grid">
         <div class="input-group">
           <label for="heating">Heating (months/year)</label>
-          <input type="number" id="heating" value="6" min="0" max="12" step="1">
+          <input type="number" id="heating" value="6" min="0" max="12" step="1" aria-label="Heating">
         </div>
         
         <div class="input-group">
           <label for="waterHeater">Water Heater</label>
-          <select id="waterHeater">
+          <select id="waterHeater" aria-label="Water Heater">
             <option value="0">None</option>
             <option value="200" selected>Standard (40-50 gal)</option>
             <option value="300">Large (75+ gal)</option>
@@ -329,7 +330,7 @@
         
         <div class="input-group">
           <label for="cooking">Cooking Range/Stove</label>
-          <select id="cooking">
+          <select id="cooking" aria-label="Cooking">
             <option value="0">None</option>
             <option value="30" selected>Regular use</option>
             <option value="50">Heavy use</option>
@@ -338,7 +339,7 @@
         
         <div class="input-group">
           <label for="dryer">Clothes Dryer</label>
-          <select id="dryer">
+          <select id="dryer" aria-label="Dryer">
             <option value="0">None</option>
             <option value="20" selected>Regular use</option>
             <option value="35">Heavy use</option>
@@ -347,7 +348,7 @@
         
         <div class="input-group">
           <label for="fireplace">Fireplace/Space Heater</label>
-          <select id="fireplace">
+          <select id="fireplace" aria-label="Fireplace">
             <option value="0" selected>None</option>
             <option value="40">Occasional</option>
             <option value="80">Regular use</option>
@@ -529,7 +530,7 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
         <h4>Popular Calculators</h4>

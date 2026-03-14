@@ -321,8 +321,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
@@ -337,7 +338,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb">
     <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#insurance">Insurance</a><span class="sep">›</span>Travel Insurance Calculator
   </div>
@@ -368,7 +369,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     <div class="lw-step active" id="lwS1_travelinsurancecalculator">
       <div class="lw-step-label">Step 1 of 3</div>
       <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_travelinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code">
+      <input type="text" class="lw-input-lg" id="lwZip_travelinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
       <button class="lw-btn" onclick="lwNext_travelinsurancecalculator(1)" id="lwBtn1_travelinsurancecalculator" disabled>
         Compare Rates <span style="font-size:1.1em">→</span>
       </button>
@@ -389,11 +390,11 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 <div class="lw-opt" data-v="notsure" onclick="lwSelOpt(this)">Not Sure</div>
             </div>
             <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label>Currently insured?</label>
-                    <select id="lwInsured_travelinsurancecalculator"><option value="yes">Yes</option><option value="no">No</option></select>
+                <div class="lw-field"><label for="lwInsured_travelinsurancecalculator">Currently insured?</label>
+                    <select id="lwInsured_travelinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option></select>
                 </div>
-                <div class="lw-field"><label>Age range</label>
-                    <select id="lwAge_travelinsurancecalculator"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
+                <div class="lw-field"><label for="lwAge_travelinsurancecalculator">Age range</label>
+                    <select id="lwAge_travelinsurancecalculator" aria-label="Age"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
                 </div>
             </div>
       <button class="lw-btn" onclick="lwNext_travelinsurancecalculator(2)">
@@ -406,10 +407,10 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <div class="lw-step-label">Step 3 of 3 — Final step</div>
       <div class="lw-step-title">Where should we send your quotes?</div>
       <div class="lw-grid">
-        <div class="lw-field"><label>First name</label><input type="text" id="lwFname_travelinsurancecalculator" placeholder="John" autocomplete="given-name" required></div>
-        <div class="lw-field"><label>Last name</label><input type="text" id="lwLname_travelinsurancecalculator" placeholder="Smith" autocomplete="family-name" required></div>
-        <div class="lw-field"><label>Email</label><input type="email" id="lwEmail_travelinsurancecalculator" placeholder="john@email.com" autocomplete="email" required></div>
-        <div class="lw-field"><label>Phone</label><input type="tel" id="lwPhone_travelinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required></div>
+        <div class="lw-field"><label for="lwFname_travelinsurancecalculator">First name</label><input type="text" id="lwFname_travelinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
+        <div class="lw-field"><label for="lwLname_travelinsurancecalculator">Last name</label><input type="text" id="lwLname_travelinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
+        <div class="lw-field"><label for="lwEmail_travelinsurancecalculator">Email</label><input type="email" id="lwEmail_travelinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
+        <div class="lw-field"><label for="lwPhone_travelinsurancecalculator">Phone</label><input type="tel" id="lwPhone_travelinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
       </div>
       <button class="lw-btn" onclick="lwSubmit_travelinsurancecalculator()" style="background:#16a34a">
         🎯 Get My Free Quotes
@@ -501,12 +502,12 @@ function lwSelOpt(el){
             
         <div class="input-group">
           <label for="trip-cost">Total Trip Cost ($):</label>
-          <input type="number" id="trip-cost"  min="0"   value="5000">
+          <input type="number" id="trip-cost"  min="0"   value="5000" aria-label="Trip Cost">
         </div>
 
         <div class="input-group">
           <label for="destination">Destination:</label>
-          <select id="destination">
+          <select id="destination" aria-label="Destination">
             <option value="Domestic US">Domestic US</option>
 <option value="Canada/Mexico">Canada/Mexico</option>
 <option value="Europe">Europe</option>
@@ -518,17 +519,17 @@ function lwSelOpt(el){
 
         <div class="input-group">
           <label for="travelers">Number of Travelers:</label>
-          <input type="number" id="travelers"  min="1" max="10"  value="2">
+          <input type="number" id="travelers"  min="1" max="10"  value="2" aria-label="Travelers">
         </div>
 
         <div class="input-group">
           <label for="duration">Trip Duration (days):</label>
-          <input type="number" id="duration"  min="1" max="365"  value="7">
+          <input type="number" id="duration"  min="1" max="365"  value="7" aria-label="Duration">
         </div>
 
         <div class="input-group">
           <label for="coverage-level">Coverage Level:</label>
-          <select id="coverage-level">
+          <select id="coverage-level" aria-label="Coverage Level">
             <option value="Basic">Basic</option>
 <option value="Standard">Standard</option>
 <option value="Premium">Premium</option>
@@ -538,7 +539,7 @@ function lwSelOpt(el){
 
         <div class="input-group">
           <label for="avg-age">Average Traveler Age:</label>
-          <input type="number" id="avg-age"  min="0" max="100"  value="45">
+          <input type="number" id="avg-age"  min="0" max="100"  value="45" aria-label="Avg Age">
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate Premium</button>
             <div class="result-box" id="result"></div>
@@ -662,26 +663,26 @@ function lwSelOpt(el){
 
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
       <a class="logo" href="index.html">Calc<span>Leap</span></a>
       <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
     </div>
     <div>
-      <h5>Popular</h5>
+      <h4>Popular</h4>
       <a href="bmi-calculator.html">BMI Calculator</a>
       <a href="calc/mortgage-payment.html">Mortgage</a>
       <a href="income-tax-calculator.html">Income Tax</a>
     </div>
     <div>
-      <h5>Categories</h5>
+      <h4>Categories</h4>
       <a href="index.html#finance">Financial</a>
       <a href="index.html#insurance">Insurance</a>
       <a href="index.html#health">Health</a>
     </div>
     <div>
-      <h5>Company</h5>
+      <h4>Company</h4>
       <a href="about.html">About</a>
       <a href="privacy.html">Privacy</a>
       <a href="contact.html">Contact</a>

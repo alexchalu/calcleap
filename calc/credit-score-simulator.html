@@ -206,24 +206,25 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
 <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">Calculators</a><span class="sep">›</span>Credit Score Simulator</div>
 <h1 class="page-title">Credit Score Simulator</h1>
 <p class="page-desc">See how paying off debt, opening new credit, or missing a payment could impact your credit score. Make smarter financial decisions.</p>
 
 <div class="card">
 <h2>Your Current Credit Profile</h2>
-<div class="form-group"><label>Current Credit Score</label><input type="number" id="currentScore" value="700" min="300" max="850"></div>
-<div class="form-group"><label>Total Credit Card Balances ($)</label><input type="number" id="totalBalance" value="5000" min="0"></div>
-<div class="form-group"><label>Total Credit Limits ($)</label><input type="number" id="totalLimit" value="20000" min="100"></div>
-<div class="form-group"><label>Number of Open Accounts</label><input type="number" id="numAccounts" value="4" min="0" max="50"></div>
-<div class="form-group"><label>Credit History Length (years)</label><input type="number" id="historyYears" value="7" min="0" max="60"></div>
-<div class="form-group"><label>Late Payments (last 2 years)</label><input type="number" id="latePayments" value="0" min="0" max="24"></div>
+<div class="form-group"><label for="currentScore">Current Credit Score</label><input type="number" id="currentScore" value="700" min="300" max="850" aria-label="Current Score"></div>
+<div class="form-group"><label for="totalBalance">Total Credit Card Balances ($)</label><input type="number" id="totalBalance" value="5000" min="0" aria-label="Total Balance"></div>
+<div class="form-group"><label for="totalLimit">Total Credit Limits ($)</label><input type="number" id="totalLimit" value="20000" min="100" aria-label="Total Limit"></div>
+<div class="form-group"><label for="numAccounts">Number of Open Accounts</label><input type="number" id="numAccounts" value="4" min="0" max="50" aria-label="Num Accounts"></div>
+<div class="form-group"><label for="historyYears">Credit History Length (years)</label><input type="number" id="historyYears" value="7" min="0" max="60" aria-label="History Years"></div>
+<div class="form-group"><label for="latePayments">Late Payments (last 2 years)</label><input type="number" id="latePayments" value="0" min="0" max="24" aria-label="Late Payments"></div>
 <h2 style="margin-top:1.5rem">Simulate an Action</h2>
-<div class="form-group"><label>Choose Action</label>
-<select id="action">
+<div class="form-group"><label for="action">Choose Action</label>
+<select id="action" aria-label="Action">
 <option value="payoff">Pay off credit card debt</option>
 <option value="newcard">Open a new credit card</option>
 <option value="closedcard">Close a credit card</option>
@@ -233,7 +234,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <option value="paydown50">Pay down 50% of balances</option>
 <option value="collection">Account sent to collections</option>
 </select></div>
-<div class="form-group" id="amountGroup"><label>Amount ($)</label><input type="number" id="actionAmount" value="5000" min="0"></div>
+<div class="form-group" id="amountGroup"><label for="actionAmount">Amount ($)</label><input type="number" id="actionAmount" value="5000" min="0" aria-label="Action Amount"></div>
 <button class="btn" onclick="simulate()">Simulate Impact</button>
 <div class="results" id="results">
 <div class="gauge-wrap"><div class="score-display" id="newScore">—</div><div class="score-label" id="scoreRange">—</div></div>
@@ -296,7 +297,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </div>
 </div>
 
-<footer class="footer"><div class="footer-inner"><div><h4>Company</h4><a href="/about.html">About CalcLeap</a><br><a href="/contact.html">Contact</a><br><a href="/privacy.html">Privacy Policy</a></div><div><h4>Popular</h4><a href="/calc/mortgage-payment.html">Mortgage</a><br><a href="/calc/compound-interest-calculator.html">Compound Interest</a><br><a href="/calc/retirement-calculator.html">Retirement</a></div><div><h4>Finance</h4><a href="/calc/personal-loan-calculator.html">Personal Loan</a><br><a href="/calc/car-loan-calculator.html">Car Loan</a><br><a href="/calc/student-loan-calculator.html">Student Loan</a></div><div><h4>Resources</h4><a href="/blog/">Blog</a><br><a href="/sitemap.xml">Sitemap</a></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved. For informational purposes only.</div></footer>
+<footer class="footer" role="contentinfo"><div class="footer-inner"><div><h4>Company</h4><a href="/about.html">About CalcLeap</a><br><a href="/contact.html">Contact</a><br><a href="/privacy.html">Privacy Policy</a></div><div><h4>Popular</h4><a href="/calc/mortgage-payment.html">Mortgage</a><br><a href="/calc/compound-interest-calculator.html">Compound Interest</a><br><a href="/calc/retirement-calculator.html">Retirement</a></div><div><h4>Finance</h4><a href="/calc/personal-loan-calculator.html">Personal Loan</a><br><a href="/calc/car-loan-calculator.html">Car Loan</a><br><a href="/calc/student-loan-calculator.html">Student Loan</a></div><div><h4>Resources</h4><a href="/blog/">Blog</a><br><a href="/sitemap.xml">Sitemap</a></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved. For informational purposes only.</div></footer>
 
 <script>
 const actionEl=document.getElementById('action'),amountGroup=document.getElementById('amountGroup');

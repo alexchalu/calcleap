@@ -286,7 +286,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="nav">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-content">
       <a href="/" class="logo">CalcLeap</a>
       <div class="nav-links">
@@ -297,7 +298,7 @@
     </div>
   </nav>
 
-  <div class="page">
+  <div class="page" id="main-content" role="main">
     <h1 class="page-title">HELOC Payment Calculator</h1>
     <p class="subtitle">Calculate payments and interest for your Home Equity Line of Credit</p>
 
@@ -314,27 +315,27 @@
       <div class="input-grid">
         <div class="input-group">
           <label for="creditLimit">HELOC Credit Limit ($)</label>
-          <input type="number" id="creditLimit" value="100000" min="0" step="1000">
+          <input type="number" id="creditLimit" value="100000" min="0" step="1000" aria-label="Credit Limit">
         </div>
         
         <div class="input-group">
           <label for="balanceUsed">Amount You'll Borrow ($)</label>
-          <input type="number" id="balanceUsed" value="50000" min="0" step="1000">
+          <input type="number" id="balanceUsed" value="50000" min="0" step="1000" aria-label="Balance Used">
         </div>
 
         <div class="input-group">
           <label for="interestRate">Interest Rate (APR %)</label>
-          <input type="number" id="interestRate" value="7.5" min="0" max="30" step="0.01">
+          <input type="number" id="interestRate" value="7.5" min="0" max="30" step="0.01" aria-label="Interest Rate">
         </div>
 
         <div class="input-group">
           <label for="drawPeriod">Draw Period (Years)</label>
-          <input type="number" id="drawPeriod" value="10" min="1" max="15" step="1">
+          <input type="number" id="drawPeriod" value="10" min="1" max="15" step="1" aria-label="Draw Period">
         </div>
 
         <div class="input-group">
           <label for="repaymentPeriod">Repayment Period (Years)</label>
-          <input type="number" id="repaymentPeriod" value="20" min="1" max="30" step="1">
+          <input type="number" id="repaymentPeriod" value="20" min="1" max="30" step="1" aria-label="Repayment Period">
         </div>
       </div>
 
@@ -596,7 +597,7 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
         <h4>Popular Calculators</h4>

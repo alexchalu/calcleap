@@ -106,8 +106,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div></div></nav>
-<main class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div></div></nav>
+<main class="page" id="main-content" role="main">
 <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span>Auto Insurance Calculators</div>
 <h1 class="page-title">Auto Insurance Calculator by State</h1>
 <p class="page-desc">Compare car insurance costs across all 50 US states. Find average premiums, minimum coverage requirements, fault systems, and estimate your personalized auto insurance costs.</p>
@@ -154,7 +155,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     <div class="lw-step active" id="lwS1_index">
       <div class="lw-step-label">Step 1 of 3</div>
       <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_index" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code">
+      <input type="text" class="lw-input-lg" id="lwZip_index" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
       <button class="lw-btn" onclick="lwNext_index(1)" id="lwBtn1_index" disabled>
         Compare Rates <span style="font-size:1.1em">→</span>
       </button>
@@ -175,11 +176,11 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 <div class="lw-opt" data-v="notsure" onclick="lwSelOpt(this)">Not Sure</div>
             </div>
             <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label>Currently insured?</label>
-                    <select id="lwInsured_index"><option value="yes">Yes</option><option value="no">No</option></select>
+                <div class="lw-field"><label for="lwInsured_index">Currently insured?</label>
+                    <select id="lwInsured_index" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option></select>
                 </div>
-                <div class="lw-field"><label>Age range</label>
-                    <select id="lwAge_index"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
+                <div class="lw-field"><label for="lwAge_index">Age range</label>
+                    <select id="lwAge_index" aria-label="Age"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
                 </div>
             </div>
       <button class="lw-btn" onclick="lwNext_index(2)">
@@ -192,10 +193,10 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <div class="lw-step-label">Step 3 of 3 — Final step</div>
       <div class="lw-step-title">Where should we send your quotes?</div>
       <div class="lw-grid">
-        <div class="lw-field"><label>First name</label><input type="text" id="lwFname_index" placeholder="John" autocomplete="given-name" required></div>
-        <div class="lw-field"><label>Last name</label><input type="text" id="lwLname_index" placeholder="Smith" autocomplete="family-name" required></div>
-        <div class="lw-field"><label>Email</label><input type="email" id="lwEmail_index" placeholder="john@email.com" autocomplete="email" required></div>
-        <div class="lw-field"><label>Phone</label><input type="tel" id="lwPhone_index" placeholder="(555) 123-4567" autocomplete="tel" required></div>
+        <div class="lw-field"><label for="lwFname_index">First name</label><input type="text" id="lwFname_index" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
+        <div class="lw-field"><label for="lwLname_index">Last name</label><input type="text" id="lwLname_index" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
+        <div class="lw-field"><label for="lwEmail_index">Email</label><input type="email" id="lwEmail_index" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
+        <div class="lw-field"><label for="lwPhone_index">Phone</label><input type="tel" id="lwPhone_index" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
       </div>
       <button class="lw-btn" onclick="lwSubmit_index()" style="background:#16a34a">
         🎯 Get My Free Quotes
@@ -272,7 +273,7 @@ function lwSelOpt(el){
 
 <div class="card">
 <h2>🗺️ All 50 States — Auto Insurance Comparison</h2>
-<input type="text" class="search-box" id="search" placeholder="Search states..." oninput="filterTable()">
+<input type="text" class="search-box" id="search" placeholder="Search states..." oninput="filterTable()" aria-label="Search states...">
 <div style="overflow-x:auto">
 <table id="stateTable">
 <thead><tr><th onclick="sortTable(0)">State ↕</th><th onclick="sortTable(1)">Avg Premium ↕</th><th onclick="sortTable(2)">Min Coverage</th><th onclick="sortTable(3)">Fault System</th><th onclick="sortTable(4)">Uninsured %</th></tr></thead>
@@ -303,7 +304,7 @@ function lwSelOpt(el){
 </div>
 </main>
 
-<footer class="footer"><div class="footer-inner">
+<footer class="footer" role="contentinfo"><div class="footer-inner">
 <div class="footer-col"><h4>CalcLeap</h4><a href="/">Home</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a></div>
 <div class="footer-col"><h4>Insurance Tools</h4><a href="/auto-insurance/">Auto Insurance</a><a href="/home-insurance/">Home Insurance</a><a href="/disability-insurance/">Disability Insurance</a><a href="/workers-comp/">Workers' Comp</a></div>
 <div class="footer-col"><h4>Finance Tools</h4><a href="/social-security/">Social Security</a><a href="/529/">529 Plans</a><a href="/childcare/">Childcare Costs</a><a href="/calc/mortgage-payment.html">Mortgage</a></div>

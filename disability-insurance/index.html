@@ -98,8 +98,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
-<div class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span>Disability Insurance Calculators</div>
   <h1 class="page-title">Disability Insurance Calculator by State</h1>
   <p class="page-desc">Compare disability insurance costs, SSDI benefits, and state disability programs across all 50 US states. Find out how much coverage you need and what it costs in your state.</p>
@@ -136,7 +137,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     <div class="lw-step active" id="lwS1_index">
       <div class="lw-step-label">Step 1 of 3</div>
       <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_index" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code">
+      <input type="text" class="lw-input-lg" id="lwZip_index" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
       <button class="lw-btn" onclick="lwNext_index(1)" id="lwBtn1_index" disabled>
         Compare Rates <span style="font-size:1.1em">→</span>
       </button>
@@ -157,11 +158,11 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 <div class="lw-opt" data-v="notsure" onclick="lwSelOpt(this)">Not Sure</div>
             </div>
             <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label>Currently insured?</label>
-                    <select id="lwInsured_index"><option value="yes">Yes</option><option value="no">No</option></select>
+                <div class="lw-field"><label for="lwInsured_index">Currently insured?</label>
+                    <select id="lwInsured_index" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option></select>
                 </div>
-                <div class="lw-field"><label>Age range</label>
-                    <select id="lwAge_index"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
+                <div class="lw-field"><label for="lwAge_index">Age range</label>
+                    <select id="lwAge_index" aria-label="Age"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
                 </div>
             </div>
       <button class="lw-btn" onclick="lwNext_index(2)">
@@ -174,10 +175,10 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <div class="lw-step-label">Step 3 of 3 — Final step</div>
       <div class="lw-step-title">Where should we send your quotes?</div>
       <div class="lw-grid">
-        <div class="lw-field"><label>First name</label><input type="text" id="lwFname_index" placeholder="John" autocomplete="given-name" required></div>
-        <div class="lw-field"><label>Last name</label><input type="text" id="lwLname_index" placeholder="Smith" autocomplete="family-name" required></div>
-        <div class="lw-field"><label>Email</label><input type="email" id="lwEmail_index" placeholder="john@email.com" autocomplete="email" required></div>
-        <div class="lw-field"><label>Phone</label><input type="tel" id="lwPhone_index" placeholder="(555) 123-4567" autocomplete="tel" required></div>
+        <div class="lw-field"><label for="lwFname_index">First name</label><input type="text" id="lwFname_index" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
+        <div class="lw-field"><label for="lwLname_index">Last name</label><input type="text" id="lwLname_index" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
+        <div class="lw-field"><label for="lwEmail_index">Email</label><input type="email" id="lwEmail_index" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
+        <div class="lw-field"><label for="lwPhone_index">Phone</label><input type="tel" id="lwPhone_index" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
       </div>
       <button class="lw-btn" onclick="lwSubmit_index()" style="background:#16a34a">
         🎯 Get My Free Quotes
@@ -253,7 +254,7 @@ function lwSelOpt(el){
 <!-- END LEAD WIZARD V2 -->
 
 <div class="card">
-    <input type="text" class="search-box" id="search" placeholder="🔍 Search by state name..." oninput="filterTable()">
+    <input type="text" class="search-box" id="search" placeholder="🔍 Search by state name..." oninput="filterTable()" aria-label="🔍 Search by state name...">
     <div style="overflow-x:auto">
     <table id="stateTable">
       <thead><tr><th onclick="sortTable(0)">State ↕</th><th onclick="sortTable(1)">Avg Salary ↕</th><th onclick="sortTable(2)">DI Rate ↕</th><th onclick="sortTable(3)">Avg SSDI ↕</th><th onclick="sortTable(4)">State Program</th></tr></thead>
@@ -347,7 +348,7 @@ function lwSelOpt(el){
   <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
 </div>
 
-<footer class="footer"><div class="footer-inner"><div><h4>Tools</h4><a href="/">All Calculators</a><a href="/disability-insurance/">Disability Insurance</a><a href="/calc/bmi-calculator.html">BMI Calculator</a></div><div><h4>Insurance</h4><a href="/calc/car-insurance-estimator.html">Car Insurance</a><a href="/life-insurance-calculator.html">Life Insurance</a><a href="/health-insurance/index.html">Health Insurance</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div><div><h4>Legal</h4><p style="font-size:.78rem;color:var(--text-3);line-height:1.5">Estimates only. Consult a licensed insurance agent for personalized advice.</p></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved.</div></footer>
+<footer class="footer" role="contentinfo"><div class="footer-inner"><div><h4>Tools</h4><a href="/">All Calculators</a><a href="/disability-insurance/">Disability Insurance</a><a href="/calc/bmi-calculator.html">BMI Calculator</a></div><div><h4>Insurance</h4><a href="/calc/car-insurance-estimator.html">Car Insurance</a><a href="/life-insurance-calculator.html">Life Insurance</a><a href="/health-insurance/index.html">Health Insurance</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div><div><h4>Legal</h4><p style="font-size:.78rem;color:var(--text-3);line-height:1.5">Estimates only. Consult a licensed insurance agent for personalized advice.</p></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved.</div></footer>
 
 <script>
 function filterTable(){const q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('#stateTable tbody tr').forEach(r=>{r.style.display=r.cells[0].textContent.toLowerCase().includes(q)?'':'none'})}

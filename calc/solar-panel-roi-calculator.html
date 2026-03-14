@@ -272,8 +272,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/index.html" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
@@ -288,7 +289,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb">
     <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#finance">Finance</a><span class="sep">›</span>Solar Panel ROI Calculator
   </div>
@@ -313,42 +314,42 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             <form id="solarForm">
                 <div class="input-group">
                     <label for="systemCost">Total System Cost ($)</label>
-                    <input type="number" id="systemCost" value="20000" step="1000" required>
+                    <input type="number" id="systemCost" value="20000" step="1000" required aria-label="System Cost">
                     <small>Average residential solar system: $15,000-$30,000</small>
                 </div>
 
                 <div class="input-group">
                     <label for="federalTaxCredit">Federal Tax Credit (%)</label>
-                    <input type="number" id="federalTaxCredit" value="30" step="1" required>
+                    <input type="number" id="federalTaxCredit" value="30" step="1" required aria-label="Federal Tax Credit">
                     <small>Current ITC (Investment Tax Credit): 30% through 2032</small>
                 </div>
 
                 <div class="input-group">
                     <label for="stateIncentive">State/Local Incentives ($)</label>
-                    <input type="number" id="stateIncentive" value="0" step="100">
+                    <input type="number" id="stateIncentive" value="0" step="100" aria-label="State Incentive">
                     <small>Rebates, SREC programs, etc. (varies by state)</small>
                 </div>
 
                 <div class="input-group">
                     <label for="monthlyBill">Current Monthly Electric Bill ($)</label>
-                    <input type="number" id="monthlyBill" value="150" step="10" required>
+                    <input type="number" id="monthlyBill" value="150" step="10" required aria-label="Monthly Bill">
                 </div>
 
                 <div class="input-group">
                     <label for="offsetPercent">% of Bill Offset by Solar (%)</label>
-                    <input type="number" id="offsetPercent" value="90" step="5" required>
+                    <input type="number" id="offsetPercent" value="90" step="5" required aria-label="Offset Percent">
                     <small>Most systems offset 80-100% of electricity usage</small>
                 </div>
 
                 <div class="input-group">
                     <label for="electricityIncrease">Annual Electricity Rate Increase (%)</label>
-                    <input type="number" id="electricityIncrease" value="3" step="0.5" required>
+                    <input type="number" id="electricityIncrease" value="3" step="0.5" required aria-label="Electricity Increase">
                     <small>US average: 2-4% per year</small>
                 </div>
 
                 <div class="input-group">
                     <label for="systemLifespan">System Lifespan (years)</label>
-                    <input type="number" id="systemLifespan" value="25" required>
+                    <input type="number" id="systemLifespan" value="25" required aria-label="System Lifespan">
                     <small>Solar panels typically last 25-30 years</small>
                 </div>
 
@@ -554,26 +555,26 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
       <a class="logo" href="/index.html">Calc<span>Leap</span></a>
       <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
     </div>
     <div>
-      <h5>Popular</h5>
+      <h4>Popular</h4>
       <a href="bmi-calculator.html">BMI Calculator</a>
       <a href="/calc/mortgage-payment.html">Mortgage</a>
       <a href="income-tax-calculator.html">Income Tax</a>
     </div>
     <div>
-      <h5>Categories</h5>
+      <h4>Categories</h4>
       <a href="/index.html#finance">Financial</a>
       <a href="/index.html#insurance">Insurance</a>
       <a href="/index.html#health">Health</a>
     </div>
     <div>
-      <h5>Company</h5>
+      <h4>Company</h4>
       <a href="/about.html">About</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/contact.html">Contact</a>

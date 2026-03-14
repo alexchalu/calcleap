@@ -350,6 +350,7 @@
     </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
     <div class="container">
         <nav class="breadcrumb">
             <a href="https://calcleap.com">Home</a> » 
@@ -368,25 +369,25 @@
             
             <div class="input-group">
                 <label for="usage">Monthly Usage (<span id="unitLabel">therms</span>)</label>
-                <input type="number" id="usage" value="80" min="0" step="0.1">
+                <input type="number" id="usage" value="80" min="0" step="0.1" aria-label="Usage">
                 <small style="color: #888; display: block; margin-top: 5px;">Average US home: 50-150 therms/month in winter, 10-30 in summer</small>
             </div>
             
             <div class="input-group">
                 <label for="rate">Gas Rate ($ per <span id="unitLabel2">therm</span>)</label>
-                <input type="number" id="rate" value="1.25" min="0" step="0.01">
+                <input type="number" id="rate" value="1.25" min="0" step="0.01" aria-label="Rate">
                 <small style="color: #888; display: block; margin-top: 5px;">US average: $1.20-$1.50/therm (varies by region and season)</small>
             </div>
             
             <div class="input-group">
                 <label for="fixedCharge">Monthly Fixed Charge ($)</label>
-                <input type="number" id="fixedCharge" value="15" min="0" step="0.01">
+                <input type="number" id="fixedCharge" value="15" min="0" step="0.01" aria-label="Fixed Charge">
                 <small style="color: #888; display: block; margin-top: 5px;">Customer charge, meter fee, etc. (typically $10-25/month)</small>
             </div>
             
             <div class="input-group">
                 <label for="deliveryRate">Delivery/Distribution Rate ($ per <span id="unitLabel3">therm</span>, optional)</label>
-                <input type="number" id="deliveryRate" value="0.35" min="0" step="0.01">
+                <input type="number" id="deliveryRate" value="0.35" min="0" step="0.01" aria-label="Delivery Rate">
                 <small style="color: #888; display: block; margin-top: 5px;">Some utilities separate supply and delivery charges</small>
             </div>
             

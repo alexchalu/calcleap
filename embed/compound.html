@@ -117,23 +117,24 @@
     </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
     <div class="calculator">
         <h2>Compound Interest</h2>
         <div class="input-group">
             <label for="principal">Initial Amount ($)</label>
-            <input type="number" id="principal" placeholder="10000" step="100">
+            <input type="number" id="principal" placeholder="10000" step="100" aria-label="10000">
         </div>
         <div class="input-group">
             <label for="rate">Annual Interest Rate (%)</label>
-            <input type="number" id="rate" placeholder="7" step="0.1">
+            <input type="number" id="rate" placeholder="7" step="0.1" aria-label="7">
         </div>
         <div class="input-group">
             <label for="years">Time Period (years)</label>
-            <input type="number" id="years" placeholder="10" step="1">
+            <input type="number" id="years" placeholder="10" step="1" aria-label="10">
         </div>
         <div class="input-group">
             <label for="frequency">Compounding Frequency</label>
-            <select id="frequency">
+            <select id="frequency" aria-label="Frequency">
                 <option value="1">Annually</option>
                 <option value="2">Semi-annually</option>
                 <option value="4">Quarterly</option>
@@ -143,7 +144,7 @@
         </div>
         <div class="input-group">
             <label for="contribution">Monthly Contribution ($)</label>
-            <input type="number" id="contribution" placeholder="0" step="10">
+            <input type="number" id="contribution" placeholder="0" step="10" aria-label="0">
         </div>
         <button onclick="calculateCompound()">Calculate Growth</button>
         <div class="result" id="result">

@@ -272,8 +272,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/index.html" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
@@ -288,7 +289,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb">
     <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#tools">Tools</a><span class="sep">›</span>Net Pay Calculator (Take-Home Pay)
   </div>
@@ -296,35 +297,35 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   <h1 class="page-title">Net Pay Calculator (Take-Home Pay)</h1>
   <p class="page-desc">Calculate your take-home pay after federal tax, state tax, Social Security, and Medicare deductions.</p>
 
-<p class="sub">Calculate your take-home pay after federal tax, state tax, Social Security, and Medicare deductions.</p><div class="calc"><div class="row"><div class="field"><label class="label">Annual Salary ($)</label><input type="number" id="salary" value="75000"></div><div class="field"><label class="label">Pay Frequency</label><select id="freq"><option value="26" selected>Bi-weekly</option><option value="24">Semi-monthly</option><option value="52">Weekly</option><option value="12">Monthly</option></select></div></div>
-<div class="row"><div class="field"><label class="label">Filing Status</label><select id="filing"><option value="single" selected>Single</option><option value="married">Married Filing Jointly</option><option value="head">Head of Household</option></select></div><div class="field"><label class="label">State Tax Rate (%)</label><input type="number" id="state" value="5" step="0.1"></div></div>
-<div class="field"><label class="label">Pre-tax Deductions (401k, HSA, etc.) per pay period ($)</label><input type="number" id="pretax" value="0"></div>
+<p class="sub">Calculate your take-home pay after federal tax, state tax, Social Security, and Medicare deductions.</p><div class="calc"><div class="row"><div class="field"><label class="label">Annual Salary ($)</label><input type="number" id="salary" value="75000" aria-label="Salary"></div><div class="field"><label class="label">Pay Frequency</label><select id="freq" aria-label="Freq"><option value="26" selected>Bi-weekly</option><option value="24">Semi-monthly</option><option value="52">Weekly</option><option value="12">Monthly</option></select></div></div>
+<div class="row"><div class="field"><label class="label">Filing Status</label><select id="filing" aria-label="Filing"><option value="single" selected>Single</option><option value="married">Married Filing Jointly</option><option value="head">Head of Household</option></select></div><div class="field"><label class="label">State Tax Rate (%)</label><input type="number" id="state" value="5" step="0.1" aria-label="State"></div></div>
+<div class="field"><label class="label">Pre-tax Deductions (401k, HSA, etc.) per pay period ($)</label><input type="number" id="pretax" value="0" aria-label="Pretax"></div>
 <button class="btn" onclick="calc()">Calculate</button><div class="results-grid" id="out"></div></div>
 <script>const $=id=>document.getElementById(id);const fmt=(n,d=2)=>typeof n==='number'?n.toLocaleString('en-US',{maximumFractionDigits:d}):'—';function calc(){const salary=+$('salary').value,freq=+$('freq').value,stateRate=+$('state').value/100,pretax=+$('pretax').value;const annualPretax=pretax*freq;const taxable=salary-annualPretax;const brackets=[{r:.1,min:0,max:11600},{r:.12,min:11600,max:47150},{r:.22,min:47150,max:100525},{r:.24,min:100525,max:191950},{r:.32,min:191950,max:243725},{r:.35,min:243725,max:609350},{r:.37,min:609350,max:Infinity}];let fedTax=0;for(const b of brackets){if(taxable>b.min){fedTax+=(Math.min(taxable,b.max)-b.min)*b.r}}const ss=Math.min(salary,168600)*0.062;const medicare=salary*0.0145;const stateTax=taxable*stateRate;const totalTax=fedTax+ss+medicare+stateTax;const netAnnual=salary-totalTax-annualPretax;const netPer=netAnnual/freq;$('out').innerHTML='<div class="stat"><div class="val" style="font-size:1.5rem;color:#22c55e">$'+fmt(netPer)+'</div><div class="lbl">Take-Home Per Paycheck</div></div><div class="stat"><div class="val">$'+fmt(netAnnual,0)+'</div><div class="lbl">Annual Take-Home</div></div><div class="stat"><div class="val">$'+fmt(fedTax/freq)+'</div><div class="lbl">Federal Tax</div></div><div class="stat"><div class="val">$'+fmt(stateTax/freq)+'</div><div class="lbl">State Tax</div></div><div class="stat"><div class="val">$'+fmt(ss/freq)+'</div><div class="lbl">Social Security</div></div><div class="stat"><div class="val">$'+fmt(medicare/freq)+'</div><div class="lbl">Medicare</div></div><div class="stat"><div class="val">'+fmt(totalTax/salary*100,1)+'%</div><div class="lbl">Effective Tax Rate</div></div><div class="stat"><div class="val">$'+fmt(totalTax,0)+'</div><div class="lbl">Total Annual Taxes</div></div>'}
 if(typeof calc==='function')calc();</script>
 
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
       <a class="logo" href="/index.html">Calc<span>Leap</span></a>
       <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
     </div>
     <div>
-      <h5>Popular</h5>
+      <h4>Popular</h4>
       <a href="bmi-calculator.html">BMI Calculator</a>
       <a href="/calc/mortgage-payment.html">Mortgage</a>
       <a href="income-tax-calculator.html">Income Tax</a>
     </div>
     <div>
-      <h5>Categories</h5>
+      <h4>Categories</h4>
       <a href="/index.html#finance">Financial</a>
       <a href="/index.html#insurance">Insurance</a>
       <a href="/index.html#health">Health</a>
     </div>
     <div>
-      <h5>Company</h5>
+      <h4>Company</h4>
       <a href="/about.html">About</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/contact.html">Contact</a>

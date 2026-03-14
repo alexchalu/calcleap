@@ -321,8 +321,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
@@ -337,7 +338,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb">
     <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#insurance">Insurance</a><span class="sep">›</span>Motorcycle Insurance Calculator
   </div>
@@ -368,7 +369,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     <div class="lw-step active" id="lwS1_motorcycleinsurancecalculator">
       <div class="lw-step-label">Step 1 of 3</div>
       <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_motorcycleinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code">
+      <input type="text" class="lw-input-lg" id="lwZip_motorcycleinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
       <button class="lw-btn" onclick="lwNext_motorcycleinsurancecalculator(1)" id="lwBtn1_motorcycleinsurancecalculator" disabled>
         Compare Rates <span style="font-size:1.1em">→</span>
       </button>
@@ -389,11 +390,11 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 <div class="lw-opt" data-v="minimum" onclick="lwSelOpt(this)">State Minimum</div>
             </div>
             <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label>Currently insured?</label>
-                    <select id="lwInsured_motorcycleinsurancecalculator"><option value="yes">Yes</option><option value="no">No</option><option value="switching">Switching providers</option></select>
+                <div class="lw-field"><label for="lwInsured_motorcycleinsurancecalculator">Currently insured?</label>
+                    <select id="lwInsured_motorcycleinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option><option value="switching">Switching providers</option></select>
                 </div>
-                <div class="lw-field"><label>Age</label>
-                    <select id="lwAge_motorcycleinsurancecalculator"><option value="">Select</option><option>16-24</option><option selected>25-34</option><option>35-44</option><option>45-54</option><option>55-64</option><option>65+</option></select>
+                <div class="lw-field"><label for="lwAge_motorcycleinsurancecalculator">Age</label>
+                    <select id="lwAge_motorcycleinsurancecalculator" aria-label="Age"><option value="">Select</option><option>16-24</option><option selected>25-34</option><option>35-44</option><option>45-54</option><option>55-64</option><option>65+</option></select>
                 </div>
             </div>
       <button class="lw-btn" onclick="lwNext_motorcycleinsurancecalculator(2)">
@@ -406,10 +407,10 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <div class="lw-step-label">Step 3 of 3 — Final step</div>
       <div class="lw-step-title">Where should we send your quotes?</div>
       <div class="lw-grid">
-        <div class="lw-field"><label>First name</label><input type="text" id="lwFname_motorcycleinsurancecalculator" placeholder="John" autocomplete="given-name" required></div>
-        <div class="lw-field"><label>Last name</label><input type="text" id="lwLname_motorcycleinsurancecalculator" placeholder="Smith" autocomplete="family-name" required></div>
-        <div class="lw-field"><label>Email</label><input type="email" id="lwEmail_motorcycleinsurancecalculator" placeholder="john@email.com" autocomplete="email" required></div>
-        <div class="lw-field"><label>Phone</label><input type="tel" id="lwPhone_motorcycleinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required></div>
+        <div class="lw-field"><label for="lwFname_motorcycleinsurancecalculator">First name</label><input type="text" id="lwFname_motorcycleinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
+        <div class="lw-field"><label for="lwLname_motorcycleinsurancecalculator">Last name</label><input type="text" id="lwLname_motorcycleinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
+        <div class="lw-field"><label for="lwEmail_motorcycleinsurancecalculator">Email</label><input type="email" id="lwEmail_motorcycleinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
+        <div class="lw-field"><label for="lwPhone_motorcycleinsurancecalculator">Phone</label><input type="tel" id="lwPhone_motorcycleinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
       </div>
       <button class="lw-btn" onclick="lwSubmit_motorcycleinsurancecalculator()" style="background:#16a34a">
         🎯 Get My Free Quotes
@@ -502,12 +503,12 @@ function lwSelOpt(el){
             
         <div class="input-group">
           <label for="bike-value">Motorcycle Value ($):</label>
-          <input type="number" id="bike-value"  min="0"  value="12000">
+          <input type="number" id="bike-value"  min="0"  value="12000" aria-label="Bike Value">
         </div>
 
         <div class="input-group">
           <label for="bike-type">Bike Type:</label>
-          <select id="bike-type">
+          <select id="bike-type" aria-label="Bike Type">
             <option value="Cruiser">Cruiser</option>
 <option value="Sport">Sport</option>
 <option value="Touring">Touring</option>
@@ -518,22 +519,22 @@ function lwSelOpt(el){
 
         <div class="input-group">
           <label for="cc">Engine Size (cc):</label>
-          <input type="number" id="cc"  min="0"  value="750">
+          <input type="number" id="cc"  min="0"  value="750" aria-label="Cc">
         </div>
 
         <div class="input-group">
           <label for="age">Your Age:</label>
-          <input type="number" id="age"  min="16" max="100" value="30">
+          <input type="number" id="age"  min="16" max="100" value="30" aria-label="Age">
         </div>
 
         <div class="input-group">
           <label for="experience">Years Riding:</label>
-          <input type="number" id="experience"  min="0" max="50" value="5">
+          <input type="number" id="experience"  min="0" max="50" value="5" aria-label="Experience">
         </div>
 
         <div class="input-group">
           <label for="coverage">Coverage Type:</label>
-          <select id="coverage">
+          <select id="coverage" aria-label="Coverage">
             <option value="Liability Only">Liability Only</option>
 <option value="Liability + Collision">Liability + Collision</option>
 <option value="Full Coverage">Full Coverage</option>
@@ -687,26 +688,26 @@ function lwSelOpt(el){
 
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
       <a class="logo" href="index.html">Calc<span>Leap</span></a>
       <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
     </div>
     <div>
-      <h5>Popular</h5>
+      <h4>Popular</h4>
       <a href="bmi-calculator.html">BMI Calculator</a>
       <a href="calc/mortgage-payment.html">Mortgage</a>
       <a href="income-tax-calculator.html">Income Tax</a>
     </div>
     <div>
-      <h5>Categories</h5>
+      <h4>Categories</h4>
       <a href="index.html#finance">Financial</a>
       <a href="index.html#insurance">Insurance</a>
       <a href="index.html#health">Health</a>
     </div>
     <div>
-      <h5>Company</h5>
+      <h4>Company</h4>
       <a href="about.html">About</a>
       <a href="privacy.html">Privacy</a>
       <a href="contact.html">Contact</a>

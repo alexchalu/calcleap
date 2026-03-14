@@ -72,11 +72,12 @@
     </style>
 </head>
 <body>
-    <nav class="nav">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <a href="https://calcleap.com/">← CalcLeap</a>
         <a href="https://calcleap.com/tax-refund/">All States</a>
     </nav>
-    <div class="page">
+    <div class="page" id="main-content" role="main">
         <h1 class="page-title">Indiana Tax Refund Calculator 2026</h1>
         <p class="subtitle">Estimate your federal and IN state tax refund for the 2025 tax year (filing in 2026)</p>
         
@@ -89,44 +90,44 @@
             <h2 style="font-size:20px;margin-bottom:20px">💰 Calculate Your Indiana Refund</h2>
             <div class="input-grid">
                 <div class="input-group">
-                    <label>Total Annual Income (W-2)</label>
-                    <input type="number" id="income" placeholder="75000" value="75000">
+                    <label for="income">Total Annual Income (W-2)</label>
+                    <input type="number" id="income" placeholder="75000" value="75000" aria-label="75000">
                 </div>
                 <div class="input-group">
-                    <label>Federal Tax Withheld</label>
-                    <input type="number" id="withheld" placeholder="12000" value="12000">
+                    <label for="withheld">Federal Tax Withheld</label>
+                    <input type="number" id="withheld" placeholder="12000" value="12000" aria-label="12000">
                 </div>
                 <div class="input-group">
-                    <label>State Tax Withheld</label>
-                    <input type="number" id="stateWithheld" placeholder="3000" value="3000">
+                    <label for="stateWithheld">State Tax Withheld</label>
+                    <input type="number" id="stateWithheld" placeholder="3000" value="3000" aria-label="3000">
                 </div>
                 <div class="input-group">
-                    <label>Filing Status</label>
-                    <select id="filing">
+                    <label for="filing">Filing Status</label>
+                    <select id="filing" aria-label="Filing">
                         <option value="single">Single</option>
                         <option value="married">Married Filing Jointly</option>
                         <option value="hoh">Head of Household</option>
                     </select>
                 </div>
                 <div class="input-group">
-                    <label>Number of Dependents</label>
-                    <input type="number" id="dependents" placeholder="0" value="0" min="0">
+                    <label for="dependents">Number of Dependents</label>
+                    <input type="number" id="dependents" placeholder="0" value="0" min="0" aria-label="0">
                 </div>
                 <div class="input-group">
-                    <label>Itemized Deductions ($0 = standard)</label>
-                    <input type="number" id="deductions" placeholder="0" value="0">
+                    <label for="deductions">Itemized Deductions ($0 = standard)</label>
+                    <input type="number" id="deductions" placeholder="0" value="0" aria-label="0">
                 </div>
                 <div class="input-group">
-                    <label>401(k) / IRA Contributions</label>
-                    <input type="number" id="retirement" placeholder="0" value="0">
+                    <label for="retirement">401(k) / IRA Contributions</label>
+                    <input type="number" id="retirement" placeholder="0" value="0" aria-label="0">
                 </div>
                 <div class="input-group">
-                    <label>HSA Contributions</label>
-                    <input type="number" id="hsa" placeholder="0" value="0">
+                    <label for="hsa">HSA Contributions</label>
+                    <input type="number" id="hsa" placeholder="0" value="0" aria-label="0">
                 </div>
                 <div class="input-group">
-                    <label>Other Tax Credits</label>
-                    <input type="number" id="credits" placeholder="0" value="0">
+                    <label for="credits">Other Tax Credits</label>
+                    <input type="number" id="credits" placeholder="0" value="0" aria-label="0">
                 </div>
             </div>
             <button class="calc-btn" onclick="calculate()">Calculate My Refund</button>
@@ -263,7 +264,7 @@
         </div>
     </div>
     
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <p>© 2026 CalcLeap. Free tax refund calculators for all 50 states.</p>
         <p style="margin-top:8px;font-size:13px">This calculator provides estimates only. Consult a tax professional for personalized advice.</p>
         <p style="margin-top:8px"><a href="https://calcleap.com/">Home</a> · <a href="https://calcleap.com/tax-refund/">Tax Refund Calculators</a></p>

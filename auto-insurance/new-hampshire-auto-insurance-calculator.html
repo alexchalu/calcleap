@@ -263,8 +263,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div></div></nav>
-<main class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div></div></nav>
+<main class="page" id="main-content" role="main">
 <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/index.html">Auto Insurance</a><span class="sep">›</span>New Hampshire</div>
 <h1 class="page-title">New Hampshire Auto Insurance Calculator</h1>
 <p class="page-desc">Estimate your car insurance premium in New Hampshire. The state average is <strong>$1,280/year</strong> — ranked #2 out of 50 states. Compare coverage levels and discover ways to save.</p>
@@ -296,7 +297,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     <div class="lw-step active" id="lwS1_newhampshireautoinsurancecalculator">
       <div class="lw-step-label">Step 1 of 3</div>
       <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_newhampshireautoinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code">
+      <input type="text" class="lw-input-lg" id="lwZip_newhampshireautoinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
       <button class="lw-btn" onclick="lwNext_newhampshireautoinsurancecalculator(1)" id="lwBtn1_newhampshireautoinsurancecalculator" disabled>
         Compare Rates <span style="font-size:1.1em">→</span>
       </button>
@@ -317,11 +318,11 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 <div class="lw-opt" data-v="minimum" onclick="lwSelOpt(this)">State Minimum</div>
             </div>
             <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label>Currently insured?</label>
-                    <select id="lwInsured_newhampshireautoinsurancecalculator"><option value="yes">Yes</option><option value="no">No</option><option value="switching">Switching providers</option></select>
+                <div class="lw-field"><label for="lwInsured_newhampshireautoinsurancecalculator">Currently insured?</label>
+                    <select id="lwInsured_newhampshireautoinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option><option value="switching">Switching providers</option></select>
                 </div>
-                <div class="lw-field"><label>Age</label>
-                    <select id="lwAge_newhampshireautoinsurancecalculator"><option value="">Select</option><option>16-24</option><option selected>25-34</option><option>35-44</option><option>45-54</option><option>55-64</option><option>65+</option></select>
+                <div class="lw-field"><label for="lwAge_newhampshireautoinsurancecalculator">Age</label>
+                    <select id="lwAge_newhampshireautoinsurancecalculator" aria-label="Age"><option value="">Select</option><option>16-24</option><option selected>25-34</option><option>35-44</option><option>45-54</option><option>55-64</option><option>65+</option></select>
                 </div>
             </div>
       <button class="lw-btn" onclick="lwNext_newhampshireautoinsurancecalculator(2)">
@@ -334,10 +335,10 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <div class="lw-step-label">Step 3 of 3 — Final step</div>
       <div class="lw-step-title">Where should we send your quotes?</div>
       <div class="lw-grid">
-        <div class="lw-field"><label>First name</label><input type="text" id="lwFname_newhampshireautoinsurancecalculator" placeholder="John" autocomplete="given-name" required></div>
-        <div class="lw-field"><label>Last name</label><input type="text" id="lwLname_newhampshireautoinsurancecalculator" placeholder="Smith" autocomplete="family-name" required></div>
-        <div class="lw-field"><label>Email</label><input type="email" id="lwEmail_newhampshireautoinsurancecalculator" placeholder="john@email.com" autocomplete="email" required></div>
-        <div class="lw-field"><label>Phone</label><input type="tel" id="lwPhone_newhampshireautoinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required></div>
+        <div class="lw-field"><label for="lwFname_newhampshireautoinsurancecalculator">First name</label><input type="text" id="lwFname_newhampshireautoinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
+        <div class="lw-field"><label for="lwLname_newhampshireautoinsurancecalculator">Last name</label><input type="text" id="lwLname_newhampshireautoinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
+        <div class="lw-field"><label for="lwEmail_newhampshireautoinsurancecalculator">Email</label><input type="email" id="lwEmail_newhampshireautoinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
+        <div class="lw-field"><label for="lwPhone_newhampshireautoinsurancecalculator">Phone</label><input type="tel" id="lwPhone_newhampshireautoinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
       </div>
       <button class="lw-btn" onclick="lwSubmit_newhampshireautoinsurancecalculator()" style="background:#16a34a">
         🎯 Get My Free Quotes
@@ -415,20 +416,20 @@ function lwSelOpt(el){
 <div class="card">
 <h2>🚗 Estimate Your New Hampshire Car Insurance Premium</h2>
 <div class="form-row">
-<div class="form-group"><label>Driver Age</label><select id="age"><option value="16">16-19 (Teen)</option><option value="20">20-24 (Young Adult)</option><option value="25" selected>25-34</option><option value="35">35-44</option><option value="45">45-54</option><option value="55">55-64</option><option value="65">65+ (Senior)</option></select></div>
-<div class="form-group"><label>Gender</label><select id="gender"><option value="male">Male</option><option value="female">Female</option></select></div>
+<div class="form-group"><label for="age">Driver Age</label><select id="age" aria-label="Age"><option value="16">16-19 (Teen)</option><option value="20">20-24 (Young Adult)</option><option value="25" selected>25-34</option><option value="35">35-44</option><option value="45">45-54</option><option value="55">55-64</option><option value="65">65+ (Senior)</option></select></div>
+<div class="form-group"><label for="gender">Gender</label><select id="gender" aria-label="Gender"><option value="male">Male</option><option value="female">Female</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Vehicle Type</label><select id="vehicle"><option value="sedan">Sedan</option><option value="suv">SUV / Crossover</option><option value="truck">Pickup Truck</option><option value="sports">Sports Car</option><option value="luxury">Luxury Vehicle</option><option value="electric">Electric Vehicle</option><option value="minivan">Minivan</option></select></div>
-<div class="form-group"><label>Credit Score Range</label><select id="credit"><option value="excellent">Excellent (750+)</option><option value="good" selected>Good (700-749)</option><option value="fair">Fair (650-699)</option><option value="poor">Poor (below 650)</option></select></div>
+<div class="form-group"><label for="vehicle">Vehicle Type</label><select id="vehicle" aria-label="Vehicle"><option value="sedan">Sedan</option><option value="suv">SUV / Crossover</option><option value="truck">Pickup Truck</option><option value="sports">Sports Car</option><option value="luxury">Luxury Vehicle</option><option value="electric">Electric Vehicle</option><option value="minivan">Minivan</option></select></div>
+<div class="form-group"><label for="credit">Credit Score Range</label><select id="credit" aria-label="Credit"><option value="excellent">Excellent (750+)</option><option value="good" selected>Good (700-749)</option><option value="fair">Fair (650-699)</option><option value="poor">Poor (below 650)</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Coverage Level</label><select id="coverage"><option value="minimum">State Minimum (25/50/25)</option><option value="standard" selected>Standard (50/100/50)</option><option value="full">Full Coverage (100/300/100)</option><option value="premium">Premium (250/500/250)</option></select></div>
-<div class="form-group"><label>Driving Record</label><select id="record"><option value="clean" selected>Clean Record</option><option value="ticket">1-2 Tickets</option><option value="accident">At-Fault Accident</option><option value="dui">DUI/DWI</option></select></div>
+<div class="form-group"><label for="coverage">Coverage Level</label><select id="coverage" aria-label="Coverage"><option value="minimum">State Minimum (25/50/25)</option><option value="standard" selected>Standard (50/100/50)</option><option value="full">Full Coverage (100/300/100)</option><option value="premium">Premium (250/500/250)</option></select></div>
+<div class="form-group"><label for="record">Driving Record</label><select id="record" aria-label="Record"><option value="clean" selected>Clean Record</option><option value="ticket">1-2 Tickets</option><option value="accident">At-Fault Accident</option><option value="dui">DUI/DWI</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Annual Mileage</label><select id="mileage"><option value="low">Under 7,500</option><option value="avg" selected>7,500 - 15,000</option><option value="high">15,000 - 25,000</option><option value="vhigh">Over 25,000</option></select></div>
-<div class="form-group"><label>Deductible</label><select id="deductible"><option value="250">$250</option><option value="500" selected>$500</option><option value="1000">$1,000</option><option value="2000">$2,000</option></select></div>
+<div class="form-group"><label for="mileage">Annual Mileage</label><select id="mileage" aria-label="Mileage"><option value="low">Under 7,500</option><option value="avg" selected>7,500 - 15,000</option><option value="high">15,000 - 25,000</option><option value="vhigh">Over 25,000</option></select></div>
+<div class="form-group"><label for="deductible">Deductible</label><select id="deductible" aria-label="Deductible"><option value="250">$250</option><option value="500" selected>$500</option><option value="1000">$1,000</option><option value="2000">$2,000</option></select></div>
 </div>
 <button class="btn" onclick="calculate()">Calculate Premium</button>
 
@@ -512,7 +513,7 @@ function lwSelOpt(el){
 <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
 </main>
 
-<footer class="footer"><div class="footer-inner">
+<footer class="footer" role="contentinfo"><div class="footer-inner">
 <div class="footer-col"><h4>CalcLeap</h4><a href="/">Home</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a></div>
 <div class="footer-col"><h4>Insurance Tools</h4><a href="/auto-insurance/">Auto Insurance</a><a href="/home-insurance/">Home Insurance</a><a href="/disability-insurance/">Disability Insurance</a><a href="/workers-comp/">Workers' Comp</a></div>
 <div class="footer-col"><h4>Finance Tools</h4><a href="/social-security/">Social Security</a><a href="/529/">529 Plans</a><a href="/childcare/">Childcare Costs</a><a href="/calc/mortgage-payment.html">Mortgage</a></div>

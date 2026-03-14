@@ -150,8 +150,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="../index.html" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
@@ -166,7 +167,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb">
     <a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#energy">Energy</a><span class="sep">›</span>☀️ Solar vs Electricity Calculator
   </div>
@@ -185,41 +186,41 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     
     <div class="form-row">
       <div class="form-group">
-        <label>Monthly Electricity Bill ($)</label>
-        <input type="number" id="monthlyBill" value="150" step="10" min="0">
+        <label for="monthlyBill">Monthly Electricity Bill ($)</label>
+        <input type="number" id="monthlyBill" value="150" step="10" min="0" aria-label="Monthly Bill">
       </div>
       <div class="form-group">
-        <label>Current Rate ($/kWh)</label>
-        <input type="number" id="electricityRate" value="0.14" step="0.01" min="0">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>Solar System Size (kW)</label>
-        <input type="number" id="systemSize" value="6" step="0.5" min="1" max="20">
-      </div>
-      <div class="form-group">
-        <label>Solar Cost per Watt ($)</label>
-        <input type="number" id="costPerWatt" value="2.75" step="0.05" min="0">
+        <label for="electricityRate">Current Rate ($/kWh)</label>
+        <input type="number" id="electricityRate" value="0.14" step="0.01" min="0" aria-label="Electricity Rate">
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
-        <label>Federal Tax Credit (%)</label>
-        <input type="number" id="taxCredit" value="30" step="1" min="0" max="100">
+        <label for="systemSize">Solar System Size (kW)</label>
+        <input type="number" id="systemSize" value="6" step="0.5" min="1" max="20" aria-label="System Size">
       </div>
       <div class="form-group">
-        <label>Annual Rate Increase (%)</label>
-        <input type="number" id="rateIncrease" value="3" step="0.5" min="0" max="10">
+        <label for="costPerWatt">Solar Cost per Watt ($)</label>
+        <input type="number" id="costPerWatt" value="2.75" step="0.05" min="0" aria-label="Cost Per Watt">
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
-        <label>State</label>
-        <select id="state">
+        <label for="taxCredit">Federal Tax Credit (%)</label>
+        <input type="number" id="taxCredit" value="30" step="1" min="0" max="100" aria-label="Tax Credit">
+      </div>
+      <div class="form-group">
+        <label for="rateIncrease">Annual Rate Increase (%)</label>
+        <input type="number" id="rateIncrease" value="3" step="0.5" min="0" max="10" aria-label="Rate Increase">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="state">State</label>
+        <select id="state" aria-label="State">
           <option value="average">National Average</option>
           <option value="ca">California (High Sun)</option>
           <option value="az">Arizona (High Sun)</option>
@@ -230,8 +231,8 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         </select>
       </div>
       <div class="form-group">
-        <label>Analysis Period (years)</label>
-        <select id="years">
+        <label for="years">Analysis Period (years)</label>
+        <select id="years" aria-label="Years">
           <option value="10">10 years</option>
           <option value="15">15 years</option>
           <option value="20">20 years</option>
@@ -434,26 +435,26 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
       <a class="logo" href="../index.html">Calc<span>Leap</span></a>
       <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
     </div>
     <div>
-      <h5>Popular</h5>
+      <h4>Popular</h4>
       <a href="../bmi-calculator.html">BMI Calculator</a>
       <a href="mortgage-payment.html">Mortgage</a>
       <a href="../income-tax-calculator.html">Income Tax</a>
     </div>
     <div>
-      <h5>Categories</h5>
+      <h4>Categories</h4>
       <a href="../index.html#finance">Financial</a>
       <a href="../index.html#insurance">Insurance</a>
       <a href="../index.html#health">Health</a>
     </div>
     <div>
-      <h5>Company</h5>
+      <h4>Company</h4>
       <a href="../about.html">About</a>
       <a href="../privacy.html">Privacy</a>
       <a href="../contact.html">Contact</a>

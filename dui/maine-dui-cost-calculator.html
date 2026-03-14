@@ -102,8 +102,9 @@ a{color:inherit;text-decoration:none}
 @media(max-width:768px){.page-title{font-size:1.5rem}.form-row,.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:repeat(2,1fr)}}</style>
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a class="logo" href="/">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/auto-insurance/">Auto Insurance</a><a href="/life-insurance/">Life Insurance</a></div></div></nav>
-<div class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a class="logo" href="/">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/auto-insurance/">Auto Insurance</a><a href="/life-insurance/">Life Insurance</a></div></div></nav>
+<div class="page" id="main-content" role="main">
 <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/dui/">DUI Costs</a><span class="sep">›</span>Maine</div>
 <h1 class="page-title">Maine DUI Cost Calculator</h1>
 <p class="page-desc">Estimate the total financial impact of a DUI in Maine. Calculate fines, attorney fees, insurance increases, and all associated costs. BAC limit: 0.08. Lookback period: 10 years.</p>
@@ -120,16 +121,16 @@ a{color:inherit;text-decoration:none}
 <div class="card">
 <h2>Calculate Your DUI Costs in Maine</h2>
 <div class="form-row">
-<div class="form-group"><label>Offense Number</label><select id="offense"><option value="1">1st Offense</option><option value="2">2nd Offense</option><option value="3">3rd Offense</option></select></div>
-<div class="form-group"><label>BAC Level</label><select id="bac"><option value="low">0.08 - 0.14 (Standard)</option><option value="high">0.15 - 0.19 (High)</option><option value="extreme">0.20+ (Extreme)</option></select></div>
+<div class="form-group"><label for="offense">Offense Number</label><select id="offense" aria-label="Offense"><option value="1">1st Offense</option><option value="2">2nd Offense</option><option value="3">3rd Offense</option></select></div>
+<div class="form-group"><label for="bac">BAC Level</label><select id="bac" aria-label="Bac"><option value="low">0.08 - 0.14 (Standard)</option><option value="high">0.15 - 0.19 (High)</option><option value="extreme">0.20+ (Extreme)</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Accident Involved?</label><select id="accident"><option value="no">No Accident</option><option value="property">Property Damage</option><option value="injury">Injury Accident</option></select></div>
-<div class="form-group"><label>Attorney Representation</label><select id="attorney"><option value="public">Public Defender</option><option value="private">Private Attorney ($3,000-$10,000)</option><option value="trial">Trial Attorney ($10,000-$25,000)</option></select></div>
+<div class="form-group"><label for="accident">Accident Involved?</label><select id="accident" aria-label="Accident"><option value="no">No Accident</option><option value="property">Property Damage</option><option value="injury">Injury Accident</option></select></div>
+<div class="form-group"><label for="attorney">Attorney Representation</label><select id="attorney" aria-label="Attorney"><option value="public">Public Defender</option><option value="private">Private Attorney ($3,000-$10,000)</option><option value="trial">Trial Attorney ($10,000-$25,000)</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Bail/Bond Cost</label><select id="bail"><option value="500">$500 (Minor)</option><option value="2500">$2,500 (Standard)</option><option value="5000">$5,000 (High BAC)</option><option value="10000">$10,000+ (Accident)</option></select></div>
-<div class="form-group"><label>Towing & Impound</label><select id="tow"><option value="300">$300 (1 day)</option><option value="600">$600 (3 days)</option><option value="1200">$1,200 (7 days)</option></select></div>
+<div class="form-group"><label for="bail">Bail/Bond Cost</label><select id="bail" aria-label="Bail"><option value="500">$500 (Minor)</option><option value="2500">$2,500 (Standard)</option><option value="5000">$5,000 (High BAC)</option><option value="10000">$10,000+ (Accident)</option></select></div>
+<div class="form-group"><label for="tow">Towing & Impound</label><select id="tow" aria-label="Tow"><option value="300">$300 (1 day)</option><option value="600">$600 (3 days)</option><option value="1200">$1,200 (7 days)</option></select></div>
 </div>
 <button class="btn" onclick="calculate()">Calculate Total DUI Cost</button>
 <div class="results" id="results">
@@ -226,7 +227,7 @@ a{color:inherit;text-decoration:none}
 </div>
 </div>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-col"><h4>Calculators</h4><a href="/auto-insurance/">Auto Insurance</a><a href="/life-insurance/">Life Insurance</a><a href="/home-insurance/">Home Insurance</a><a href="/health-insurance/">Health Insurance</a></div><div class="footer-col"><h4>By State</h4><a href="/dui/">DUI Costs</a><a href="/workers-comp/">Workers' Comp</a><a href="/disability-insurance/">Disability Insurance</a><a href="/social-security/">Social Security</a></div><div class="footer-col"><h4>Resources</h4><a href="/529/">529 Plans</a><a href="/childcare/">Childcare Costs</a><a href="/nursing-home/">Nursing Home</a><a href="/medicaid/">Medicaid</a></div><div class="footer-col"><h4>About</h4><a href="/about.html">About CalcLeap</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div></div><div class="footer-bottom">© 2026 CalcLeap. Free financial calculators and tools.</div></footer>
+<footer class="footer" role="contentinfo"><div class="footer-inner"><div class="footer-col"><h4>Calculators</h4><a href="/auto-insurance/">Auto Insurance</a><a href="/life-insurance/">Life Insurance</a><a href="/home-insurance/">Home Insurance</a><a href="/health-insurance/">Health Insurance</a></div><div class="footer-col"><h4>By State</h4><a href="/dui/">DUI Costs</a><a href="/workers-comp/">Workers' Comp</a><a href="/disability-insurance/">Disability Insurance</a><a href="/social-security/">Social Security</a></div><div class="footer-col"><h4>Resources</h4><a href="/529/">529 Plans</a><a href="/childcare/">Childcare Costs</a><a href="/nursing-home/">Nursing Home</a><a href="/medicaid/">Medicaid</a></div><div class="footer-col"><h4>About</h4><a href="/about.html">About CalcLeap</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div></div><div class="footer-bottom">© 2026 CalcLeap. Free financial calculators and tools.</div></footer>
 
 <script>
 function calculate(){

@@ -313,7 +313,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="nav">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-content">
       <a href="/" class="logo">CalcLeap</a>
       <div class="nav-links">
@@ -324,7 +325,7 @@
     </div>
   </nav>
 
-  <div class="page">
+  <div class="page" id="main-content" role="main">
     <h1 class="page-title">Self-Employment Tax Calculator</h1>
     <p class="subtitle">Calculate your self-employment taxes, quarterly payments, and deductions for 2026</p>
 
@@ -341,19 +342,19 @@
       <div class="input-grid">
         <div class="input-group">
           <label for="grossIncome">Annual Gross Income ($)</label>
-          <input type="number" id="grossIncome" value="80000" min="0" step="1000">
+          <input type="number" id="grossIncome" value="80000" min="0" step="1000" aria-label="Gross Income">
           <div class="help-text">Your total revenue from self-employment (1099-NEC, business income, etc.)</div>
         </div>
         
         <div class="input-group">
           <label for="businessExpenses">Business Expenses ($)</label>
-          <input type="number" id="businessExpenses" value="15000" min="0" step="500">
+          <input type="number" id="businessExpenses" value="15000" min="0" step="500" aria-label="Business Expenses">
           <div class="help-text">Deductible business expenses (home office, supplies, software, travel, etc.)</div>
         </div>
 
         <div class="input-group">
           <label for="filingStatus">Filing Status</label>
-          <select id="filingStatus">
+          <select id="filingStatus" aria-label="Filing Status">
             <option value="single">Single</option>
             <option value="married" selected>Married Filing Jointly</option>
             <option value="married_sep">Married Filing Separately</option>
@@ -363,13 +364,13 @@
 
         <div class="input-group">
           <label for="otherIncome">Other Income ($) - Optional</label>
-          <input type="number" id="otherIncome" value="0" min="0" step="1000">
+          <input type="number" id="otherIncome" value="0" min="0" step="1000" aria-label="Other Income">
           <div class="help-text">W-2 wages, investment income, spouse's income if filing jointly</div>
         </div>
 
         <div class="input-group">
           <label for="deductions">Standard/Itemized Deductions ($)</label>
-          <input type="number" id="deductions" value="29200" min="0" step="100">
+          <input type="number" id="deductions" value="29200" min="0" step="100" aria-label="Deductions">
           <div class="help-text">2026 standard deduction: Single $14,600 | MFJ $29,200 | HOH $21,900</div>
         </div>
       </div>
@@ -678,7 +679,7 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
         <h4>Popular Calculators</h4>

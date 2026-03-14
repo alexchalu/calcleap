@@ -214,19 +214,20 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/childcare/">Child Care</a><a href="/about.html">About</a></div></div></nav>
-<div class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/childcare/">Child Care</a><a href="/about.html">About</a></div></div></nav>
+<div class="page" id="main-content" role="main">
 <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/childcare/">Child Care Calculators</a><span class="sep">›</span>Rhode Island</div>
 <h1 class="page-title">Rhode Island Child Care Cost Calculator</h1>
 <p class="page-desc">Calculate the true cost of child care in Rhode Island. Average infant daycare costs $14,100/year (19.8% of median household income). Compare center-based, home daycare, and nanny costs.</p>
 
 <div class="card">
 <h2>👶 Calculate Your Child Care Costs</h2>
-<div class="form-group"><label>Child's Age Group</label><select id="ageGroup"><option value="infant">Infant (0–12 months)</option><option value="toddler">Toddler (1–2 years)</option><option value="preschool" selected>Preschool (3–4 years)</option><option value="schoolAge">School Age (5–12 years)</option></select></div>
-<div class="form-group"><label>Care Type</label><select id="careType"><option value="center" selected>Child Care Center</option><option value="home">Family Home Daycare</option><option value="nanny">Nanny / In-Home Care</option><option value="au_pair">Au Pair</option></select></div>
-<div class="form-group"><label>Schedule</label><select id="schedule"><option value="full" selected>Full-Time (5 days/week)</option><option value="part3">Part-Time (3 days/week)</option><option value="part2">Part-Time (2 days/week)</option></select></div>
-<div class="form-group"><label>Number of Children</label><select id="numChildren"><option value="1" selected>1 Child</option><option value="2">2 Children</option><option value="3">3 Children</option></select></div>
-<div class="form-group"><label>Your Annual Household Income</label><input type="number" id="income" value="71169" placeholder="Annual income"></div>
+<div class="form-group"><label for="ageGroup">Child's Age Group</label><select id="ageGroup" aria-label="Age Group"><option value="infant">Infant (0–12 months)</option><option value="toddler">Toddler (1–2 years)</option><option value="preschool" selected>Preschool (3–4 years)</option><option value="schoolAge">School Age (5–12 years)</option></select></div>
+<div class="form-group"><label for="careType">Care Type</label><select id="careType" aria-label="Care Type"><option value="center" selected>Child Care Center</option><option value="home">Family Home Daycare</option><option value="nanny">Nanny / In-Home Care</option><option value="au_pair">Au Pair</option></select></div>
+<div class="form-group"><label for="schedule">Schedule</label><select id="schedule" aria-label="Schedule"><option value="full" selected>Full-Time (5 days/week)</option><option value="part3">Part-Time (3 days/week)</option><option value="part2">Part-Time (2 days/week)</option></select></div>
+<div class="form-group"><label for="numChildren">Number of Children</label><select id="numChildren" aria-label="Num Children"><option value="1" selected>1 Child</option><option value="2">2 Children</option><option value="3">3 Children</option></select></div>
+<div class="form-group"><label for="income">Your Annual Household Income</label><input type="number" id="income" value="71169" placeholder="Annual income" aria-label="Annual income"></div>
 <button class="btn" onclick="calculate()">Calculate Costs</button>
 
 <div class="results" id="results">
@@ -319,7 +320,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </div>
 </div>
 
-<footer class="footer"><div class="footer-inner">
+<footer class="footer" role="contentinfo"><div class="footer-inner">
 <div class="footer-col"><h4>Calculators</h4><a href="/calc/bmi-calculator.html">BMI Calculator</a><a href="/calc/mortgage-payment.html">Mortgage Calculator</a><a href="/calc/retirement-calculator.html">Retirement</a><a href="/calc/compound-interest.html">Compound Interest</a></div>
 <div class="footer-col"><h4>Insurance</h4><a href="/workers-comp/">Workers' Comp</a><a href="/disability-insurance/">Disability Insurance</a><a href="/calc/car-insurance-estimator.html">Car Insurance</a><a href="/calc/pet-insurance-calculator.html">Pet Insurance</a></div>
 <div class="footer-col"><h4>Taxes</h4><a href="/529/">529 Plans</a><a href="/calc/capital-gains-tax-calculator.html">Capital Gains</a><a href="/calc/sales-tax-calculator.html">Sales Tax</a><a href="/calc/salary-to-hourly.html">Salary to Hourly</a></div>

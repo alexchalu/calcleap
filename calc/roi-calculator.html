@@ -272,8 +272,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/index.html" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
@@ -288,7 +289,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb">
     <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#finance">Finance</a><span class="sep">›</span>ROI Calculator (Return on Investment)
   </div>
@@ -296,34 +297,34 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   <h1 class="page-title">ROI Calculator (Return on Investment)</h1>
   <p class="page-desc">Calculate return on investment percentage and annualized ROI for any investment.</p>
 
-<p class="sub">Calculate return on investment percentage and annualized ROI for any investment.</p><div class="calc"><div class="row"><div class="field"><label class="label">Initial Investment ($)</label><input type="number" id="invest" value="10000"></div><div class="field"><label class="label">Final Value ($)</label><input type="number" id="final" value="15000"></div></div>
-<div class="field"><label class="label">Investment Period (years)</label><input type="number" id="years" value="3" step="0.5"></div>
+<p class="sub">Calculate return on investment percentage and annualized ROI for any investment.</p><div class="calc"><div class="row"><div class="field"><label class="label">Initial Investment ($)</label><input type="number" id="invest" value="10000" aria-label="Invest"></div><div class="field"><label class="label">Final Value ($)</label><input type="number" id="final" value="15000" aria-label="Final"></div></div>
+<div class="field"><label class="label">Investment Period (years)</label><input type="number" id="years" value="3" step="0.5" aria-label="Years"></div>
 <button class="btn" onclick="calc()">Calculate ROI</button><div class="results-grid" id="out"></div></div>
 <script>const $=id=>document.getElementById(id);const fmt=(n,d=2)=>typeof n==='number'?n.toLocaleString('en-US',{maximumFractionDigits:d}):'—';function calc(){const inv=+$('invest').value,fin=+$('final').value,y=+$('years').value;const roi=(fin-inv)/inv*100;const annualized=(Math.pow(fin/inv,1/y)-1)*100;const profit=fin-inv;$('out').innerHTML='<div class="stat"><div class="val" style="color:'+(roi>=0?'#22c55e':'#ef4444')+'">'+fmt(roi,1)+'%</div><div class="lbl">Total ROI</div></div><div class="stat"><div class="val">'+fmt(annualized,1)+'%</div><div class="lbl">Annualized ROI</div></div><div class="stat"><div class="val" style="color:'+(profit>=0?'#22c55e':'#ef4444')+'">$'+fmt(profit)+'</div><div class="lbl">Total Gain/Loss</div></div><div class="stat"><div class="val">'+fmt(y,1)+' yrs</div><div class="lbl">Period</div></div>';var roiMax=Math.max(inv,fin);var roiChartH='<div style="margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:#1d1d1f">Investment vs Return</h3>';roiChartH+='<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">Initial Investment</span><span style="font-weight:600">$'+fmt(inv)+'</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:'+Math.round(inv/roiMax*100)+'%;height:100%;background:#0071e3;border-radius:6px;transition:width .5s ease"></div></div></div>';roiChartH+='<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">Final Value</span><span style="font-weight:600">$'+fmt(fin)+'</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:'+Math.round(fin/roiMax*100)+'%;height:100%;background:'+(profit>=0?'#34c759':'#ef4444')+';border-radius:6px;transition:width .5s ease"></div></div></div>';roiChartH+='<div style="margin-bottom:.75rem"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem"><span style="color:#6e6e73">'+(profit>=0?'Profit':'Loss')+'</span><span style="font-weight:600;color:'+(profit>=0?'#22c55e':'#ef4444')+'">$'+fmt(Math.abs(profit))+'</span></div><div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden"><div style="width:'+Math.round(Math.abs(profit)/roiMax*100)+'%;height:100%;background:'+(profit>=0?'#34c759':'#ef4444')+';border-radius:6px;transition:width .5s ease"></div></div></div>';roiChartH+='</div>';$('out').innerHTML+=roiChartH}
 if(typeof calc==='function')calc();</script>
 
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
       <a class="logo" href="/index.html">Calc<span>Leap</span></a>
       <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
     </div>
     <div>
-      <h5>Popular</h5>
+      <h4>Popular</h4>
       <a href="bmi-calculator.html">BMI Calculator</a>
       <a href="/calc/mortgage-payment.html">Mortgage</a>
       <a href="income-tax-calculator.html">Income Tax</a>
     </div>
     <div>
-      <h5>Categories</h5>
+      <h4>Categories</h4>
       <a href="/index.html#finance">Financial</a>
       <a href="/index.html#insurance">Insurance</a>
       <a href="/index.html#health">Health</a>
     </div>
     <div>
-      <h5>Company</h5>
+      <h4>Company</h4>
       <a href="/about.html">About</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/contact.html">Contact</a>

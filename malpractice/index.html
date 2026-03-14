@@ -42,8 +42,9 @@
     </style>
 </head>
 <body>
-    <nav class="nav"><a href="https://calcleap.com/">← CalcLeap Home</a></nav>
-    <div class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation"><a href="https://calcleap.com/">← CalcLeap Home</a></nav>
+    <div class="page" id="main-content" role="main">
         <h1 class="page-title">Medical Malpractice Settlement Calculator by State 2026</h1>
         <p class="subtitle">Free malpractice settlement estimators for all 50 US states. Compare damage caps, statutes of limitations, and average settlements.</p>
 
@@ -62,7 +63,7 @@
             <p><strong>States Without Damage Caps:</strong> Alabama, Arizona, Arkansas, Connecticut, Delaware, Kentucky, Maine, Minnesota, New Hampshire, New Jersey, New York, Pennsylvania, Rhode Island, South Dakota, Vermont, Washington, Wyoming</p>
         </div>
 
-        <input type="text" class="search" placeholder="🔍 Search states..." oninput="filterStates(this.value)">
+        <input type="text" class="search" placeholder="🔍 Search states..." oninput="filterStates(this.value)" aria-label="🔍 Search states...">
         <div class="state-grid" id="stateGrid">
             <a href="alabama.html" class="state-card" data-name="alabama">
                 <div class="name">Alabama</div>
@@ -384,7 +385,7 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-grid">
             <div><h4>Calculators</h4><a href="https://calcleap.com/">Home</a><br><a href="https://calcleap.com/malpractice/">Malpractice</a><br><a href="https://calcleap.com/accident/">Accident</a></div>
             <div><h4>Insurance</h4><a href="https://calcleap.com/auto-insurance/">Auto</a><br><a href="https://calcleap.com/home-insurance/">Home</a><br><a href="https://calcleap.com/life-insurance/">Life</a></div>

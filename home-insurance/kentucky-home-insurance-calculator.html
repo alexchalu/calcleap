@@ -264,8 +264,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/home-insurance/">Home Insurance</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div></div></nav>
-<div class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/home-insurance/">Home Insurance</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div></div></nav>
+<div class="page" id="main-content" role="main">
 <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/home-insurance/">Home Insurance</a><span class="sep">›</span>Kentucky</div>
 <h1 class="page-title">Kentucky Home Insurance Calculator</h1>
 <p class="page-desc">Estimate your homeowners insurance premium in Kentucky. The average annual premium is $1,890, with a median home value of $173,400.</p>
@@ -295,7 +296,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     <div class="lw-step active" id="lwS1_kentuckyhomeinsurancecalculator">
       <div class="lw-step-label">Step 1 of 3</div>
       <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_kentuckyhomeinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code">
+      <input type="text" class="lw-input-lg" id="lwZip_kentuckyhomeinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
       <button class="lw-btn" onclick="lwNext_kentuckyhomeinsurancecalculator(1)" id="lwBtn1_kentuckyhomeinsurancecalculator" disabled>
         Compare Rates <span style="font-size:1.1em">→</span>
       </button>
@@ -316,11 +317,11 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 <div class="lw-opt" data-v="rental" onclick="lwSelOpt(this)">🏡 Rental</div>
             </div>
             <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label>Currently insured?</label>
-                    <select id="lwInsured_kentuckyhomeinsurancecalculator"><option value="yes">Yes</option><option value="no">No</option><option value="switching">Switching providers</option></select>
+                <div class="lw-field"><label for="lwInsured_kentuckyhomeinsurancecalculator">Currently insured?</label>
+                    <select id="lwInsured_kentuckyhomeinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option><option value="switching">Switching providers</option></select>
                 </div>
-                <div class="lw-field"><label>Home value (approx)</label>
-                    <select id="lwAge_kentuckyhomeinsurancecalculator"><option value="">Select</option><option>Under $200k</option><option selected>$200k-$400k</option><option>$400k-$600k</option><option>$600k-$1M</option><option>$1M+</option></select>
+                <div class="lw-field"><label for="lwAge_kentuckyhomeinsurancecalculator">Home value (approx)</label>
+                    <select id="lwAge_kentuckyhomeinsurancecalculator" aria-label="Age"><option value="">Select</option><option>Under $200k</option><option selected>$200k-$400k</option><option>$400k-$600k</option><option>$600k-$1M</option><option>$1M+</option></select>
                 </div>
             </div>
       <button class="lw-btn" onclick="lwNext_kentuckyhomeinsurancecalculator(2)">
@@ -333,10 +334,10 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <div class="lw-step-label">Step 3 of 3 — Final step</div>
       <div class="lw-step-title">Where should we send your quotes?</div>
       <div class="lw-grid">
-        <div class="lw-field"><label>First name</label><input type="text" id="lwFname_kentuckyhomeinsurancecalculator" placeholder="John" autocomplete="given-name" required></div>
-        <div class="lw-field"><label>Last name</label><input type="text" id="lwLname_kentuckyhomeinsurancecalculator" placeholder="Smith" autocomplete="family-name" required></div>
-        <div class="lw-field"><label>Email</label><input type="email" id="lwEmail_kentuckyhomeinsurancecalculator" placeholder="john@email.com" autocomplete="email" required></div>
-        <div class="lw-field"><label>Phone</label><input type="tel" id="lwPhone_kentuckyhomeinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required></div>
+        <div class="lw-field"><label for="lwFname_kentuckyhomeinsurancecalculator">First name</label><input type="text" id="lwFname_kentuckyhomeinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
+        <div class="lw-field"><label for="lwLname_kentuckyhomeinsurancecalculator">Last name</label><input type="text" id="lwLname_kentuckyhomeinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
+        <div class="lw-field"><label for="lwEmail_kentuckyhomeinsurancecalculator">Email</label><input type="email" id="lwEmail_kentuckyhomeinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
+        <div class="lw-field"><label for="lwPhone_kentuckyhomeinsurancecalculator">Phone</label><input type="tel" id="lwPhone_kentuckyhomeinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
       </div>
       <button class="lw-btn" onclick="lwSubmit_kentuckyhomeinsurancecalculator()" style="background:#16a34a">
         🎯 Get My Free Quotes
@@ -414,24 +415,24 @@ function lwSelOpt(el){
 <div class="card">
 <h2>Calculate Your Kentucky Premium</h2>
 <div class="form-row">
-<div class="form-group"><label>Home Value ($)</label><input type="number" id="homeValue" value="173400" min="50000" step="10000"></div>
-<div class="form-group"><label>Year Built</label><input type="number" id="yearBuilt" value="1995" min="1900" max="2026"></div>
+<div class="form-group"><label for="homeValue">Home Value ($)</label><input type="number" id="homeValue" value="173400" min="50000" step="10000" aria-label="Home Value"></div>
+<div class="form-group"><label for="yearBuilt">Year Built</label><input type="number" id="yearBuilt" value="1995" min="1900" max="2026" aria-label="Year Built"></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Coverage Amount ($)</label><input type="number" id="coverage" value="138720" min="50000" step="10000"></div>
-<div class="form-group"><label>Deductible ($)</label><select id="deductible"><option value="500">$500</option><option value="1000">$1,000</option><option value="1500" selected>$1,500</option><option value="2000">$2,000</option><option value="2500">$2,500</option><option value="5000">$5,000</option></select></div>
+<div class="form-group"><label for="coverage">Coverage Amount ($)</label><input type="number" id="coverage" value="138720" min="50000" step="10000" aria-label="Coverage"></div>
+<div class="form-group"><label for="deductible">Deductible ($)</label><select id="deductible" aria-label="Deductible"><option value="500">$500</option><option value="1000">$1,000</option><option value="1500" selected>$1,500</option><option value="2000">$2,000</option><option value="2500">$2,500</option><option value="5000">$5,000</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Construction Type</label><select id="construction"><option value="frame">Wood Frame</option><option value="masonry">Masonry/Brick</option><option value="steel">Steel Frame</option><option value="superior">Superior (Fire-Resistant)</option></select></div>
-<div class="form-group"><label>Roof Type</label><select id="roofType"><option value="asphalt">Asphalt Shingle</option><option value="metal">Metal</option><option value="tile">Tile/Clay</option><option value="slate">Slate</option></select></div>
+<div class="form-group"><label for="construction">Construction Type</label><select id="construction" aria-label="Construction"><option value="frame">Wood Frame</option><option value="masonry">Masonry/Brick</option><option value="steel">Steel Frame</option><option value="superior">Superior (Fire-Resistant)</option></select></div>
+<div class="form-group"><label for="roofType">Roof Type</label><select id="roofType" aria-label="Roof Type"><option value="asphalt">Asphalt Shingle</option><option value="metal">Metal</option><option value="tile">Tile/Clay</option><option value="slate">Slate</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Liability Coverage</label><select id="liability"><option value="100000">$100,000</option><option value="300000" selected>$300,000</option><option value="500000">$500,000</option><option value="1000000">$1,000,000</option></select></div>
-<div class="form-group"><label>Claims in Past 5 Years</label><select id="claims"><option value="0" selected>None</option><option value="1">1 Claim</option><option value="2">2 Claims</option><option value="3">3+ Claims</option></select></div>
+<div class="form-group"><label for="liability">Liability Coverage</label><select id="liability" aria-label="Liability"><option value="100000">$100,000</option><option value="300000" selected>$300,000</option><option value="500000">$500,000</option><option value="1000000">$1,000,000</option></select></div>
+<div class="form-group"><label for="claims">Claims in Past 5 Years</label><select id="claims" aria-label="Claims"><option value="0" selected>None</option><option value="1">1 Claim</option><option value="2">2 Claims</option><option value="3">3+ Claims</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Security System</label><select id="security"><option value="none">None</option><option value="basic">Basic Alarm</option><option value="monitored">Monitored System</option><option value="smart">Smart Home Security</option></select></div>
-<div class="form-group"><label>Credit Score Range</label><select id="credit"><option value="excellent">Excellent (750+)</option><option value="good" selected>Good (700-749)</option><option value="fair">Fair (650-699)</option><option value="poor">Poor (Below 650)</option></select></div>
+<div class="form-group"><label for="security">Security System</label><select id="security" aria-label="Security"><option value="none">None</option><option value="basic">Basic Alarm</option><option value="monitored">Monitored System</option><option value="smart">Smart Home Security</option></select></div>
+<div class="form-group"><label for="credit">Credit Score Range</label><select id="credit" aria-label="Credit"><option value="excellent">Excellent (750+)</option><option value="good" selected>Good (700-749)</option><option value="fair">Fair (650-699)</option><option value="poor">Poor (Below 650)</option></select></div>
 </div>
 <button class="btn" onclick="calculate()">Calculate Premium</button>
 
@@ -534,7 +535,7 @@ function lwSelOpt(el){
 
 </div>
 
-<footer class="footer"><div class="footer-inner">
+<footer class="footer" role="contentinfo"><div class="footer-inner">
 <div class="footer-col"><h4>CalcLeap</h4><a href="/">Home</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy Policy</a></div>
 <div class="footer-col"><h4>Insurance</h4><a href="/home-insurance/">Home Insurance</a><a href="/workers-comp/">Workers' Comp</a><a href="/disability-insurance/">Disability Insurance</a></div>
 <div class="footer-col"><h4>Finance</h4><a href="/social-security/">Social Security</a><a href="/529/">529 Plans</a><a href="/childcare/">Childcare Costs</a></div>

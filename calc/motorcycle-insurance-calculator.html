@@ -272,8 +272,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/index.html" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
@@ -288,7 +289,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb">
     <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#insurance">Insurance</a><span class="sep">›</span>Motorcycle Insurance Calculator
   </div>
@@ -313,7 +314,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             <form id="motorcycleForm">
                 <div class="input-group">
                     <label for="bikeType">Motorcycle Type</label>
-                    <select id="bikeType" required>
+                    <select id="bikeType" required aria-label="Bike Type">
                         <option value="standard">Standard/Cruiser</option>
                         <option value="sport">Sport Bike</option>
                         <option value="touring">Touring</option>
@@ -325,24 +326,24 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
                 <div class="input-group">
                     <label for="bikeValue">Motorcycle Value ($)</label>
-                    <input type="number" id="bikeValue" value="10000" step="1000" required>
+                    <input type="number" id="bikeValue" value="10000" step="1000" required aria-label="Bike Value">
                     <small>Current market value of your bike</small>
                 </div>
 
                 <div class="input-group">
                     <label for="riderAge">Your Age</label>
-                    <input type="number" id="riderAge" value="30" min="16" max="80" required>
+                    <input type="number" id="riderAge" value="30" min="16" max="80" required aria-label="Rider Age">
                     <small>Younger riders pay higher premiums</small>
                 </div>
 
                 <div class="input-group">
                     <label for="experience">Riding Experience (years)</label>
-                    <input type="number" id="experience" value="5" min="0" max="50" required>
+                    <input type="number" id="experience" value="5" min="0" max="50" required aria-label="Experience">
                 </div>
 
                 <div class="input-group">
                     <label for="coverage">Coverage Type</label>
-                    <select id="coverage" required>
+                    <select id="coverage" required aria-label="Coverage">
                         <option value="liability">Liability Only</option>
                         <option value="comprehensive" selected>Comprehensive + Collision</option>
                         <option value="full">Full Coverage + Extras</option>
@@ -351,7 +352,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
                 <div class="input-group">
                     <label for="deductible">Deductible ($)</label>
-                    <select id="deductible" required>
+                    <select id="deductible" required aria-label="Deductible">
                         <option value="250">$250</option>
                         <option value="500" selected>$500</option>
                         <option value="1000">$1,000</option>
@@ -360,7 +361,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
                 <div class="input-group">
                     <label for="record">Driving Record</label>
-                    <select id="record" required>
+                    <select id="record" required aria-label="Record">
                         <option value="clean" selected>Clean (no accidents/tickets)</option>
                         <option value="minor">1 Minor Violation</option>
                         <option value="accident">1 At-Fault Accident</option>
@@ -577,26 +578,26 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
       <a class="logo" href="/index.html">Calc<span>Leap</span></a>
       <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
     </div>
     <div>
-      <h5>Popular</h5>
+      <h4>Popular</h4>
       <a href="bmi-calculator.html">BMI Calculator</a>
       <a href="/calc/mortgage-payment.html">Mortgage</a>
       <a href="income-tax-calculator.html">Income Tax</a>
     </div>
     <div>
-      <h5>Categories</h5>
+      <h4>Categories</h4>
       <a href="/index.html#finance">Financial</a>
       <a href="/index.html#insurance">Insurance</a>
       <a href="/index.html#health">Health</a>
     </div>
     <div>
-      <h5>Company</h5>
+      <h4>Company</h4>
       <a href="/about.html">About</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/contact.html">Contact</a>

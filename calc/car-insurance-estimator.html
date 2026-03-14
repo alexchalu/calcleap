@@ -272,8 +272,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/index.html" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
@@ -288,7 +289,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb">
     <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#insurance">Insurance</a><span class="sep">›</span>Car Insurance Cost Estimator
   </div>
@@ -314,12 +315,12 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             <form id="insurance-form">
                 <div class="form-group">
                     <label for="age">Your Age</label>
-                    <input type="number" id="age" min="16" max="100" value="30" required>
+                    <input type="number" id="age" min="16" max="100" value="30" required aria-label="Age">
                 </div>
                 
                 <div class="form-group">
                     <label for="gender">Gender</label>
-                    <select id="gender">
+                    <select id="gender" aria-label="Gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
@@ -327,7 +328,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
                 <div class="form-group">
                     <label for="marital-status">Marital Status</label>
-                    <select id="marital-status">
+                    <select id="marital-status" aria-label="Marital Status">
                         <option value="single">Single</option>
                         <option value="married">Married</option>
                     </select>
@@ -335,12 +336,12 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
                 <div class="form-group">
                     <label for="vehicle-age">Vehicle Age (years)</label>
-                    <input type="number" id="vehicle-age" min="0" max="30" value="3" required>
+                    <input type="number" id="vehicle-age" min="0" max="30" value="3" required aria-label="Vehicle Age">
                 </div>
 
                 <div class="form-group">
                     <label for="coverage-type">Coverage Type</label>
-                    <select id="coverage-type">
+                    <select id="coverage-type" aria-label="Coverage Type">
                         <option value="liability">Liability Only</option>
                         <option value="standard" selected>Standard (Liability + Collision)</option>
                         <option value="comprehensive">Comprehensive (Full Coverage)</option>
@@ -349,12 +350,12 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
                 <div class="form-group">
                     <label for="accidents">Accidents/Violations (last 3 years)</label>
-                    <input type="number" id="accidents" min="0" max="10" value="0" required>
+                    <input type="number" id="accidents" min="0" max="10" value="0" required aria-label="Accidents">
                 </div>
 
                 <div class="form-group">
                     <label for="credit-score">Credit Score Range</label>
-                    <select id="credit-score">
+                    <select id="credit-score" aria-label="Credit Score">
                         <option value="excellent">Excellent (750+)</option>
                         <option value="good" selected>Good (700-749)</option>
                         <option value="fair">Fair (650-699)</option>
@@ -364,7 +365,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
                 <div class="form-group">
                     <label for="annual-mileage">Annual Mileage</label>
-                    <input type="number" id="annual-mileage" min="0" max="100000" value="12000" required>
+                    <input type="number" id="annual-mileage" min="0" max="100000" value="12000" required aria-label="Annual Mileage">
                 </div>
 
                 <button type="submit" class="btn">Calculate Insurance Cost</button>
@@ -651,26 +652,26 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
       <a class="logo" href="/index.html">Calc<span>Leap</span></a>
       <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
     </div>
     <div>
-      <h5>Popular</h5>
+      <h4>Popular</h4>
       <a href="bmi-calculator.html">BMI Calculator</a>
       <a href="/calc/mortgage-payment.html">Mortgage</a>
       <a href="income-tax-calculator.html">Income Tax</a>
     </div>
     <div>
-      <h5>Categories</h5>
+      <h4>Categories</h4>
       <a href="/index.html#finance">Financial</a>
       <a href="/index.html#insurance">Insurance</a>
       <a href="/index.html#health">Health</a>
     </div>
     <div>
-      <h5>Company</h5>
+      <h4>Company</h4>
       <a href="/about.html">About</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/contact.html">Contact</a>

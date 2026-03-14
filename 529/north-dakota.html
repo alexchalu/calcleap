@@ -273,8 +273,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/index.html" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
@@ -289,7 +290,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   </div>
 </nav>
 
-<div class="page">
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb">
     <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#tools">Tools</a><span class="sep">›</span>North Dakota 529 College Savings Plan Calculator
   </div>
@@ -311,23 +312,23 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <div class="grid">
 <div>
 <label for="childAge">Child's Current Age</label>
-<select id="childAge"><option value="0">Newborn</option><option value="1">1 year</option><option value="2">2 years</option><option value="3" selected>3 years</option><option value="4">4 years</option><option value="5">5 years</option><option value="6">6 years</option><option value="7">7 years</option><option value="8">8 years</option><option value="9">9 years</option><option value="10">10 years</option><option value="11">11 years</option><option value="12">12 years</option><option value="13">13 years</option><option value="14">14 years</option><option value="15">15 years</option><option value="16">16 years</option><option value="17">17 years</option></select>
+<select id="childAge" aria-label="Child Age"><option value="0">Newborn</option><option value="1">1 year</option><option value="2">2 years</option><option value="3" selected>3 years</option><option value="4">4 years</option><option value="5">5 years</option><option value="6">6 years</option><option value="7">7 years</option><option value="8">8 years</option><option value="9">9 years</option><option value="10">10 years</option><option value="11">11 years</option><option value="12">12 years</option><option value="13">13 years</option><option value="14">14 years</option><option value="15">15 years</option><option value="16">16 years</option><option value="17">17 years</option></select>
 <label for="collegeAge">College Start Age</label>
-<select id="collegeAge"><option value="18" selected>18</option><option value="17">17</option><option value="19">19</option><option value="20">20</option></select>
+<select id="collegeAge" aria-label="College Age"><option value="18" selected>18</option><option value="17">17</option><option value="19">19</option><option value="20">20</option></select>
 <label for="currentSavings">Current 529 Balance ($)</label>
-<input type="number" id="currentSavings" value="0" min="0" step="100">
+<input type="number" id="currentSavings" value="0" min="0" step="100" aria-label="Current Savings">
 <label for="monthlyContrib">Monthly Contribution ($)</label>
-<input type="number" id="monthlyContrib" value="830" min="0" step="25">
+<input type="number" id="monthlyContrib" value="830" min="0" step="25" aria-label="Monthly Contrib">
 </div>
 <div>
 <label for="lumpSum">Annual Lump Sum ($)</label>
-<input type="number" id="lumpSum" value="0" min="0" step="100">
+<input type="number" id="lumpSum" value="0" min="0" step="100" aria-label="Lump Sum">
 <label for="returnRate">Expected Annual Return (%)</label>
-<select id="returnRate"><option value="4">Conservative (4%)</option><option value="6" selected>Moderate (6%)</option><option value="8">Aggressive (8%)</option><option value="10">Very Aggressive (10%)</option></select>
+<select id="returnRate" aria-label="Return Rate"><option value="4">Conservative (4%)</option><option value="6" selected>Moderate (6%)</option><option value="8">Aggressive (8%)</option><option value="10">Very Aggressive (10%)</option></select>
 <label for="collegeCost">Annual College Cost ($)</label>
-<input type="number" id="collegeCost" value="22100" min="0" step="100">
+<input type="number" id="collegeCost" value="22100" min="0" step="100" aria-label="College Cost">
 <label for="costInflation">College Cost Inflation (%)</label>
-<select id="costInflation"><option value="3">Low (3%)</option><option value="5" selected>Average (5%)</option><option value="7">High (7%)</option></select>
+<select id="costInflation" aria-label="Cost Inflation"><option value="3">Low (3%)</option><option value="5" selected>Average (5%)</option><option value="7">High (7%)</option></select>
 </div>
 </div>
 <button class="btn" onclick="calculate()">Calculate My 529 Savings</button>
@@ -423,7 +424,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </div>
 
 </main>
-<footer class="footer"><p>© 2026 <a href="https://calcleap.com/">CalcLeap</a> — Free Financial Calculators</p><p style="margin-top:.5rem"><a href="https://calcleap.com/about.html">About</a> · <a href="https://calcleap.com/privacy.html">Privacy</a> · <a href="https://calcleap.com/contact.html">Contact</a></p><p style="margin-top:.5rem;font-size:.75rem">Last updated: March 2026. Data is for educational purposes. Consult a financial advisor for personalized advice.</p></footer>
+<footer class="footer" role="contentinfo"><p>© 2026 <a href="https://calcleap.com/">CalcLeap</a> — Free Financial Calculators</p><p style="margin-top:.5rem"><a href="https://calcleap.com/about.html">About</a> · <a href="https://calcleap.com/privacy.html">Privacy</a> · <a href="https://calcleap.com/contact.html">Contact</a></p><p style="margin-top:.5rem;font-size:.75rem">Last updated: March 2026. Data is for educational purposes. Consult a financial advisor for personalized advice.</p></footer>
 <script>
 function fmt(n){return'$'+Math.round(n).toLocaleString()}
 function calculate(){
@@ -484,19 +485,19 @@ document.addEventListener('DOMContentLoaded',calculate);
       <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
     </div>
     <div>
-      <h5>Popular</h5>
+      <h4>Popular</h4>
       <a href="bmi-calculator.html">BMI Calculator</a>
       <a href="calc/mortgage-payment.html">Mortgage</a>
       <a href="income-tax-calculator.html">Income Tax</a>
     </div>
     <div>
-      <h5>Categories</h5>
+      <h4>Categories</h4>
       <a href="/index.html#finance">Financial</a>
       <a href="/index.html#insurance">Insurance</a>
       <a href="/index.html#health">Health</a>
     </div>
     <div>
-      <h5>Company</h5>
+      <h4>Company</h4>
       <a href="/about.html">About</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/contact.html">Contact</a>

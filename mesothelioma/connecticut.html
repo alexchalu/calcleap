@@ -73,8 +73,9 @@
     </style>
 </head>
 <body>
-    <nav class="nav"><a href="https://calcleap.com/mesothelioma/">← All States</a><a href="https://calcleap.com/">CalcLeap Home</a></nav>
-    <div class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation"><a href="https://calcleap.com/mesothelioma/">← All States</a><a href="https://calcleap.com/">CalcLeap Home</a></nav>
+    <div class="page" id="main-content" role="main">
         <h1 class="page-title">Connecticut Mesothelioma Settlement Calculator 2026</h1>
         <p class="subtitle">Estimate your asbestos exposure compensation in Connecticut. Average settlement: $1.5M. Statute of limitations: 2 years.</p>
 
@@ -93,49 +94,49 @@
         <div class="card">
             <h2>⚖️ Connecticut Mesothelioma Settlement Calculator</h2>
             <div class="input-grid">
-                <div class="input-group"><label>Diagnosis Type</label>
-                    <select id="diagnosisType">
+                <div class="input-group"><label for="diagnosisType">Diagnosis Type</label>
+                    <select id="diagnosisType" aria-label="Diagnosis Type">
                         <option value="mesothelioma">Mesothelioma</option>
                         <option value="lung-cancer">Asbestos Lung Cancer</option>
                         <option value="asbestosis">Asbestosis</option>
                         <option value="pleural-plaques">Pleural Plaques/Thickening</option>
                     </select>
                 </div>
-                <div class="input-group"><label>Stage at Diagnosis</label>
-                    <select id="stage">
+                <div class="input-group"><label for="stage">Stage at Diagnosis</label>
+                    <select id="stage" aria-label="Stage">
                         <option value="1">Stage 1 (Localized)</option>
                         <option value="2">Stage 2 (Regional)</option>
                         <option value="3" selected>Stage 3 (Advanced)</option>
                         <option value="4">Stage 4 (Metastatic)</option>
                     </select>
                 </div>
-                <div class="input-group"><label>Age at Diagnosis</label>
-                    <input type="number" id="age" value="65" min="20" max="100">
+                <div class="input-group"><label for="age">Age at Diagnosis</label>
+                    <input type="number" id="age" value="65" min="20" max="100" aria-label="Age">
                 </div>
-                <div class="input-group"><label>Years of Exposure</label>
-                    <input type="number" id="exposureYears" value="15" min="1" max="50">
+                <div class="input-group"><label for="exposureYears">Years of Exposure</label>
+                    <input type="number" id="exposureYears" value="15" min="1" max="50" aria-label="Exposure Years">
                 </div>
-                <div class="input-group"><label>Medical Expenses ($)</label>
-                    <input type="number" id="medicalCosts" value="250000" min="0" step="10000">
+                <div class="input-group"><label for="medicalCosts">Medical Expenses ($)</label>
+                    <input type="number" id="medicalCosts" value="250000" min="0" step="10000" aria-label="Medical Costs">
                 </div>
-                <div class="input-group"><label>Lost Wages ($)</label>
-                    <input type="number" id="lostWages" value="80000" min="0" step="5000">
+                <div class="input-group"><label for="lostWages">Lost Wages ($)</label>
+                    <input type="number" id="lostWages" value="80000" min="0" step="5000" aria-label="Lost Wages">
                 </div>
-                <div class="input-group"><label>Future Medical Costs ($)</label>
-                    <input type="number" id="futureMedical" value="350000" min="0" step="10000">
+                <div class="input-group"><label for="futureMedical">Future Medical Costs ($)</label>
+                    <input type="number" id="futureMedical" value="350000" min="0" step="10000" aria-label="Future Medical">
                 </div>
-                <div class="input-group"><label>Number of Asbestos Products Identified</label>
-                    <input type="number" id="products" value="5" min="1" max="50">
+                <div class="input-group"><label for="products">Number of Asbestos Products Identified</label>
+                    <input type="number" id="products" value="5" min="1" max="50" aria-label="Products">
                 </div>
-                <div class="input-group"><label>Employer Negligence</label>
-                    <select id="negligence">
+                <div class="input-group"><label for="negligence">Employer Negligence</label>
+                    <select id="negligence" aria-label="Negligence">
                         <option value="high">High (no warnings, no PPE)</option>
                         <option value="moderate" selected>Moderate (some protections)</option>
                         <option value="low">Low (some compliance)</option>
                     </select>
                 </div>
-                <div class="input-group"><label>Military Veteran?</label>
-                    <select id="veteran">
+                <div class="input-group"><label for="veteran">Military Veteran?</label>
+                    <select id="veteran" aria-label="Veteran">
                         <option value="no">No</option>
                         <option value="yes">Yes — VA Benefits Eligible</option>
                     </select>
@@ -231,7 +232,7 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-grid">
             <div><h4>Calculators</h4><a href="https://calcleap.com/">Home</a><br><a href="https://calcleap.com/mesothelioma/">Mesothelioma</a><br><a href="https://calcleap.com/accident/">Accident</a><br><a href="https://calcleap.com/malpractice/">Malpractice</a></div>
             <div><h4>Insurance</h4><a href="https://calcleap.com/auto-insurance/">Auto Insurance</a><br><a href="https://calcleap.com/home-insurance/">Home Insurance</a><br><a href="https://calcleap.com/life-insurance/">Life Insurance</a></div>

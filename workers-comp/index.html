@@ -36,14 +36,15 @@
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="logo">CalcLeap</a><a href="/">All Tools</a></div></nav>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">CalcLeap</a><a href="/">All Tools</a></div></nav>
     
     <div class="hero">
         <h1 class="page-title">Workers' Compensation Calculator</h1>
         <p>Compare workers' comp insurance rates across all 50 US states. Click any state for a detailed premium calculator with industry-specific rates.</p>
     </div>
 
-    <div class="search"><input type="text" id="search" placeholder="Search states..." oninput="filterTable()"></div>
+    <div class="search"><input type="text" id="search" placeholder="Search states..." oninput="filterTable()" aria-label="Search states..."></div>
 
     <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="1234567890" data-ad-format="auto"></ins></div>
 
@@ -127,7 +128,7 @@
 
     <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXX" data-ad-slot="1234567891" data-ad-format="auto"></ins></div>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2026 <a href="/">CalcLeap</a> · <a href="../about.html">About</a> · <a href="../privacy.html">Privacy</a> · <a href="../contact.html">Contact</a></p>
     </footer>
 

@@ -690,6 +690,7 @@ footer {
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
 
 <!-- Navigation -->
 <nav>
@@ -735,7 +736,7 @@ footer {
     </aside>
     
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content" id="main-content" role="main">
       
       <!-- Getting Started -->
       <section id="getting-started">
@@ -1498,31 +1499,31 @@ data = response.<span class="code-function">json</span>()
 </div>
 
 <!-- Footer -->
-<footer>
+<footer role="contentinfo">
   <div class="footer-content">
     <div class="footer-grid">
       <div>
-        <h5>Popular Tools</h5>
+        <h4>Popular Tools</h4>
         <a href="calc/mortgage-calculator.html">Mortgage Calculator</a>
         <a href="calc/bmi-calculator.html">BMI Calculator</a>
         <a href="calc/compound-interest.html">Compound Interest</a>
         <a href="password-generator.html">Password Generator</a>
       </div>
       <div>
-        <h5>Developers</h5>
+        <h4>Developers</h4>
         <a href="api-docs.html">API Documentation</a>
         <a href="https://github.com/alexchalu/calcleap-api" target="_blank">GitHub Repository</a>
         <a href="#pricing">Pricing</a>
       </div>
       <div>
-        <h5>Categories</h5>
+        <h4>Categories</h4>
         <a href="index.html#finance">Financial</a>
         <a href="index.html#insurance">Insurance</a>
         <a href="index.html#health">Health & Fitness</a>
         <a href="index.html#dev">Developer Tools</a>
       </div>
       <div>
-        <h5>Company</h5>
+        <h4>Company</h4>
         <a href="about.html">About</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="contact.html">Contact</a>

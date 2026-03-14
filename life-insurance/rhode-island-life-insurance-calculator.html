@@ -253,8 +253,9 @@ a{color:inherit;text-decoration:none}
 </style>
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a class="logo" href="/">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/life-insurance/">Life Insurance</a><a href="/state-taxes.html">Taxes</a></div></div></nav>
-<div class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a class="logo" href="/">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/life-insurance/">Life Insurance</a><a href="/state-taxes.html">Taxes</a></div></div></nav>
+<div class="page" id="main-content" role="main">
 <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/life-insurance/">Life Insurance</a><span class="sep">›</span>Rhode Island</div>
 <h1 class="page-title">Rhode Island Life Insurance Calculator</h1>
 <p class="page-desc">Estimate your life insurance premium in Rhode Island. Compare term and whole life rates based on your age, health, and coverage needs.</p>
@@ -293,7 +294,7 @@ a{color:inherit;text-decoration:none}
     <div class="lw-step active" id="lwS1_rhodeislandlifeinsurancecalculator">
       <div class="lw-step-label">Step 1 of 3</div>
       <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_rhodeislandlifeinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code">
+      <input type="text" class="lw-input-lg" id="lwZip_rhodeislandlifeinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
       <button class="lw-btn" onclick="lwNext_rhodeislandlifeinsurancecalculator(1)" id="lwBtn1_rhodeislandlifeinsurancecalculator" disabled>
         Compare Rates <span style="font-size:1.1em">→</span>
       </button>
@@ -314,11 +315,11 @@ a{color:inherit;text-decoration:none}
                 <div class="lw-opt" data-v="notsure" onclick="lwSelOpt(this)">Not Sure</div>
             </div>
             <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label>Age</label>
-                    <select id="lwInsured_rhodeislandlifeinsurancecalculator"><option value="">Select</option><option>18-29</option><option selected>30-39</option><option>40-49</option><option>50-59</option><option>60+</option></select>
+                <div class="lw-field"><label for="lwInsured_rhodeislandlifeinsurancecalculator">Age</label>
+                    <select id="lwInsured_rhodeislandlifeinsurancecalculator" aria-label="Insured"><option value="">Select</option><option>18-29</option><option selected>30-39</option><option>40-49</option><option>50-59</option><option>60+</option></select>
                 </div>
-                <div class="lw-field"><label>Coverage amount</label>
-                    <select id="lwAge_rhodeislandlifeinsurancecalculator"><option value="">Select</option><option>$100k-$250k</option><option selected>$250k-$500k</option><option>$500k-$1M</option><option>$1M+</option></select>
+                <div class="lw-field"><label for="lwAge_rhodeislandlifeinsurancecalculator">Coverage amount</label>
+                    <select id="lwAge_rhodeislandlifeinsurancecalculator" aria-label="Age"><option value="">Select</option><option>$100k-$250k</option><option selected>$250k-$500k</option><option>$500k-$1M</option><option>$1M+</option></select>
                 </div>
             </div>
       <button class="lw-btn" onclick="lwNext_rhodeislandlifeinsurancecalculator(2)">
@@ -331,10 +332,10 @@ a{color:inherit;text-decoration:none}
       <div class="lw-step-label">Step 3 of 3 — Final step</div>
       <div class="lw-step-title">Where should we send your quotes?</div>
       <div class="lw-grid">
-        <div class="lw-field"><label>First name</label><input type="text" id="lwFname_rhodeislandlifeinsurancecalculator" placeholder="John" autocomplete="given-name" required></div>
-        <div class="lw-field"><label>Last name</label><input type="text" id="lwLname_rhodeislandlifeinsurancecalculator" placeholder="Smith" autocomplete="family-name" required></div>
-        <div class="lw-field"><label>Email</label><input type="email" id="lwEmail_rhodeislandlifeinsurancecalculator" placeholder="john@email.com" autocomplete="email" required></div>
-        <div class="lw-field"><label>Phone</label><input type="tel" id="lwPhone_rhodeislandlifeinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required></div>
+        <div class="lw-field"><label for="lwFname_rhodeislandlifeinsurancecalculator">First name</label><input type="text" id="lwFname_rhodeislandlifeinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
+        <div class="lw-field"><label for="lwLname_rhodeislandlifeinsurancecalculator">Last name</label><input type="text" id="lwLname_rhodeislandlifeinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
+        <div class="lw-field"><label for="lwEmail_rhodeislandlifeinsurancecalculator">Email</label><input type="email" id="lwEmail_rhodeislandlifeinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
+        <div class="lw-field"><label for="lwPhone_rhodeislandlifeinsurancecalculator">Phone</label><input type="tel" id="lwPhone_rhodeislandlifeinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
       </div>
       <button class="lw-btn" onclick="lwSubmit_rhodeislandlifeinsurancecalculator()" style="background:#16a34a">
         🎯 Get My Free Quotes
@@ -412,16 +413,16 @@ function lwSelOpt(el){
 <div class="card">
 <h2>Calculate Your Rhode Island Life Insurance Premium</h2>
 <div class="form-row">
-<div class="form-group"><label>Your Age</label><input type="number" id="age" value="35" min="18" max="85"></div>
-<div class="form-group"><label>Gender</label><select id="gender"><option value="male">Male</option><option value="female">Female</option></select></div>
+<div class="form-group"><label for="age">Your Age</label><input type="number" id="age" value="35" min="18" max="85" aria-label="Age"></div>
+<div class="form-group"><label for="gender">Gender</label><select id="gender" aria-label="Gender"><option value="male">Male</option><option value="female">Female</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Health Rating</label><select id="health"><option value="excellent">Excellent (Preferred Plus)</option><option value="good" selected>Good (Preferred)</option><option value="average">Average (Standard)</option><option value="poor">Below Average (Substandard)</option></select></div>
-<div class="form-group"><label>Tobacco Use</label><select id="tobacco"><option value="no" selected>No</option><option value="yes">Yes</option></select></div>
+<div class="form-group"><label for="health">Health Rating</label><select id="health" aria-label="Health"><option value="excellent">Excellent (Preferred Plus)</option><option value="good" selected>Good (Preferred)</option><option value="average">Average (Standard)</option><option value="poor">Below Average (Substandard)</option></select></div>
+<div class="form-group"><label for="tobacco">Tobacco Use</label><select id="tobacco" aria-label="Tobacco"><option value="no" selected>No</option><option value="yes">Yes</option></select></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label>Coverage Amount</label><select id="coverage"><option value="100000">$100,000</option><option value="250000">$250,000</option><option value="500000" selected>$500,000</option><option value="750000">$750,000</option><option value="1000000">$1,000,000</option><option value="2000000">$2,000,000</option></select></div>
-<div class="form-group"><label>Term Length</label><select id="term"><option value="10">10 Years</option><option value="20" selected>20 Years</option><option value="30">30 Years</option></select></div>
+<div class="form-group"><label for="coverage">Coverage Amount</label><select id="coverage" aria-label="Coverage"><option value="100000">$100,000</option><option value="250000">$250,000</option><option value="500000" selected>$500,000</option><option value="750000">$750,000</option><option value="1000000">$1,000,000</option><option value="2000000">$2,000,000</option></select></div>
+<div class="form-group"><label for="term">Term Length</label><select id="term" aria-label="Term"><option value="10">10 Years</option><option value="20" selected>20 Years</option><option value="30">30 Years</option></select></div>
 </div>
 <button class="btn" onclick="calculate()">Calculate Premium</button>
 
@@ -508,7 +509,7 @@ function lwSelOpt(el){
 </div>
 </div>
 
-<footer class="footer"><div class="footer-inner">
+<footer class="footer" role="contentinfo"><div class="footer-inner">
 <div class="footer-col"><h4>Calculators</h4><a href="/calc/mortgage-payment.html">Mortgage</a><a href="/calc/compound-interest-calculator.html">Compound Interest</a><a href="/calc/retirement-calculator.html">Retirement</a><a href="/calc/bmi-calculator.html">BMI</a></div>
 <div class="footer-col"><h4>Insurance</h4><a href="/life-insurance/">Life Insurance</a><a href="/auto-insurance/">Auto Insurance</a><a href="/health-insurance/">Health Insurance</a><a href="/home-insurance/">Home Insurance</a></div>
 <div class="footer-col"><h4>Taxes</h4><a href="/state-taxes.html">State Taxes</a><a href="/federal-income-tax.html">Federal Tax</a><a href="/self-employment-tax-calculator.html">Self-Employment</a><a href="/quarterly-tax.html">Quarterly Tax</a></div>

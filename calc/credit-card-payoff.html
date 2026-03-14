@@ -167,18 +167,19 @@ table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;marg
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
-<div class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
+<div class="page" id="main-content" role="main">
 <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">Calculators</a><span class="sep">›</span>Credit Card Payoff</div>
 <h1 class="page-title">Credit Card Payoff Calculator</h1>
 <p class="page-desc">Find out how long it will take to pay off your credit card and how much interest you'll pay. Compare minimum payments vs. fixed amounts.</p>
 
 <div class="card">
 <h2>Enter Your Card Details</h2>
-<div class="form-group"><label>Current Balance ($)</label><input type="number" id="balance" value="8000" min="0"></div>
-<div class="form-group"><label>Annual Interest Rate (APR %)</label><input type="number" id="apr" value="22.99" min="0" max="50" step="0.01"></div>
-<div class="form-group"><label>Monthly Payment ($)</label><input type="number" id="payment" value="250" min="0"></div>
-<div class="form-group"><label>Minimum Payment (% of balance, min $25)</label><input type="number" id="minPctInput" value="2" min="1" max="5" step="0.5"></div>
+<div class="form-group"><label for="balance">Current Balance ($)</label><input type="number" id="balance" value="8000" min="0" aria-label="Balance"></div>
+<div class="form-group"><label for="apr">Annual Interest Rate (APR %)</label><input type="number" id="apr" value="22.99" min="0" max="50" step="0.01" aria-label="Apr"></div>
+<div class="form-group"><label for="payment">Monthly Payment ($)</label><input type="number" id="payment" value="250" min="0" aria-label="Payment"></div>
+<div class="form-group"><label for="minPctInput">Minimum Payment (% of balance, min $25)</label><input type="number" id="minPctInput" value="2" min="1" max="5" step="0.5" aria-label="Min Pct Input"></div>
 <button class="btn" onclick="calculate()">Calculate Payoff</button>
 <div class="results" id="results">
 <div class="stat-grid" id="stats"></div>
@@ -231,7 +232,7 @@ table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;marg
 </div>
 </div>
 
-<footer class="footer"><div class="footer-inner"><div><h4>Company</h4><a href="/about.html">About CalcLeap</a><br><a href="/contact.html">Contact</a><br><a href="/privacy.html">Privacy Policy</a></div><div><h4>Popular</h4><a href="/calc/mortgage-payment.html">Mortgage</a><br><a href="/calc/compound-interest-calculator.html">Compound Interest</a><br><a href="/calc/retirement-calculator.html">Retirement</a></div><div><h4>Finance</h4><a href="/calc/personal-loan-calculator.html">Personal Loan</a><br><a href="/calc/car-loan-calculator.html">Car Loan</a><br><a href="/calc/student-loan-calculator.html">Student Loan</a></div><div><h4>Resources</h4><a href="/blog/">Blog</a><br><a href="/sitemap.xml">Sitemap</a></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved. For informational purposes only.</div></footer>
+<footer class="footer" role="contentinfo"><div class="footer-inner"><div><h4>Company</h4><a href="/about.html">About CalcLeap</a><br><a href="/contact.html">Contact</a><br><a href="/privacy.html">Privacy Policy</a></div><div><h4>Popular</h4><a href="/calc/mortgage-payment.html">Mortgage</a><br><a href="/calc/compound-interest-calculator.html">Compound Interest</a><br><a href="/calc/retirement-calculator.html">Retirement</a></div><div><h4>Finance</h4><a href="/calc/personal-loan-calculator.html">Personal Loan</a><br><a href="/calc/car-loan-calculator.html">Car Loan</a><br><a href="/calc/student-loan-calculator.html">Student Loan</a></div><div><h4>Resources</h4><a href="/blog/">Blog</a><br><a href="/sitemap.xml">Sitemap</a></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved. For informational purposes only.</div></footer>
 
 <script>
 function payoff(bal,apr,pmt){

@@ -250,8 +250,9 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
-<div class="page">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-inner"><a href="/" class="logo">Calc<span>Leap</span></a><div class="nav-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div></nav>
+<div class="page" id="main-content" role="main">
   <div class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/disability-insurance/">Disability Insurance</a><span class="sep">›</span>Arkansas</div>
   <h1 class="page-title">Arkansas Disability Insurance Calculator</h1>
   <p class="page-desc">Calculate your disability insurance costs and estimated benefits in Arkansas. Compare SSDI, and private disability coverage options for AR residents.</p>
@@ -281,7 +282,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     <div class="lw-step active" id="lwS1_arkansasdisabilityinsurancecalculator">
       <div class="lw-step-label">Step 1 of 3</div>
       <div class="lw-step-title">Enter your ZIP code to start</div>
-      <input type="text" class="lw-input-lg" id="lwZip_arkansasdisabilityinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code">
+      <input type="text" class="lw-input-lg" id="lwZip_arkansasdisabilityinsurancecalculator" placeholder="ZIP Code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" aria-label="ZIP Code">
       <button class="lw-btn" onclick="lwNext_arkansasdisabilityinsurancecalculator(1)" id="lwBtn1_arkansasdisabilityinsurancecalculator" disabled>
         Compare Rates <span style="font-size:1.1em">→</span>
       </button>
@@ -302,11 +303,11 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 <div class="lw-opt" data-v="notsure" onclick="lwSelOpt(this)">Not Sure</div>
             </div>
             <div class="lw-grid" style="margin-top:.75rem">
-                <div class="lw-field"><label>Currently insured?</label>
-                    <select id="lwInsured_arkansasdisabilityinsurancecalculator"><option value="yes">Yes</option><option value="no">No</option></select>
+                <div class="lw-field"><label for="lwInsured_arkansasdisabilityinsurancecalculator">Currently insured?</label>
+                    <select id="lwInsured_arkansasdisabilityinsurancecalculator" aria-label="Insured"><option value="yes">Yes</option><option value="no">No</option></select>
                 </div>
-                <div class="lw-field"><label>Age range</label>
-                    <select id="lwAge_arkansasdisabilityinsurancecalculator"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
+                <div class="lw-field"><label for="lwAge_arkansasdisabilityinsurancecalculator">Age range</label>
+                    <select id="lwAge_arkansasdisabilityinsurancecalculator" aria-label="Age"><option value="">Select</option><option>18-29</option><option selected>30-44</option><option>45-59</option><option>60+</option></select>
                 </div>
             </div>
       <button class="lw-btn" onclick="lwNext_arkansasdisabilityinsurancecalculator(2)">
@@ -319,10 +320,10 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
       <div class="lw-step-label">Step 3 of 3 — Final step</div>
       <div class="lw-step-title">Where should we send your quotes?</div>
       <div class="lw-grid">
-        <div class="lw-field"><label>First name</label><input type="text" id="lwFname_arkansasdisabilityinsurancecalculator" placeholder="John" autocomplete="given-name" required></div>
-        <div class="lw-field"><label>Last name</label><input type="text" id="lwLname_arkansasdisabilityinsurancecalculator" placeholder="Smith" autocomplete="family-name" required></div>
-        <div class="lw-field"><label>Email</label><input type="email" id="lwEmail_arkansasdisabilityinsurancecalculator" placeholder="john@email.com" autocomplete="email" required></div>
-        <div class="lw-field"><label>Phone</label><input type="tel" id="lwPhone_arkansasdisabilityinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required></div>
+        <div class="lw-field"><label for="lwFname_arkansasdisabilityinsurancecalculator">First name</label><input type="text" id="lwFname_arkansasdisabilityinsurancecalculator" placeholder="John" autocomplete="given-name" required aria-label="John"></div>
+        <div class="lw-field"><label for="lwLname_arkansasdisabilityinsurancecalculator">Last name</label><input type="text" id="lwLname_arkansasdisabilityinsurancecalculator" placeholder="Smith" autocomplete="family-name" required aria-label="Smith"></div>
+        <div class="lw-field"><label for="lwEmail_arkansasdisabilityinsurancecalculator">Email</label><input type="email" id="lwEmail_arkansasdisabilityinsurancecalculator" placeholder="john@email.com" autocomplete="email" required aria-label="john@email.com"></div>
+        <div class="lw-field"><label for="lwPhone_arkansasdisabilityinsurancecalculator">Phone</label><input type="tel" id="lwPhone_arkansasdisabilityinsurancecalculator" placeholder="(555) 123-4567" autocomplete="tel" required aria-label="(555) 123-4567"></div>
       </div>
       <button class="lw-btn" onclick="lwSubmit_arkansasdisabilityinsurancecalculator()" style="background:#16a34a">
         🎯 Get My Free Quotes
@@ -404,12 +405,12 @@ function lwSelOpt(el){
                 <div style="font-weight:700;color:#dc2626;margin-bottom:.35rem">⚠️ Arkansas Has No State Disability Program</div>
                 <div style="font-size:.9rem;color:var(--text-2)">Arkansas does not offer a state-mandated disability insurance program. You must rely on private disability insurance, employer-sponsored plans, or federal SSDI for income protection.</div>
               </div>
-    <div class="form-group"><label>Annual Gross Income</label><input type="number" id="income" value="46370" min="0" step="1000"></div>
-    <div class="form-group"><label>Age</label><input type="number" id="age" value="35" min="18" max="70"></div>
-    <div class="form-group"><label>Occupation Risk Class</label><select id="riskClass"><option value="1">Class 1 — Professional/Office</option><option value="2" selected>Class 2 — Light Manual</option><option value="3">Class 3 — Moderate Manual</option><option value="4">Class 4 — Heavy Manual/Hazardous</option></select></div>
-    <div class="form-group"><label>Coverage Amount (% of Income)</label><select id="coveragePct"><option value="50">50%</option><option value="60" selected>60%</option><option value="70">70%</option></select></div>
-    <div class="form-group"><label>Benefit Period</label><select id="benefitPeriod"><option value="2">2 Years</option><option value="5" selected>5 Years</option><option value="10">10 Years</option><option value="65">To Age 65</option></select></div>
-    <div class="form-group"><label>Elimination Period (Waiting)</label><select id="elimPeriod"><option value="30">30 Days</option><option value="60">60 Days</option><option value="90" selected>90 Days</option><option value="180">180 Days</option></select></div>
+    <div class="form-group"><label for="income">Annual Gross Income</label><input type="number" id="income" value="46370" min="0" step="1000" aria-label="Income"></div>
+    <div class="form-group"><label for="age">Age</label><input type="number" id="age" value="35" min="18" max="70" aria-label="Age"></div>
+    <div class="form-group"><label for="riskClass">Occupation Risk Class</label><select id="riskClass" aria-label="Risk Class"><option value="1">Class 1 — Professional/Office</option><option value="2" selected>Class 2 — Light Manual</option><option value="3">Class 3 — Moderate Manual</option><option value="4">Class 4 — Heavy Manual/Hazardous</option></select></div>
+    <div class="form-group"><label for="coveragePct">Coverage Amount (% of Income)</label><select id="coveragePct" aria-label="Coverage Pct"><option value="50">50%</option><option value="60" selected>60%</option><option value="70">70%</option></select></div>
+    <div class="form-group"><label for="benefitPeriod">Benefit Period</label><select id="benefitPeriod" aria-label="Benefit Period"><option value="2">2 Years</option><option value="5" selected>5 Years</option><option value="10">10 Years</option><option value="65">To Age 65</option></select></div>
+    <div class="form-group"><label for="elimPeriod">Elimination Period (Waiting)</label><select id="elimPeriod" aria-label="Elim Period"><option value="30">30 Days</option><option value="60">60 Days</option><option value="90" selected>90 Days</option><option value="180">180 Days</option></select></div>
     <button class="btn" onclick="calculate()">Calculate Benefits & Costs</button>
     <div class="results" id="results">
       <div class="result-grid" id="resultGrid"></div>
@@ -486,7 +487,7 @@ function lwSelOpt(el){
   </div>
 </div>
 
-<footer class="footer"><div class="footer-inner"><div><h4>Tools</h4><a href="/">All Calculators</a><a href="/disability-insurance/">Disability Insurance</a><a href="/calc/bmi-calculator.html">BMI Calculator</a><a href="/calc/compound-interest.html">Compound Interest</a></div><div><h4>Insurance</h4><a href="/calc/car-insurance-estimator.html">Car Insurance</a><a href="/life-insurance-calculator.html">Life Insurance</a><a href="/health-insurance/index.html">Health Insurance</a><a href="/long-term-care-insurance-calculator.html">Long-Term Care</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div><div><h4>Legal</h4><p style="font-size:.78rem;color:var(--text-3);line-height:1.5">This calculator provides estimates only. Actual disability insurance costs and benefits vary. Consult a licensed insurance agent for personalized advice.</p></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved.</div></footer>
+<footer class="footer" role="contentinfo"><div class="footer-inner"><div><h4>Tools</h4><a href="/">All Calculators</a><a href="/disability-insurance/">Disability Insurance</a><a href="/calc/bmi-calculator.html">BMI Calculator</a><a href="/calc/compound-interest.html">Compound Interest</a></div><div><h4>Insurance</h4><a href="/calc/car-insurance-estimator.html">Car Insurance</a><a href="/life-insurance-calculator.html">Life Insurance</a><a href="/health-insurance/index.html">Health Insurance</a><a href="/long-term-care-insurance-calculator.html">Long-Term Care</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div><div><h4>Legal</h4><p style="font-size:.78rem;color:var(--text-3);line-height:1.5">This calculator provides estimates only. Actual disability insurance costs and benefits vary. Consult a licensed insurance agent for personalized advice.</p></div></div><div class="footer-bottom">© 2026 CalcLeap. All rights reserved.</div></footer>
 
 <script>
 function calculate(){

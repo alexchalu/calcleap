@@ -304,7 +304,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="nav">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-content">
       <a href="/" class="logo">CalcLeap</a>
       <div class="nav-links">
@@ -315,7 +316,7 @@
     </div>
   </nav>
 
-  <div class="page">
+  <div class="page" id="main-content" role="main">
     <h1 class="page-title">Mortgage Refinance Calculator</h1>
     <p class="subtitle">Calculate your potential savings and break-even point when refinancing your mortgage</p>
 
@@ -333,15 +334,15 @@
       <div class="input-grid">
         <div class="input-group">
           <label for="currentBalance">Remaining Loan Balance ($)</label>
-          <input type="number" id="currentBalance" value="250000" min="0" step="1000">
+          <input type="number" id="currentBalance" value="250000" min="0" step="1000" aria-label="Current Balance">
         </div>
         <div class="input-group">
           <label for="currentRate">Current Interest Rate (%)</label>
-          <input type="number" id="currentRate" value="6.5" min="0" max="20" step="0.01">
+          <input type="number" id="currentRate" value="6.5" min="0" max="20" step="0.01" aria-label="Current Rate">
         </div>
         <div class="input-group">
           <label for="remainingYears">Remaining Loan Term (Years)</label>
-          <input type="number" id="remainingYears" value="25" min="1" max="40" step="1">
+          <input type="number" id="remainingYears" value="25" min="1" max="40" step="1" aria-label="Remaining Years">
         </div>
       </div>
 
@@ -349,15 +350,15 @@
       <div class="input-grid">
         <div class="input-group">
           <label for="newRate">New Interest Rate (%)</label>
-          <input type="number" id="newRate" value="5.5" min="0" max="20" step="0.01">
+          <input type="number" id="newRate" value="5.5" min="0" max="20" step="0.01" aria-label="New Rate">
         </div>
         <div class="input-group">
           <label for="newTerm">New Loan Term (Years)</label>
-          <input type="number" id="newTerm" value="30" min="1" max="40" step="1">
+          <input type="number" id="newTerm" value="30" min="1" max="40" step="1" aria-label="New Term">
         </div>
         <div class="input-group">
           <label for="closingCosts">Closing Costs ($)</label>
-          <input type="number" id="closingCosts" value="5000" min="0" step="100">
+          <input type="number" id="closingCosts" value="5000" min="0" step="100" aria-label="Closing Costs">
         </div>
       </div>
 
@@ -550,7 +551,7 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
         <h4>Popular Calculators</h4>

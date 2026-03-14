@@ -35,17 +35,18 @@
     </style>
 </head>
 <body>
-    <nav class="nav">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <a href="https://calcleap.com/">← CalcLeap Home</a>
     </nav>
-    <div class="page">
+    <div class="page" id="main-content" role="main">
         <h1 class="page-title">Tax Refund Calculator by State 2026</h1>
         <p class="subtitle">Estimate your federal and state tax refund. Choose your state below.</p>
         
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7513498242498681" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({})</script>
         
-        <input type="text" class="search" placeholder="🔍 Search states..." oninput="filterStates(this.value)">
+        <input type="text" class="search" placeholder="🔍 Search states..." oninput="filterStates(this.value)" aria-label="🔍 Search states...">
         
         <div class="state-grid" id="stateGrid">
             <a href="alabama.html" class="state-card" data-name="alabama">
@@ -374,7 +375,7 @@
         </div>
     </div>
     
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <p>© 2026 CalcLeap. Free tax refund calculators for all 50 states.</p>
         <p style="margin-top:8px"><a href="https://calcleap.com/">Home</a> · <a href="https://calcleap.com/tax-refund/">Tax Refund Calculators</a></p>
     </footer>

@@ -275,7 +275,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="nav">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-content">
       <a href="/" class="logo">CalcLeap</a>
       <div class="nav-links">
@@ -286,7 +287,7 @@
     </div>
   </nav>
 
-  <div class="page">
+  <div class="page" id="main-content" role="main">
     <h1 class="page-title">Social Security Benefits Calculator</h1>
     <p class="subtitle">Estimate your retirement benefits and find your optimal claiming age</p>
 
@@ -302,18 +303,18 @@
       <div class="input-grid">
         <div class="input-group">
           <label for="birthYear">Birth Year</label>
-          <input type="number" id="birthYear" value="1960" min="1943" max="2008" step="1">
+          <input type="number" id="birthYear" value="1960" min="1943" max="2008" step="1" aria-label="Birth Year">
         </div>
         
         <div class="input-group">
           <label for="monthlyBenefit">Estimated Monthly Benefit at Full Retirement Age ($)</label>
-          <input type="number" id="monthlyBenefit" value="2000" min="0" step="100">
+          <input type="number" id="monthlyBenefit" value="2000" min="0" step="100" aria-label="Monthly Benefit">
           <small style="color: #6e6e73; margin-top: 4px;">Check your Social Security Statement at ssa.gov for this amount</small>
         </div>
 
         <div class="input-group">
           <label for="claimAge">Age You Plan to Claim Benefits</label>
-          <select id="claimAge">
+          <select id="claimAge" aria-label="Claim Age">
             <option value="62">62 (Earliest)</option>
             <option value="63">63</option>
             <option value="64">64</option>
@@ -328,7 +329,7 @@
 
         <div class="input-group">
           <label for="lifeExpectancy">Estimated Life Expectancy</label>
-          <input type="number" id="lifeExpectancy" value="85" min="62" max="100" step="1">
+          <input type="number" id="lifeExpectancy" value="85" min="62" max="100" step="1" aria-label="Life Expectancy">
           <small style="color: #6e6e73; margin-top: 4px;">Average: 84 for men, 87 for women</small>
         </div>
       </div>
@@ -518,7 +519,7 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
         <h4>Popular Calculators</h4>
