@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free Social Security benefits calculator. Estimate your retirement benefits, compare claiming ages 62-70, and optimize your claiming strategy for maximum lifetime benefits.">
+  <meta name="keywords" content="social security calculator, social security benefits, retirement benefits calculator, social security claiming age, early retirement, full retirement age, delayed retirement credits">
+  <title>Social Security Benefits Calculator - Estimate Retirement Benefits | CalcLeap</title>
+  <link rel="canonical" href="https://calcleap.com/calc/social-security-calculator.html">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+    .nav {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0071e3;
+      text-decoration: none;
+    }
+    .nav-links a {
+      color: #1d1d1f;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #0071e3; }
+    .page {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .page-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+      background: linear-gradient(90deg, #0071e3, #00c3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #6e6e73;
+      margin-bottom: 40px;
+    }
+    .card, .calc-card {
+      background: white;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+    .input-grid {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .input-group label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1d1d1f;
+    }
+    .input-group input, .input-group select {
+      padding: 12px 16px;
+      border: 1px solid #d2d2d7;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.2s;
+      background: #f5f5f7;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: #0071e3;
+      background: white;
+    }
+    .calc-btn {
+      background: #0071e3;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .calc-btn:hover {
+      background: #0077ed;
+      transform: translateY(-1px);
+    }
+    .result-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 28px;
+      border-radius: 14px;
+      margin-top: 24px;
+      display: none;
+    }
+    .result-box.show { display: block; }
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .result-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .result-card .lbl {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+    .result-card .val {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .comparison-table {
+      background: white;
+      color: #1d1d1f;
+      padding: 24px;
+      border-radius: 12px;
+      margin-top: 20px;
+      overflow-x: auto;
+    }
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .comparison-table th {
+      background: #f5f5f7;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #0071e3;
+    }
+    .comparison-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e5e5e7;
+    }
+    .comparison-table tr.optimal {
+      background: #d4edda;
+    }
+    .info {
+      background: #d1ecf1;
+      border-left: 4px solid #17a2b8;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 16px;
+      color: #0c5460;
+    }
+    .section {
+      margin: 48px 0;
+    }
+    .section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .section h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 28px 0 16px;
+      color: #0071e3;
+    }
+    .section p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1d1d1f;
+      margin-bottom: 16px;
+    }
+    .section ul {
+      margin: 16px 0 16px 24px;
+    }
+    .section li {
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .faq {
+      margin-top: 48px;
+    }
+    .faq-item {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+    .faq-question {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0071e3;
+      margin-bottom: 12px;
+    }
+    .faq-answer {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1d1d1f;
+    }
+    .footer {
+      background: #1d1d1f;
+      color: white;
+      padding: 48px 20px 32px;
+      margin-top: 80px;
+    }
+    .footer-content {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+    }
+    .footer-section h4 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #f5f5f7;
+    }
+    .footer-section a {
+      display: block;
+      color: #a1a1a6;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .footer-section a:hover {
+      color: #0071e3;
+    }
+    .footer-bottom {
+      max-width: 980px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #424245;
+      text-align: center;
+      font-size: 13px;
+      color: #a1a1a6;
+    }
+    @media (max-width: 768px) {
+      .page-title { font-size: 36px; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="logo">CalcLeap</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/calc/">Calculators</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+    <h1 class="page-title">Social Security Benefits Calculator</h1>
+    <p class="subtitle">Estimate your retirement benefits and find your optimal claiming age</p>
+
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567890"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="calc-card">
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="birthYear">Birth Year</label>
+          <input type="number" id="birthYear" value="1960" min="1943" max="2008" step="1">
+        </div>
+        
+        <div class="input-group">
+          <label for="monthlyBenefit">Estimated Monthly Benefit at Full Retirement Age ($)</label>
+          <input type="number" id="monthlyBenefit" value="2000" min="0" step="100">
+          <small style="color: #6e6e73; margin-top: 4px;">Check your Social Security Statement at ssa.gov for this amount</small>
+        </div>
+
+        <div class="input-group">
+          <label for="claimAge">Age You Plan to Claim Benefits</label>
+          <select id="claimAge">
+            <option value="62">62 (Earliest)</option>
+            <option value="63">63</option>
+            <option value="64">64</option>
+            <option value="65">65</option>
+            <option value="66">66</option>
+            <option value="67" selected>67 (Full Retirement Age for 1960+)</option>
+            <option value="68">68</option>
+            <option value="69">69</option>
+            <option value="70">70 (Maximum)</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="lifeExpectancy">Estimated Life Expectancy</label>
+          <input type="number" id="lifeExpectancy" value="85" min="62" max="100" step="1">
+          <small style="color: #6e6e73; margin-top: 4px;">Average: 84 for men, 87 for women</small>
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()">Calculate Benefits</button>
+
+      <div id="results" class="result-box">
+        <h3 style="margin-bottom: 20px; font-size: 24px;">Your Social Security Analysis</h3>
+        
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="lbl">Monthly Benefit at Age <span id="claimAgeDisplay"></span></div>
+            <div class="val" id="monthlyAmount">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Total Lifetime Benefits</div>
+            <div class="val" id="lifetimeBenefits">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Full Retirement Age</div>
+            <div class="val" id="fraDisplay">67</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Reduction/Increase</div>
+            <div class="val" id="adjustment">0%</div>
+          </div>
+        </div>
+
+        <div class="comparison-table">
+          <h4 style="font-size: 18px; margin-bottom: 16px;">Claiming Age Comparison</h4>
+          <table id="comparisonTable">
+            <thead>
+              <tr>
+                <th>Claim Age</th>
+                <th>Monthly Benefit</th>
+                <th>Annual Benefit</th>
+                <th>Lifetime Total (to <span id="lifeExpDisplay"></span>)</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonBody"></tbody>
+          </table>
+        </div>
+
+        <div id="recommendation"></div>
+      </div>
+    </div>
+
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567891"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="section">
+      <h2>Understanding Social Security Benefits</h2>
+      
+      <p>Social Security retirement benefits are calculated based on your 35 highest-earning years, adjusted for inflation. The age at which you claim benefits significantly impacts how much you receive each month and over your lifetime.</p>
+
+      <h3>Full Retirement Age (FRA)</h3>
+      <p>Your Full Retirement Age is the age at which you're entitled to 100% of your calculated benefit. It depends on your birth year:</p>
+      <ul>
+        <li>Born 1943-1954: FRA is 66</li>
+        <li>Born 1955: FRA is 66 and 2 months</li>
+        <li>Born 1956: FRA is 66 and 4 months</li>
+        <li>Born 1957: FRA is 66 and 6 months</li>
+        <li>Born 1958: FRA is 66 and 8 months</li>
+        <li>Born 1959: FRA is 66 and 10 months</li>
+        <li>Born 1960 or later: FRA is 67</li>
+      </ul>
+
+      <h3>Early Claiming (Age 62-FRA)</h3>
+      <p>You can claim Social Security as early as age 62, but your benefits are permanently reduced. The reduction is approximately 5/9 of 1% per month for the first 36 months before FRA, and 5/12 of 1% for each additional month.</p>
+      
+      <p><strong>Example:</strong> If your FRA is 67 and you claim at 62, your benefit is reduced by 30% (70% of full benefit). A $2,000/month FRA benefit becomes $1,400/month at age 62.</p>
+
+      <h3>Delayed Retirement Credits (FRA-70)</h3>
+      <p>For each month you delay claiming past your FRA (up to age 70), you earn delayed retirement credits worth 2/3 of 1% per month, or 8% per year. This can increase your benefit by up to 24% if you wait from 67 to 70.</p>
+      
+      <p><strong>Example:</strong> A $2,000/month benefit at FRA 67 grows to $2,480/month at age 70 (24% increase).</p>
+
+      <h3>Break-Even Analysis</h3>
+      <p>The "break-even age" is when total lifetime benefits from delaying equal what you would have received by claiming earlier. Generally:</p>
+      <ul>
+        <li>Claiming at 62 vs. 67: Break-even around age 78-80</li>
+        <li>Claiming at 67 vs. 70: Break-even around age 80-82</li>
+      </ul>
+      
+      <p>If you expect to live past the break-even age, delaying increases lifetime benefits. If health issues suggest shorter life expectancy, claiming earlier may be better.</p>
+
+      <h3>When to Claim Early (Age 62)</h3>
+      <ul>
+        <li>You need the income immediately and have no other sources</li>
+        <li>Health problems suggest life expectancy below age 78</li>
+        <li>You're unemployed and can't find work</li>
+        <li>You want to invest the benefits (though returns must beat 8%/year to match delaying)</li>
+      </ul>
+
+      <h3>When to Delay (Age 70)</h3>
+      <ul>
+        <li>You're still working and earning good income</li>
+        <li>You have longevity in your family (parents/grandparents lived to 85+)</li>
+        <li>You're in excellent health</li>
+        <li>You have other retirement income (401k, pensions, savings)</li>
+        <li>You want maximum survivor benefits for your spouse</li>
+        <li>You want inflation protection (larger COLA increases on larger base benefit)</li>
+      </ul>
+
+      <h3>Spousal and Survivor Benefits</h3>
+      <p><strong>Spousal benefits:</strong> Your spouse can receive up to 50% of your full retirement age benefit, even if they never worked. This doesn't reduce your benefit.</p>
+      
+      <p><strong>Survivor benefits:</strong> When you die, your surviving spouse receives the higher of their own benefit or 100% of your benefit. Delaying your claim increases the survivor benefit, providing valuable insurance for a lower-earning spouse.</p>
+
+      <h3>Working While Receiving Benefits</h3>
+      <p>If you claim before Full Retirement Age and continue working:</p>
+      <ul>
+        <li><strong>Below FRA:</strong> Benefits reduced by $1 for every $2 earned above $22,320 (2026 limit)</li>
+        <li><strong>Year you reach FRA:</strong> Reduced by $1 for every $3 earned above $59,520</li>
+        <li><strong>At or after FRA:</strong> No earnings limit; work as much as you want</li>
+      </ul>
+      
+      <p>These "lost" benefits aren't permanently gone—SSA recalculates your benefit at FRA to credit you for months when benefits were withheld.</p>
+
+      <h3>Taxation of Social Security Benefits</h3>
+      <p>Up to 85% of your Social Security benefits may be taxable depending on your "combined income" (adjusted gross income + nontaxable interest + half of Social Security benefits):</p>
+      <ul>
+        <li>Combined income under $25,000 (single) or $32,000 (married): 0% taxable</li>
+        <li>$25,000-$34,000 (single) or $32,000-$44,000 (married): Up to 50% taxable</li>
+        <li>Above $34,000 (single) or $44,000 (married): Up to 85% taxable</li>
+      </ul>
+
+      <h3>Medicare Considerations</h3>
+      <p>You become eligible for Medicare at age 65, regardless of when you claim Social Security. However, if you're receiving Social Security when you turn 65, you're automatically enrolled in Medicare Parts A and B. If you delay Social Security past 65, you must actively enroll in Medicare to avoid late enrollment penalties.</p>
+    </div>
+
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567892"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">What is the average Social Security benefit in 2026?</div>
+        <div class="faq-answer">As of 2026, the average Social Security retirement benefit is approximately $1,920 per month ($23,040 per year). However, benefits vary widely based on lifetime earnings. The maximum benefit for someone claiming at full retirement age (67) is around $3,800/month, while those claiming at 70 can receive up to $4,750/month.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How is my Social Security benefit calculated?</div>
+        <div class="faq-answer">The Social Security Administration calculates your benefit using your highest 35 years of earnings, adjusted for inflation. If you worked fewer than 35 years, zeros are averaged in. Your earnings are indexed, summed, and divided by 420 (35 years × 12 months) to get your Average Indexed Monthly Earnings (AIME). A formula is then applied to your AIME to determine your Primary Insurance Amount (PIA)—your benefit at full retirement age.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I claim Social Security while still working?</div>
+        <div class="faq-answer">Yes, but if you're under full retirement age, your benefits may be temporarily reduced if you earn above certain limits. In 2026, if you're under FRA all year, benefits are reduced $1 for every $2 earned above $22,320. In the year you reach FRA, it's $1 for every $3 above $59,520 until the month you reach FRA. After FRA, there's no earnings limit. Note that benefits "lost" to the earnings test are recalculated at FRA to give you credit for those months.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Should I take Social Security at 62 or wait?</div>
+        <div class="faq-answer">It depends on your health, financial needs, and life expectancy. Claiming at 62 gives you more years of benefits but 30% less per month (if FRA is 67). If you live past age 78-80, waiting until 67 typically gives you more total lifetime benefits. Waiting until 70 maximizes monthly benefits (24% more than at 67) and is best if you're healthy, still working, and have family longevity. Consider your complete financial picture, including other retirement savings, pensions, and whether you need to provide survivor benefits for a spouse.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How do spousal benefits work?</div>
+        <div class="faq-answer">A spouse can receive up to 50% of the primary earner's full retirement age benefit, even if the spouse never worked or has a lower benefit of their own. The spouse must be at least 62 to claim spousal benefits, and the primary earner must have already filed for their own benefits. If the spouse claims before their own FRA, the spousal benefit is reduced. Importantly, spousal benefits don't reduce the primary earner's benefit—it's an additional amount from Social Security.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What happens to my Social Security if I die?</div>
+        <div class="faq-answer">Your surviving spouse can receive 100% of your benefit amount (not just 50% like spousal benefits). This is why delaying Social Security can be valuable insurance for a lower-earning spouse—they'll inherit your larger benefit. Surviving spouses can claim as early as age 60 (50 if disabled), though benefits are reduced if claimed before their own FRA. Minor or disabled children may also qualify for survivor benefits. Divorced spouses married for at least 10 years may also qualify.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Will Social Security run out of money?</div>
+        <div class="faq-answer">Social Security is not going broke, but the trust fund is projected to be depleted around 2034 without legislative changes. Even if that happens, Social Security would still be able to pay approximately 77-80% of scheduled benefits from ongoing payroll tax revenue. Congress will likely make adjustments before then, such as raising the payroll tax cap, increasing the tax rate slightly, adjusting the retirement age for younger workers, or means-testing benefits for high earners. Your already-earned benefits are protected—changes typically only affect future beneficiaries.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do I have to pay taxes on Social Security benefits?</div>
+        <div class="faq-answer">It depends on your total income. If your "combined income" (adjusted gross income + nontaxable interest + half of Social Security) is below $25,000 (single) or $32,000 (married), your benefits aren't taxed. Between $25,000-$34,000 (single) or $32,000-$44,000 (married), up to 50% of benefits are taxable. Above those thresholds, up to 85% of benefits may be taxable. Note that this doesn't mean you pay 85% in taxes—it means 85% of your benefits are added to your taxable income and taxed at your regular rate. States vary: some don't tax Social Security at all, while others follow federal rules or have their own thresholds.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Popular Calculators</h4>
+        <a href="/calc/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+        <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal</a>
+        <a href="/calc/bmi-calculator.html">BMI Calculator</a>
+      </div>
+      <div class="footer-section">
+        <h4>Finance Tools</h4>
+        <a href="/calc/social-security-calculator.html">Social Security</a>
+        <a href="/calc/compound-interest-calculator.html">Compound Interest</a>
+        <a href="/calc/loan-calculator.html">Loan Calculator</a>
+        <a href="/calc/investment-calculator.html">Investment Calculator</a>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="/blog/">Financial Blog</a>
+        <a href="/calc/">All Calculators</a>
+        <a href="/about.html">About CalcLeap</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <div class="footer-section">
+        <h4>CalcLeap</h4>
+        <p style="font-size: 14px; color: #a1a1a6; line-height: 1.6;">Free online calculators and tools for finance, health, conversions, and more. Make smarter decisions with CalcLeap.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 CalcLeap. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function getFRA(birthYear) {
+      if (birthYear <= 1954) return 66;
+      if (birthYear == 1955) return 66 + 2/12;
+      if (birthYear == 1956) return 66 + 4/12;
+      if (birthYear == 1957) return 66 + 6/12;
+      if (birthYear == 1958) return 66 + 8/12;
+      if (birthYear == 1959) return 66 + 10/12;
+      return 67;
+    }
+
+    function getAdjustment(claimAge, fra) {
+      if (claimAge < fra) {
+        // Early claiming reduction
+        const monthsEarly = Math.round((fra - claimAge) * 12);
+        const reduction = monthsEarly <= 36 
+          ? monthsEarly * (5/9 / 100)
+          : 36 * (5/9 / 100) + (monthsEarly - 36) * (5/12 / 100);
+        return 1 - reduction;
+      } else if (claimAge > fra) {
+        // Delayed retirement credits
+        const monthsLate = Math.round((claimAge - fra) * 12);
+        const increase = monthsLate * (2/3 / 100);
+        return 1 + increase;
+      }
+      return 1; // At FRA
+    }
+
+    function calculate() {
+      const birthYear = parseInt(document.getElementById('birthYear').value);
+      const monthlyFRA = parseFloat(document.getElementById('monthlyBenefit').value);
+      const claimAge = parseInt(document.getElementById('claimAge').value);
+      const lifeExp = parseInt(document.getElementById('lifeExpectancy').value);
+
+      const fra = getFRA(birthYear);
+      const adjustment = getAdjustment(claimAge, fra);
+      const monthlyBenefit = monthlyFRA * adjustment;
+      const monthsOfBenefits = (lifeExp - claimAge) * 12;
+      const lifetimeTotal = monthlyBenefit * monthsOfBenefits;
+
+      // Display main results
+      document.getElementById('claimAgeDisplay').textContent = claimAge;
+      document.getElementById('monthlyAmount').textContent = '$' + monthlyBenefit.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('lifetimeBenefits').textContent = '$' + lifetimeTotal.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('fraDisplay').textContent = fra.toFixed(0);
+      
+      const adjustmentPercent = ((adjustment - 1) * 100).toFixed(1);
+      document.getElementById('adjustment').textContent = 
+        (adjustmentPercent >= 0 ? '+' : '') + adjustmentPercent + '%';
+
+      // Build comparison table
+      document.getElementById('lifeExpDisplay').textContent = lifeExp;
+      const tbody = document.getElementById('comparisonBody');
+      tbody.innerHTML = '';
+      
+      let maxLifetime = 0;
+      let optimalAge = 62;
+      const ageData = [];
+
+      for (let age = 62; age <= 70; age++) {
+        const adj = getAdjustment(age, fra);
+        const monthly = monthlyFRA * adj;
+        const annual = monthly * 12;
+        const months = (lifeExp - age) * 12;
+        const lifetime = monthly * months;
+
+        ageData.push({age, monthly, annual, lifetime});
+
+        if (lifetime > maxLifetime) {
+          maxLifetime = lifetime;
+          optimalAge = age;
+        }
+      }
+
+      ageData.forEach(data => {
+        const row = tbody.insertRow();
+        if (data.age === optimalAge) row.className = 'optimal';
+        
+        row.insertCell().textContent = data.age;
+        row.insertCell().textContent = '$' + data.monthly.toLocaleString('en-US', {maximumFractionDigits: 0});
+        row.insertCell().textContent = '$' + data.annual.toLocaleString('en-US', {maximumFractionDigits: 0});
+        row.insertCell().textContent = '$' + data.lifetime.toLocaleString('en-US', {maximumFractionDigits: 0});
+      });
+
+      // Recommendation
+      let rec = '';
+      if (optimalAge === 62) {
+        rec = '<div class="info"><strong>💡 Optimal Age: 62 (Early Claiming)</strong><br>Based on life expectancy of ' + lifeExp + ', claiming at 62 maximizes lifetime benefits. However, consider: Are you in poor health? Do you need income immediately? Remember that benefits are permanently reduced by 30% compared to full retirement age.</div>';
+      } else if (optimalAge === claimAge) {
+        rec = '<div class="info"><strong>✓ Good Choice!</strong><br>Claiming at age ' + claimAge + ' appears optimal for your life expectancy of ' + lifeExp + '. This gives you the highest lifetime benefits based on these assumptions.</div>';
+      } else if (optimalAge === 70) {
+        rec = '<div class="info"><strong>💡 Optimal Age: 70 (Maximum Benefits)</strong><br>Based on life expectancy of ' + lifeExp + ', delaying until 70 maximizes lifetime benefits. Your monthly benefit increases 24% compared to full retirement age. This is optimal if you\'re healthy, still working, or have other income sources.</div>';
+      } else {
+        rec = '<div class="info"><strong>💡 Optimal Age: ' + optimalAge + '</strong><br>Based on life expectancy of ' + lifeExp + ', claiming at age ' + optimalAge + ' appears to maximize lifetime benefits. Your selected age of ' + claimAge + ' would result in $' + (maxLifetime - lifetimeTotal).toLocaleString('en-US', {maximumFractionDigits: 0}) + ' less in lifetime benefits.</div>';
+      }
+
+      document.getElementById('recommendation').innerHTML = rec;
+
+      // Show results
+      document.getElementById('results').classList.add('show');
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>
