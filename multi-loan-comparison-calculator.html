@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Loan Comparison Calculator - Compare Up to 4 Loans Side-by-Side | CalcLeap</title>
+    <meta name="description" content="Free multi-loan comparison calculator. Compare up to 4 loans side-by-side to find the best rate, payment, and total cost. Perfect for mortgages, auto loans, personal loans, and student loans.">
+    <meta name="keywords" content="loan comparison, compare loans, mortgage comparison, auto loan comparison, personal loan calculator, student loan comparison, best loan rate, loan calculator">
+    <link rel="canonical" href="https://calcleap.com/multi-loan-comparison-calculator.html">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gold.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "How do I compare multiple loan offers?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Enter the loan amount, interest rate, and term for each loan you're considering. The calculator will show monthly payment, total interest, and total cost side-by-side so you can easily compare and choose the best option."
+            }
+        }, {
+            "@type": "Question",
+            "name": "What's more important: lowest monthly payment or lowest total cost?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The lowest total cost is usually better in the long run. A longer loan term may have a lower monthly payment but costs significantly more in interest over time. Balance your budget needs with long-term savings."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Can I compare different types of loans?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! This calculator works for any loan type: mortgages, auto loans, personal loans, student loans, or business loans. Just enter the terms for each offer to compare them side-by-side."
+            }
+        }, {
+            "@type": "Question",
+            "name": "How much can I save by choosing a better loan?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Even a 0.5% difference in interest rate can save thousands over a loan's lifetime. For a $300,000 30-year mortgage, a 0.5% rate difference saves over $30,000 in total interest."
+            }
+        }]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a> &gt; <span>Multi-Loan Comparison Calculator</span>
+        </nav>
+
+        <h1 class="page-title">🔍 Multi-Loan Comparison Calculator</h1>
+        <p class="subtitle">Compare up to 4 loan offers side-by-side to find the best deal</p>
+
+        <div class="calculator-container">
+            <div class="input-section">
+                <h2>Enter Loan Details</h2>
+                
+                <div class="loan-inputs" id="loanInputs">
+                    <!-- Loan 1 -->
+                    <div class="loan-card">
+                        <h3>Loan 1</h3>
+                        <div class="form-group">
+                            <label for="amount1">Loan Amount ($)</label>
+                            <input type="number" id="amount1" value="300000" min="0" step="1000">
+                        </div>
+                        <div class="form-group">
+                            <label for="rate1">Interest Rate (%)</label>
+                            <input type="number" id="rate1" value="6.5" min="0" max="30" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="term1">Loan Term (years)</label>
+                            <input type="number" id="term1" value="30" min="1" max="50">
+                        </div>
+                    </div>
+
+                    <!-- Loan 2 -->
+                    <div class="loan-card">
+                        <h3>Loan 2</h3>
+                        <div class="form-group">
+                            <label for="amount2">Loan Amount ($)</label>
+                            <input type="number" id="amount2" value="300000" min="0" step="1000">
+                        </div>
+                        <div class="form-group">
+                            <label for="rate2">Interest Rate (%)</label>
+                            <input type="number" id="rate2" value="6.0" min="0" max="30" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="term2">Loan Term (years)</label>
+                            <input type="number" id="term2" value="30" min="1" max="50">
+                        </div>
+                    </div>
+
+                    <!-- Loan 3 -->
+                    <div class="loan-card">
+                        <h3>Loan 3</h3>
+                        <div class="form-group">
+                            <label for="amount3">Loan Amount ($)</label>
+                            <input type="number" id="amount3" value="300000" min="0" step="1000">
+                        </div>
+                        <div class="form-group">
+                            <label for="rate3">Interest Rate (%)</label>
+                            <input type="number" id="rate3" value="5.75" min="0" max="30" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="term3">Loan Term (years)</label>
+                            <input type="number" id="term3" value="15" min="1" max="50">
+                        </div>
+                    </div>
+
+                    <!-- Loan 4 -->
+                    <div class="loan-card">
+                        <h3>Loan 4</h3>
+                        <div class="form-group">
+                            <label for="amount4">Loan Amount ($)</label>
+                            <input type="number" id="amount4" value="300000" min="0" step="1000">
+                        </div>
+                        <div class="form-group">
+                            <label for="rate4">Interest Rate (%)</label>
+                            <input type="number" id="rate4" value="6.25" min="0" max="30" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="term4">Loan Term (years)</label>
+                            <input type="number" id="term4" value="20" min="1" max="50">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-calculate" onclick="compareLoans()">Compare Loans</button>
+            </div>
+
+            <div class="result-section">
+                <h2>Loan Comparison Results</h2>
+                <div id="comparisonResults"></div>
+                <div id="winner"></div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>How to Compare Loan Offers Effectively</h2>
+            <p>When shopping for a loan, comparing multiple offers is essential to finding the best deal. This calculator helps you evaluate up to four loan options side-by-side, showing you the monthly payment, total interest paid, and total cost over the life of each loan.</p>
+
+            <h3>What to Look for When Comparing Loans</h3>
+            <ul>
+                <li><strong>Interest Rate:</strong> Lower rates save money, but consider the APR which includes fees</li>
+                <li><strong>Monthly Payment:</strong> Ensure it fits your budget comfortably</li>
+                <li><strong>Total Interest:</strong> The real cost of borrowing – lower is better</li>
+                <li><strong>Loan Term:</strong> Shorter terms mean higher payments but less interest</li>
+                <li><strong>Total Cost:</strong> Principal + interest = what you actually pay</li>
+            </ul>
+
+            <h3>Common Loan Comparison Scenarios</h3>
+            <p><strong>Mortgage Shopping:</strong> Compare offers from 3-4 lenders. A 0.5% rate difference on a $300,000 mortgage saves over $30,000 in interest over 30 years.</p>
+            <p><strong>Auto Loans:</strong> Dealer financing vs. bank/credit union loans. Dealers may offer promotional rates but check the fine print.</p>
+            <p><strong>Student Loan Refinancing:</strong> Compare your current federal loan terms against private refinancing offers. Consider losing federal protections like income-driven repayment.</p>
+            <p><strong>Personal Loans:</strong> Rates vary widely based on credit score. Shop around and don't just accept the first offer.</p>
+
+            <h3>The True Cost of Interest Rates</h3>
+            <p>Many borrowers focus solely on monthly payment, but the interest rate dramatically affects your total cost. For example, on a $300,000 30-year mortgage:</p>
+            <ul>
+                <li>At 6.5%: $1,896/mo payment, $382,633 total interest</li>
+                <li>At 6.0%: $1,799/mo payment, $347,515 total interest</li>
+                <li>At 5.5%: $1,703/mo payment, $313,117 total interest</li>
+            </ul>
+            <p>That's a $69,516 difference between the highest and lowest rate – more than the down payment on many homes!</p>
+
+            <h3>Short-Term vs. Long-Term Loans</h3>
+            <p>Shorter loan terms have higher monthly payments but save significantly on interest. A 15-year mortgage typically has a rate 0.5-0.75% lower than a 30-year, plus you pay off the loan in half the time. However, the monthly payment is about 50% higher, so balance your cash flow needs with long-term savings.</p>
+
+            <h3>Tips for Getting the Best Loan Rate</h3>
+            <ul>
+                <li><strong>Improve Your Credit Score:</strong> A 100-point increase can reduce your rate by 0.5-1%</li>
+                <li><strong>Shop Multiple Lenders:</strong> Compare at least 3-4 offers within a 14-day window to minimize credit inquiries</li>
+                <li><strong>Consider Points:</strong> Paying upfront points can lower your rate if you plan to keep the loan long-term</li>
+                <li><strong>Negotiate:</strong> Lenders compete for your business – use one offer to negotiate with another</li>
+                <li><strong>Check for Discounts:</strong> Many lenders offer rate reductions for autopay, relationship banking, or professional affiliations</li>
+            </ul>
+
+            <h3>When to Refinance</h3>
+            <p>Refinancing makes sense when:</p>
+            <ul>
+                <li>Rates have dropped 0.75% or more below your current rate</li>
+                <li>Your credit score has improved significantly since you borrowed</li>
+                <li>You want to shorten your loan term to save on interest</li>
+                <li>You need to lower your monthly payment (though this extends your payoff date)</li>
+            </ul>
+            <p>Use this calculator to compare your current loan against refinancing offers. Factor in closing costs – typically 2-5% of the loan amount – to determine your breakeven point.</p>
+
+            <h3>Beware of Low-Rate Gimmicks</h3>
+            <p>Watch out for:</p>
+            <ul>
+                <li><strong>Teaser Rates:</strong> Low initial rates that adjust higher after 1-5 years</li>
+                <li><strong>High Fees:</strong> A low rate with high origination fees may cost more than a higher rate with low fees</li>
+                <li><strong>Prepayment Penalties:</strong> Some loans charge fees if you pay off early</li>
+                <li><strong>Balloon Payments:</strong> Low payments followed by a large lump sum at the end</li>
+            </ul>
+
+            <h3>Using the Calculator</h3>
+            <p>Enter the loan amount, interest rate, and term for each loan offer you're considering. The calculator shows monthly payment, total interest, and total cost side-by-side. The "best" loan depends on your priorities – lowest monthly payment, lowest total cost, or a balance between the two.</p>
+            <p>Remember: A loan is a long-term financial commitment. Take your time, compare multiple offers, read the fine print, and choose the option that best fits your financial situation and goals.</p>
+        </div>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>How do I compare multiple loan offers?</h3>
+                <p>Enter the loan amount, interest rate, and term for each loan you're considering. The calculator will show monthly payment, total interest, and total cost side-by-side so you can easily compare and choose the best option.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What's more important: lowest monthly payment or lowest total cost?</h3>
+                <p>The lowest total cost is usually better in the long run. A longer loan term may have a lower monthly payment but costs significantly more in interest over time. Balance your budget needs with long-term savings.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I compare different types of loans?</h3>
+                <p>Yes! This calculator works for any loan type: mortgages, auto loans, personal loans, student loans, or business loans. Just enter the terms for each offer to compare them side-by-side.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How much can I save by choosing a better loan?</h3>
+                <p>Even a 0.5% difference in interest rate can save thousands over a loan's lifetime. For a $300,000 30-year mortgage, a 0.5% rate difference saves over $30,000 in total interest.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Should I choose a shorter loan term?</h3>
+                <p>Shorter terms save significantly on interest but have higher monthly payments. Choose based on your budget and financial goals. A 15-year mortgage can save over $100,000 in interest compared to a 30-year mortgage.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What is APR and how is it different from interest rate?</h3>
+                <p>APR (Annual Percentage Rate) includes the interest rate plus fees and other loan costs. It's a better measure of the true cost of borrowing. Always compare APRs, not just interest rates.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How many loan offers should I compare?</h3>
+                <p>Compare at least 3-4 offers from different lenders. Apply within a 14-45 day window (depending on the credit bureau) to have multiple inquiries count as a single hit to your credit score.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>When is refinancing worth it?</h3>
+                <p>Refinancing is typically worth it when you can reduce your rate by 0.75% or more, or when your credit has improved significantly. Calculate your breakeven point by dividing closing costs by monthly savings.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 CalcLeap. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function compareLoans() {
+            const results = [];
+            
+            for (let i = 1; i <= 4; i++) {
+                const amount = parseFloat(document.getElementById(`amount${i}`).value) || 0;
+                const rate = parseFloat(document.getElementById(`rate${i}`).value) || 0;
+                const term = parseFloat(document.getElementById(`term${i}`).value) || 0;
+                
+                if (amount > 0 && rate > 0 && term > 0) {
+                    const monthlyRate = (rate / 100) / 12;
+                    const numPayments = term * 12;
+                    const monthlyPayment = (amount * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
+                                          (Math.pow(1 + monthlyRate, numPayments) - 1);
+                    const totalPaid = monthlyPayment * numPayments;
+                    const totalInterest = totalPaid - amount;
+                    
+                    results.push({
+                        loanNum: i,
+                        amount,
+                        rate,
+                        term,
+                        monthlyPayment,
+                        totalInterest,
+                        totalPaid
+                    });
+                }
+            }
+            
+            if (results.length === 0) {
+                document.getElementById('comparisonResults').innerHTML = '<p class="error">Please enter valid loan details for at least one loan.</p>';
+                return;
+            }
+            
+            // Find best deals
+            const lowestPayment = [...results].sort((a, b) => a.monthlyPayment - b.monthlyPayment)[0];
+            const lowestInterest = [...results].sort((a, b) => a.totalInterest - b.totalInterest)[0];
+            const lowestTotal = [...results].sort((a, b) => a.totalPaid - b.totalPaid)[0];
+            
+            let html = '<div class="comparison-grid">';
+            
+            results.forEach(loan => {
+                const isLowestPayment = loan.loanNum === lowestPayment.loanNum;
+                const isLowestInterest = loan.loanNum === lowestInterest.loanNum;
+                const isLowestTotal = loan.loanNum === lowestTotal.loanNum;
+                const isBest = isLowestPayment && isLowestInterest && isLowestTotal;
+                
+                html += `
+                    <div class="loan-result ${isBest ? 'best-loan' : ''}">
+                        <h3>Loan ${loan.loanNum} ${isBest ? '⭐ BEST DEAL' : ''}</h3>
+                        <div class="result-item">
+                            <span>Loan Amount:</span>
+                            <strong>$${loan.amount.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Interest Rate:</span>
+                            <strong>${loan.rate.toFixed(2)}%</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Loan Term:</span>
+                            <strong>${loan.term} years</strong>
+                        </div>
+                        <div class="result-item ${isLowestPayment ? 'highlight' : ''}">
+                            <span>Monthly Payment:</span>
+                            <strong>$${loan.monthlyPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}${isLowestPayment ? ' ✓' : ''}</strong>
+                        </div>
+                        <div class="result-item ${isLowestInterest ? 'highlight' : ''}">
+                            <span>Total Interest:</span>
+                            <strong>$${loan.totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}${isLowestInterest ? ' ✓' : ''}</strong>
+                        </div>
+                        <div class="result-item ${isLowestTotal ? 'highlight' : ''}">
+                            <span>Total Cost:</span>
+                            <strong>$${loan.totalPaid.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}${isLowestTotal ? ' ✓' : ''}</strong>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            
+            // Winner summary
+            let winnerHtml = '<div class="winner-box"><h3>💡 Recommendation</h3>';
+            
+            if (lowestTotal.loanNum === lowestPayment.loanNum && lowestTotal.loanNum === lowestInterest.loanNum) {
+                winnerHtml += `<p><strong>Loan ${lowestTotal.loanNum}</strong> is the clear winner with the lowest monthly payment, lowest interest, and lowest total cost!</p>`;
+            } else {
+                winnerHtml += '<p>Different loans excel in different areas:</p><ul>';
+                winnerHtml += `<li><strong>Loan ${lowestPayment.loanNum}</strong> has the lowest monthly payment ($${lowestPayment.monthlyPayment.toLocaleString('en-US', {minimumFractionDigits: 2})})</li>`;
+                winnerHtml += `<li><strong>Loan ${lowestInterest.loanNum}</strong> has the lowest total interest ($${lowestInterest.totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2})})</li>`;
+                winnerHtml += `<li><strong>Loan ${lowestTotal.loanNum}</strong> has the lowest total cost ($${lowestTotal.totalPaid.toLocaleString('en-US', {minimumFractionDigits: 2})})</li>`;
+                winnerHtml += '</ul>';
+                winnerHtml += '<p><em>For long-term savings, choose the loan with the lowest total cost. For cash flow flexibility, choose the lowest monthly payment.</em></p>';
+            }
+            
+            // Calculate potential savings
+            const highestTotal = [...results].sort((a, b) => b.totalPaid - a.totalPaid)[0];
+            const savings = highestTotal.totalPaid - lowestTotal.totalPaid;
+            if (savings > 0) {
+                winnerHtml += `<p class="savings-highlight">💰 By choosing Loan ${lowestTotal.loanNum} over Loan ${highestTotal.loanNum}, you save <strong>$${savings.toLocaleString('en-US', {minimumFractionDigits: 2})}</strong> over the life of the loan!</p>`;
+            }
+            
+            winnerHtml += '</div>';
+            
+            document.getElementById('comparisonResults').innerHTML = html;
+            document.getElementById('winner').innerHTML = winnerHtml;
+        }
+        
+        // Auto-calculate on input change
+        for (let i = 1; i <= 4; i++) {
+            ['amount', 'rate', 'term'].forEach(field => {
+                document.getElementById(`${field}${i}`).addEventListener('input', () => {
+                    if (document.getElementById('comparisonResults').innerHTML) {
+                        compareLoans();
+                    }
+                });
+            });
+        }
+        
+        // Calculate on load
+        window.addEventListener('load', compareLoans);
+    </script>
+
+    <style>
+        .loan-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .loan-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .loan-card h3 {
+            margin-top: 0;
+            color: #2563eb;
+            font-size: 1.1em;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .loan-result {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .loan-result h3 {
+            margin-top: 0;
+            color: #1e40af;
+            font-size: 1.1em;
+        }
+        
+        .best-loan {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+        
+        .best-loan h3 {
+            color: #059669;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight {
+            background: #fef3c7;
+            margin: 0 -10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 4px;
+        }
+        
+        .winner-box {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .winner-box h3 {
+            margin-top: 0;
+            color: #1e40af;
+        }
+        
+        .savings-highlight {
+            background: #dcfce7;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</body>
+</html>
