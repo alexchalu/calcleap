@@ -238,7 +238,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
   <div class="info-card">
     <h3>2026 Pennsylvania Tax Brackets</h3>
-    <p><strong>Pennsylvania has one of the highest state income tax rates in the nation</strong>, with a top marginal rate of <strong>3.07%</strong> for high earners. The state uses a progressive tax system with 10 tax brackets.</p>
+    <p><strong>Pennsylvania has one of the highest state income tax rates in the nation</strong>, with a top marginal rate of <strong>13.3%</strong> for high earners. The state uses a progressive tax system with 10 tax brackets.</p>
     
     <table>
       <thead>
@@ -258,7 +258,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         <tr><td>$349,138 - $418,961</td><td>10.3%</td><td>$29,122 + 10.3% of excess</td></tr>
         <tr><td>$418,962 - $698,271</td><td>11.3%</td><td>$36,313 + 11.3% of excess</td></tr>
         <tr><td>$698,272 - $1,000,000</td><td>12.3%</td><td>$67,855 + 12.3% of excess</td></tr>
-        <tr><td>$1,000,001+</td><td>3.07%</td><td>$104,968 + 3.07% of excess</td></tr>
+        <tr><td>$1,000,001+</td><td>13.3%</td><td>$104,968 + 13.3% of excess</td></tr>
       </tbody>
     </table>
 
@@ -357,7 +357,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     <h3>Frequently Asked Questions</h3>
     <div class="faq">
       <div class="faq-q">What is Pennsylvania's income tax rate?</div>
-      <div class="faq-a">Pennsylvania has progressive tax rates ranging from 1% to 3.07%. The rate you pay depends on your income and filing status. Most middle-income earners pay an effective rate of 4-8%, while high earners (>$500,000) pay 10-12% effective.</div>
+      <div class="faq-a">Pennsylvania has progressive tax rates ranging from 1% to 13.3%. The rate you pay depends on your income and filing status. Most middle-income earners pay an effective rate of 4-8%, while high earners (>$500,000) pay 10-12% effective.</div>
     </div>
     <div class="faq">
       <div class="faq-q">Does Pennsylvania tax Social Security benefits?</div>
@@ -377,7 +377,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
     <div class="faq">
       <div class="faq-q">Why is Pennsylvania tax so high?</div>
-      <div class="faq-a">Pennsylvania has the highest top marginal rate (3.07%) to fund state programs, education, and infrastructure. The progressive structure means high earners pay significantly more to offset lower taxes on middle and low-income residents.</div>
+      <div class="faq-a">Pennsylvania has the highest top marginal rate (13.3%) to fund state programs, education, and infrastructure. The progressive structure means high earners pay significantly more to offset lower taxes on middle and low-income residents.</div>
     </div>
     <div class="faq">
       <div class="faq-q">Do I need to file a Pennsylvania state tax return?</div>
@@ -436,7 +436,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 <script>
 // 2026 Pennsylvania tax brackets (Single filer)
-const PA_TAX_RATE = 0.0495; // Pennsylvania flat tax rate
+const PA_TAX_RATE = 0.0307; // Pennsylvania flat tax rate
 
 function calculate() {
   const filingStatus = document.getElementById('filingStatus').value;
@@ -444,17 +444,8 @@ function calculate() {
   const deduction = parseFloat(document.getElementById('deduction').value) || 0;
   const dependents = parseInt(document.getElementById('dependents').value) || 0;
 
-  // Pennsylvania standard deduction (2026)
-  const standardDeduction = {
-    single: 2425,
-    married: 4850,
-    'married-separate': 2425,
-    head: 3650
-  }[filingStatus];
-
-  const totalDeduction = deduction > 0 ? deduction : standardDeduction;
-  const exemptionAmount = dependents * 2425; // $2,425 per dependent
-  const taxableIncome = Math.max(0, income - totalDeduction - exemptionAmount);
+  // Pennsylvania has NO standard deduction at state level
+  const taxableIncome = Math.max(0, income - deduction);
   
   // Pennsylvania flat tax: 3.07%
   const stateTax = taxableIncome * PA_TAX_RATE;
