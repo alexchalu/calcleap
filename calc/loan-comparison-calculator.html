@@ -1,580 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loan Comparison Calculator — Compare Multiple Loans Side-by-Side | CalcLeap</title>
-<meta name="description" content="Compare up to 3 loans side-by-side. See monthly payments, total interest, and total cost to find the best loan option for your situation.">
-<link rel="canonical" href="https://calcleap.com/calc/loan-comparison-calculator.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-<meta property="og:title" content="Loan Comparison Calculator — CalcLeap">
-<meta property="og:description" content="Compare up to 3 loans side-by-side. See monthly payments, total interest, and total cost to find the best loan option for your situation.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/calc/loan-comparison-calculator.html">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Loan Comparison Calculator",
-    "description": "Compare up to 3 loans side-by-side. See monthly payments, total interest, and total cost to find the best loan option for your situation.",
-    "url": "https://calcleap.com/calc/loan-comparison-calculator.html",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
-}
-</script>
-<style>
-/* === CalcLeap Apple Design System === */
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
-  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
-  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
-  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
-  --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
-
-/* === NAV === */
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
-.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
-
-/* === LAYOUT === */
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb .sep{margin:0 .35rem;opacity:.4}
-
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
-
-/* === CALCULATOR CARD === */
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-.loan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
-.loan-column{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem}
-.loan-column h3{font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);margin-bottom:1rem;text-align:center}
-
-.form-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.9rem}
-.form-group label{font-size:.75rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
-.form-group input,.form-group select{padding:.65rem .75rem;font-size:.9rem;font-family:var(--font);background:var(--white);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem;width:100%}
-.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* === RESULTS === */
-.result-area{display:none;margin-top:1.5rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-.comparison-table{width:100%;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
-.comparison-table th{background:var(--bg);font-weight:600;text-align:left;padding:.8rem 1rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
-.comparison-table td{padding:.8rem 1rem;border-bottom:1px solid var(--border);font-size:.9rem}
-.comparison-table tr:last-child td{border-bottom:none}
-.comparison-table .metric{font-weight:600;color:var(--text-2)}
-.comparison-table .best{background:rgba(34,197,94,.06);color:#16a34a;font-weight:700}
-.comparison-table .value{font-weight:600;color:var(--text)}
-
-.winner-badge{display:inline-block;background:linear-gradient(135deg,#22c55e 0%,#16a34a 100%);color:#fff;padding:.3rem .75rem;border-radius:100px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-left:.5rem}
-
-/* === AD === */
-.ad-slot{margin:1.5rem 0}
-
-/* === INFO SECTIONS === */
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-.info-card ul{margin-left:1.25rem;line-height:1.8}
-.info-card li{font-size:.9rem;color:var(--text-2);margin-bottom:.4rem}
-.info-card p{font-size:.9rem;color:var(--text-2);line-height:1.7;margin-bottom:.75rem}
-
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem;margin:1rem 0}
-th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
-th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
-th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
-td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-
-/* FAQ */
-.faq{border-top:1px solid var(--border);padding:.85rem 0}
-.faq:last-child{border-bottom:none}
-.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
-.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
-
-/* Related */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1.5rem 0}
-.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
-.related-link:hover{border-color:var(--accent);color:var(--accent)}
-
-/* === FOOTER === */
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
-.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
-.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
-.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
-.footer a:hover{color:var(--text)}
-.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
-.footer-bottom p{font-size:.72rem;color:var(--text-3)}
-
-/* === RESPONSIVE === */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .page{padding:0 1.25rem}
-  .page-title{font-size:1.75rem}
-  .loan-grid{grid-template-columns:1fr}
-  .related-grid{grid-template-columns:1fr 1fr}
-  .footer-inner{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .related-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compare multiple loan offers side-by-side. Calculate total interest, monthly payments, and total costs for up to 4 loans to find the best option.">
+    <meta name="keywords" content="loan comparison calculator, compare loans, loan offers, interest comparison, best loan rate, compare mortgage offers">
+    <title>Loan Comparison Calculator - Compare Up to 4 Loan Offers | CalcLeap</title>
+    <link rel="canonical" href="https://calcleap.com/calc/loan-comparison-calculator.html">
+    <meta property="og:title" content="Loan Comparison Calculator - Compare Multiple Loan Offers">
+    <meta property="og:description" content="Compare up to 4 loan offers side-by-side with detailed payment schedules and total cost analysis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/calc/loan-comparison-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://calcleap.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculators",
+        "item": "https://calcleap.com/#calculators"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Loan Comparison Calculator",
+        "item": "https://calcleap.com/calc/loan-comparison-calculator.html"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How do I compare different loan offers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compare loans by examining the total interest paid, monthly payment amount, total cost over the life of the loan, and the Annual Percentage Rate (APR). This calculator shows all these metrics side-by-side for up to 4 loans, making it easy to identify the best option."
+        }
+      },{
+        "@type": "Question",
+        "name": "What's more important: interest rate or loan term?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both matter significantly. A lower interest rate reduces the cost of borrowing, but a longer loan term spreads payments over more time, increasing total interest paid. The best choice depends on your budget and financial goals - lower monthly payments vs. less interest paid overall."
+        }
+      },{
+        "@type": "Question",
+        "name": "Should I choose the loan with the lowest monthly payment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily. While a lower monthly payment is more affordable month-to-month, it often comes with a longer term or higher interest rate, resulting in significantly more interest paid over the life of the loan. Compare the total cost to make an informed decision."
+        }
+      },{
+        "@type": "Question",
+        "name": "What is APR and how is it different from interest rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "APR (Annual Percentage Rate) includes both the interest rate and additional fees like origination fees, closing costs, and points. It represents the true cost of borrowing. A loan with a lower interest rate but high fees might have a higher APR than one with a slightly higher rate and lower fees."
+        }
+      },{
+        "@type": "Question",
+        "name": "How much difference can 1% in interest rate make?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On a $300,000 30-year mortgage, a 1% difference in interest rate can save you over $60,000 in interest over the life of the loan. Even on smaller loans, the difference compounds significantly over time, making comparison crucial."
+        }
+      }]
+    }
+    </script>
+    <style>
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .loan-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+        }
+        .loan-card.best-option {
+            border-color: #28a745;
+            background: #f0fff4;
+        }
+        .best-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        .loan-header {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .loan-number {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #495057;
+        }
+        .metric {
+            margin: 12px 0;
+        }
+        .metric-label {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-bottom: 4px;
+        }
+        .metric-value {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #212529;
+        }
+        .metric-value.highlight {
+            color: #28a745;
+        }
+        .input-group-loan {
+            margin-bottom: 15px;
+        }
+        .input-group-loan label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        .comparison-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="../index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="../index.html#finance">Finance</a>
-      <a href="../index.html#insurance">Insurance</a>
-      <a href="../index.html#tax">Tax</a>
-      <a href="../index.html#health">Health</a>
-      <a href="../index.html#converters">Converters</a>
-      <a href="../index.html#dev">Dev Tools</a>
-      <a href="../about.html">About</a>
-    </div>
-  </div>
-</nav>
-
-<div class="page" id="main-content" role="main">
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#finance">Finance</a><span class="sep">›</span>💳 Loan Comparison Calculator
-  </div>
-
-  <h1 class="page-title">💳 Loan Comparison Calculator</h1>
-  <p class="page-desc">Compare up to 3 loans side-by-side. See monthly payments, total interest, and total cost at a glance to find the best loan option for your situation.</p>
-
-  <!-- AD SLOT 1 -->
-  <div class="ad-slot">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-  </div>
-
-  <div class="card">
-    <h2>Compare Loans</h2>
-    
-    <div class="loan-grid">
-      <!-- Loan 1 -->
-      <div class="loan-column">
-        <h3>Loan 1</h3>
-        <div class="form-group">
-          <label for="amount1">Loan Amount ($)</label>
-          <input type="number" id="amount1" value="250000" step="1000" min="0" aria-label="Amount1">
+    <nav style="background: #2c3e50; color: white; padding: 1rem 0;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold;">CalcLeap</a>
+            <div>
+                <a href="../index.html" style="color: white; text-decoration: none; margin-left: 20px;">Home</a>
+                <a href="../index.html#calculators" style="color: white; text-decoration: none; margin-left: 20px;">Calculators</a>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="rate1">Interest Rate (%)</label>
-          <input type="number" id="rate1" value="6.5" step="0.01" min="0" aria-label="Rate1">
+    </nav>
+
+    <main class="container" style="max-width: 1200px; margin: 2rem auto; padding: 0 20px;">
+        <div class="breadcrumb" style="margin-bottom: 20px; color: #6c757d; font-size: 0.9em;">
+            <a href="../index.html" style="color: #007bff; text-decoration: none;">Home</a> / 
+            <a href="../index.html#calculators" style="color: #007bff; text-decoration: none;">Calculators</a> / 
+            Loan Comparison Calculator
         </div>
-        <div class="form-group">
-          <label for="term1">Loan Term</label>
-          <select id="term1" aria-label="Term1">
-            <option value="12">1 year</option>
-            <option value="24">2 years</option>
-            <option value="36">3 years</option>
-            <option value="48">4 years</option>
-            <option value="60">5 years</option>
-            <option value="84">7 years</option>
-            <option value="120">10 years</option>
-            <option value="180">15 years</option>
-            <option value="240">20 years</option>
-            <option value="360" selected>30 years</option>
-          </select>
+
+        <h1>Loan Comparison Calculator</h1>
+        <p class="lead">Compare up to 4 loan offers side-by-side to find the best option for your financial situation. Analyze monthly payments, total interest, and total costs to make an informed borrowing decision.</p>
+
+        <div class="calculator-box" style="background: white; border: 1px solid #e9ecef; border-radius: 8px; padding: 30px; margin: 30px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div class="comparison-grid">
+                <!-- Loan 1 -->
+                <div class="loan-card" id="loan1-card">
+                    <div class="loan-header">
+                        <div class="loan-number">Loan 1</div>
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan1-amount">Loan Amount ($)</label>
+                        <input type="number" id="loan1-amount" value="300000" min="1000" step="1000">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan1-rate">Interest Rate (%)</label>
+                        <input type="number" id="loan1-rate" value="6.5" min="0" max="30" step="0.01">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan1-term">Loan Term (years)</label>
+                        <input type="number" id="loan1-term" value="30" min="1" max="50">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan1-fees">Fees & Closing Costs ($)</label>
+                        <input type="number" id="loan1-fees" value="5000" min="0" step="100">
+                    </div>
+                </div>
+
+                <!-- Loan 2 -->
+                <div class="loan-card" id="loan2-card">
+                    <div class="loan-header">
+                        <div class="loan-number">Loan 2</div>
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan2-amount">Loan Amount ($)</label>
+                        <input type="number" id="loan2-amount" value="300000" min="1000" step="1000">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan2-rate">Interest Rate (%)</label>
+                        <input type="number" id="loan2-rate" value="6.25" min="0" max="30" step="0.01">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan2-term">Loan Term (years)</label>
+                        <input type="number" id="loan2-term" value="30" min="1" max="50">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan2-fees">Fees & Closing Costs ($)</label>
+                        <input type="number" id="loan2-fees" value="8000" min="0" step="100">
+                    </div>
+                </div>
+
+                <!-- Loan 3 -->
+                <div class="loan-card" id="loan3-card">
+                    <div class="loan-header">
+                        <div class="loan-number">Loan 3</div>
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan3-amount">Loan Amount ($)</label>
+                        <input type="number" id="loan3-amount" value="300000" min="1000" step="1000">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan3-rate">Interest Rate (%)</label>
+                        <input type="number" id="loan3-rate" value="7.0" min="0" max="30" step="0.01">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan3-term">Loan Term (years)</label>
+                        <input type="number" id="loan3-term" value="15" min="1" max="50">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan3-fees">Fees & Closing Costs ($)</label>
+                        <input type="number" id="loan3-fees" value="4000" min="0" step="100">
+                    </div>
+                </div>
+
+                <!-- Loan 4 -->
+                <div class="loan-card" id="loan4-card">
+                    <div class="loan-header">
+                        <div class="loan-number">Loan 4</div>
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan4-amount">Loan Amount ($)</label>
+                        <input type="number" id="loan4-amount" value="300000" min="1000" step="1000">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan4-rate">Interest Rate (%)</label>
+                        <input type="number" id="loan4-rate" value="6.75" min="0" max="30" step="0.01">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan4-term">Loan Term (years)</label>
+                        <input type="number" id="loan4-term" value="20" min="1" max="50">
+                    </div>
+                    <div class="input-group-loan">
+                        <label for="loan4-fees">Fees & Closing Costs ($)</label>
+                        <input type="number" id="loan4-fees" value="6000" min="0" step="100">
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="compareLoans()" style="background: #007bff; color: white; border: none; padding: 12px 30px; border-radius: 6px; font-size: 1.1em; font-weight: 600; cursor: pointer; width: 100%; margin-top: 20px;">Compare Loans</button>
         </div>
-      </div>
 
-      <!-- Loan 2 -->
-      <div class="loan-column">
-        <h3>Loan 2</h3>
-        <div class="form-group">
-          <label for="amount2">Loan Amount ($)</label>
-          <input type="number" id="amount2" value="250000" step="1000" min="0" aria-label="Amount2">
+        <div id="results" style="display: none; margin-top: 30px;">
+            <h2>Comparison Results</h2>
+            <div class="comparison-grid" id="results-grid"></div>
+            
+            <h3 style="margin-top: 40px;">Side-by-Side Comparison Table</h3>
+            <table class="comparison-table" id="comparison-table"></table>
         </div>
-        <div class="form-group">
-          <label for="rate2">Interest Rate (%)</label>
-          <input type="number" id="rate2" value="6.0" step="0.01" min="0" aria-label="Rate2">
+
+        <section style="margin-top: 50px; line-height: 1.8;">
+            <h2>Understanding Loan Comparison</h2>
+            <p>When shopping for a loan—whether it's a mortgage, auto loan, personal loan, or student loan—comparing multiple offers is crucial to finding the best deal. Even small differences in interest rates, loan terms, or fees can translate to thousands of dollars over the life of the loan. This loan comparison calculator helps you analyze up to four loan offers simultaneously, giving you a clear picture of the true cost of each option.</p>
+
+            <h3>Key Metrics to Compare</h3>
+            <p><strong>Monthly Payment:</strong> This is the amount you'll pay each month. While a lower monthly payment is more affordable in the short term, it may result from a longer loan term, which increases the total interest paid.</p>
+            
+            <p><strong>Total Interest Paid:</strong> This represents how much extra you'll pay beyond the principal loan amount. Even a 0.25% difference in interest rate can save thousands over a 30-year mortgage.</p>
+            
+            <p><strong>Total Cost:</strong> This includes the loan amount, all interest paid over the life of the loan, and any fees or closing costs. It's the most comprehensive measure of what you'll actually pay.</p>
+            
+            <p><strong>Annual Percentage Rate (APR):</strong> APR factors in both the interest rate and fees, giving you a standardized way to compare loans. A loan with a lower interest rate but high fees might have a higher APR than one with a slightly higher rate and lower fees.</p>
+
+            <h3>Interest Rate vs. Loan Term Trade-offs</h3>
+            <p>One of the most important decisions when choosing a loan is balancing the interest rate against the loan term. A 15-year mortgage typically has a lower interest rate than a 30-year mortgage, but the monthly payments are significantly higher because you're paying off the loan in half the time. Conversely, a 30-year mortgage spreads payments over more time, making them more affordable month-to-month, but you'll pay substantially more in total interest.</p>
+            
+            <p>For example, on a $300,000 mortgage at 6.5% interest:</p>
+            <ul>
+                <li><strong>30-year term:</strong> Monthly payment of $1,896, total interest of $382,633</li>
+                <li><strong>15-year term:</strong> Monthly payment of $2,613, total interest of $170,400</li>
+            </ul>
+            <p>The 15-year loan saves over $212,000 in interest but requires $717 more per month. Your choice depends on your budget, financial goals, and cash flow needs.</p>
+
+            <h3>The Impact of Fees and Closing Costs</h3>
+            <p>Many borrowers focus exclusively on interest rates while overlooking fees and closing costs. These can include origination fees, application fees, appraisal fees, title insurance, and points (prepaid interest). A lender offering a slightly higher interest rate with minimal fees may actually be a better deal than one with a rock-bottom rate but thousands in upfront costs.</p>
+            
+            <p>When comparing loans, add all fees and closing costs to the total cost calculation. Some lenders offer "no-closing-cost" loans, but they typically roll those costs into the loan amount or charge a higher interest rate. Use the APR to see the true cost comparison.</p>
+
+            <h3>Fixed-Rate vs. Adjustable-Rate Loans</h3>
+            <p>Fixed-rate loans maintain the same interest rate throughout the loan term, providing predictable monthly payments. Adjustable-rate mortgages (ARMs) start with a lower initial rate that adjusts periodically based on market conditions. ARMs can be advantageous if you plan to sell or refinance before the rate adjusts, but they carry the risk of payment increases.</p>
+            
+            <p>When comparing ARMs to fixed-rate loans, consider the initial rate period, adjustment frequency, rate caps (limits on how much the rate can increase), and the index used for adjustments. Model different scenarios to understand your potential payment range.</p>
+
+            <h3>When to Refinance</h3>
+            <p>If you already have a loan and rates drop, refinancing might save you money. Generally, refinancing makes sense if you can lower your interest rate by at least 0.5% to 1% and plan to stay in the loan long enough to recoup closing costs. Use this calculator to compare your current loan against potential refinance offers, including all new fees.</p>
+            
+            <p>For example, if you have 25 years left on a 30-year mortgage at 7% interest and can refinance to 6% on a new 30-year loan, you'll lower your monthly payment, but you'll also reset the clock to 30 years. Compare refinancing to a 25-year term to see the true cost impact.</p>
+
+            <h3>Credit Score Impact on Loan Offers</h3>
+            <p>Your credit score significantly affects the interest rates lenders offer. Borrowers with excellent credit (740+) typically qualify for the best rates, while those with fair or poor credit pay higher rates. A difference of just 100 points can translate to a 0.5% to 1% rate difference, costing tens of thousands over the loan term.</p>
+            
+            <p>If your credit score is on the borderline between tiers, it may be worth delaying your loan application to improve your score. Paying down credit card balances, correcting credit report errors, and avoiding new credit inquiries can boost your score and unlock better rates.</p>
+
+            <h3>Strategies for Choosing the Best Loan</h3>
+            <p><strong>Get multiple quotes:</strong> Shop around with at least 3-5 lenders, including banks, credit unions, and online lenders. Rate quotes within a 14-45 day window (depending on the credit scoring model) count as a single inquiry for credit score purposes.</p>
+            
+            <p><strong>Negotiate fees:</strong> Many fees are negotiable. Ask lenders to waive or reduce origination fees, application fees, or processing charges. Even a 0.125% reduction in rate or $500 in fee savings adds up.</p>
+            
+            <p><strong>Consider total cost, not just monthly payment:</strong> Extending a loan term to lower your monthly payment can cost you significantly more in interest. If you can afford the higher payment, shorter terms almost always save money in the long run.</p>
+            
+            <p><strong>Factor in prepayment penalties:</strong> Some loans charge a fee if you pay off the loan early. If you plan to make extra payments or refinance, avoid loans with prepayment penalties.</p>
+            
+            <p><strong>Look beyond the rate:</strong> The lowest advertised rate may require buying discount points (paying upfront to lower the rate). Calculate whether paying points makes sense based on how long you'll keep the loan.</p>
+
+            <h3>Loan Types and Their Uses</h3>
+            <p><strong>Mortgage Loans:</strong> Used to purchase or refinance homes. Fixed-rate mortgages (15, 20, 30 years) are most common, but ARMs, FHA loans, VA loans, and jumbo loans serve different needs and credit profiles.</p>
+            
+            <p><strong>Auto Loans:</strong> Typically 3-7 years, with rates varying based on new vs. used vehicles and lender type. Dealer financing may offer promotional rates but can include hidden fees.</p>
+            
+            <p><strong>Personal Loans:</strong> Unsecured loans for consolidating debt, home improvements, or major purchases. Terms range from 2-7 years with rates based heavily on credit score.</p>
+            
+            <p><strong>Student Loans:</strong> Federal loans offer fixed rates and flexible repayment options, while private loans may have variable rates and less borrower protection.</p>
+
+            <h3>Using This Calculator Effectively</h3>
+            <p>To get the most accurate comparison, enter the exact loan amount, interest rate, term, and all fees for each offer you've received. Include origination fees, points, appraisal fees, title fees, and any other costs the lender disclosed. The calculator will show you which loan truly costs the least over its lifetime.</p>
+            
+            <p>If you're comparing loans with different terms, pay attention to both the monthly payment and total cost. A 15-year loan will have higher monthly payments but lower total cost than a 30-year loan. Choose based on your budget constraints and long-term financial goals.</p>
+
+            <h3>Frequently Asked Questions</h3>
+            
+            <h4>How do I compare different loan offers?</h4>
+            <p>Compare loans by examining the total interest paid, monthly payment amount, total cost over the life of the loan, and the Annual Percentage Rate (APR). This calculator shows all these metrics side-by-side for up to 4 loans, making it easy to identify the best option.</p>
+
+            <h4>What's more important: interest rate or loan term?</h4>
+            <p>Both matter significantly. A lower interest rate reduces the cost of borrowing, but a longer loan term spreads payments over more time, increasing total interest paid. The best choice depends on your budget and financial goals—lower monthly payments vs. less interest paid overall.</p>
+
+            <h4>Should I choose the loan with the lowest monthly payment?</h4>
+            <p>Not necessarily. While a lower monthly payment is more affordable month-to-month, it often comes with a longer term or higher interest rate, resulting in significantly more interest paid over the life of the loan. Compare the total cost to make an informed decision.</p>
+
+            <h4>What is APR and how is it different from interest rate?</h4>
+            <p>APR (Annual Percentage Rate) includes both the interest rate and additional fees like origination fees, closing costs, and points. It represents the true cost of borrowing. A loan with a lower interest rate but high fees might have a higher APR than one with a slightly higher rate and lower fees.</p>
+
+            <h4>How much difference can 1% in interest rate make?</h4>
+            <p>On a $300,000 30-year mortgage, a 1% difference in interest rate can save you over $60,000 in interest over the life of the loan. Even on smaller loans, the difference compounds significantly over time, making comparison crucial.</p>
+        </section>
+    </main>
+
+    <footer style="background: #2c3e50; color: white; padding: 2rem 0; margin-top: 4rem;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+            <p>&copy; 2026 CalcLeap. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="../index.html" style="color: #3498db; text-decoration: none;">Home</a> | 
+                <a href="../index.html#calculators" style="color: #3498db; text-decoration: none;">Calculators</a>
+            </p>
         </div>
-        <div class="form-group">
-          <label for="term2">Loan Term</label>
-          <select id="term2" aria-label="Term2">
-            <option value="12">1 year</option>
-            <option value="24">2 years</option>
-            <option value="36">3 years</option>
-            <option value="48">4 years</option>
-            <option value="60">5 years</option>
-            <option value="84">7 years</option>
-            <option value="120">10 years</option>
-            <option value="180">15 years</option>
-            <option value="240" selected>20 years</option>
-            <option value="360">30 years</option>
-          </select>
-        </div>
-      </div>
+    </footer>
 
-      <!-- Loan 3 -->
-      <div class="loan-column">
-        <h3>Loan 3</h3>
-        <div class="form-group">
-          <label for="amount3">Loan Amount ($)</label>
-          <input type="number" id="amount3" value="250000" step="1000" min="0" aria-label="Amount3">
-        </div>
-        <div class="form-group">
-          <label for="rate3">Interest Rate (%)</label>
-          <input type="number" id="rate3" value="7.0" step="0.01" min="0" aria-label="Rate3">
-        </div>
-        <div class="form-group">
-          <label for="term3">Loan Term</label>
-          <select id="term3" aria-label="Term3">
-            <option value="12">1 year</option>
-            <option value="24">2 years</option>
-            <option value="36">3 years</option>
-            <option value="48">4 years</option>
-            <option value="60">5 years</option>
-            <option value="84">7 years</option>
-            <option value="120">10 years</option>
-            <option value="180" selected>15 years</option>
-            <option value="240">20 years</option>
-            <option value="360">30 years</option>
-          </select>
-        </div>
-      </div>
-    </div>
+    <script>
+        // Auto-calculate on input change
+        const inputs = document.querySelectorAll('input[type="number"]');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (document.getElementById('results').style.display !== 'none') {
+                    compareLoans();
+                }
+            });
+        });
 
-    <button class="btn" onclick="calculate()">Compare Loans</button>
-
-    <div class="result-area" id="results">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Metric</th>
-            <th id="header1">Loan 1</th>
-            <th id="header2">Loan 2</th>
-            <th id="header3">Loan 3</th>
-          </tr>
-        </thead>
-        <tbody id="resultsBody">
-          <!-- Filled by JS -->
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- AD SLOT 2 -->
-  <div class="ad-slot">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-  </div>
-
-  <div class="info-card">
-    <h3>How to Compare Loans Effectively</h3>
-    <p><strong>Comparing loans isn't just about the interest rate.</strong> The total cost of a loan depends on the amount borrowed, the interest rate, AND the loan term. A loan with a lower rate but longer term can actually cost you more in total interest.</p>
-    <p><strong>Key metrics to compare:</strong></p>
-    <ul>
-      <li><strong>Monthly Payment</strong> — Can you comfortably afford this payment every month?</li>
-      <li><strong>Total Interest</strong> — How much extra you'll pay beyond the principal over the life of the loan</li>
-      <li><strong>Total Cost</strong> — Principal + interest = total amount you'll repay</li>
-      <li><strong>Loan Term</strong> — Longer terms = lower monthly payments but higher total interest</li>
-    </ul>
-    <p><strong>Rule of thumb:</strong> If you can afford the higher monthly payment, a shorter-term loan with a lower rate will save you the most money in the long run.</p>
-  </div>
-
-  <div class="info-card">
-    <h3>Common Loan Comparison Scenarios</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Scenario</th>
-          <th>Best Choice</th>
-          <th>Why</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Same amount, different rates</td>
-          <td>Lowest rate</td>
-          <td>Lower rate = less interest, always better (assuming same term)</td>
-        </tr>
-        <tr>
-          <td>Same rate, different terms</td>
-          <td>Depends on budget</td>
-          <td>Shorter term = higher payment but less total interest</td>
-        </tr>
-        <tr>
-          <td>15-year vs 30-year mortgage</td>
-          <td>15-year if affordable</td>
-          <td>Typical 15-year saves $100,000+ in interest vs 30-year</td>
-        </tr>
-        <tr>
-          <td>Higher amount, lower rate</td>
-          <td>Calculate total cost</td>
-          <td>Borrowing more can be cheaper if rate is significantly lower</td>
-        </tr>
-        <tr>
-          <td>Refinancing decision</td>
-          <td>1%+ rate drop</td>
-          <td>Need enough savings to offset closing costs (~$3,000-$6,000)</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="info-card">
-    <h3>Understanding Loan Terms</h3>
-    <p><strong>Shorter loan terms mean higher monthly payments but massive interest savings.</strong> Here's a real example with a $250,000 mortgage:</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Term</th>
-          <th>Rate</th>
-          <th>Monthly Payment</th>
-          <th>Total Interest</th>
-          <th>Total Cost</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>30 years</td><td>6.5%</td><td>$1,580</td><td>$318,861</td><td>$568,861</td></tr>
-        <tr><td>20 years</td><td>6.0%</td><td>$1,791</td><td>$179,864</td><td>$429,864</td></tr>
-        <tr><td>15 years</td><td>5.5%</td><td>$2,042</td><td>$117,573</td><td>$367,573</td></tr>
-      </tbody>
-    </table>
-    <p><strong>Key insight:</strong> Going from 30 to 15 years increases monthly payment by $462 (+29%) but saves $201,000 in interest (-63%). If you can afford the extra $462/month, a 15-year mortgage is dramatically cheaper.</p>
-  </div>
-
-  <div class="info-card">
-    <h3>When to Choose a Longer Loan Term</h3>
-    <p>Longer terms aren't always bad. Choose a longer loan term if:</p>
-    <ul>
-      <li><strong>Cash flow is tight</strong> — Lower monthly payments free up money for other expenses or emergencies</li>
-      <li><strong>You plan to invest the difference</strong> — If you can earn 8%+ in the stock market vs paying 6% interest, investing may be smarter</li>
-      <li><strong>You want payment flexibility</strong> — Take a 30-year loan but pay extra when you can; most loans allow prepayment without penalty</li>
-      <li><strong>Tax deductions matter</strong> — Mortgage interest is tax-deductible (for itemizers); spreading payments extends the deduction</li>
-      <li><strong>You're buying more house</strong> — Longer term lets you qualify for a larger loan amount</li>
-    </ul>
-    <p><strong>Pro tip:</strong> Take a 30-year loan for flexibility, but pay extra principal each month to mimic a 15- or 20-year payoff schedule. This gives you the option to reduce payments if your situation changes.</p>
-  </div>
-
-  <div class="info-card">
-    <h3>Loan Comparison Shopping Tips</h3>
-    <ul>
-      <li><strong>Get multiple quotes</strong> — Rates can vary by 0.5-1% between lenders on the same loan; shop at least 3 lenders</li>
-      <li><strong>Compare APR, not just rate</strong> — APR includes fees and gives a true cost comparison</li>
-      <li><strong>Check for origination fees</strong> — Some low-rate loans have 1-2% upfront fees that negate the savings</li>
-      <li><strong>Ask about points</strong> — Paying 1 point (1% of loan amount) can lower your rate by ~0.25%; worth it if you keep the loan 5+ years</li>
-      <li><strong>Time your rate lock</strong> — Lock in your rate when you apply if rates are rising; wait if they're falling</li>
-      <li><strong>Negotiate</strong> — If you have excellent credit (740+), ask for a rate match or reduction</li>
-      <li><strong>Consider credit union rates</strong> — Credit unions often beat banks by 0.25-0.5% on auto and personal loans</li>
-      <li><strong>Read the fine print</strong> — Watch for prepayment penalties, balloon payments, or adjustable rate resets</li>
-    </ul>
-  </div>
-
-  <div class="info-card">
-    <h3>How Interest Rates Are Determined</h3>
-    <p>Your interest rate depends on several factors:</p>
-    <ul>
-      <li><strong>Credit score</strong> — 760+ gets best rates; each 20-point drop costs ~0.2-0.5% more</li>
-      <li><strong>Loan type</strong> — Mortgages: 5-7% | Auto: 4-9% | Personal: 6-36% | Student: 4-9%</li>
-      <li><strong>Down payment</strong> — 20%+ down on mortgages avoids PMI and gets better rates</li>
-      <li><strong>Debt-to-income ratio</strong> — Under 36% qualifies for best rates; over 43% may not qualify</li>
-      <li><strong>Loan term</strong> — Shorter terms get lower rates (15-year mortgages are ~0.5% less than 30-year)</li>
-      <li><strong>Market rates</strong> — Federal Reserve policy drives baseline rates; shop when rates are low</li>
-      <li><strong>Loan amount</strong> — "Jumbo" loans (>$766,550 in 2024) may have higher rates</li>
-    </ul>
-  </div>
-
-  <!-- AD SLOT 3 -->
-  <div class="ad-slot">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-  </div>
-
-  <div class="info-card">
-    <h3>Frequently Asked Questions</h3>
-    <div class="faq">
-      <div class="faq-q">Should I choose the loan with the lowest monthly payment?</div>
-      <div class="faq-a">Not necessarily. The lowest payment often means the longest loan term, which results in paying far more total interest. Choose the lowest payment only if you truly need the cash flow flexibility. Otherwise, pick the shortest term you can comfortably afford.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">How much does a 1% interest rate difference matter?</div>
-      <div class="faq-a">A lot. On a $250,000 30-year mortgage, a 1% rate difference (6% vs 7%) changes your monthly payment by $166 and costs you $59,000 more in total interest. Always shop for the best rate.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">Can I refinance later if I find a better rate?</div>
-      <div class="faq-a">Yes, but refinancing costs $3,000-$6,000 in closing costs. As a rule of thumb, you need at least a 1% rate drop AND plan to keep the loan for 2-3+ years to make refinancing worthwhile.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">Should I pay points to lower my interest rate?</div>
-      <div class="faq-a">If you plan to keep the loan for 5+ years, yes. One point (1% of loan amount) typically lowers your rate by 0.25%. Break-even is usually 4-6 years. If you might move or refinance sooner, skip points.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">What's the difference between interest rate and APR?</div>
-      <div class="faq-a">Interest rate is what you pay on the principal. APR (Annual Percentage Rate) includes the interest rate PLUS fees (origination, points, etc.), giving you the true cost. Always compare APRs when shopping loans.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">Is a 15-year mortgage always better than a 30-year?</div>
-      <div class="faq-a">Financially yes (you save $100,000+ in interest), but only if you can afford the higher payment. A 15-year mortgage payment is typically 40-50% higher. If the extra payment strains your budget or prevents saving/investing, a 30-year may be smarter.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">How do I know if I'm getting a good interest rate?</div>
-      <div class="faq-a">Check national averages on Bankrate or Freddie Mac (mortgages). If your credit is 740+, you should be within 0.25-0.5% of the national average. If your rate is 1%+ higher, shop around or work on improving your credit first.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">Should I compare loans with different amounts?</div>
-      <div class="faq-a">Yes, if you're deciding how much to borrow. For example, putting 10% vs 20% down changes your loan amount AND rate. Use this calculator to see if borrowing less (higher down payment) justifies draining your savings.</div>
-    </div>
-  </div>
-
-  <div class="info-card">
-    <h3>🔗 Related Calculators</h3>
-    <div class="related-grid">
-      <a href="mortgage-payment.html" class="related-link">Mortgage Calculator</a>
-      <a href="mortgage-refinance-calculator.html" class="related-link">Refinance Calculator</a>
-      <a href="../calc/auto-loan-calculator.html" class="related-link">Auto Loan Calculator</a>
-      <a href="../calc/personal-loan-calculator.html" class="related-link">Personal Loan Calculator</a>
-      <a href="../calc/student-loan-calculator.html" class="related-link">Student Loan Calculator</a>
-      <a href="../income-tax-calculator.html" class="related-link">Income Tax Calculator</a>
-    </div>
-  </div>
-
-</div>
-
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, market conditions, and other factors. Always consult a qualified financial advisor, CPA, or licensed professional before making financial decisions. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="../index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="../bmi-calculator.html">BMI Calculator</a>
-      <a href="mortgage-payment.html">Mortgage</a>
-      <a href="../income-tax-calculator.html">Income Tax</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="../index.html#finance">Financial</a>
-      <a href="../index.html#insurance">Insurance</a>
-      <a href="../index.html#health">Health</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="../about.html">About</a>
-      <a href="../privacy.html">Privacy</a>
-      <a href="../contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
-
-<script>
-function calculate() {
-  // Get inputs for all 3 loans
-  const loans = [];
-  for (let i = 1; i <= 3; i++) {
-    const amount = parseFloat(document.getElementById('amount' + i).value) || 0;
-    const rate = parseFloat(document.getElementById('rate' + i).value) || 0;
-    const termMonths = parseInt(document.getElementById('term' + i).value) || 0;
-    
-    if (amount > 0 && rate > 0 && termMonths > 0) {
-      const monthlyRate = rate / 100 / 12;
-      const monthlyPayment = amount * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1);
-      const totalPaid = monthlyPayment * termMonths;
-      const totalInterest = totalPaid - amount;
-      
-      loans.push({
-        index: i,
-        amount,
-        rate,
-        termMonths,
-        termYears: termMonths / 12,
-        monthlyPayment,
-        totalInterest,
-        totalPaid
-      });
-    }
-  }
-
-  if (loans.length === 0) return;
-
-  // Find best in each category
-  const bestMonthly = loans.reduce((min, loan) => loan.monthlyPayment < min.monthlyPayment ? loan : min);
-  const bestInterest = loans.reduce((min, loan) => loan.totalInterest < min.totalInterest ? loan : min);
-  const bestTotal = loans.reduce((min, loan) => loan.totalPaid < min.totalPaid ? loan : min);
-
-  // Build comparison table
-  const metrics = [
-    {label: 'Loan Amount', key: 'amount', format: 'currency'},
-    {label: 'Interest Rate', key: 'rate', format: 'percent'},
-    {label: 'Loan Term', key: 'termYears', format: 'years'},
-    {label: 'Monthly Payment', key: 'monthlyPayment', format: 'currency', best: bestMonthly},
-    {label: 'Total Interest', key: 'totalInterest', format: 'currency', best: bestInterest},
-    {label: 'Total Cost', key: 'totalPaid', format: 'currency', best: bestTotal}
-  ];
-
-  let html = '';
-  metrics.forEach(metric => {
-    html += '<tr>';
-    html += `<td class="metric">${metric.label}</td>`;
-    
-    for (let i = 1; i <= 3; i++) {
-      const loan = loans.find(l => l.index === i);
-      if (loan) {
-        let value;
-        if (metric.format === 'currency') {
-          value = '$' + loan[metric.key].toLocaleString(undefined, {maximumFractionDigits: 0});
-        } else if (metric.format === 'percent') {
-          value = loan[metric.key].toFixed(2) + '%';
-        } else if (metric.format === 'years') {
-          value = loan[metric.key] + ' years';
+        function compareLoans() {
+            const loans = [];
+            
+            for (let i = 1; i <= 4; i++) {
+                const amount = parseFloat(document.getElementById(`loan${i}-amount`).value) || 0;
+                const rate = parseFloat(document.getElementById(`loan${i}-rate`).value) || 0;
+                const term = parseFloat(document.getElementById(`loan${i}-term`).value) || 0;
+                const fees = parseFloat(document.getElementById(`loan${i}-fees`).value) || 0;
+                
+                if (amount > 0 && rate > 0 && term > 0) {
+                    const monthlyRate = rate / 100 / 12;
+                    const numPayments = term * 12;
+                    const monthlyPayment = amount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+                    const totalPaid = monthlyPayment * numPayments;
+                    const totalInterest = totalPaid - amount;
+                    const totalCost = totalPaid + fees;
+                    const apr = calculateAPR(amount, monthlyPayment, numPayments, fees);
+                    
+                    loans.push({
+                        number: i,
+                        amount,
+                        rate,
+                        term,
+                        fees,
+                        monthlyPayment,
+                        totalInterest,
+                        totalCost,
+                        apr
+                    });
+                }
+            }
+            
+            if (loans.length === 0) {
+                alert('Please enter valid loan details for at least one loan.');
+                return;
+            }
+            
+            // Find best option (lowest total cost)
+            let bestLoan = loans[0];
+            loans.forEach(loan => {
+                if (loan.totalCost < bestLoan.totalCost) {
+                    bestLoan = loan;
+                }
+            });
+            
+            displayResults(loans, bestLoan);
         }
         
-        const isBest = metric.best && loan.index === metric.best.index;
-        const badge = isBest ? '<span class="winner-badge">Best</span>' : '';
-        html += `<td class="${isBest ? 'best' : 'value'}">${value}${badge}</td>`;
-      } else {
-        html += '<td>—</td>';
-      }
-    }
-    
-    html += '</tr>';
-  });
-
-  document.getElementById('resultsBody').innerHTML = html;
-  document.getElementById('results').style.display = 'block';
-}
-</script>
-
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
-<div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
-</div>
-</div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+        function calculateAPR(principal, payment, numPayments, fees) {
+            // Approximate APR calculation including fees
+            const totalAmountFinanced = principal + fees;
+            const totalPaid = payment * numPayments;
+            const totalInterest = totalPaid - principal;
+            const avgBalance = principal / 2;
+            const years = numPayments / 12;
+            const apr = (totalInterest / avgBalance / years) * 100;
+            return apr;
+        }
+        
+        function displayResults(loans, bestLoan) {
+            const resultsDiv = document.getElementById('results');
+            const resultsGrid = document.getElementById('results-grid');
+            const comparisonTable = document.getElementById('comparison-table');
+            
+            resultsGrid.innerHTML = '';
+            
+            loans.forEach(loan => {
+                const isBest = loan.number === bestLoan.number;
+                const card = document.createElement('div');
+                card.className = 'loan-card' + (isBest ? ' best-option' : '');
+                card.innerHTML = `
+                    ${isBest ? '<div class="best-badge">Best Option</div>' : ''}
+                    <div class="loan-header">
+                        <div class="loan-number">Loan ${loan.number}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Monthly Payment</div>
+                        <div class="metric-value">$${loan.monthlyPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Interest Rate</div>
+                        <div class="metric-value">${loan.rate.toFixed(2)}%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Loan Term</div>
+                        <div class="metric-value">${loan.term} years</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Total Interest Paid</div>
+                        <div class="metric-value ${isBest ? 'highlight' : ''}">$${loan.totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Fees & Closing Costs</div>
+                        <div class="metric-value">$${loan.fees.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Total Cost</div>
+                        <div class="metric-value ${isBest ? 'highlight' : ''}">$${loan.totalCost.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Estimated APR</div>
+                        <div class="metric-value">${loan.apr.toFixed(2)}%</div>
+                    </div>
+                `;
+                resultsGrid.appendChild(card);
+            });
+            
+            // Build comparison table
+            let tableHTML = '<tr><th>Metric</th>';
+            loans.forEach(loan => {
+                tableHTML += `<th>Loan ${loan.number}${loan.number === bestLoan.number ? ' ⭐' : ''}</th>`;
+            });
+            tableHTML += '</tr>';
+            
+            const metrics = [
+                { label: 'Loan Amount', key: 'amount', format: 'currency' },
+                { label: 'Interest Rate', key: 'rate', format: 'percent' },
+                { label: 'Loan Term', key: 'term', format: 'years' },
+                { label: 'Monthly Payment', key: 'monthlyPayment', format: 'currency' },
+                { label: 'Total Interest', key: 'totalInterest', format: 'currency' },
+                { label: 'Fees & Costs', key: 'fees', format: 'currency' },
+                { label: 'Total Cost', key: 'totalCost', format: 'currency' },
+                { label: 'Estimated APR', key: 'apr', format: 'percent' }
+            ];
+            
+            metrics.forEach(metric => {
+                tableHTML += `<tr><td><strong>${metric.label}</strong></td>`;
+                loans.forEach(loan => {
+                    let value = loan[metric.key];
+                    if (metric.format === 'currency') {
+                        value = '$' + value.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                    } else if (metric.format === 'percent') {
+                        value = value.toFixed(2) + '%';
+                    } else if (metric.format === 'years') {
+                        value = value + ' years';
+                    }
+                    tableHTML += `<td>${value}</td>`;
+                });
+                tableHTML += '</tr>';
+            });
+            
+            // Add savings row
+            tableHTML += '<tr><td><strong>Savings vs. Best</strong></td>';
+            loans.forEach(loan => {
+                const savings = loan.totalCost - bestLoan.totalCost;
+                const savingsText = savings === 0 ? 'Best Option' : '-$' + savings.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                tableHTML += `<td style="color: ${savings === 0 ? '#28a745' : '#dc3545'}">${savingsText}</td>`;
+            });
+            tableHTML += '</tr>';
+            
+            comparisonTable.innerHTML = tableHTML;
+            resultsDiv.style.display = 'block';
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
 </body>
 </html>
