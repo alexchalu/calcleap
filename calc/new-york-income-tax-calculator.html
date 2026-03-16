@@ -1,572 +1,792 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New York Income Tax Calculator 2026 — Free Tool | CalcLeap</title>
-<meta name="description" content="Calculate your New York state income tax with our free 2026 calculator. Includes all NY tax brackets, standard deductions, and credits. See your exact NYS tax liability.">
-<link rel="canonical" href="https://calcleap.com/calc/new-york-income-tax-calculator.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-<meta property="og:title" content="New York Income Tax Calculator 2026 — CalcLeap">
-<meta property="og:description" content="Calculate your New York state income tax with our free 2026 calculator. Includes all NY tax brackets, standard deductions, and credits.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/calc/new-york-income-tax-calculator.html">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "New York Income Tax Calculator",
-    "description": "Calculate your New York state income tax with our free 2026 calculator. Includes all NY tax brackets, standard deductions, and credits.",
-    "url": "https://calcleap.com/calc/new-york-income-tax-calculator.html",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
-}
-</script>
-<style>
-/* === CalcLeap Apple Design System === */
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
-  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
-  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
-  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
-  --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
-
-/* === NAV === */
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
-.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
-
-/* === LAYOUT === */
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb .sep{margin:0 .35rem;opacity:.4}
-
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
-
-/* === CALCULATOR CARD === */
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.3rem}
-.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
-.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
-.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* === RESULTS === */
-.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1.25rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.red{color:#ef4444}
-.result-card .value.green{color:#22c55e}
-
-.bracket-breakdown{margin-top:1.5rem}
-.bracket-item{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.bracket-item:last-child{border-bottom:none}
-.bracket-info{font-size:.9rem;color:var(--text-2)}
-.bracket-tax{font-size:.95rem;font-weight:700}
-
-/* === AD === */
-.ad-slot{margin:1.5rem 0}
-
-/* === INFO SECTIONS === */
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-.info-card ul{margin-left:1.25rem;line-height:1.8}
-.info-card li{font-size:.9rem;color:var(--text-2);margin-bottom:.4rem}
-.info-card p{font-size:.9rem;color:var(--text-2);line-height:1.7;margin-bottom:.75rem}
-
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem;margin:1rem 0}
-th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
-th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
-th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
-td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-
-/* FAQ */
-.faq{border-top:1px solid var(--border);padding:.85rem 0}
-.faq:last-child{border-bottom:none}
-.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
-.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
-
-/* Related */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1.5rem 0}
-.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
-.related-link:hover{border-color:var(--accent);color:var(--accent)}
-
-/* === FOOTER === */
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
-.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
-.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
-.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
-.footer a:hover{color:var(--text)}
-.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
-.footer-bottom p{font-size:.72rem;color:var(--text-3)}
-
-/* === RESPONSIVE === */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .page{padding:0 1.25rem}
-  .page-title{font-size:1.75rem}
-  .form-row{grid-template-columns:1fr}
-  .related-grid{grid-template-columns:1fr 1fr}
-  .footer-inner{grid-template-columns:1fr 1fr}
-  .result-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .related-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-  .result-grid{grid-template-columns:1fr}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York State Income Tax Calculator 2026 | Free NY Tax Estimator</title>
+    <meta name="description" content="Calculate your New York state income tax for 2026. Free online calculator for NY state taxes with accurate tax brackets, standard deductions, and filing status options. Estimate your NYS tax refund or payment.">
+    <meta name="keywords" content="new york income tax calculator, ny state tax calculator, nys tax estimator, new york tax brackets, ny tax refund calculator">
+    <link rel="canonical" href="https://calcleap.com/calc/new-york-income-tax-calculator.html">
+    <meta property="og:title" content="New York State Income Tax Calculator 2026">
+    <meta property="og:description" content="Calculate your New York state income tax for 2026 with accurate tax brackets and deductions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/calc/new-york-income-tax-calculator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 12px 30px;
+            font-size: 0.9em;
+            color: #666;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .calculator-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .button:active {
+            transform: translateY(0);
+        }
+        
+        .result {
+            display: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .result.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-amount {
+            font-size: 3em;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        
+        .result-label {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .result-details {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .result-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-section {
+            margin: 40px 0;
+        }
+        
+        .info-section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+        
+        .info-section h3 {
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            font-size: 1.4em;
+        }
+        
+        .info-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .info-section ul, .info-section ol {
+            margin: 15px 0 15px 30px;
+            line-height: 1.8;
+        }
+        
+        .info-section li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .tax-bracket-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tax-bracket-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .tax-bracket-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .tax-bracket-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .tax-bracket-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .faq-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .result-amount {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the New York state income tax rate for 2026?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "New York has progressive tax rates ranging from 4% to 10.9%. The rates vary by filing status and income level. For single filers, rates start at 4% for income up to $8,500 and increase to 10.9% for income over $25,000,000."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate my New York state income tax?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "To calculate NY state income tax: 1) Determine your filing status, 2) Calculate your taxable income (AGI minus deductions), 3) Apply the appropriate tax brackets for your filing status, 4) Subtract any credits you qualify for. Use our calculator above for instant results."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the New York standard deduction for 2026?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For 2026, the New York standard deduction is $8,000 for single filers, $16,050 for married filing jointly, and $11,200 for head of household. These amounts are subject to phase-outs at higher income levels."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does New York have a local income tax?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, New York City and Yonkers both impose local income taxes on top of state income tax. NYC rates range from 3.078% to 3.876% depending on income and filing status. This calculator focuses on state tax only."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "When is New York state income tax due?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "New York state income tax returns are due on April 15th (or the next business day if it falls on a weekend or holiday), the same as federal tax returns. Extensions are available but do not extend the payment deadline."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="../index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="../index.html#finance">Finance</a>
-      <a href="../index.html#insurance">Insurance</a>
-      <a href="../index.html#tax">Tax</a>
-      <a href="../index.html#health">Health</a>
-      <a href="../index.html#converters">Converters</a>
-      <a href="../index.html#dev">Dev Tools</a>
-      <a href="../about.html">About</a>
-    </div>
-  </div>
-</nav>
-
-<div class="page" id="main-content" role="main">
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#tax">Tax</a><span class="sep">›</span>🗽 New York Income Tax Calculator
-  </div>
-
-  <h1 class="page-title">🗽 New York Income Tax Calculator 2026</h1>
-  <p class="page-desc">Calculate your New York state income tax with our free calculator. Accurate 2026 NYS tax brackets, standard deductions, and credits. See your exact state tax liability.</p>
-
-  <!-- AD SLOT 1 -->
-  <div class="ad-slot">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-  </div>
-
-  <div class="card">
-    <h2>Calculate Your New York State Income Tax</h2>
-    
-    <div class="form-row">
-      <div class="form-group">
-        <label for="filingStatus">Filing Status</label>
-        <select id="filingStatus" aria-label="Filing Status">
-          <option value="single">Single</option>
-          <option value="married">Married Filing Jointly</option>
-          <option value="married-separate">Married Filing Separately</option>
-          <option value="head">Head of Household</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="income">Annual Income ($)</label>
-        <input type="number" id="income" value="75000" step="1000" min="0" aria-label="Income">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="deduction">Standard Deduction</label>
-        <input type="number" id="deduction" value="8000" step="100" min="0" aria-label="Deduction">
-      </div>
-      <div class="form-group">
-        <label for="dependents">Dependents</label>
-        <input type="number" id="dependents" value="0" step="1" min="0" max="10" aria-label="Dependents">
-      </div>
-    </div>
-
-    <button class="btn" onclick="calculate()">Calculate NY Tax</button>
-
-    <div class="result-area" id="results">
-      <div class="result-grid">
-        <div class="result-card">
-          <div class="label">NY State Tax Owed</div>
-          <div class="value red" id="totalTax">$0</div>
-        </div>
-        <div class="result-card">
-          <div class="label">Effective Tax Rate</div>
-          <div class="value" id="effectiveRate">0%</div>
-        </div>
-        <div class="result-card">
-          <div class="label">Taxable Income</div>
-          <div class="value" id="taxableIncome">$0</div>
-        </div>
-      </div>
-
-      <div class="bracket-breakdown" id="breakdown">
-        <h3 style="font-size:1rem;margin-bottom:.75rem">Tax Bracket Breakdown</h3>
-        <!-- Filled by JS -->
-      </div>
-    </div>
-  </div>
-
-  <!-- AD SLOT 2 -->
-  <div class="ad-slot">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-  </div>
-
-  <div class="info-card">
-    <h3>2026 New York Tax Brackets</h3>
-    <p><strong>New York has a progressive state income tax</strong> with rates ranging from <strong>4% to 10.9%</strong> depending on income. The state uses 8 tax brackets for most filers.</p>
-    
-    <table>
-      <thead>
-        <tr>
-          <th>Taxable Income (Single)</th>
-          <th>Tax Rate</th>
-          <th>Tax Owed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>$0 - $8,500</td><td>4.0%</td><td>Up to $340</td></tr>
-        <tr><td>$8,501 - $11,700</td><td>4.5%</td><td>$340 + 4.5% of excess</td></tr>
-        <tr><td>$11,701 - $13,900</td><td>5.25%</td><td>$484 + 5.25% of excess</td></tr>
-        <tr><td>$13,901 - $80,650</td><td>5.5%</td><td>$600 + 5.5% of excess</td></tr>
-        <tr><td>$80,651 - $215,400</td><td>6.0%</td><td>$4,271 + 6.0% of excess</td></tr>
-        <tr><td>$215,401 - $1,077,550</td><td>6.85%</td><td>$12,356 + 6.85% of excess</td></tr>
-        <tr><td>$1,077,551 - $5,000,000</td><td>9.65%</td><td>$71,407 + 9.65% of excess</td></tr>
-        <tr><td>$5,000,001 - $25,000,000</td><td>10.3%</td><td>$449,919 + 10.3% of excess</td></tr>
-        <tr><td>$25,000,001+</td><td>10.9%</td><td>$2,509,919 + 10.9% of excess</td></tr>
-      </tbody>
-    </table>
-
-    <p><strong>Note:</strong> New York City residents pay an additional NYC income tax of 3.078%-3.876%, making the total state+city tax burden 7%-14.8%.</p>
-  </div>
-
-  <div class="info-card">
-    <h3>New York Standard Deduction (2026)</h3>
-    <ul>
-      <li><strong>Single:</strong> $8,000</li>
-      <li><strong>Married Filing Jointly:</strong> $16,050</li>
-      <li><strong>Married Filing Separately:</strong> $8,000</li>
-      <li><strong>Head of Household:</strong> $11,200</li>
-    </ul>
-    <p>New York's standard deduction is <strong>lower than the federal standard deduction</strong> ($14,600 single / $29,200 married in 2026). You may itemize deductions if they exceed the standard amount.</p>
-  </div>
-
-  <div class="info-card">
-    <h3>How New York Income Tax Works</h3>
-    <p><strong>New York uses a progressive tax system</strong> where different portions of your income are taxed at different rates. You don't pay the top rate on all your income — only on the portion that falls in the highest bracket.</p>
-    <p><strong>Example: $75,000 income (Single filer)</strong></p>
-    <ul>
-      <li>Gross income: $75,000</li>
-      <li>Standard deduction: -$8,000</li>
-      <li>Taxable income: $67,000</li>
-      <li>Tax calculation:
-        <ul style="margin-top:.5rem">
-          <li>First $8,500 @ 4% = $340</li>
-          <li>Next $3,200 @ 4.5% = $144</li>
-          <li>Next $2,200 @ 5.25% = $116</li>
-          <li>Remaining $53,100 @ 5.5% = $2,921</li>
-          <li><strong>Total NY tax: $3,521</strong></li>
-        </ul>
-      </li>
-      <li><strong>Effective rate: 4.69%</strong> (even though top bracket is 5.5%)</li>
-    </ul>
-  </div>
-
-  <div class="info-card">
-    <h3>New York vs Federal Income Tax</h3>
-    <p><strong>You pay BOTH federal and New York state income tax</strong> on your earnings. Here's the combined burden:</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Income Level</th>
-          <th>Federal Tax</th>
-          <th>NYS Tax</th>
-          <th>Combined (no NYC)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>$50,000 (Single)</td><td>~$4,200 (8.4%)</td><td>~$2,000 (4%)</td><td>~12.4%</td></tr>
-        <tr><td>$100,000 (Single)</td><td>~$14,000 (14%)</td><td>~$4,800 (4.8%)</td><td>~18.8%</td></tr>
-        <tr><td>$200,000 (Single)</td><td>~$38,000 (19%)</td><td>~$11,200 (5.6%)</td><td>~24.6%</td></tr>
-        <tr><td>$500,000 (Single)</td><td>~$140,000 (28%)</td><td>~$31,000 (6.2%)</td><td>~34.2%</td></tr>
-        <tr><td>$1,500,000 (Single)</td><td>~$490,000 (32.7%)</td><td>~$110,000 (7.3%)</td><td>~40%</td></tr>
-      </tbody>
-    </table>
-    <p><strong>NYC residents add another 3-3.9%</strong>, pushing the combined federal+state+city tax to 43%+ for high earners.</p>
-  </div>
-
-  <div class="info-card">
-    <h3>New York Tax Credits</h3>
-    <p>New York offers several tax credits that can reduce your tax bill:</p>
-    <ul>
-      <li><strong>New York State Earned Income Tax Credit (NYS EITC)</strong> — 30% of federal EITC (up to ~$2,100 for families with 3+ kids)</li>
-      <li><strong>Empire State Child Credit</strong> — 33% of federal Child Tax Credit per child</li>
-      <li><strong>Child and Dependent Care Credit</strong> — 20%-110% of federal credit depending on income</li>
-      <li><strong>Real Property Tax Credit</strong> — Up to $350 for homeowners with income < $250,000</li>
-      <li><strong>College Tuition Credit</strong> — Up to $400 for qualified college expenses</li>
-      <li><strong>Household Credit</strong> — $75-$105 for low-income filers (income < $28,000 single, $32,000 married)</li>
-    </ul>
-  </div>
-
-  <div class="info-card">
-    <h3>New York City Income Tax</h3>
-    <p><strong>If you live in New York City, you pay an ADDITIONAL city income tax</strong> on top of the state tax. NYC tax rates range from <strong>3.078% to 3.876%</strong>.</p>
-    <table>
-      <thead>
-        <tr>
-          <th>NYC Taxable Income (Single)</th>
-          <th>NYC Tax Rate</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>$0 - $12,000</td><td>3.078%</td></tr>
-        <tr><td>$12,001 - $25,000</td><td>3.762%</td></tr>
-        <tr><td>$25,001 - $50,000</td><td>3.819%</td></tr>
-        <tr><td>$50,001+</td><td>3.876%</td></tr>
-      </tbody>
-    </table>
-    <p>On $100,000 income, expect to pay ~$3,900 NYC tax + $4,800 NYS tax + $14,000 federal = <strong>$22,700 total (22.7%)</strong>.</p>
-  </div>
-
-  <div class="info-card">
-    <h3>New York Tax Filing Deadlines</h3>
-    <ul>
-      <li><strong>Tax Day:</strong> April 15, 2026 (matches federal deadline)</li>
-      <li><strong>Extension Deadline:</strong> October 15, 2026 (automatic 6-month extension)</li>
-      <li><strong>Q1 Estimated Tax:</strong> April 15, 2026</li>
-      <li><strong>Q2 Estimated Tax:</strong> June 15, 2026</li>
-      <li><strong>Q3 Estimated Tax:</strong> September 15, 2026</li>
-      <li><strong>Q4 Estimated Tax:</strong> January 15, 2027</li>
-    </ul>
-    <p><strong>Extensions give you more time to FILE, not to PAY.</strong> You must pay estimated tax by April 15 to avoid penalties and interest.</p>
-  </div>
-
-  <!-- AD SLOT 3 -->
-  <div class="ad-slot">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-  </div>
-
-  <div class="info-card">
-    <h3>Frequently Asked Questions</h3>
-    <div class="faq">
-      <div class="faq-q">What is New York's income tax rate?</div>
-      <div class="faq-a">New York state income tax rates range from 4% to 10.9% depending on income. Most middle-income earners pay an effective rate of 4-6%. NYC residents pay an additional 3.078%-3.876% city tax.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">Does New York tax Social Security benefits?</div>
-      <div class="faq-a">No. New York does NOT tax Social Security retirement benefits. Your Social Security income is 100% exempt from NYS income tax.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">Do I have to pay NYC income tax if I work in the city but live in NJ?</div>
-      <div class="faq-a">No. NYC income tax is based on residency, not where you work. If you live outside NYC (including NJ, CT, or upstate NY), you don't pay NYC tax. However, you still pay NY state tax if you work in NY and live in NJ/CT (with a credit from your home state to avoid double taxation).</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">What is the New York standard deduction?</div>
-      <div class="faq-a">For 2026: $8,000 (single/married filing separately), $16,050 (married jointly), or $11,200 (head of household). This is separate from and lower than the federal standard deduction.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">How can I reduce my New York income tax?</div>
-      <div class="faq-a">Maximize retirement contributions (401k, IRA, HSA), claim all eligible credits (EITC, child credits, real property tax credit), itemize if deductions exceed the standard amount, contribute to a 529 plan, and consider tax-loss harvesting for investments.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">Does New York tax unemployment benefits?</div>
-      <div class="faq-a">Yes. Unemployment benefits are fully taxable at both the federal and New York state level. You should have taxes withheld or make estimated payments to avoid a surprise bill.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">Do I need to file a New York tax return?</div>
-      <div class="faq-a">Yes, if you're a NY resident with gross income above $4,000, or a nonresident/part-year resident with NY-sourced income. Most wage earners need to file if they have any NY income.</div>
-    </div>
-    <div class="faq">
-      <div class="faq-q">What if I moved to/from New York during the year?</div>
-      <div class="faq-a">You must file as a part-year resident. You'll pay NY tax only on income earned while living in NY, plus any NY-sourced income (like rental property in NY). Use Form IT-203 for part-year residents.</div>
-    </div>
-  </div>
-
-  <div class="info-card">
-    <h3>🔗 Related Calculators</h3>
-    <div class="related-grid">
-      <a href="california-income-tax-calculator.html" class="related-link">California Income Tax</a>
-      <a href="../income-tax-calculator.html" class="related-link">Federal Income Tax</a>
-      <a href="payroll-tax-calculator.html" class="related-link">Payroll Tax Calculator</a>
-      <a href="401k-calculator.html" class="related-link">401(k) Calculator</a>
-      <a href="mortgage-payment.html" class="related-link">Mortgage Calculator</a>
-      <a href="../bmi-calculator.html" class="related-link">BMI Calculator</a>
-    </div>
-  </div>
-
-</div>
-
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational purposes only and is not tax advice. Tax laws are complex and change frequently. Results may not reflect your actual tax liability. Always consult a qualified CPA, tax attorney, or enrolled agent for tax advice specific to your situation. CalcLeap is not a tax preparation service and does not file taxes.</div>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="../index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="../bmi-calculator.html">BMI Calculator</a>
-      <a href="mortgage-payment.html">Mortgage</a>
-      <a href="../income-tax-calculator.html">Income Tax</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="../index.html#finance">Financial</a>
-      <a href="../index.html#insurance">Insurance</a>
-      <a href="../index.html#health">Health</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="../about.html">About</a>
-      <a href="../privacy.html">Privacy</a>
-      <a href="../contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only. Consult a tax professional.</p>
-  </div>
-</footer>
-
-<script>
-// 2026 New York tax brackets
-const brackets = {
-  single: [
-    { max: 8500, rate: 0.04 },
-    { max: 11700, rate: 0.045 },
-    { max: 13900, rate: 0.0525 },
-    { max: 80650, rate: 0.055 },
-    { max: 215400, rate: 0.06 },
-    { max: 1077550, rate: 0.0685 },
-    { max: 5000000, rate: 0.0965 },
-    { max: 25000000, rate: 0.103 },
-    { max: Infinity, rate: 0.109 }
-  ],
-  married: [
-    { max: 17150, rate: 0.04 },
-    { max: 23600, rate: 0.045 },
-    { max: 27900, rate: 0.0525 },
-    { max: 161550, rate: 0.055 },
-    { max: 323200, rate: 0.06 },
-    { max: 2155350, rate: 0.0685 },
-    { max: 5000000, rate: 0.0965 },
-    { max: 25000000, rate: 0.103 },
-    { max: Infinity, rate: 0.109 }
-  ],
-  'married-separate': [
-    { max: 8500, rate: 0.04 },
-    { max: 11700, rate: 0.045 },
-    { max: 13900, rate: 0.0525 },
-    { max: 80650, rate: 0.055 },
-    { max: 215400, rate: 0.06 },
-    { max: 1077550, rate: 0.0685 },
-    { max: 5000000, rate: 0.0965 },
-    { max: 25000000, rate: 0.103 },
-    { max: Infinity, rate: 0.109 }
-  ],
-  head: [
-    { max: 12800, rate: 0.04 },
-    { max: 17650, rate: 0.045 },
-    { max: 20900, rate: 0.0525 },
-    { max: 107650, rate: 0.055 },
-    { max: 269300, rate: 0.06 },
-    { max: 1616450, rate: 0.0685 },
-    { max: 5000000, rate: 0.0965 },
-    { max: 25000000, rate: 0.103 },
-    { max: Infinity, rate: 0.109 }
-  ]
-};
-
-function calculate() {
-  const filingStatus = document.getElementById('filingStatus').value;
-  const income = parseFloat(document.getElementById('income').value) || 0;
-  const deduction = parseFloat(document.getElementById('deduction').value) || 0;
-  const dependents = parseInt(document.getElementById('dependents').value) || 0;
-
-  const taxableIncome = Math.max(0, income - deduction);
-  const bracketSet = brackets[filingStatus];
-  
-  let totalTax = 0;
-  let previousMax = 0;
-  let breakdownHTML = '';
-
-  bracketSet.forEach((bracket, index) => {
-    if (taxableIncome > previousMax) {
-      const taxableInBracket = Math.min(taxableIncome, bracket.max) - previousMax;
-      const taxInBracket = taxableInBracket * bracket.rate;
-      totalTax += taxInBracket;
-
-      if (taxableInBracket > 0) {
-        const rangeText = previousMax === 0 
-          ? `$0 - $${bracket.max.toLocaleString()}` 
-          : `$${previousMax.toLocaleString()} - $${bracket.max === Infinity ? '∞' : bracket.max.toLocaleString()}`;
+    <div class="container">
+        <header>
+            <h1>🗽 New York State Income Tax Calculator</h1>
+            <p class="subtitle">Calculate Your 2026 NYS Income Tax | Free & Accurate</p>
+        </header>
         
-        breakdownHTML += `
-          <div class="bracket-item">
-            <div class="bracket-info">${rangeText} @ ${(bracket.rate * 100).toFixed(2)}%</div>
-            <div class="bracket-tax">$${taxInBracket.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
-          </div>
-        `;
-      }
-      
-      previousMax = bracket.max;
-    }
-  });
+        <div class="breadcrumb">
+            <a href="https://calcleap.com">Home</a> &gt; <a href="https://calcleap.com/calc/">Calculators</a> &gt; New York Income Tax Calculator
+        </div>
+        
+        <div class="content">
+            <div class="calculator-section">
+                <form id="taxForm">
+                    <div class="form-group">
+                        <label for="filingStatus">Filing Status</label>
+                        <select id="filingStatus" required>
+                            <option value="single">Single</option>
+                            <option value="married">Married Filing Jointly</option>
+                            <option value="marriedSeparate">Married Filing Separately</option>
+                            <option value="headOfHousehold">Head of Household</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="income">Annual Gross Income ($)</label>
+                        <input type="number" id="income" min="0" step="1" required placeholder="e.g., 75000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deductions">Total Deductions ($)</label>
+                        <input type="number" id="deductions" min="0" step="1" value="0" placeholder="e.g., 8000">
+                        <small style="color: #666; display: block; margin-top: 5px;">Standard deduction: $8,000 (Single), $16,050 (MFJ), $11,200 (HOH)</small>
+                    </div>
+                    
+                    <button type="submit" class="button">Calculate NY State Tax</button>
+                </form>
+                
+                <div id="result" class="result">
+                    <div class="result-label">Your Estimated New York State Income Tax</div>
+                    <div class="result-amount" id="resultAmount">$0</div>
+                    <div class="result-details">
+                        <div class="result-row">
+                            <span>Gross Income:</span>
+                            <span id="detailIncome">$0</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Deductions:</span>
+                            <span id="detailDeductions">$0</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Taxable Income:</span>
+                            <span id="detailTaxable">$0</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Effective Tax Rate:</span>
+                            <span id="detailRate">0%</span>
+                        </div>
+                        <div class="result-row">
+                            <span>After-Tax Income:</span>
+                            <span id="detailAfterTax">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>Understanding New York State Income Tax in 2026</h2>
+                
+                <p>New York State has one of the most progressive income tax systems in the United States, with tax rates ranging from 4% to 10.9%. Whether you're a longtime New York resident or considering moving to the Empire State, understanding how state income taxes work is crucial for financial planning and tax preparation.</p>
+                
+                <p>This comprehensive guide will help you understand New York's tax brackets, calculate your estimated tax liability, and learn strategies to minimize your tax burden legally and effectively.</p>
+                
+                <h3>2026 New York State Tax Brackets</h3>
+                
+                <p>New York uses a progressive tax system with eight income brackets. Your tax rate increases as your income rises, but only the income within each bracket is taxed at that bracket's rate.</p>
+                
+                <h4>Single Filers</h4>
+                <table class="tax-bracket-table">
+                    <thead>
+                        <tr>
+                            <th>Taxable Income Range</th>
+                            <th>Tax Rate</th>
+                            <th>Tax Owed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>$0 - $8,500</td>
+                            <td>4.00%</td>
+                            <td>4% of taxable income</td>
+                        </tr>
+                        <tr>
+                            <td>$8,501 - $11,700</td>
+                            <td>4.50%</td>
+                            <td>$340 + 4.5% of excess over $8,500</td>
+                        </tr>
+                        <tr>
+                            <td>$11,701 - $13,900</td>
+                            <td>5.25%</td>
+                            <td>$484 + 5.25% of excess over $11,700</td>
+                        </tr>
+                        <tr>
+                            <td>$13,901 - $80,650</td>
+                            <td>5.50%</td>
+                            <td>$600 + 5.5% of excess over $13,900</td>
+                        </tr>
+                        <tr>
+                            <td>$80,651 - $215,400</td>
+                            <td>6.00%</td>
+                            <td>$4,271 + 6% of excess over $80,650</td>
+                        </tr>
+                        <tr>
+                            <td>$215,401 - $1,077,550</td>
+                            <td>6.85%</td>
+                            <td>$12,356 + 6.85% of excess over $215,400</td>
+                        </tr>
+                        <tr>
+                            <td>$1,077,551 - $25,000,000</td>
+                            <td>9.65%</td>
+                            <td>$71,413 + 9.65% of excess over $1,077,550</td>
+                        </tr>
+                        <tr>
+                            <td>Over $25,000,000</td>
+                            <td>10.90%</td>
+                            <td>$2,379,928 + 10.9% of excess over $25,000,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Married Filing Jointly</h4>
+                <table class="tax-bracket-table">
+                    <thead>
+                        <tr>
+                            <th>Taxable Income Range</th>
+                            <th>Tax Rate</th>
+                            <th>Tax Owed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>$0 - $17,150</td>
+                            <td>4.00%</td>
+                            <td>4% of taxable income</td>
+                        </tr>
+                        <tr>
+                            <td>$17,151 - $23,600</td>
+                            <td>4.50%</td>
+                            <td>$686 + 4.5% of excess over $17,150</td>
+                        </tr>
+                        <tr>
+                            <td>$23,601 - $27,900</td>
+                            <td>5.25%</td>
+                            <td>$976 + 5.25% of excess over $23,600</td>
+                        </tr>
+                        <tr>
+                            <td>$27,901 - $161,550</td>
+                            <td>5.50%</td>
+                            <td>$1,202 + 5.5% of excess over $27,900</td>
+                        </tr>
+                        <tr>
+                            <td>$161,551 - $323,200</td>
+                            <td>6.00%</td>
+                            <td>$8,553 + 6% of excess over $161,550</td>
+                        </tr>
+                        <tr>
+                            <td>$323,201 - $2,155,350</td>
+                            <td>6.85%</td>
+                            <td>$18,252 + 6.85% of excess over $323,200</td>
+                        </tr>
+                        <tr>
+                            <td>$2,155,351 - $25,000,000</td>
+                            <td>9.65%</td>
+                            <td>$143,754 + 9.65% of excess over $2,155,350</td>
+                        </tr>
+                        <tr>
+                            <td>Over $25,000,000</td>
+                            <td>10.90%</td>
+                            <td>$2,348,263 + 10.9% of excess over $25,000,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>New York Standard Deductions for 2026</h3>
+                
+                <p>The standard deduction reduces your taxable income. For 2026, New York standard deductions are:</p>
+                
+                <ul>
+                    <li><strong>Single:</strong> $8,000</li>
+                    <li><strong>Married Filing Jointly:</strong> $16,050</li>
+                    <li><strong>Married Filing Separately:</strong> $8,000</li>
+                    <li><strong>Head of Household:</strong> $11,200</li>
+                </ul>
+                
+                <p>Note that these standard deductions phase out for higher-income taxpayers. The phase-out begins at $107,650 for single filers and $215,400 for married filing jointly.</p>
+                
+                <h3>How to Calculate Your New York State Income Tax</h3>
+                
+                <p>Follow these steps to calculate your NY state income tax:</p>
+                
+                <ol>
+                    <li><strong>Determine your filing status</strong> - Single, married filing jointly, married filing separately, or head of household</li>
+                    <li><strong>Calculate your federal adjusted gross income (AGI)</strong> - This is your total income minus specific deductions</li>
+                    <li><strong>Make New York-specific adjustments</strong> - Add or subtract certain items that differ between federal and state tax calculations</li>
+                    <li><strong>Subtract your standard or itemized deductions</strong> - Choose whichever is higher</li>
+                    <li><strong>Apply the tax brackets</strong> - Calculate tax owed using the progressive bracket system</li>
+                    <li><strong>Subtract any tax credits</strong> - Including earned income credit, child care credit, etc.</li>
+                    <li><strong>Calculate final tax liability</strong> - Your total NY state income tax owed</li>
+                </ol>
+                
+                <h3>New York vs. Federal Tax Differences</h3>
+                
+                <p>While New York state tax generally follows federal tax rules, there are several important differences:</p>
+                
+                <ul>
+                    <li><strong>State and Local Tax (SALT) Deduction:</strong> New York allows full deduction of state and local taxes, unlike the federal $10,000 cap</li>
+                    <li><strong>Standard Deduction:</strong> NY standard deduction amounts differ significantly from federal amounts</li>
+                    <li><strong>529 Plan Contributions:</strong> New York offers a state tax deduction for contributions to NY 529 plans (up to $5,000 single, $10,000 joint)</li>
+                    <li><strong>Social Security Benefits:</strong> New York does not tax Social Security benefits, while federal government may</li>
+                    <li><strong>Pension Income:</strong> New York offers a pension and annuity income exclusion of up to $20,000</li>
+                </ul>
+                
+                <h3>New York City and Yonkers Taxes</h3>
+                
+                <p>If you live or work in New York City or Yonkers, you'll pay additional local income taxes on top of state taxes:</p>
+                
+                <ul>
+                    <li><strong>NYC Residents:</strong> 3.078% - 3.876% based on income (2026 rates)</li>
+                    <li><strong>NYC Non-Residents (commuters):</strong> Pay a separate earnings tax if working in NYC but living elsewhere</li>
+                    <li><strong>Yonkers Residents:</strong> 1.61775% of NY state income tax (16.75% surcharge)</li>
+                    <li><strong>Yonkers Non-Residents:</strong> 0.5% earnings tax for those working in Yonkers</li>
+                </ul>
+                
+                <p>This calculator focuses on state-level taxes only. Add local taxes separately if applicable.</p>
+                
+                <h3>Common New York Tax Credits</h3>
+                
+                <p>New York offers several tax credits that can significantly reduce your tax bill:</p>
+                
+                <ul>
+                    <li><strong>Empire State Child Credit:</strong> For families with qualifying children, based on federal child tax credit</li>
+                    <li><strong>Earned Income Tax Credit (EITC):</strong> 30% of the federal EITC for working families</li>
+                    <li><strong>Child and Dependent Care Credit:</strong> For expenses paid to care for children under 13 or disabled dependents</li>
+                    <li><strong>Real Property Tax Credit:</strong> For homeowners and renters paying property taxes</li>
+                    <li><strong>College Tuition Credit:</strong> Up to $400 per year for qualified higher education expenses</li>
+                    <li><strong>Household Credit:</strong> For lower-income households, replaces the former standard deduction</li>
+                </ul>
+                
+                <h3>Tax Strategies for New York Residents</h3>
+                
+                <p>Consider these strategies to reduce your New York state tax liability:</p>
+                
+                <ul>
+                    <li><strong>Maximize 529 Contributions:</strong> Get up to $10,000 state tax deduction for NY 529 plan contributions</li>
+                    <li><strong>Itemize if Beneficial:</strong> With no SALT cap at state level, itemizing may save more than standard deduction</li>
+                    <li><strong>Consider Retirement Contributions:</strong> Traditional IRA and 401(k) contributions reduce taxable income</li>
+                    <li><strong>Time Income and Deductions:</strong> If near bracket thresholds, timing can affect your tax rate</li>
+                    <li><strong>Take Advantage of Credits:</strong> Ensure you claim all credits you're eligible for</li>
+                    <li><strong>Health Savings Account (HSA):</strong> Contributions reduce taxable income at both federal and state levels</li>
+                </ul>
+                
+                <h3>High-Earner Considerations</h3>
+                
+                <p>If you're a high-income earner in New York, be aware of these factors:</p>
+                
+                <ul>
+                    <li>Combined federal, state, and NYC taxes can exceed 50% for top earners</li>
+                    <li>The 10.9% top bracket applies to income over $25 million</li>
+                    <li>Standard deduction phases out completely for very high earners</li>
+                    <li>Consider tax-loss harvesting to offset capital gains</li>
+                    <li>Evaluate residency carefully - NY has strict residency rules and may tax income of "statutory residents"</li>
+                    <li>Some high earners establish residency in lower-tax states while maintaining a NY presence</li>
+                </ul>
+                
+                <h3>When to File and Pay</h3>
+                
+                <p>Important dates for New York state income tax:</p>
+                
+                <ul>
+                    <li><strong>Tax Return Due Date:</strong> April 15, 2027 (for 2026 tax year)</li>
+                    <li><strong>Extension Deadline:</strong> October 15, 2027 (must file Form IT-370 by April 15)</li>
+                    <li><strong>Estimated Tax Payments:</strong> Due quarterly (April 15, June 15, September 15, January 15)</li>
+                    <li><strong>Payment Due:</strong> Full payment due April 15, even if you file an extension</li>
+                </ul>
+                
+                <p>Extensions provide extra time to file but not to pay. You'll owe interest and penalties on late payments.</p>
+                
+                <h3>NY Tax Resources</h3>
+                
+                <p>Official resources for New York state income tax:</p>
+                
+                <ul>
+                    <li><strong>NY Department of Taxation and Finance:</strong> tax.ny.gov - Official state tax website</li>
+                    <li><strong>Online Services:</strong> File returns, make payments, check refund status online</li>
+                    <li><strong>Free File:</strong> Free electronic filing for those who qualify</li>
+                    <li><strong>Taxpayer Assistance:</strong> (518) 457-5181 for general tax questions</li>
+                    <li><strong>Local Offices:</strong> In-person assistance available at district offices statewide</li>
+                </ul>
+                
+                <div class="faq-item">
+                    <h3>What is the New York state income tax rate for 2026?</h3>
+                    <p>New York has progressive tax rates ranging from 4% to 10.9%. The rates vary by filing status and income level. For single filers, rates start at 4% for income up to $8,500 and increase to 10.9% for income over $25,000,000.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How do I calculate my New York state income tax?</h3>
+                    <p>To calculate NY state income tax: 1) Determine your filing status, 2) Calculate your taxable income (AGI minus deductions), 3) Apply the appropriate tax brackets for your filing status, 4) Subtract any credits you qualify for. Use our calculator above for instant results.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What is the New York standard deduction for 2026?</h3>
+                    <p>For 2026, the New York standard deduction is $8,000 for single filers, $16,050 for married filing jointly, and $11,200 for head of household. These amounts are subject to phase-outs at higher income levels.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Does New York have a local income tax?</h3>
+                    <p>Yes, New York City and Yonkers both impose local income taxes on top of state income tax. NYC rates range from 3.078% to 3.876% depending on income and filing status. This calculator focuses on state tax only.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>When is New York state income tax due?</h3>
+                    <p>New York state income tax returns are due on April 15th (or the next business day if it falls on a weekend or holiday), the same as federal tax returns. Extensions are available but do not extend the payment deadline.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Does New York tax Social Security benefits?</h3>
+                    <p>No, New York does not tax Social Security retirement benefits, making it more favorable for retirees than some other states. However, other retirement income may be taxable.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I deduct property taxes on my NY state return?</h3>
+                    <p>Yes, if you itemize deductions, you can deduct property taxes on your New York state return. Unlike federal taxes, which cap SALT deductions at $10,000, New York has no such cap at the state level.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How does New York determine residency for tax purposes?</h3>
+                    <p>New York considers you a resident if you maintain a permanent place of abode in NY and spend more than 183 days in the state during the tax year. NY has strict residency rules and may audit taxpayers who claim residence elsewhere.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 CalcLeap | <a href="https://calcleap.com">More Free Calculators</a> | <a href="https://calcleap.com/about.html">About</a> | <a href="https://calcleap.com/privacy.html">Privacy</a></p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Disclaimer: This calculator provides estimates only and should not be considered tax advice. Consult a tax professional for personalized guidance.</p>
+        </footer>
+    </div>
 
-  const effectiveRate = income > 0 ? (totalTax / income * 100) : 0;
+    <script>
+        // 2026 NY tax brackets
+        const taxBrackets = {
+            single: [
+                { max: 8500, rate: 0.04, base: 0 },
+                { max: 11700, rate: 0.045, base: 340 },
+                { max: 13900, rate: 0.0525, base: 484 },
+                { max: 80650, rate: 0.055, base: 600 },
+                { max: 215400, rate: 0.06, base: 4271 },
+                { max: 1077550, rate: 0.0685, base: 12356 },
+                { max: 25000000, rate: 0.0965, base: 71413 },
+                { max: Infinity, rate: 0.109, base: 2379928 }
+            ],
+            married: [
+                { max: 17150, rate: 0.04, base: 0 },
+                { max: 23600, rate: 0.045, base: 686 },
+                { max: 27900, rate: 0.0525, base: 976 },
+                { max: 161550, rate: 0.055, base: 1202 },
+                { max: 323200, rate: 0.06, base: 8553 },
+                { max: 2155350, rate: 0.0685, base: 18252 },
+                { max: 25000000, rate: 0.0965, base: 143754 },
+                { max: Infinity, rate: 0.109, base: 2348263 }
+            ],
+            marriedSeparate: [
+                { max: 8500, rate: 0.04, base: 0 },
+                { max: 11700, rate: 0.045, base: 340 },
+                { max: 13900, rate: 0.0525, base: 484 },
+                { max: 80650, rate: 0.055, base: 600 },
+                { max: 161550, rate: 0.06, base: 4271 },
+                { max: 1077550, rate: 0.0685, base: 14122 },
+                { max: 25000000, rate: 0.0965, base: 80958 },
+                { max: Infinity, rate: 0.109, base: 2388044 }
+            ],
+            headOfHousehold: [
+                { max: 12800, rate: 0.04, base: 0 },
+                { max: 17650, rate: 0.045, base: 512 },
+                { max: 20900, rate: 0.0525, base: 730 },
+                { max: 107650, rate: 0.055, base: 901 },
+                { max: 269300, rate: 0.06, base: 5672 },
+                { max: 1616450, rate: 0.0685, base: 15371 },
+                { max: 25000000, rate: 0.0965, base: 107654 },
+                { max: Infinity, rate: 0.109, base: 2422147 }
+            ]
+        };
 
-  // Update results
-  document.getElementById('totalTax').textContent = '$' + totalTax.toLocaleString(undefined, {maximumFractionDigits: 0});
-  document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(2) + '%';
-  document.getElementById('taxableIncome').textContent = '$' + taxableIncome.toLocaleString(undefined, {maximumFractionDigits: 0});
-  document.getElementById('breakdown').innerHTML = '<h3 style="font-size:1rem;margin-bottom:.75rem">Tax Bracket Breakdown</h3>' + breakdownHTML;
+        function calculateNYTax(income, deductions, filingStatus) {
+            const taxableIncome = Math.max(0, income - deductions);
+            
+            if (taxableIncome === 0) {
+                return 0;
+            }
+            
+            const brackets = taxBrackets[filingStatus];
+            let tax = 0;
+            let previousMax = 0;
+            
+            for (let i = 0; i < brackets.length; i++) {
+                const bracket = brackets[i];
+                
+                if (taxableIncome <= bracket.max) {
+                    tax = bracket.base + (taxableIncome - previousMax) * bracket.rate;
+                    break;
+                }
+                
+                previousMax = bracket.max;
+            }
+            
+            return Math.round(tax * 100) / 100;
+        }
 
-  document.getElementById('results').style.display = 'block';
-}
-
-// Update standard deduction based on filing status
-document.getElementById('filingStatus').addEventListener('change', function() {
-  const deductions = {
-    'single': 8000,
-    'married': 16050,
-    'married-separate': 8000,
-    'head': 11200
-  };
-  document.getElementById('deduction').value = deductions[this.value];
-});
-</script>
-
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
-<div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
-</div>
-</div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+        document.getElementById('taxForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const deductions = parseFloat(document.getElementById('deductions').value) || 0;
+            const filingStatus = document.getElementById('filingStatus').value;
+            
+            const tax = calculateNYTax(income, deductions, filingStatus);
+            const taxableIncome = Math.max(0, income - deductions);
+            const effectiveRate = income > 0 ? ((tax / income) * 100).toFixed(2) : 0;
+            const afterTaxIncome = income - tax;
+            
+            document.getElementById('resultAmount').textContent = '$' + tax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('detailIncome').textContent = '$' + income.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('detailDeductions').textContent = '$' + deductions.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('detailTaxable').textContent = '$' + taxableIncome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('detailRate').textContent = effectiveRate + '%';
+            document.getElementById('detailAfterTax').textContent = '$' + afterTaxIncome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.add('show');
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    </script>
 </body>
 </html>
