@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michigan Income Tax Calculator 2026 - Free MI State Tax Estimator | CalcLeap</title>
+    <meta name="description" content="Calculate your Michigan state income tax for 2026. Free calculator with flat 4.25% tax rate, personal exemptions, and deductions. Instant results.">
+    <link rel="canonical" href="https://calcleap.com/calc/michigan-income-tax-calculator.html">
+    <meta property="og:title" content="Michigan Income Tax Calculator 2026 - CalcLeap">
+    <meta property="og:description" content="Free Michigan income tax calculator. Estimate your MI state tax with flat 4.25% rate and personal exemptions.">
+    <meta property="og:url" content="https://calcleap.com/calc/michigan-income-tax-calculator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+        
+        .nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-content {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #0071e3;
+            text-decoration: none;
+        }
+        
+        .nav-links a {
+            margin-left: 24px;
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #0071e3;
+        }
+        
+        .page {
+            max-width: 980px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 21px;
+            color: #6e6e73;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 24px 0 16px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d2d2d7;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #0071e3;
+        }
+        
+        .btn {
+            background: #0071e3;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        
+        .btn:hover {
+            background: #0077ed;
+        }
+        
+        .result-box {
+            background: linear-gradient(135deg, #0071e3 0%, #0077ed 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 24px;
+        }
+        
+        .result-label {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .result-value {
+            font-size: 48px;
+            font-weight: 700;
+        }
+        
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .result-item {
+            background: #f5f5f7;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .result-item-label {
+            font-size: 14px;
+            color: #6e6e73;
+            margin-bottom: 8px;
+        }
+        
+        .result-item-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        
+        .highlight-box {
+            background: #f5f5f7;
+            border-left: 4px solid #0071e3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .faq-item {
+            margin-bottom: 24px;
+        }
+        
+        .faq-question {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0071e3;
+        }
+        
+        .faq-answer {
+            color: #1d1d1f;
+            line-height: 1.7;
+        }
+        
+        .breadcrumb {
+            font-size: 14px;
+            color: #6e6e73;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .breadcrumb a {
+            color: #0071e3;
+            text-decoration: none;
+        }
+        
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #1d1d1f;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #d2d2d7;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0071e3;
+        }
+        
+        .tool-card p {
+            font-size: 14px;
+            color: #6e6e73;
+        }
+        
+        footer {
+            background: #f5f5f7;
+            padding: 48px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #d2d2d7;
+        }
+        
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+        
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #6e6e73;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .footer-section a:hover {
+            color: #0071e3;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid #d2d2d7;
+            color: #6e6e73;
+            font-size: 14px;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Michigan state income tax rate for 2026?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Michigan has a flat state income tax rate of 4.25% for all income levels. Unlike graduated tax systems, everyone pays the same percentage regardless of how much they earn. This makes Michigan's tax calculation very straightforward."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Michigan have a standard deduction?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Michigan allows you to claim either the standard personal exemption of $5,400 (2026) or itemize deductions. Most taxpayers find the personal exemption more beneficial. Additional exemptions of $5,400 each are available for spouses and dependents."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Michigan tax Social Security and retirement income?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on your age. Taxpayers born before 1946 can fully deduct Social Security and most retirement income. Those born 1946-1952 get a partial exemption. Taxpayers born after 1952 can deduct up to $20,000 (single) or $40,000 (married) of retirement income, but Social Security is fully taxable."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Michigan a high-tax or low-tax state?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Michigan is a moderate-tax state. The 4.25% flat rate is lower than high-tax states like California (13.3%), New York (10.9%), or Minnesota (9.85%), but higher than no-income-tax states like Florida and Texas. It's close to the national median for states with income tax."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://calcleap.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Calculators",
+                "item": "https://calcleap.com/#calculators"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Michigan Income Tax Calculator",
+                "item": "https://calcleap.com/calc/michigan-income-tax-calculator.html"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="https://calcleap.com/" class="logo">CalcLeap</a>
+            <div class="nav-links">
+                <a href="https://calcleap.com/#calculators">Calculators</a>
+                <a href="https://calcleap.com/about.html">About</a>
+                <a href="https://calcleap.com/contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page">
+        <div class="breadcrumb">
+            <a href="https://calcleap.com/">Home</a> &gt; <a href="https://calcleap.com/#calculators">Calculators</a> &gt; Michigan Income Tax Calculator
+        </div>
+
+        <h1 class="page-title">Michigan Income Tax Calculator</h1>
+        <p class="subtitle">Calculate your 2026 Michigan state income tax with flat 4.25% rate and personal exemptions</p>
+
+        <div class="card">
+            <h2>Calculate Your Michigan State Tax</h2>
+            <div class="form-group">
+                <label for="income">Annual Taxable Income</label>
+                <input type="number" id="income" placeholder="Enter your annual income" value="75000">
+            </div>
+            
+            <div class="form-group">
+                <label for="filingStatus">Filing Status</label>
+                <select id="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married">Married Filing Jointly</option>
+                    <option value="married_separate">Married Filing Separately</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="dependents">Number of Dependents</label>
+                <input type="number" id="dependents" min="0" value="0" placeholder="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="birthYear">Your Birth Year (for retirement income exemptions)</label>
+                <input type="number" id="birthYear" min="1920" max="2010" value="1985" placeholder="1985">
+            </div>
+            
+            <button class="btn" onclick="calculateTax()">Calculate Tax</button>
+            
+            <div id="results" style="display: none;">
+                <div class="result-box">
+                    <div class="result-label">Estimated Michigan State Tax</div>
+                    <div class="result-value" id="totalTax">$0</div>
+                </div>
+                
+                <div class="result-grid">
+                    <div class="result-item">
+                        <div class="result-item-label">Taxable Income</div>
+                        <div class="result-item-value" id="taxableIncome">$0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-item-label">Effective Tax Rate</div>
+                        <div class="result-item-value" id="effectiveRate">0%</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-item-label">After-Tax Income</div>
+                        <div class="result-item-value" id="afterTax">$0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-item-label">Monthly Take-Home</div>
+                        <div class="result-item-value" id="monthly">$0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AdSense Slot 1 -->
+        <div style="text-align: center; margin: 32px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3112605892426625"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="info-card">
+            <h2>Understanding Michigan Income Tax</h2>
+            <p>Michigan uses one of the simplest state income tax systems in the country: a <strong>flat 4.25% rate</strong> on all taxable income. Whether you earn $30,000 or $300,000, you pay the same percentage. This makes tax planning straightforward compared to states with graduated brackets.</p>
+            
+            <div class="highlight-box">
+                <strong>Key Feature:</strong> Michigan's flat tax rate means there are no "tax brackets" to navigate. Every dollar of taxable income is taxed at exactly 4.25%.
+            </div>
+            
+            <h3>Personal Exemptions in Michigan</h3>
+            <p>While Michigan doesn't have a standard deduction, it offers generous <strong>personal exemptions</strong>:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Yourself:</strong> $5,400 (2026)</li>
+                <li><strong>Spouse:</strong> $5,400 (if filing jointly)</li>
+                <li><strong>Each Dependent:</strong> $5,400</li>
+            </ul>
+            <p style="margin-top: 12px;">A married couple with two children can claim <strong>$21,600 in exemptions</strong> ($5,400 × 4), reducing their taxable income before applying the 4.25% rate.</p>
+            
+            <h3>How Michigan Tax Compares</h3>
+            <p>Michigan's 4.25% flat rate positions it as a moderate-tax state:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>Lower than:</strong> Illinois (4.95% flat), Minnesota (9.85% top), California (13.3% top), New York (10.9% top)</li>
+                <li><strong>Higher than:</strong> Indiana (3.15% flat), Pennsylvania (3.07% flat), North Carolina (4.75% flat — but NC has no personal exemptions)</li>
+                <li><strong>Much higher than:</strong> Florida, Texas, Tennessee (0% — no state income tax)</li>
+            </ul>
+            
+            <h3>Retirement Income Rules</h3>
+            <p>Michigan's treatment of retirement income depends on when you were born:</p>
+            
+            <h4>Born Before 1946 (Age 80+ in 2026)</h4>
+            <p>You can deduct most retirement income, including:</p>
+            <ul style="margin-left: 20px; margin-top: 8px;">
+                <li>100% of Social Security benefits</li>
+                <li>Public and private pensions</li>
+                <li>401(k) and IRA distributions</li>
+            </ul>
+            
+            <h4>Born 1946-1952 (Ages 74-80 in 2026)</h4>
+            <p>Transitional rules apply. You can partially deduct retirement income with limits based on filing status.</p>
+            
+            <h4>Born 1953 or Later (Under 73 in 2026)</h4>
+            <p>You can deduct up to:</p>
+            <ul style="margin-left: 20px; margin-top: 8px;">
+                <li><strong>$20,000</strong> (single) or <strong>$40,000</strong> (married) of retirement income</li>
+                <li>OR claim the standard personal exemption (often more valuable)</li>
+            </ul>
+            <p style="margin-top: 12px;"><strong>Important:</strong> Social Security benefits are fully taxable for those born after 1952, unlike in many other states.</p>
+        </div>
+
+        <!-- AdSense Slot 2 -->
+        <div style="text-align: center; margin: 32px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3112605892426625"
+                 data-ad-slot="2345678901"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="info-card">
+            <h2>Tax Planning Strategies for Michigan Residents</h2>
+            
+            <h3>1. Maximize Personal Exemptions</h3>
+            <p>At 4.25%, each $5,400 personal exemption saves you <strong>$229.50 in state tax</strong>. Claim all eligible dependents (children, elderly parents, disabled relatives) to maximize your savings.</p>
+            
+            <h3>2. Retirement Account Contributions</h3>
+            <p>Traditional 401(k) and IRA contributions reduce your Michigan taxable income. For 2026:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>401(k):</strong> Up to $23,000 ($30,000 if age 50+)</li>
+                <li><strong>IRA:</strong> Up to $7,000 ($8,000 if age 50+)</li>
+            </ul>
+            <p style="margin-top: 12px;">A $23,000 401(k) contribution saves <strong>$977.50</strong> in Michigan state tax (plus federal tax savings).</p>
+            
+            <h3>3. Consider Roth Conversions (If Younger)</h3>
+            <p>Since taxpayers born after 1952 will pay full Michigan tax on retirement income anyway, converting traditional IRAs to Roth IRAs now (and paying tax at 4.25%) may make sense. Future Roth withdrawals are tax-free at both state and federal levels.</p>
+            
+            <h3>4. Relocate Before Retirement? (If Born After 1952)</h3>
+            <p>If you're decades from retirement and were born after 1952, consider that states like Florida, Texas, Tennessee, and Nevada have <strong>no state income tax</strong> on any income, including retirement distributions. Over a 20-30 year retirement, this could save six figures.</p>
+            
+            <h3>5. Itemize Deductions</h3>
+            <p>Michigan allows itemized deductions that match most federal itemizations (mortgage interest, charitable donations, medical expenses). If your itemized deductions exceed your personal exemptions ($5,400 single, $10,800 married), itemizing saves you money.</p>
+            
+            <h3>6. Time Large Income Events</h3>
+            <p>Unlike graduated tax systems where timing can move you across brackets, Michigan's flat rate means timing is less critical. However, if you're considering a move to a no-tax state, deferring bonuses, severance, or capital gains until after you establish residency elsewhere can save the full 4.25%.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>Moving to Michigan? What to Know</h2>
+            
+            <h3>Establishing Michigan Residency</h3>
+            <p>You're a Michigan resident for tax purposes if:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li>You live in Michigan permanently (domicile)</li>
+                <li>You spend more than 183 days in Michigan during the tax year (even if domiciled elsewhere)</li>
+            </ul>
+            
+            <h3>Part-Year Residents</h3>
+            <p>If you move to or from Michigan mid-year, you'll file as a part-year resident and only pay Michigan tax on income earned while living in the state. Keep detailed records of your move date and income allocation.</p>
+            
+            <h3>Remote Work Considerations</h3>
+            <p>If you live in Michigan but work remotely for an employer in another state:</p>
+            <ul style="margin-left: 20px; margin-top: 12px;">
+                <li><strong>You owe Michigan tax</strong> on that income (4.25%)</li>
+                <li>You may also owe tax to the employer's state (depends on that state's rules)</li>
+                <li>If you pay tax to both states, you can claim a credit on your Michigan return for taxes paid to the other state</li>
+            </ul>
+            
+            <h3>Property Tax Trade-Off</h3>
+            <p>While Michigan's income tax is moderate, property taxes can be high. Effective property tax rates range from 1.3% to 1.6% statewide, with some areas (Detroit suburbs) exceeding 2%. Factor this into relocation decisions.</p>
+            
+            <h3>Auto Insurance Requirement</h3>
+            <p>Michigan historically had the highest auto insurance rates in the nation due to unlimited personal injury protection (PIP) requirements. Recent reforms allow you to opt out of unlimited coverage, but insurance costs remain above the national average.</p>
+        </div>
+
+        <!-- AdSense Slot 3 -->
+        <div style="text-align: center; margin: 32px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3112605892426625"
+                 data-ad-slot="3456789012"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="info-card">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is the Michigan state income tax rate for 2026?</div>
+                <div class="faq-answer">Michigan has a flat state income tax rate of 4.25% for all income levels. Unlike graduated tax systems, everyone pays the same percentage regardless of how much they earn. This makes Michigan's tax calculation very straightforward.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Does Michigan have a standard deduction?</div>
+                <div class="faq-answer">Yes. Michigan allows you to claim either the standard personal exemption of $5,400 (2026) or itemize deductions. Most taxpayers find the personal exemption more beneficial. Additional exemptions of $5,400 each are available for spouses and dependents.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Does Michigan tax Social Security and retirement income?</div>
+                <div class="faq-answer">It depends on your age. Taxpayers born before 1946 can fully deduct Social Security and most retirement income. Those born 1946-1952 get a partial exemption. Taxpayers born after 1952 can deduct up to $20,000 (single) or $40,000 (married) of retirement income, but Social Security is fully taxable.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is Michigan a high-tax or low-tax state?</div>
+                <div class="faq-answer">Michigan is a moderate-tax state. The 4.25% flat rate is lower than high-tax states like California (13.3%), New York (10.9%), or Minnesota (9.85%), but higher than no-income-tax states like Florida and Texas. It's close to the national median for states with income tax.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">When are Michigan state tax returns due?</div>
+                <div class="faq-answer">Michigan state tax returns are due on April 15th, the same deadline as federal returns. If you file a federal extension, Michigan automatically grants you an extension to October 15th. However, any tax owed must still be paid by April 15th to avoid penalties and interest.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Does Michigan have local income taxes?</div>
+                <div class="faq-answer">Yes. Several Michigan cities impose their own income tax on top of the state 4.25% rate. Detroit charges 2.4% (residents) / 1.2% (non-residents), while cities like Grand Rapids, Lansing, and Flint have rates ranging from 1% to 1.5%. Check your city's tax requirements.</div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h2>Related Tax & Finance Tools</h2>
+            <div class="related-tools">
+                <a href="https://calcleap.com/calc/federal-income-tax-calculator.html" class="tool-card">
+                    <h4>Federal Income Tax Calculator</h4>
+                    <p>Calculate your 2026 federal tax liability</p>
+                </a>
+                <a href="https://calcleap.com/calc/paycheck-calculator.html" class="tool-card">
+                    <h4>Paycheck Calculator</h4>
+                    <p>Estimate your take-home pay after taxes</p>
+                </a>
+                <a href="https://calcleap.com/calc/401k-calculator.html" class="tool-card">
+                    <h4>401(k) Calculator</h4>
+                    <p>Plan your retirement savings with tax benefits</p>
+                </a>
+                <a href="https://calcleap.com/calc/ohio-income-tax-calculator.html" class="tool-card">
+                    <h4>Ohio Income Tax Calculator</h4>
+                    <p>Calculate OH state tax (0%-3.75%)</p>
+                </a>
+                <a href="https://calcleap.com/calc/indiana-income-tax-calculator.html" class="tool-card">
+                    <h4>Indiana Income Tax Calculator</h4>
+                    <p>Calculate IN state tax (flat 3.15%)</p>
+                </a>
+                <a href="https://calcleap.com/calc/illinois-income-tax-calculator.html" class="tool-card">
+                    <h4>Illinois Income Tax Calculator</h4>
+                    <p>Calculate IL state tax (flat 4.95%)</p>
+                </a>
+                <a href="https://calcleap.com/calc/georgia-income-tax-calculator.html" class="tool-card">
+                    <h4>Georgia Income Tax Calculator</h4>
+                    <p>Calculate GA state tax (1%-5.75%)</p>
+                </a>
+                <a href="https://calcleap.com/calc/property-tax-calculator.html" class="tool-card">
+                    <h4>Property Tax Calculator</h4>
+                    <p>Estimate annual property taxes</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Popular Calculators</h4>
+                <ul>
+                    <li><a href="https://calcleap.com/calc/bmi-calculator.html">BMI Calculator</a></li>
+                    <li><a href="https://calcleap.com/calc/mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="https://calcleap.com/calc/calorie-calculator.html">Calorie Calculator</a></li>
+                    <li><a href="https://calcleap.com/calc/salary-calculator.html">Salary Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="https://calcleap.com/#finance">Finance</a></li>
+                    <li><a href="https://calcleap.com/#health">Health</a></li>
+                    <li><a href="https://calcleap.com/#conversion">Conversion</a></li>
+                    <li><a href="https://calcleap.com/#business">Business</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="https://calcleap.com/about.html">About Us</a></li>
+                    <li><a href="https://calcleap.com/privacy.html">Privacy Policy</a></li>
+                    <li><a href="https://calcleap.com/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 CalcLeap. All rights reserved. | Last updated: March 2026
+        </div>
+    </footer>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const filingStatus = document.getElementById('filingStatus').value;
+            const dependents = parseInt(document.getElementById('dependents').value) || 0;
+            const birthYear = parseInt(document.getElementById('birthYear').value) || 1985;
+            
+            // Michigan flat tax rate
+            const TAX_RATE = 0.0425;
+            
+            // Personal exemptions (2026)
+            const PERSONAL_EXEMPTION = 5400;
+            let totalExemptions = PERSONAL_EXEMPTION; // Taxpayer
+            
+            if (filingStatus === 'married') {
+                totalExemptions += PERSONAL_EXEMPTION; // Spouse
+            }
+            
+            totalExemptions += (dependents * PERSONAL_EXEMPTION);
+            
+            // Calculate taxable income
+            const taxableIncome = Math.max(0, income - totalExemptions);
+            
+            // Calculate tax (flat 4.25%)
+            const tax = taxableIncome * TAX_RATE;
+            
+            const effectiveRate = income > 0 ? (tax / income * 100) : 0;
+            const afterTaxIncome = income - tax;
+            const monthlyTakeHome = afterTaxIncome / 12;
+            
+            // Display results
+            document.getElementById('totalTax').textContent = '$' + tax.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('taxableIncome').textContent = '$' + taxableIncome.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(2) + '%';
+            document.getElementById('afterTax').textContent = '$' + afterTaxIncome.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('monthly').textContent = '$' + monthlyTakeHome.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Auto-calculate on load if income is provided
+        window.addEventListener('load', () => {
+            if (document.getElementById('income').value) {
+                calculateTax();
+            }
+        });
+    </script>
+</body>
+</html>
