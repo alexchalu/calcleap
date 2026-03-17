@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Conditioning Cost Calculator | AC Size & Operating Cost Estimator</title>
+    <meta name="description" content="Calculate the right AC size (BTU/tons) for your home and estimate monthly cooling costs. Compare SEER ratings and find the most efficient air conditioner.">
+    <meta name="keywords" content="air conditioning cost calculator, ac cost estimator, air conditioner size calculator, BTU calculator, SEER rating, cooling cost">
+    <link rel="canonical" href="https://calcleap.com/air-conditioning-cost-calculator.html">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Air Conditioning Cost Calculator",
+        "url": "https://calcleap.com/air-conditioning-cost-calculator.html",
+        "description": "Calculate required AC size in BTUs and estimate monthly operating costs based on square footage, insulation, climate, and SEER rating.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What size air conditioner do I need for my home?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The standard rule of thumb is 20 BTU per square foot of living space. For a 1,500 sq ft home, you'd need approximately 30,000 BTU (2.5 tons). However, factors like climate zone, insulation quality, ceiling height, number of windows, and sun exposure can significantly affect requirements. In hot climates or poorly insulated homes, you may need 25-30 BTU per square foot. Use our calculator to get a customized estimate based on your specific conditions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is SEER rating and why does it matter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SEER (Seasonal Energy Efficiency Ratio) measures how efficiently an air conditioner converts electricity into cooling. Higher SEER ratings mean greater efficiency and lower operating costs. The minimum SEER for new AC units is 14-15 depending on region, but high-efficiency models can reach 20-25+ SEER. A 16 SEER unit uses about 30% less energy than a 12 SEER unit. While high-SEER units cost more upfront, they pay for themselves through lower electricity bills over 5-10 years."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does it cost to run an air conditioner per month?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Monthly AC costs vary widely based on unit size, SEER rating, climate, electricity rates, and usage patterns. A typical 3-ton (36,000 BTU) central AC unit with 14 SEER running 8 hours/day costs approximately $100-200/month at $0.13/kWh. High-efficiency 20 SEER units can cut this by 30-40%. In hot climates like Arizona or Texas, costs can reach $250-400/month during peak summer. Use our calculator to estimate costs for your specific situation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it worth upgrading to a high-efficiency air conditioner?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, in most cases. A high-efficiency 18 SEER AC unit costs $1,500-3,000 more than a standard 14 SEER model but saves $200-500 annually on electricity bills. In hot climates with high usage, payback periods are 3-7 years. Additionally, high-SEER units qualify for federal tax credits (up to $600) and utility rebates ($200-1,000), reducing upfront costs. They also provide better comfort, quieter operation, and higher resale value."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <a href="#home">Home & Garden</a> &gt; Air Conditioning Cost Calculator
+    </nav>
+
+    <div class="container">
+        <h1>❄️ Air Conditioning Cost Calculator</h1>
+        <p class="subtitle">Calculate the right AC size for your home and estimate monthly cooling costs based on efficiency and usage</p>
+
+        <div class="calculator-card">
+            <h3>Home & Climate Details</h3>
+
+            <div class="input-group">
+                <label for="sqft">Square Footage:</label>
+                <div class="input-with-unit">
+                    <input type="number" id="sqft" value="1500" min="100" step="50">
+                    <span class="unit">sq ft</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="ceilingHeight">Ceiling Height:</label>
+                <select id="ceilingHeight">
+                    <option value="8">8 feet (standard)</option>
+                    <option value="9">9 feet</option>
+                    <option value="10">10 feet</option>
+                    <option value="12">12+ feet (vaulted)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="insulation">Insulation Quality:</label>
+                <select id="insulation">
+                    <option value="poor">Poor (older home, minimal insulation)</option>
+                    <option value="average" selected>Average (standard insulation)</option>
+                    <option value="good">Good (well-insulated, energy-efficient)</option>
+                    <option value="excellent">Excellent (new construction, spray foam)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="climate">Climate Zone:</label>
+                <select id="climate">
+                    <option value="mild">Mild (Pacific Northwest, Northern states)</option>
+                    <option value="moderate">Moderate (Mid-Atlantic, Midwest)</option>
+                    <option value="hot" selected>Hot (Southern states, Southwest)</option>
+                    <option value="extreme">Extreme (Arizona, Southern Texas, Florida)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="sunExposure">Sun Exposure:</label>
+                <select id="sunExposure">
+                    <option value="low">Low (shaded, north-facing)</option>
+                    <option value="medium" selected>Medium (partial shade)</option>
+                    <option value="high">High (south-facing, full sun)</option>
+                </select>
+            </div>
+
+            <h3 style="margin-top: 30px;">AC Unit Specifications</h3>
+
+            <div class="input-group">
+                <label for="seer">SEER Rating:</label>
+                <select id="seer">
+                    <option value="12">12 SEER (older unit)</option>
+                    <option value="14" selected>14 SEER (minimum new)</option>
+                    <option value="16">16 SEER (mid-efficiency)</option>
+                    <option value="18">18 SEER (high-efficiency)</option>
+                    <option value="20">20 SEER (premium)</option>
+                    <option value="22">22+ SEER (ultra-efficient)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="hoursPerDay">Hours Run Per Day:</label>
+                <input type="number" id="hoursPerDay" value="8" min="1" max="24">
+            </div>
+
+            <div class="input-group">
+                <label for="daysPerMonth">Days Used Per Month:</label>
+                <input type="number" id="daysPerMonth" value="30" min="1" max="31">
+            </div>
+
+            <div class="input-group">
+                <label for="electricityRate">Electricity Rate ($/kWh):</label>
+                <div class="input-with-unit">
+                    <span class="unit-prefix">$</span>
+                    <input type="number" id="electricityRate" value="0.13" min="0.01" step="0.01" max="1">
+                </div>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateAC()">Calculate AC Requirements</button>
+
+            <div id="result" class="result" style="display:none;">
+                <h3>Recommended AC Size:</h3>
+                <div class="result-item highlight">
+                    <span>Required BTU:</span>
+                    <strong id="requiredBTU">0</strong>
+                </div>
+                <div class="result-item highlight">
+                    <span>Tonnage:</span>
+                    <strong id="tonnage">0</strong>
+                </div>
+                <div class="result-item">
+                    <span>BTU per Square Foot:</span>
+                    <strong id="btuPerSqFt">0</strong>
+                </div>
+
+                <h3 style="margin-top: 20px;">Operating Costs:</h3>
+                <div class="result-item">
+                    <span>Power Consumption:</span>
+                    <strong id="powerConsumption">0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Daily Electricity Cost:</span>
+                    <strong id="dailyCost">$0</strong>
+                </div>
+                <div class="result-item highlight">
+                    <span>Monthly Cooling Cost:</span>
+                    <strong id="monthlyCost">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Annual Cooling Cost:</span>
+                    <strong id="annualCost">$0</strong>
+                </div>
+
+                <div id="recommendation" style="margin-top: 20px; padding: 20px; background: #e3f2fd; border-left: 4px solid #2196F3; border-radius: 4px;">
+                    <h4 style="margin-top: 0;">💡 Recommendations</h4>
+                    <p id="recText"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>How to Size an Air Conditioner Correctly</h2>
+            <p>Choosing the right size air conditioner is one of the most important decisions when installing or replacing an HVAC system. An undersized unit won't cool your home effectively, runs constantly, and wears out faster. An oversized unit cycles on and off too frequently, fails to dehumidify properly, wastes energy, and also wears out prematurely. Getting the size right ensures comfort, efficiency, and equipment longevity.</p>
+
+            <p>Air conditioner capacity is measured in BTUs (British Thermal Units) or tons. One ton of cooling equals 12,000 BTU per hour. The basic rule of thumb is <strong>20 BTU per square foot</strong> for moderate climates with average insulation. However, this is just a starting point—actual requirements vary based on multiple factors we'll explore below.</p>
+
+            <h2>Factors That Affect AC Size Requirements</h2>
+
+            <h3>1. Square Footage and Room Volume</h3>
+            <p>Square footage is the primary driver of AC capacity requirements. Larger spaces need more cooling power. However, ceiling height also matters because you're cooling a volume of air, not just a floor area. A room with 10-foot ceilings has 25% more air volume than one with 8-foot ceilings and may need a correspondingly larger AC unit.</p>
+
+            <p>Standard calculation: <strong>Cooling BTU = Square Footage × BTU per Sq Ft × Ceiling Height Factor</strong></p>
+
+            <h3>2. Insulation Quality</h3>
+            <p>Insulation is the single most impactful factor after square footage. Poor insulation allows heat to enter the home faster, requiring more cooling power:</p>
+            <ul>
+                <li><strong>Poor insulation:</strong> 25-30 BTU per square foot (older homes, minimal attic insulation)</li>
+                <li><strong>Average insulation:</strong> 20 BTU per square foot (standard modern construction)</li>
+                <li><strong>Good insulation:</strong> 15-18 BTU per square foot (well-sealed, upgraded insulation)</li>
+                <li><strong>Excellent insulation:</strong> 12-15 BTU per square foot (new construction, spray foam, Energy Star)</li>
+            </ul>
+
+            <p>Improving insulation before buying a new AC unit can reduce required capacity by 20-40%, saving money on both equipment and operating costs.</p>
+
+            <h3>3. Climate Zone</h3>
+            <p>Climate dramatically affects cooling needs. A 1,500 sq ft home in Seattle needs far less cooling capacity than the same home in Phoenix:</p>
+            <ul>
+                <li><strong>Mild climates:</strong> 15-18 BTU/sq ft (Pacific Northwest, northern states)</li>
+                <li><strong>Moderate climates:</strong> 20-22 BTU/sq ft (Mid-Atlantic, Midwest)</li>
+                <li><strong>Hot climates:</strong> 25-28 BTU/sq ft (Southern states, Southwest)</li>
+                <li><strong>Extreme climates:</strong> 30-35 BTU/sq ft (Arizona, Southern Texas, Florida)</li>
+            </ul>
+
+            <h3>4. Sun Exposure and Window Area</h3>
+            <p>Homes with large south- or west-facing windows gain significant heat from direct sunlight. Windows are the weakest point in your home's thermal envelope—even double-pane windows have far less insulating value than walls. Add 10-15% to BTU requirements for high sun exposure or 10-15% of window area (measured in square feet).</p>
+
+            <h3>5. Number of Occupants and Heat-Generating Appliances</h3>
+            <p>People and appliances generate heat. Add 600 BTU for each person who regularly occupies the space. If the kitchen is part of the cooled area, add 4,000 BTU. For home offices with multiple computers and equipment, add 1,000-2,000 BTU.</p>
+
+            <h2>Understanding SEER Ratings</h2>
+            <p><strong>SEER (Seasonal Energy Efficiency Ratio)</strong> measures how efficiently an air conditioner converts electricity into cooling over an entire cooling season. It's calculated as total cooling output (BTU) divided by total electrical energy input (watt-hours).</p>
+
+            <p>Think of SEER like a car's MPG rating—higher numbers mean better efficiency and lower operating costs. The minimum SEER for new residential AC units is 14-15 (varying by region as of 2023), but units range from 12 SEER (older equipment) to 25+ SEER (ultra-efficient models).</p>
+
+            <h3>SEER Comparison: Operating Costs</h3>
+            <p>For a typical 3-ton (36,000 BTU) central AC running 8 hours/day in a hot climate at $0.13/kWh:</p>
+            <ul>
+                <li><strong>12 SEER:</strong> ~$175/month ($2,100/year)</li>
+                <li><strong>14 SEER:</strong> ~$150/month ($1,800/year)</li>
+                <li><strong>16 SEER:</strong> ~$130/month ($1,560/year)</li>
+                <li><strong>18 SEER:</strong> ~$115/month ($1,380/year)</li>
+                <li><strong>20 SEER:</strong> ~$105/month ($1,260/year)</li>
+            </ul>
+
+            <p>A 20 SEER unit costs $840/year less to operate than a 12 SEER unit—that's $8,400 saved over 10 years, easily justifying the $2,000-3,000 premium for high-efficiency equipment.</p>
+
+            <h2>Types of Air Conditioning Systems</h2>
+
+            <h3>Central Air Conditioning</h3>
+            <p>Central AC is the most common system for whole-home cooling. It uses a single outdoor compressor/condenser unit and indoor air handler with ductwork to distribute cooled air throughout the home. Typical sizes range from 1.5 tons (18,000 BTU) for small homes to 5 tons (60,000 BTU) for large homes.</p>
+
+            <p><strong>Pros:</strong> Even cooling, hidden components, increases home value, efficient for whole-home cooling</p>
+            <p><strong>Cons:</strong> Requires ductwork, expensive installation ($3,000-7,000), higher operating costs than mini-splits for partial home cooling</p>
+
+            <h3>Mini-Split Systems (Ductless AC)</h3>
+            <p>Mini-splits consist of an outdoor compressor and one or more indoor air handlers mounted on walls or ceilings. No ductwork is required—refrigerant lines connect indoor and outdoor units through a small hole in the wall. Ideal for room additions, older homes without ducts, or zone cooling.</p>
+
+            <p><strong>Pros:</strong> No ductwork needed, highly efficient (up to 30 SEER), zone control, easy installation</p>
+            <p><strong>Cons:</strong> Indoor units visible on walls, higher upfront cost per BTU, requires professional installation</p>
+
+            <h3>Window and Portable AC Units</h3>
+            <p>Window units mount in a window opening and are the most affordable option for cooling individual rooms (5,000-15,000 BTU). Portable AC units have wheels and an exhaust hose that vents through a window.</p>
+
+            <p><strong>Pros:</strong> Low cost ($150-600), easy DIY installation, portable</p>
+            <p><strong>Cons:</strong> Noisy, less efficient, blocks window, only cools one room, higher operating costs than central AC</p>
+
+            <h2>How Much Does Air Conditioning Cost?</h2>
+
+            <h3>Equipment and Installation Costs</h3>
+            <p>AC costs vary widely based on system type, size, efficiency, and installation complexity:</p>
+            <ul>
+                <li><strong>Window AC (8,000 BTU):</strong> $200-400 (DIY install)</li>
+                <li><strong>Portable AC (12,000 BTU):</strong> $300-600 (DIY install)</li>
+                <li><strong>Mini-split (12,000 BTU):</strong> $1,500-3,000 installed</li>
+                <li><strong>Central AC (3-ton, 14 SEER):</strong> $3,500-5,500 installed</li>
+                <li><strong>Central AC (3-ton, 18 SEER):</strong> $5,000-7,500 installed</li>
+                <li><strong>Central AC (5-ton, 20+ SEER):</strong> $7,000-12,000 installed</li>
+            </ul>
+
+            <p>Installation costs include labor, refrigerant, electrical work, and any ductwork modifications. Complex installations (attic units, long refrigerant line runs, electrical panel upgrades) can add $1,000-3,000.</p>
+
+            <h3>Monthly Operating Costs</h3>
+            <p>Operating costs depend on unit size, SEER rating, climate, electricity rates, and usage patterns. To calculate monthly costs:</p>
+
+            <p><strong>Monthly Cost = (BTU ÷ SEER) × Hours/Day × Days/Month × Electricity Rate ÷ 1,000</strong></p>
+
+            <p>Example: 36,000 BTU unit, 16 SEER, 8 hours/day, 30 days/month, $0.13/kWh:<br>
+            Monthly Cost = (36,000 ÷ 16) × 8 × 30 × 0.13 ÷ 1,000 = <strong>$87.75/month</strong></p>
+
+            <h3>Maintenance Costs</h3>
+            <p>Annual maintenance costs $100-200 for a tune-up (filter change, coil cleaning, refrigerant check). Neglecting maintenance reduces efficiency by 5-15% annually and shortens equipment life from 15-20 years to 10-12 years.</p>
+
+            <h2>How to Reduce Air Conditioning Costs</h2>
+
+            <h3>1. Upgrade Insulation and Air Sealing</h3>
+            <p>Improving insulation is the most cost-effective way to reduce cooling costs. Air sealing (caulking gaps, weatherstripping doors/windows) can cut cooling costs by 10-20%. Adding attic insulation from R-19 to R-38 can reduce cooling costs by 15-25% in hot climates. Payback period: 2-5 years.</p>
+
+            <h3>2. Use a Programmable or Smart Thermostat</h3>
+            <p>Programmable thermostats automatically raise temperatures when you're away or asleep, reducing runtime by 20-30%. Smart thermostats (Nest, Ecobee) learn your schedule, adjust based on occupancy, and can be controlled remotely. Average savings: $100-200/year. Cost: $50-250.</p>
+
+            <h3>3. Use Ceiling Fans</h3>
+            <p>Ceiling fans create a wind-chill effect that makes rooms feel 4-6°F cooler, allowing you to raise the thermostat by 4°F without sacrificing comfort. This reduces AC runtime and energy use by 30-40%. Ceiling fans cost only $10-30/year to operate vs. $500-1,500 for AC.</p>
+
+            <h3>4. Shade Windows and Install UV Film</h3>
+            <p>Window treatments (cellular shades, blackout curtains, solar screens) block heat gain by 30-50%. UV-blocking window film reduces heat gain by 40-70% while maintaining visibility. South- and west-facing windows benefit most. Payback period: 1-3 years.</p>
+
+            <h3>5. Service Your AC Regularly</h3>
+            <p>Annual professional maintenance keeps efficiency high. DIY tasks include: changing filters monthly during cooling season, cleaning outdoor coil fins annually, ensuring 2-3 feet of clearance around outdoor unit, and keeping indoor vents unblocked. A dirty filter alone can increase energy use by 15%.</p>
+
+            <h3>6. Consider a Zoning System</h3>
+            <p>HVAC zoning uses motorized dampers in ductwork to direct air only where needed. Instead of cooling your entire 2,500 sq ft home, you cool only the 1,000 sq ft you're using, cutting costs by 30-40%. Retrofit zoning systems cost $1,500-3,500. Best for multi-story homes or homes with unused rooms.</p>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>What size air conditioner do I need for my home?</h3>
+            <p>The standard rule of thumb is 20 BTU per square foot of living space. For a 1,500 sq ft home, you'd need approximately 30,000 BTU (2.5 tons). However, factors like climate zone, insulation quality, ceiling height, number of windows, and sun exposure can significantly affect requirements. In hot climates or poorly insulated homes, you may need 25-30 BTU per square foot. Use our calculator to get a customized estimate based on your specific conditions.</p>
+
+            <h3>What is SEER rating and why does it matter?</h3>
+            <p>SEER (Seasonal Energy Efficiency Ratio) measures how efficiently an air conditioner converts electricity into cooling. Higher SEER ratings mean greater efficiency and lower operating costs. The minimum SEER for new AC units is 14-15 depending on region, but high-efficiency models can reach 20-25+ SEER. A 16 SEER unit uses about 30% less energy than a 12 SEER unit. While high-SEER units cost more upfront, they pay for themselves through lower electricity bills over 5-10 years.</p>
+
+            <h3>How much does it cost to run an air conditioner per month?</h3>
+            <p>Monthly AC costs vary widely based on unit size, SEER rating, climate, electricity rates, and usage patterns. A typical 3-ton (36,000 BTU) central AC unit with 14 SEER running 8 hours/day costs approximately $100-200/month at $0.13/kWh. High-efficiency 20 SEER units can cut this by 30-40%. In hot climates like Arizona or Texas, costs can reach $250-400/month during peak summer. Use our calculator to estimate costs for your specific situation.</p>
+
+            <h3>Is it worth upgrading to a high-efficiency air conditioner?</h3>
+            <p>Yes, in most cases. A high-efficiency 18 SEER AC unit costs $1,500-3,000 more than a standard 14 SEER model but saves $200-500 annually on electricity bills. In hot climates with high usage, payback periods are 3-7 years. Additionally, high-SEER units qualify for federal tax credits (up to $600) and utility rebates ($200-1,000), reducing upfront costs. They also provide better comfort, quieter operation, and higher resale value.</p>
+
+            <h3>Should I oversize my air conditioner to cool faster?</h3>
+            <p>No—oversizing is a common mistake that causes problems. An oversized AC cools the air quickly but cycles on and off frequently (short-cycling), which prevents proper dehumidification, wastes energy, increases wear and tear, and reduces equipment lifespan. Proper sizing based on a load calculation ensures efficient operation, consistent comfort, and maximum equipment life.</p>
+
+            <p class="disclaimer">This calculator provides estimates for educational purposes only. Actual cooling requirements and costs may vary based on specific home characteristics, local climate conditions, and equipment specifications. For accurate sizing, consult an HVAC professional who can perform a Manual J load calculation.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CalcLeap. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a></p>
+    </footer>
+
+    <script>
+        function calculateAC() {
+            const sqft = parseFloat(document.getElementById('sqft').value) || 0;
+            const ceilingHeight = parseFloat(document.getElementById('ceilingHeight').value) || 8;
+            const insulation = document.getElementById('insulation').value;
+            const climate = document.getElementById('climate').value;
+            const sunExposure = document.getElementById('sunExposure').value;
+            const seer = parseFloat(document.getElementById('seer').value) || 14;
+            const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value) || 8;
+            const daysPerMonth = parseFloat(document.getElementById('daysPerMonth').value) || 30;
+            const electricityRate = parseFloat(document.getElementById('electricityRate').value) || 0.13;
+
+            if (sqft === 0) {
+                alert('Please enter square footage.');
+                return;
+            }
+
+            // Base BTU per square foot based on climate
+            let baseBTU = 20;
+            if (climate === 'mild') baseBTU = 16;
+            if (climate === 'moderate') baseBTU = 20;
+            if (climate === 'hot') baseBTU = 25;
+            if (climate === 'extreme') baseBTU = 30;
+
+            // Adjust for insulation
+            let insulationMultiplier = 1.0;
+            if (insulation === 'poor') insulationMultiplier = 1.35;
+            if (insulation === 'average') insulationMultiplier = 1.0;
+            if (insulation === 'good') insulationMultiplier = 0.85;
+            if (insulation === 'excellent') insulationMultiplier = 0.70;
+
+            // Adjust for ceiling height
+            let ceilingMultiplier = 1.0;
+            if (ceilingHeight === 9) ceilingMultiplier = 1.1;
+            if (ceilingHeight === 10) ceilingMultiplier = 1.25;
+            if (ceilingHeight === 12) ceilingMultiplier = 1.5;
+
+            // Adjust for sun exposure
+            let sunMultiplier = 1.0;
+            if (sunExposure === 'low') sunMultiplier = 0.9;
+            if (sunExposure === 'medium') sunMultiplier = 1.0;
+            if (sunExposure === 'high') sunMultiplier = 1.15;
+
+            // Calculate required BTU
+            const requiredBTU = Math.round(sqft * baseBTU * insulationMultiplier * ceilingMultiplier * sunMultiplier);
+            const tonnage = (requiredBTU / 12000).toFixed(1);
+            const btuPerSqFt = (requiredBTU / sqft).toFixed(1);
+
+            // Calculate operating costs
+            // Power consumption in watts = BTU / SEER
+            const powerWatts = requiredBTU / seer;
+            const powerKW = powerWatts / 1000;
+            const dailyKWh = powerKW * hoursPerDay;
+            const monthlyKWh = dailyKWh * daysPerMonth;
+            const dailyCost = dailyKWh * electricityRate;
+            const monthlyCost = monthlyKWh * electricityRate;
+            const annualCost = monthlyCost * 6; // Assume 6 months of cooling season
+
+            // Display results
+            document.getElementById('requiredBTU').textContent = requiredBTU.toLocaleString() + ' BTU/hr';
+            document.getElementById('tonnage').textContent = tonnage + ' tons';
+            document.getElementById('btuPerSqFt').textContent = btuPerSqFt + ' BTU/sq ft';
+            document.getElementById('powerConsumption').textContent = powerKW.toFixed(2) + ' kW';
+            document.getElementById('dailyCost').textContent = '$' + dailyCost.toFixed(2);
+            document.getElementById('monthlyCost').textContent = '$' + monthlyCost.toFixed(2);
+            document.getElementById('annualCost').textContent = '$' + annualCost.toFixed(2);
+
+            // Generate recommendation
+            let recText = `<strong>Unit Size:</strong> For your ${sqft.toLocaleString()} sq ft home, we recommend a ${tonnage}-ton (${requiredBTU.toLocaleString()} BTU) air conditioner. `;
+            
+            if (tonnage < 1.5) {
+                recText += `This is a small unit suitable for window AC or mini-split systems. `;
+            } else if (tonnage >= 1.5 && tonnage < 2.5) {
+                recText += `This is a standard size for small to medium homes. `;
+            } else if (tonnage >= 2.5 && tonnage < 4) {
+                recText += `This is a typical central AC size for medium to large homes. `;
+            } else {
+                recText += `This is a large system suitable for big homes or extreme climates. `;
+            }
+
+            recText += `<br><br><strong>Efficiency:</strong> `;
+            if (seer < 14) {
+                recText += `Your current ${seer} SEER unit is below current efficiency standards. Upgrading to a 16-18 SEER unit could save you $${(monthlyCost * 0.25).toFixed(0)}-$${(monthlyCost * 0.35).toFixed(0)}/month.`;
+            } else if (seer === 14) {
+                recText += `Your ${seer} SEER unit meets minimum efficiency standards. Upgrading to an 18 SEER unit could save you $${(monthlyCost * 0.22).toFixed(0)}/month.`;
+            } else if (seer >= 16 && seer < 20) {
+                recText += `Your ${seer} SEER unit is mid to high efficiency—good choice! You're already saving compared to older equipment.`;
+            } else {
+                recText += `Your ${seer} SEER unit is ultra-efficient—excellent! You're maximizing energy savings.`;
+            }
+
+            recText += `<br><br><strong>Cost Savings Tips:</strong> `;
+            if (insulation === 'poor') {
+                recText += `Your poor insulation significantly increases cooling costs. Consider upgrading attic insulation and air sealing—this could reduce your required AC size by 20-30% and cut monthly costs by $${(monthlyCost * 0.25).toFixed(0)}-$${(monthlyCost * 0.35).toFixed(0)}.`;
+            } else if (insulation === 'average') {
+                recText += `Improving insulation could reduce cooling costs by 10-15%. Consider adding attic insulation and sealing air leaks.`;
+            } else {
+                recText += `Your insulation is excellent! Focus on window shading, programmable thermostats, and regular maintenance to maximize efficiency.`;
+            }
+
+            document.getElementById('recText').innerHTML = recText;
+            document.getElementById('result').style.display = 'block';
+        }
+
+        // Calculate on page load
+        window.onload = function() {
+            calculateAC();
+        };
+    </script>
+</body>
+</html>
