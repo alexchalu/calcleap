@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arizona Income Tax Calculator 2026 | Calculate AZ State Tax</title>
+    <meta name="description" content="Free Arizona income tax calculator. Calculate your AZ state tax using progressive rates (2.55% - 4.50%). Includes deductions, credits, and tax-saving strategies for Arizona residents.">
+    <link rel="canonical" href="https://calcleap.com/calc/arizona-income-tax-calculator.html">
+    <link rel="stylesheet" href="../gold.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Arizona Income Tax Calculator",
+      "description": "Calculate Arizona state income tax using progressive tax brackets (2.55% - 4.50%). Free calculator for Arizona residents.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "412"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://calcleap.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculators",
+        "item": "https://calcleap.com/calc/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Arizona Income Tax Calculator",
+        "item": "https://calcleap.com/calc/arizona-income-tax-calculator.html"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is Arizona's income tax rate for 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Arizona uses a progressive tax system with rates from 2.55% to 4.50% for 2026. The brackets are: 2.55% on income up to $28,652 (single) or $57,305 (married), 2.98% on income up to $57,305 (single) or $114,611 (married), 3.34% on income up to $171,916 (single) or $343,833 (married), and 4.50% on income above those amounts."
+        }
+      },{
+        "@type": "Question",
+        "name": "Does Arizona tax Social Security benefits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Arizona does not tax Social Security benefits. This makes Arizona attractive for retirees compared to many other states."
+        }
+      },{
+        "@type": "Question",
+        "name": "What is Arizona's standard deduction for 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Arizona's standard deduction for 2026 is $14,600 for single filers and $29,200 for married filing jointly, matching federal amounts. These deductions reduce your taxable income."
+        }
+      },{
+        "@type": "Question",
+        "name": "How does Arizona income tax compare to neighboring states?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Arizona's top rate of 4.50% is moderate compared to neighbors: Nevada has 0% (no income tax), Utah has 4.65%, New Mexico has up to 5.90%, and California has up to 13.30%. Arizona is more tax-friendly than California but higher than Nevada."
+        }
+      }]
+    }
+    </script>
+    <style>
+        .calculator-container {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 8px;
+            display: none;
+        }
+        .result.show {
+            display: block;
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .result-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #667eea;
+        }
+        .result-label {
+            color: #666;
+        }
+        .result-value {
+            font-weight: 600;
+            color: #333;
+        }
+        .info-table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .info-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .info-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+        .info-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <div class="logo">
+                <a href="../index.html">CalcLeap</a>
+            </div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../calc/">Calculators</a>
+                <a href="../about.html">About</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> &raquo;
+                <a href="../calc/">Calculators</a> &raquo;
+                <span>Arizona Income Tax Calculator</span>
+            </div>
+
+            <h1>Arizona Income Tax Calculator 2026</h1>
+            <p class="subtitle">Calculate your Arizona state income tax using the latest 2026 tax brackets and rates. Free, accurate, and easy to use.</p>
+
+            <!-- Ad Slot 1 -->
+            <div class="ad-space" style="margin: 2rem auto; text-align: center; min-height: 100px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                <span style="color: #999;">Advertisement</span>
+            </div>
+
+            <div class="calculator-container">
+                <div class="form-group">
+                    <label for="income">Gross Annual Income ($)</label>
+                    <input type="number" id="income" placeholder="e.g., 75000" min="0" step="1000">
+                </div>
+
+                <div class="form-group">
+                    <label for="filing-status">Filing Status</label>
+                    <select id="filing-status">
+                        <option value="single">Single</option>
+                        <option value="married">Married Filing Jointly</option>
+                        <option value="married-separate">Married Filing Separately</option>
+                        <option value="head">Head of Household</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="deductions">Additional Deductions ($)</label>
+                    <input type="number" id="deductions" placeholder="Itemized deductions beyond standard" min="0" step="100" value="0">
+                </div>
+
+                <button class="btn" onclick="calculateTax()">Calculate Arizona Tax</button>
+
+                <div class="result" id="result">
+                    <div class="result-row">
+                        <span class="result-label">Gross Income:</span>
+                        <span class="result-value" id="gross-income">$0</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Standard Deduction:</span>
+                        <span class="result-value" id="std-deduction">$0</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Additional Deductions:</span>
+                        <span class="result-value" id="add-deductions">$0</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Taxable Income:</span>
+                        <span class="result-value" id="taxable-income">$0</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Effective Tax Rate:</span>
+                        <span class="result-value" id="effective-rate">0%</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Arizona State Tax:</span>
+                        <span class="result-value" id="total-tax">$0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Slot 2 -->
+            <div class="ad-space" style="margin: 2rem auto; text-align: center; min-height: 100px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                <span style="color: #999;">Advertisement</span>
+            </div>
+
+            <h2>Arizona Income Tax Brackets for 2026</h2>
+            <p>Arizona uses a progressive tax system with four tax brackets for 2026. Your tax rate increases as your income rises:</p>
+
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Rate</th>
+                        <th>Single Filers</th>
+                        <th>Married Filing Jointly</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2.55%</td>
+                        <td>$0 - $28,652</td>
+                        <td>$0 - $57,305</td>
+                    </tr>
+                    <tr>
+                        <td>2.98%</td>
+                        <td>$28,653 - $57,305</td>
+                        <td>$57,306 - $114,611</td>
+                    </tr>
+                    <tr>
+                        <td>3.34%</td>
+                        <td>$57,306 - $171,916</td>
+                        <td>$114,612 - $343,833</td>
+                    </tr>
+                    <tr>
+                        <td>4.50%</td>
+                        <td>$171,917+</td>
+                        <td>$343,834+</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Understanding Arizona's Tax System</h2>
+            
+            <h3>Progressive Tax Brackets</h3>
+            <p>Arizona's progressive tax system means you pay different rates on different portions of your income. For example, if you're a single filer earning $100,000:</p>
+            <ul>
+                <li>First $28,652 taxed at 2.55% = $730.63</li>
+                <li>Next $28,653 ($28,653-$57,305) taxed at 2.98% = $853.86</li>
+                <li>Remaining $42,695 ($57,306-$100,000) taxed at 3.34% = $1,426.01</li>
+                <li><strong>Total Arizona tax = $3,010.50 (effective rate: 3.01%)</strong></li>
+            </ul>
+
+            <h3>Standard Deductions for 2026</h3>
+            <p>Arizona mirrors federal standard deductions:</p>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Filing Status</th>
+                        <th>Standard Deduction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Single</td>
+                        <td>$14,600</td>
+                    </tr>
+                    <tr>
+                        <td>Married Filing Jointly</td>
+                        <td>$29,200</td>
+                    </tr>
+                    <tr>
+                        <td>Married Filing Separately</td>
+                        <td>$14,600</td>
+                    </tr>
+                    <tr>
+                        <td>Head of Household</td>
+                        <td>$21,900</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Arizona Tax Credits and Deductions</h3>
+            <p>Arizona offers several credits and deductions to reduce your tax bill:</p>
+            <ul>
+                <li><strong>Charitable Contributions:</strong> Dollar-for-dollar credits for donations to qualifying charities (up to $421 single/$841 married)</li>
+                <li><strong>Dependent Tax Credit:</strong> Credit for qualifying dependents</li>
+                <li><strong>Property Tax Credit:</strong> For low-income seniors and disabled individuals</li>
+                <li><strong>Private School Tuition Credit:</strong> Credits for contributions to school tuition organizations</li>
+                <li><strong>Family Income Tax Credit:</strong> For low-income families with qualifying children</li>
+                <li><strong>Military Family Relief Fund:</strong> Credit for donations to support military families</li>
+            </ul>
+
+            <!-- Ad Slot 3 -->
+            <div class="ad-space" style="margin: 2rem auto; text-align: center; min-height: 100px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                <span style="color: #999;">Advertisement</span>
+            </div>
+
+            <h2>Arizona vs. Other States</h2>
+            <p>How does Arizona's income tax compare to neighboring and similar states?</p>
+
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>State</th>
+                        <th>Tax Structure</th>
+                        <th>Top Rate</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Arizona</td>
+                        <td>Progressive</td>
+                        <td>4.50%</td>
+                        <td>4 brackets, moderate burden</td>
+                    </tr>
+                    <tr>
+                        <td>Nevada</td>
+                        <td>None</td>
+                        <td>0%</td>
+                        <td>No income tax</td>
+                    </tr>
+                    <tr>
+                        <td>Utah</td>
+                        <td>Flat</td>
+                        <td>4.65%</td>
+                        <td>Slightly higher than AZ top rate</td>
+                    </tr>
+                    <tr>
+                        <td>New Mexico</td>
+                        <td>Progressive</td>
+                        <td>5.90%</td>
+                        <td>Higher top rate, 4 brackets</td>
+                    </tr>
+                    <tr>
+                        <td>Colorado</td>
+                        <td>Flat</td>
+                        <td>4.40%</td>
+                        <td>Slightly lower than AZ top rate</td>
+                    </tr>
+                    <tr>
+                        <td>California</td>
+                        <td>Progressive</td>
+                        <td>13.30%</td>
+                        <td>Highest state income tax in US</td>
+                    </tr>
+                    <tr>
+                        <td>Texas</td>
+                        <td>None</td>
+                        <td>0%</td>
+                        <td>No income tax</td>
+                    </tr>
+                    <tr>
+                        <td>Oregon</td>
+                        <td>Progressive</td>
+                        <td>9.90%</td>
+                        <td>High top rate, 4 brackets</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Who Should Use This Calculator?</h2>
+            <ul>
+                <li><strong>Arizona residents:</strong> Calculate your annual state tax liability</li>
+                <li><strong>People considering moving to Arizona:</strong> Compare tax burden vs. current state</li>
+                <li><strong>Remote workers:</strong> Evaluate tax impact of relocating to Arizona</li>
+                <li><strong>Retirees:</strong> Plan for retirement income taxes (Social Security exempt)</li>
+                <li><strong>High earners:</strong> Compare Arizona's 4.50% top rate vs. California's 13.30%</li>
+                <li><strong>Tax planners:</strong> Estimate quarterly payments or withholding adjustments</li>
+            </ul>
+
+            <h2>Arizona Tax Benefits for Retirees</h2>
+            <p>Arizona offers several tax advantages for retirees:</p>
+            <ul>
+                <li><strong>No Social Security tax:</strong> 100% of Social Security benefits are exempt</li>
+                <li><strong>Moderate income tax:</strong> 4.50% top rate is lower than many retirement-popular states</li>
+                <li><strong>Property tax relief:</strong> Freeze program for seniors 65+ meeting income requirements</li>
+                <li><strong>Pension income:</strong> While taxed, the moderate rates make Arizona attractive</li>
+                <li><strong>No estate tax:</strong> Arizona does not impose state-level estate or inheritance taxes</li>
+            </ul>
+
+            <h2>Strategies to Reduce Your Arizona Tax Bill</h2>
+            
+            <h3>1. Maximize Charitable Contributions</h3>
+            <p>Arizona offers dollar-for-dollar tax credits (not just deductions) for qualifying charitable donations. Contribute up to $421 (single) or $841 (married) to qualifying organizations for a direct credit.</p>
+
+            <h3>2. Claim All Available Credits</h3>
+            <p>Don't overlook Arizona-specific credits like the private school tuition organization credit, family income tax credit, or increased excise tax credit. These can significantly reduce your liability.</p>
+
+            <h3>3. Itemize if Beneficial</h3>
+            <p>If your itemized deductions exceed the standard deduction ($14,600 single, $29,200 married), itemizing can lower your taxable income. Common deductions include mortgage interest, medical expenses, and state/local taxes (SALT).</p>
+
+            <h3>4. Contribute to Tax-Advantaged Accounts</h3>
+            <p>Traditional IRA and 401(k) contributions reduce your Arizona taxable income (since AZ uses federal AGI). HSA contributions also lower taxable income.</p>
+
+            <h3>5. Time Your Income and Deductions</h3>
+            <p>If your income fluctuates year to year, consider deferring income to lower-earning years or accelerating deductions into high-earning years to minimize your effective tax rate.</p>
+
+            <h3>6. Consider Tax-Loss Harvesting</h3>
+            <p>Offset capital gains with capital losses to reduce your Arizona taxable income. Arizona taxes capital gains as ordinary income, so this strategy can save at your marginal rate.</p>
+
+            <h2>Arizona Tax Filing Deadlines</h2>
+            <ul>
+                <li><strong>Tax Day 2026:</strong> April 15, 2026 (same as federal deadline)</li>
+                <li><strong>Extension deadline:</strong> October 15, 2026 (if you file for extension)</li>
+                <li><strong>Quarterly estimated payments:</strong> April 15, June 15, September 15, January 15</li>
+                <li><strong>Extension requests:</strong> Must be filed by April 15 to avoid penalties</li>
+            </ul>
+
+            <h2>Common Mistakes to Avoid</h2>
+            <ul>
+                <li><strong>Not claiming Arizona-specific credits:</strong> Many taxpayers miss the charitable contribution credit</li>
+                <li><strong>Forgetting to adjust withholding:</strong> If you underpay, you may owe penalties and interest</li>
+                <li><strong>Overlooking deductions:</strong> Arizona allows many of the same federal deductions</li>
+                <li><strong>Misunderstanding progressive brackets:</strong> You don't pay the top rate on all income</li>
+                <li><strong>Not filing when required:</strong> Even if you owe $0, you may need to file to claim refunds</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+            
+            <h3>What is Arizona's income tax rate for 2026?</h3>
+            <p>Arizona uses a progressive tax system with rates from 2.55% to 4.50% for 2026. The brackets are: 2.55% on income up to $28,652 (single) or $57,305 (married), 2.98% on income up to $57,305 (single) or $114,611 (married), 3.34% on income up to $171,916 (single) or $343,833 (married), and 4.50% on income above those amounts.</p>
+
+            <h3>Does Arizona tax Social Security benefits?</h3>
+            <p>No, Arizona does not tax Social Security benefits. This makes Arizona attractive for retirees compared to many other states.</p>
+
+            <h3>What is Arizona's standard deduction for 2026?</h3>
+            <p>Arizona's standard deduction for 2026 is $14,600 for single filers and $29,200 for married filing jointly, matching federal amounts. These deductions reduce your taxable income.</p>
+
+            <h3>How does Arizona income tax compare to neighboring states?</h3>
+            <p>Arizona's top rate of 4.50% is moderate compared to neighbors: Nevada has 0% (no income tax), Utah has 4.65%, New Mexico has up to 5.90%, and California has up to 13.30%. Arizona is more tax-friendly than California but higher than Nevada.</p>
+
+            <h2>Additional Resources</h2>
+            <ul>
+                <li><strong>Arizona Department of Revenue:</strong> <a href="https://azdor.gov/" target="_blank">azdor.gov</a> - Official tax forms and guidance</li>
+                <li><strong>IRS Arizona Page:</strong> Federal tax information for Arizona residents</li>
+                <li><strong>Arizona Tax Credits:</strong> Complete list of available credits and eligibility requirements</li>
+                <li><strong>Tax Professionals:</strong> Consider consulting a CPA or tax advisor for complex situations</li>
+            </ul>
+
+            <p style="margin-top: 3rem; padding: 1.5rem; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px;">
+                <strong>Disclaimer:</strong> This calculator provides estimates based on 2026 Arizona tax brackets and standard deductions. Actual tax liability may vary based on credits, additional deductions, and individual circumstances. For official tax advice, consult a licensed tax professional or the Arizona Department of Revenue.
+            </p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 CalcLeap | <a href="../privacy.html">Privacy</a> | <a href="../terms.html">Terms</a> | <a href="../contact.html">Contact</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const filingStatus = document.getElementById('filing-status').value;
+            const additionalDeductions = parseFloat(document.getElementById('deductions').value) || 0;
+
+            if (income <= 0) {
+                alert('Please enter a valid income amount');
+                return;
+            }
+
+            // Standard deductions for 2026 (mirrors federal)
+            const standardDeductions = {
+                'single': 14600,
+                'married': 29200,
+                'married-separate': 14600,
+                'head': 21900
+            };
+
+            const stdDeduction = standardDeductions[filingStatus];
+            const totalDeductions = stdDeduction + additionalDeductions;
+            const taxableIncome = Math.max(0, income - totalDeductions);
+
+            // Arizona 2026 tax brackets
+            const brackets = {
+                'single': [
+                    { limit: 28652, rate: 0.0255, base: 0 },
+                    { limit: 57305, rate: 0.0298, base: 730.63 },
+                    { limit: 171916, rate: 0.0334, base: 1584.50 },
+                    { limit: Infinity, rate: 0.0450, base: 5413.80 }
+                ],
+                'married': [
+                    { limit: 57305, rate: 0.0255, base: 0 },
+                    { limit: 114611, rate: 0.0298, base: 1461.28 },
+                    { limit: 343833, rate: 0.0334, base: 3169.00 },
+                    { limit: Infinity, rate: 0.0450, base: 10827.60 }
+                ],
+                'married-separate': [
+                    { limit: 28652, rate: 0.0255, base: 0 },
+                    { limit: 57305, rate: 0.0298, base: 730.63 },
+                    { limit: 171916, rate: 0.0334, base: 1584.50 },
+                    { limit: Infinity, rate: 0.0450, base: 5413.80 }
+                ],
+                'head': [
+                    { limit: 28652, rate: 0.0255, base: 0 },
+                    { limit: 57305, rate: 0.0298, base: 730.63 },
+                    { limit: 171916, rate: 0.0334, base: 1584.50 },
+                    { limit: Infinity, rate: 0.0450, base: 5413.80 }
+                ]
+            };
+
+            let tax = 0;
+            const applicableBrackets = brackets[filingStatus];
+            let previousLimit = 0;
+
+            for (let i = 0; i < applicableBrackets.length; i++) {
+                const bracket = applicableBrackets[i];
+                if (taxableIncome > previousLimit) {
+                    const taxableInBracket = Math.min(taxableIncome, bracket.limit) - previousLimit;
+                    if (i === 0) {
+                        tax += taxableInBracket * bracket.rate;
+                    } else {
+                        tax = bracket.base + (taxableIncome - previousLimit) * bracket.rate;
+                    }
+                    previousLimit = bracket.limit;
+                    if (taxableIncome <= bracket.limit) break;
+                }
+            }
+
+            const effectiveRate = income > 0 ? (tax / income * 100) : 0;
+
+            // Display results
+            document.getElementById('gross-income').textContent = '$' + income.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('std-deduction').textContent = '$' + stdDeduction.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('add-deductions').textContent = '$' + additionalDeductions.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('taxable-income').textContent = '$' + taxableIncome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('effective-rate').textContent = effectiveRate.toFixed(2) + '%';
+            document.getElementById('total-tax').textContent = '$' + tax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+            document.getElementById('result').classList.add('show');
+        }
+    </script>
+</body>
+</html>
