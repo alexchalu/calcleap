@@ -95,6 +95,21 @@
         .page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
         .page-desc{font-size:1.05rem;color:#666;line-height:1.5;margin-bottom:2rem;max-width:600px}
         
+        .footer{background:#1a1a1a;color:#e0e0e0;padding:2.5rem 0 1.5rem}
+        .footer-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+        .footer h4{color:#fff;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem;font-weight:600}
+        .footer a{display:block;color:#b0b0b0;text-decoration:none;margin-bottom:.5rem;font-size:.85rem;transition:color .2s}
+        .footer a:hover{color:#fff}
+        .footer .logo{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:#fff}
+        .footer .logo span{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .footer-bottom{border-top:1px solid #333;padding:1.25rem 2rem 0;max-width:1200px;margin:0 auto;text-align:center;font-size:.75rem;color:#888}
+        @media(max-width:768px){
+          .footer-inner{grid-template-columns:1fr 1fr}
+        }
+        @media(max-width:480px){
+          .footer-inner{grid-template-columns:1fr}
+        }
+        
         .calculator-container {
             max-width: 600px;
             margin: 0 auto 2rem auto;
@@ -606,5 +621,36 @@
             document.getElementById('result').classList.add('show');
         }
     </script>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="../index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="../bmi-calculator.html">BMI Calculator</a>
+      <a href="mortgage-payment.html">Mortgage</a>
+      <a href="../income-tax-calculator.html">Income Tax</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="../index.html#finance">Financial</a>
+      <a href="../index.html#insurance">Insurance</a>
+      <a href="../index.html#health">Health</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. For informational purposes only. Not tax advice.</p>
+  </div>
+</footer>
+
 </body>
 </html>
