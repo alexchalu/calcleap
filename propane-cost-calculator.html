@@ -1,553 +1,828 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Propane Cost Calculator - Estimate Your Propane Bill | CalcLeap</title>
-<meta name="description" content="Calculate propane costs per gallon, month, and year. Estimate tank refills, heating costs, and appliance usage. Free propane cost calculator with detailed breakdown.">
-<link rel="canonical" href="https://calcleap.com/propane-cost-calculator.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
-<meta property="og:title" content="Propane Cost Calculator — CalcLeap">
-<meta property="og:description" content="Calculate propane costs per gallon, month, and year. Estimate tank refills, heating costs, and appliance usage.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/propane-cost-calculator.html">
-<meta property="og:image" content="https://calcleap.com/og-default.png">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Propane Cost Calculator",
-    "description": "Calculate your propane costs by appliance or total usage. Estimate monthly and annual propane bills.",
-    "url": "https://calcleap.com/propane-cost-calculator.html",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
-}
-</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate my electricity cost?","acceptedAnswer":{"@type":"Answer","text":"Multiply the appliance wattage by hours of daily use, divide by 1,000 to get kWh, then multiply by your propane price (cents per kWh). For example, a 100W bulb running 10 hours/day at $0.16/kWh costs about $0.16/day or $4.80/month."}},{"@type":"Question","name":"What is the average propane price in the US?","acceptedAnswer":{"@type":"Answer","text":"The average US residential propane price is approximately 16.6 cents per kWh as of 2025, though rates vary significantly by state — from about 10 cents/kWh in states like Idaho and Utah to over 30 cents/kWh in Hawaii and Connecticut."}},{"@type":"Question","name":"How many kWh does the average US household use per month?","acceptedAnswer":{"@type":"Answer","text":"The average US household uses about 886 kWh per month, or roughly 10,632 kWh per year. This varies widely based on climate, home size, number of occupants, and appliance efficiency."}},{"@type":"Question","name":"What appliances use the most electricity?","acceptedAnswer":{"@type":"Answer","text":"The biggest electricity consumers are typically: central air conditioning (3,500W), electric water heaters (4,500W), electric dryers (5,000W), electric ovens/ranges (2,500W), and space heaters (1,500W). HVAC systems often account for 40-60% of total electricity usage."}},{"@type":"Question","name":"How can I reduce my electricity bill?","acceptedAnswer":{"@type":"Answer","text":"Top strategies include: switching to LED bulbs (save 75% vs incandescent), using a programmable thermostat (save 10-15%), upgrading to ENERGY STAR appliances, sealing air leaks, using power strips to eliminate phantom loads, washing clothes in cold water, and considering solar panels for long-term savings."}}]}</script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
-  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
-  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
-  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
-  --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
-.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb .sep{margin:0 .35rem;opacity:.4}
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
-.calc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-.input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1.25rem}
-.toggle-btn{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.calc-btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem}
-.calc-btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-.result-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem;display:none}
-.result-box.show{display:block;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-.result-card .value.accent{color:var(--accent)}
-.result-detail{font-size:.85rem;color:var(--text-2);padding:.4rem 0}
-.section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-.section p,.section li{font-size:.875rem;color:var(--text-2);line-height:1.65;margin-bottom:.5rem}
-.section ul{padding-left:1.25rem}
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
-.related-link:hover{border-color:var(--accent);color:var(--accent)}
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
-.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
-th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
-th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
-th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
-td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-.ad-slot{margin:1.5rem 0}
-.appliance-row{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.appliance-row:last-child{border-bottom:none}
-.appliance-name{flex:1;font-size:.85rem;font-weight:500}
-.appliance-input{width:70px;padding:.4rem .6rem;font-size:.85rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);text-align:center;outline:none}
-.appliance-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
-.appliance-cost{width:90px;text-align:right;font-size:.85rem;font-weight:600;color:var(--text-3)}
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
-.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
-.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
-.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
-.footer a:hover{color:var(--text)}
-.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
-.footer-bottom p{font-size:.72rem;color:var(--text-3)}
-@media(max-width:768px){
-  .nav-links{display:none}
-  .page{padding:0 1.25rem}
-  .page-title{font-size:1.75rem}
-  .input-grid{grid-template-columns:1fr}
-  .related-grid{grid-template-columns:1fr 1fr}
-  .result-grid{grid-template-columns:1fr 1fr}
-  .footer-inner{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .related-grid{grid-template-columns:1fr}
-  .result-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propane Cost Calculator - Calculate Propane Usage & Expenses | CalcLeap</title>
+    <meta name="description" content="Calculate propane costs, estimate monthly usage, compare delivery options, and understand BTU requirements. Free propane calculator with detailed breakdown.">
+    <link rel="canonical" href="https://calcleap.com/propane-cost-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Propane Cost Calculator - Estimate Propane Expenses">
+    <meta property="og:description" content="Calculate propane costs, estimate monthly usage, and compare delivery options with our free propane cost calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/propane-cost-calculator.html">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Propane Cost Calculator",
+        "description": "Calculate propane costs, estimate monthly usage, and understand BTU requirements",
+        "url": "https://calcleap.com/propane-cost-calculator.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much does propane cost per gallon?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Propane prices vary by region, season, and delivery method. As of 2026, typical prices range from $2.00 to $4.50 per gallon. Remote areas pay more due to delivery costs. Pre-buy contracts in summer often offer lower rates than winter fill-ups when demand peaks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does a 100-gallon propane tank last?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A 100-gallon propane tank (80 gallons usable) typically lasts 1-3 months for an average home using propane for heating, hot water, and cooking. In winter months with heavy heating use, it may last 4-6 weeks. Summer usage (cooking and hot water only) can extend a tank to 3-4 months."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it cheaper to refill or exchange propane tanks?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Refilling is almost always cheaper than exchange for small tanks. Exchanges typically give you 15 lbs of propane in a 20-lb tank, while refills give you the full 20 lbs. Refill costs average $15-20 for 20 lbs versus $20-25 for exchange (which only provides 15 lbs). For large home tanks, refills are standard."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much propane does a house use per month?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Average monthly propane usage varies by season and appliances. Winter months (heating): 80-150 gallons. Summer months (no heating): 10-30 gallons. Annual average for a 2,000 sq ft home using propane for heating, hot water, cooking, and dryer: 800-1,200 gallons per year, or 65-100 gallons per month."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://calcleap.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Propane Cost Calculator",
+                "item": "https://calcleap.com/propane-cost-calculator.html"
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        .calc-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .btn-calculate {
+            background: #007bff;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .btn-calculate:hover {
+            background: #0056b3;
+        }
+        .results {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            display: none;
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .result-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #007bff;
+        }
+        .result-label {
+            font-weight: 600;
+        }
+        .content-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .content-section h2 {
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .content-section h3 {
+            color: #555;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .faq-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+        .faq-item h3 {
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="index.html#finance">Finance</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#tax">Tax</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-      <a href="index.html#dev">Dev Tools</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
-</nav>
-
-<div class="page" id="main-content" role="main">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#finance">Finance</a><span class="sep">›</span>⚡ Propane Cost Calculator
-  </div>
-
-  <h1 class="page-title">⚡ Propane Cost Calculator</h1>
-  <p class="page-desc">Calculate your propane costs by appliance or total usage. Estimate daily, monthly, and annual propane bills based on wattage, usage hours, and your local propane price.</p>
-
-  <!-- Calculator Mode Toggle -->
-  <div class="calc-card">
-    <h2>Calculate Your Electricity Costs</h2>
-    <div class="toggle-group">
-      <button class="toggle-btn active" onclick="setMode('simple')">Simple Calculator</button>
-      <button class="toggle-btn" onclick="setMode('appliance')">By Appliance</button>
-    </div>
-
-    <!-- Simple Mode -->
-    <div id="simpleMode">
-      <div class="input-grid">
-        <div class="input-group">
-          <label for="kwh">Monthly Usage (kWh)</label>
-          <input type="number" id="kwh" value="886" min="0" placeholder="886" aria-label="886">
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html" class="logo">CalcLeap</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#calculators">Calculators</a></li>
+            </ul>
         </div>
-        <div class="input-group">
-          <label for="rate">Electricity Rate (¢/kWh)</label>
-          <input type="number" id="rate" value="16.6" min="0" step="0.1" placeholder="16.6" aria-label="16.6">
+    </nav>
+
+    <main>
+        <div class="calc-container">
+            <h1>Propane Cost Calculator</h1>
+            <p>Calculate your propane expenses based on usage, tank size, and local pricing. Estimate monthly costs and compare delivery options.</p>
+            
+            <div class="input-group">
+                <label for="pricePerGallon">Price per Gallon ($)</label>
+                <input type="number" id="pricePerGallon" value="3.50" step="0.01" min="0">
+            </div>
+            
+            <div class="input-group">
+                <label for="calculationType">Calculation Type</label>
+                <select id="calculationType">
+                    <option value="usage">Based on Monthly Usage</option>
+                    <option value="tank">Based on Tank Fill</option>
+                    <option value="appliance">Based on Appliances</option>
+                </select>
+            </div>
+            
+            <div id="usageInputs">
+                <div class="input-group">
+                    <label for="monthlyUsage">Monthly Usage (gallons)</label>
+                    <input type="number" id="monthlyUsage" value="80" min="0">
+                </div>
+            </div>
+            
+            <div id="tankInputs" style="display:none;">
+                <div class="input-group">
+                    <label for="tankSize">Tank Size (gallons)</label>
+                    <select id="tankSize">
+                        <option value="100">100 gallons (420 lbs)</option>
+                        <option value="250">250 gallons (1,000 lbs)</option>
+                        <option value="500">500 gallons (2,000 lbs)</option>
+                        <option value="1000">1,000 gallons (4,000 lbs)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="fillPercentage">Fill Percentage (%)</label>
+                    <input type="number" id="fillPercentage" value="80" min="1" max="100">
+                </div>
+            </div>
+            
+            <div id="applianceInputs" style="display:none;">
+                <div class="input-group">
+                    <label for="heatingBtu">Furnace/Heater (BTU/hr)</label>
+                    <input type="number" id="heatingBtu" value="75000" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="heatingHours">Heating Hours per Month</label>
+                    <input type="number" id="heatingHours" value="200" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="waterHeaterBtu">Water Heater (BTU/hr)</label>
+                    <input type="number" id="waterHeaterBtu" value="40000" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="waterHeaterHours">Water Heater Hours per Month</label>
+                    <input type="number" id="waterHeaterHours" value="120" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="cookingBtu">Cooking (BTU/hr)</label>
+                    <input type="number" id="cookingBtu" value="15000" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="cookingHours">Cooking Hours per Month</label>
+                    <input type="number" id="cookingHours" value="30" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="dryerBtu">Dryer (BTU/hr)</label>
+                    <input type="number" id="dryerBtu" value="20000" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="dryerHours">Dryer Hours per Month</label>
+                    <input type="number" id="dryerHours" value="20" min="0">
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="deliveryFee">Delivery/Service Fee ($)</label>
+                <input type="number" id="deliveryFee" value="50" min="0" step="0.01">
+            </div>
+            
+            <button class="btn-calculate" onclick="calculatePropaneCost()">Calculate Propane Cost</button>
+            
+            <div class="results" id="results">
+                <h2>Cost Breakdown</h2>
+                <div class="result-row">
+                    <span class="result-label">Monthly Usage:</span>
+                    <span id="resultUsage">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Propane Cost:</span>
+                    <span id="resultPropaneCost">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Delivery/Service Fee:</span>
+                    <span id="resultDeliveryFee">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Total Monthly Cost:</span>
+                    <span id="resultTotal">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Annual Cost:</span>
+                    <span id="resultAnnual">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Cost per Day:</span>
+                    <span id="resultDaily">-</span>
+                </div>
+            </div>
         </div>
-        <div class="input-group">
-          <label for="fixedCharge">Fixed Monthly Charges ($)</label>
-          <input type="number" id="fixedCharge" value="12" min="0" step="0.01" placeholder="12.00" aria-label="12.00">
+
+        <div class="content-section">
+            <h2>Understanding Propane Costs</h2>
+            <p>Propane is a versatile fuel used by millions of American homes for heating, hot water, cooking, and appliances. Unlike natural gas, which is delivered via pipeline, propane requires tank storage and periodic refills or deliveries. Understanding your propane costs helps you budget effectively and identify opportunities for savings.</p>
+            
+            <p>Propane pricing is more volatile than natural gas because it depends on wholesale markets, seasonal demand, delivery logistics, and regional supply. Prices typically peak in winter months when heating demand is highest and drop in summer when only cooking and hot water use continues.</p>
+
+            <h3>Propane Pricing Factors</h3>
+            <p>Several factors influence what you pay for propane:</p>
+            <ul>
+                <li><strong>Wholesale propane prices:</strong> Set by national and regional markets, influenced by crude oil prices and supply/demand</li>
+                <li><strong>Delivery distance:</strong> Remote rural areas pay significantly more per gallon due to transportation costs</li>
+                <li><strong>Tank size and ownership:</strong> Larger tanks and customer-owned tanks often receive better per-gallon pricing</li>
+                <li><strong>Purchase timing:</strong> Pre-buy or locked-in summer contracts offer lower rates than emergency winter fills</li>
+                <li><strong>Purchase volume:</strong> Larger orders (300+ gallons) typically cost less per gallon than small fills</li>
+                <li><strong>Competition:</strong> Areas with multiple suppliers have lower prices than monopoly markets</li>
+                <li><strong>Contract type:</strong> Fixed-price contracts offer stability; market-rate contracts fluctuate</li>
+            </ul>
+
+            <h3>Typical Propane Prices by Region (2026)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Region</th>
+                        <th>Winter Price Range</th>
+                        <th>Summer Price Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Northeast (NY, PA, VT)</td>
+                        <td>$3.80 - $4.50/gal</td>
+                        <td>$2.80 - $3.50/gal</td>
+                    </tr>
+                    <tr>
+                        <td>Midwest (WI, MN, IA)</td>
+                        <td>$3.20 - $3.90/gal</td>
+                        <td>$2.40 - $3.00/gal</td>
+                    </tr>
+                    <tr>
+                        <td>South (TX, GA, FL)</td>
+                        <td>$2.80 - $3.40/gal</td>
+                        <td>$2.20 - $2.80/gal</td>
+                    </tr>
+                    <tr>
+                        <td>West (CA, OR, WA)</td>
+                        <td>$3.50 - $4.20/gal</td>
+                        <td>$2.70 - $3.30/gal</td>
+                    </tr>
+                    <tr>
+                        <td>Remote/Rural</td>
+                        <td>$4.00 - $5.50/gal</td>
+                        <td>$3.20 - $4.20/gal</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>How Much Propane Do You Use?</h2>
+            <p>Propane consumption varies dramatically based on what appliances you're running and how heavily you use them. Here's a breakdown of typical usage:</p>
+
+            <h3>Average Propane Usage by Appliance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Appliance</th>
+                        <th>BTU/Hour</th>
+                        <th>Gallons per Hour</th>
+                        <th>Typical Monthly Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Furnace (75,000 BTU)</td>
+                        <td>75,000</td>
+                        <td>0.82 gal/hr</td>
+                        <td>150-200 gal (winter)</td>
+                    </tr>
+                    <tr>
+                        <td>Water Heater (40,000 BTU)</td>
+                        <td>40,000</td>
+                        <td>0.44 gal/hr</td>
+                        <td>20-30 gal</td>
+                    </tr>
+                    <tr>
+                        <td>Cooking Range (15,000 BTU)</td>
+                        <td>15,000</td>
+                        <td>0.16 gal/hr</td>
+                        <td>4-8 gal</td>
+                    </tr>
+                    <tr>
+                        <td>Clothes Dryer (20,000 BTU)</td>
+                        <td>20,000</td>
+                        <td>0.22 gal/hr</td>
+                        <td>3-6 gal</td>
+                    </tr>
+                    <tr>
+                        <td>Fireplace (30,000 BTU)</td>
+                        <td>30,000</td>
+                        <td>0.33 gal/hr</td>
+                        <td>10-20 gal</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><em>Note: Propane contains approximately 91,500 BTUs per gallon. Appliance efficiency and usage patterns affect actual consumption.</em></p>
+
+            <h3>Seasonal Usage Patterns</h3>
+            <p>Understanding seasonal patterns helps you predict costs and plan for deliveries:</p>
+            
+            <p><strong>Winter months (November - March):</strong> Peak usage due to heating. A typical 2,000 sq ft home might use 80-150 gallons per month. In extremely cold climates, usage can exceed 200 gallons per month.</p>
+            
+            <p><strong>Summer months (June - August):</strong> Minimal usage for cooking, hot water, and dryer only. Typical usage drops to 10-30 gallons per month. This is the best time to lock in pre-buy contracts at lower prices.</p>
+            
+            <p><strong>Shoulder seasons (April-May, September-October):</strong> Moderate usage as occasional heating or air conditioning (if propane-powered) runs. Monthly usage typically 30-60 gallons.</p>
+
+            <h2>Propane Tank Sizes and Costs</h2>
+            <p>Propane tanks come in various sizes, each suited to different usage levels and installation types:</p>
+
+            <h3>Common Residential Tank Sizes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tank Size</th>
+                        <th>Usable Capacity</th>
+                        <th>Best For</th>
+                        <th>Typical Fill Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>20 lb (BBQ tank)</td>
+                        <td>4.7 gallons</td>
+                        <td>Grills, portable heaters</td>
+                        <td>$15-25 (refill)</td>
+                    </tr>
+                    <tr>
+                        <td>100 gallons</td>
+                        <td>80 gallons</td>
+                        <td>Cooking + hot water only</td>
+                        <td>$240-360</td>
+                    </tr>
+                    <tr>
+                        <td>250 gallons</td>
+                        <td>200 gallons</td>
+                        <td>Small homes, minimal heating</td>
+                        <td>$600-900</td>
+                    </tr>
+                    <tr>
+                        <td>500 gallons</td>
+                        <td>400 gallons</td>
+                        <td>Average home, full propane</td>
+                        <td>$1,200-1,800</td>
+                    </tr>
+                    <tr>
+                        <td>1,000 gallons</td>
+                        <td>800 gallons</td>
+                        <td>Large homes, heavy use</td>
+                        <td>$2,400-3,600</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><em>Note: Tanks are only filled to 80% capacity for safety (propane expands with temperature). Prices based on $3.00-4.50/gallon average.</em></p>
+
+            <h3>Tank Ownership vs. Leasing</h3>
+            <p><strong>Company-owned tanks (most common):</strong></p>
+            <ul>
+                <li>Free or low-cost installation</li>
+                <li>No maintenance costs</li>
+                <li>Locked to one supplier (switching is difficult)</li>
+                <li>Typically higher per-gallon prices</li>
+                <li>May have minimum purchase requirements</li>
+            </ul>
+
+            <p><strong>Customer-owned tanks:</strong></p>
+            <ul>
+                <li>Upfront purchase cost: $400-3,000 depending on size</li>
+                <li>Shop for best propane prices from any supplier</li>
+                <li>Lower per-gallon costs (savings of $0.20-0.60/gallon)</li>
+                <li>Responsible for maintenance and inspections</li>
+                <li>Payback period: 2-5 years depending on usage</li>
+            </ul>
+
+            <h2>Reducing Propane Costs</h2>
+            <p>Strategic purchasing and efficiency improvements can significantly lower your propane expenses:</p>
+
+            <h3>Buying Strategies</h3>
+            <ul>
+                <li><strong>Pre-buy contracts:</strong> Lock in summer prices (often 15-30% lower than winter) for delivery throughout the year</li>
+                <li><strong>Budget plans:</strong> Fixed monthly payments spread costs evenly, avoiding large winter bills</li>
+                <li><strong>Price cap contracts:</strong> Set a maximum price with ability to pay less if market drops</li>
+                <li><strong>Comparison shopping:</strong> If you own your tank, get quotes from 3-5 suppliers annually</li>
+                <li><strong>Bulk purchases:</strong> Fill large tanks when prices are low rather than frequent small fills</li>
+                <li><strong>Group buying:</strong> Coordinate with neighbors for volume discounts</li>
+            </ul>
+
+            <h3>Efficiency Improvements</h3>
+            <ul>
+                <li><strong>Furnace maintenance:</strong> Annual tune-ups improve efficiency by 5-15%, saving 8-23 gallons per 150-gallon winter month</li>
+                <li><strong>Programmable thermostat:</strong> Reduce heating during sleeping/away hours to save 10-15% annually (120-180 gallons for 1,200 annual use)</li>
+                <li><strong>Insulation upgrades:</strong> Attic, wall, and basement insulation reduce heating needs by 20-40% (240-480 gallons/year)</li>
+                <li><strong>Tankless water heater:</strong> Replace tank models to save 20-30% on hot water costs (4-9 gallons/month)</li>
+                <li><strong>High-efficiency appliances:</strong> 90%+ efficiency furnaces use 10-20% less propane than older 70-80% models</li>
+                <li><strong>Air sealing:</strong> Seal gaps, cracks, and drafts to reduce heating losses by 10-20% (120-240 gallons/year)</li>
+            </ul>
+
+            <h3>Usage Optimization</h3>
+            <ul>
+                <li>Lower water heater temperature from 140°F to 120°F (saves 3-5 gallons/month)</li>
+                <li>Use cold water for laundry when possible</li>
+                <li>Run dishwasher only when full</li>
+                <li>Use lids when cooking to reduce gas consumption</li>
+                <li>Close fireplace damper when not in use</li>
+                <li>Zone heating: heat only occupied rooms</li>
+            </ul>
+
+            <h2>When to Schedule Propane Delivery</h2>
+            <p>Proper timing prevents expensive emergency fills and ensures continuous supply:</p>
+
+            <h3>Monitoring Your Tank Level</h3>
+            <p>Most propane tanks have a gauge showing percentage full. Schedule delivery when your tank reaches:</p>
+            <ul>
+                <li><strong>30% (winter):</strong> Schedule delivery to ensure supply during cold snaps and avoid running out</li>
+                <li><strong>20% (summer):</strong> Less urgency, but don't go below 20% to avoid sludge issues and maintain vapor pressure</li>
+                <li><strong>Below 20%:</strong> Risk of running out and incurring emergency delivery fees ($75-200 extra)</li>
+            </ul>
+
+            <h3>Estimating When You'll Need a Refill</h3>
+            <p>Track your usage patterns:</p>
+            <ul>
+                <li>Note the date and tank level of each delivery</li>
+                <li>Calculate gallons used and days elapsed</li>
+                <li>Determine average gallons per day for different seasons</li>
+                <li>Project when your tank will reach 30% based on current usage</li>
+            </ul>
+            
+            <p><strong>Example:</strong> Your 500-gallon tank was filled to 400 gallons (80%) on November 1. On January 15 (75 days later), it reads 40% (200 gallons used). Average usage: 200 ÷ 75 = 2.67 gallons/day. Current level: 40% × 500 = 200 gallons. To reach 30% (150 gallons): 50 gallons ÷ 2.67 gal/day = 19 days. Schedule delivery for early February.</p>
+
+            <h3>Automatic Delivery vs. Will-Call</h3>
+            <p><strong>Automatic delivery:</strong></p>
+            <ul>
+                <li>Supplier monitors your usage and schedules deliveries automatically</li>
+                <li>Never worry about running out</li>
+                <li>May require you to accept delivery even if you would have preferred to wait for lower prices</li>
+                <li>Often required with company-owned tanks</li>
+            </ul>
+
+            <p><strong>Will-call (customer orders as needed):</strong></p>
+            <ul>
+                <li>You monitor your tank and call when you want delivery</li>
+                <li>More control over timing and price shopping</li>
+                <li>Risk of running out if you forget to check or order late</li>
+                <li>Emergency fees apply if you run out</li>
+                <li>Better for customers who actively manage energy costs</li>
+            </ul>
+
+            <h2>Propane vs. Other Heating Fuels</h2>
+            <p>How does propane compare to alternatives in cost and efficiency?</p>
+
+            <h3>Cost Comparison (per million BTU delivered)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fuel Type</th>
+                        <th>Typical Price Range</th>
+                        <th>Cost per Million BTU</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Natural Gas</td>
+                        <td>$12-18/thousand cubic feet</td>
+                        <td>$12-18</td>
+                    </tr>
+                    <tr>
+                        <td>Propane</td>
+                        <td>$2.50-4.50/gallon</td>
+                        <td>$27-49</td>
+                    </tr>
+                    <tr>
+                        <td>Heating Oil</td>
+                        <td>$3.50-5.00/gallon</td>
+                        <td>$25-36</td>
+                    </tr>
+                    <tr>
+                        <td>Electricity (heat pump)</td>
+                        <td>$0.12-0.22/kWh, COP 2.5</td>
+                        <td>$14-31</td>
+                    </tr>
+                    <tr>
+                        <td>Electricity (baseboard)</td>
+                        <td>$0.12-0.22/kWh</td>
+                        <td>$35-64</td>
+                    </tr>
+                    <tr>
+                        <td>Wood Pellets</td>
+                        <td>$250-350/ton</td>
+                        <td>$15-21</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>When Propane Makes Sense</h3>
+            <ul>
+                <li><strong>No natural gas service:</strong> Propane is often the most practical choice for rural areas without gas lines</li>
+                <li><strong>High-efficiency appliances:</strong> Modern 95%+ efficiency propane furnaces narrow the cost gap with natural gas</li>
+                <li><strong>Backup power:</strong> Propane generators provide reliable backup when electricity fails</li>
+                <li><strong>Cooking quality:</strong> Many chefs prefer propane/gas cooking for precise temperature control</li>
+                <li><strong>Off-grid living:</strong> Propane works without electrical infrastructure</li>
+            </ul>
+
+            <h3>When to Consider Alternatives</h3>
+            <ul>
+                <li><strong>Natural gas available:</strong> If your property can connect to natural gas, it's typically 40-60% cheaper per BTU</li>
+                <li><strong>Heat pumps in mild climates:</strong> In areas with mild winters, cold-climate heat pumps offer lower operating costs</li>
+                <li><strong>High electricity costs:</strong> If electricity is cheap (<$0.12/kWh), heat pumps become competitive with propane</li>
+                <li><strong>Environmental concerns:</strong> Heat pumps powered by renewable electricity have lower carbon footprint</li>
+            </ul>
+
+            <h2>Safety and Maintenance</h2>
+            <p>Propane is safe when properly handled, but requires some basic precautions:</p>
+
+            <h3>Safety Guidelines</h3>
+            <ul>
+                <li>Install propane detectors near sleeping areas and propane-using appliances</li>
+                <li>Know the smell of propane (rotten eggs/skunk-like) and what to do if you detect it</li>
+                <li>If you smell gas: no flames, no switches, evacuate immediately, call supplier from outside</li>
+                <li>Keep tank area clear of weeds, debris, and combustible materials</li>
+                <li>Never store propane tanks indoors or in enclosed spaces</li>
+                <li>Ensure proper ventilation for all propane appliances</li>
+            </ul>
+
+            <h3>Regular Maintenance</h3>
+            <ul>
+                <li><strong>Annual furnace inspection:</strong> Check burners, heat exchanger, venting</li>
+                <li><strong>Tank inspection:</strong> Required every 10 years for above-ground, every 5 years for underground</li>
+                <li><strong>Leak checks:</strong> Periodically inspect connections with soap solution (bubbles indicate leaks)</li>
+                <li><strong>Regulator check:</strong> Ensure proper pressure regulation</li>
+                <li><strong>Valve maintenance:</strong> Ensure tank valves operate smoothly</li>
+            </ul>
+
+            <h2>Environmental Considerations</h2>
+            <p>Propane is a relatively clean-burning fossil fuel:</p>
+
+            <h3>Carbon Footprint</h3>
+            <ul>
+                <li>Propane produces about 139 lbs CO₂ per million BTU</li>
+                <li>Natural gas: 117 lbs CO₂ per million BTU (16% cleaner)</li>
+                <li>Heating oil: 161 lbs CO₂ per million BTU (16% dirtier)</li>
+                <li>Electricity varies widely based on grid source (coal: 215 lbs; renewables: near 0)</li>
+            </ul>
+
+            <h3>Efficiency and Clean Air</h3>
+            <ul>
+                <li>Propane produces minimal particulate matter compared to wood or oil</li>
+                <li>High-efficiency propane furnaces (95%+) reduce both costs and emissions</li>
+                <li>Propane produces no methane leaks during distribution (unlike natural gas pipelines)</li>
+                <li>Qualifies for some renewable/clean energy incentives when sourced as renewable propane (from biological sources)</li>
+            </ul>
+
+            <h2>Using This Calculator Effectively</h2>
+            <p>This calculator offers three modes to estimate your propane costs:</p>
+
+            <h3>1. Usage-Based Calculation</h3>
+            <p>If you know your average monthly usage from past bills or tank monitoring, this is the most accurate method. Simply enter your monthly gallons used and current price per gallon.</p>
+
+            <h3>2. Tank Fill Calculation</h3>
+            <p>Calculate the cost of filling your tank based on its size and how much you're filling it (typically 80% of capacity). Useful for budgeting delivery costs.</p>
+
+            <h3>3. Appliance-Based Calculation</h3>
+            <p>Estimate usage by listing your propane appliances and how much you use them. This method helps identify which appliances consume the most and where efficiency improvements might help.</p>
+
+            <p><strong>Tips for accurate results:</strong></p>
+            <ul>
+                <li>Use actual price quotes from your supplier (prices vary significantly by region and season)</li>
+                <li>Include all fees (delivery, hazmat, fuel surcharges) in price per gallon or delivery fee field</li>
+                <li>For appliance method, check BTU ratings on appliance nameplates or manuals</li>
+                <li>Adjust seasonal usage — winter heating usage is 3-5× summer usage for most homes</li>
+                <li>Save calculations from month to month to track trends and validate estimates</li>
+            </ul>
         </div>
-      </div>
-      <button class="calc-btn" onclick="calcSimple()">Calculate Electric Bill</button>
-    </div>
 
-    <!-- Appliance Mode -->
-    <div id="applianceMode" style="display:none">
-      <div class="input-group" style="max-width:300px;margin-bottom:1rem">
-        <label for="appRate">Your Electricity Rate (¢/kWh)</label>
-        <input type="number" id="appRate" value="16.6" min="0" step="0.1" aria-label="App Rate">
-      </div>
-      <div style="font-size:.78rem;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.02em;margin-bottom:.5rem;display:flex;gap:.75rem">
-        <span style="flex:1">Appliance</span>
-        <span style="width:70px;text-align:center">Watts</span>
-        <span style="width:70px;text-align:center">Hrs/Day</span>
-        <span style="width:90px;text-align:right">$/Month</span>
-      </div>
-      <div id="applianceList"></div>
-      <div style="margin-top:.75rem;display:flex;gap:.5rem">
-        <button class="calc-btn" onclick="calcAppliances()">Calculate All</button>
-        <button class="calc-btn" style="background:var(--bg);color:var(--text-2);border:1px solid var(--border)" onclick="addCustomAppliance()">+ Add Appliance</button>
-      </div>
-    </div>
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>How much does propane cost per gallon?</h3>
+                <p>Propane prices vary by region, season, and delivery method. As of 2026, typical prices range from $2.00 to $4.50 per gallon. Remote areas pay more due to delivery costs. Pre-buy contracts in summer often offer lower rates than winter fill-ups when demand peaks.</p>
+            </div>
 
-    <div class="result-box" id="result"></div>
-  </div>
+            <div class="faq-item">
+                <h3>How long does a 100-gallon propane tank last?</h3>
+                <p>A 100-gallon propane tank (80 gallons usable) typically lasts 1-3 months for an average home using propane for heating, hot water, and cooking. In winter months with heavy heating use, it may last 4-6 weeks. Summer usage (cooking and hot water only) can extend a tank to 3-4 months.</p>
+            </div>
 
-  <!-- Ad Slot -->
-  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+            <div class="faq-item">
+                <h3>Is it cheaper to refill or exchange propane tanks?</h3>
+                <p>Refilling is almost always cheaper than exchange for small tanks. Exchanges typically give you 15 lbs of propane in a 20-lb tank, while refills give you the full 20 lbs. Refill costs average $15-20 for 20 lbs versus $20-25 for exchange (which only provides 15 lbs). For large home tanks, refills are standard.</p>
+            </div>
 
-  <!-- Educational Content -->
-  <div class="section">
-    <h3>Understanding Your Electricity Bill</h3>
-    <p>Your electricity bill is primarily determined by three factors: how much energy you use (measured in kilowatt-hours or kWh), the rate your utility charges per kWh, and fixed monthly service charges. The average American household consumes about 886 kWh per month, resulting in an average monthly bill of around $147.</p>
-    <p>A kilowatt-hour (kWh) represents the energy consumed by a 1,000-watt appliance running for one hour. To calculate the cost of running any appliance, multiply its wattage by the number of hours you use it, divide by 1,000 to convert to kWh, then multiply by your propane price.</p>
-    <p><strong>Formula:</strong> Cost = (Watts × Hours per day × 30 days) ÷ 1,000 × Rate per kWh</p>
-  </div>
+            <div class="faq-item">
+                <h3>How much propane does a house use per month?</h3>
+                <p>Average monthly propane usage varies by season and appliances. Winter months (heating): 80-150 gallons. Summer months (no heating): 10-30 gallons. Annual average for a 2,000 sq ft home using propane for heating, hot water, cooking, and dryer: 800-1,200 gallons per year, or 65-100 gallons per month.</p>
+            </div>
 
-  <div class="section">
-    <h3>Average Electricity Rates by State (2025)</h3>
-    <p>Electricity rates vary dramatically across the United States. Here are rates for select states to help you estimate your costs more accurately:</p>
-    <div style="overflow-x:auto">
-      <table>
-        <tr><th>State</th><th>Avg Rate (¢/kWh)</th><th>Avg Monthly Bill</th></tr>
-        <tr><td>Hawaii</td><td>43.5¢</td><td>$385</td></tr>
-        <tr><td>Connecticut</td><td>29.5¢</td><td>$261</td></tr>
-        <tr><td>Massachusetts</td><td>28.6¢</td><td>$253</td></tr>
-        <tr><td>California</td><td>27.3¢</td><td>$242</td></tr>
-        <tr><td>New York</td><td>22.6¢</td><td>$200</td></tr>
-        <tr><td>New Jersey</td><td>18.4¢</td><td>$163</td></tr>
-        <tr><td>Florida</td><td>15.5¢</td><td>$137</td></tr>
-        <tr><td>Texas</td><td>14.2¢</td><td>$126</td></tr>
-        <tr><td>Ohio</td><td>13.8¢</td><td>$122</td></tr>
-        <tr><td>Washington</td><td>11.2¢</td><td>$99</td></tr>
-        <tr><td>Idaho</td><td>10.1¢</td><td>$89</td></tr>
-        <tr><td>Utah</td><td>10.5¢</td><td>$93</td></tr>
-      </table>
-    </div>
-    <p style="margin-top:.75rem;font-size:.8rem;color:var(--text-3)">Source: U.S. Energy Information Administration (EIA), 2025 residential averages.</p>
-  </div>
+            <div class="faq-item">
+                <h3>Should I own or lease my propane tank?</h3>
+                <p>Leasing (supplier-owned) is simpler with no upfront cost but locks you to one supplier and higher per-gallon prices. Owning your tank costs $400-3,000 upfront but lets you shop around for better prices (typically saving $0.20-0.60/gallon). For high-usage homes, tank ownership pays for itself in 2-5 years.</p>
+            </div>
 
-  <div class="section">
-    <h3>Top Energy-Saving Tips</h3>
-    <ul>
-      <li><strong>Switch to LED bulbs</strong> — LED lights use 75% less energy than incandescent bulbs and last 25 times longer. Replacing 20 bulbs can save $200+/year.</li>
-      <li><strong>Use a programmable thermostat</strong> — Setting your thermostat back 7-10°F for 8 hours/day can save up to 10% on heating and cooling costs annually.</li>
-      <li><strong>Upgrade to ENERGY STAR appliances</strong> — ENERGY STAR certified appliances use 10-50% less energy. A new ENERGY STAR refrigerator can save $100+/year vs. a 15-year-old model.</li>
-      <li><strong>Seal air leaks</strong> — Weatherstripping and caulking around windows and doors can reduce heating/cooling costs by 15-30%.</li>
-      <li><strong>Use power strips</strong> — Phantom loads from electronics in standby mode account for 5-10% of household energy use. Smart power strips eliminate this waste.</li>
-      <li><strong>Wash clothes in cold water</strong> — About 90% of a washing machine's energy goes to heating water. Cold water washing saves $60-100/year.</li>
-      <li><strong>Air dry when possible</strong> — Using a clothesline or drying rack instead of a dryer can save $100-200/year.</li>
-      <li><strong>Consider solar panels</strong> — Depending on your location and roof, solar panels can eliminate 50-100% of your electricity bill with a typical payback period of 6-10 years.</li>
-    </ul>
-  </div>
+            <div class="faq-item">
+                <h3>When should I schedule a propane delivery?</h3>
+                <p>Schedule delivery when your tank reaches 30% in winter or 20% in summer. Going below 20% risks running out and can cause tank issues. Track your usage rate (gallons per day) to predict when you'll need a refill. Emergency deliveries cost $75-200 extra, so don't wait too long.</p>
+            </div>
 
-  <div class="section">
-    <h3>Common Appliance Energy Usage</h3>
-    <p>Understanding which appliances consume the most electricity helps you target the biggest savings opportunities. Here's a breakdown of typical wattage and monthly costs at the national average rate of 16.6¢/kWh:</p>
-    <div style="overflow-x:auto">
-      <table>
-        <tr><th>Appliance</th><th>Watts</th><th>Typical Daily Use</th><th>Monthly Cost</th></tr>
-        <tr><td>Central Air Conditioner</td><td>3,500W</td><td>8 hrs</td><td>$139.44</td></tr>
-        <tr><td>Electric Water Heater</td><td>4,500W</td><td>3 hrs</td><td>$67.23</td></tr>
-        <tr><td>Electric Dryer</td><td>5,000W</td><td>1 hr</td><td>$24.90</td></tr>
-        <tr><td>Refrigerator</td><td>150W</td><td>24 hrs</td><td>$17.93</td></tr>
-        <tr><td>Electric Oven</td><td>2,500W</td><td>1 hr</td><td>$12.45</td></tr>
-        <tr><td>Dishwasher</td><td>1,800W</td><td>1 hr</td><td>$8.96</td></tr>
-        <tr><td>Washing Machine</td><td>500W</td><td>1 hr</td><td>$2.49</td></tr>
-        <tr><td>Desktop Computer</td><td>200W</td><td>8 hrs</td><td>$7.97</td></tr>
-        <tr><td>LED TV (55")</td><td>80W</td><td>5 hrs</td><td>$1.99</td></tr>
-        <tr><td>LED Light Bulb</td><td>10W</td><td>8 hrs</td><td>$0.40</td></tr>
-        <tr><td>Space Heater</td><td>1,500W</td><td>8 hrs</td><td>$59.76</td></tr>
-        <tr><td>Window AC Unit</td><td>1,200W</td><td>8 hrs</td><td>$47.81</td></tr>
-      </table>
-    </div>
-  </div>
+            <div class="faq-item">
+                <h3>How can I reduce my propane costs?</h3>
+                <p>Key strategies include: (1) Pre-buy contracts in summer for 15-30% savings, (2) Improve home insulation and air sealing to reduce heating needs by 20-40%, (3) Maintain furnace annually for 5-15% efficiency gain, (4) Use programmable thermostat to reduce heating when away/sleeping, (5) Shop around if you own your tank, (6) Consider tank ownership for long-term savings.</p>
+            </div>
 
-  <!-- Ad Slot 2 -->
-  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+            <div class="faq-item">
+                <h3>How do I convert BTUs to gallons of propane?</h3>
+                <p>Propane contains approximately 91,500 BTUs per gallon. To convert appliance BTU ratings to gallons per hour: divide BTU/hour by 91,500. For example, a 75,000 BTU/hr furnace uses 0.82 gallons per hour (75,000 ÷ 91,500 = 0.82). Multiply by hours of operation to estimate consumption.</p>
+            </div>
+        </div>
 
-  <!-- Related Tools -->
-  <div class="section">
-    <h3>Related Calculators</h3>
-    <div class="related-grid">
-      <a href="ev-vs-gas-calculator.html" class="related-link">🚗 EV vs Gas Calculator</a>
-      <a href="solar-panel-calculator.html" class="related-link">☀️ Solar Panel ROI</a>
-      <a href="home-insurance-calculator.html" class="related-link">🏡 Home Insurance</a>
-      <a href="calc/mortgage-payment.html" class="related-link">💳 Mortgage Payment</a>
-      <a href="budget-calculator.html" class="related-link">💰 Budget Calculator</a>
-      <a href="heloc-payment-calculator.html" class="related-link">🏦 HELOC Payment</a>
-    </div>
-  </div>
+        <div class="content-section">
+            <h2>Plan Your Energy Budget</h2>
+            <p>Use this calculator regularly to track your propane costs and identify trends. Compare actual usage to estimates to validate your calculations and adjust your budget. For other energy cost calculations, explore our <a href="electricity-cost-calculator.html">electricity cost calculator</a> and <a href="natural-gas-cost-calculator.html">natural gas cost calculator</a>.</p>
+        </div>
+    </main>
 
-  <!-- FAQ -->
-  <div class="section">
-    <h3>Frequently Asked Questions</h3>
-    <div class="faq-item">
-      <div class="faq-q">How do I calculate my electricity cost?</div>
-      <div class="faq-a">Multiply the appliance wattage by hours of daily use, divide by 1,000 to get kWh, then multiply by your propane price (cents per kWh). For example, a 100W bulb running 10 hours/day at $0.16/kWh costs about $0.16/day or $4.80/month.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What is the average propane price in the US?</div>
-      <div class="faq-a">The average US residential propane price is approximately 16.6 cents per kWh as of 2025, though rates vary significantly by state — from about 10 cents/kWh in states like Idaho and Utah to over 30 cents/kWh in Hawaii and Connecticut.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How many kWh does the average US household use per month?</div>
-      <div class="faq-a">The average US household uses about 886 kWh per month, or roughly 10,632 kWh per year. This varies widely based on climate, home size, number of occupants, and appliance efficiency.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What appliances use the most electricity?</div>
-      <div class="faq-a">The biggest electricity consumers are typically: central air conditioning (3,500W), electric water heaters (4,500W), electric dryers (5,000W), electric ovens/ranges (2,500W), and space heaters (1,500W). HVAC systems often account for 40-60% of total electricity usage.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How can I reduce my electricity bill?</div>
-      <div class="faq-a">Top strategies include: switching to LED bulbs (save 75% vs incandescent), using a programmable thermostat (save 10-15%), upgrading to ENERGY STAR appliances, sealing air leaks, using power strips to eliminate phantom loads, washing clothes in cold water, and considering solar panels for long-term savings.</div>
-    </div>
-  </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. Free calculators for smarter decisions.</p>
+        </div>
+    </footer>
 
-  <!-- Ad Slot 3 -->
-  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <script>
+        // Toggle input sections based on calculation type
+        document.getElementById('calculationType').addEventListener('change', function() {
+            const type = this.value;
+            document.getElementById('usageInputs').style.display = type === 'usage' ? 'block' : 'none';
+            document.getElementById('tankInputs').style.display = type === 'tank' ? 'block' : 'none';
+            document.getElementById('applianceInputs').style.display = type === 'appliance' ? 'block' : 'none';
+        });
 
-</div>
-
-<script>
-const defaultAppliances = [
-  { name: 'Central Air Conditioner', watts: 3500, hours: 4 },
-  { name: 'Electric Water Heater', watts: 4500, hours: 3 },
-  { name: 'Refrigerator', watts: 150, hours: 24 },
-  { name: 'Electric Dryer', watts: 5000, hours: 0.5 },
-  { name: 'Washing Machine', watts: 500, hours: 0.5 },
-  { name: 'Dishwasher', watts: 1800, hours: 1 },
-  { name: 'Electric Oven/Range', watts: 2500, hours: 0.5 },
-  { name: 'Microwave', watts: 1200, hours: 0.25 },
-  { name: 'Desktop Computer', watts: 200, hours: 6 },
-  { name: 'Laptop', watts: 65, hours: 6 },
-  { name: 'LED TV (55")', watts: 80, hours: 4 },
-  { name: 'Wi-Fi Router', watts: 12, hours: 24 },
-  { name: 'LED Light Bulbs (10)', watts: 100, hours: 6 },
-  { name: 'Space Heater', watts: 1500, hours: 0 },
-  { name: 'Window AC Unit', watts: 1200, hours: 0 },
-  { name: 'Ceiling Fan', watts: 75, hours: 8 },
-  { name: 'Hair Dryer', watts: 1800, hours: 0.1 },
-  { name: 'Electric Vehicle Charger', watts: 7200, hours: 0 }
-];
-
-let appliances = [...defaultAppliances];
-
-function setMode(mode) {
-  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById('simpleMode').style.display = mode === 'simple' ? 'block' : 'none';
-  document.getElementById('applianceMode').style.display = mode === 'appliance' ? 'block' : 'none';
-  document.getElementById('result').classList.remove('show');
-  document.getElementById('result').style.display = 'none';
-  if (mode === 'appliance') renderAppliances();
-}
-
-function renderAppliances() {
-  const list = document.getElementById('applianceList');
-  list.innerHTML = appliances.map((a, i) => `
-    <div class="appliance-row">
-      <span class="appliance-name">${a.name}</span>
-      <input class="appliance-input" type="number" min="0" value="${a.watts}" onchange="appliances[${i}].watts=+this.value">
-      <input class="appliance-input" type="number" min="0" step="0.25" value="${a.hours}" onchange="appliances[${i}].hours=+this.value">
-      <span class="appliance-cost" id="appCost${i}">—</span>
-    </div>
-  `).join('');
-}
-
-function addCustomAppliance() {
-  const name = prompt('Appliance name:');
-  if (!name) return;
-  const watts = parseFloat(prompt('Wattage:', '100')) || 100;
-  const hours = parseFloat(prompt('Hours per day:', '1')) || 1;
-  appliances.push({ name, watts, hours });
-  renderAppliances();
-}
-
-function fmt(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
-function fmtN(n) { return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
-
-function calcSimple() {
-  const kwh = parseFloat(document.getElementById('kwh').value) || 0;
-  const rate = parseFloat(document.getElementById('rate').value) || 0;
-  const fixed = parseFloat(document.getElementById('fixedCharge').value) || 0;
-  const rateDollar = rate / 100;
-  const monthly = (kwh * rateDollar) + fixed;
-  const daily = monthly / 30;
-  const annual = monthly * 12;
-
-  const r = document.getElementById('result');
-  r.innerHTML = `
-    <h3 style="margin-bottom:.75rem">Your Estimated Electric Bill</h3>
-    <div class="result-grid">
-      <div class="result-card"><div class="label">Daily Cost</div><div class="value">${fmt(daily)}</div></div>
-      <div class="result-card"><div class="label">Monthly Bill</div><div class="value accent">${fmt(monthly)}</div></div>
-      <div class="result-card"><div class="label">Annual Cost</div><div class="value">${fmt(annual)}</div></div>
-      <div class="result-card"><div class="label">Monthly kWh</div><div class="value">${fmtN(kwh)}</div></div>
-    </div>
-    <div style="margin-top:1rem">
-      <div class="result-detail"><strong>Energy charges:</strong> ${fmt(kwh * rateDollar)}/month</div>
-      <div class="result-detail"><strong>Fixed charges:</strong> ${fmt(fixed)}/month</div>
-      <div class="result-detail"><strong>Cost per kWh:</strong> ${rate}¢</div>
-      <div class="result-detail"><strong>Daily usage:</strong> ${(kwh/30).toFixed(1)} kWh</div>
-    </div>
-    ${buildComparisonChart(monthly)}
-    ${buildSavingsTips(annual)}
-  `;
-  r.style.display = 'block';
-  r.classList.add('show');
-  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function calcAppliances() {
-  const rate = (parseFloat(document.getElementById('appRate').value) || 16.6) / 100;
-  let totalMonthly = 0;
-  const breakdown = [];
-
-  appliances.forEach((a, i) => {
-    const kwhDay = (a.watts * a.hours) / 1000;
-    const monthly = kwhDay * 30 * rate;
-    totalMonthly += monthly;
-    breakdown.push({ name: a.name, monthly, kwhDay });
-    const el = document.getElementById('appCost' + i);
-    if (el) el.textContent = monthly > 0 ? fmt(monthly) : '—';
-  });
-
-  breakdown.sort((a, b) => b.monthly - a.monthly);
-  const topItems = breakdown.filter(b => b.monthly > 0);
-  const maxVal = topItems.length > 0 ? topItems[0].monthly : 1;
-
-  let barChart = '<div style="margin-top:1.25rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem">Cost Breakdown by Appliance</h3>';
-  topItems.forEach(item => {
-    const pct = Math.round((item.monthly / maxVal) * 100);
-    barChart += `<div style="margin-bottom:.6rem">
-      <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.2rem">
-        <span style="color:var(--text-2)">${item.name}</span>
-        <span style="font-weight:600">${fmt(item.monthly)}/mo</span>
-      </div>
-      <div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden">
-        <div style="width:${pct}%;height:100%;background:var(--accent);border-radius:6px;transition:width .5s ease"></div>
-      </div>
-    </div>`;
-  });
-  barChart += '</div>';
-
-  const totalDaily = totalMonthly / 30;
-  const totalAnnual = totalMonthly * 12;
-  const totalKwh = topItems.reduce((s, i) => s + i.kwhDay * 30, 0);
-
-  const r = document.getElementById('result');
-  r.innerHTML = `
-    <h3 style="margin-bottom:.75rem">Your Estimated Electricity Costs</h3>
-    <div class="result-grid">
-      <div class="result-card"><div class="label">Daily Cost</div><div class="value">${fmt(totalDaily)}</div></div>
-      <div class="result-card"><div class="label">Monthly Cost</div><div class="value accent">${fmt(totalMonthly)}</div></div>
-      <div class="result-card"><div class="label">Annual Cost</div><div class="value">${fmt(totalAnnual)}</div></div>
-      <div class="result-card"><div class="label">Monthly kWh</div><div class="value">${fmtN(totalKwh)}</div></div>
-    </div>
-    ${barChart}
-    ${buildSavingsTips(totalAnnual)}
-  `;
-  r.style.display = 'block';
-  r.classList.add('show');
-  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function buildComparisonChart(monthly) {
-  const natAvg = 147;
-  const items = [
-    { label: 'Your Estimated Bill', value: monthly, color: 'var(--accent)' },
-    { label: 'US National Average', value: natAvg, color: '#86868b' }
-  ];
-  const max = Math.max(...items.map(i => i.value), 1);
-  let html = '<div style="margin-top:1.25rem"><h3 style="font-size:.9rem;font-weight:600;margin-bottom:.75rem">How You Compare</h3>';
-  items.forEach(item => {
-    const pct = Math.round((item.value / max) * 100);
-    html += `<div style="margin-bottom:.6rem">
-      <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.2rem">
-        <span style="color:var(--text-2)">${item.label}</span>
-        <span style="font-weight:600">${fmt(item.value)}/mo</span>
-      </div>
-      <div style="background:rgba(0,0,0,.04);border-radius:6px;height:8px;overflow:hidden">
-        <div style="width:${pct}%;height:100%;background:${item.color};border-radius:6px;transition:width .5s ease"></div>
-      </div>
-    </div>`;
-  });
-  const diff = monthly - natAvg;
-  if (diff > 0) {
-    html += `<p style="font-size:.85rem;color:#ef4444;margin-top:.5rem">Your bill is <strong>${fmt(diff)}</strong> above the national average (${fmt(diff*12)}/year more).</p>`;
-  } else {
-    html += `<p style="font-size:.85rem;color:#22c55e;margin-top:.5rem">Your bill is <strong>${fmt(Math.abs(diff))}</strong> below the national average (${fmt(Math.abs(diff)*12)}/year savings).</p>`;
-  }
-  html += '</div>';
-  return html;
-}
-
-function buildSavingsTips(annual) {
-  const ledSavings = Math.round(annual * 0.08);
-  const thermostatSavings = Math.round(annual * 0.12);
-  const phantomSavings = Math.round(annual * 0.07);
-  return `
-    <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)">
-      <h3 style="font-size:.9rem;font-weight:600;margin-bottom:.5rem">💡 Potential Savings</h3>
-      <div class="result-detail">🔆 <strong>Switch to LED bulbs:</strong> Save ~${fmt(ledSavings)}/year</div>
-      <div class="result-detail">🌡️ <strong>Smart thermostat:</strong> Save ~${fmt(thermostatSavings)}/year</div>
-      <div class="result-detail">🔌 <strong>Eliminate phantom loads:</strong> Save ~${fmt(phantomSavings)}/year</div>
-      <div class="result-detail" style="margin-top:.5rem;color:var(--accent);font-weight:600">Total potential savings: ~${fmt(ledSavings+thermostatSavings+phantomSavings)}/year</div>
-    </div>
-  `;
-}
-
-// Auto-init appliance list
-renderAppliances();
-</script>
-
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="index.html#finance">Financial</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#health">Health</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
-
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
-<div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
-</div>
-</div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+        function calculatePropaneCost() {
+            const pricePerGallon = parseFloat(document.getElementById('pricePerGallon').value);
+            const deliveryFee = parseFloat(document.getElementById('deliveryFee').value);
+            const calculationType = document.getElementById('calculationType').value;
+            
+            let monthlyGallons = 0;
+            
+            if (calculationType === 'usage') {
+                monthlyGallons = parseFloat(document.getElementById('monthlyUsage').value);
+            } else if (calculationType === 'tank') {
+                const tankSize = parseFloat(document.getElementById('tankSize').value);
+                const fillPercentage = parseFloat(document.getElementById('fillPercentage').value);
+                monthlyGallons = (tankSize * fillPercentage) / 100;
+            } else if (calculationType === 'appliance') {
+                // Calculate BTU usage from appliances
+                const heatingBtu = parseFloat(document.getElementById('heatingBtu').value) || 0;
+                const heatingHours = parseFloat(document.getElementById('heatingHours').value) || 0;
+                const waterHeaterBtu = parseFloat(document.getElementById('waterHeaterBtu').value) || 0;
+                const waterHeaterHours = parseFloat(document.getElementById('waterHeaterHours').value) || 0;
+                const cookingBtu = parseFloat(document.getElementById('cookingBtu').value) || 0;
+                const cookingHours = parseFloat(document.getElementById('cookingHours').value) || 0;
+                const dryerBtu = parseFloat(document.getElementById('dryerBtu').value) || 0;
+                const dryerHours = parseFloat(document.getElementById('dryerHours').value) || 0;
+                
+                // Total BTU per month
+                const totalBtu = (heatingBtu * heatingHours) + 
+                                 (waterHeaterBtu * waterHeaterHours) + 
+                                 (cookingBtu * cookingHours) + 
+                                 (dryerBtu * dryerHours);
+                
+                // Convert BTU to gallons (91,500 BTU per gallon of propane)
+                monthlyGallons = totalBtu / 91500;
+            }
+            
+            // Calculate costs
+            const propaneCost = monthlyGallons * pricePerGallon;
+            const totalMonthlyCost = propaneCost + deliveryFee;
+            const annualCost = totalMonthlyCost * 12;
+            const dailyCost = totalMonthlyCost / 30;
+            
+            // Display results
+            document.getElementById('resultUsage').textContent = monthlyGallons.toFixed(1) + ' gallons';
+            document.getElementById('resultPropaneCost').textContent = '$' + propaneCost.toFixed(2);
+            document.getElementById('resultDeliveryFee').textContent = '$' + deliveryFee.toFixed(2);
+            document.getElementById('resultTotal').textContent = '$' + totalMonthlyCost.toFixed(2);
+            document.getElementById('resultAnnual').textContent = '$' + annualCost.toFixed(2);
+            document.getElementById('resultDaily').textContent = '$' + dailyCost.toFixed(2);
+            
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
