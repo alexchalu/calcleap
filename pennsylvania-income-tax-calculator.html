@@ -1,547 +1,1067 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pennsylvania Income Tax Calculator 2026 - Free PA Tax Estimator | CalcLeap</title>
-<meta name="description" content="Calculate Pennsylvania state income tax for 2026. Free PA tax calculator with federal tax, take-home pay, and tax brackets. Accurate, easy to use.">
-<link rel="canonical" href="https://calcleap.com/pennsylvania-income-tax-calculator.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/pennsylvania-income-tax-calculator.html">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-
-<style>
-
-/* === CalcLeap Apple Design System === */
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
-  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
-  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
-  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
-  --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
-
-/* === NAV === */
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
-.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
-
-/* === LAYOUT === */
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb .sep{margin:0 .35rem;opacity:.4}
-
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
-
-/* === CALCULATOR CARD === */
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.3rem}
-.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
-.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-.toggle-row{display:flex;gap:.5rem;margin-bottom:1.25rem}
-.toggle-btn{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
-.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* === RESULTS === */
-.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-.bmi-big{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-.bmi-label{font-size:1.1rem;font-weight:600;margin-top:.25rem}
-.bmi-advice{font-size:.875rem;color:var(--text-2);margin-top:.75rem;line-height:1.6}
-
-.gauge{margin:1.5rem 0;position:relative}
-.gauge-bar{display:flex;height:10px;border-radius:100px;overflow:hidden;gap:2px}
-.gauge-seg{height:100%;border-radius:100px}
-.gauge-marker{position:absolute;top:-4px;width:3px;height:18px;background:var(--text);border-radius:2px;transform:translateX(-50%);transition:left .4s ease;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-.gauge-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-3);margin-top:.4rem;padding:0 .1rem}
-
-.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.stat-row:last-child{border-bottom:none}
-.stat-label{font-size:.85rem;color:var(--text-2)}
-.stat-value{font-size:.95rem;font-weight:700}
-
-/* === AD === */
-.ad-slot{margin:1.5rem 0}
-
-/* === INFO SECTIONS === */
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
-th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
-th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
-th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
-td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
-
-/* FAQ */
-.faq{border-top:1px solid var(--border);padding:.85rem 0}
-.faq:last-child{border-bottom:none}
-.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
-.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
-
-/* Related */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
-.related-link:hover{border-color:var(--accent);color:var(--accent)}
-
-/* === FOOTER === */
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
-.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
-.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
-.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
-.footer a:hover{color:var(--text)}
-.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
-.footer-bottom p{font-size:.72rem;color:var(--text-3)}
-
-/* === RESPONSIVE === */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .page{padding:0 1.25rem}
-  .page-title{font-size:1.75rem}
-  .form-row{grid-template-columns:1fr}
-  .related-grid{grid-template-columns:1fr 1fr}
-  .footer-inner{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .related-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-}
-
-
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
-@media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
-}
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
-</style>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pennsylvania Income Tax Calculator 2026 - PA State Tax Estimator</title>
+    <meta name="description" content="Free Pennsylvania income tax calculator for 2026. Calculate PA state income tax with our accurate PA tax calculator. Includes local EIT rates and tax-free income sources.">
+    <link rel="canonical" href="https://calcleap.com/pennsylvania-income-tax-calculator.html">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Pennsylvania Income Tax Calculator",
+      "description": "Calculate Pennsylvania state income tax with our free PA tax calculator for 2026.",
+      "url": "https://calcleap.com/pennsylvania-income-tax-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Pennsylvania state income tax rate for 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pennsylvania has a flat income tax rate of 3.07% for 2026. This rate applies to all taxable income regardless of filing status or income level. PA is one of only eight states with a flat tax structure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What income is exempt from PA state tax?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pennsylvania exempts several income sources from state tax: Social Security benefits, retirement account distributions (401k, IRA, pension), unemployment compensation, life insurance proceeds, child support, workers' compensation, disability payments from employer plans, and lottery/gambling winnings. However, local Earned Income Tax (EIT) may still apply to some sources."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Pennsylvania local Earned Income Tax (EIT)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pennsylvania local Earned Income Tax (EIT) is a municipal tax levied by cities, townships, boroughs, and school districts. Rates typically range from 1% to 3.8398% depending on location. Philadelphia has the highest rate at 3.8398% (city wage tax). EIT applies only to wages, salaries, and business income - not to retirement income, interest, or dividends."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to pay PA tax if I work remotely for an out-of-state employer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are a Pennsylvania resident working remotely for an out-of-state employer, you must pay PA state income tax (3.07%) on your wages. You may also owe local EIT to your municipality. However, PA has reciprocal agreements with Indiana, Maryland, New Jersey, Ohio, Virginia, and West Virginia - residents of those states working in PA do not pay PA tax on wages."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calcleap.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Financial Calculators",
+          "item": "https://calcleap.com/#financial"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Pennsylvania Income Tax Calculator",
+          "item": "https://calcleap.com/pennsylvania-income-tax-calculator.html"
+        }
+      ]
+    }
+    </script>
+    
+    <style>
+        .tax-calc-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .calc-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #003B5C;
+        }
+        
+        .calc-header h1 {
+            color: #003B5C;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .calc-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .input-section {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #003B5C;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #003B5C;
+        }
+        
+        .btn-calculate {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #003B5C 0%, #005A8C 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,59,92,0.3);
+        }
+        
+        .results-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .results-section.show {
+            display: block;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #003B5C;
+        }
+        
+        .result-label {
+            font-weight: 600;
+            color: #003B5C;
+        }
+        
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #005A8C;
+        }
+        
+        .result-highlight {
+            background: linear-gradient(135deg, #003B5C 0%, #005A8C 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .result-highlight .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-highlight .value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .info-box {
+            background: #E3F2FD;
+            border-left: 4px solid #1976D2;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .info-box h3 {
+            color: #1976D2;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .eit-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #ddd;
+        }
+        
+        .location-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .location-card {
+            padding: 1rem;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        
+        .location-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: #003B5C;
+        }
+        
+        .location-card .rate {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #005A8C;
+        }
+        
+        .content-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            line-height: 1.8;
+        }
+        
+        .content-section h2 {
+            color: #003B5C;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #E3F2FD;
+        }
+        
+        .content-section h3 {
+            color: #005A8C;
+            margin-top: 1.5rem;
+        }
+        
+        .content-section ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #003B5C;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #003B5C;
+        }
+        
+        .comparison-card h3 {
+            margin-top: 0;
+            color: #003B5C;
+        }
+        
+        @media (max-width: 768px) {
+            .tax-calc-container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .calc-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .location-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="index.html#finance">Finance</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#tax">Tax</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-      <a href="index.html#dev">Dev Tools</a>
-      <a href="about.html">About</a>
+    <div class="tax-calc-container">
+        <div class="calc-header">
+            <h1>🧮 Pennsylvania Income Tax Calculator 2026</h1>
+            <p class="calc-subtitle">Calculate your PA state income tax and local EIT</p>
+        </div>
+        
+        <div class="input-section">
+            <div class="form-group">
+                <label for="income">Annual Taxable Income ($)</label>
+                <input type="number" id="income" placeholder="e.g., 75000" min="0" step="1000">
+            </div>
+            
+            <div class="form-group">
+                <label for="eitRate">Local Earned Income Tax (EIT) Rate (%)</label>
+                <input type="number" id="eitRate" placeholder="e.g., 1.5" min="0" max="4" step="0.01" value="1.5">
+                <small style="color: #666; display: block; margin-top: 0.5rem;">
+                    Average PA local EIT: 1.5%. Philadelphia: 3.8398%. Look up your municipality's rate for accuracy.
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <label for="retirementIncome">Retirement Income (Tax-Exempt) ($)</label>
+                <input type="number" id="retirementIncome" placeholder="e.g., 20000" min="0" step="1000" value="0">
+                <small style="color: #666; display: block; margin-top: 0.5rem;">
+                    Include: IRA, 401k, pension, Social Security - these are PA tax-exempt
+                </small>
+            </div>
+            
+            <button class="btn-calculate" onclick="calculateTax()">Calculate PA Tax</button>
+        </div>
+        
+        <div class="results-section" id="results">
+            <h2 style="text-align: center; color: #003B5C; margin-top: 0;">Your Pennsylvania Tax Breakdown</h2>
+            
+            <div class="result-item">
+                <span class="result-label">Taxable Income</span>
+                <span class="result-value" id="taxableIncome">$0</span>
+            </div>
+            
+            <div class="result-item">
+                <span class="result-label">PA State Tax (3.07%)</span>
+                <span class="result-value" id="stateTax">$0</span>
+            </div>
+            
+            <div class="result-item">
+                <span class="result-label">Local EIT (<span id="eitRateDisplay">0%</span>)</span>
+                <span class="result-value" id="localTax">$0</span>
+            </div>
+            
+            <div class="result-item">
+                <span class="result-label">Retirement Income (Tax-Exempt)</span>
+                <span class="result-value" id="retirementDisplay">$0</span>
+            </div>
+            
+            <div class="result-highlight">
+                <div class="label">TOTAL ANNUAL PA TAX</div>
+                <div class="value" id="totalTax">$0</div>
+                <div class="label" style="margin-top: 1rem;">Effective Tax Rate: <span id="effectiveRate">0%</span></div>
+            </div>
+            
+            <div class="result-item">
+                <span class="result-label">Take-Home After PA Tax</span>
+                <span class="result-value" id="takeHome">$0</span>
+            </div>
+        </div>
     </div>
-  </div>
-</nav>
-
-<div class="page" id="main-content" role="main">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a><span class="sep">›</span><a href="index.html#tax">Tax</a><span class="sep">›</span>Pennsylvania Income Tax Calculator 2026
-  </div>
-
-  <h1 class="page-title">Pennsylvania Income Tax Calculator 2026</h1>
-  <p class="page-desc">Calculate Pennsylvania state income tax for 2026. Free PA tax calculator with federal tax, take-home pay, and tax brackets. Accurate, easy to use.</p>
-
-<div class="header">
-        <div class="container">
-            
-            <p>Calculate your PA state income tax and take-home pay</p>
-        </div>
-    </div>
-
-    <div class="main container">
-        <!-- Ad Slot 1 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="calc-box">
-            <h2>Pennsylvania Tax Calculator</h2>
-            <div class="grid-2">
-                <div class="input-group">
-                    <label for="income">Annual Income ($)</label>
-                    <input type="number" id="income" placeholder="75000" value="75000" aria-label="75000">
-                </div>
-                <div class="input-group">
-                    <label for="filing-status">Filing Status</label>
-                    <select id="filing-status" aria-label="Filing Status">
-                        <option value="single">Single</option>
-                        <option value="married">Married Filing Jointly</option>
-                        <option value="head">Head of Household</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="result-card">
-                <h3>Annual Take-Home Pay</h3>
-                <div class="amount" id="take-home">$0</div>
-            </div>
-
-            <div class="breakdown">
-                <div class="breakdown-row">
-                    <span>Gross Income</span>
-                    <span id="gross-income">$0</span>
-                </div>
-                <div class="breakdown-row">
-                    <span>Federal Income Tax</span>
-                    <span id="federal-tax">-$0</span>
-                </div>
-                <div class="breakdown-row">
-                    <span>Pennsylvania State Tax</span>
-                    <span id="state-tax">-$0</span>
-                </div>
-                <div class="breakdown-row">
-                    <span>Social Security (6.2%)</span>
-                    <span id="ss-tax">-$0</span>
-                </div>
-                <div class="breakdown-row">
-                    <span>Medicare (1.45%)</span>
-                    <span id="medicare-tax">-$0</span>
-                </div>
-                <div class="breakdown-row">
-                    <span><strong>Net Take-Home</strong></span>
-                    <span id="net-pay"><strong>$0</strong></span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ad Slot 2 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>About Pennsylvania Income Tax</h3>
-            <p><strong>Tax Brackets:</strong> Flat 3.07%</p>
-            <p>Pennsylvania uses a flat tax rate. This calculator estimates your state tax liability based on 2026 tax rates.</p>
-            
-            <h3>What's Included in This Calculator</h3>
+    
+    <div class="content-section">
+        <h2>Understanding Pennsylvania Income Tax in 2026</h2>
+        
+        <p>Pennsylvania operates one of the simplest state income tax systems in the United States. With a <strong>flat 3.07% tax rate</strong> on taxable income, PA doesn't have progressive tax brackets like most states. This means whether you earn $30,000 or $300,000, your state tax rate remains constant at 3.07%.</p>
+        
+        <div class="info-box">
+            <h3>Key Pennsylvania Tax Facts for 2026</h3>
             <ul>
-                <li>Federal income tax (2026 brackets)</li>
-                <li>Pennsylvania state income tax</li>
-                <li>Social Security tax (6.2% up to wage base)</li>
-                <li>Medicare tax (1.45%)</li>
-                <li>Annual and monthly take-home pay</li>
-            </ul>
-
-            <h3>How to Use This Calculator</h3>
-            <p>1. Enter your annual gross income<br>
-            2. Select your filing status<br>
-            3. View your estimated take-home pay and tax breakdown</p>
-
-            <p><em>Note: This calculator provides estimates for informational purposes. Actual tax liability may vary based on deductions, credits, and other factors. Consult a tax professional for personalized advice.</em></p>
-        </div>
-
-        <!-- Ad Slot 3 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>More Tax & Finance Calculators</h3>
-            <ul>
-                <li><a href="calc/paycheck-calculator.html">Paycheck Calculator</a></li>
-                <li><a href="income-tax-calculator.html">Federal Income Tax Calculator</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="index.html">CalcLeap Home - All Tools</a></li>
+                <li><strong>State tax rate:</strong> 3.07% flat (no brackets)</li>
+                <li><strong>No standard deduction:</strong> PA doesn't offer standard or itemized deductions</li>
+                <li><strong>Tax-exempt income:</strong> Retirement income, Social Security, unemployment benefits</li>
+                <li><strong>Local taxes:</strong> Most municipalities levy additional Earned Income Tax (1-3.84%)</li>
+                <li><strong>Filing requirement:</strong> Any PA resident with taxable income must file</li>
             </ul>
         </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a> | <a href="https://calcleap.com/">HealthCalcs</a></p>
+        
+        <h2>Pennsylvania's Flat Tax Structure</h2>
+        
+        <p>Pennsylvania is one of only eight states with a flat income tax rate. The 3.07% rate applies uniformly to all taxable income categories:</p>
+        
+        <ul>
+            <li><strong>Wages and salaries</strong> - Income from employment (W-2)</li>
+            <li><strong>Business income</strong> - Self-employment and Schedule C income</li>
+            <li><strong>Interest income</strong> - From bank accounts and bonds</li>
+            <li><strong>Dividends</strong> - From stock investments</li>
+            <li><strong>Capital gains</strong> - From sale of assets and property</li>
+            <li><strong>Rental income</strong> - From investment properties</li>
+            <li><strong>Royalties</strong> - From intellectual property and mineral rights</li>
+            <li><strong>Gambling/lottery winnings</strong> - Pennsylvania lottery winnings are actually exempt (unique among taxable categories)</li>
+        </ul>
+        
+        <h2>Tax-Exempt Income in Pennsylvania</h2>
+        
+        <p>Pennsylvania is exceptionally generous with retirement income exemptions, making it one of the most tax-friendly states for retirees. The following income sources are <strong>completely exempt</strong> from PA state income tax:</p>
+        
+        <h3>Retirement Income (100% Exempt)</h3>
+        <ul>
+            <li><strong>Social Security benefits</strong> - Fully exempt regardless of income level</li>
+            <li><strong>401(k) and 403(b) distributions</strong> - No PA tax on withdrawals</li>
+            <li><strong>Traditional IRA distributions</strong> - Tax-free at state level</li>
+            <li><strong>Roth IRA distributions</strong> - Already federally tax-free, also PA exempt</li>
+            <li><strong>Pension payments</strong> - Public and private pensions fully exempt</li>
+            <li><strong>Annuity income</strong> - From qualified retirement annuities</li>
+            <li><strong>Military retirement pay</strong> - 100% PA tax-exempt</li>
+            <li><strong>Railroad retirement benefits</strong> - Fully exempt</li>
+        </ul>
+        
+        <h3>Other Exempt Income</h3>
+        <ul>
+            <li><strong>Unemployment compensation</strong> - Not subject to PA state tax (but federally taxable)</li>
+            <li><strong>Workers' compensation</strong> - Benefits fully exempt</li>
+            <li><strong>Disability payments</strong> - From employer-funded plans</li>
+            <li><strong>Life insurance proceeds</strong> - Death benefits are tax-free</li>
+            <li><strong>Child support</strong> - Not taxable income</li>
+            <li><strong>Gifts and inheritances</strong> - No PA income tax (but PA inheritance tax may apply separately)</li>
+            <li><strong>PA lottery winnings</strong> - State lottery prizes exempt (federal tax still applies)</li>
+        </ul>
+        
+        <div class="info-box">
+            <h3>Retiree Tax Advantage</h3>
+            <p>A Pennsylvania retiree living solely on Social Security ($30,000) and 401(k) distributions ($50,000) would pay <strong>$0 in PA state income tax</strong> - all $80,000 is tax-exempt. This makes PA highly attractive for retirement compared to states like California (up to 13.3% on retirement income) or New York (up to 10.9%).</p>
+        </div>
+        
+        <h2>Pennsylvania Local Earned Income Tax (EIT)</h2>
+        
+        <p>In addition to the 3.07% state tax, <strong>Pennsylvania municipalities</strong> (cities, townships, boroughs) and <strong>school districts</strong> levy their own Earned Income Tax (EIT). This is where PA's tax system becomes more complex.</p>
+        
+        <h3>How Local EIT Works</h3>
+        
+        <p>The local EIT applies <strong>only to earned income</strong> (wages, salaries, business income) - not to interest, dividends, capital gains, or retirement income. Rates vary significantly by location:</p>
+        
+        <div class="location-examples">
+            <div class="location-card">
+                <h4>Philadelphia</h4>
+                <p class="rate">3.8398%</p>
+                <small>Highest rate in PA (city wage tax)</small>
+            </div>
+            
+            <div class="location-card">
+                <h4>Pittsburgh</h4>
+                <p class="rate">3.00%</p>
+                <small>1% city + 2% school district</small>
+            </div>
+            
+            <div class="location-card">
+                <h4>Harrisburg</h4>
+                <p class="rate">2.00%</p>
+                <small>Moderate combined rate</small>
+            </div>
+            
+            <div class="location-card">
+                <h4>Allentown</h4>
+                <p class="rate">1.50%</p>
+                <small>Average PA rate</small>
+            </div>
+            
+            <div class="location-card">
+                <h4>State College</h4>
+                <p class="rate">1.84%</p>
+                <small>0.84% municipality + 1% school district</small>
+            </div>
+            
+            <div class="location-card">
+                <h4>Erie</h4>
+                <p class="rate">1.65%</p>
+                <small>Lower than state average</small>
+            </div>
+        </div>
+        
+        <p><strong>To find your exact local EIT rate:</strong> Visit the <a href="https://dced.pa.gov/local-government/local-income-tax-information/" target="_blank" rel="noopener">PA Department of Community & Economic Development</a> and search your municipality. Your employer typically withholds this automatically, but self-employed individuals must calculate and pay quarterly.</p>
+        
+        <h3>Work Location vs. Residence</h3>
+        
+        <p>Pennsylvania's local EIT has a unique split for workers who live and work in different municipalities:</p>
+        
+        <ul>
+            <li><strong>Resident tax:</strong> Portion of EIT paid to your home municipality</li>
+            <li><strong>Non-resident tax:</strong> Portion paid to your work municipality</li>
+            <li><strong>Combined rate:</strong> Total EIT remains the same regardless of split</li>
+        </ul>
+        
+        <p><strong>Example:</strong> You live in Allentown (1.5% EIT) but work in Bethlehem (1.5% EIT). You pay 1% to Allentown (residence) and 0.5% to Bethlehem (work location) - total still 1.5%.</p>
+        
+        <h2>Who Must File a Pennsylvania Tax Return?</h2>
+        
+        <p>You must file a PA-40 (Personal Income Tax Return) if you meet any of these criteria:</p>
+        
+        <ul>
+            <li><strong>PA resident</strong> with any taxable income (wages, business income, interest, dividends, capital gains)</li>
+            <li><strong>Non-resident</strong> with PA-source income (worked in PA, rental property in PA)</li>
+            <li><strong>Part-year resident</strong> who moved to or from PA during the tax year</li>
+            <li><strong>Self-employed</strong> individuals with net profit from PA business</li>
+        </ul>
+        
+        <p>You do <strong>NOT</strong> need to file a PA return if your only income is from exempt sources (Social Security, retirement distributions, unemployment compensation) - but you may still owe local EIT if you have earned income.</p>
+        
+        <h2>Pennsylvania Tax Credits and Deductions</h2>
+        
+        <p>Unlike most states, Pennsylvania does <strong>not</strong> allow standard deductions or itemized deductions. However, several tax credits can reduce your PA tax liability:</p>
+        
+        <h3>Available PA Tax Credits</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Tax Credit</th>
+                    <th>Maximum Amount</th>
+                    <th>Eligibility</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tax Forgiveness Credit</strong></td>
+                    <td>Up to full tax liability</td>
+                    <td>Low-income filers (income under $9,500-$41,000 depending on family size)</td>
+                </tr>
+                <tr>
+                    <td><strong>Educational Improvement Tax Credit (EITC)</strong></td>
+                    <td>90% of contribution</td>
+                    <td>Businesses contributing to scholarship organizations</td>
+                </tr>
+                <tr>
+                    <td><strong>Organ/Bone Marrow Donor Credit</strong></td>
+                    <td>$5,000 per year</td>
+                    <td>Living organ or bone marrow donors for unreimbursed expenses</td>
+                </tr>
+                <tr>
+                    <td><strong>Disabled Veteran Real Estate Tax Credit</strong></td>
+                    <td>Varies by county</td>
+                    <td>100% service-connected disabled veterans (property tax exemption, not income tax)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Tax Forgiveness Credit (Most Common)</h3>
+        
+        <p>The PA Tax Forgiveness Credit is designed to eliminate or reduce state income tax for low-income residents. For 2026, eligibility thresholds are:</p>
+        
+        <ul>
+            <li><strong>Single filer:</strong> Income under $9,500 - full forgiveness; up to $35,000 - partial credit</li>
+            <li><strong>Married filing jointly:</strong> Income under $18,500 - full forgiveness; up to $41,000 - partial credit</li>
+            <li><strong>Head of household:</strong> Income under $15,000 - full forgiveness; up to $38,000 - partial credit</li>
+        </ul>
+        
+        <p>This credit is automatically calculated when you file PA-40 Form - no separate application required.</p>
+        
+        <h2>Important Pennsylvania Tax Dates for 2026</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Deadline</th>
+                    <th>What's Due</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>April 15, 2026</strong></td>
+                    <td>Annual Return</td>
+                    <td>PA-40 return for 2025 tax year + final payment</td>
+                </tr>
+                <tr>
+                    <td><strong>April 15, 2026</strong></td>
+                    <td>Q1 Estimated Tax</td>
+                    <td>First quarter 2026 estimated payment (if self-employed)</td>
+                </tr>
+                <tr>
+                    <td><strong>June 16, 2026</strong></td>
+                    <td>Q2 Estimated Tax</td>
+                    <td>Second quarter 2026 estimated payment</td>
+                </tr>
+                <tr>
+                    <td><strong>September 15, 2026</strong></td>
+                    <td>Q3 Estimated Tax</td>
+                    <td>Third quarter 2026 estimated payment</td>
+                </tr>
+                <tr>
+                    <td><strong>October 15, 2026</strong></td>
+                    <td>Extension Deadline</td>
+                    <td>Final deadline with approved 6-month extension</td>
+                </tr>
+                <tr>
+                    <td><strong>January 15, 2027</strong></td>
+                    <td>Q4 Estimated Tax</td>
+                    <td>Fourth quarter 2026 estimated payment</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><strong>Late filing penalty:</strong> 5% of unpaid tax per month (maximum 25%)<br>
+        <strong>Late payment penalty:</strong> 0.5% of unpaid tax per month (maximum 25%)<br>
+        <strong>Interest:</strong> Variable rate set quarterly (currently around 3% annually)</p>
+        
+        <h2>Comparing Pennsylvania to Neighboring States</h2>
+        
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <h3>Pennsylvania</h3>
+                <p><strong>State tax:</strong> 3.07% flat</p>
+                <p><strong>Local tax:</strong> 1-3.84% (average 1.5%)</p>
+                <p><strong>Total rate:</strong> 4.5-7% typical</p>
+                <p><strong>Retirement income:</strong> Tax-free ✅</p>
+            </div>
+            
+            <div class="comparison-card">
+                <h3>New Jersey</h3>
+                <p><strong>State tax:</strong> 1.4-10.75% progressive</p>
+                <p><strong>Local tax:</strong> None</p>
+                <p><strong>Total rate:</strong> Up to 10.75%</p>
+                <p><strong>Retirement income:</strong> Partially taxed ⚠️</p>
+            </div>
+            
+            <div class="comparison-card">
+                <h3>New York</h3>
+                <p><strong>State tax:</strong> 4-10.9% progressive</p>
+                <p><strong>Local tax:</strong> NYC adds 3.078-3.876%</p>
+                <p><strong>Total rate:</strong> Up to 14.776% (NYC)</p>
+                <p><strong>Retirement income:</strong> Partially taxed ⚠️</p>
+            </div>
+            
+            <div class="comparison-card">
+                <h3>Ohio</h3>
+                <p><strong>State tax:</strong> 2.75-3.5% progressive</p>
+                <p><strong>Local tax:</strong> 0.5-3% (varies widely)</p>
+                <p><strong>Total rate:</strong> 3.25-6.5% typical</p>
+                <p><strong>Retirement income:</strong> Partially exempt ⚠️</p>
+            </div>
+            
+            <div class="comparison-card">
+                <h3>Maryland</h3>
+                <p><strong>State tax:</strong> 2-5.75% progressive</p>
+                <p><strong>Local tax:</strong> 2.25-3.2% county tax</p>
+                <p><strong>Total rate:</strong> 4.25-8.95%</p>
+                <p><strong>Retirement income:</strong> Partially taxed ⚠️</p>
+            </div>
+            
+            <div class="comparison-card">
+                <h3>Delaware</h3>
+                <p><strong>State tax:</strong> 2.2-6.6% progressive</p>
+                <p><strong>Local tax:</strong> None</p>
+                <p><strong>Total rate:</strong> Up to 6.6%</p>
+                <p><strong>Retirement income:</strong> Partially exempt ⚠️</p>
+            </div>
+        </div>
+        
+        <p><strong>Tax advantage:</strong> Pennsylvania's 3.07% state rate is competitive, but local EIT can push total tax burden higher than some neighboring states. However, PA's <strong>retirement income exemption</strong> makes it one of the best states for retirees in the region.</p>
+        
+        <h2>Pennsylvania Reciprocal Tax Agreements</h2>
+        
+        <p>Pennsylvania has reciprocal income tax agreements with six neighboring states. If you are a resident of one of these states working in Pennsylvania, you do <strong>not</strong> pay PA income tax on wages:</p>
+        
+        <ul>
+            <li><strong>Indiana</strong> - IN residents working in PA pay IN tax only</li>
+            <li><strong>Maryland</strong> - MD residents working in PA pay MD tax only</li>
+            <li><strong>New Jersey</strong> - NJ residents working in PA pay NJ tax only</li>
+            <li><strong>Ohio</strong> - OH residents working in PA pay OH tax only</li>
+            <li><strong>Virginia</strong> - VA residents working in PA pay VA tax only</li>
+            <li><strong>West Virginia</strong> - WV residents working in PA pay WV tax only</li>
+        </ul>
+        
+        <p><strong>How it works:</strong> File Form REV-419 (Employee's Nonwithholding Application Certificate) with your PA employer to stop PA withholding. You'll pay tax only to your home state.</p>
+        
+        <p><strong>Important:</strong> This applies only to <strong>wages from employment</strong>. If you earn business income, rental income, or other PA-source income as a non-resident, you still owe PA tax on those amounts.</p>
+        
+        <h2>Remote Work and Pennsylvania Taxes</h2>
+        
+        <p>The rise of remote work has created new tax scenarios for Pennsylvania residents:</p>
+        
+        <h3>PA Resident Working Remotely for Out-of-State Employer</h3>
+        <ul>
+            <li><strong>PA state tax:</strong> You owe 3.07% on all income (work is performed in PA)</li>
+            <li><strong>Local EIT:</strong> Owed to your PA municipality where you live</li>
+            <li><strong>Other state tax:</strong> Generally not owed unless you travel to that state for work</li>
+            <li><strong>Withholding:</strong> Ask employer to withhold PA taxes; if not, pay quarterly estimated taxes</li>
+        </ul>
+        
+        <h3>Out-of-State Resident Working Remotely for PA Employer</h3>
+        <ul>
+            <li><strong>PA tax:</strong> Not owed if work is performed entirely outside PA (unless reciprocal state)</li>
+            <li><strong>Your state tax:</strong> Owed to your home state</li>
+            <li><strong>Exception:</strong> If you travel to PA offices occasionally, that portion may be PA-taxable</li>
+        </ul>
+        
+        <h3>PA "Convenience of the Employer" Rule</h3>
+        
+        <p>Pennsylvania does <strong>not</strong> have a "convenience of the employer" rule (unlike New York). This means:</p>
+        
+        <ul>
+            <li>If you work remotely from another state for your own convenience (not employer requirement), you still pay tax to your home state, not PA</li>
+            <li>PA only taxes income for work physically performed in Pennsylvania</li>
+            <li>This makes PA more favorable for employers with remote workers compared to NY</li>
+        </ul>
+        
+        <h2>Self-Employment and Business Income</h2>
+        
+        <p>If you're self-employed or own a business in Pennsylvania, your tax obligations are more complex:</p>
+        
+        <h3>State Income Tax (3.07%)</h3>
+        <ul>
+            <li>Applies to <strong>net profit</strong> from Schedule C (sole proprietorship) or pass-through entities (LLC, S-corp, partnership)</li>
+            <li>Calculated after business expenses and deductions</li>
+            <li>No separate PA business income tax - flows through to personal return</li>
+        </ul>
+        
+        <h3>Local Earned Income Tax (1-3.84%)</h3>
+        <ul>
+            <li>Applies to business income in addition to state tax</li>
+            <li>Rate determined by your business location (where work is performed)</li>
+            <li>If home-based business, use your residence address for EIT rate</li>
+        </ul>
+        
+        <h3>Quarterly Estimated Tax Payments</h3>
+        <p>If you expect to owe more than $8,000 in PA tax for the year, you must make quarterly estimated payments:</p>
+        
+        <ul>
+            <li><strong>April 15, 2026</strong> - Q1 payment (25% of annual estimate)</li>
+            <li><strong>June 16, 2026</strong> - Q2 payment</li>
+            <li><strong>September 15, 2026</strong> - Q3 payment</li>
+            <li><strong>January 15, 2027</strong> - Q4 payment</li>
+        </ul>
+        
+        <p><strong>Underpayment penalty:</strong> If you don't pay at least 90% of your annual tax or 100% of prior year's tax through withholding/estimates, you may owe penalties.</p>
+        
+        <h2>Property Tax and Sales Tax (Not Income Tax)</h2>
+        
+        <p>While not income taxes, these are significant Pennsylvania tax obligations:</p>
+        
+        <h3>Property Tax</h3>
+        <ul>
+            <li><strong>County and municipal taxes:</strong> Average effective rate 1.36% of home value (14th highest nationally)</li>
+            <li><strong>School district taxes:</strong> Separate property tax for local schools (varies widely)</li>
+            <li><strong>Homestead exemption:</strong> Available for primary residences (reduces assessed value)</li>
+            <li><strong>Senior citizen programs:</strong> Property tax rebate program for seniors 65+ with income under $35,000</li>
+        </ul>
+        
+        <h3>Sales Tax</h3>
+        <ul>
+            <li><strong>State rate:</strong> 6% on most goods and services</li>
+            <li><strong>Philadelphia:</strong> Additional 2% local sales tax (total 8%)</li>
+            <li><strong>Allegheny County (Pittsburgh):</strong> Additional 1% local sales tax (total 7%)</li>
+            <li><strong>Exemptions:</strong> Groceries, prescription drugs, clothing, textbooks</li>
+        </ul>
+        
+        <h2>Tax Reduction Strategies for Pennsylvania Residents</h2>
+        
+        <h3>1. Maximize Retirement Contributions</h3>
+        <p>While PA doesn't allow deductions for retirement contributions (unlike federal taxes), building tax-deferred retirement accounts creates future PA tax-free income. Every dollar in your 401(k) or IRA will be withdrawn tax-free at the state level in retirement.</p>
+        
+        <h3>2. Structure Investment Income Wisely</h3>
+        <p>Pennsylvania taxes interest and dividends at 3.07%, but capital gains on appreciated assets are also taxed. Consider:</p>
+        <ul>
+            <li><strong>Municipal bonds:</strong> PA municipal bond interest is exempt from both state and federal taxes</li>
+            <li><strong>Long-term holdings:</strong> Defer capital gains by holding investments longer</li>
+            <li><strong>Tax-loss harvesting:</strong> Offset capital gains with capital losses to reduce PA tax</li>
+        </ul>
+        
+        <h3>3. Optimize Work Location for Local EIT</h3>
+        <p>If you have flexibility in work location (remote work, multiple offices), working from a municipality with lower EIT can save significantly:</p>
+        <ul>
+            <li>Philadelphia resident working remotely from home: 3.8398% EIT</li>
+            <li>Same person working from office in suburban Montgomery County: ~1.5% EIT</li>
+            <li><strong>Annual savings on $100,000 income:</strong> $2,340</li>
+        </ul>
+        
+        <h3>4. Plan Relocations Around Tax Year</h3>
+        <p>If moving to/from Pennsylvania, timing matters:</p>
+        <ul>
+            <li>PA taxes based on <strong>residency status</strong>, not full-year</li>
+            <li>Moving out before high-income events (bonus, stock sale) can save PA tax</li>
+            <li>Part-year residents file PA-40 with Schedule G allocation</li>
+        </ul>
+        
+        <h3>5. Claim All Eligible Credits</h3>
+        <ul>
+            <li><strong>Tax Forgiveness Credit:</strong> Don't overlook if income is borderline eligible</li>
+            <li><strong>Educational expenses:</strong> While no state deduction, federal credits reduce overall tax burden</li>
+            <li><strong>Charitable contributions:</strong> Federal itemized deduction (though no PA benefit)</li>
+        </ul>
+        
+        <h2>Pennsylvania Inheritance Tax (Separate from Income Tax)</h2>
+        
+        <p>Pennsylvania is one of few states with an <strong>inheritance tax</strong> (separate from estate tax). When you inherit assets from a PA decedent:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Beneficiary Relationship</th>
+                    <th>Tax Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Spouse</td>
+                    <td>0% (exempt)</td>
+                </tr>
+                <tr>
+                    <td>Children, grandchildren, parents</td>
+                    <td>4.5%</td>
+                </tr>
+                <tr>
+                    <td>Siblings</td>
+                    <td>12%</td>
+                </tr>
+                <tr>
+                    <td>All other heirs (nieces, nephews, friends)</td>
+                    <td>15%</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><strong>Exemptions:</strong> Life insurance proceeds, retirement accounts passing to spouse, and property left to charities are exempt from PA inheritance tax.</p>
+        
+        <p><strong>This is not income tax:</strong> Inherited money is not taxable income for PA purposes - you pay the one-time inheritance tax when you receive the asset, then it's yours tax-free.</p>
+        
+        <h2>Filing Your Pennsylvania Tax Return</h2>
+        
+        <h3>Required Forms</h3>
+        <ul>
+            <li><strong>PA-40:</strong> Personal Income Tax Return (main form)</li>
+            <li><strong>Schedule A-D:</strong> Interest income</li>
+            <li><strong>Schedule C:</strong> Profit or loss from business</li>
+            <li><strong>Schedule D:</strong> Capital gains and losses</li>
+            <li><strong>Schedule E:</strong> Rent, royalty, estate/trust income</li>
+            <li><strong>Schedule G:</strong> Allocation for part-year residents</li>
+            <li><strong>Schedule SP:</strong> Special tax forgiveness</li>
+            <li><strong>PA-41:</strong> Fiduciary income tax return (for estates/trusts)</li>
+        </ul>
+        
+        <h3>Filing Methods</h3>
+        <ul>
+            <li><strong>PA e-file:</strong> Free through MyPATH (PA Department of Revenue online portal)</li>
+            <li><strong>Tax software:</strong> TurboTax, H&R Block, TaxAct all support PA returns</li>
+            <li><strong>Paper filing:</strong> Mail PA-40 to PA Department of Revenue, Harrisburg PA 17129</li>
+            <li><strong>Tax professional:</strong> CPA or enrolled agent for complex situations</li>
+        </ul>
+        
+        <h3>Payment Options</h3>
+        <ul>
+            <li><strong>Direct debit:</strong> From bank account when e-filing</li>
+            <li><strong>Credit/debit card:</strong> Through approved payment processors (convenience fee applies)</li>
+            <li><strong>Check/money order:</strong> Mail with PA-40V payment voucher</li>
+            <li><strong>Installment plan:</strong> Available if you owe more than $1,000 and can't pay in full</li>
+        </ul>
+        
+        <h2>Common Pennsylvania Tax Mistakes to Avoid</h2>
+        
+        <ol>
+            <li><strong>Forgetting local EIT:</strong> Many filers correctly calculate 3.07% state tax but overlook their local earned income tax</li>
+            <li><strong>Not claiming retirement income exemption:</strong> Retirees sometimes report 401(k)/IRA distributions as taxable when they're PA-exempt</li>
+            <li><strong>Misunderstanding reciprocal agreements:</strong> NJ/NY residents working in PA often overpay by not filing exemption certificates</li>
+            <li><strong>Missing quarterly estimated payments:</strong> Self-employed filers face penalties if they don't pay throughout the year</li>
+            <li><strong>Incorrect work location for EIT:</strong> Remote workers should use home address, not employer's office location</li>
+            <li><strong>Not separating PA lottery winnings:</strong> PA lottery is exempt, but other gambling winnings are taxable</li>
+            <li><strong>Overlooking tax forgiveness credit:</strong> Low-income filers miss automatic credit by not filing PA-40</li>
+        </ol>
+        
+        <h2>Resources and Tools</h2>
+        
+        <ul>
+            <li><strong>PA Department of Revenue:</strong> <a href="https://www.revenue.pa.gov/" target="_blank" rel="noopener">revenue.pa.gov</a></li>
+            <li><strong>MyPATH e-filing:</strong> <a href="https://www.mypath.pa.gov/" target="_blank" rel="noopener">mypath.pa.gov</a></li>
+            <li><strong>Local EIT rates:</strong> <a href="https://dced.pa.gov/local-government/local-income-tax-information/" target="_blank" rel="noopener">PA DCED Local Tax Info</a></li>
+            <li><strong>PA tax forms:</strong> <a href="https://www.revenue.pa.gov/FormsandPublications/FormsforIndividuals/Pages/default.aspx" target="_blank" rel="noopener">PA Individual Tax Forms</a></li>
+            <li><strong>Tax forgiveness calculator:</strong> <a href="https://www.revenue.pa.gov/TaxTypes/PIT/TaxForgiveness/Pages/default.aspx" target="_blank" rel="noopener">PA Tax Forgiveness Program</a></li>
+        </ul>
+        
+        <h2>Frequently Asked Questions</h2>
+        
+        <h3>What is the Pennsylvania state income tax rate for 2026?</h3>
+        <p>Pennsylvania has a <strong>flat income tax rate of 3.07%</strong> for 2026. This rate applies to all taxable income regardless of filing status or income level. PA is one of only eight states with a flat tax structure.</p>
+        
+        <h3>What income is exempt from PA state tax?</h3>
+        <p>Pennsylvania exempts several income sources from state tax:</p>
+        <ul>
+            <li>Social Security benefits</li>
+            <li>Retirement account distributions (401k, IRA, pension)</li>
+            <li>Unemployment compensation</li>
+            <li>Life insurance proceeds</li>
+            <li>Child support</li>
+            <li>Workers' compensation</li>
+            <li>Disability payments from employer plans</li>
+            <li>Pennsylvania lottery/gambling winnings</li>
+        </ul>
+        <p><strong>Note:</strong> While exempt from state tax, some income (like wages) may still be subject to local Earned Income Tax (EIT).</p>
+        
+        <h3>What is Pennsylvania local Earned Income Tax (EIT)?</h3>
+        <p>Pennsylvania local Earned Income Tax (EIT) is a municipal tax levied by cities, townships, boroughs, and school districts. Rates typically range from <strong>1% to 3.8398%</strong> depending on location. Philadelphia has the highest rate at 3.8398% (city wage tax). Pittsburgh's combined rate is 3.00%.</p>
+        
+        <p>EIT applies <strong>only to wages, salaries, and business income</strong> - not to retirement income, interest, or dividends. Your employer typically withholds this tax automatically.</p>
+        
+        <h3>Do I have to pay PA tax if I work remotely for an out-of-state employer?</h3>
+        <p>If you are a <strong>Pennsylvania resident</strong> working remotely for an out-of-state employer, you must pay PA state income tax (3.07%) on your wages because the work is performed in Pennsylvania. You may also owe local EIT to your municipality.</p>
+        
+        <p>However, PA has reciprocal agreements with Indiana, Maryland, New Jersey, Ohio, Virginia, and West Virginia. Residents of those states working in PA do not pay PA tax on wages - they pay only to their home state.</p>
+        
+        <h3>Is Social Security income taxed in Pennsylvania?</h3>
+        <p><strong>No.</strong> Pennsylvania is one of the most tax-friendly states for retirees. Social Security benefits are <strong>100% exempt</strong> from PA state income tax, regardless of your income level. This exemption also extends to all retirement account distributions (401k, IRA, pensions).</p>
+        
+        <h3>How do I find my local EIT rate?</h3>
+        <p>To find your specific local Earned Income Tax rate:</p>
+        <ol>
+            <li>Visit the <a href="https://dced.pa.gov/local-government/local-income-tax-information/" target="_blank" rel="noopener">PA Department of Community & Economic Development</a></li>
+            <li>Enter your municipality name or county</li>
+            <li>View your combined resident and non-resident EIT rates</li>
+        </ol>
+        <p>Alternatively, check your pay stub - your employer should be withholding local EIT and it will be itemized there.</p>
+        
+        <h3>Does Pennsylvania have a standard deduction?</h3>
+        <p><strong>No.</strong> Pennsylvania does not allow standard deductions or itemized deductions. The 3.07% tax rate applies directly to your taxable income without any adjustments for deductions (except specific exemptions like retirement income).</p>
+        
+        <p>This differs from federal taxes, where you can claim a standard deduction ($14,600 for singles in 2026). At the state level, PA taxes gross income minus exempt categories.</p>
+        
+        <h3>When is Pennsylvania tax due?</h3>
+        <p>Pennsylvania tax returns and payments are due on <strong>April 15, 2026</strong> for the 2025 tax year (same as federal deadline). If you file for an extension, your return is due by <strong>October 15, 2026</strong>, but any tax owed must still be paid by April 15 to avoid penalties.</p>
+        
+        <p>Self-employed individuals must also make quarterly estimated tax payments on April 15, June 16, September 15, and January 15.</p>
+        
+        <h3>Can I deduct mortgage interest on my PA tax return?</h3>
+        <p><strong>No.</strong> Pennsylvania does not allow itemized deductions, including mortgage interest, property taxes, or charitable contributions. These deductions apply only on your federal return.</p>
+        
+        <p>PA taxes your income at a flat 3.07% without any deductions - it's a much simpler system than federal taxes, but offers fewer opportunities to reduce your tax bill through deductions.</p>
+        
+        <h2>Related Calculators</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+            <a href="federal-income-tax-calculator.html" style="padding: 1rem; background: #f0f0f0; border-radius: 6px; text-decoration: none; color: #003B5C;">📊 Federal Income Tax</a>
+            <a href="salary-calculator.html" style="padding: 1rem; background: #f0f0f0; border-radius: 6px; text-decoration: none; color: #003B5C;">💵 Salary Calculator</a>
+            <a href="401k-calculator.html" style="padding: 1rem; background: #f0f0f0; border-radius: 6px; text-decoration: none; color: #003B5C;">📈 401(k) Calculator</a>
+            <a href="retirement-calculator.html" style="padding: 1rem; background: #f0f0f0; border-radius: 6px; text-decoration: none; color: #003B5C;">🏖️ Retirement Planner</a>
+            <a href="social-security-calculator.html" style="padding: 1rem; background: #f0f0f0; border-radius: 6px; text-decoration: none; color: #003B5C;">💼 Social Security</a>
+            <a href="ira-calculator.html" style="padding: 1rem; background: #f0f0f0; border-radius: 6px; text-decoration: none; color: #003B5C;">🏦 IRA Calculator</a>
         </div>
     </div>
-
+    
+    <footer style="text-align: center; padding: 2rem; background: #f8f9fa; margin-top: 4rem;">
+        <p style="color: #666; margin-bottom: 0.5rem;">© 2026 CalcLeap - Free Online Calculators</p>
+        <p style="color: #999; font-size: 0.9rem;">
+            <a href="index.html" style="color: #003B5C; text-decoration: none;">Home</a> • 
+            <a href="privacy.html" style="color: #003B5C; text-decoration: none;">Privacy</a> • 
+            <a href="contact.html" style="color: #003B5C; text-decoration: none;">Contact</a>
+        </p>
+    </footer>
+    
     <script>
-        const STATE_TAX_RATE = 0.0307;
-        const incomeEl = document.getElementById('income');
-        const statusEl = document.getElementById('filing-status');
-
-        function calculateTaxes() {
-            const income = parseFloat(incomeEl.value) || 0;
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const eitRate = parseFloat(document.getElementById('eitRate').value) || 0;
+            const retirementIncome = parseFloat(document.getElementById('retirementIncome').value) || 0;
             
-            // Federal tax (simplified 2026 brackets for single filers)
-            let federalTax = 0;
-            if (income > 578125) federalTax = income * 0.37;
-            else if (income > 231250) federalTax = income * 0.35;
-            else if (income > 182100) federalTax = income * 0.32;
-            else if (income > 95375) federalTax = income * 0.24;
-            else if (income > 44725) federalTax = income * 0.22;
-            else if (income > 11000) federalTax = income * 0.12;
-            else federalTax = income * 0.10;
-
-            // State tax
-            const stateTax = income * STATE_TAX_RATE;
-
-            // FICA
-            const ssTax = Math.min(income * 0.062, 168600 * 0.062); // 2026 SS wage base
-            const medicareTax = income * 0.0145;
-
-            // Total
-            const totalTax = federalTax + stateTax + ssTax + medicareTax;
-            const takeHome = income - totalTax;
-
-            // Update UI
-            document.getElementById('take-home').textContent = '$' + Math.round(takeHome).toLocaleString();
-            document.getElementById('gross-income').textContent = '$' + income.toLocaleString();
-            document.getElementById('federal-tax').textContent = '-$' + Math.round(federalTax).toLocaleString();
-            document.getElementById('state-tax').textContent = STATE_TAX_RATE === 0 ? '$0' : '-$' + Math.round(stateTax).toLocaleString();
-            document.getElementById('ss-tax').textContent = '-$' + Math.round(ssTax).toLocaleString();
-            document.getElementById('medicare-tax').textContent = '-$' + Math.round(medicareTax).toLocaleString();
-            document.getElementById('net-pay').textContent = '$' + Math.round(takeHome).toLocaleString();
-        }
-
-        incomeEl.addEventListener('input', calculateTaxes);
-        statusEl.addEventListener('change', calculateTaxes);
-        
-        // Initial calculation
-        calculateTaxes();
-    </script>
-<script>
-        const STATE_TAX_RATE = 0.0307;
-        const incomeEl = document.getElementById('income');
-        const statusEl = document.getElementById('filing-status');
-
-        function calculateTaxes() {
-            const income = parseFloat(incomeEl.value) || 0;
+            if (income === 0) {
+                alert('Please enter your annual income');
+                return;
+            }
             
-            // Federal tax (simplified 2026 brackets for single filers)
-            let federalTax = 0;
-            if (income > 578125) federalTax = income * 0.37;
-            else if (income > 231250) federalTax = income * 0.35;
-            else if (income > 182100) federalTax = income * 0.32;
-            else if (income > 95375) federalTax = income * 0.24;
-            else if (income > 44725) federalTax = income * 0.22;
-            else if (income > 11000) federalTax = income * 0.12;
-            else federalTax = income * 0.10;
-
-            // State tax
-            const stateTax = income * STATE_TAX_RATE;
-
-            // FICA
-            const ssTax = Math.min(income * 0.062, 168600 * 0.062); // 2026 SS wage base
-            const medicareTax = income * 0.0145;
-
-            // Total
-            const totalTax = federalTax + stateTax + ssTax + medicareTax;
-            const takeHome = income - totalTax;
-
-            // Update UI
-            document.getElementById('take-home').textContent = '$' + Math.round(takeHome).toLocaleString();
-            document.getElementById('gross-income').textContent = '$' + income.toLocaleString();
-            document.getElementById('federal-tax').textContent = '-$' + Math.round(federalTax).toLocaleString();
-            document.getElementById('state-tax').textContent = STATE_TAX_RATE === 0 ? '$0' : '-$' + Math.round(stateTax).toLocaleString();
-            document.getElementById('ss-tax').textContent = '-$' + Math.round(ssTax).toLocaleString();
-            document.getElementById('medicare-tax').textContent = '-$' + Math.round(medicareTax).toLocaleString();
-            document.getElementById('net-pay').textContent = '$' + Math.round(takeHome).toLocaleString();
+            // PA has no standard deduction - flat 3.07% on all taxable income
+            const PA_TAX_RATE = 0.0307;
+            
+            // Calculate taxes
+            const stateTax = income * PA_TAX_RATE;
+            const localTax = income * (eitRate / 100);
+            const totalTax = stateTax + localTax;
+            const totalIncome = income + retirementIncome;
+            const effectiveRate = totalIncome > 0 ? (totalTax / totalIncome * 100) : 0;
+            const takeHome = totalIncome - totalTax;
+            
+            // Display results
+            document.getElementById('taxableIncome').textContent = '$' + income.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('stateTax').textContent = '$' + stateTax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('localTax').textContent = '$' + localTax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('retirementDisplay').textContent = '$' + retirementIncome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('totalTax').textContent = '$' + totalTax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(2) + '%';
+            document.getElementById('takeHome').textContent = '$' + takeHome.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('eitRateDisplay').textContent = eitRate.toFixed(2) + '%';
+            
+            // Show results
+            document.getElementById('results').classList.add('show');
+            
+            // Scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-
-        incomeEl.addEventListener('input', calculateTaxes);
-        statusEl.addEventListener('change', calculateTaxes);
         
-        // Initial calculation
-        calculateTaxes();
+        // Allow Enter key to calculate
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('input').forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        calculateTax();
+                    }
+                });
+            });
+        });
     </script>
-
-</div>
-
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational purposes only and is not tax advice. Tax laws are complex and change frequently. Results may not reflect your actual tax liability. Always consult a qualified CPA, tax attorney, or enrolled agent for tax advice specific to your situation. CalcLeap is not a tax preparation service and does not file taxes.</div>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
-    </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
-    </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="index.html#finance">Financial</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#health">Health</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
-
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
-<div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
-</div>
-</div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9745408431740089"
+     crossorigin="anonymous"></script>
 </body>
 </html>
