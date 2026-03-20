@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>401k Employer Match Calculator - Maximize Your Retirement Benefits | CalcLeap</title>
+    <meta name="description" content="Calculate your 401k employer match instantly. Find out how much free money you're getting from your employer and optimize your retirement contributions. Free 401k match calculator with detailed breakdown.">
+    <meta name="keywords" content="401k match calculator, employer match, retirement calculator, 401k contribution, employer contribution, retirement planning, 401k optimizer, free money calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcleap.com/calc/401k-match-calculator.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/calc/401k-match-calculator.html">
+    <meta property="og:title" content="401k Employer Match Calculator - Free Retirement Tool">
+    <meta property="og:description" content="Calculate your 401k employer match instantly. See how much free money you're leaving on the table.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://calcleap.com/calc/401k-match-calculator.html">
+    <meta property="twitter:title" content="401k Employer Match Calculator">
+    <meta property="twitter:description" content="Calculate your 401k employer match and maximize your retirement benefits.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .calculator-box {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .input-wrapper input,
+        .input-wrapper select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .input-wrapper input:focus,
+        .input-wrapper select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .input-prefix {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-weight: 600;
+            pointer-events: none;
+        }
+        
+        .input-wrapper.with-prefix input {
+            padding-left: 35px;
+        }
+        
+        .input-suffix {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-weight: 600;
+            pointer-events: none;
+        }
+        
+        .input-wrapper.with-suffix input {
+            padding-right: 35px;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .result-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .result-box.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-main {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .result-label {
+            font-size: 1em;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+        
+        .result-value {
+            font-size: 3em;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .result-item {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .result-item-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .result-item-value {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        
+        .info-section {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .info-section h3 {
+            color: #495057;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .info-section p {
+            margin-bottom: 12px;
+            color: #495057;
+            line-height: 1.7;
+        }
+        
+        .info-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .info-section li {
+            margin-bottom: 8px;
+            color: #495057;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .tip-box strong {
+            color: #856404;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #6c757d;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .result-value {
+                font-size: 2.2em;
+            }
+            
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 401k Employer Match Calculator</h1>
+            <p>Calculate how much free money your employer contributes to your retirement</p>
+        </div>
+        
+        <div class="content">
+            <div class="calculator-box">
+                <div class="input-group">
+                    <label for="salary">Annual Salary</label>
+                    <div class="input-wrapper with-prefix">
+                        <span class="input-prefix">$</span>
+                        <input type="number" id="salary" value="75000" min="0" step="1000">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="contribution">Your Contribution Percentage</label>
+                    <div class="input-wrapper with-suffix">
+                        <input type="number" id="contribution" value="6" min="0" max="100" step="0.5">
+                        <span class="input-suffix">%</span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="matchPct">Employer Match Percentage</label>
+                    <div class="input-wrapper with-suffix">
+                        <input type="number" id="matchPct" value="100" min="0" max="200" step="25">
+                        <span class="input-suffix">%</span>
+                    </div>
+                    <small style="color: #6c757d; display: block; margin-top: 5px;">Common: 100% = dollar-for-dollar, 50% = 50 cents per dollar</small>
+                </div>
+                
+                <div class="input-group">
+                    <label for="matchLimit">Match Limit (% of salary)</label>
+                    <div class="input-wrapper with-suffix">
+                        <input type="number" id="matchLimit" value="6" min="0" max="100" step="0.5">
+                        <span class="input-suffix">%</span>
+                    </div>
+                    <small style="color: #6c757d; display: block; margin-top: 5px;">e.g., "Match 100% up to 6% of salary"</small>
+                </div>
+                
+                <button class="calculate-btn" onclick="calculate()">Calculate Match</button>
+            </div>
+            
+            <div class="result-box" id="results">
+                <div class="result-main">
+                    <div class="result-label">Annual Employer Match</div>
+                    <div class="result-value" id="matchAmount">$0</div>
+                    <div style="opacity: 0.9; margin-top: 10px;">That's <span id="freeMoneyLabel" style="font-weight: 700; font-size: 1.2em;">$0</span> in FREE MONEY!</div>
+                </div>
+                
+                <div class="result-grid">
+                    <div class="result-item">
+                        <div class="result-item-label">Your Annual Contribution</div>
+                        <div class="result-item-value" id="yourContribution">$0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-item-label">Total Annual Retirement</div>
+                        <div class="result-item-value" id="totalAnnual">$0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-item-label">Your Monthly Contribution</div>
+                        <div class="result-item-value" id="monthlyContribution">$0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-item-label">Employer Monthly Match</div>
+                        <div class="result-item-value" id="monthlyMatch">$0</div>
+                    </div>
+                </div>
+                
+                <div class="tip-box" style="margin-top: 25px; background: rgba(255,255,255,0.2); border-left: 4px solid white;">
+                    <strong style="color: white;">💡 Pro Tip:</strong> <span id="proTip">Always contribute at least enough to get the full employer match!</span>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>How 401k Employer Matching Works</h2>
+                <p>An employer match is when your company contributes money to your 401k retirement account based on how much you contribute. It's essentially free money for your retirement.</p>
+                
+                <h3>Common Employer Match Formulas</h3>
+                <ul>
+                    <li><strong>100% match up to 6%:</strong> For every dollar you contribute (up to 6% of salary), your employer contributes $1</li>
+                    <li><strong>50% match up to 6%:</strong> For every dollar you contribute (up to 6% of salary), your employer contributes 50 cents</li>
+                    <li><strong>100% on first 3%, 50% on next 2%:</strong> Dollar-for-dollar on first 3%, then 50 cents per dollar on next 2%</li>
+                </ul>
+                
+                <h3>Why Employer Match Matters</h3>
+                <p>The employer match is an instant 50%-100% return on your investment, guaranteed. If your employer offers a match, you should <strong>always contribute at least enough to get the full match</strong> before investing elsewhere.</p>
+                
+                <h3>Example Calculation</h3>
+                <p><strong>Scenario:</strong> You earn $75,000/year. Your employer offers 100% match up to 6% of salary.</p>
+                <ul>
+                    <li>You contribute 6% = $4,500/year</li>
+                    <li>Employer matches 100% = $4,500/year</li>
+                    <li>Total retirement savings = $9,000/year</li>
+                    <li><strong>Free money from employer: $4,500/year!</strong></li>
+                </ul>
+                
+                <h3>Maximizing Your Match</h3>
+                <p><strong>Do this:</strong></p>
+                <ul>
+                    <li>Contribute at least enough to get full match</li>
+                    <li>Contribute early in the year (some employers match per-paycheck)</li>
+                    <li>Understand if match is immediate or has vesting schedule</li>
+                    <li>Check if bonuses count toward match calculation</li>
+                </ul>
+                
+                <p><strong>Don't do this:</strong></p>
+                <ul>
+                    <li>Contribute less than the match limit (you're leaving free money on the table)</li>
+                    <li>Max out 401k too early (you might miss later matches if employer matches per-pay-period)</li>
+                    <li>Ignore the vesting schedule (you might lose unvested match if you leave)</li>
+                </ul>
+                
+                <h3>Understanding Vesting</h3>
+                <p>Vesting means you own the employer match. Some companies have immediate vesting (you own it right away), others use a schedule like:</p>
+                <ul>
+                    <li><strong>Cliff vesting:</strong> 0% until year 3, then 100%</li>
+                    <li><strong>Graded vesting:</strong> 20% per year over 5 years</li>
+                </ul>
+                <p>Check your plan's vesting schedule — it affects how much match you keep if you change jobs.</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 Remember:</strong> Employer match is FREE money. Not taking full advantage is like refusing a raise. Always contribute at least enough to maximize your employer's contribution!
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>CalcLeap</strong> - Free Financial Calculators</p>
+            <p><a href="https://calcleap.com">← Back to All Calculators</a></p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Disclaimer: This calculator provides estimates for educational purposes. Consult with your HR department or financial advisor for exact match details.</p>
+        </div>
+    </div>
+    
+    <script>
+        function calculate() {
+            const salary = parseFloat(document.getElementById('salary').value) || 0;
+            const contributionPct = parseFloat(document.getElementById('contribution').value) || 0;
+            const matchPct = parseFloat(document.getElementById('matchPct').value) || 0;
+            const matchLimit = parseFloat(document.getElementById('matchLimit').value) || 0;
+            
+            if (salary <= 0 || contributionPct < 0 || matchPct < 0 || matchLimit < 0) {
+                alert('Please enter valid positive values.');
+                return;
+            }
+            
+            // Calculate user contribution
+            const yourAnnualContribution = salary * (contributionPct / 100);
+            
+            // Calculate maximum matchable contribution
+            const maxMatchableContribution = salary * (matchLimit / 100);
+            
+            // The employer matches up to the limit
+            const actualMatchableAmount = Math.min(yourAnnualContribution, maxMatchableContribution);
+            
+            // Calculate employer match
+            const employerMatch = actualMatchableAmount * (matchPct / 100);
+            
+            // Total annual retirement savings
+            const totalAnnual = yourAnnualContribution + employerMatch;
+            
+            // Monthly breakdown
+            const monthlyContribution = yourAnnualContribution / 12;
+            const monthlyMatch = employerMatch / 12;
+            
+            // Display results
+            document.getElementById('matchAmount').textContent = '$' + employerMatch.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('freeMoneyLabel').textContent = '$' + employerMatch.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('yourContribution').textContent = '$' + yourAnnualContribution.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('totalAnnual').textContent = '$' + totalAnnual.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('monthlyContribution').textContent = '$' + monthlyContribution.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('monthlyMatch').textContent = '$' + monthlyMatch.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            // Pro tip logic
+            let tipText = '';
+            if (contributionPct < matchLimit) {
+                const missingMatch = (salary * (matchLimit / 100) * (matchPct / 100)) - employerMatch;
+                tipText = `⚠️ You're leaving $${missingMatch.toLocaleString('en-US', {maximumFractionDigits: 0})} on the table! Contribute at least ${matchLimit}% to maximize your match.`;
+            } else if (contributionPct === matchLimit) {
+                tipText = '✅ Perfect! You\'re getting the full employer match. That\'s free money maximized!';
+            } else {
+                tipText = '✅ You\'re contributing more than the match limit. Great job! Consider maxing out your 401k ($23,000 limit in 2024).';
+            }
+            document.getElementById('proTip').textContent = tipText;
+            
+            // Show results
+            document.getElementById('results').classList.add('show');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Calculate on page load with default values
+        calculate();
+    </script>
+</body>
+</html>
