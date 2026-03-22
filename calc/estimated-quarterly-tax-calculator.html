@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimated Quarterly Tax Calculator - IRS Estimated Tax Payment Calculator | CalcLeap</title>
+    <meta name="description" content="Free estimated quarterly tax calculator for self-employed individuals and freelancers. Calculate your IRS quarterly tax payments, self-employment tax, and avoid underpayment penalties in 2026.">
+    <meta name="keywords" content="estimated quarterly tax calculator, quarterly tax payment calculator, self employment tax calculator, IRS estimated tax, 1040-ES calculator, freelance tax calculator">
+    <link rel="canonical" href="https://calcleap.com/calc/estimated-quarterly-tax-calculator.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Estimated Quarterly Tax Calculator - Calculate IRS Quarterly Tax Payments">
+    <meta property="og:description" content="Calculate your quarterly estimated tax payments for 2026. Free tool for self-employed, freelancers, and independent contractors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/calc/estimated-quarterly-tax-calculator.html">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7415907078065102"
+     crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .calc-section {
+            padding: 40px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .results {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .results h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .result-label {
+            font-size: 1em;
+        }
+
+        .result-value {
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .payment-schedule {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .payment-schedule h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .payment-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .payment-item:last-child {
+            border-bottom: none;
+        }
+
+        .payment-quarter {
+            font-weight: 600;
+        }
+
+        .payment-amount {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .tips {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .tips h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+
+        .tips ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        .tips li {
+            margin-bottom: 8px;
+        }
+
+        .content-section {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+
+        .content-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .content-section h3 {
+            color: #764ba2;
+            margin: 25px 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 15px 0 15px 30px;
+            color: #555;
+        }
+
+        .content-section li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .highlight-box {
+            background: white;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #2d3748;
+            color: white;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .calc-section, .content-section {
+                padding: 20px;
+            }
+            
+            .result-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💼 Estimated Quarterly Tax Calculator</h1>
+            <p class="subtitle">Calculate your IRS quarterly tax payments for 2026</p>
+        </header>
+
+        <div class="calc-section">
+            <div class="input-group">
+                <label for="annual-income">📊 Expected Annual Income (Gross)</label>
+                <input type="number" id="annual-income" placeholder="100000" value="100000">
+            </div>
+
+            <div class="input-group">
+                <label for="business-expenses">💸 Expected Business Expenses (Total for year)</label>
+                <input type="number" id="business-expenses" placeholder="20000" value="20000">
+            </div>
+
+            <div class="input-group">
+                <label for="filing-status">👤 Filing Status</label>
+                <select id="filing-status">
+                    <option value="single">Single</option>
+                    <option value="married">Married Filing Jointly</option>
+                    <option value="married-separate">Married Filing Separately</option>
+                    <option value="head">Head of Household</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="deductions">📝 Additional Deductions (Standard or Itemized)</label>
+                <input type="number" id="deductions" placeholder="14600" value="14600">
+            </div>
+
+            <div class="input-group">
+                <label for="withholding">💰 Federal Tax Already Withheld (W-2 income)</label>
+                <input type="number" id="withholding" placeholder="0" value="0">
+            </div>
+
+            <div class="input-group">
+                <label for="credits">🎁 Tax Credits (Child Tax Credit, etc.)</label>
+                <input type="number" id="credits" placeholder="0" value="0">
+            </div>
+
+            <div class="results">
+                <h2>Your Quarterly Tax Payment</h2>
+                
+                <div class="result-item">
+                    <span class="result-label">Net Self-Employment Income</span>
+                    <span class="result-value" id="net-income">$0</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Self-Employment Tax (15.3%)</span>
+                    <span class="result-value" id="se-tax">$0</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Federal Income Tax</span>
+                    <span class="result-value" id="income-tax">$0</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Total Tax Liability</span>
+                    <span class="result-value" id="total-tax">$0</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Less: Withholding & Credits</span>
+                    <span class="result-value" id="credits-withholding">$0</span>
+                </div>
+
+                <div class="result-item" style="background: rgba(255,255,255,0.2); font-size: 1.1em;">
+                    <span class="result-label"><strong>Total Estimated Tax Due</strong></span>
+                    <span class="result-value" id="tax-due">$0</span>
+                </div>
+
+                <div class="result-item" style="background: rgba(255,255,255,0.25); font-size: 1.2em; border: 2px solid rgba(255,255,255,0.5);">
+                    <span class="result-label"><strong>📅 Payment Per Quarter</strong></span>
+                    <span class="result-value" id="quarterly-payment">$0</span>
+                </div>
+
+                <div class="payment-schedule">
+                    <h3>2026 Payment Schedule</h3>
+                    <div class="payment-item">
+                        <span class="payment-quarter">Q1 (Jan-Mar) - Due April 15, 2026</span>
+                        <span class="payment-amount" id="q1-payment">$0</span>
+                    </div>
+                    <div class="payment-item">
+                        <span class="payment-quarter">Q2 (Apr-May) - Due June 16, 2026</span>
+                        <span class="payment-amount" id="q2-payment">$0</span>
+                    </div>
+                    <div class="payment-item">
+                        <span class="payment-quarter">Q3 (Jun-Aug) - Due September 15, 2026</span>
+                        <span class="payment-amount" id="q3-payment">$0</span>
+                    </div>
+                    <div class="payment-item">
+                        <span class="payment-quarter">Q4 (Sep-Dec) - Due January 15, 2027</span>
+                        <span class="payment-amount" id="q4-payment">$0</span>
+                    </div>
+                </div>
+
+                <div class="tips">
+                    <h3>💡 Personalized Tips</h3>
+                    <ul id="tips-list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>What Are Estimated Quarterly Taxes?</h2>
+            <p>Estimated quarterly taxes are payments made to the IRS four times per year by self-employed individuals, freelancers, independent contractors, and anyone else who doesn't have taxes automatically withheld from their income. If you expect to owe $1,000 or more in taxes when you file your return, you're generally required to make quarterly estimated tax payments.</p>
+
+            <h3>Who Needs to Pay Quarterly Taxes?</h3>
+            <p>You generally need to make quarterly estimated tax payments if:</p>
+            <ul>
+                <li><strong>Self-employed individuals</strong> - sole proprietors, freelancers, independent contractors, gig workers</li>
+                <li><strong>Business owners</strong> - partners in partnerships, S corporation shareholders</li>
+                <li><strong>Landlords</strong> - earning rental income</li>
+                <li><strong>Investors</strong> - with substantial capital gains, dividends, or interest income</li>
+                <li><strong>Anyone</strong> who expects to owe $1,000+ in taxes after subtracting withholding and credits</li>
+                <li><strong>Corporations</strong> expecting to owe $500+ in taxes</li>
+            </ul>
+
+            <h3>2026 Quarterly Tax Due Dates</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment Period</th>
+                        <th>Income Earned</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Q1 2026</strong></td>
+                        <td>January 1 - March 31</td>
+                        <td>April 15, 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q2 2026</strong></td>
+                        <td>April 1 - May 31</td>
+                        <td>June 16, 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q3 2026</strong></td>
+                        <td>June 1 - August 31</td>
+                        <td>September 15, 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q4 2026</strong></td>
+                        <td>September 1 - December 31</td>
+                        <td>January 15, 2027*</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><small>*If you file your 2026 tax return by January 31, 2027 and pay all taxes owed, you don't need to make the Q4 payment.</small></p>
+
+            <h3>What Taxes Are Included in Quarterly Payments?</h3>
+            <p>Your quarterly estimated tax payment covers two types of federal taxes:</p>
+            <ol>
+                <li><strong>Self-Employment Tax (15.3%)</strong>
+                    <ul>
+                        <li>Social Security tax: 12.4% on income up to $168,600 (2026 limit)</li>
+                        <li>Medicare tax: 2.9% on all income</li>
+                        <li>Additional Medicare tax: 0.9% on income over $200,000 (single) or $250,000 (married filing jointly)</li>
+                    </ul>
+                </li>
+                <li><strong>Federal Income Tax</strong>
+                    <ul>
+                        <li>Progressive tax brackets ranging from 10% to 37%</li>
+                        <li>Based on your taxable income after deductions</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="highlight-box">
+                <h3>💡 Tax-Deductible Portion</h3>
+                <p>Good news: You can deduct <strong>50% of your self-employment tax</strong> as an adjustment to income. This reduces your taxable income and is already factored into our calculator above.</p>
+            </div>
+
+            <h3>How to Calculate Quarterly Taxes (Step by Step)</h3>
+            <ol>
+                <li><strong>Estimate your annual income</strong> - Add up all expected self-employment income, freelance income, rental income, etc.</li>
+                <li><strong>Subtract business expenses</strong> - Deduct legitimate business expenses (office supplies, software, travel, etc.)</li>
+                <li><strong>Calculate self-employment tax</strong> - Multiply your net profit by 92.35% (accounts for deductible portion), then by 15.3%</li>
+                <li><strong>Calculate income tax</strong> - Apply tax brackets to your income minus the standard/itemized deduction and half of SE tax</li>
+                <li><strong>Add them together</strong> - Total tax liability = SE tax + income tax</li>
+                <li><strong>Subtract withholding & credits</strong> - If you have W-2 income or tax credits, subtract those</li>
+                <li><strong>Divide by 4</strong> - Your quarterly payment is the total divided by 4</li>
+            </ol>
+
+            <h3>2026 Federal Income Tax Brackets</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tax Rate</th>
+                        <th>Single</th>
+                        <th>Married Filing Jointly</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10%</td>
+                        <td>$0 - $11,600</td>
+                        <td>$0 - $23,200</td>
+                    </tr>
+                    <tr>
+                        <td>12%</td>
+                        <td>$11,601 - $47,150</td>
+                        <td>$23,201 - $94,300</td>
+                    </tr>
+                    <tr>
+                        <td>22%</td>
+                        <td>$47,151 - $100,525</td>
+                        <td>$94,301 - $201,050</td>
+                    </tr>
+                    <tr>
+                        <td>24%</td>
+                        <td>$100,526 - $191,950</td>
+                        <td>$201,051 - $383,900</td>
+                    </tr>
+                    <tr>
+                        <td>32%</td>
+                        <td>$191,951 - $243,725</td>
+                        <td>$383,901 - $487,450</td>
+                    </tr>
+                    <tr>
+                        <td>35%</td>
+                        <td>$243,726 - $609,350</td>
+                        <td>$487,451 - $731,200</td>
+                    </tr>
+                    <tr>
+                        <td>37%</td>
+                        <td>Over $609,350</td>
+                        <td>Over $731,200</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Safe Harbor Rule: Avoid Underpayment Penalties</h3>
+            <p>The IRS won't penalize you for underpaying if you meet one of these "safe harbor" requirements:</p>
+            <ul>
+                <li><strong>Pay 90% of current year's tax</strong> - Your quarterly payments equal at least 90% of what you'll owe for 2026</li>
+                <li><strong>Pay 100% of last year's tax</strong> - Your quarterly payments equal 100% of your 2025 tax liability (110% if AGI > $150,000)</li>
+                <li><strong>Owe less than $1,000</strong> - After withholding and credits, you owe less than $1,000</li>
+            </ul>
+            <p>Most people use the <strong>100% of last year's tax</strong> method because it's predictable even if your income increases.</p>
+
+            <h3>How to Pay Quarterly Taxes</h3>
+            <p>You have several options for making quarterly tax payments:</p>
+            <ul>
+                <li><strong>IRS Direct Pay</strong> - Free electronic payment from your bank account at <a href="https://www.irs.gov/payments/direct-pay" target="_blank" rel="noopener">irs.gov/payments</a></li>
+                <li><strong>EFTPS</strong> - Electronic Federal Tax Payment System (requires enrollment)</li>
+                <li><strong>Credit/Debit Card</strong> - Through IRS-approved processors (fees apply, usually ~2%)</li>
+                <li><strong>Mail a check</strong> - Include Form 1040-ES payment voucher</li>
+                <li><strong>Tax software</strong> - TurboTax, H&R Block, etc. can schedule payments</li>
+            </ul>
+
+            <h3>Common Mistakes to Avoid</h3>
+            <ul>
+                <li><strong>Not making payments at all</strong> - Can result in penalties and interest charges</li>
+                <li><strong>Missing deadlines</strong> - Set calendar reminders for all four due dates</li>
+                <li><strong>Underestimating income</strong> - Better to slightly overpay and get a refund</li>
+                <li><strong>Forgetting state taxes</strong> - Most states also require quarterly estimated payments</li>
+                <li><strong>Not adjusting mid-year</strong> - If income changes significantly, recalculate your payments</li>
+                <li><strong>Using last year's income</strong> - If your income increased substantially, 100% safe harbor may not be enough to avoid owing at tax time</li>
+            </ul>
+
+            <h3>What If You Miss a Payment?</h3>
+            <p>If you miss a quarterly payment deadline:</p>
+            <ul>
+                <li><strong>Pay as soon as possible</strong> - Minimize the penalty amount</li>
+                <li><strong>Don't skip the next payment</strong> - Continue making remaining payments on schedule</li>
+                <li><strong>Expect a penalty</strong> - IRS Form 2210 calculates underpayment penalty (typically 7-8% annual interest)</li>
+                <li><strong>Consider penalty waiver</strong> - May qualify if underpayment was due to casualty, disaster, or unusual circumstances</li>
+            </ul>
+
+            <h3>Tax Deductions for Self-Employed Individuals</h3>
+            <p>Don't forget these common deductions that reduce your taxable income:</p>
+            <ul>
+                <li><strong>Home office deduction</strong> - Percentage of rent/mortgage, utilities, internet based on dedicated workspace</li>
+                <li><strong>Business mileage</strong> - $0.67/mile for 2026 (standard mileage rate)</li>
+                <li><strong>Health insurance premiums</strong> - 100% deductible for self-employed individuals</li>
+                <li><strong>Retirement contributions</strong> - SEP-IRA, Solo 401(k) contributions (up to $69,000 for 2026)</li>
+                <li><strong>Business equipment</strong> - Computers, software, tools, furniture (Section 179 deduction up to $1,220,000)</li>
+                <li><strong>Professional services</strong> - Accountant fees, lawyer fees, bookkeeping</li>
+                <li><strong>Marketing & advertising</strong> - Website, social media ads, business cards</li>
+                <li><strong>Education & training</strong> - Courses, conferences, books related to your business</li>
+            </ul>
+
+            <h3>State Quarterly Taxes</h3>
+            <p>Most states with income tax also require quarterly estimated payments. Check your state's department of revenue website for:</p>
+            <ul>
+                <li>State tax rates and brackets</li>
+                <li>Quarterly payment due dates (may differ from federal)</li>
+                <li>Payment methods and forms</li>
+                <li>Minimum payment thresholds</li>
+            </ul>
+
+            <h3>FAQ: Estimated Quarterly Taxes</h3>
+            
+            <div class="highlight-box">
+                <h4>Q: What happens if I overpay my quarterly taxes?</h4>
+                <p>A: You'll receive a refund when you file your annual tax return, or you can apply the overpayment to next year's estimated taxes.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Q: Can I pay more in one quarter and less in another?</h4>
+                <p>A: Yes, but the IRS calculates penalties based on when income was received. If you earn evenly throughout the year, it's safest to pay equal quarterly amounts.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Q: Do I need to pay quarterly taxes if I have a full-time W-2 job?</h4>
+                <p>A: Maybe. If your side income is substantial and your W-2 withholding doesn't cover the additional tax liability, you should make quarterly payments. Alternatively, you can increase your W-2 withholding on Form W-4.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Q: What if my income is irregular throughout the year?</h4>
+                <p>A: You can use the "annualized income installment method" (IRS Form 2210 Schedule AI) to make unequal payments based on when you actually earned the income. This prevents penalties if most of your income comes later in the year.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Q: Can I deduct quarterly tax payments on my tax return?</h4>
+                <p>A: No, but they count toward your total tax liability. When you file your return, your quarterly payments are subtracted from the total tax you owe.</p>
+            </div>
+
+            <h3>Resources & Forms</h3>
+            <ul>
+                <li><a href="https://www.irs.gov/forms-pubs/about-form-1040-es" target="_blank" rel="noopener">IRS Form 1040-ES</a> - Estimated Tax for Individuals</li>
+                <li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" target="_blank" rel="noopener">IRS Self-Employment Tax Guide</a></li>
+                <li><a href="https://www.irs.gov/payments" target="_blank" rel="noopener">IRS Payment Options</a></li>
+                <li><a href="https://www.irs.gov/taxtopics/tc306" target="_blank" rel="noopener">Tax Topic 306 - Penalty for Underpayment</a></li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 CalcLeap. Built for accuracy and simplicity.</p>
+            <p><a href="https://calcleap.com">← Back to CalcLeap</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function calculateQuarterlyTax() {
+            const annualIncome = parseFloat(document.getElementById('annual-income').value) || 0;
+            const businessExpenses = parseFloat(document.getElementById('business-expenses').value) || 0;
+            const filingStatus = document.getElementById('filing-status').value;
+            const deductions = parseFloat(document.getElementById('deductions').value) || 0;
+            const withholding = parseFloat(document.getElementById('withholding').value) || 0;
+            const credits = parseFloat(document.getElementById('credits').value) || 0;
+
+            // Calculate net self-employment income
+            const netIncome = annualIncome - businessExpenses;
+
+            // Calculate self-employment tax (15.3% on 92.35% of net income)
+            const seTaxableIncome = netIncome * 0.9235;
+            const seTax = seTaxableIncome * 0.153;
+
+            // Deductible portion of SE tax
+            const seDeduction = seTax * 0.5;
+
+            // Calculate taxable income
+            const taxableIncome = netIncome - seDeduction - deductions;
+
+            // Calculate federal income tax based on 2026 brackets
+            let incomeTax = 0;
+            
+            if (filingStatus === 'single') {
+                if (taxableIncome <= 11600) {
+                    incomeTax = taxableIncome * 0.10;
+                } else if (taxableIncome <= 47150) {
+                    incomeTax = 1160 + (taxableIncome - 11600) * 0.12;
+                } else if (taxableIncome <= 100525) {
+                    incomeTax = 5426 + (taxableIncome - 47150) * 0.22;
+                } else if (taxableIncome <= 191950) {
+                    incomeTax = 17168.5 + (taxableIncome - 100525) * 0.24;
+                } else if (taxableIncome <= 243725) {
+                    incomeTax = 39110.5 + (taxableIncome - 191950) * 0.32;
+                } else if (taxableIncome <= 609350) {
+                    incomeTax = 55678.5 + (taxableIncome - 243725) * 0.35;
+                } else {
+                    incomeTax = 183647.25 + (taxableIncome - 609350) * 0.37;
+                }
+            } else if (filingStatus === 'married') {
+                if (taxableIncome <= 23200) {
+                    incomeTax = taxableIncome * 0.10;
+                } else if (taxableIncome <= 94300) {
+                    incomeTax = 2320 + (taxableIncome - 23200) * 0.12;
+                } else if (taxableIncome <= 201050) {
+                    incomeTax = 10852 + (taxableIncome - 94300) * 0.22;
+                } else if (taxableIncome <= 383900) {
+                    incomeTax = 34337 + (taxableIncome - 201050) * 0.24;
+                } else if (taxableIncome <= 487450) {
+                    incomeTax = 78221 + (taxableIncome - 383900) * 0.32;
+                } else if (taxableIncome <= 731200) {
+                    incomeTax = 111357 + (taxableIncome - 487450) * 0.35;
+                } else {
+                    incomeTax = 196669.5 + (taxableIncome - 731200) * 0.37;
+                }
+            } else if (filingStatus === 'married-separate') {
+                if (taxableIncome <= 11600) {
+                    incomeTax = taxableIncome * 0.10;
+                } else if (taxableIncome <= 47150) {
+                    incomeTax = 1160 + (taxableIncome - 11600) * 0.12;
+                } else if (taxableIncome <= 100525) {
+                    incomeTax = 5426 + (taxableIncome - 47150) * 0.22;
+                } else if (taxableIncome <= 191950) {
+                    incomeTax = 17168.5 + (taxableIncome - 100525) * 0.24;
+                } else if (taxableIncome <= 243725) {
+                    incomeTax = 39110.5 + (taxableIncome - 191950) * 0.32;
+                } else if (taxableIncome <= 365600) {
+                    incomeTax = 55678.5 + (taxableIncome - 243725) * 0.35;
+                } else {
+                    incomeTax = 98334.75 + (taxableIncome - 365600) * 0.37;
+                }
+            } else if (filingStatus === 'head') {
+                if (taxableIncome <= 16550) {
+                    incomeTax = taxableIncome * 0.10;
+                } else if (taxableIncome <= 63100) {
+                    incomeTax = 1655 + (taxableIncome - 16550) * 0.12;
+                } else if (taxableIncome <= 100500) {
+                    incomeTax = 7241 + (taxableIncome - 63100) * 0.22;
+                } else if (taxableIncome <= 191950) {
+                    incomeTax = 15469 + (taxableIncome - 100500) * 0.24;
+                } else if (taxableIncome <= 243700) {
+                    incomeTax = 37417 + (taxableIncome - 191950) * 0.32;
+                } else if (taxableIncome <= 609350) {
+                    incomeTax = 53977 + (taxableIncome - 243700) * 0.35;
+                } else {
+                    incomeTax = 181954.5 + (taxableIncome - 609350) * 0.37;
+                }
+            }
+
+            // Additional Medicare tax for high earners
+            let additionalMedicare = 0;
+            const medicareThreshold = (filingStatus === 'married') ? 250000 : 200000;
+            if (netIncome > medicareThreshold) {
+                additionalMedicare = (netIncome - medicareThreshold) * 0.009;
+            }
+
+            // Total tax liability
+            const totalTax = seTax + incomeTax + additionalMedicare;
+
+            // Tax due after withholding and credits
+            const taxDue = Math.max(0, totalTax - withholding - credits);
+
+            // Quarterly payment
+            const quarterlyPayment = taxDue / 4;
+
+            // Update display
+            document.getElementById('net-income').textContent = '$' + netIncome.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('se-tax').textContent = '$' + seTax.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('income-tax').textContent = '$' + (incomeTax + additionalMedicare).toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('total-tax').textContent = '$' + totalTax.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('credits-withholding').textContent = '$' + (withholding + credits).toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('tax-due').textContent = '$' + taxDue.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('quarterly-payment').textContent = '$' + quarterlyPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            // Update payment schedule
+            document.getElementById('q1-payment').textContent = '$' + quarterlyPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('q2-payment').textContent = '$' + quarterlyPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('q3-payment').textContent = '$' + quarterlyPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('q4-payment').textContent = '$' + quarterlyPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            // Generate personalized tips
+            const tipsList = document.getElementById('tips-list');
+            tipsList.innerHTML = '';
+
+            if (quarterlyPayment > 5000) {
+                tipsList.innerHTML += '<li>Your quarterly payment is significant. Consider setting aside 30-35% of each payment you receive.</li>';
+            } else if (quarterlyPayment > 2000) {
+                tipsList.innerHTML += '<li>Set aside 25-30% of each payment you receive for taxes.</li>';
+            } else {
+                tipsList.innerHTML += '<li>Set aside 20-25% of each payment you receive for taxes.</li>';
+            }
+
+            if (netIncome > 160200) {
+                tipsList.innerHTML += '<li>You\'re approaching or exceeding the Social Security wage base. Consider maximizing retirement contributions to reduce taxable income.</li>';
+            }
+
+            if (taxableIncome > 0 && deductions <= 14600) {
+                tipsList.innerHTML += '<li>You\'re using the standard deduction. Consider tracking itemized deductions (mortgage interest, charitable contributions) to see if you could save more.</li>';
+            }
+
+            tipsList.innerHTML += '<li>Set up automatic payments through IRS Direct Pay or EFTPS to avoid missing deadlines.</li>';
+            tipsList.innerHTML += '<li>Keep detailed records of all business income and expenses throughout the year.</li>';
+
+            if (businessExpenses / annualIncome < 0.15) {
+                tipsList.innerHTML += '<li>Your business expenses are relatively low. Review common deductions (home office, mileage, equipment) to ensure you\'re not missing anything.</li>';
+            }
+
+            if (withholding === 0 && credits === 0) {
+                tipsList.innerHTML += '<li>You have no withholding or credits applied. If you also have W-2 income, consider increasing withholding there to reduce quarterly payments.</li>';
+            }
+        }
+
+        // Calculate on page load and input change
+        document.getElementById('annual-income').addEventListener('input', calculateQuarterlyTax);
+        document.getElementById('business-expenses').addEventListener('input', calculateQuarterlyTax);
+        document.getElementById('filing-status').addEventListener('change', calculateQuarterlyTax);
+        document.getElementById('deductions').addEventListener('input', calculateQuarterlyTax);
+        document.getElementById('withholding').addEventListener('input', calculateQuarterlyTax);
+        document.getElementById('credits').addEventListener('input', calculateQuarterlyTax);
+
+        calculateQuarterlyTax();
+    </script>
+</body>
+</html>
