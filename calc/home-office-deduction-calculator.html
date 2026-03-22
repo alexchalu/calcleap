@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Office Deduction Calculator 2026 - IRS Tax Savings</title>
+    <meta name="description" content="Free home office deduction calculator for 2026. Calculate your tax savings using the simplified method or actual expenses. Includes IRS requirements, state deductions, and tax planning tips.">
+    <meta name="keywords" content="home office deduction calculator, home office tax deduction, simplified method, actual expense method, IRS home office, self employed deduction">
+    <link rel="canonical" href="https://calcleap.com/calc/home-office-deduction-calculator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #86868b;
+            margin-bottom: 30px;
+        }
+        
+        .method-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .method-btn {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #d2d2d7;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            font-weight: 600;
+        }
+        
+        .method-btn:hover {
+            border-color: #667eea;
+        }
+        
+        .method-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .calculator {
+            background: #f5f5f7;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+        }
+        
+        input[type="number"], select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #d2d2d7;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .results {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .results h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        
+        .result-value {
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+        
+        .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .tips {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .tips h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .tips ul {
+            margin-left: 20px;
+            color: #856404;
+        }
+        
+        .content-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #f5f5f7;
+        }
+        
+        .content-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #1d1d1f;
+        }
+        
+        .content-section h3 {
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #1d1d1f;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+            color: #515154;
+        }
+        
+        .content-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #515154;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #d2d2d7;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f5f5f7;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .method-selector {
+                flex-direction: column;
+            }
+            
+            .result-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 Home Office Deduction Calculator</h1>
+        <p class="subtitle">Calculate your IRS home office tax deduction for 2026 using simplified or actual expense method</p>
+        
+        <div class="method-selector">
+            <button class="method-btn active" onclick="switchMethod('simplified')">
+                📏 Simplified Method
+            </button>
+            <button class="method-btn" onclick="switchMethod('actual')">
+                📊 Actual Expenses
+            </button>
+        </div>
+        
+        <div class="calculator">
+            <div id="simplifiedInputs">
+                <div class="input-group">
+                    <label for="homeOfficeArea">Home Office Area (square feet)</label>
+                    <input type="number" id="homeOfficeArea" value="150" min="1" max="300" oninput="calculate()">
+                    <small style="color: #86868b;">Maximum 300 sq ft for simplified method</small>
+                </div>
+            </div>
+            
+            <div id="actualInputs" style="display: none;">
+                <div class="input-group">
+                    <label for="homeArea">Total Home Area (square feet)</label>
+                    <input type="number" id="homeArea" value="2000" min="1" oninput="calculate()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="officeArea">Home Office Area (square feet)</label>
+                    <input type="number" id="officeArea" value="200" min="1" oninput="calculate()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="mortgage">Mortgage/Rent (annual)</label>
+                    <input type="number" id="mortgage" value="24000" min="0" oninput="calculate()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="utilities">Utilities (annual)</label>
+                    <input type="number" id="utilities" value="3600" min="0" oninput="calculate()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="insurance">Homeowners Insurance (annual)</label>
+                    <input type="number" id="insurance" value="1800" min="0" oninput="calculate()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="repairs">Repairs & Maintenance (annual)</label>
+                    <input type="number" id="repairs" value="2000" min="0" oninput="calculate()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="depreciation">Home Depreciation (annual)</label>
+                    <input type="number" id="depreciation" value="5000" min="0" oninput="calculate()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="directExpenses">Direct Office Expenses (annual)</label>
+                    <input type="number" id="directExpenses" value="800" min="0" oninput="calculate()">
+                    <small style="color: #86868b;">Paint, repairs only for office space</small>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="taxBracket">Federal Tax Bracket</label>
+                <select id="taxBracket" onchange="calculate()">
+                    <option value="10">10%</option>
+                    <option value="12">12%</option>
+                    <option value="22" selected>22%</option>
+                    <option value="24">24%</option>
+                    <option value="32">32%</option>
+                    <option value="35">35%</option>
+                    <option value="37">37%</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="selfEmployed">Self-Employed?</label>
+                <select id="selfEmployed" onchange="calculate()">
+                    <option value="yes" selected>Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="results" id="results">
+            <h2>💰 Your Tax Savings</h2>
+            <div class="result-item">
+                <span class="result-label">Home Office Deduction:</span>
+                <span class="result-value" id="deduction">$0</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Federal Tax Savings:</span>
+                <span class="result-value" id="federalSavings">$0</span>
+            </div>
+            <div class="result-item" id="seSavingsRow">
+                <span class="result-label">Self-Employment Tax Savings:</span>
+                <span class="result-value" id="seSavings">$0</span>
+            </div>
+            <div class="highlight">
+                <div class="result-item" style="border: none;">
+                    <span class="result-label">Total Tax Savings:</span>
+                    <span class="result-value" id="totalSavings">$0</span>
+                </div>
+            </div>
+            <div id="percentageUsed" style="margin-top: 15px; opacity: 0.9;"></div>
+        </div>
+        
+        <div class="tips" id="tipsBox">
+            <h3>💡 Tips for Your Situation</h3>
+            <ul id="tipsList"></ul>
+        </div>
+        
+        <div class="content-section">
+            <h2>What is the Home Office Deduction?</h2>
+            <p>The home office deduction allows self-employed individuals and small business owners to deduct expenses related to the portion of their home used regularly and exclusively for business. This can significantly reduce your tax liability.</p>
+            
+            <h3>Two Methods: Simplified vs. Actual Expenses</h3>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Simplified Method</th>
+                    <th>Actual Expense Method</th>
+                </tr>
+                <tr>
+                    <td><strong>Calculation</strong></td>
+                    <td>$5 per square foot (max 300 sq ft)</td>
+                    <td>Business % × actual home expenses</td>
+                </tr>
+                <tr>
+                    <td><strong>Maximum Deduction</strong></td>
+                    <td>$1,500 per year</td>
+                    <td>Unlimited (based on actual expenses)</td>
+                </tr>
+                <tr>
+                    <td><strong>Record Keeping</strong></td>
+                    <td>Minimal - just square footage</td>
+                    <td>Detailed receipts and documentation</td>
+                </tr>
+                <tr>
+                    <td><strong>Best For</strong></td>
+                    <td>Small offices, simple situations</td>
+                    <td>Larger offices, high home expenses</td>
+                </tr>
+                <tr>
+                    <td><strong>Depreciation</strong></td>
+                    <td>Not required</td>
+                    <td>Must depreciate home portion</td>
+                </tr>
+                <tr>
+                    <td><strong>Recapture at Sale</strong></td>
+                    <td>None</td>
+                    <td>Depreciation must be recaptured</td>
+                </tr>
+            </table>
+            
+            <h3>IRS Requirements to Qualify</h3>
+            <p>Your home office must meet TWO key tests:</p>
+            
+            <h4>1. Regular and Exclusive Use</h4>
+            <ul>
+                <li><strong>Regular:</strong> You use the space consistently for business (not occasionally)</li>
+                <li><strong>Exclusive:</strong> The space is used ONLY for business (no dual use as guest room, family room, etc.)</li>
+                <li>Exception: Daycare providers and storage can use space for other purposes</li>
+            </ul>
+            
+            <h4>2. Principal Place of Business</h4>
+            <p>Your home office must be:</p>
+            <ul>
+                <li>Your main place of business, OR</li>
+                <li>Where you meet clients/customers regularly, OR</li>
+                <li>A separate structure used for business (garage, studio, barn)</li>
+            </ul>
+            
+            <h3>What Expenses Can You Deduct?</h3>
+            
+            <h4>Indirect Expenses (proportional to office size):</h4>
+            <ul>
+                <li>Mortgage interest or rent</li>
+                <li>Property taxes</li>
+                <li>Homeowners insurance</li>
+                <li>Utilities (electricity, gas, water, trash)</li>
+                <li>Home repairs and maintenance</li>
+                <li>Home depreciation</li>
+                <li>HOA fees</li>
+                <li>Security system</li>
+            </ul>
+            
+            <h4>Direct Expenses (100% deductible):</h4>
+            <ul>
+                <li>Painting or repairs ONLY for the office space</li>
+                <li>Office-specific renovations</li>
+                <li>Office furniture and equipment</li>
+                <li>Office supplies</li>
+            </ul>
+            
+            <h3>Simplified Method Details</h3>
+            <p><strong>Calculation:</strong> $5 per square foot × office square footage (max 300 sq ft)</p>
+            <p><strong>Maximum deduction:</strong> $1,500 per year</p>
+            
+            <h4>Pros:</h4>
+            <ul>
+                <li>No detailed record keeping required</li>
+                <li>No depreciation calculations</li>
+                <li>No recapture when you sell your home</li>
+                <li>Quick and easy</li>
+            </ul>
+            
+            <h4>Cons:</h4>
+            <ul>
+                <li>Limited to $1,500 maximum</li>
+                <li>May provide smaller deduction than actual expenses</li>
+                <li>Can't deduct depreciation</li>
+            </ul>
+            
+            <h3>Actual Expense Method Details</h3>
+            <p><strong>Calculation:</strong> (Office square feet ÷ Total home square feet) × Total qualifying expenses</p>
+            
+            <h4>Example:</h4>
+            <p>Office: 200 sq ft | Home: 2,000 sq ft | Business percentage: 10%</p>
+            <p>If total qualifying expenses = $30,000/year, deduction = $3,000</p>
+            
+            <h4>Pros:</h4>
+            <ul>
+                <li>No dollar limit on deduction</li>
+                <li>Can provide much larger deduction</li>
+                <li>Includes depreciation</li>
+                <li>Better for expensive homes or large offices</li>
+            </ul>
+            
+            <h4>Cons:</h4>
+            <ul>
+                <li>Requires detailed record keeping</li>
+                <li>Must track and allocate all home expenses</li>
+                <li>Depreciation must be recaptured when you sell</li>
+                <li>More complex calculations</li>
+            </ul>
+            
+            <h3>Tax Savings Breakdown</h3>
+            
+            <h4>For Self-Employed (1099, Sole Proprietor, LLC):</h4>
+            <ul>
+                <li><strong>Federal income tax savings:</strong> Deduction × your tax bracket</li>
+                <li><strong>Self-employment tax savings:</strong> Deduction × 15.3% (Social Security + Medicare)</li>
+                <li><strong>Total savings:</strong> Federal + SE tax savings</li>
+            </ul>
+            
+            <h4>Example (Self-Employed in 22% bracket):</h4>
+            <p>Deduction: $3,000</p>
+            <ul>
+                <li>Federal savings: $3,000 × 22% = $660</li>
+                <li>SE tax savings: $3,000 × 15.3% = $459</li>
+                <li>Total savings: $1,119</li>
+            </ul>
+            
+            <h4>For W-2 Employees:</h4>
+            <p><strong>Note:</strong> The Tax Cuts and Jobs Act (2018-2025) eliminated home office deductions for W-2 employees. As of 2026, this remains in effect unless Congress changes the law.</p>
+            <p>W-2 employees can ONLY deduct home office expenses if:</p>
+            <ul>
+                <li>You also have self-employment income, OR</li>
+                <li>Your employer requires a home office and doesn't reimburse you (very rare)</li>
+            </ul>
+            
+            <h3>How to Claim the Deduction</h3>
+            
+            <h4>Self-Employed (Schedule C):</h4>
+            <ol>
+                <li>Complete Form 8829 (Expenses for Business Use of Your Home)</li>
+                <li>Enter the deduction on Schedule C, Line 30</li>
+                <li>Include with your Form 1040</li>
+            </ol>
+            
+            <h4>Simplified Method:</h4>
+            <ol>
+                <li>Calculate: square footage × $5</li>
+                <li>Enter directly on Schedule C, Line 30</li>
+                <li>Write "Simplified Method" in description</li>
+                <li>No Form 8829 needed</li>
+            </ol>
+            
+            <h3>Common Mistakes to Avoid</h3>
+            
+            <h4>1. Not Meeting Exclusive Use Test</h4>
+            <p><strong>Wrong:</strong> Using your dining room table as a desk during work hours</p>
+            <p><strong>Right:</strong> Dedicated room or clearly defined space used ONLY for business</p>
+            
+            <h4>2. Overestimating Square Footage</h4>
+            <p>Measure carefully. The IRS can audit and verify. Don't round up significantly.</p>
+            
+            <h4>3. Claiming Personal Expenses</h4>
+            <p>Only deduct the business portion. Lawn care, whole-home renovations, etc. are NOT deductible unless they directly benefit the office space.</p>
+            
+            <h4>4. Forgetting Depreciation Recapture</h4>
+            <p>If you use actual expenses and claim depreciation, you MUST recapture (pay tax on) that depreciation when you sell your home, even if you exclude the gain under the $250K/$500K home sale exclusion.</p>
+            
+            <h4>5. Not Documenting Everything</h4>
+            <p>Keep photos of your office, receipts, utility bills, and a floor plan showing measurements.</p>
+            
+            <h4>6. Claiming Too Large a Percentage</h4>
+            <p>If your office is 200 sq ft in a 1,000 sq ft home (20%), that's reasonable. If you claim 60% of your home, expect scrutiny.</p>
+            
+            <h3>Maximizing Your Deduction</h3>
+            
+            <h4>1. Choose the Right Method</h4>
+            <ul>
+                <li>Run the numbers both ways</li>
+                <li>Simplified: best for offices under 300 sq ft with low home expenses</li>
+                <li>Actual: best for larger offices, expensive homes, or high utility costs</li>
+            </ul>
+            
+            <h4>2. Track All Expenses</h4>
+            <p>Even if you use simplified method one year, you can switch to actual expenses the next year if your situation changes.</p>
+            
+            <h4>3. Combine with Other Deductions</h4>
+            <ul>
+                <li>Office furniture and equipment (Section 179 or bonus depreciation)</li>
+                <li>Internet and phone (business portion)</li>
+                <li>Office supplies</li>
+                <li>Software subscriptions</li>
+            </ul>
+            
+            <h4>4. Consider a Separate Structure</h4>
+            <p>Garage, shed, or studio conversions can provide 100% deductibility if used exclusively for business.</p>
+            
+            <h4>5. Document Everything</h4>
+            <ul>
+                <li>Take photos of your office space</li>
+                <li>Keep a floor plan with measurements</li>
+                <li>Save all receipts and bills</li>
+                <li>Track time spent working from home</li>
+            </ul>
+            
+            <h3>Special Situations</h3>
+            
+            <h4>Daycare Providers</h4>
+            <p>Can deduct home expenses even if space is used for personal purposes, but must calculate based on hours used for business.</p>
+            
+            <h4>Storage of Inventory or Samples</h4>
+            <p>If you sell products and store inventory at home, you can deduct storage space even if it's not exclusive use (e.g., garage corner).</p>
+            
+            <h4>Renters</h4>
+            <p>Can deduct rent (proportional to office size), utilities, renters insurance, and repairs.</p>
+            
+            <h4>Multiple Businesses</h4>
+            <p>You can claim home office deduction for each business if you have separate spaces. If you use the same space for multiple businesses, you can only claim it once.</p>
+            
+            <h3>State Taxes</h3>
+            <p>Most states that have income tax allow home office deductions similar to federal rules. Check your state's Department of Revenue for specifics.</p>
+            
+            <h4>States with special rules:</h4>
+            <ul>
+                <li><strong>No state income tax:</strong> Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, Wyoming - no state deduction needed</li>
+                <li><strong>California:</strong> Follows federal rules but has additional documentation requirements</li>
+                <li><strong>New York:</strong> Allows deduction but may require additional forms</li>
+            </ul>
+            
+            <h3>FAQ</h3>
+            
+            <h4>Q: Can I deduct my home office if I'm a W-2 employee?</h4>
+            <p><strong>A:</strong> Generally no, unless you also have self-employment income or your employer requires a home office and doesn't reimburse expenses (very rare post-2018 tax law).</p>
+            
+            <h4>Q: Can I switch between simplified and actual expense methods?</h4>
+            <p><strong>A:</strong> Yes! You can choose either method each year. Calculate both and use whichever gives you a larger deduction.</p>
+            
+            <h4>Q: Does a home office deduction increase my audit risk?</h4>
+            <p><strong>A:</strong> Slightly, but if you legitimately qualify and have documentation, you should claim it. The deduction is legal and widely used.</p>
+            
+            <h4>Q: Can I deduct a bedroom I converted to an office?</h4>
+            <p><strong>A:</strong> Yes, as long as you use it regularly and exclusively for business. It can't double as a guest room or storage for personal items.</p>
+            
+            <h4>Q: What if my home office is larger than 300 sq ft?</h4>
+            <p><strong>A:</strong> You must use the actual expense method. The simplified method caps at 300 sq ft.</p>
+            
+            <h4>Q: Do I have to claim depreciation with actual expenses?</h4>
+            <p><strong>A:</strong> You're not required to, but it increases your deduction. However, you must recapture it when you sell your home.</p>
+            
+            <h4>Q: Can I deduct home improvements?</h4>
+            <p><strong>A:</strong> Only if they're exclusively for the office space (e.g., new carpet ONLY in the office). Whole-home improvements are not deductible but can be depreciated proportionally.</p>
+            
+            <h3>IRS Resources</h3>
+            <ul>
+                <li><a href="https://www.irs.gov/publications/p587" target="_blank">IRS Publication 587: Business Use of Your Home</a></li>
+                <li><a href="https://www.irs.gov/forms-pubs/about-form-8829" target="_blank">Form 8829: Expenses for Business Use of Your Home</a></li>
+                <li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/home-office-deduction" target="_blank">IRS Home Office Deduction Guide</a></li>
+                <li><a href="https://www.irs.gov/newsroom/heres-what-taxpayers-need-to-know-about-the-home-office-deduction" target="_blank">IRS Home Office Deduction FAQs</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        let currentMethod = 'simplified';
+        
+        function switchMethod(method) {
+            currentMethod = method;
+            const buttons = document.querySelectorAll('.method-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (method === 'simplified') {
+                document.getElementById('simplifiedInputs').style.display = 'block';
+                document.getElementById('actualInputs').style.display = 'none';
+            } else {
+                document.getElementById('simplifiedInputs').style.display = 'none';
+                document.getElementById('actualInputs').style.display = 'block';
+            }
+            
+            calculate();
+        }
+        
+        function calculate() {
+            let deduction = 0;
+            let percentageUsed = 0;
+            
+            if (currentMethod === 'simplified') {
+                const area = Math.min(parseFloat(document.getElementById('homeOfficeArea').value) || 0, 300);
+                deduction = Math.min(area * 5, 1500);
+                percentageUsed = 0;
+            } else {
+                const homeArea = parseFloat(document.getElementById('homeArea').value) || 0;
+                const officeArea = parseFloat(document.getElementById('officeArea').value) || 0;
+                const mortgage = parseFloat(document.getElementById('mortgage').value) || 0;
+                const utilities = parseFloat(document.getElementById('utilities').value) || 0;
+                const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+                const repairs = parseFloat(document.getElementById('repairs').value) || 0;
+                const depreciation = parseFloat(document.getElementById('depreciation').value) || 0;
+                const directExpenses = parseFloat(document.getElementById('directExpenses').value) || 0;
+                
+                if (homeArea > 0) {
+                    percentageUsed = (officeArea / homeArea) * 100;
+                    const businessPercentage = officeArea / homeArea;
+                    
+                    const indirectExpenses = mortgage + utilities + insurance + repairs + depreciation;
+                    const indirectDeduction = indirectExpenses * businessPercentage;
+                    
+                    deduction = indirectDeduction + directExpenses;
+                }
+            }
+            
+            const taxBracket = parseFloat(document.getElementById('taxBracket').value) / 100;
+            const selfEmployed = document.getElementById('selfEmployed').value === 'yes';
+            
+            const federalSavings = deduction * taxBracket;
+            const seSavings = selfEmployed ? deduction * 0.153 : 0;
+            const totalSavings = federalSavings + seSavings;
+            
+            document.getElementById('deduction').textContent = '$' + deduction.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('federalSavings').textContent = '$' + federalSavings.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('seSavings').textContent = '$' + seSavings.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('totalSavings').textContent = '$' + totalSavings.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            
+            if (currentMethod === 'simplified') {
+                document.getElementById('percentageUsed').textContent = '';
+            } else {
+                document.getElementById('percentageUsed').textContent = `Business use: ${percentageUsed.toFixed(1)}% of your home`;
+            }
+            
+            if (!selfEmployed) {
+                document.getElementById('seSavingsRow').style.display = 'none';
+            } else {
+                document.getElementById('seSavingsRow').style.display = 'flex';
+            }
+            
+            generateTips(deduction, currentMethod, percentageUsed, selfEmployed);
+        }
+        
+        function generateTips(deduction, method, percentage, selfEmployed) {
+            const tips = [];
+            
+            if (method === 'simplified' && deduction >= 1400) {
+                tips.push('You\'re near the $1,500 simplified method limit. Consider calculating actual expenses to see if you can deduct more.');
+            }
+            
+            if (method === 'actual' && percentage < 5) {
+                tips.push('Your office is a small percentage of your home. The simplified method might be easier with similar results.');
+            }
+            
+            if (method === 'actual' && percentage > 25) {
+                tips.push('Your office is a large portion of your home. Make sure you meet the exclusive use test and have documentation.');
+            }
+            
+            if (deduction > 5000) {
+                tips.push('Keep detailed records! With a deduction over $5,000, documentation is critical if you\'re audited.');
+            }
+            
+            if (selfEmployed) {
+                tips.push('As self-employed, you save on both income tax AND self-employment tax (15.3%). Don\'t forget to claim this deduction on Schedule C.');
+            } else {
+                tips.push('W-2 employees generally cannot deduct home office expenses unless you have additional self-employment income.');
+            }
+            
+            if (method === 'actual') {
+                tips.push('Remember: depreciation must be recaptured when you sell your home, even if you exclude the gain under the home sale exclusion.');
+            }
+            
+            if (deduction < 500) {
+                tips.push('Your deduction is relatively small. Make sure you\'re tracking all eligible expenses if using actual method.');
+            }
+            
+            const tipsList = document.getElementById('tipsList');
+            tipsList.innerHTML = tips.map(tip => `<li>${tip}</li>`).join('');
+        }
+        
+        // Initial calculation
+        calculate();
+    </script>
+</body>
+</html>
