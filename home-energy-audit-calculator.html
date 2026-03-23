@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Energy Audit Calculator — Free Online Calculator | CalcLeap</title>
+<meta name="description" content="Calculate potential energy savings with a free home energy audit calculator. Analyze your home's energy efficiency, identify wasteful areas, and estimate cost savings from improvements.">
+<link rel="canonical" href="https://calcleap.com/home-energy-audit-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Home Energy Audit Calculator — CalcLeap">
+<meta property="og:description" content="Calculate potential energy savings with a free home energy audit calculator. Analyze your home's energy efficiency, identify wasteful areas, and estimate cost savings from improvements.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/home-energy-audit-calculator.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Home Energy Audit Calculator",
+    "description": "Calculate potential energy savings with a free home energy audit calculator. Analyze your home's energy efficiency, identify wasteful areas, and estimate cost savings from improvements.",
+    "url": "https://calcleap.com/home-energy-audit-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "CalcLeap", "url": "https://calcleap.com" }
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:700px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
+.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.result-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;margin-bottom:1rem}
+.result-box h3{font-size:1rem;font-weight:600;color:var(--text-2);margin-bottom:.75rem}
+.result-big{font-size:2.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
+.result-label{font-size:.9rem;color:var(--text-2);margin-top:.25rem}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1rem}
+.stat{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;text-align:center}
+.stat-value{font-size:1.5rem;font-weight:700;color:var(--text)}
+.stat-label{font-size:.75rem;color:var(--text-3);margin-top:.25rem;text-transform:uppercase;letter-spacing:.04em}
+.improvement-list{margin-top:1rem}
+.improvement-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;margin-bottom:.75rem}
+.improvement-item h4{font-size:.9rem;font-weight:600;margin-bottom:.5rem}
+.improvement-item p{font-size:.85rem;color:var(--text-2);line-height:1.6}
+.improvement-meta{display:flex;gap:1.5rem;margin-top:.75rem;font-size:.75rem;color:var(--text-3)}
+.improvement-meta span{display:flex;align-items:center;gap:.3rem}
+.priority-high{color:#ff3b30;font-weight:600}
+.priority-medium{color:#ff9500;font-weight:600}
+.priority-low{color:#34c759;font-weight:600}
+.content{margin-top:2rem}
+.content h2{font-size:1.5rem;font-weight:700;margin:2rem 0 1rem}
+.content h3{font-size:1.2rem;font-weight:600;margin:1.5rem 0 .75rem}
+.content p{font-size:1rem;color:var(--text-2);line-height:1.7;margin-bottom:1rem}
+.content ul{margin:1rem 0;padding-left:1.5rem}
+.content li{font-size:1rem;color:var(--text-2);line-height:1.7;margin-bottom:.5rem}
+.footer{margin-top:4rem;padding:2rem 0;border-top:1px solid var(--border);text-align:center;color:var(--text-3);font-size:.8rem}
+.footer a{color:var(--accent)}
+@media(max-width:768px){
+.form-row{grid-template-columns:1fr}
+.stat-grid{grid-template-columns:1fr}
+.page{padding:0 1rem}
+.nav-inner{padding:0 1rem}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="breadcrumb">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    <span>Home Energy Audit Calculator</span>
+  </div>
+
+  <h1 class="page-title">Home Energy Audit Calculator</h1>
+  <p class="page-desc">Calculate potential energy savings from home efficiency improvements. Get a detailed audit report showing where your home is losing energy and how much you could save annually.</p>
+
+  <div class="card">
+    <h2>Current Energy Usage</h2>
+    <form id="auditForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="sqft">Home Square Footage</label>
+          <input type="number" id="sqft" value="2000" min="500" step="100">
+        </div>
+        <div class="form-group">
+          <label for="monthlyBill">Monthly Electric Bill ($)</label>
+          <input type="number" id="monthlyBill" value="150" min="0" step="10">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="gasBill">Monthly Gas Bill ($)</label>
+          <input type="number" id="gasBill" value="80" min="0" step="10">
+        </div>
+        <div class="form-group">
+          <label for="homeAge">Home Age (years)</label>
+          <input type="number" id="homeAge" value="25" min="0" step="1">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="insulation">Attic Insulation</label>
+          <select id="insulation">
+            <option value="none">None/Minimal</option>
+            <option value="poor">Poor (R-11 to R-19)</option>
+            <option value="adequate" selected>Adequate (R-30)</option>
+            <option value="excellent">Excellent (R-49+)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="windows">Window Type</label>
+          <select id="windows">
+            <option value="single">Single Pane</option>
+            <option value="double" selected>Double Pane</option>
+            <option value="energy">Energy Efficient (Low-E)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="hvacAge">HVAC System Age (years)</label>
+          <input type="number" id="hvacAge" value="12" min="0" step="1">
+        </div>
+        <div class="form-group">
+          <label for="waterHeater">Water Heater Type</label>
+          <select id="waterHeater">
+            <option value="tank" selected>Standard Tank</option>
+            <option value="efficient">High-Efficiency Tank</option>
+            <option value="tankless">Tankless</option>
+            <option value="heat-pump">Heat Pump</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Calculate Energy Audit</button>
+    </form>
+
+    <div id="results" class="result-area"></div>
+  </div>
+
+  <div class="content">
+    <h2>Understanding Your Home Energy Audit</h2>
+    <p>A home energy audit identifies areas where your home is wasting energy and money. By evaluating insulation, HVAC efficiency, windows, and appliances, you can prioritize cost-effective improvements that reduce your utility bills and increase comfort.</p>
+
+    <h3>What Affects Home Energy Efficiency?</h3>
+    <ul>
+      <li><strong>Insulation:</strong> Inadequate attic and wall insulation causes 25-40% of energy loss</li>
+      <li><strong>Air Leaks:</strong> Drafts around doors, windows, and outlets waste 15-30% of heating/cooling</li>
+      <li><strong>HVAC Age:</strong> Systems over 15 years old can be 20-40% less efficient than modern units</li>
+      <li><strong>Windows:</strong> Single-pane windows lose 2-3x more heat than double-pane or Low-E windows</li>
+      <li><strong>Water Heating:</strong> Accounts for 18% of home energy use; tankless or heat pump systems save 30-50%</li>
+      <li><strong>Lighting:</strong> Switching to LED bulbs saves 75% on lighting costs</li>
+    </ul>
+
+    <h3>High-Impact Energy Improvements</h3>
+    <p><strong>1. Attic Insulation Upgrade:</strong> Adding insulation to R-49 can save 15-25% on heating/cooling ($200-400/year). Cost: $1,500-3,000. Payback: 4-8 years.</p>
+    <p><strong>2. Air Sealing:</strong> Caulking and weatherstripping reduce drafts and save 10-20% on bills ($150-300/year). Cost: $300-800. Payback: 2-4 years.</p>
+    <p><strong>3. HVAC Replacement:</strong> Modern high-efficiency systems (16+ SEER) save 20-40% ($300-600/year). Cost: $5,000-10,000. Payback: 8-15 years.</p>
+    <p><strong>4. Window Replacement:</strong> Energy-efficient windows save 10-25% ($150-400/year). Cost: $8,000-15,000. Payback: 20-40 years (best for old, damaged windows).</p>
+    <p><strong>5. LED Lighting:</strong> Replace all bulbs to save $75-150/year. Cost: $100-200. Payback: 1-2 years.</p>
+
+    <h3>Professional vs. DIY Energy Audit</h3>
+    <p><strong>Professional Audit ($300-500):</strong> Uses thermal imaging, blower door tests, and detailed analysis. Recommended for older homes or major renovation planning. Some utilities offer free or subsidized audits.</p>
+    <p><strong>DIY Audit:</strong> Use this calculator plus visual inspection (check for drafts, insulation gaps, outdated equipment). Good for identifying obvious issues and quick wins.</p>
+
+    <h3>Utility Rebates and Tax Credits</h3>
+    <p>Many improvements qualify for incentives:</p>
+    <ul>
+      <li><strong>Federal Tax Credits:</strong> Up to 30% back on insulation, windows, HVAC, heat pumps (Inflation Reduction Act)</li>
+      <li><strong>Utility Rebates:</strong> $500-2,000 for HVAC upgrades, $50-300 for smart thermostats</li>
+      <li><strong>State/Local Programs:</strong> Additional rebates for energy-efficient appliances and solar panels</li>
+    </ul>
+    <p>Check <a href="https://www.dsireusa.org" target="_blank" rel="noopener">DSIRE</a> and your utility company for available programs in your area.</p>
+
+    <h3>Payback Period and ROI</h3>
+    <p>Prioritize improvements with the shortest payback period (cost ÷ annual savings). Best ROI typically comes from:</p>
+    <ul>
+      <li>LED lighting (1-2 years)</li>
+      <li>Air sealing (2-4 years)</li>
+      <li>Programmable thermostat (2-3 years)</li>
+      <li>Attic insulation (4-8 years)</li>
+      <li>HVAC tune-up/maintenance (immediate savings)</li>
+    </ul>
+
+    <h3>Beyond Cost Savings</h3>
+    <p>Energy efficiency improvements also provide:</p>
+    <ul>
+      <li><strong>Comfort:</strong> More consistent temperatures, fewer drafts</li>
+      <li><strong>Home Value:</strong> Energy-efficient homes sell faster and at a premium</li>
+      <li><strong>Environmental Impact:</strong> Reduce your carbon footprint by 15-40%</li>
+      <li><strong>Health:</strong> Better air quality and moisture control</li>
+    </ul>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 CalcLeap. Free calculators for everyday use.</p>
+    <p><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+  </footer>
+</main>
+
+<script>
+document.getElementById('auditForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const sqft = parseFloat(document.getElementById('sqft').value);
+  const monthlyBill = parseFloat(document.getElementById('monthlyBill').value);
+  const gasBill = parseFloat(document.getElementById('gasBill').value);
+  const homeAge = parseFloat(document.getElementById('homeAge').value);
+  const insulation = document.getElementById('insulation').value;
+  const windows = document.getElementById('windows').value;
+  const hvacAge = parseFloat(document.getElementById('hvacAge').value);
+  const waterHeater = document.getElementById('waterHeater').value;
+
+  const annualElectric = monthlyBill * 12;
+  const annualGas = gasBill * 12;
+  const totalAnnual = annualElectric + annualGas;
+
+  // Calculate efficiency score (0-100)
+  let score = 100;
+  const improvements = [];
+
+  // Insulation penalty
+  if (insulation === 'none') {
+    score -= 30;
+    improvements.push({
+      title: 'Add Attic Insulation to R-49',
+      description: 'Your home has minimal insulation, causing massive heat loss. Upgrading to R-49 could save 25-35% on heating/cooling costs.',
+      cost: '$2,500',
+      savings: '$' + Math.round(totalAnnual * 0.30).toLocaleString() + '/year',
+      priority: 'high'
+    });
+  } else if (insulation === 'poor') {
+    score -= 15;
+    improvements.push({
+      title: 'Upgrade Attic Insulation to R-49',
+      description: 'Your insulation is below modern standards. Upgrading to R-49 could save 15-20% on utility bills.',
+      cost: '$1,800',
+      savings: '$' + Math.round(totalAnnual * 0.18).toLocaleString() + '/year',
+      priority: 'high'
+    });
+  } else if (insulation === 'adequate') {
+    score -= 5;
+  }
+
+  // Window penalty
+  if (windows === 'single') {
+    score -= 20;
+    improvements.push({
+      title: 'Replace Single-Pane Windows',
+      description: 'Single-pane windows lose 2-3x more heat than modern double-pane or Low-E windows. Replacement could save 15-25% on bills.',
+      cost: '$10,000',
+      savings: '$' + Math.round(totalAnnual * 0.20).toLocaleString() + '/year',
+      priority: 'medium'
+    });
+  } else if (windows === 'double') {
+    score -= 8;
+    improvements.push({
+      title: 'Upgrade to Low-E Windows',
+      description: 'Low-E coated windows reduce UV heat gain in summer and heat loss in winter. Could save 5-10% on bills.',
+      cost: '$8,000',
+      savings: '$' + Math.round(totalAnnual * 0.08).toLocaleString() + '/year',
+      priority: 'low'
+    });
+  }
+
+  // HVAC penalty
+  if (hvacAge >= 15) {
+    score -= 25;
+    improvements.push({
+      title: 'Replace Aging HVAC System',
+      description: 'Your HVAC system is over 15 years old. A modern 16+ SEER system could save 25-40% on heating/cooling costs.',
+      cost: '$7,500',
+      savings: '$' + Math.round(totalAnnual * 0.30).toLocaleString() + '/year',
+      priority: 'high'
+    });
+  } else if (hvacAge >= 10) {
+    score -= 10;
+    improvements.push({
+      title: 'Schedule HVAC Tune-Up',
+      description: 'Your system is aging. Annual maintenance improves efficiency by 5-15% and extends lifespan.',
+      cost: '$150',
+      savings: '$' + Math.round(totalAnnual * 0.10).toLocaleString() + '/year',
+      priority: 'medium'
+    });
+  }
+
+  // Water heater penalty
+  if (waterHeater === 'tank') {
+    score -= 12;
+    improvements.push({
+      title: 'Upgrade to Tankless or Heat Pump Water Heater',
+      description: 'Standard tank heaters waste energy keeping water hot 24/7. Tankless or heat pump models save 30-50% on water heating.',
+      cost: '$2,500',
+      savings: '$' + Math.round(totalAnnual * 0.12).toLocaleString() + '/year',
+      priority: 'medium'
+    });
+  } else if (waterHeater === 'efficient') {
+    score -= 5;
+  }
+
+  // Always recommend air sealing
+  improvements.push({
+    title: 'Air Sealing and Weatherstripping',
+    description: 'Seal gaps around doors, windows, outlets, and attic hatches. This is one of the most cost-effective improvements.',
+    cost: '$500',
+    savings: '$' + Math.round(totalAnnual * 0.15).toLocaleString() + '/year',
+    priority: 'high'
+  });
+
+  // Always recommend LED lighting
+  improvements.push({
+    title: 'Switch to LED Lighting',
+    description: 'Replace all incandescent and CFL bulbs with LEDs. Save 75% on lighting costs with better quality light.',
+    cost: '$150',
+    savings: '$125/year',
+    priority: 'high'
+  });
+
+  // Calculate potential savings
+  const potentialSavings = Math.round(totalAnnual * ((100 - score) / 100));
+
+  // Display results
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = `
+    <div class="result-box">
+      <h3>Energy Efficiency Score</h3>
+      <div class="result-big">${score}/100</div>
+      <div class="result-label">${score >= 85 ? 'Excellent' : score >= 70 ? 'Good' : score >= 50 ? 'Fair' : 'Needs Improvement'}</div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="stat-value">$${totalAnnual.toLocaleString()}</div>
+        <div class="stat-label">Current Annual Cost</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">$${potentialSavings.toLocaleString()}</div>
+        <div class="stat-label">Potential Annual Savings</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">$${(totalAnnual / sqft).toFixed(2)}</div>
+        <div class="stat-label">Cost per Sq Ft</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">${improvements.length}</div>
+        <div class="stat-label">Recommended Actions</div>
+      </div>
+    </div>
+
+    <div class="improvement-list">
+      <h3 style="margin-top:1.5rem;margin-bottom:1rem;font-size:1.1rem;font-weight:700;">Recommended Improvements</h3>
+      ${improvements.map(item => `
+        <div class="improvement-item">
+          <h4>${item.title}</h4>
+          <p>${item.description}</p>
+          <div class="improvement-meta">
+            <span><strong>Priority:</strong> <span class="priority-${item.priority}">${item.priority.charAt(0).toUpperCase() + item.priority.slice(1)}</span></span>
+            <span><strong>Cost:</strong> ${item.cost}</span>
+            <span><strong>Est. Savings:</strong> ${item.savings}</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  resultsDiv.style.display = 'block';
+  resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
+</script>
+</body>
+</html>
