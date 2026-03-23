@@ -740,11 +740,23 @@ footer {
       
       <!-- Getting Started -->
       <section id="getting-started">
+        
+        <!-- Live API Banner -->
+        <div style="background: linear-gradient(135deg, #34c759 0%, #30d158 100%); color: white; padding: 1.5rem 2rem; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 4px 16px rgba(52, 199, 89, 0.2);">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <h3 style="margin: 0; font-size: 1.25rem; font-weight: 600;">🚀 API is Now LIVE!</h3>
+          </div>
+          <p style="margin: 0; font-size: 0.95rem; opacity: 0.95; line-height: 1.5;">The CalcLeap API is now deployed and ready to use. Start making requests to <strong style="background: rgba(255,255,255,0.2); padding: 0.125rem 0.5rem; border-radius: 6px; font-family: var(--font-mono);">https://calcleap-api.onrender.com</strong> — Free tier includes 100 requests/day with no signup required.</p>
+        </div>
         <h2>Getting Started</h2>
         <p>The CalcLeap API provides instant access to financial calculations via simple HTTP requests. All endpoints return JSON and are available over HTTPS.</p>
         
         <h4>Base URL</h4>
-        <pre><code>https://calcleap.com</code></pre>
+        <pre><code>https://calcleap-api.onrender.com</code></pre>
         
         <h4>Quick Example</h4>
         <div class="code-examples">
@@ -755,7 +767,7 @@ footer {
           </div>
           <div class="code-content active" id="quick-js">
             <pre><code><span class="code-comment">// Fetch mortgage calculation</span>
-<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">'https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30'</span>);
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/mortgage?principal=300000&rate=6.5&years=30'</span>);
 <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();
 console.<span class="code-function">log</span>(data);</code></pre>
           </div>
@@ -763,7 +775,7 @@ console.<span class="code-function">log</span>(data);</code></pre>
             <pre><code><span class="code-comment"># Fetch mortgage calculation</span>
 <span class="code-keyword">import</span> requests
 
-response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/mortgage'</span>, params={
+response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/mortgage'</span>, params={
     <span class="code-string">'principal'</span>: <span class="code-number">300000</span>,
     <span class="code-string">'rate'</span>: <span class="code-number">6.5</span>,
     <span class="code-string">'years'</span>: <span class="code-number">30</span>
@@ -773,7 +785,7 @@ data = response.<span class="code-function">json</span>()
           </div>
           <div class="code-content" id="quick-curl">
             <pre><code><span class="code-comment"># Fetch mortgage calculation</span>
-curl "https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30"</code></pre>
+curl "https://calcleap-api.onrender.com/api/mortgage?principal=300000&rate=6.5&years=30"</code></pre>
           </div>
         </div>
       </section>
@@ -842,7 +854,7 @@ curl "https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30"</cod
             </div>
             <div class="code-content active" id="mortgage-js">
               <pre><code><span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(
-  <span class="code-string">'https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30'</span>
+  <span class="code-string">'https://calcleap-api.onrender.com/api/mortgage?principal=300000&rate=6.5&years=30'</span>
 );
 <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();
 <span class="code-comment">// Response: { monthlyPayment: 1896.20, totalPayment: 682632, totalInterest: 382632 }</span></code></pre>
@@ -850,7 +862,7 @@ curl "https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30"</cod
             <div class="code-content" id="mortgage-py">
               <pre><code><span class="code-keyword">import</span> requests
 
-response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/mortgage'</span>, params={
+response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/mortgage'</span>, params={
     <span class="code-string">'principal'</span>: <span class="code-number">300000</span>,
     <span class="code-string">'rate'</span>: <span class="code-number">6.5</span>,
     <span class="code-string">'years'</span>: <span class="code-number">30</span>
@@ -859,7 +871,7 @@ data = response.<span class="code-function">json</span>()
 <span class="code-comment"># Response: { 'monthlyPayment': 1896.20, 'totalPayment': 682632, 'totalInterest': 382632 }</span></code></pre>
             </div>
             <div class="code-content" id="mortgage-curl">
-              <pre><code>curl "https://calcleap.com/api/mortgage?principal=300000&rate=6.5&years=30"</code></pre>
+              <pre><code>curl "https://calcleap-api.onrender.com/api/mortgage?principal=300000&rate=6.5&years=30"</code></pre>
             </div>
           </div>
         </div>
@@ -942,11 +954,11 @@ data = response.<span class="code-function">json</span>()
   contribution: <span class="code-number">500</span>,
   compounding: <span class="code-string">'monthly'</span>
 });
-<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/compound?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap-api.onrender.com/api/compound?<span class="code-property">${params}</span>`</span>);
 <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
             </div>
             <div class="code-content" id="compound-py">
-              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/compound'</span>, params={
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/compound'</span>, params={
     <span class="code-string">'principal'</span>: <span class="code-number">10000</span>,
     <span class="code-string">'rate'</span>: <span class="code-number">7</span>,
     <span class="code-string">'years'</span>: <span class="code-number">10</span>,
@@ -955,7 +967,7 @@ data = response.<span class="code-function">json</span>()
 })</code></pre>
             </div>
             <div class="code-content" id="compound-curl">
-              <pre><code>curl "https://calcleap.com/api/compound?principal=10000&rate=7&years=10&contribution=500&compounding=monthly"</code></pre>
+              <pre><code>curl "https://calcleap-api.onrender.com/api/compound?principal=10000&rate=7&years=10&contribution=500&compounding=monthly"</code></pre>
             </div>
           </div>
         </div>
@@ -1034,11 +1046,11 @@ data = response.<span class="code-function">json</span>()
   monthlyContribution: <span class="code-number">1000</span>,
   annualReturn: <span class="code-number">7</span>
 });
-<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/retirement?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap-api.onrender.com/api/retirement?<span class="code-property">${params}</span>`</span>);
 <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
             </div>
             <div class="code-content" id="retirement-py">
-              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/retirement'</span>, params={
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/retirement'</span>, params={
     <span class="code-string">'currentAge'</span>: <span class="code-number">35</span>,
     <span class="code-string">'retireAge'</span>: <span class="code-number">65</span>,
     <span class="code-string">'currentSavings'</span>: <span class="code-number">50000</span>,
@@ -1047,7 +1059,7 @@ data = response.<span class="code-function">json</span>()
 })</code></pre>
             </div>
             <div class="code-content" id="retirement-curl">
-              <pre><code>curl "https://calcleap.com/api/retirement?currentAge=35&retireAge=65&currentSavings=50000&monthlyContribution=1000&annualReturn=7"</code></pre>
+              <pre><code>curl "https://calcleap-api.onrender.com/api/retirement?currentAge=35&retireAge=65&currentSavings=50000&monthlyContribution=1000&annualReturn=7"</code></pre>
             </div>
           </div>
         </div>
@@ -1117,11 +1129,11 @@ data = response.<span class="code-function">json</span>()
   months: <span class="code-number">60</span>,
   downPayment: <span class="code-number">5000</span>
 });
-<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/loan?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap-api.onrender.com/api/loan?<span class="code-property">${params}</span>`</span>);
 <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
             </div>
             <div class="code-content" id="loan-py">
-              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/loan'</span>, params={
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/loan'</span>, params={
     <span class="code-string">'amount'</span>: <span class="code-number">25000</span>,
     <span class="code-string">'rate'</span>: <span class="code-number">5.5</span>,
     <span class="code-string">'months'</span>: <span class="code-number">60</span>,
@@ -1129,7 +1141,7 @@ data = response.<span class="code-function">json</span>()
 })</code></pre>
             </div>
             <div class="code-content" id="loan-curl">
-              <pre><code>curl "https://calcleap.com/api/loan?amount=25000&rate=5.5&months=60&downPayment=5000"</code></pre>
+              <pre><code>curl "https://calcleap-api.onrender.com/api/loan?amount=25000&rate=5.5&months=60&downPayment=5000"</code></pre>
             </div>
           </div>
         </div>
@@ -1202,11 +1214,11 @@ data = response.<span class="code-function">json</span>()
   age: <span class="code-number">35</span>,
   coverage: <span class="code-number">100000</span>
 });
-<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/insurance?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap-api.onrender.com/api/insurance?<span class="code-property">${params}</span>`</span>);
 <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
             </div>
             <div class="code-content" id="insurance-py">
-              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/insurance'</span>, params={
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/insurance'</span>, params={
     <span class="code-string">'type'</span>: <span class="code-string">'auto'</span>,
     <span class="code-string">'state'</span>: <span class="code-string">'CA'</span>,
     <span class="code-string">'age'</span>: <span class="code-number">35</span>,
@@ -1214,7 +1226,7 @@ data = response.<span class="code-function">json</span>()
 })</code></pre>
             </div>
             <div class="code-content" id="insurance-curl">
-              <pre><code>curl "https://calcleap.com/api/insurance?type=auto&state=CA&age=35&coverage=100000"</code></pre>
+              <pre><code>curl "https://calcleap-api.onrender.com/api/insurance?type=auto&state=CA&age=35&coverage=100000"</code></pre>
             </div>
           </div>
         </div>
@@ -1278,18 +1290,18 @@ data = response.<span class="code-function">json</span>()
   height: <span class="code-number">70</span>,
   unit: <span class="code-string">'imperial'</span>
 });
-<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/bmi?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap-api.onrender.com/api/bmi?<span class="code-property">${params}</span>`</span>);
 <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
             </div>
             <div class="code-content" id="bmi-py">
-              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/bmi'</span>, params={
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/bmi'</span>, params={
     <span class="code-string">'weight'</span>: <span class="code-number">180</span>,
     <span class="code-string">'height'</span>: <span class="code-number">70</span>,
     <span class="code-string">'unit'</span>: <span class="code-string">'imperial'</span>
 })</code></pre>
             </div>
             <div class="code-content" id="bmi-curl">
-              <pre><code>curl "https://calcleap.com/api/bmi?weight=180&height=70&unit=imperial"</code></pre>
+              <pre><code>curl "https://calcleap-api.onrender.com/api/bmi?weight=180&height=70&unit=imperial"</code></pre>
             </div>
           </div>
         </div>
@@ -1350,18 +1362,18 @@ data = response.<span class="code-function">json</span>()
   tipPercent: <span class="code-number">20</span>,
   people: <span class="code-number">4</span>
 });
-<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/tip?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap-api.onrender.com/api/tip?<span class="code-property">${params}</span>`</span>);
 <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
             </div>
             <div class="code-content" id="tip-py">
-              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/tip'</span>, params={
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/tip'</span>, params={
     <span class="code-string">'bill'</span>: <span class="code-number">85.50</span>,
     <span class="code-string">'tipPercent'</span>: <span class="code-number">20</span>,
     <span class="code-string">'people'</span>: <span class="code-number">4</span>
 })</code></pre>
             </div>
             <div class="code-content" id="tip-curl">
-              <pre><code>curl "https://calcleap.com/api/tip?bill=85.50&tipPercent=20&people=4"</code></pre>
+              <pre><code>curl "https://calcleap-api.onrender.com/api/tip?bill=85.50&tipPercent=20&people=4"</code></pre>
             </div>
           </div>
         </div>
@@ -1427,18 +1439,18 @@ data = response.<span class="code-function">json</span>()
   percentage: <span class="code-number">15</span>,
   type: <span class="code-string">'of'</span>
 });
-<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap.com/api/percentage?<span class="code-property">${params}</span>`</span>);
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">`https://calcleap-api.onrender.com/api/percentage?<span class="code-property">${params}</span>`</span>);
 <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.<span class="code-function">json</span>();</code></pre>
             </div>
             <div class="code-content" id="percentage-py">
-              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap.com/api/percentage'</span>, params={
+              <pre><code>response = requests.<span class="code-function">get</span>(<span class="code-string">'https://calcleap-api.onrender.com/api/percentage'</span>, params={
     <span class="code-string">'value'</span>: <span class="code-number">1000</span>,
     <span class="code-string">'percentage'</span>: <span class="code-number">15</span>,
     <span class="code-string">'type'</span>: <span class="code-string">'of'</span>
 })</code></pre>
             </div>
             <div class="code-content" id="percentage-curl">
-              <pre><code>curl "https://calcleap.com/api/percentage?value=1000&percentage=15&type=of"</code></pre>
+              <pre><code>curl "https://calcleap-api.onrender.com/api/percentage?value=1000&percentage=15&type=of"</code></pre>
             </div>
           </div>
         </div>
@@ -1562,7 +1574,7 @@ async function tryEndpoint(event, endpoint) {
     if (value) params.append(key, value);
   }
   
-  const url = `https://calcleap.com/api/${endpoint}?${params.toString()}`;
+  const url = `https://calcleap-api.onrender.com/api/${endpoint}?${params.toString()}`;
   
   try {
     resultDiv.textContent = 'Loading...';
