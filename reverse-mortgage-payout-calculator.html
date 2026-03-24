@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reverse Mortgage Payout Calculator — Free Tool | CalcLeap</title>
+<meta name="description" content="Calculate your reverse mortgage payout options. Compare lump sum, line of credit, and monthly payment options. Free, accurate, instant results.">
+<meta name="keywords" content="reverse mortgage calculator, HECM calculator, reverse mortgage payout, home equity conversion, senior finance calculator">
+<link rel="canonical" href="https://calcleap.com/reverse-mortgage-payout-calculator.html">
+<meta property="og:title" content="Reverse Mortgage Payout Calculator — Free Tool">
+<meta property="og:description" content="Calculate your reverse mortgage payout options. Compare lump sum, line of credit, and monthly payments.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/reverse-mortgage-payout-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--bg:#fafafa;--surface:#fff;--border:rgba(0,0,0,.06);--border-hover:rgba(0,0,0,.12);--text:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#86868b;--accent:#0071e3;--accent-hover:#0077ED;--accent-subtle:rgba(0,113,227,.06);--success:#34c759;--warning:#ff9500;--error:#ff3b30;--shadow-sm:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.04);--shadow-lg:0 12px 40px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04);--radius:16px;--radius-sm:12px;--max-w:1120px;--font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.6}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);background:rgba(255,255,255,.88)}
+header .container{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-size:20px;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.02em}
+nav{display:flex;gap:32px}
+nav a{color:var(--text-secondary);text-decoration:none;font-size:14px;transition:color .2s}
+nav a:hover{color:var(--text)}
+.hero{padding:80px 0 60px;text-align:center}
+h1{font-size:56px;font-weight:700;letter-spacing:-.03em;line-height:1.07;margin-bottom:16px}
+.subtitle{font-size:24px;color:var(--text-secondary);font-weight:400;margin-bottom:32px}
+.calc-card{background:var(--surface);border-radius:var(--radius);padding:40px;box-shadow:var(--shadow-md);margin:40px 0}
+.input-group{margin-bottom:24px}
+label{display:block;font-size:14px;font-weight:500;margin-bottom:8px;color:var(--text-secondary)}
+input,select{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:16px;font-family:var(--font);transition:all .2s;background:var(--surface)}
+input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-subtle)}
+.btn{background:var(--accent);color:white;border:none;padding:14px 32px;border-radius:var(--radius-sm);font-size:17px;font-weight:600;cursor:pointer;transition:all .2s;width:100%;margin-top:16px}
+.btn:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.results{margin-top:32px;padding-top:32px;border-top:1px solid var(--border)}
+.result-item{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
+.result-item:last-child{border-bottom:none}
+.result-label{font-size:15px;color:var(--text-secondary)}
+.result-value{font-size:20px;font-weight:600;color:var(--text)}
+.result-value.highlight{color:var(--accent);font-size:28px}
+.comparison-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:24px}
+.option-card{background:var(--bg);border:2px solid var(--border);border-radius:var(--radius);padding:24px;transition:all .2s}
+.option-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.option-title{font-size:18px;font-weight:600;margin-bottom:12px}
+.option-value{font-size:32px;font-weight:700;color:var(--accent);margin-bottom:16px}
+.option-detail{font-size:14px;color:var(--text-secondary);margin:8px 0}
+.info-section{background:var(--accent-subtle);border-radius:var(--radius);padding:32px;margin:40px 0}
+.info-section h2{font-size:32px;margin-bottom:16px}
+.info-section p{color:var(--text-secondary);margin-bottom:12px}
+.hidden{display:none}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:40px 0;margin-top:80px;text-align:center;color:var(--text-secondary);font-size:14px}
+footer a{color:var(--accent);text-decoration:none}
+@media(max-width:768px){h1{font-size:40px}.subtitle{font-size:20px}.calc-card{padding:24px}.comparison-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<a href="/" class="logo">⚡ CalcLeap</a>
+<nav>
+<a href="/">Home</a>
+<a href="/about.html">About</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="container">
+<h1>Reverse Mortgage Payout Calculator</h1>
+<p class="subtitle">Calculate your payout options: lump sum, line of credit, or monthly payments</p>
+</div>
+</section>
+
+<section class="container">
+<div class="calc-card">
+<form id="calcForm">
+<div class="input-group">
+<label for="homeValue">Current Home Value ($)</label>
+<input type="number" id="homeValue" value="400000" min="50000" step="1000" required>
+</div>
+
+<div class="input-group">
+<label for="age">Age of Youngest Borrower</label>
+<input type="number" id="age" value="65" min="62" max="100" required>
+</div>
+
+<div class="input-group">
+<label for="mortgageBalance">Existing Mortgage Balance ($)</label>
+<input type="number" id="mortgageBalance" value="0" min="0" step="1000">
+</div>
+
+<div class="input-group">
+<label for="interestRate">Expected Interest Rate (%)</label>
+<input type="number" id="interestRate" value="6.5" min="3" max="12" step="0.1" required>
+</div>
+
+<div class="input-group">
+<label for="loanType">Loan Type</label>
+<select id="loanType" required>
+<option value="hecm">HECM (FHA Insured)</option>
+<option value="proprietary">Proprietary (Jumbo)</option>
+</select>
+</div>
+
+<button type="submit" class="btn">Calculate Payout Options</button>
+</form>
+
+<div id="results" class="results hidden">
+<h2 style="margin-bottom:24px;font-size:28px">Your Reverse Mortgage Options</h2>
+<div class="result-item">
+<span class="result-label">Principal Limit (Maximum Available)</span>
+<span class="result-value highlight" id="principalLimit">$0</span>
+</div>
+<div class="result-item">
+<span class="result-label">Net Available (After Payoffs)</span>
+<span class="result-value" id="netAvailable">$0</span>
+</div>
+
+<div class="comparison-grid">
+<div class="option-card">
+<div class="option-title">💰 Lump Sum</div>
+<div class="option-value" id="lumpSum">$0</div>
+<div class="option-detail">One-time payment at closing</div>
+<div class="option-detail">Access up to 60% in year 1</div>
+<div class="option-detail">Best for: Debt payoff, large purchases</div>
+</div>
+
+<div class="option-card">
+<div class="option-title">💳 Line of Credit</div>
+<div class="option-value" id="lineOfCredit">$0</div>
+<div class="option-detail">Available credit line</div>
+<div class="option-detail">Grows over time if unused</div>
+<div class="option-detail">Best for: Emergency fund, flexibility</div>
+</div>
+
+<div class="option-card">
+<div class="option-title">📅 Monthly Payments</div>
+<div class="option-value" id="monthlyPayment">$0</div>
+<div class="option-detail">Guaranteed monthly income</div>
+<div class="option-detail">For life or set term</div>
+<div class="option-detail">Best for: Supplementing income</div>
+</div>
+</div>
+
+<div style="margin-top:32px;padding:24px;background:var(--accent-subtle);border-radius:var(--radius)">
+<h3 style="margin-bottom:12px;font-size:20px">Important Details</h3>
+<p style="color:var(--text-secondary);font-size:15px;margin-bottom:8px">
+<strong>Initial Fees:</strong> <span id="closingCosts">$0</span> (2% origination + $2,500 typical)
+</p>
+<p style="color:var(--text-secondary);font-size:15px;margin-bottom:8px">
+<strong>Loan-to-Value Ratio:</strong> <span id="ltvRatio">0%</span>
+</p>
+<p style="color:var(--text-secondary);font-size:15px">
+<strong>Note:</strong> You retain home ownership. No monthly payments required. Loan becomes due when you move, sell, or pass away.
+</p>
+</div>
+</div>
+</div>
+
+<div class="info-section">
+<h2>How Reverse Mortgage Payouts Work</h2>
+<p><strong>Principal Limit:</strong> The maximum amount you can borrow, based on your age, home value, and interest rates. Older borrowers qualify for higher percentages (typically 40-75% of home value).</p>
+<p><strong>Payout Options:</strong></p>
+<ul style="color:var(--text-secondary);margin-left:20px">
+<li><strong>Lump Sum:</strong> Receive a single payment. Fixed-rate loans only. Limited to 60% of principal limit in year one.</li>
+<li><strong>Line of Credit:</strong> Draw funds as needed. Unused credit grows at the same rate as loan interest. Most flexible option.</li>
+<li><strong>Monthly Payments (Tenure):</strong> Receive equal monthly payments for as long as you live in the home.</li>
+<li><strong>Term Payments:</strong> Receive monthly payments for a fixed period (e.g., 10 years).</li>
+<li><strong>Modified Plans:</strong> Combine options (e.g., partial lump sum + line of credit).</li>
+</ul>
+<p><strong>Requirements:</strong> Must be 62+, live in home as primary residence, maintain property taxes and insurance, keep home in good condition.</p>
+<p><strong>HECM vs. Proprietary:</strong> HECM (Home Equity Conversion Mortgage) is FHA-insured with a lending limit ($1,089,300 in 2024). Proprietary reverse mortgages are for higher-value homes but may have higher rates and fees.</p>
+</div>
+
+<div style="background:var(--surface);border-radius:var(--radius);padding:32px;margin:40px 0;box-shadow:var(--shadow-sm)">
+<h2 style="margin-bottom:16px;font-size:28px">Frequently Asked Questions</h2>
+<div style="margin:20px 0;padding-bottom:20px;border-bottom:1px solid var(--border)">
+<h3 style="font-size:18px;margin-bottom:8px">Do I still own my home with a reverse mortgage?</h3>
+<p style="color:var(--text-secondary)">Yes. You retain full ownership and can leave it to your heirs. The loan becomes due when you permanently move out or pass away.</p>
+</div>
+<div style="margin:20px 0;padding-bottom:20px;border-bottom:1px solid var(--border)">
+<h3 style="font-size:18px;margin-bottom:8px">Will I owe more than my home is worth?</h3>
+<p style="color:var(--text-secondary)">No. HECM loans are non-recourse, meaning you or your heirs will never owe more than the home's value when sold.</p>
+</div>
+<div style="margin:20px 0;padding-bottom:20px;border-bottom:1px solid var(--border)">
+<h3 style="font-size:18px;margin-bottom:8px">How does the line of credit grow?</h3>
+<p style="color:var(--text-secondary)">Unused credit grows annually at the same rate as the loan's interest rate plus MIP (typically 0.5%). This growth is guaranteed regardless of home value changes.</p>
+</div>
+<div style="margin:20px 0">
+<h3 style="font-size:18px;margin-bottom:8px">What are the main costs?</h3>
+<p style="color:var(--text-secondary)">Origination fee (up to $6,000 for HECM), mortgage insurance premium (2% upfront + 0.5% annual), appraisal (~$500), and typical closing costs (~$2,500-$4,000).</p>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<p>&copy; 2024 CalcLeap. All rights reserved. | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p>
+<p style="margin-top:12px">Calculations are estimates. Consult a licensed reverse mortgage counselor for personalized advice.</p>
+</div>
+</footer>
+
+<script>
+const form = document.getElementById('calcForm');
+const results = document.getElementById('results');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const homeValue = parseFloat(document.getElementById('homeValue').value);
+  const age = parseInt(document.getElementById('age').value);
+  const mortgageBalance = parseFloat(document.getElementById('mortgageBalance').value);
+  const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
+  const loanType = document.getElementById('loanType').value;
+  
+  // Principal Limit Factor based on age (simplified model)
+  // Real calculation uses HUD tables, this is an approximation
+  let plf;
+  if (age < 65) plf = 0.40;
+  else if (age < 70) plf = 0.45 + (age - 65) * 0.02;
+  else if (age < 75) plf = 0.55 + (age - 70) * 0.025;
+  else if (age < 80) plf = 0.675 + (age - 75) * 0.02;
+  else plf = 0.775;
+  
+  // Adjust for interest rate (higher rates = lower PLF)
+  const rateAdjustment = 1 - ((interestRate - 0.055) * 0.5);
+  plf *= Math.max(0.7, Math.min(1.1, rateAdjustment));
+  
+  // HECM lending limit for 2024
+  const hecmLimit = 1089300;
+  const maxClaimAmount = loanType === 'hecm' ? Math.min(homeValue, hecmLimit) : homeValue;
+  
+  // Calculate principal limit
+  const principalLimit = maxClaimAmount * plf;
+  
+  // Upfront costs
+  const originationFee = loanType === 'hecm' ? Math.min(6000, Math.max(2500, homeValue * 0.02)) : homeValue * 0.025;
+  const mipUpfront = loanType === 'hecm' ? maxClaimAmount * 0.02 : 0;
+  const closingCosts = 3000 + originationFee + mipUpfront;
+  
+  // Net available after paying off mortgage and fees
+  const netAvailable = principalLimit - mortgageBalance - closingCosts;
+  
+  // Payout options
+  // Year 1 limit is 60% of principal limit or enough to pay mandatory obligations
+  const mandatoryObligations = mortgageBalance + closingCosts;
+  const year1Limit = Math.max(mandatoryObligations, principalLimit * 0.60);
+  
+  const lumpSum = Math.min(netAvailable, year1Limit - mandatoryObligations);
+  const lineOfCredit = netAvailable;
+  
+  // Monthly payment calculation (tenure - for life)
+  // Using simplified actuarial calculation
+  const expectedYears = Math.max(15, 95 - age);
+  const monthlyPayment = netAvailable / (expectedYears * 12);
+  
+  // Display results
+  document.getElementById('principalLimit').textContent = '$' + principalLimit.toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('netAvailable').textContent = '$' + Math.max(0, netAvailable).toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('lumpSum').textContent = '$' + Math.max(0, lumpSum).toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('lineOfCredit').textContent = '$' + Math.max(0, lineOfCredit).toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('monthlyPayment').textContent = '$' + Math.max(0, monthlyPayment).toLocaleString('en-US', {maximumFractionDigits: 0}) + '/mo';
+  document.getElementById('closingCosts').textContent = '$' + closingCosts.toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('ltvRatio').textContent = ((principalLimit / homeValue) * 100).toFixed(1) + '%';
+  
+  results.classList.remove('hidden');
+  results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
+
+// Auto-calculate on page load
+window.addEventListener('load', () => {
+  form.dispatchEvent(new Event('submit'));
+});
+</script>
+</body>
+</html>
