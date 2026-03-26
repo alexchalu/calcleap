@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Fee Calculator | Attorney Cost Estimator by Practice Area - CalcLeap</title>
+    <meta name="description" content="Free legal fee calculator. Estimate attorney costs by practice area, billing method, and case complexity. Compare hourly, flat fee, and contingency pricing for divorce, personal injury, estate planning, criminal defense, and more.">
+    <meta name="keywords" content="legal fee calculator, attorney cost estimator, lawyer fees, legal services cost, hourly billing calculator, contingency fee calculator, flat fee legal services">
+    <link rel="canonical" href="https://alexchalu.github.io/calcleap/legal-fee-calculator.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Legal Fee Calculator | Attorney Cost Estimator">
+    <meta property="og:description" content="Estimate legal costs by practice area and billing method. Plan your legal budget with our comprehensive attorney fee calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexchalu.github.io/calcleap/legal-fee-calculator.html">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Legal Fee Calculator",
+        "description": "Calculate estimated attorney fees by practice area, billing method, and case complexity",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --gold: #fbbf24; /* CalcLeap standard gold */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+        
+        h1.page-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            opacity: 0.95;
+            font-size: 1.1rem;
+        }
+        
+        .calc-card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        select, input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        select:focus, input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .results {
+            display: none;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .results.show {
+            display: block;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+            border-top: 2px solid var(--primary);
+        }
+        
+        .result-label {
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        .result-value {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .info-section {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .info-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .info-section h3 {
+            color: var(--text);
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        .info-section p, .info-section li {
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .info-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            background: var(--background);
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        tr:hover {
+            background: var(--background);
+        }
+        
+        .highlight {
+            background: #fef3c7;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+        }
+        
+        .breadcrumb {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1.page-title {
+                font-size: 1.5rem;
+            }
+            
+            .calc-card, .info-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/">CalcLeap</a> → <a href="/legal-calculators.html">Legal Calculators</a> → Legal Fee Calculator
+            </nav>
+            <h1 class="page-title">💼 Legal Fee Calculator</h1>
+            <p class="subtitle">Estimate attorney costs by practice area and billing method</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="calc-card">
+            <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Calculate Legal Fees</h2>
+            
+            <div class="input-group">
+                <label for="practice-area">Practice Area</label>
+                <select id="practice-area">
+                    <option value="family">Family Law (Divorce, Child Custody)</option>
+                    <option value="personal-injury">Personal Injury</option>
+                    <option value="criminal">Criminal Defense</option>
+                    <option value="estate">Estate Planning (Wills, Trusts)</option>
+                    <option value="real-estate">Real Estate</option>
+                    <option value="business">Business/Corporate Law</option>
+                    <option value="bankruptcy">Bankruptcy</option>
+                    <option value="immigration">Immigration</option>
+                    <option value="employment">Employment Law</option>
+                    <option value="intellectual">Intellectual Property</option>
+                    <option value="tax">Tax Law</option>
+                    <option value="general">General Civil Litigation</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="billing-method">Billing Method</label>
+                <select id="billing-method">
+                    <option value="hourly">Hourly Rate</option>
+                    <option value="flat">Flat Fee</option>
+                    <option value="contingency">Contingency (% of recovery)</option>
+                    <option value="retainer">Retainer (prepaid hours)</option>
+                </select>
+            </div>
+            
+            <div class="input-group" id="hourly-rate-group">
+                <label for="hourly-rate">Hourly Rate ($)</label>
+                <input type="number" id="hourly-rate" placeholder="300" min="0" step="25">
+            </div>
+            
+            <div class="input-group" id="estimated-hours-group">
+                <label for="estimated-hours">Estimated Hours</label>
+                <input type="number" id="estimated-hours" placeholder="20" min="0" step="1">
+            </div>
+            
+            <div class="input-group" id="flat-fee-group" style="display: none;">
+                <label for="flat-fee">Flat Fee Amount ($)</label>
+                <input type="number" id="flat-fee" placeholder="5000" min="0" step="100">
+            </div>
+            
+            <div class="input-group" id="contingency-group" style="display: none;">
+                <label for="contingency-percent">Contingency Percentage (%)</label>
+                <input type="number" id="contingency-percent" placeholder="33" min="0" max="50" step="1">
+            </div>
+            
+            <div class="input-group" id="recovery-amount-group" style="display: none;">
+                <label for="recovery-amount">Expected Recovery/Settlement ($)</label>
+                <input type="number" id="recovery-amount" placeholder="100000" min="0" step="1000">
+            </div>
+            
+            <div class="input-group">
+                <label for="case-complexity">Case Complexity</label>
+                <select id="case-complexity">
+                    <option value="simple">Simple (straightforward, minimal disputes)</option>
+                    <option value="moderate">Moderate (some complexity, negotiations needed)</option>
+                    <option value="complex">Complex (high stakes, extensive discovery, trial)</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="court-fees">Court Filing/Other Fees ($)</label>
+                <input type="number" id="court-fees" placeholder="500" min="0" step="50" value="0">
+            </div>
+            
+            <div class="input-group">
+                <label for="expert-fees">Expert Witness Fees ($)</label>
+                <input type="number" id="expert-fees" placeholder="0" min="0" step="100" value="0">
+            </div>
+            
+            <button class="btn" onclick="calculateFees()">Calculate Legal Fees</button>
+            
+            <div class="results" id="results">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">💰 Estimated Legal Costs</h3>
+                <div id="results-content"></div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h2>📊 Attorney Fee Comparison by Practice Area</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Practice Area</th>
+                        <th>Typical Billing Method</th>
+                        <th>Average Hourly Rate</th>
+                        <th>Typical Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Family Law (Divorce)</td>
+                        <td>Hourly or Flat Fee</td>
+                        <td>$250 - $500/hr</td>
+                        <td>$1,500 - $150,000+</td>
+                    </tr>
+                    <tr>
+                        <td>Personal Injury</td>
+                        <td>Contingency (33-40%)</td>
+                        <td>N/A (% of recovery)</td>
+                        <td>$0 upfront, 33-40% of settlement</td>
+                    </tr>
+                    <tr>
+                        <td>Criminal Defense</td>
+                        <td>Flat Fee or Hourly</td>
+                        <td>$200 - $750/hr</td>
+                        <td>$1,500 - $100,000+</td>
+                    </tr>
+                    <tr>
+                        <td>Estate Planning</td>
+                        <td>Flat Fee</td>
+                        <td>$250 - $400/hr</td>
+                        <td>$500 - $5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Real Estate</td>
+                        <td>Flat Fee or Hourly</td>
+                        <td>$200 - $400/hr</td>
+                        <td>$500 - $3,000</td>
+                    </tr>
+                    <tr>
+                        <td>Business/Corporate</td>
+                        <td>Hourly or Retainer</td>
+                        <td>$300 - $800/hr</td>
+                        <td>$5,000 - $100,000+</td>
+                    </tr>
+                    <tr>
+                        <td>Bankruptcy</td>
+                        <td>Flat Fee</td>
+                        <td>$200 - $400/hr</td>
+                        <td>$1,000 - $3,500</td>
+                    </tr>
+                    <tr>
+                        <td>Immigration</td>
+                        <td>Flat Fee</td>
+                        <td>$150 - $350/hr</td>
+                        <td>$1,500 - $10,000+</td>
+                    </tr>
+                    <tr>
+                        <td>Employment Law</td>
+                        <td>Hourly or Contingency</td>
+                        <td>$250 - $500/hr</td>
+                        <td>$3,000 - $50,000+</td>
+                    </tr>
+                    <tr>
+                        <td>Intellectual Property</td>
+                        <td>Hourly or Flat Fee</td>
+                        <td>$300 - $700/hr</td>
+                        <td>$5,000 - $25,000+</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="info-section">
+            <h2>Understanding Attorney Billing Methods</h2>
+            
+            <h3>1. Hourly Billing</h3>
+            <p>The most common method. You pay for each hour (or fraction) the attorney works on your case. Rates vary widely based on:</p>
+            <ul>
+                <li><strong>Experience level:</strong> Junior associates ($150-250/hr), mid-level ($250-400/hr), senior partners ($400-800+/hr)</li>
+                <li><strong>Geographic location:</strong> Major cities (NYC, SF, LA) charge 50-100% more than rural areas</li>
+                <li><strong>Practice area complexity:</strong> Specialized areas (IP, tax, corporate M&A) command premium rates</li>
+                <li><strong>Firm size:</strong> Large firms charge more than solo practitioners or small firms</li>
+            </ul>
+            <p><span class="highlight">Hidden costs:</span> Billable increments (some firms round to 15-minute intervals, so a 5-minute call = 15 minutes of billing).</p>
+            
+            <h3>2. Flat Fee</h3>
+            <p>A fixed price for the entire case or specific service. Common for routine legal matters with predictable scope:</p>
+            <ul>
+                <li>Simple wills: $300-$1,000</li>
+                <li>Uncontested divorce: $1,500-$3,000</li>
+                <li>Real estate closing: $800-$2,000</li>
+                <li>Chapter 7 bankruptcy: $1,500-$3,500</li>
+                <li>DUI defense (first offense): $2,500-$5,000</li>
+            </ul>
+            <p><span class="highlight">Watch out:</span> Flat fees may not include court costs, filing fees, or extra work if the case becomes contested.</p>
+            
+            <h3>3. Contingency Fee</h3>
+            <p>Attorney gets paid only if you win, taking a percentage of the recovery. Standard in personal injury, some employment, and class action cases:</p>
+            <ul>
+                <li><strong>Personal injury:</strong> 33% (pre-trial settlement) to 40% (if trial/appeal required)</li>
+                <li><strong>Employment discrimination:</strong> 25-40% of settlement or judgment</li>
+                <li><strong>Medical malpractice:</strong> 33-40% (varies by state; some cap contingency fees)</li>
+            </ul>
+            <p><span class="highlight">Key point:</span> You pay $0 upfront, but the attorney takes a significant percentage. If you win $100,000 at 33% contingency, you net $67,000 (minus case expenses).</p>
+            
+            <h3>4. Retainer</h3>
+            <p>You pay a lump sum upfront, which the attorney draws down as they work (hourly or flat tasks). Common for ongoing business representation or uncertain case duration.</p>
+            <ul>
+                <li><strong>Initial retainer:</strong> $2,500-$10,000+ deposited in trust account</li>
+                <li><strong>Billing:</strong> Attorney bills against retainer at their hourly rate</li>
+                <li><strong>Replenishment:</strong> When retainer depletes, you refill it to continue representation</li>
+            </ul>
+            
+            <h2>Factors That Increase Legal Costs</h2>
+            <ul>
+                <li><strong>Case complexity:</strong> Multiple parties, extensive discovery, expert witnesses</li>
+                <li><strong>Contested vs. uncontested:</strong> Fighting every issue costs 5-10x more than agreements</li>
+                <li><strong>Trial preparation:</strong> Going to trial adds $10,000-$50,000+ in prep costs</li>
+                <li><strong>Appeals:</strong> Appellate work can equal or exceed trial costs</li>
+                <li><strong>Discovery battles:</strong> Depositions ($400-600/hr), interrogatories, document production</li>
+                <li><strong>Expert witnesses:</strong> $3,000-$15,000+ per expert for reports, deposition, testimony</li>
+                <li><strong>Geographic location:</strong> NYC attorney = $600/hr, same attorney in rural Ohio = $250/hr</li>
+            </ul>
+            
+            <h2>How to Reduce Legal Costs</h2>
+            <ul>
+                <li><strong>Be organized:</strong> Provide documents in labeled folders, timelines, summaries (saves attorney research time)</li>
+                <li><strong>Ask for flat fees:</strong> Negotiate fixed prices for discrete tasks (contract review, document drafting)</li>
+                <li><strong>Do your own legwork:</strong> Gather records, interview witnesses, research (but don't give legal advice to yourself)</li>
+                <li><strong>Limit phone calls/emails:</strong> Batch questions into single emails instead of calling for every small issue</li>
+                <li><strong>Settle early:</strong> Most lawsuits settle. Every month of litigation adds thousands in fees.</li>
+                <li><strong>Consider mediation:</strong> $200-500/hr mediator vs. $50,000+ trial costs</li>
+                <li><strong>Use paralegals:</strong> Ask if paralegals ($100-150/hr) can handle routine tasks instead of associates ($300+/hr)</li>
+                <li><strong>Unbundled services:</strong> Hire attorney for specific tasks (court appearances only) vs. full representation</li>
+            </ul>
+            
+            <h2>Frequently Asked Questions</h2>
+            
+            <h3>What is a typical retainer amount?</h3>
+            <p>Retainers range from $2,500-$5,000 for routine cases (simple divorce, small business formation) to $10,000-$50,000+ for complex litigation (commercial disputes, felony defense). The retainer should cover the first 10-20 hours of work.</p>
+            
+            <h3>Are legal fees tax-deductible?</h3>
+            <p>It depends. <strong>Business-related legal fees</strong> (forming an LLC, contract disputes, employment matters) are deductible. <strong>Personal legal fees</strong> (divorce, estate planning, criminal defense) are generally NOT deductible, with limited exceptions (tax-related legal advice, producing taxable income).</p>
+            
+            <h3>Can I negotiate legal fees?</h3>
+            <p>Yes. Many attorneys are open to negotiation, especially for:</p>
+            <ul>
+                <li>Flat fee arrangements instead of hourly</li>
+                <li>Reduced hourly rates for straightforward work</li>
+                <li>Payment plans (monthly installments instead of full retainer upfront)</li>
+                <li>Capped fees (maximum total cost regardless of hours)</li>
+            </ul>
+            <p>Solo practitioners and small firms are more flexible than large firms with fixed rate structures.</p>
+            
+            <h3>What happens if I can't afford a lawyer?</h3>
+            <p>Options for low-cost or free legal help:</p>
+            <ul>
+                <li><strong>Legal Aid:</strong> Free services for low-income individuals (civil matters like eviction, family law, public benefits). Find local legal aid at <a href="https://www.lsc.gov/what-legal-aid/find-legal-aid" target="_blank">lsc.gov</a>.</li>
+                <li><strong>Pro Bono programs:</strong> Volunteer attorneys through bar associations and nonprofits</li>
+                <li><strong>Law school clinics:</strong> Supervised law students provide free representation</li>
+                <li><strong>Court-appointed counsel:</strong> Criminal defendants who can't afford a lawyer get a public defender (constitutional right)</li>
+                <li><strong>Contingency representation:</strong> Personal injury, employment discrimination (no upfront cost)</li>
+                <li><strong>Self-representation (pro se):</strong> Handle your own case. Courts often have self-help resources.</li>
+            </ul>
+            
+            <h3>What should I ask during a free consultation?</h3>
+            <ul>
+                <li>What is your experience with cases like mine?</li>
+                <li>What is your billing method and hourly rate?</li>
+                <li>How much will this case likely cost (best/worst case)?</li>
+                <li>What is included in your fee (court costs, expert fees, filing fees)?</li>
+                <li>How often will you bill me, and how detailed are your invoices?</li>
+                <li>Can we agree on a fee cap or payment plan?</li>
+                <li>Will you be the primary attorney or will associates/paralegals handle work?</li>
+                <li>What is your success rate in similar cases?</li>
+            </ul>
+            
+            <h3>When are contingency fees not allowed?</h3>
+            <p>Contingency fees are <strong>prohibited</strong> in:</p>
+            <ul>
+                <li><strong>Criminal defense:</strong> Ethical violation to tie fees to acquittal outcome</li>
+                <li><strong>Family law (most states):</strong> Can't charge contingency on divorce, child custody, alimony (conflicts with client's best interest)</li>
+                <li><strong>Bankruptcy:</strong> Federal law prohibits contingency fees in bankruptcy cases</li>
+            </ul>
+            
+            <h3>What are "case expenses" vs. attorney fees?</h3>
+            <p><strong>Attorney fees</strong> = compensation for the lawyer's time and expertise.<br>
+            <strong>Case expenses (costs)</strong> = out-of-pocket expenses to litigate the case:</p>
+            <ul>
+                <li>Court filing fees: $200-$500+ (varies by case type and court)</li>
+                <li>Service of process: $50-$150 per defendant</li>
+                <li>Deposition transcripts: $400-$1,000 per deposition</li>
+                <li>Expert witness fees: $3,000-$15,000+ per expert</li>
+                <li>Document copying, postage, travel</li>
+            </ul>
+            <p><span class="highlight">Important:</span> Even with contingency fees, you often pay case expenses upfront or the attorney advances them and deducts from your recovery.</p>
+            
+            <h3>How can I verify an attorney's credentials?</h3>
+            <ul>
+                <li><strong>State bar website:</strong> Verify license status, disciplinary history. Search by name at your state's bar association site.</li>
+                <li><strong>Avvo.com:</strong> Ratings, reviews, disciplinary records, peer endorsements</li>
+                <li><strong>Martindale-Hubbell:</strong> Peer review ratings (AV = highest)</li>
+                <li><strong>Super Lawyers / Best Lawyers:</strong> Industry recognition lists</li>
+                <li><strong>Google reviews:</strong> Client feedback (but beware fake reviews)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 CalcLeap. Free tools for smarter decisions. <a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/privacy.html">Privacy</a></p>
+    </footer>
+    
+    <script>
+        const practiceAreaRates = {
+            'family': { min: 250, max: 500, flat: 3500, hours: 25 },
+            'personal-injury': { min: 0, max: 0, flat: 0, hours: 0, contingency: 33 },
+            'criminal': { min: 200, max: 750, flat: 4000, hours: 20 },
+            'estate': { min: 250, max: 400, flat: 2000, hours: 8 },
+            'real-estate': { min: 200, max: 400, flat: 1500, hours: 6 },
+            'business': { min: 300, max: 800, flat: 8000, hours: 30 },
+            'bankruptcy': { min: 200, max: 400, flat: 2500, hours: 10 },
+            'immigration': { min: 150, max: 350, flat: 3500, hours: 15 },
+            'employment': { min: 250, max: 500, flat: 5000, hours: 20 },
+            'intellectual': { min: 300, max: 700, flat: 7500, hours: 25 },
+            'tax': { min: 300, max: 600, flat: 5000, hours: 18 },
+            'general': { min: 250, max: 500, flat: 4000, hours: 20 }
+        };
+        
+        const complexityMultipliers = {
+            'simple': 0.7,
+            'moderate': 1.0,
+            'complex': 1.8
+        };
+        
+        document.getElementById('billing-method').addEventListener('change', function() {
+            const method = this.value;
+            document.getElementById('hourly-rate-group').style.display = (method === 'hourly' || method === 'retainer') ? 'block' : 'none';
+            document.getElementById('estimated-hours-group').style.display = (method === 'hourly' || method === 'retainer') ? 'block' : 'none';
+            document.getElementById('flat-fee-group').style.display = method === 'flat' ? 'block' : 'none';
+            document.getElementById('contingency-group').style.display = method === 'contingency' ? 'block' : 'none';
+            document.getElementById('recovery-amount-group').style.display = method === 'contingency' ? 'block' : 'none';
+        });
+        
+        document.getElementById('practice-area').addEventListener('change', function() {
+            const area = this.value;
+            const rates = practiceAreaRates[area];
+            const method = document.getElementById('billing-method').value;
+            
+            if (method === 'hourly' || method === 'retainer') {
+                document.getElementById('hourly-rate').value = Math.round((rates.min + rates.max) / 2);
+                document.getElementById('estimated-hours').value = rates.hours;
+            } else if (method === 'flat') {
+                document.getElementById('flat-fee').value = rates.flat;
+            } else if (method === 'contingency') {
+                document.getElementById('contingency-percent').value = rates.contingency || 33;
+            }
+        });
+        
+        function calculateFees() {
+            const practiceArea = document.getElementById('practice-area').value;
+            const billingMethod = document.getElementById('billing-method').value;
+            const complexity = document.getElementById('case-complexity').value;
+            const courtFees = parseFloat(document.getElementById('court-fees').value) || 0;
+            const expertFees = parseFloat(document.getElementById('expert-fees').value) || 0;
+            
+            let attorneyFees = 0;
+            let breakdown = [];
+            
+            if (billingMethod === 'hourly' || billingMethod === 'retainer') {
+                const hourlyRate = parseFloat(document.getElementById('hourly-rate').value) || 0;
+                const estimatedHours = parseFloat(document.getElementById('estimated-hours').value) || 0;
+                const multiplier = complexityMultipliers[complexity];
+                const adjustedHours = Math.round(estimatedHours * multiplier);
+                
+                attorneyFees = hourlyRate * adjustedHours;
+                
+                breakdown.push({ label: 'Hourly Rate', value: `$${hourlyRate.toFixed(2)}/hr` });
+                breakdown.push({ label: 'Base Estimated Hours', value: estimatedHours });
+                breakdown.push({ label: 'Complexity Adjustment', value: `${complexity} (${(multiplier * 100).toFixed(0)}%)` });
+                breakdown.push({ label: 'Adjusted Hours', value: adjustedHours });
+                breakdown.push({ label: 'Attorney Fees (Hourly)', value: `$${attorneyFees.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+                
+            } else if (billingMethod === 'flat') {
+                const flatFee = parseFloat(document.getElementById('flat-fee').value) || 0;
+                const multiplier = complexityMultipliers[complexity];
+                
+                attorneyFees = flatFee * multiplier;
+                
+                breakdown.push({ label: 'Base Flat Fee', value: `$${flatFee.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+                breakdown.push({ label: 'Complexity Adjustment', value: `${complexity} (${(multiplier * 100).toFixed(0)}%)` });
+                breakdown.push({ label: 'Adjusted Attorney Fees', value: `$${attorneyFees.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+                
+            } else if (billingMethod === 'contingency') {
+                const contingencyPercent = parseFloat(document.getElementById('contingency-percent').value) || 33;
+                const recoveryAmount = parseFloat(document.getElementById('recovery-amount').value) || 0;
+                
+                attorneyFees = (recoveryAmount * contingencyPercent / 100);
+                const netRecovery = recoveryAmount - attorneyFees - courtFees - expertFees;
+                
+                breakdown.push({ label: 'Expected Recovery/Settlement', value: `$${recoveryAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+                breakdown.push({ label: 'Contingency Percentage', value: `${contingencyPercent}%` });
+                breakdown.push({ label: 'Attorney Fees (Contingency)', value: `$${attorneyFees.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+                breakdown.push({ label: 'Court & Filing Fees', value: `$${courtFees.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+                breakdown.push({ label: 'Expert Witness Fees', value: `$${expertFees.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+                breakdown.push({ label: 'Your Net Recovery', value: `$${netRecovery.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+            }
+            
+            if (billingMethod !== 'contingency') {
+                breakdown.push({ label: 'Court & Filing Fees', value: `$${courtFees.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+                breakdown.push({ label: 'Expert Witness Fees', value: `$${expertFees.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+            }
+            
+            const totalCost = attorneyFees + courtFees + expertFees;
+            
+            if (billingMethod !== 'contingency') {
+                breakdown.push({ label: 'TOTAL ESTIMATED COST', value: `$${totalCost.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` });
+            }
+            
+            displayResults(breakdown);
+        }
+        
+        function displayResults(breakdown) {
+            const resultsContent = document.getElementById('results-content');
+            resultsContent.innerHTML = '';
+            
+            breakdown.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'result-item';
+                div.innerHTML = `
+                    <span class="result-label">${item.label}:</span>
+                    <span class="result-value">${item.value}</span>
+                `;
+                resultsContent.appendChild(div);
+            });
+            
+            document.getElementById('results').classList.add('show');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Initialize with default values
+        document.addEventListener('DOMContentLoaded', function() {
+            const area = document.getElementById('practice-area').value;
+            const rates = practiceAreaRates[area];
+            document.getElementById('hourly-rate').value = Math.round((rates.min + rates.max) / 2);
+            document.getElementById('estimated-hours').value = rates.hours;
+            document.getElementById('court-fees').value = 500;
+        });
+    </script>
+</body>
+</html>
