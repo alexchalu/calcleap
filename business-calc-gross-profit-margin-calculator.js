@@ -8,7 +8,7 @@ document.getElementById('calculator-form').innerHTML = `
         <label>Cost of Goods Sold ($)</label>
         <input type="number" id="cogs" placeholder="60000" step="1000">
       </div>
-      <button class="calc-btn" onclick="calculate()">Calculate Gross Profit Margin</button>`;
+      <button class="btn" onclick="calculate()">Calculate Gross Profit Margin</button>`;
 
 function calculate() {
   
@@ -25,11 +25,13 @@ function calculate() {
         { label: 'Gross Profit Margin', value: margin.toFixed(2) + '%' },
         { label: 'Cost Ratio', value: ((cogs / revenue) * 100).toFixed(2) + '%' },
       ];
-
-  var resultBox = document.getElementById('result');
-  var resultContent = document.getElementById('result-content');
-  resultContent.innerHTML = _results.map(function(item) {
-    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="color:#6e6e73;font-size:.875rem">' + item.label + '</span><span style="font-weight:700;font-size:1rem;color:#1d1d1f">' + item.value + '</span></div>';
-  }).join('');
-  resultBox.style.display = 'block';
+  
+  const resultBox = document.getElementById('result');
+  const resultContent = document.getElementById('result-content');
+  
+  resultContent.innerHTML = arguments[0].map(item => 
+    '<div class="result-item"><span class="result-label">' + item.label + '</span><span class="result-value">' + item.value + '</span></div>'
+  ).join('');
+  
+  resultBox.classList.add('show');
 }

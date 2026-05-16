@@ -8,7 +8,7 @@ document.getElementById('calculator-form').innerHTML = `
         <label>Total Conversions</label>
         <input type="number" id="conversions" placeholder="250" step="1">
       </div>
-      <button class="calc-btn" onclick="calculate()">Calculate Conversion Rate</button>`;
+      <button class="btn" onclick="calculate()">Calculate Conversion Rate</button>`;
 
 function calculate() {
   
@@ -29,11 +29,13 @@ function calculate() {
         { label: 'Visitors Needed for 1 Conversion', value: Math.ceil(1 / (conversions / visitors)) },
         { label: 'Performance', value: benchmark },
       ];
-
-  var resultBox = document.getElementById('result');
-  var resultContent = document.getElementById('result-content');
-  resultContent.innerHTML = _results.map(function(item) {
-    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="color:#6e6e73;font-size:.875rem">' + item.label + '</span><span style="font-weight:700;font-size:1rem;color:#1d1d1f">' + item.value + '</span></div>';
-  }).join('');
-  resultBox.style.display = 'block';
+  
+  const resultBox = document.getElementById('result');
+  const resultContent = document.getElementById('result-content');
+  
+  resultContent.innerHTML = arguments[0].map(item => 
+    '<div class="result-item"><span class="result-label">' + item.label + '</span><span class="result-value">' + item.value + '</span></div>'
+  ).join('');
+  
+  resultBox.classList.add('show');
 }
