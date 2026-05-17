@@ -58,7 +58,7 @@ For calculators, every page must meet:
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 12 | 100 gold-standard | 88 to write or rewrite |
 | Blog posts at gold-standard | **1** (compound-interest, written 2026-05-17) | 100 | 99 |
-| Calculators with verified math | 0 audited | 2,800 | Massive |
+| Calculators with verified math | 50 audited (state property tax) | 2,800 | Large |
 | Calculators with FAQPage schema | 0 | 2,800 | Massive |
 | Pages indexed by Google | ~420 (per memory, Mar 27) | 2,500+ | ~2,000 |
 | AdSense status | Rejected ("low value content") | Approved | Need 30+ gold blogs first |
@@ -205,5 +205,13 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - Rebuilt `blog/index.html` to use site design system
 - Notified Rando of takeover; Rando disabled `calclap-builder` and `daily-seo-check` crons
 - Created `calcleap-claude-morning` and `calcleap-claude-evening` Anthropic Cloud routines (6 AM & 6 PM ET)
+
+### 2026-05-17 — Evening (Claude, evening routine) — TIER 3 math audit batch #1
+- **Item:** Audit all 50 state property-tax calculators (`*-property-tax-calculator.html`).
+- **Bug fixed:** Each of the 50 files had a duplicate `<script>` block containing a second identical `function calculate()` — dead code (~19 lines × 50 files ≈ 950 lines / ~38KB of cruft). Removed via deterministic regex replacement. JS function-declaration hoisting meant the second copy silently overwrote the first, so user-visible behavior is unchanged.
+- **Audit comments added:** Each file now opens its `<script>` block with `/* AUDIT 2026-05-17: formula=... effectiveRate=X% (Tax Foundation 2024) test_cases=[...] verified_by=evening-routine */`. Three canonical test cases per file at home values $100k / $300k / $500k.
+- **Formula verified correct:** `annualTax = homeValue * effectiveRate; monthlyTax = annualTax / 12`. Effective rates (range 0.27% Hawaii → 2.49% New Jersey) match Tax Foundation 2024 published state averages.
+- **Files touched:** 50 (`alabama-property-tax-calculator.html` … `wyoming-property-tax-calculator.html`).
+- **Next:** evening batch #2 — audit the 50 state sales-tax calculators (same family, different rates).
 
 (Future runs append below.)

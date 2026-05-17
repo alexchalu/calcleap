@@ -360,25 +360,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        function calculate() {
-            const homeValue = parseFloat(document.getElementById('home-value').value);
-            const taxRate = 0.6 / 100;
-            
-            const annualTax = homeValue * taxRate;
-            const monthlyTax = annualTax / 12;
-            
-            let html = '<h3>Estimated Utah Property Tax</h3>';
-            html += '<div class="result-value">$' + annualTax.toFixed(0).toLocaleString() + '/year</div>';
-            html += '<div class="result-detail">Monthly: $' + monthlyTax.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail">Home Value: $' + homeValue.toLocaleString() + '</div>';
-            html += '<div class="result-detail">Effective Rate: 0.6%</div>';
-            html += '<div class="result-detail" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Note: Actual property taxes may vary by county and municipality. This calculator uses the state average effective rate.</div>';
-            
-            document.getElementById('result').innerHTML = html;
-            document.getElementById('result').style.display = 'block';
-        }
-    </script>
-<script>
+        /* AUDIT 2026-05-17: formula=annualTax = homeValue * effectiveRate; monthlyTax = annualTax / 12. effectiveRate=0.6% (Tax Foundation 2024 effective property tax rate, Utah state avg). test_cases=[(homeValue=100000 -> annualTax=600), (homeValue=300000 -> annualTax=1800), (homeValue=500000 -> annualTax=3000)]. Per-county rates vary; this is a state-avg estimate. verified_by=evening-routine */
         function calculate() {
             const homeValue = parseFloat(document.getElementById('home-value').value);
             const taxRate = 0.6 / 100;
