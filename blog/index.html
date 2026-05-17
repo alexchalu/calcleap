@@ -1,112 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CalcLeap Blog - Guides, Tips & Tutorials</title>
-    <meta name="description" content="Free guides, calculators, and tutorials for finance, health, productivity, and more. Expert tips to help you make better decisions.">
-    <link rel="stylesheet" href="/style.css">
-    <style>
-      .blog-container { max-width: 1000px; margin: 2rem auto; padding: 0 2rem; }
-      .blog-header { text-align: center; margin-bottom: 3rem; }
-      .blog-header h1 { font-size: 3rem; color: #2c3e50; }
-      .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
-      .blog-card { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
-      .blog-card:hover { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
-      .blog-card h2 { font-size: 1.4rem; margin: 0 0 1rem; }
-      .blog-card h2 a { color: #2c3e50; text-decoration: none; }
-      .blog-card h2 a:hover { color: #3498db; }
-      .blog-card p { color: #666; line-height: 1.6; margin-bottom: 1rem; }
-      .blog-card .read-more { color: #3498db; text-decoration: none; font-weight: 600; }
-      .blog-card .read-more:hover { text-decoration: underline; }
-      .category-tag { display: inline-block; background: #3498db; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; margin-bottom: 0.5rem; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CalcLeap Blog — Guides &amp; Explainers for Finance, Health, and Everyday Math</title>
+<meta name="description" content="In-depth guides from CalcLeap. Compound interest, mortgages, tax, retirement, BMI, calorie planning — explained clearly with current data and primary sources.">
+<link rel="canonical" href="https://calcleap.com/blog/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="CalcLeap Blog — Guides for Finance, Health, and Everyday Math">
+<meta property="og:description" content="Long-form explainers that complement our 2,000+ free calculators.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/blog/">
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "CalcLeap Blog",
+  "url": "https://calcleap.com/blog/",
+  "description": "Long-form guides for finance, health, and everyday decisions, written to accompany the CalcLeap calculator library.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/"
+  }
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 24px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;
+  --mw:1120px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.hero{padding:2.5rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.hero .eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1rem}
+.hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.1;margin-bottom:.75rem;max-width:720px}
+.hero p{font-size:1.05rem;color:var(--text-2);max-width:620px;line-height:1.55}
+
+.filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.filter button{padding:.4rem 1rem;font-size:.82rem;font-weight:500;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-2);cursor:pointer;transition:all .15s}
+.filter button:hover{border-color:var(--accent);color:var(--accent)}
+.filter button.active{background:var(--text);color:#fff;border-color:var(--text)}
+
+.featured{margin-bottom:3rem;display:grid;grid-template-columns:1.5fr 1fr;gap:1.5rem}
+.featured .main-card{padding:2rem;background:linear-gradient(135deg,#0071e3,#5856d6);color:#fff;border-radius:var(--r);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:280px;transition:transform .2s,box-shadow .2s}
+.featured .main-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.featured .main-card .tag{font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;opacity:.85;margin-bottom:.5rem}
+.featured .main-card h2{font-size:1.6rem;font-weight:700;line-height:1.2;letter-spacing:-.02em;color:#fff;margin-bottom:.5rem;max-width:420px}
+.featured .main-card p{font-size:.95rem;color:rgba(255,255,255,.9);max-width:420px;line-height:1.5;margin-bottom:.5rem}
+.featured .main-card .meta{font-size:.78rem;color:rgba(255,255,255,.75)}
+
+.featured .side{display:grid;gap:1.25rem}
+.featured .side .card{padding:1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;display:flex;flex-direction:column;gap:.5rem}
+.featured .side .card:hover{border-color:var(--border-hover);box-shadow:var(--shadow)}
+.featured .side .card .tag{font-size:.68rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+.featured .side .card h3{font-size:1rem;font-weight:600;line-height:1.3}
+.featured .side .card p{font-size:.85rem;color:var(--text-2);line-height:1.45}
+.featured .side .card .meta{font-size:.75rem;color:var(--text-3);margin-top:auto}
+
+.grid-label{font-size:.7rem;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin-bottom:3rem}
+.card{padding:1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;display:flex;flex-direction:column;gap:.5rem}
+.card:hover{border-color:var(--border-hover);box-shadow:var(--shadow);transform:translateY(-1px)}
+.card .tag{font-size:.68rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+.card h3{font-size:1.05rem;font-weight:600;line-height:1.3;letter-spacing:-.01em}
+.card p{font-size:.875rem;color:var(--text-2);line-height:1.5}
+.card .meta{font-size:.75rem;color:var(--text-3);margin-top:auto;display:flex;align-items:center;gap:.5rem}
+.card .meta .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+.cta-banner{margin:3rem 0;padding:2rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r);text-align:center}
+.cta-banner h3{font-size:1.25rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.02em}
+.cta-banner p{font-size:.95rem;color:var(--text-2);margin-bottom:1rem;max-width:560px;margin-left:auto;margin-right:auto}
+.cta-banner a.btn{display:inline-block;padding:.65rem 1.5rem;font-size:.875rem;font-weight:600;background:var(--accent);color:#fff;border-radius:8px;transition:background .15s}
+.cta-banner a.btn:hover{background:#0077ED}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero h1{font-size:1.9rem}
+  .featured{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-    <div class="blog-container">
-        <div class="blog-header">
-            <h1 class="page-title">📚 CalcLeap Blog</h1>
-            <p>Guides, calculators, and tutorials to help you make better decisions</p>
-            <p><a href="/" style="color: #3498db;">← Back to Tools</a></p>
-        </div>
 
-        <div class="blog-grid">
-            <div class="blog-card">
-                <span class="category-tag">Finance</span>
-                <h2><a href="best-mortgage-calculator-2026.html">Best Mortgage Calculator 2026: Compare Rates & Save Thousands</a></h2>
-                <p>Find the best mortgage calculator to estimate monthly payments, compare rates, and save money. Free tools with amortization schedules.</p>
-                <a href="best-mortgage-calculator-2026.html" class="read-more">Read More →</a>
-            </div>
-
-            <div class="blog-card">
-                <span class="category-tag">Finance</span>
-                <h2><a href="how-much-house-can-i-afford.html">How Much House Can I Afford? 2026 Calculator & Guide</a></h2>
-                <p>Calculate how much house you can afford based on your income, debt, and down payment. Use the 28/36 rule and get pre-approved with confidence.</p>
-                <a href="how-much-house-can-i-afford.html" class="read-more">Read More →</a>
-            </div>
-
-            <div class="blog-card">
-                <span class="category-tag">Finance</span>
-                <h2><a href="compound-interest-calculator-guide.html">Compound Interest Calculator: See Your Money Grow (2026 Guide)</a></h2>
-                <p>Calculate compound interest on investments and savings. See how $10,000 grows to $100,000+ with time. Free calculator with charts.</p>
-                <a href="compound-interest-calculator-guide.html" class="read-more">Read More →</a>
-            </div>
-
-            <div class="blog-card">
-                <span class="category-tag">Security</span>
-                <h2><a href="free-password-generator-secure.html">Free Password Generator: Create Secure Passwords Instantly (2026)</a></h2>
-                <p>Generate strong, random passwords for free. Secure password generator with customizable length, symbols, and numbers. No registration required.</p>
-                <a href="free-password-generator-secure.html" class="read-more">Read More →</a>
-            </div>
-
-            <div class="blog-card">
-                <span class="category-tag">Health</span>
-                <h2><a href="bmi-calculator-accurate-2026.html">BMI Calculator: Free Body Mass Index Calculator (2026 Guide)</a></h2>
-                <p>Calculate your BMI (Body Mass Index) instantly. Free calculator with imperial and metric units. See if you're underweight, normal, overweight, or obese.</p>
-                <a href="bmi-calculator-accurate-2026.html" class="read-more">Read More →</a>
-            </div>
-
-            <div class="blog-card">
-                <span class="category-tag">Finance</span>
-                <h2><a href="how-to-calculate-mortgage-payment.html">How to Calculate Mortgage Payment (2026 Guide)</a></h2>
-                <p>Learn how to calculate monthly mortgage payments including principal, interest, taxes, and insurance. Free calculator and step-by-step formula.</p>
-                <a href="how-to-calculate-mortgage-payment.html" class="read-more">Read More →</a>
-            </div>
-
-            <div class="blog-card">
-                <span class="category-tag">Finance</span>
-                <h2><a href="best-loan-calculator-2026.html">Best Loan Calculator 2026: Compare Personal, Auto & Student Loans</a></h2>
-                <p>Calculate monthly loan payments, compare interest rates, and see total cost. Free loan calculator for any type of loan - personal, auto, or student.</p>
-                <a href="best-loan-calculator-2026.html" class="read-more">Read More →</a>
-            </div>
-
-            <div class="blog-card">
-                <span class="category-tag">Health</span>
-                <h2><a href="how-many-calories-should-i-eat.html">How Many Calories Should I Eat? (Free Calculator 2026)</a></h2>
-                <p>Calculate your daily calorie needs based on age, gender, weight, height, and activity level. Free TDEE calculator for weight loss or muscle gain.</p>
-                <a href="how-many-calories-should-i-eat.html" class="read-more">Read More →</a>
-            </div>
-
-            <div class="blog-card">
-                <span class="category-tag">Productivity</span>
-                <h2><a href="best-qr-code-generator-free.html">Best Free QR Code Generator (2026) - No Signup Required</a></h2>
-                <p>Create QR codes instantly for URLs, text, WiFi, and more. Free QR code generator with download options. Works on any device, no registration needed.</p>
-                <a href="best-qr-code-generator-free.html" class="read-more">Read More →</a>
-            </div>
-
-            <div class="blog-card">
-                <span class="category-tag">Developer</span>
-                <h2><a href="json-formatter-validator-guide.html">JSON Formatter & Validator: Free Online Tool (2026)</a></h2>
-                <p>Format, validate, and beautify JSON instantly. Free online JSON formatter with syntax highlighting and error detection. Perfect for developers.</p>
-                <a href="json-formatter-validator-guide.html" class="read-more">Read More →</a>
-            </div>
-        </div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
     </div>
-<footer class="footer" role="contentinfo"><div class="footer-inner"><div class="footer-grid"><div><h4>CalcLeap</h4><p style="font-size:.8rem;color:var(--text-3);line-height:1.5">Free calculators and tools for everyone.</p></div><div><h4>Popular</h4><a href="/bmi-calculator.html">BMI Calculator</a><a href="/calc/mortgage-payment.html">Mortgage Calculator</a><a href="/income-tax-calculator.html">Tax Calculator</a></div><div><h4>Categories</h4><a href="/index.html#finance">Finance</a><a href="/index.html#health">Health</a><a href="/index.html#insurance">Insurance</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a><a href="/contact.html">Contact</a></div></div><p style="text-align:center;font-size:.75rem;color:var(--text-3);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)">© 2026 CalcLeap. All rights reserved.</p></div></footer>
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span>Blog
+</div>
+
+<header class="hero">
+  <span class="eyebrow">CalcLeap Blog</span>
+  <h1>Guides &amp; explainers for the math behind your decisions.</h1>
+  <p>Long-form, sourced explainers that go beyond the calculator. Every article cites primary sources, shows its math, and links to the relevant tool so you can run your own numbers.</p>
+</header>
+
+<div class="filter" id="filterBar">
+  <button data-cat="all" class="active">All</button>
+  <button data-cat="finance">Finance</button>
+  <button data-cat="health">Health</button>
+  <button data-cat="developer">Developer</button>
+  <button data-cat="productivity">Productivity</button>
+  <button data-cat="security">Security</button>
+</div>
+
+<section class="featured">
+  <a href="compound-interest-calculator-guide.html" class="main-card" data-cat="finance">
+    <div>
+      <div class="tag">Featured · Personal Finance</div>
+      <h2>Compound Interest, Explained: The Math, The Magic, and How to Make It Work for You</h2>
+      <p>A 25-year-old who saves $200/month retires with more than a 35-year-old who saves $400/month — and the only reason is compounding. Here's the formula, the Rule of 72, the 2026 rates, and the playbook.</p>
+      <div class="meta">Updated May 17, 2026 · 13 min read</div>
+    </div>
+  </a>
+  <div class="side">
+    <a href="how-much-house-can-i-afford.html" class="card" data-cat="finance">
+      <span class="tag">Finance</span>
+      <h3>How Much House Can I Afford? 2026 Guide</h3>
+      <p>The 28/36 rule, what lenders actually check, and how to get pre-approved with confidence.</p>
+      <div class="meta">Updated 2026 · 10 min</div>
+    </a>
+    <a href="best-mortgage-calculator-2026.html" class="card" data-cat="finance">
+      <span class="tag">Finance</span>
+      <h3>Best Mortgage Calculator 2026: Compare Rates &amp; Save Thousands</h3>
+      <p>What a good mortgage calculator includes — and the side-by-side comparison that saves real money.</p>
+      <div class="meta">Updated 2026 · 9 min</div>
+    </a>
+  </div>
+</section>
+
+<div class="grid-label">All Articles</div>
+<div class="grid" id="grid">
+
+  <a href="bmi-calculator-accurate-2026.html" class="card" data-cat="health">
+    <span class="tag">Health</span>
+    <h3>BMI Calculator: Free Body Mass Index Calculator (2026 Guide)</h3>
+    <p>How BMI is computed, what the categories mean, and the (very real) limits of using BMI to judge health.</p>
+    <div class="meta">Updated 2026 · 8 min</div>
+  </a>
+
+  <a href="how-to-calculate-bmi.html" class="card" data-cat="health">
+    <span class="tag">Health</span>
+    <h3>How to Calculate BMI: The Formula, the History, the Limits</h3>
+    <p>The Quetelet equation, why BMI fails for athletes, and the alternative metrics worth knowing.</p>
+    <div class="meta">2026 · 7 min</div>
+  </a>
+
+  <a href="how-many-calories-should-i-eat.html" class="card" data-cat="health">
+    <span class="tag">Health</span>
+    <h3>How Many Calories Should I Eat? (Free Calculator 2026)</h3>
+    <p>Mifflin-St Jeor vs Harris-Benedict, activity multipliers, and tuning for weight loss or muscle gain.</p>
+    <div class="meta">2026 · 9 min</div>
+  </a>
+
+  <a href="how-to-calculate-mortgage-payment.html" class="card" data-cat="finance">
+    <span class="tag">Finance</span>
+    <h3>How to Calculate a Mortgage Payment (2026 Guide)</h3>
+    <p>The PITI formula in plain English, with an amortization walkthrough.</p>
+    <div class="meta">2026 · 10 min</div>
+  </a>
+
+  <a href="best-loan-calculator-2026.html" class="card" data-cat="finance">
+    <span class="tag">Finance</span>
+    <h3>Best Loan Calculator 2026: Personal, Auto &amp; Student Loans</h3>
+    <p>The differences that matter, how APR is calculated, and what to compare across lenders.</p>
+    <div class="meta">2026 · 9 min</div>
+  </a>
+
+  <a href="how-to-create-a-budget.html" class="card" data-cat="finance">
+    <span class="tag">Finance</span>
+    <h3>How to Create a Budget That Actually Works</h3>
+    <p>50/30/20, zero-based, envelope — which approach fits which personality.</p>
+    <div class="meta">2026 · 8 min</div>
+  </a>
+
+  <a href="how-to-save-money.html" class="card" data-cat="finance">
+    <span class="tag">Finance</span>
+    <h3>How to Save Money: A Realistic Playbook</h3>
+    <p>Where the real savings come from (and what is mostly noise).</p>
+    <div class="meta">2026 · 9 min</div>
+  </a>
+
+  <a href="best-free-online-calculators.html" class="card" data-cat="productivity">
+    <span class="tag">Productivity</span>
+    <h3>The Best Free Online Calculators (2026)</h3>
+    <p>A curated tour of the free tools worth bookmarking.</p>
+    <div class="meta">2026 · 6 min</div>
+  </a>
+
+  <a href="free-password-generator-secure.html" class="card" data-cat="security">
+    <span class="tag">Security</span>
+    <h3>Free Password Generator: Create Secure Passwords Instantly</h3>
+    <p>Entropy, length vs symbols, and why a password manager is the actual answer.</p>
+    <div class="meta">2026 · 7 min</div>
+  </a>
+
+  <a href="best-qr-code-generator-free.html" class="card" data-cat="productivity">
+    <span class="tag">Productivity</span>
+    <h3>Best Free QR Code Generator (2026)</h3>
+    <p>What QR codes can carry, error-correction levels, and when to choose what.</p>
+    <div class="meta">2026 · 6 min</div>
+  </a>
+
+  <a href="json-formatter-validator-guide.html" class="card" data-cat="developer">
+    <span class="tag">Developer</span>
+    <h3>JSON Formatter &amp; Validator: Free Online Tool (2026)</h3>
+    <p>JSON gotchas, the spec, and the tools that catch what your eye misses.</p>
+    <div class="meta">2026 · 7 min</div>
+  </a>
+
+  <a href="free-calculator-api-developers.html" class="card" data-cat="developer">
+    <span class="tag">Developer</span>
+    <h3>Free Calculator API for Developers</h3>
+    <p>How to embed CalcLeap calculators or hit a public endpoint.</p>
+    <div class="meta">2026 · 5 min</div>
+  </a>
+
+</div>
+
+<div class="cta-banner">
+  <h3>2,000+ free calculators</h3>
+  <p>Every article links to the matching calculator. Skip straight to the tool whenever you're ready to run your own numbers.</p>
+  <a href="/" class="btn">Browse all tools</a>
+</div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial, health, and everyday decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('#filterBar button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('#filterBar button').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    var cat = b.dataset.cat;
+    document.querySelectorAll('.card, .main-card').forEach(function(c){
+      if (cat === 'all' || c.dataset.cat === cat) {
+        c.style.display = '';
+      } else {
+        c.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
 <p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
 <div style="display:flex;gap:.5rem;flex-shrink:0">
 <button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
