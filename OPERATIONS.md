@@ -57,7 +57,7 @@ For calculators, every page must meet:
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 12 | 100 gold-standard | 88 to write or rewrite |
-| Blog posts at gold-standard | **1** (compound-interest, written 2026-05-17) | 100 | 99 |
+| Blog posts at gold-standard | **2** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18) | 100 | 98 |
 | Calculators with verified math | 50 audited (state property tax) | 2,800 | Large |
 | Calculators with FAQPage schema | 0 | 2,800 | Massive |
 | Pages indexed by Google | ~420 (per memory, Mar 27) | 2,500+ | ~2,000 |
@@ -72,7 +72,7 @@ Pick from the top each run. Mark items DONE in the Daily Log when complete. Re-p
 ### TIER 1 — AdSense Reapproval Blockers (DO THESE FIRST)
 1. **Rewrite each existing blog post to gold standard.** Order: highest search volume first.
    - [x] `compound-interest-calculator-guide.html` (done 2026-05-17)
-   - [ ] `best-mortgage-calculator-2026.html`
+   - [x] `best-mortgage-calculator-2026.html` (done 2026-05-18)
    - [ ] `how-much-house-can-i-afford.html`
    - [ ] `bmi-calculator-accurate-2026.html`
    - [ ] `how-to-calculate-mortgage-payment.html`
@@ -213,5 +213,19 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **Formula verified correct:** `annualTax = homeValue * effectiveRate; monthlyTax = annualTax / 12`. Effective rates (range 0.27% Hawaii → 2.49% New Jersey) match Tax Foundation 2024 published state averages.
 - **Files touched:** 50 (`alabama-property-tax-calculator.html` … `wyoming-property-tax-calculator.html`).
 - **Next:** evening batch #2 — audit the 50 state sales-tax calculators (same family, different rates).
+
+### 2026-05-18 — Morning (Claude, morning routine) — TIER 1 rewrite #2
+- **Item:** Gold-standard rewrite of `blog/best-mortgage-calculator-2026.html`. Prior file was a 412-line thin calculator page with no schema, no citations, ~600 words of body content.
+- **Replaced with:** full long-form guide modeled on the `compound-interest-calculator-guide.html` template.
+  - Word count: **4,046 words** (target ≥ 2,500).
+  - JSON-LD: Article + BreadcrumbList + FAQPage (3 blocks) in `<head>`.
+  - Citations: **10 primary sources** (Freddie Mac PMMS, FHFA 2026 conforming limit, CFPB/HPA, HUD/FHA, VA, USDA Rural Development, Tax Foundation, NAR, Federal Reserve, CFPB TRID). 11 inline `<sup>` source references.
+  - Internal links: 12 `href="/calc/..."` (mortgage-payment, how-much-house-can-i-afford, mortgage-refinance, home-equity-loan, loan-comparison, personal-loan).
+  - 2026 data verified live: Freddie Mac PMMS 30-yr 6.36% / 15-yr 5.71% (week ending May 14, 2026); FHFA 2026 conforming limit $832,750 baseline / $1,249,125 ceiling; NAR April 2026 median existing-home price $417,700; VA funding fee 2.15% first-time/3.30% subsequent; USDA 1.00% upfront/0.35% annual; U.S. national effective property-tax rate ~0.89%.
+  - Structure matches template: TOC sidebar with 9 items, eyebrow + deck + byline hero, 7 H2 sections, 3 worked-example case studies with full PITI tables (FHA 3.5% down, conventional 20% down, VA $0 down), 8-item action checklist, 8-item FAQ block, methodology footer + numbered source list, Apple design tokens (`--accent:#0071e3`, `--font:-apple-system,...`), disclaimer banner.
+  - Math sanity-checked: $400k @ 6.36%/30y → $2,492 P&I (manually verified via amortization formula).
+- **Validation grep results:** word count 4046 ✓ · JSON-LD blocks 3 ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 11 ✓ · `/calc/` internal links 12 ✓.
+- **Files touched:** `blog/best-mortgage-calculator-2026.html` (full replacement), `OPERATIONS.md`.
+- **Next:** morning slot — `how-much-house-can-i-afford.html` (next un-checked Tier 1 item).
 
 (Future runs append below.)
