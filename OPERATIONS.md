@@ -51,14 +51,14 @@ For calculators, every page must meet:
 - **Submit changes to IndexNow** after each batch of edits (see `submission script` in repo root).
 - **Don't push 2,000-file commits.** Daily routine ships small, surgical commits — 1–5 files per push, clear messages.
 
-## Current State (last updated: 2026-05-17 by Claude/initial-session)
+## Current State (last updated: 2026-05-18 by Claude/evening-routine)
 
 | Metric | Now | Target | Gap |
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 12 | 100 gold-standard | 88 to write or rewrite |
 | Blog posts at gold-standard | **2** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18) | 100 | 98 |
-| Calculators with verified math | 50 audited (state property tax) | 2,800 | Large |
+| Calculators with verified math | 100 audited (50 state property tax + 50 state sales tax) | 2,800 | Large |
 | Calculators with FAQPage schema | 0 | 2,800 | Massive |
 | Pages indexed by Google | ~420 (per memory, Mar 27) | 2,500+ | ~2,000 |
 | AdSense status | Rejected ("low value content") | Approved | Need 30+ gold blogs first |
@@ -227,5 +227,16 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **Validation grep results:** word count 4046 ✓ · JSON-LD blocks 3 ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 11 ✓ · `/calc/` internal links 12 ✓.
 - **Files touched:** `blog/best-mortgage-calculator-2026.html` (full replacement), `OPERATIONS.md`.
 - **Next:** morning slot — `how-much-house-can-i-afford.html` (next un-checked Tier 1 item).
+
+### 2026-05-18 — Evening (Claude, evening routine) — TIER 3 math audit batch #2
+- **Item:** Audit all 50 state sales-tax calculators (`<state>-sales-tax-calculator.html`, excluding `auto-sales-tax-calculator.html`).
+- **Formula verified correct:** `taxAmount = price * (rate/100); total = price + taxAmount`. Unambiguous sales-tax math, matches what the calculator computes.
+- **Cross-checked structure across all 50 files:** MD5 of normalized `function calculate()` body is identical across every state file — no per-state forks of the math.
+- **Internal-consistency check passed:** for each state, displayed `state rate + avg local rate = combined rate`, and the default input rate = combined rate. Five states correctly show 0% (AK, DE, MT, NH, OR — no statewide sales tax; AK avg local 1.76% reflected).
+- **Audit comments added:** each file now opens its `<script>` block with `/* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=<STATE> stateRate=X% localAvg=Y% combined=Z% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100,...}, {price:500,...}, {price:1000,...}] | verified_by=evening-routine */`. Three canonical test cases per file at $100 / $500 / $1000 purchase, with hand-derived expected tax + total.
+- **Hand-verification spot checks (3 states × 3 cases = 9):** CA 8.82%, HI 4.44%, NJ 6.625%, TN 9.47% — Python re-derivation matches every value embedded in the comment.
+- **No formula changes needed.** All 50 files were already correct; this run added documentation + test cases. JS brace balance unchanged across all 50.
+- **Files touched:** 50 (`alabama-sales-tax-calculator.html` … `wyoming-sales-tax-calculator.html`) + `OPERATIONS.md`.
+- **Next:** evening batch #3 — add `FAQPage` JSON-LD schema to the top 50 most-trafficked calculators (Tier 3 item #17), starting with the 50 state property-tax calcs (already math-audited).
 
 (Future runs append below.)

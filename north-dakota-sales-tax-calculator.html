@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=NORTH-DAKOTA stateRate=5% localAvg=1.85% combined=6.85% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:6.85%, tax:6.85, total:106.85}, {price:500, rate:6.85%, tax:34.25, total:534.25}, {price:1000, rate:6.85%, tax:68.50, total:1068.50}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

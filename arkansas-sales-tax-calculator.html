@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=ARKANSAS stateRate=6.5% localAvg=2.93% combined=9.43% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:9.43%, tax:9.43, total:109.43}, {price:500, rate:9.43%, tax:47.15, total:547.15}, {price:1000, rate:9.43%, tax:94.30, total:1094.30}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

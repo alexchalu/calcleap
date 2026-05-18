@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=LOUISIANA stateRate=4.45% localAvg=5.07% combined=9.52% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:9.52%, tax:9.52, total:109.52}, {price:500, rate:9.52%, tax:47.60, total:547.60}, {price:1000, rate:9.52%, tax:95.20, total:1095.20}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

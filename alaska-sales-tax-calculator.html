@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=ALASKA stateRate=0% localAvg=1.76% combined=1.76% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:1.76%, tax:1.76, total:101.76}, {price:500, rate:1.76%, tax:8.80, total:508.80}, {price:1000, rate:1.76%, tax:17.60, total:1017.60}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

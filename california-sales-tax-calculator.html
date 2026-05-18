@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=CALIFORNIA stateRate=7.25% localAvg=1.57% combined=8.82% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:8.82%, tax:8.82, total:108.82}, {price:500, rate:8.82%, tax:44.10, total:544.10}, {price:1000, rate:8.82%, tax:88.20, total:1088.20}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

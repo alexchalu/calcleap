@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=INDIANA stateRate=7% localAvg=0% combined=7% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:7.0%, tax:7.00, total:107.00}, {price:500, rate:7.0%, tax:35.00, total:535.00}, {price:1000, rate:7.0%, tax:70.00, total:1070.00}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

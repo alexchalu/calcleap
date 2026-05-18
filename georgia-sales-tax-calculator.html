@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=GEORGIA stateRate=4% localAvg=3.29% combined=7.29% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:7.29%, tax:7.29, total:107.29}, {price:500, rate:7.29%, tax:36.45, total:536.45}, {price:1000, rate:7.29%, tax:72.90, total:1072.90}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=DELAWARE stateRate=0% localAvg=0% combined=0% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:0.0%, tax:0.00, total:100.00}, {price:500, rate:0.0%, tax:0.00, total:500.00}, {price:1000, rate:0.0%, tax:0.00, total:1000.00}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

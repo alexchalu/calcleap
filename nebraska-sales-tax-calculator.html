@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=NEBRASKA stateRate=5.5% localAvg=1.44% combined=6.94% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:6.94%, tax:6.94, total:106.94}, {price:500, rate:6.94%, tax:34.70, total:534.70}, {price:1000, rate:6.94%, tax:69.40, total:1069.40}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

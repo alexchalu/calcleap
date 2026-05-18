@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=MISSISSIPPI stateRate=7% localAvg=0.07% combined=7.07% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:7.07%, tax:7.07, total:107.07}, {price:500, rate:7.07%, tax:35.35, total:535.35}, {price:1000, rate:7.07%, tax:70.70, total:1070.70}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=ARIZONA stateRate=5.6% localAvg=2.77% combined=8.37% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:8.37%, tax:8.37, total:108.37}, {price:500, rate:8.37%, tax:41.85, total:541.85}, {price:1000, rate:8.37%, tax:83.70, total:1083.70}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=VIRGINIA stateRate=5.3% localAvg=0.45% combined=5.75% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:5.75%, tax:5.75, total:105.75}, {price:500, rate:5.75%, tax:28.75, total:528.75}, {price:1000, rate:5.75%, tax:57.50, total:1057.50}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

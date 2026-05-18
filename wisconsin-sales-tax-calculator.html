@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=WISCONSIN stateRate=5% localAvg=0.44% combined=5.44% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:5.44%, tax:5.44, total:105.44}, {price:500, rate:5.44%, tax:27.20, total:527.20}, {price:1000, rate:5.44%, tax:54.40, total:1054.40}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

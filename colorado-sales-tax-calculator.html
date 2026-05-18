@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=COLORADO stateRate=2.9% localAvg=4.87% combined=7.77% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:7.77%, tax:7.77, total:107.77}, {price:500, rate:7.77%, tax:38.85, total:538.85}, {price:1000, rate:7.77%, tax:77.70, total:1077.70}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;

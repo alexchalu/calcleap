@@ -371,6 +371,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+        /* AUDIT 2026-05-18: formula=tax=price*(rate/100); total=price+tax | state=FLORIDA stateRate=6% localAvg=1.05% combined=7.05% (Tax Foundation 2024 published combined avg) | test_cases=[{price:100, rate:7.05%, tax:7.05, total:107.05}, {price:500, rate:7.05%, tax:35.25, total:535.25}, {price:1000, rate:7.05%, tax:70.50, total:1070.50}] | verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('purchase-price').value);
             const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;
