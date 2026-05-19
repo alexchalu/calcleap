@@ -59,7 +59,8 @@ For calculators, every page must meet:
 | Blog posts | 12 | 100 gold-standard | 88 to write or rewrite |
 | Blog posts at gold-standard | **3** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19) | 100 | 97 |
 | Calculators with verified math | 100 audited (50 state property tax + 50 state sales tax) | 2,800 | Large |
-| Calculators with FAQPage schema | 0 | 2,800 | Massive |
+| Calculators with FAQPage schema | 50 (state property tax) | 2,800 | Massive |
+| Calculators with BreadcrumbList schema | 50 (state property tax) | 2,800 | Massive |
 | Pages indexed by Google | ~420 (per memory, Mar 27) | 2,500+ | ~2,000 |
 | AdSense status | Rejected ("low value content") | Approved | Need 30+ gold blogs first |
 | Avg blog word count | ~350 | 2,500+ | 7x lift needed |
@@ -252,5 +253,23 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **Validation grep results:** body words 4111 ✓ · JSON-LD blocks 3 ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 22 ✓ · `/calc/` internal links 15 ✓ · H2 sections 11 ✓ · action checklist items 8 ✓ · FAQ items 8 ✓.
 - **Files touched:** `blog/how-much-house-can-i-afford.html` (full replacement), `OPERATIONS.md`.
 - **Next:** morning slot — `bmi-calculator-accurate-2026.html` (next un-checked Tier 1 item).
+
+### 2026-05-19 — Evening (Claude, evening routine) — TIER 3 schema batch #3
+- **Item:** Add `FAQPage` + `BreadcrumbList` JSON-LD schemas (and visible FAQ HTML) to the 50 state property-tax calculators. These are the same files that were math-audited in batch #1 (2026-05-17), so they were the cleanest place to start Tier 3 item #17 (FAQPage on top 50 calcs) and Tier 3 item #18 (BreadcrumbList everywhere).
+- **What changed in each file:**
+  - **Two new JSON-LD blocks injected immediately before `</head>`:** (a) a `BreadcrumbList` schema with 3 hops (Home → Tax Calculators → `{State} Property Tax Calculator`) pointing to the canonical https://calcleap.com/ URLs, and (b) a `FAQPage` schema with 5 state-specific Q&A pairs.
+  - **A new visible `<div class="info-section" id="faq">` block** rendered with 5 `.faq-item` cards mirroring the schema content verbatim (Google's structured-data policy requires schema content to match what users see on the page). Injected after the existing "More {State} Tools" info-section using the unique "SmartCalc - Financial Calculators" anchor.
+- **FAQs are state-specific.** Each pulls the effective rate from that state's existing `AUDIT 2026-05-17` comment (single source of truth — already verified Tax Foundation 2024 in batch #1) and computes an example tax at a $300k and $500k home value. Topics: (1) average rate, (2) calculation formula, (3) when taxes are due, (4) exemption types, (5) why actual bills differ from the estimate.
+- **Idempotency:** the injection script (`/tmp/inject_property_tax_schemas.py`) refuses to run twice on a file — it checks for existing `"@type":"FAQPage"` and existing `id="faq"` before modifying.
+- **Validation:**
+  - All 50 files: exactly 2 `<script type="application/ld+json">` blocks (was 0).
+  - All 100 JSON-LD blocks parse via `json.loads` (zero parse errors).
+  - All 50 files: exactly 5 `"@type":"Question"` entries in schema + 5 `class="faq-item"` blocks in visible HTML.
+  - HTML `<div>` open/close tag counts balanced across every file (no orphaned tags introduced).
+  - All 50 `AUDIT 2026-05-17` comments preserved verbatim — math audit metadata still intact.
+  - File length grew by +26 lines per file (5 FAQ items + section wrapper + 2 schema script tags), matching expectations.
+- **Files touched:** 50 (`alabama-property-tax-calculator.html` … `wyoming-property-tax-calculator.html`) + `OPERATIONS.md`.
+- **Metrics moved:** Calculators with FAQPage schema 0 → 50; Calculators with BreadcrumbList schema row added (0 → 50).
+- **Next:** evening slot — batch #4: add FAQPage + BreadcrumbList schemas to the 50 state **sales-tax** calculators (already math-audited 2026-05-18, same family pattern, reuse the script with sales-tax-flavored FAQs).
 
 (Future runs append below.)
