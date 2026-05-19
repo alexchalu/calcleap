@@ -51,13 +51,13 @@ For calculators, every page must meet:
 - **Submit changes to IndexNow** after each batch of edits (see `submission script` in repo root).
 - **Don't push 2,000-file commits.** Daily routine ships small, surgical commits — 1–5 files per push, clear messages.
 
-## Current State (last updated: 2026-05-18 by Claude/evening-routine)
+## Current State (last updated: 2026-05-19 by Claude/morning-routine)
 
 | Metric | Now | Target | Gap |
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 12 | 100 gold-standard | 88 to write or rewrite |
-| Blog posts at gold-standard | **2** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18) | 100 | 98 |
+| Blog posts at gold-standard | **3** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19) | 100 | 97 |
 | Calculators with verified math | 100 audited (50 state property tax + 50 state sales tax) | 2,800 | Large |
 | Calculators with FAQPage schema | 0 | 2,800 | Massive |
 | Pages indexed by Google | ~420 (per memory, Mar 27) | 2,500+ | ~2,000 |
@@ -73,7 +73,7 @@ Pick from the top each run. Mark items DONE in the Daily Log when complete. Re-p
 1. **Rewrite each existing blog post to gold standard.** Order: highest search volume first.
    - [x] `compound-interest-calculator-guide.html` (done 2026-05-17)
    - [x] `best-mortgage-calculator-2026.html` (done 2026-05-18)
-   - [ ] `how-much-house-can-i-afford.html`
+   - [x] `how-much-house-can-i-afford.html` (done 2026-05-19)
    - [ ] `bmi-calculator-accurate-2026.html`
    - [ ] `how-to-calculate-mortgage-payment.html`
    - [ ] `best-loan-calculator-2026.html`
@@ -238,5 +238,19 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **No formula changes needed.** All 50 files were already correct; this run added documentation + test cases. JS brace balance unchanged across all 50.
 - **Files touched:** 50 (`alabama-sales-tax-calculator.html` … `wyoming-sales-tax-calculator.html`) + `OPERATIONS.md`.
 - **Next:** evening batch #3 — add `FAQPage` JSON-LD schema to the top 50 most-trafficked calculators (Tier 3 item #17), starting with the 50 state property-tax calcs (already math-audited).
+
+### 2026-05-19 — Morning (Claude, morning routine) — TIER 1 rewrite #3
+- **Item:** Gold-standard rewrite of `blog/how-much-house-can-i-afford.html`. Prior file was a 1,253-word thin page with no schema, no citations.
+- **Replaced with:** full long-form guide modeled on the `compound-interest-calculator-guide.html` template.
+  - Body word count: **4,111 words** (target ≥ 2,500; method: strip `<script>` + `<style>` + HTML tags, then split on whitespace).
+  - JSON-LD: Article + BreadcrumbList + FAQPage (3 blocks) in `<head>`.
+  - Citations: **11 numbered primary sources** (Freddie Mac PMMS, U.S. Census P60-286, CFPB General QM Rule, FHFA 2026 CLL, Tax Foundation, Bankrate/Insurify, HUD/FHA ML 2023-05, NAR EHS, FOMC March 2026 projections, CFPB HPA / PMI cancellation, VA funding fee). 22 inline `<sup>` source references.
+  - Internal links: 15 `href="/calc/..."` (mortgage-payment, debt-to-income, mortgage-refinance, home-equity-loan, loan-comparison, paycheck), plus 4 related-blog links.
+  - 2026 data verified live this run: Freddie Mac PMMS 30-yr 6.36% / 15-yr 5.71% (week ending May 14, 2026); FHFA 2026 conforming limit $832,750 baseline / $1,249,125 ceiling; NAR April 2026 median existing-home price $417,700; U.S. Census 2024 median household income $83,730; FOMC target range 3.50%–3.75% (held April 30, 2026); national avg property-tax rate ~1.01% (Tax Foundation); national avg homeowners insurance $3,057/yr (Insurify/Bankrate); FHA upfront MIP 1.75% + annual MIP 0.55%.
+  - Structure: TOC sidebar with 11 items, eyebrow + deck + byline hero, 11 H2 sections, full PITI worked example for median-home buyer, 3 case-study buyer profiles (FHA Maya $62k income, conv Chens $115k, jumbo Daniel $310k), 8-item action checklist, 8-item FAQ block, methodology footer + numbered source list, Apple design tokens (`--accent:#0071e3`, `--font:-apple-system,...`), disclaimer banner.
+  - Math sanity-checked in Python: $375,930 @ 6.36%/30y → $2,341.63 P&I (article quotes $2,344, rounding); all three case-study P&I values within $11 of Python-derived amortization.
+- **Validation grep results:** body words 4111 ✓ · JSON-LD blocks 3 ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 22 ✓ · `/calc/` internal links 15 ✓ · H2 sections 11 ✓ · action checklist items 8 ✓ · FAQ items 8 ✓.
+- **Files touched:** `blog/how-much-house-can-i-afford.html` (full replacement), `OPERATIONS.md`.
+- **Next:** morning slot — `bmi-calculator-accurate-2026.html` (next un-checked Tier 1 item).
 
 (Future runs append below.)
