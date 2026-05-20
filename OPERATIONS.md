@@ -51,7 +51,7 @@ For calculators, every page must meet:
 - **Submit changes to IndexNow** after each batch of edits (see `submission script` in repo root).
 - **Don't push 2,000-file commits.** Daily routine ships small, surgical commits — 1–5 files per push, clear messages.
 
-## Current State (last updated: 2026-05-19 by Claude/morning-routine)
+## Current State (last updated: 2026-05-20 by Claude/evening-routine)
 
 | Metric | Now | Target | Gap |
 |---|---|---|---|
@@ -59,8 +59,8 @@ For calculators, every page must meet:
 | Blog posts | 12 | 100 gold-standard | 88 to write or rewrite |
 | Blog posts at gold-standard | **4** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20) | 100 | 96 |
 | Calculators with verified math | 100 audited (50 state property tax + 50 state sales tax) | 2,800 | Large |
-| Calculators with FAQPage schema | 50 (state property tax) | 2,800 | Massive |
-| Calculators with BreadcrumbList schema | 50 (state property tax) | 2,800 | Massive |
+| Calculators with FAQPage schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
+| Calculators with BreadcrumbList schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Pages indexed by Google | ~420 (per memory, Mar 27) | 2,500+ | ~2,000 |
 | AdSense status | Rejected ("low value content") | Approved | Need 30+ gold blogs first |
 | Avg blog word count | ~350 | 2,500+ | 7x lift needed |
@@ -285,5 +285,24 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **Validation grep results:** body words 4159 ✓ · JSON-LD blocks 3 ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 22 ✓ · `/calc/` internal links 15 ✓ · H2 sections 10 ✓ · FAQ items 8 ✓ · source anchor IDs 16 ✓.
 - **Files touched:** `blog/bmi-calculator-accurate-2026.html` (full replacement), `OPERATIONS.md`.
 - **Next:** morning slot — `how-to-calculate-mortgage-payment.html` (next un-checked Tier 1 item).
+
+### 2026-05-20 — Evening (Claude, evening routine) — TIER 3 schema batch #4
+- **Item:** Add `FAQPage` + `BreadcrumbList` JSON-LD schemas (and visible FAQ HTML) to the 50 state **sales-tax** calculators. Mirrors batch #3 (2026-05-19, state property-tax). These are the same files that were math-audited 2026-05-18, so the AUDIT comment is the single source of truth for each state's combined rate.
+- **What changed in each file:**
+  - **Two new JSON-LD blocks injected immediately before `</head>`:** (a) a `BreadcrumbList` schema with 3 hops (Home → Tax Calculators → `{State} Sales Tax Calculator`) pointing to canonical https://calcleap.com/ URLs, and (b) a `FAQPage` schema with 5 state-specific Q&A pairs.
+  - **A new visible `<div class="info-section" id="faq">` block** rendered with 5 `.faq-item` cards mirroring the schema content verbatim (Google's structured-data policy requires schema content to match what users see). Injected after the existing "More {State} Tools" info-section using the unique `</ul>\n        </div>\n\n        <div class="ad-placeholder">` anchor (verified to match exactly once in all 50 files before run).
+- **FAQs are state-specific and rate-aware.** The injection script reads `stateRate`, `localAvg`, and `combined` from each file's `AUDIT 2026-05-18` comment (Tax Foundation 2024 published averages), computes worked examples at $100 / $500 purchase, and branches on whether the state has a general sales tax. Topics: (1) sales tax rate overview, (2) calculation formula with worked example, (3) common exemptions, (4) online purchases / Wayfair / use tax, (5) why actual receipts differ from the estimate.
+- **No-sales-tax-state handling.** Delaware, Montana, New Hampshire, Oregon (and partially Alaska) get a different answer set explaining that there is no statewide sales tax, what excise taxes can still appear, and that out-of-state online purchases trigger that state's tax rather than the buyer's. After the initial run, the Q1 answer for the four full no-tax states (DE, MT, NH, OR) was further patched so it no longer self-lists ("The other no-sales-tax states are ..., Delaware, ..." → state itself removed from the "other" list).
+- **Idempotency:** the injection script (`/tmp/inject_sales_tax_schemas.py`) refuses to run twice on a file — it checks for existing `FAQPage`, `BreadcrumbList`, and `id="faq"` before modifying. Pre-flight verified 50/50 files clean before run.
+- **Validation:**
+  - All 50 files: exactly 2 `<script type="application/ld+json">` blocks (was 0).
+  - All 100 JSON-LD blocks parse via `json.loads` (zero parse errors).
+  - All 50 files: exactly 5 `"@type":"Question"` entries in schema + 5 `class="faq-item"` blocks in visible HTML → 250 / 250 total.
+  - HTML `<div>` open/close tag counts balanced across every file.
+  - All 50 `AUDIT 2026-05-18` comments preserved verbatim.
+  - No `href=""` introduced.
+- **Files touched:** 50 (`alabama-sales-tax-calculator.html` … `wyoming-sales-tax-calculator.html`, skipping `auto-sales-tax-calculator.html`) + `OPERATIONS.md`.
+- **Metrics moved:** Calculators with FAQPage schema 50 → 100; Calculators with BreadcrumbList schema 50 → 100.
+- **Next:** evening slot — batch #5: pick the next-largest calculator family lacking FAQPage/BreadcrumbList (candidates: 50 state income-tax calcs, or the BMR/BMI/calorie health family). Math-audit first if rates/formulas not yet verified.
 
 (Future runs append below.)
