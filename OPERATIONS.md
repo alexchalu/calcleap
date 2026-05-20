@@ -57,7 +57,7 @@ For calculators, every page must meet:
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 12 | 100 gold-standard | 88 to write or rewrite |
-| Blog posts at gold-standard | **3** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19) | 100 | 97 |
+| Blog posts at gold-standard | **4** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20) | 100 | 96 |
 | Calculators with verified math | 100 audited (50 state property tax + 50 state sales tax) | 2,800 | Large |
 | Calculators with FAQPage schema | 50 (state property tax) | 2,800 | Massive |
 | Calculators with BreadcrumbList schema | 50 (state property tax) | 2,800 | Massive |
@@ -75,7 +75,7 @@ Pick from the top each run. Mark items DONE in the Daily Log when complete. Re-p
    - [x] `compound-interest-calculator-guide.html` (done 2026-05-17)
    - [x] `best-mortgage-calculator-2026.html` (done 2026-05-18)
    - [x] `how-much-house-can-i-afford.html` (done 2026-05-19)
-   - [ ] `bmi-calculator-accurate-2026.html`
+   - [x] `bmi-calculator-accurate-2026.html` (done 2026-05-20)
    - [ ] `how-to-calculate-mortgage-payment.html`
    - [ ] `best-loan-calculator-2026.html`
    - [ ] `how-many-calories-should-i-eat.html`
@@ -271,5 +271,19 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **Files touched:** 50 (`alabama-property-tax-calculator.html` … `wyoming-property-tax-calculator.html`) + `OPERATIONS.md`.
 - **Metrics moved:** Calculators with FAQPage schema 0 → 50; Calculators with BreadcrumbList schema row added (0 → 50).
 - **Next:** evening slot — batch #4: add FAQPage + BreadcrumbList schemas to the 50 state **sales-tax** calculators (already math-audited 2026-05-18, same family pattern, reuse the script with sales-tax-flavored FAQs).
+
+### 2026-05-20 — Morning (Claude, morning routine) — TIER 1 rewrite #4
+- **Item:** Gold-standard rewrite of `blog/bmi-calculator-accurate-2026.html`. Prior file was a 443-line thin calculator-style page with no schema, no citations, very limited body content (~600 words of prose mixed in with a calculator UI).
+- **Replaced with:** full long-form guide modeled on the `compound-interest-calculator-guide.html` template.
+  - Body word count: **4,159 words** (target ≥ 2,500; method: strip `<script>` + `<style>` + HTML tags, then split on whitespace).
+  - JSON-LD: Article + BreadcrumbList + FAQPage (3 blocks) in `<head>`.
+  - Citations: **16 numbered primary sources** in the methodology footer (CDC, USPSTF, NCHS NHANES data brief 508, AMA 2023 policy, Lancet 2025 Clinical Obesity Commission, WHO, Keys 1972, WHO Asian Expert Consultation 2004, NCHS anthropometric reference, NIH PMC sarcopenia review, NHLBI waist guidance, JAMA Network Open 2024 BRI study, Nature Reviews Endocrinology IAS/ICCR waist consensus, Quetelet historical). 22 inline `<sup>` source references.
+  - Internal links: 15 `href="/calc/..."` (bmi-calculator, calorie-calculator, body-fat-calculator, ideal-weight, food-calorie-calculator, plus footer mortgage-payment + compound-interest), plus 3 related-blog links.
+  - 2026 data integrated: CDC NCHS Data Brief 508 (NHANES Aug 2021–Aug 2023) — adult obesity 40.3%, adult overweight+obese 73.6%; AMA June 2023 BMI policy; Lancet Diabetes & Endocrinology Commission on Clinical Obesity Jan 2025 (clinical vs preclinical obesity framework). Asian-specific cutoffs 23/27.5 (WHO 2004). Verified BMI formula with both metric and imperial constants (703).
+  - Structure: TOC sidebar with 10 items, eyebrow + deck + byline hero, 10 H2 sections, 5 worked example BMI computations in a comparison table, 3 case-study patient profiles (athlete, retiree with sarcopenic obesity, South Asian engineer with population-mismatched cutoffs), 8-item action checklist, 8-item FAQ block, methodology footer + numbered source list, Apple design tokens (`--accent:#0071e3`, `--font:-apple-system,...`, `--mw:1080px`), disclaimer banner.
+  - Math sanity-check on the worked-example BMI calculations: 5'9"/200lb → 90.7 / 1.75² = 29.6 ✓; 6'0"/220lb → 99.8 / 1.83² = 29.8 ✓; 5'4"/171lb → 77.6 / 1.63² = 29.2 ✓. All five table rows verified independently.
+- **Validation grep results:** body words 4159 ✓ · JSON-LD blocks 3 ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 22 ✓ · `/calc/` internal links 15 ✓ · H2 sections 10 ✓ · FAQ items 8 ✓ · source anchor IDs 16 ✓.
+- **Files touched:** `blog/bmi-calculator-accurate-2026.html` (full replacement), `OPERATIONS.md`.
+- **Next:** morning slot — `how-to-calculate-mortgage-payment.html` (next un-checked Tier 1 item).
 
 (Future runs append below.)
