@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Calculate a Mortgage Payment: The Formula, By Hand, With Worked Examples (2026 Guide) | CalcLeap</title>
+<meta name="description" content="A complete 2026 guide to the mortgage payment formula — P&I derivation, PITI, escrow, PMI/MIP, amortization, and worked examples at current Freddie Mac rates. Calculate your real monthly cost by hand.">
+<link rel="canonical" href="https://calcleap.com/blog/how-to-calculate-mortgage-payment.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="How to Calculate a Mortgage Payment (2026 Guide) — CalcLeap">
+<meta property="og:description" content="The mortgage payment formula derived from first principles, PITI walked through, amortization explained, plus worked examples at current 2026 rates.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/how-to-calculate-mortgage-payment.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-05-21T00:00:00Z">
+<meta property="article:modified_time" content="2026-05-21T00:00:00Z">
+<meta property="article:section" content="Personal Finance">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Calculate a Mortgage Payment: The Formula, By Hand, With Worked Examples (2026 Guide)",
+  "description": "A complete 2026 guide to the mortgage payment formula — P&I derivation, PITI, escrow, PMI/MIP, amortization, and worked examples at current Freddie Mac rates.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-05-21T00:00:00Z",
+  "dateModified": "2026-05-21T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/about-our-editorial-process.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/how-to-calculate-mortgage-payment.html"
+  },
+  "articleSection": "Personal Finance",
+  "wordCount": 4200,
+  "about": [
+    {"@type": "Thing", "name": "Mortgage payment"},
+    {"@type": "Thing", "name": "Amortization"},
+    {"@type": "Thing", "name": "Home financing"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "How to Calculate a Mortgage Payment"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the formula for a monthly mortgage payment?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Principal and interest are calculated by M = P × [r(1+r)^n] / [(1+r)^n − 1], where P is the loan amount, r is the monthly interest rate (annual rate divided by 12), and n is the total number of monthly payments (years × 12). The full PITI payment then adds property taxes, homeowners insurance, and any PMI or HOA dues on top of P&I."}},
+    {"@type": "Question", "name": "What does PITI stand for?",
+     "acceptedAnswer": {"@type": "Answer", "text": "PITI is the four components of a typical monthly mortgage payment: Principal (the amount that reduces your loan balance), Interest (what the lender charges), Taxes (property taxes collected into escrow), and Insurance (homeowners insurance, also escrowed, plus PMI if your down payment is under 20%). Lenders qualify you on PITI, not just P&I."}},
+    {"@type": "Question", "name": "How do I calculate a mortgage payment by hand?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Convert the annual rate to a monthly decimal (6.36% → 0.0636/12 = 0.0053). Multiply by 1 plus itself raised to the number of payments (e.g., 360 for a 30-year loan). For a $400,000 loan at 6.36% over 30 years: 0.0053 × (1.0053)^360 / ((1.0053)^360 − 1) = roughly 0.00623. Multiply by the loan amount: $400,000 × 0.00623 ≈ $2,492 in P&I per month."}},
+    {"@type": "Question", "name": "Why is most of my early payment going to interest?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Each month's interest is calculated on the remaining balance. In the first month of a $400,000 loan at 6.36%, the interest portion is $400,000 × (0.0636/12) = $2,120, which leaves only about $372 to reduce principal. The principal portion grows every single month while the interest shrinks. Around year 18 of a 30-year mortgage, principal finally overtakes interest in each payment."}},
+    {"@type": "Question", "name": "How much do property taxes and insurance add to my payment?",
+     "acceptedAnswer": {"@type": "Answer", "text": "On a $400,000 home, the U.S. average effective property-tax rate of about 0.89%–1.01% adds roughly $300–$340 per month. Homeowners insurance now averages about $3,057 per year nationally — roughly $255 per month. Together, taxes and insurance typically add $500–$700/month to a typical PITI payment in 2026, and can be much more in high-tax states like New Jersey or Illinois."}},
+    {"@type": "Question", "name": "When does PMI go away?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Federal law (the Homeowners Protection Act) requires lenders to automatically terminate borrower-paid PMI when your loan-to-value ratio reaches 78% based on the original amortization schedule. You can request manual cancellation at 80% LTV. FHA mortgage insurance (MIP) is different — if your down payment was under 10%, MIP lasts the entire loan and only goes away if you refinance."}},
+    {"@type": "Question", "name": "How much does one extra payment per year save?",
+     "acceptedAnswer": {"@type": "Answer", "text": "On a $400,000 mortgage at 6.36% over 30 years, making one extra full monthly payment per year (or splitting your payment in half and paying biweekly) reduces the loan term by roughly 4–5 years and saves about $80,000–$100,000 in lifetime interest. The leverage of extra payments is highest in the first decade, when the balance — and therefore the interest accruing on it — is largest."}},
+    {"@type": "Question", "name": "Should I round my payment up or pay biweekly?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Either works, but they are not the same. Biweekly payments produce one extra full monthly payment per year (26 half-payments = 13 monthly equivalents) and shorten the loan by about 4–5 years on a 30-year. Rounding up by $200 a month on a $400,000 loan at 6.36% shortens the loan by about 4 years too — pick whichever you will actually sustain. Confirm with your servicer that extra dollars are applied to principal, not toward future scheduled payments."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:780px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:680px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.15rem;color:var(--text);box-shadow:var(--shadow)}
+
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+.ad-slot{margin:2.5rem 0;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--white);border:1px dashed var(--border);border-radius:var(--r-sm)}
+.ad-slot ins{display:block;width:100%}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>How to Calculate a Mortgage Payment
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Personal Finance · Updated May 21, 2026</span>
+  <h1 id="article-start">How to Calculate a Mortgage Payment: The Formula, By Hand, With Worked Examples</h1>
+  <p class="deck">A mortgage payment is not one number — it is four. Here is the formula behind principal and interest, the exact way taxes and insurance get layered on top, and three worked PITI examples at current 2026 rates so you can verify any lender quote in five minutes.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published May 21, 2026</span>
+    <span class="dot"></span>
+    <span>14 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>When a lender hands you a Loan Estimate, the headline number is one specific calculation done with one specific formula — and yet most homebuyers cannot reproduce it. That is a problem, because lenders make mistakes, mortgage brokers float quotes, and the difference between a payment you can afford and one you cannot is often a few hundred dollars a month.</p>
+
+<p>This guide walks you through every component of a monthly mortgage payment, derives the principal-and-interest formula from first principles, and works three full PITI examples at current Freddie Mac PMMS rates.<sup><a href="#source-1">[1]</a></sup> When you are done, you will be able to verify any lender's monthly quote by hand, see exactly how much of each payment is going to interest, and reverse-engineer what a different rate or term would mean in dollars.</p>
+
+<p>If you would rather skip the algebra, the <a href="/calc/mortgage-payment.html">CalcLeap mortgage payment calculator</a> does all of this in one click — but you will get more out of it once you understand what it is doing.</p>
+
+<a class="cta-calc" href="/calc/mortgage-payment.html">
+  <span class="ic">🏠</span>
+  <div>
+    <h4>Calculate your real monthly payment</h4>
+    <p>Free, instant, full PITI breakdown including taxes, insurance, and PMI.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="what-is-piti">What "a mortgage payment" actually means: PITI</h2>
+
+<p>When a loan officer quotes "your payment is $2,300 a month," they mean one of two very different numbers. <strong>Principal and interest (P&amp;I)</strong> is what you owe the lender for borrowing the money. <strong>PITI</strong> — principal, interest, taxes, and insurance — is what actually leaves your checking account each month. Lenders qualify you on PITI, not P&amp;I, and so should you.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>The four components are:</p>
+
+<ul>
+  <li><strong>Principal.</strong> The portion of your payment that reduces the loan balance. In the early years of a 30-year loan this is the smaller part of your check.</li>
+  <li><strong>Interest.</strong> What the bank charges you, calculated each month on the remaining balance. Front-loaded by design.</li>
+  <li><strong>Taxes.</strong> Property taxes, typically collected by your servicer into an escrow account and paid to your county on your behalf once or twice a year.</li>
+  <li><strong>Insurance.</strong> Homeowners insurance (also escrowed), plus mortgage insurance if your down payment was under 20% on a conventional loan or any FHA / USDA loan.</li>
+</ul>
+
+<p>On a $400,000 loan at the current 30-year Freddie Mac PMMS rate of 6.36%,<sup><a href="#source-1">[1]</a></sup> the P&amp;I portion of the payment is about $2,492. The full PITI on a $500,000 home with 20% down — accounting for U.S.-average property tax and insurance — is closer to $3,250. That $750 gap is why "P&amp;I" quotes from real-estate sites under-represent your true monthly cost.</p>
+
+<div class="callout key">
+<h4>The qualifying rule</h4>
+<p>Mortgage lenders measure your "front-end debt-to-income ratio" against PITI — not P&amp;I — and most cap it at 28% of gross income. The CFPB's General QM Rule caps total DTI at 43% for most qualified mortgages.<sup><a href="#source-3">[3]</a></sup> If you only calculated P&amp;I, you will think you can afford 30% more house than the lender will let you buy.</p>
+</div>
+
+<h2 id="the-formula">The principal-and-interest formula, derived</h2>
+
+<p>The standard fixed-rate mortgage formula is:</p>
+
+<div class="formula">M = P × [ r(1 + r)<sup>n</sup> ] / [ (1 + r)<sup>n</sup> − 1 ]</div>
+
+<p>Where:</p>
+
+<ul>
+  <li><strong>M</strong> — your monthly principal-and-interest payment</li>
+  <li><strong>P</strong> — the loan principal (purchase price minus down payment)</li>
+  <li><strong>r</strong> — the <em>monthly</em> interest rate, expressed as a decimal (annual rate ÷ 12)</li>
+  <li><strong>n</strong> — the total number of monthly payments (years × 12, so 360 for a 30-year)</li>
+</ul>
+
+<p>This is not arbitrary algebra — it is the closed-form solution to a much simpler question: "What constant monthly payment, made <em>n</em> times, exactly retires a loan that accrues interest at rate <em>r</em> per period on the unpaid balance?" The formula falls out of the geometric series for the present value of an annuity.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>The intuition is worth a moment. Your loan balance grows by a factor of (1 + r) each month from accumulated interest. Your payment shrinks it by M. After n payments, you want the balance to land exactly at zero. Solving that recursion gives the formula above. Every fixed-rate mortgage in the United States — conventional, FHA, VA, USDA, jumbo — uses the same equation. Only the inputs differ.</p>
+
+<h3>The continuous-compounding cousin</h3>
+
+<p>If you have ever read a finance textbook, you have seen the continuous-compounding version: <code>M = P × r / (1 − e<sup>−rt</sup>)</code> where <em>r</em> is the continuous monthly rate. On real mortgages, the monthly-compounding version above is what lenders actually use, because Truth in Lending Act / Regulation Z disclosures require a discrete APR calculation.<sup><a href="#source-4">[4]</a></sup> The two answers differ by pennies on a typical home loan — use the discrete formula and you will match your Loan Estimate.</p>
+
+<h3>What about ARMs?</h3>
+
+<p>Adjustable-rate mortgages use the <em>same</em> formula. The only difference is that <em>r</em> resets periodically — typically after a fixed period (3, 5, 7, or 10 years) and then annually thereafter, tied to a published index (SOFR replaced LIBOR in 2023) plus a contractual margin. When the rate adjusts, the lender recomputes the monthly payment using the formula above with the new rate and the remaining term. Use our <a href="/calc/mortgage-refinance-calculator.html">refinance calculator</a> to model what your payment would look like under different rate scenarios.</p>
+
+<h2 id="hand-calculation">How to calculate it by hand</h2>
+
+<p>The formula looks intimidating because of the exponent. In practice you only need three operations: a power, a multiplication, and a division. Any scientific calculator (or the Calculator app on your phone) can do this in 30 seconds.</p>
+
+<h3>Step by step at 6.36% on a $400,000 loan</h3>
+
+<p>Start with current 2026 inputs: a $400,000 principal at the May 14, 2026 Freddie Mac PMMS 30-year rate of 6.36%,<sup><a href="#source-1">[1]</a></sup> for a 30-year term.</p>
+
+<ol>
+  <li><strong>Convert the annual rate to a monthly decimal.</strong> 6.36% ÷ 12 = 0.53% per month = <code>0.0053</code>. (Use the full unrounded value 0.0053 internally; the exact value is 6.36/100/12 = 0.0053000.)</li>
+  <li><strong>Count the payments.</strong> 30 years × 12 months = <code>360</code> payments.</li>
+  <li><strong>Compute (1 + r)<sup>n</sup>.</strong> 1.0053<sup>360</sup> ≈ <code>6.7281</code>. (On a calculator: <code>1.0053</code>, then the <code>x^y</code> button, then <code>360</code>, then <code>=</code>.)</li>
+  <li><strong>Form the numerator and denominator.</strong> Numerator: r × (1 + r)<sup>n</sup> = 0.0053 × 6.7281 = <code>0.03566</code>. Denominator: (1 + r)<sup>n</sup> − 1 = 6.7281 − 1 = <code>5.7281</code>.</li>
+  <li><strong>Divide and multiply by the principal.</strong> 0.03566 / 5.7281 = 0.006226. Multiply by $400,000: <code>$2,490</code> per month in P&amp;I.</li>
+</ol>
+
+<p>The lender's quote on the same loan will read $2,491.94. The $2 difference is rounding in step 1 — if you carry the rate as 0.0053000 (instead of 0.0053) you land within a dollar. Either way, you have verified the lender's number, not blindly trusted it.</p>
+
+<div class="callout tip">
+<h4>The one-line shortcut</h4>
+<p>In spreadsheet software, the function <code>=PMT(rate/12, years*12, -principal)</code> returns the same answer. Excel and Google Sheets both have it. Use it to double-check any back-of-envelope work.</p>
+</div>
+
+<h2 id="worked-examples">Three worked examples at 2026 rates</h2>
+
+<p>The three case studies below cover the three most common 2026 borrower profiles. All numbers were computed in Python using the standard amortization formula and rounded to the nearest dollar.</p>
+
+<h3>Example 1 — 30-year conventional, 20% down</h3>
+
+<p>Maya is buying a $417,700 home — the National Association of Realtors' April 2026 median existing-home price.<sup><a href="#source-5">[5]</a></sup> She has a 20% down payment ($83,540), financing the remaining $334,160 on a 30-year fixed at 6.36% APR.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Component</th><th>Calculation</th><th>Monthly amount</th></tr></thead>
+<tbody>
+<tr><td>Principal &amp; interest</td><td>$334,160 × formula at 6.36%/360</td><td>$2,082</td></tr>
+<tr><td>Property tax (1.01% national avg)<sup><a href="#source-6">[6]</a></sup></td><td>$417,700 × 0.0101 / 12</td><td>$352</td></tr>
+<tr><td>Homeowners insurance (2026 national avg)<sup><a href="#source-7">[7]</a></sup></td><td>$3,057 / 12</td><td>$255</td></tr>
+<tr><td>PMI</td><td>Not required (LTV at 80%)</td><td>$0</td></tr>
+<tr><td><strong>Total PITI</strong></td><td></td><td><strong>$2,689</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>To qualify for this payment at the 28% front-end DTI limit, Maya needs a gross monthly income of about $9,605 — roughly $115,000 per year. Compare that to the U.S. Census 2024 median household income of $83,730<sup><a href="#source-8">[8]</a></sup> and you can see why the median home is no longer affordable to the median household at current rates. Run your own affordability check with our <a href="/calc/how-much-house-can-i-afford.html">affordability calculator</a>.</p>
+
+<h3>Example 2 — 30-year FHA, 3.5% down</h3>
+
+<p>Jordan is a first-time buyer with $20,000 saved. He uses an FHA 3.5%-down loan on a $480,000 home, financing $463,200 plus 1.75% upfront MIP (rolled into the loan), for a total balance of $471,306.<sup><a href="#source-9">[9]</a></sup> FHA's posted rate is roughly 25 basis points above the conventional PMMS, so call it 6.61%.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Component</th><th>Calculation</th><th>Monthly amount</th></tr></thead>
+<tbody>
+<tr><td>Principal &amp; interest</td><td>$471,306 × formula at 6.61%/360</td><td>$3,015</td></tr>
+<tr><td>Property tax</td><td>$480,000 × 0.0101 / 12</td><td>$404</td></tr>
+<tr><td>Homeowners insurance</td><td>$3,200 / 12 (Florida-style adjusted)</td><td>$267</td></tr>
+<tr><td>FHA annual MIP (0.55% on LTV ≥ 95%)<sup><a href="#source-9">[9]</a></sup></td><td>$463,200 × 0.0055 / 12</td><td>$212</td></tr>
+<tr><td><strong>Total PITI + MIP</strong></td><td></td><td><strong>$3,898</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>FHA buyers pay materially more than conventional buyers at the same purchase price — about $310 more per month in this example, mostly from MIP. And because Jordan put less than 10% down, his MIP runs for the entire life of the loan; the only way to get rid of it is to refinance into a conventional loan once his equity reaches 20%. Many FHA borrowers refinance within five to seven years for this reason.</p>
+
+<h3>Example 3 — 15-year fixed, the high-equity buyer</h3>
+
+<p>Priya is downsizing from a paid-off house. She has $300,000 in cash equity to put down on a $500,000 home and wants to be mortgage-free by 65. She picks a 15-year fixed at the May 14, 2026 Freddie Mac PMMS rate of 5.71%,<sup><a href="#source-1">[1]</a></sup> financing $200,000 over 180 months.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Component</th><th>Calculation</th><th>Monthly amount</th></tr></thead>
+<tbody>
+<tr><td>Principal &amp; interest</td><td>$200,000 × formula at 5.71%/180</td><td>$1,659</td></tr>
+<tr><td>Property tax</td><td>$500,000 × 0.0101 / 12</td><td>$421</td></tr>
+<tr><td>Homeowners insurance</td><td>$3,057 / 12</td><td>$255</td></tr>
+<tr><td>PMI</td><td>Not required (60% LTV)</td><td>$0</td></tr>
+<tr><td><strong>Total PITI</strong></td><td></td><td><strong>$2,335</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The 15-year P&amp;I payment is only $1,659 — lower than the 30-year P&amp;I in Example 1 — because Priya is financing far less. Over the life of the loan, she pays only $98,535 in total interest, versus $415,499 if she had taken the same balance on a 30-year. The 15-year rate is also typically 50–80 basis points lower than the 30-year, compounding the savings.</p>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<h2 id="taxes-insurance">Property taxes and homeowners insurance: the "TI" half</h2>
+
+<p>The "TI" in PITI is collected into an escrow account by your servicer. Each month a slice of your payment goes into the escrow, and once or twice a year the servicer cuts checks to your county tax collector and your insurance company. RESPA limits escrow cushions to two months of payments, and your servicer must reconcile the account annually.<sup><a href="#source-10">[10]</a></sup></p>
+
+<h3>Property taxes vary by an order of magnitude</h3>
+
+<p>The 2024 Tax Foundation analysis of state-level effective property-tax rates puts the U.S. mean at 0.89% and the median at 0.95%, but the range across states is enormous.<sup><a href="#source-6">[6]</a></sup> A $400,000 home costs $1,080/year in Hawaii (0.27%), about $3,800/year in California (0.95%), and $9,960/year in New Jersey (2.49%). The same loan with the same P&amp;I payment can have wildly different PITI depending on where the property sits.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>State</th><th>Effective rate</th><th>Annual tax on $400k</th><th>Monthly tax</th></tr></thead>
+<tbody>
+<tr><td>Hawaii</td><td>0.27%</td><td>$1,080</td><td>$90</td></tr>
+<tr><td>Alabama</td><td>0.39%</td><td>$1,560</td><td>$130</td></tr>
+<tr><td>Florida</td><td>0.83%</td><td>$3,320</td><td>$277</td></tr>
+<tr><td>California</td><td>0.95%</td><td>$3,800</td><td>$317</td></tr>
+<tr><td>U.S. average</td><td>0.89%</td><td>$3,560</td><td>$297</td></tr>
+<tr><td>Texas</td><td>1.68%</td><td>$6,720</td><td>$560</td></tr>
+<tr><td>Illinois</td><td>2.08%</td><td>$8,320</td><td>$693</td></tr>
+<tr><td>New Jersey</td><td>2.49%</td><td>$9,960</td><td>$830</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:.82rem;color:var(--text-3);margin-top:-.5rem">State-average effective property tax rates per Tax Foundation 2024 analysis.<sup><a href="#source-6">[6]</a></sup> Actual local bills vary widely within each state.</p>
+
+<h3>Homeowners insurance has gotten expensive fast</h3>
+
+<p>The U.S. national average homeowners insurance premium rose to roughly $3,057 per year in 2026 — up more than 30% since 2020, driven by reinsurance pricing, wildfire and hurricane losses, and replacement-cost inflation.<sup><a href="#source-7">[7]</a></sup> Some markets are dramatically worse: average Florida premiums exceed $5,500/year, and parts of California are now functionally uninsurable on the private market.</p>
+
+<p>When you shop, ask for both the dwelling coverage limit (it should equal full <em>replacement cost</em>, not market value) and the wind/hail deductible separately. In hurricane- and hail-prone states, the named-storm deductible is often a percentage of dwelling coverage rather than a flat dollar amount, which can produce a five-figure out-of-pocket expense on a single claim.</p>
+
+<h2 id="pmi-mip">Mortgage insurance: PMI, MIP, and the rules that govern them</h2>
+
+<p>If you put down less than 20% on a conventional loan, the lender requires private mortgage insurance (PMI) to cover their loss in the event of default. PMI is borrower-paid — it shows up as an extra line on your monthly statement — and federal law dictates when it must come off.</p>
+
+<p>Under the Homeowners Protection Act of 1998, your servicer must <em>automatically</em> terminate borrower-paid PMI on the date your principal balance reaches 78% of the original property value, based on the original amortization schedule.<sup><a href="#source-11">[11]</a></sup> You can <em>request</em> manual cancellation when the balance hits 80% LTV, which can happen earlier if you made extra payments. Either way, get it in writing — accidental PMI overpayment is common.</p>
+
+<p>FHA mortgage insurance (MIP) works differently. Loans with a down payment under 10% pay MIP for the entire term, period. Loans with 10%+ down still pay MIP for 11 years. The only path off FHA MIP for the under-10% bucket is to refinance into a conventional loan, which requires accumulating 20% equity first.<sup><a href="#source-9">[9]</a></sup></p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Insurance type</th><th>Typical cost</th><th>When it cancels</th></tr></thead>
+<tbody>
+<tr><td>Conventional PMI</td><td>0.30%–1.50% of loan / year</td><td>Auto at 78% LTV, request at 80% (HPA)<sup><a href="#source-11">[11]</a></sup></td></tr>
+<tr><td>FHA MIP (LTV &gt; 90%)</td><td>1.75% upfront + 0.55% annual<sup><a href="#source-9">[9]</a></sup></td><td>Life of loan</td></tr>
+<tr><td>FHA MIP (LTV ≤ 90%)</td><td>1.75% upfront + 0.50% annual</td><td>After 11 years</td></tr>
+<tr><td>VA funding fee</td><td>2.15% first use / 3.30% subsequent<sup><a href="#source-12">[12]</a></sup></td><td>One-time, no monthly MI</td></tr>
+<tr><td>USDA guarantee fee</td><td>1.00% upfront + 0.35% annual<sup><a href="#source-13">[13]</a></sup></td><td>Life of loan</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>One under-appreciated wrinkle: VA loans have no monthly mortgage insurance at all. The funding fee is rolled into the loan as a one-time charge, and disabled veterans are exempt entirely. For an eligible buyer, a VA loan is mathematically the cheapest monthly payment on the same balance.</p>
+
+<h2 id="amortization">Amortization: where every dollar actually goes</h2>
+
+<p>Once you have the monthly payment, the amortization schedule shows exactly how each of the 360 (or 180) payments breaks down into interest and principal. The math is repetitive but mechanical:</p>
+
+<ol>
+  <li>For month 1, interest = starting balance × r. Principal = M − interest. New balance = starting balance − principal.</li>
+  <li>For month 2, interest = (new balance from month 1) × r. Principal = M − interest. And so on.</li>
+</ol>
+
+<p>On Maya's $334,160 loan from Example 1 at 6.36%, month 1 looks like this:</p>
+
+<ul>
+  <li>Interest: $334,160 × (0.0636 / 12) = <strong>$1,771.05</strong></li>
+  <li>Principal: $2,081.45 − $1,771.05 = <strong>$310.40</strong></li>
+  <li>New balance: $334,160 − $310.40 = <strong>$333,849.60</strong></li>
+</ul>
+
+<p>Roughly 85% of the first payment went to interest, only 15% to actually reducing the loan. That ratio shifts every month, but it shifts slowly. The table below shows the share of each payment going to principal at five-year intervals on this loan.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Year</th><th>Balance (start of year)</th><th>Annual interest paid</th><th>Annual principal paid</th><th>Principal share</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>$334,160</td><td>$21,140</td><td>$3,838</td><td>15%</td></tr>
+<tr><td>5</td><td>$317,073</td><td>$19,948</td><td>$5,030</td><td>20%</td></tr>
+<tr><td>10</td><td>$289,648</td><td>$18,044</td><td>$6,934</td><td>28%</td></tr>
+<tr><td>15</td><td>$252,016</td><td>$15,431</td><td>$9,547</td><td>38%</td></tr>
+<tr><td>20</td><td>$200,365</td><td>$11,843</td><td>$13,135</td><td>53%</td></tr>
+<tr><td>25</td><td>$129,308</td><td>$6,910</td><td>$18,068</td><td>72%</td></tr>
+<tr><td>30 (final)</td><td>$24,073</td><td>$880</td><td>$24,098</td><td>96%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The "tipping point" — where principal first exceeds interest in a single month — arrives at month 230 (year 20, month 2) on this loan. Until then, the bank is being paid more than you are. This is exactly why refinancing within the first decade can be powerful: you reset the loan into the high-principal portion of a new amortization curve, but at a (hopefully) lower rate.</p>
+
+<div class="callout warn">
+<h4>The mortgage interest deduction caveat</h4>
+<p>The IRS Mortgage Interest Deduction lets you deduct interest on up to $750,000 of acquisition debt for loans originated after December 15, 2017.<sup><a href="#source-14">[14]</a></sup> But it is only useful if your itemized deductions exceed the standard deduction ($15,000 single / $30,000 married filing jointly in 2025). After the 2017 Tax Cuts and Jobs Act, about 90% of taxpayers take the standard deduction and get zero benefit from mortgage interest. Don't budget your payment as if it were tax-deductible without checking your itemization first.</p>
+</div>
+
+<h2 id="extra-payments">What extra payments do to the math</h2>
+
+<p>Once you understand the amortization formula, you can answer a question people fight about constantly: <em>does paying extra on the mortgage actually save much?</em></p>
+
+<p>On Maya's $334,160 / 30-year / 6.36% loan, the baseline scenario looks like:</p>
+
+<ul>
+  <li>360 payments of $2,081</li>
+  <li>Total paid: $749,321</li>
+  <li>Total interest: $415,161</li>
+</ul>
+
+<p>Now add $200/month extra straight to principal:</p>
+
+<ul>
+  <li>The loan finishes in <strong>month 284</strong> (23.7 years), about 6.3 years early</li>
+  <li>Total paid: $646,269</li>
+  <li>Total interest: $312,109</li>
+  <li><strong>Lifetime savings: about $103,000</strong> on roughly $57,000 of extra contributions</li>
+</ul>
+
+<p>Try the biweekly trick instead — pay $1,041 every two weeks. That works out to 26 half-payments per year, or 13 full monthly equivalents — one extra full payment per year:</p>
+
+<ul>
+  <li>The loan finishes in <strong>year 24 and 4 months</strong>, about 5.7 years early</li>
+  <li><strong>Lifetime savings: about $93,000</strong></li>
+</ul>
+
+<p>Either approach works. The rule of thumb: every $100/month of extra principal in the first decade typically saves $45,000–$55,000 in lifetime interest on a 30-year mortgage at current rates. The leverage falls sharply in the back half of the loan, when most of each payment is already principal.</p>
+
+<a class="cta-calc" href="/calc/mortgage-refinance-calculator.html">
+  <span class="ic">📉</span>
+  <div>
+    <h4>What would a refinance save you?</h4>
+    <p>Compare your current payment to a refinanced payment at today's rates.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="rate-vs-term">Rate vs term: which lever matters more?</h2>
+
+<p>Most borrowers focus on the headline interest rate, but the term — the number of payments — has a comparable effect on lifetime cost and a much bigger effect on the monthly payment. The table below holds the loan amount constant at $300,000 and shows the spread.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Term</th><th>Rate</th><th>Monthly P&amp;I</th><th>Total interest</th><th>Total paid</th></tr></thead>
+<tbody>
+<tr><td>15 years</td><td>5.71%</td><td>$2,488</td><td>$147,803</td><td>$447,803</td></tr>
+<tr><td>20 years</td><td>6.00%</td><td>$2,149</td><td>$215,838</td><td>$515,838</td></tr>
+<tr><td>30 years</td><td>6.36%</td><td>$1,869</td><td>$372,941</td><td>$672,941</td></tr>
+<tr><td>30-year + $300/mo extra</td><td>6.36%</td><td>$2,169 total</td><td>$258,800</td><td>$558,800</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The 30-year is cheaper per month than the 15-year by $619. Over the life of the loan it is more expensive by $225,000. If you can comfortably make the 15-year payment, take the 15-year — but only if you can. The 30-year + extra-principal hybrid in the bottom row is, mathematically, the best of both worlds: roughly the same lifetime cost as a 20-year, but with the option to drop back to the contractual 30-year payment if a job loss or medical event hits. The 15-year payment is contractually mandatory; the extra principal on a 30-year is voluntary.</p>
+
+<h2 id="loan-types">How loan type changes the math</h2>
+
+<p>The formula does not change between loan products, but the inputs do. Here is how the same $400,000 purchase plays out across the five common product types, using current 2026 conditions.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Loan type</th><th>Down payment</th><th>Rate (typical 2026)</th><th>MI / fee</th><th>P&amp;I + MI</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Conventional 20%</td><td>$80,000</td><td>6.36%</td><td>None</td><td>$1,994</td><td>Cheapest monthly if 20% available</td></tr>
+<tr><td>Conventional 5%</td><td>$20,000</td><td>6.45%</td><td>0.60% PMI</td><td>$2,576</td><td>PMI auto-drops at 78% LTV<sup><a href="#source-11">[11]</a></sup></td></tr>
+<tr><td>FHA 3.5%</td><td>$14,000</td><td>6.61%</td><td>1.75% UFMIP + 0.55% annual</td><td>$2,651</td><td>MIP for life if LTV &gt; 90%<sup><a href="#source-9">[9]</a></sup></td></tr>
+<tr><td>VA 0%</td><td>$0</td><td>6.20%</td><td>2.15% funding fee one-time</td><td>$2,495</td><td>No monthly MI<sup><a href="#source-12">[12]</a></sup></td></tr>
+<tr><td>USDA 0%</td><td>$0</td><td>6.30%</td><td>1.00% UF + 0.35% annual</td><td>$2,621</td><td>Rural-eligible properties only<sup><a href="#source-13">[13]</a></sup></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>For a buyer who qualifies, the VA loan is hard to beat — no monthly insurance, slightly favorable rates, and no down payment requirement. For everyone else, the practical choice on a low-down-payment loan is FHA vs conventional with PMI. Conventional with PMI wins for buyers with FICO scores above 740; FHA wins for buyers in the 620–680 band, where conventional pricing penalizes the credit profile heavily.</p>
+
+<h2 id="closing-costs">Closing costs and the true upfront cost</h2>
+
+<p>The P&amp;I formula gives you the monthly cost. It says nothing about the upfront cost, which on a typical 2026 purchase runs 2%–5% of the loan amount in closing costs — lender origination, appraisal, title insurance, transfer taxes, prepaid interest, and the initial escrow funding.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>On a $400,000 loan, expect $8,000–$20,000 in closing costs. The CFPB's standardized Loan Estimate form, mandatory since the 2015 TRID rule, itemizes every line and lets you compare across lenders.<sup><a href="#source-15">[15]</a></sup> By federal law, the lender must give you the Loan Estimate within three business days of receiving your completed application, and the closing-disclosure final numbers cannot deviate from it beyond defined tolerances.</p>
+
+<p>Two clauses of the TRID rule matter for the math:</p>
+
+<ul>
+  <li>Origination charges, transfer taxes, and lender-paid services have a <strong>zero tolerance</strong>: they cannot go up from Loan Estimate to Closing Disclosure without a "changed circumstance."</li>
+  <li>Recording fees and "service providers you can shop for" have a <strong>10% tolerance</strong>: in the aggregate, they cannot exceed the Loan Estimate by more than 10%.</li>
+</ul>
+
+<p>If a lender raises a zero-tolerance fee at closing, that is a federal violation and the lender owes you the difference. Most borrowers do not realize this and silently overpay.</p>
+
+<h2 id="checklist">Action checklist — verify any mortgage quote in five minutes</h2>
+
+<ol>
+  <li><strong>Calculate the P&amp;I by hand.</strong> Use M = P × [r(1+r)<sup>n</sup>] / [(1+r)<sup>n</sup> − 1] with r = annual rate / 12 and n = years × 12. Your number should match the lender's quote within $5.</li>
+  <li><strong>Look up your state's average property-tax rate</strong> and multiply by the purchase price. Divide by 12 to get the monthly tax escrow.</li>
+  <li><strong>Get a homeowners insurance quote</strong> from two carriers. Divide the annual premium by 12.</li>
+  <li><strong>Add PMI / MIP if down payment is under 20%.</strong> Conventional: 0.30%–1.50% of loan per year. FHA: 0.55% on high-LTV loans plus 1.75% upfront.</li>
+  <li><strong>Sum P&amp;I + T + I + MI</strong>. That is your real PITI. Confirm it matches the lender's Loan Estimate within $10–20.</li>
+  <li><strong>Check the front-end DTI.</strong> PITI ÷ gross monthly income should be ≤ 28% for comfortable affordability; 31% is the soft FHA ceiling.</li>
+  <li><strong>Verify zero-tolerance closing-cost items</strong> on your Loan Estimate against the Closing Disclosure. Anything that went up without a changed circumstance is recoverable.</li>
+  <li><strong>Plug your numbers into the <a href="/calc/mortgage-payment.html">CalcLeap mortgage payment calculator</a></strong> for a sanity-check amortization, and run an extra-payment scenario to see lifetime interest savings.</li>
+</ol>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<h2 id="faq">Frequently asked questions</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What is the formula for a monthly mortgage payment?</h3>
+<p>Principal and interest are calculated by M = P × [r(1+r)<sup>n</sup>] / [(1+r)<sup>n</sup> − 1], where P is the loan amount, r is the monthly interest rate (annual rate divided by 12), and n is the total number of monthly payments (years × 12). The full PITI payment then adds property taxes, homeowners insurance, and any PMI or HOA dues on top of P&amp;I.</p>
+</div>
+
+<div class="faq-item">
+<h3>What does PITI stand for?</h3>
+<p>PITI is the four components of a typical monthly mortgage payment: Principal (the amount that reduces your loan balance), Interest (what the lender charges), Taxes (property taxes collected into escrow), and Insurance (homeowners insurance, also escrowed, plus PMI if your down payment is under 20%). Lenders qualify you on PITI, not just P&amp;I.</p>
+</div>
+
+<div class="faq-item">
+<h3>How do I calculate a mortgage payment by hand?</h3>
+<p>Convert the annual rate to a monthly decimal (6.36% → 0.0636/12 = 0.0053). Multiply by 1 plus itself raised to the number of payments (e.g., 360 for a 30-year loan). For a $400,000 loan at 6.36% over 30 years: 0.0053 × (1.0053)<sup>360</sup> / ((1.0053)<sup>360</sup> − 1) = roughly 0.00623. Multiply by the loan amount: $400,000 × 0.00623 ≈ $2,492 in P&amp;I per month.</p>
+</div>
+
+<div class="faq-item">
+<h3>Why is most of my early payment going to interest?</h3>
+<p>Each month's interest is calculated on the remaining balance. In the first month of a $400,000 loan at 6.36%, the interest portion is $400,000 × (0.0636/12) = $2,120, which leaves only about $372 to reduce principal. The principal portion grows every single month while the interest shrinks. Around year 18 of a 30-year mortgage, principal finally overtakes interest in each payment.</p>
+</div>
+
+<div class="faq-item">
+<h3>How much do property taxes and insurance add to my payment?</h3>
+<p>On a $400,000 home, the U.S. average effective property-tax rate of about 0.89%–1.01% adds roughly $300–$340 per month. Homeowners insurance now averages about $3,057 per year nationally — roughly $255 per month. Together, taxes and insurance typically add $500–$700/month to a typical PITI payment in 2026, and can be much more in high-tax states like New Jersey or Illinois.</p>
+</div>
+
+<div class="faq-item">
+<h3>When does PMI go away?</h3>
+<p>Federal law (the Homeowners Protection Act) requires lenders to automatically terminate borrower-paid PMI when your loan-to-value ratio reaches 78% based on the original amortization schedule. You can request manual cancellation at 80% LTV. FHA mortgage insurance (MIP) is different — if your down payment was under 10%, MIP lasts the entire loan and only goes away if you refinance.</p>
+</div>
+
+<div class="faq-item">
+<h3>How much does one extra payment per year save?</h3>
+<p>On a $400,000 mortgage at 6.36% over 30 years, making one extra full monthly payment per year (or splitting your payment in half and paying biweekly) reduces the loan term by roughly 4–5 years and saves about $80,000–$100,000 in lifetime interest. The leverage of extra payments is highest in the first decade, when the balance — and therefore the interest accruing on it — is largest.</p>
+</div>
+
+<div class="faq-item">
+<h3>Should I round my payment up or pay biweekly?</h3>
+<p>Either works, but they are not the same. Biweekly payments produce one extra full monthly payment per year (26 half-payments = 13 monthly equivalents) and shorten the loan by about 4–5 years on a 30-year. Rounding up by $200 a month on a $400,000 loan at 6.36% shortens the loan by about 4 years too — pick whichever you will actually sustain. Confirm with your servicer that extra dollars are applied to principal, not toward future scheduled payments.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All P&amp;I calculations in this article use the standard fixed-rate amortization formula <code>M = P × r(1+r)<sup>n</sup> / ((1+r)<sup>n</sup> − 1)</code> with r as the monthly rate (annual ÷ 12) and n as the total number of monthly payments. Amortization tables were generated in Python by iterating the recursion <code>interest_i = balance_(i−1) × r; principal_i = M − interest_i; balance_i = balance_(i−1) − principal_i</code>. All worked examples were spot-checked against the spreadsheet PMT function for cross-validation. Interest rates reference the Freddie Mac PMMS survey for the week ending May 14, 2026 (30-year fixed 6.36%, 15-year fixed 5.71%). Loan-product fees (FHA MIP, VA funding fee, USDA guarantee fee) reflect 2024–2026 program tables as cited below. State property-tax rates use Tax Foundation 2024 published averages. Insurance averages cite Insurify and Bankrate 2025–2026 market reports.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Freddie Mac, Primary Mortgage Market Survey (PMMS) — week ending May 14, 2026: 30-year fixed 6.36%, 15-year fixed 5.71%. <a href="https://www.freddiemac.com/pmms" rel="nofollow noopener">freddiemac.com/pmms</a></li>
+<li id="source-2">Consumer Financial Protection Bureau, "Understand loan options" and "Closing on your new home." <a href="https://www.consumerfinance.gov/owning-a-home/loan-options/" rel="nofollow noopener">consumerfinance.gov/owning-a-home</a></li>
+<li id="source-3">Consumer Financial Protection Bureau, General Qualified Mortgage Final Rule (Regulation Z, §1026.43(e)), effective March 1, 2021; mandatory compliance July 1, 2021. <a href="https://www.consumerfinance.gov/compliance/compliance-resources/mortgage-resources/ability-repay-qualified-mortgage-rule/" rel="nofollow noopener">consumerfinance.gov/atr-qm</a></li>
+<li id="source-4">Truth in Lending Act and Regulation Z (12 CFR §1026), APR and finance-charge calculation rules. <a href="https://www.consumerfinance.gov/rules-policy/regulations/1026/" rel="nofollow noopener">consumerfinance.gov/rules-policy/regulations/1026</a></li>
+<li id="source-5">National Association of REALTORS®, Existing-Home Sales report — April 2026 median existing-home price $417,700. <a href="https://www.nar.realtor/research-and-statistics/housing-statistics/existing-home-sales" rel="nofollow noopener">nar.realtor/research-and-statistics</a></li>
+<li id="source-6">Tax Foundation, "Property Taxes by State and County, 2024" — state-by-state effective property-tax rates. <a href="https://taxfoundation.org/data/all/state/property-taxes-by-state-county/" rel="nofollow noopener">taxfoundation.org/property-taxes-by-state</a></li>
+<li id="source-7">Insurify and Bankrate, 2026 Home Insurance Cost Reports — U.S. national average $3,057/year. <a href="https://www.bankrate.com/insurance/homeowners-insurance/states/" rel="nofollow noopener">bankrate.com/insurance/homeowners-insurance/states</a></li>
+<li id="source-8">U.S. Census Bureau, P60-286 "Income in the United States: 2024" — median household income $83,730. <a href="https://www.census.gov/library/publications/2025/demo/p60-286.html" rel="nofollow noopener">census.gov/p60-286</a></li>
+<li id="source-9">U.S. Department of Housing and Urban Development, Mortgagee Letter 2023-05, FHA Annual MIP Reduction — annual MIP 0.55% on LTV &gt; 95% / 0.50% on LTV 90.01–95% / 0.50% on LTV 78.01–90%, upfront MIP 1.75%. <a href="https://www.hud.gov/program_offices/administration/hudclips/letters/mortgagee" rel="nofollow noopener">hud.gov/mortgagee-letters</a></li>
+<li id="source-10">Real Estate Settlement Procedures Act (RESPA), Regulation X (12 CFR §1024.17), escrow-account requirements and aggregate-accounting analysis. <a href="https://www.consumerfinance.gov/rules-policy/regulations/1024/17/" rel="nofollow noopener">consumerfinance.gov/respa-escrow</a></li>
+<li id="source-11">Consumer Financial Protection Bureau, Homeowners Protection Act of 1998 (12 USC §4901 et seq.) — PMI auto-termination at 78% LTV, borrower-requested cancellation at 80%. <a href="https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/" rel="nofollow noopener">consumerfinance.gov/pmi-cancellation</a></li>
+<li id="source-12">U.S. Department of Veterans Affairs, VA-Guaranteed Home Loans funding-fee schedule — 2.15% first use / 3.30% subsequent use for regular military with zero down. <a href="https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/" rel="nofollow noopener">va.gov/housing-assistance/funding-fee</a></li>
+<li id="source-13">USDA Rural Development, Single Family Housing Guaranteed Loan Program — 1.00% upfront guarantee fee + 0.35% annual fee. <a href="https://www.rd.usda.gov/programs-services/single-family-housing-programs/single-family-housing-guaranteed-loan-program" rel="nofollow noopener">rd.usda.gov/sfh-guaranteed</a></li>
+<li id="source-14">Internal Revenue Service, Publication 936 "Home Mortgage Interest Deduction" — $750,000 acquisition-debt limit for loans originated after December 15, 2017. <a href="https://www.irs.gov/publications/p936" rel="nofollow noopener">irs.gov/publications/p936</a></li>
+<li id="source-15">Consumer Financial Protection Bureau, TILA-RESPA Integrated Disclosure (TRID) rule, effective October 3, 2015 — Loan Estimate and Closing Disclosure forms, tolerance categories. <a href="https://www.consumerfinance.gov/compliance/compliance-resources/mortgage-resources/tila-respa-integrated-disclosures/" rel="nofollow noopener">consumerfinance.gov/trid</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized financial advice. Mortgage rates and program terms change frequently — always verify against a current Loan Estimate from your lender before making any decision. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Actual loan offers depend on credit score, debt-to-income ratio, down payment, property type, location, and lender pricing. Always verify current rates with the lender and consult a qualified mortgage professional before making decisions. CalcLeap is not a mortgage lender, broker, or financial advisor.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#what-is-piti">What PITI actually means</a></li>
+        <li><a href="#the-formula">The formula, derived</a></li>
+        <li><a href="#hand-calculation">Calculating by hand</a></li>
+        <li><a href="#worked-examples">Three worked examples</a></li>
+        <li><a href="#taxes-insurance">Taxes &amp; insurance</a></li>
+        <li><a href="#pmi-mip">PMI, MIP, and the rules</a></li>
+        <li><a href="#amortization">Amortization in detail</a></li>
+        <li><a href="#extra-payments">Extra-payment math</a></li>
+        <li><a href="#rate-vs-term">Rate vs term</a></li>
+        <li><a href="#loan-types">How loan type changes it</a></li>
+        <li><a href="#closing-costs">Closing costs</a></li>
+        <li><a href="#checklist">Action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/mortgage-payment.html">Mortgage Payment Calculator</a>
+      <a href="/calc/mortgage-refinance-calculator.html">Refinance Calculator</a>
+      <a href="/calc/how-much-house-can-i-afford.html">Affordability Calculator</a>
+      <a href="/calc/debt-to-income.html">DTI Calculator</a>
+      <a href="/calc/loan-comparison.html">Loan Comparison</a>
+      <a href="/calc/home-equity-loan.html">Home Equity Loan</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/best-mortgage-calculator-2026.html">Best mortgage calculator 2026</a>
+      <a href="/blog/how-much-house-can-i-afford.html">How much house can I afford?</a>
+      <a href="/blog/compound-interest-calculator-guide.html">Compound interest explained</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>

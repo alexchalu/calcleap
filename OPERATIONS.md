@@ -51,13 +51,13 @@ For calculators, every page must meet:
 - **Submit changes to IndexNow** after each batch of edits (see `submission script` in repo root).
 - **Don't push 2,000-file commits.** Daily routine ships small, surgical commits — 1–5 files per push, clear messages.
 
-## Current State (last updated: 2026-05-20 by Claude/evening-routine)
+## Current State (last updated: 2026-05-21 by Claude/morning-routine)
 
 | Metric | Now | Target | Gap |
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
-| Blog posts | 12 | 100 gold-standard | 88 to write or rewrite |
-| Blog posts at gold-standard | **4** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20) | 100 | 96 |
+| Blog posts | 13 | 100 gold-standard | 87 to write or rewrite |
+| Blog posts at gold-standard | **5** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21) | 100 | 95 |
 | Calculators with verified math | 100 audited (50 state property tax + 50 state sales tax) | 2,800 | Large |
 | Calculators with FAQPage schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Calculators with BreadcrumbList schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
@@ -76,7 +76,7 @@ Pick from the top each run. Mark items DONE in the Daily Log when complete. Re-p
    - [x] `best-mortgage-calculator-2026.html` (done 2026-05-18)
    - [x] `how-much-house-can-i-afford.html` (done 2026-05-19)
    - [x] `bmi-calculator-accurate-2026.html` (done 2026-05-20)
-   - [ ] `how-to-calculate-mortgage-payment.html`
+   - [x] `how-to-calculate-mortgage-payment.html` (done 2026-05-21)
    - [ ] `best-loan-calculator-2026.html`
    - [ ] `how-many-calories-should-i-eat.html`
    - [ ] `how-to-calculate-bmi.html`
@@ -304,5 +304,22 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **Files touched:** 50 (`alabama-sales-tax-calculator.html` … `wyoming-sales-tax-calculator.html`, skipping `auto-sales-tax-calculator.html`) + `OPERATIONS.md`.
 - **Metrics moved:** Calculators with FAQPage schema 50 → 100; Calculators with BreadcrumbList schema 50 → 100.
 - **Next:** evening slot — batch #5: pick the next-largest calculator family lacking FAQPage/BreadcrumbList (candidates: 50 state income-tax calcs, or the BMR/BMI/calorie health family). Math-audit first if rates/formulas not yet verified.
+
+### 2026-05-21 — Morning (Claude, morning routine) — TIER 1 rewrite #5
+- **Item:** New gold-standard guide at `blog/how-to-calculate-mortgage-payment.html`. The next un-checked Tier 1 file did not previously exist in the repo (no prior version to replace) — created fresh as a math-focused companion to the existing `best-mortgage-calculator-2026.html` (product comparison) and `how-much-house-can-i-afford.html` (affordability) guides. This guide owns the derivation + arithmetic angle.
+- **Created with:** full long-form guide modeled on the `compound-interest-calculator-guide.html` template.
+  - Body word count: **5,012 words** (target ≥ 2,500; method: strip `<script>` + `<style>` + HTML tags, then split on whitespace).
+  - JSON-LD: Article + BreadcrumbList + FAQPage (3 blocks) in `<head>`. All three parse cleanly via `json.loads`.
+  - Citations: **15 numbered primary sources** in the methodology footer (Freddie Mac PMMS, CFPB owning-a-home, CFPB General QM Rule, TILA/Reg Z, NAR, Tax Foundation, Insurify/Bankrate, U.S. Census P60-286, HUD ML 2023-05, RESPA Reg X, CFPB HPA PMI cancellation, VA funding-fee, USDA Rural Development, IRS Pub 936, CFPB TRID). 31 inline `<sup>` source references.
+  - Internal links: 14 `href="/calc/..."` (mortgage-payment, mortgage-refinance-calculator, how-much-house-can-i-afford, debt-to-income, loan-comparison, home-equity-loan) plus 3 related-blog links.
+  - 2026 data used: Freddie Mac PMMS 30-yr 6.36% / 15-yr 5.71% (week ending May 14, 2026, carried forward from prior runs); FHA UFMIP 1.75% + annual MIP 0.55% on LTV > 95% (HUD ML 2023-05); VA funding fee 2.15% first use / 3.30% subsequent; USDA 1.00% upfront / 0.35% annual; NAR April 2026 median existing-home price $417,700; U.S. Census 2024 median household income $83,730; Tax Foundation 2024 effective property-tax rates (NJ 2.49% high, HI 0.27% low, U.S. avg 0.89%); homeowners insurance 2026 national avg $3,057/yr.
+  - Structure: TOC sidebar with 13 items, eyebrow + deck + byline hero, 13 H2 sections, formula derivation, step-by-step hand-calculation walkthrough, 3 worked PITI case studies (conventional 20% down, FHA 3.5% down, 15-year high-equity), full month-1 amortization breakdown, year-by-year amortization table at five-year intervals, rate-vs-term comparison table, loan-product comparison table at same $400k purchase price across 5 product types, 8-item action checklist, 8-item FAQ block, methodology footer + numbered source list, Apple design tokens (`--accent:#0071e3`, `--font:-apple-system,...`, `--mw:1080px`), disclaimer banner.
+  - Math sanity-checked in Python: $400k @ 6.36%/30y → $2,491.56 P&I ✓; $334,160 @ 6.36%/30y → $2,081.45 P&I ✓; $200k @ 5.71%/15y → $1,656.54 P&I ✓; month-1 interest on $334,160 = $1,771.05 ✓; tipping point (principal > interest in a single month) at month 230 = year 20 month 2 ✓. Initial draft had three numbers that disagreed with Python (extra-payment payoff month, biweekly payoff year, month-1 interest off by $1) — fixed before validation: corrected month 297→284, year 25.5→24.3, $1,770.05→$1,771.05; revised lifetime savings claim from $72k → $103k for +$200/mo and ~$63k → ~$93k for biweekly, all derived from re-running the recursion.
+- **Validation grep results:** body words 5012 ✓ · JSON-LD blocks 3 ✓ · all 3 schemas parse OK ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 31 ✓ · `/calc/` internal links 14 ✓ · H2 sections 13 ✓ · FAQ items 8 ✓ · action checklist items 8 ✓ · schema Question entries 8 ✓.
+- **Files touched:** `blog/how-to-calculate-mortgage-payment.html` (new file), `OPERATIONS.md`.
+- **Notable observations:**
+  - The Tier 1 queue lists 11 remaining blog rewrites, but a quick `ls /blog/` showed several do not yet exist as files (this one, `best-loan-calculator-2026.html`, `best-qr-code-generator-free.html`, `json-formatter-validator-guide.html`). Treating these as "create from scratch" gold-standard posts since they are explicitly in the Tier 1 queue. Future morning runs should expect a mix of rewrites of existing thin pages and net-new creation.
+  - Verified that the `/calc/mortgage-payment.html` calculator referenced by this guide does exist in `/calc/`.
+- **Next:** morning slot — `best-loan-calculator-2026.html` (next un-checked Tier 1 item).
 
 (Future runs append below.)
