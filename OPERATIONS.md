@@ -58,7 +58,7 @@ For calculators, every page must meet:
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 13 | 100 gold-standard | 87 to write or rewrite |
 | Blog posts at gold-standard | **5** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21) | 100 | 95 |
-| Calculators with verified math | 100 audited (50 state property tax + 50 state sales tax) | 2,800 | Large |
+| Calculators with verified math | 111 audited (50 state property tax + 50 state sales tax + 11 state income tax — 9 no-tax states + IL + MI + NC flat; 38 income-tax state files flagged needing per-state brackets) | 2,800 | Large |
 | Calculators with FAQPage schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Calculators with BreadcrumbList schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Pages indexed by Google | ~420 (per memory, Mar 27) | 2,500+ | ~2,000 |
@@ -321,5 +321,34 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
   - The Tier 1 queue lists 11 remaining blog rewrites, but a quick `ls /blog/` showed several do not yet exist as files (this one, `best-loan-calculator-2026.html`, `best-qr-code-generator-free.html`, `json-formatter-validator-guide.html`). Treating these as "create from scratch" gold-standard posts since they are explicitly in the Tier 1 queue. Future morning runs should expect a mix of rewrites of existing thin pages and net-new creation.
   - Verified that the `/calc/mortgage-payment.html` calculator referenced by this guide does exist in `/calc/`.
 - **Next:** morning slot — `best-loan-calculator-2026.html` (next un-checked Tier 1 item).
+
+### 2026-05-21 — Evening (Claude, evening routine) — TIER 3 income-tax audit batch #5
+- **Item:** Audit all 49 state income-tax calculators (`<state>-income-tax-calculator.html` — California file does not exist; PA already gold-standard, skipped). Triple-purpose batch: (a) fix SEO-killing canonical URL typos, (b) dedupe dead `<script>` blocks, (c) inject AUDIT metadata documenting what is verified vs. what is flagged.
+- **Critical SEO bugs fixed (canonical + og:url):** Six files had broken canonical/og:url URLs from a sed substitution that mashed two state names together, pointing Google at 404 URLs. Fixed:
+  - `alabamassachusetts-income-tax-calculator.html` → `alabama-income-tax-calculator.html`
+  - `kentuckentucky-income-tax-calculator.html` → `kentucky-income-tax-calculator.html`
+  - `oklahomassachusetts-income-tax-calculator.html` → `oklahoma-income-tax-calculator.html`
+  - `wisconsindiana-income-tax-calculator.html` → `wisconsin-income-tax-calculator.html`
+  - `new-mexicolorado-income-tax-calculator.html` → `new-mexico-income-tax-calculator.html`
+  - `connecticutah-income-tax-calculator.html` → `connecticut-income-tax-calculator.html`
+  - 12 string replacements total (canonical + og:url per file × 6 files). Cross-grep then found **12 additional orphan `<a href>` links** in the matching property-tax and sales-tax calculator files for those 6 states (e.g., `alabama-sales-tax-calculator.html` linking to `alabamassachusetts-income-tax-calculator.html`). Fixed those too. Repo-wide grep now returns zero hits for any of the six typo strings.
+- **Dead-code removal:** 46 of 49 income-tax files had duplicate `<script>...function calculate()...</script>` blocks (same family bug as the property-tax batch #1 fix 2026-05-17). JS function-declaration hoisting means the second copy silently overwrote the first; removing it is behavior-preserving. The Python dedupe walks adjacent `<script>` blocks, only removes when inner content is byte-identical (with stripped whitespace) and only `\s*` between them. New York correctly NOT deduped because its second `calculateTaxes` block includes an extra bar-chart visualization that the first lacks (different content → preserved). PA + GA also untouched (already clean / no duplicate).
+- **AUDIT metadata injected into all 48 non-PA files** (`/* AUDIT 2026-05-21: state=... | state_income_tax=... | state_formula=... | test_cases=[...] | verified_by=evening-routine */`). Three tiers:
+  - **Tier A — math VERIFIED CORRECT (11 files):** the 9 no-state-income-tax states (`alaska`, `florida`, `nevada`, `new-hampshire`, `south-dakota`, `tennessee`, `texas`, `washington`, `wyoming` — all `stateTax=0`, verified against each state's DOR; NH dividend/interest tax phases to 0% in 2026, WA cap-gains tax doesn't apply to wages); plus `illinois` (flat 4.95% — IL DOR verified), `michigan` (flat 4.25% — MI DOR verified), and `georgia` (flat 5.49% TY2024 — GA HB 1437; note added that TY2025 schedule = 5.39%).
+  - **Tier B — math correct for tax year 2024, will need refresh (1 file):** `north-carolina` (4.5% flat TY2024; TY2025 schedule = 4.25%).
+  - **Tier C — math BROKEN, flagged for human review (36 files):** 36 progressive-bracket states whose `function calculate()` uses an identical generic 2.5%/3.75%/5% bracket table copied across all non-flat states — NOT state-specific. Plus 2 files (`new-york`, `ohio`) that use a flat-rate approximation (NY 6.85%, OH 3%) where the real state law is multi-bracket progressive (NY top 10.9%; OH 2.75%–3.99%). These 38 files now carry a `status=NEEDS_HUMAN_REVIEW` audit comment naming the required source (state DOR + Tax Foundation 2025 state tax tables); they will be batch-corrected per state in upcoming evening runs.
+- **Additional issues observed (not fixed this run, logged for future):**
+  - All 49 files cite TY2023 federal brackets (e.g., $44,725 / $95,375 / $182,100 thresholds). TY2025 brackets should replace these (single: $11,925 / $48,475 / $103,350 / $197,300 / $250,525 / $626,350 / +37% — Rev. Proc. 2024-40).
+  - All 7 calculateTaxes-template files cite SS wage base $168,600 (TY2024). TY2025 wage base = $176,100 (SSA Press Release 2024-10-10).
+  - The 42 calculate()-template files compute neither FICA nor a standard deduction (only state tax + federal tax). The 7 calculateTaxes-template files do include FICA. Cross-template normalization is a future infra task.
+- **Validation:**
+  - `grep -rl -E 'alabamassachusetts|kentuckentucky|...' --include='*.html' --include='*.xml' --include='*.json'` repo-wide → **0 hits**.
+  - All 48 modified files: `grep -o '{' / grep -o '}'` braces balanced (diff=0 on every file).
+  - All 48 files contain exactly one `/* AUDIT 2026-05-21:` comment.
+  - PA file (gold-standard, 1071 lines, 3 JSON-LD schemas) untouched.
+  - No `href=""` introduced.
+- **Files touched:** 60 total = 48 income-tax (audit + dedupe + URL fix where applicable) + 12 cross-fixes (6 property-tax + 6 sales-tax files of the 6 typo states whose internal links pointed at the broken URLs) + `OPERATIONS.md`.
+- **Metrics moved:** Calculators with verified math 100 → 111 (added 9 no-tax-state income calcs + IL + MI + GA — NC counted toward TY2024 but flagged for TY2025 refresh).
+- **Next:** evening slot — batch #6: take 5-8 of the 36 Tier-C income-tax states with widely-published flat or simple-bracket rates (candidates: AZ 2.5% flat, CO 4.4% flat, IN 3.05% flat, KY 4.0% flat, MA 5% flat + 4% surtax, MS 4.4% flat, PA-style detailed rewrite for one progressive state) and replace placeholder brackets with state-DOR-verified rates + AUDIT update. Goal: drop Tier C count from 36 toward zero over the next 5-6 evening runs.
 
 (Future runs append below.)

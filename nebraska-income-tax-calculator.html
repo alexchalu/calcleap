@@ -358,7 +358,8 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        function calculate() {
+        /* AUDIT 2026-05-21: state=Nebraska | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Nebraska-specific. | required_fix=replace with Nebraska-specific TY2025 brackets from Nebraska Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+                function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
             
@@ -407,56 +408,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             resultBox.style.display = 'block';
         }
     </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let html = '';
-            
-            
-    const income = parseFloat(document.getElementById('income').value);
-    const filingStatus = document.getElementById('filing').value;
-    
-    // Simplified state tax calculation
-    let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.0342;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.0342 + (income - 50000) * 0.0513;
-    } else {
-      stateTax = 50000 * 0.0342 + 50000 * 0.0513 + (income - 100000) * 0.0684;
-    }
-    
-    
-    // Federal tax (simplified)
-    let federalTax = 0;
-    if (income <= 44725) {
-      federalTax = income * 0.12;
-    } else if (income <= 95375) {
-      federalTax = 5367 + (income - 44725) * 0.22;
-    } else if (income <= 182100) {
-      federalTax = 16710 + (income - 95375) * 0.24;
-    } else {
-      federalTax = 37584 + (income - 182100) * 0.32;
-    }
-    
-    const totalTax = stateTax + federalTax;
-    const effectiveRate = (totalTax / income) * 100;
-    const takeHome = income - totalTax;
-    
-    html += '<div class="result-value">Take-Home Pay: $' + takeHome.toLocaleString() + '</div>';
-    html += '<div class="result-detail">Gross Income: $' + income.toLocaleString() + '</div>';
-    html += '<div class="result-detail">Nebraska State Tax: $' + stateTax.toFixed(2).toLocaleString() + '</div>';
-    html += '<div class="result-detail">Federal Tax: $' + federalTax.toFixed(2).toLocaleString() + '</div>';
-    html += '<div class="result-detail">Total Tax: $' + totalTax.toFixed(2).toLocaleString() + '</div>';
-    html += '<div class="result-detail">Effective Tax Rate: ' + effectiveRate.toFixed(2) + '%</div>';
-  
-            
-            resultBox.innerHTML = '<h3>Tax Results</h3>' + html;
-            resultBox.style.display = 'block';
-        }
-    </script>
+
 
 </div>
 

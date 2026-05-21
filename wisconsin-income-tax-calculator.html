@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wisconsin Income Tax Calculator - Free WI Tax Tool | CalcLeap</title>
 <meta name="description" content="Calculate Wisconsin state income tax and take-home pay. Free WI income tax calculator with federal tax estimates.">
-<link rel="canonical" href="https://calcleap.com/wisconsindiana-income-tax-calculator.html">
+<link rel="canonical" href="https://calcleap.com/wisconsin-income-tax-calculator.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/wisconsindiana-income-tax-calculator.html">
+<meta property="og:url" content="https://calcleap.com/wisconsin-income-tax-calculator.html">
 <meta property="og:title" content="Wisconsin Income Tax Calculator - Free WI Tax Tool">
 <meta property="og:description" content="Calculate Wisconsin state income tax and take-home pay. Free WI income tax calculator with federal tax estimates.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
@@ -358,7 +358,8 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        function calculate() {
+        /* AUDIT 2026-05-21: state=Wisconsin | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Wisconsin-specific. | required_fix=replace with Wisconsin-specific TY2025 brackets from Wisconsin Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+                function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
             
@@ -407,56 +408,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             resultBox.style.display = 'block';
         }
     </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let html = '';
-            
-            
-    const income = parseFloat(document.getElementById('income').value);
-    const filingStatus = document.getElementById('filing').value;
-    
-    // Simplified state tax calculation
-    let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.03825;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.03825 + (income - 50000) * 0.05737500000000001;
-    } else {
-      stateTax = 50000 * 0.03825 + 50000 * 0.05737500000000001 + (income - 100000) * 0.0765;
-    }
-    
-    
-    // Federal tax (simplified)
-    let federalTax = 0;
-    if (income <= 44725) {
-      federalTax = income * 0.12;
-    } else if (income <= 95375) {
-      federalTax = 5367 + (income - 44725) * 0.22;
-    } else if (income <= 182100) {
-      federalTax = 16710 + (income - 95375) * 0.24;
-    } else {
-      federalTax = 37584 + (income - 182100) * 0.32;
-    }
-    
-    const totalTax = stateTax + federalTax;
-    const effectiveRate = (totalTax / income) * 100;
-    const takeHome = income - totalTax;
-    
-    html += '<div class="result-value">Take-Home Pay: $' + takeHome.toLocaleString() + '</div>';
-    html += '<div class="result-detail">Gross Income: $' + income.toLocaleString() + '</div>';
-    html += '<div class="result-detail">Wisconsin State Tax: $' + stateTax.toFixed(2).toLocaleString() + '</div>';
-    html += '<div class="result-detail">Federal Tax: $' + federalTax.toFixed(2).toLocaleString() + '</div>';
-    html += '<div class="result-detail">Total Tax: $' + totalTax.toFixed(2).toLocaleString() + '</div>';
-    html += '<div class="result-detail">Effective Tax Rate: ' + effectiveRate.toFixed(2) + '%</div>';
-  
-            
-            resultBox.innerHTML = '<h3>Tax Results</h3>' + html;
-            resultBox.style.display = 'block';
-        }
-    </script>
+
 
 </div>
 

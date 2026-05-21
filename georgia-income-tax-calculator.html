@@ -385,6 +385,7 @@ a{color:inherit;text-decoration:none}
 </footer>
 
 <script>
+/* AUDIT 2026-05-21: state=Georgia | state_income_tax=FLAT 5.49% (TY2024 per GA HB 1437; TY2025 schedule = 5.39%) | state_formula=stateTax=max(0, taxableIncome) * 0.0549 | test_cases=[{income:50000,filing:single,state:~2196 after std ded $5400},{income:100000,filing:single,state:~5191},{income:200000,filing:single,state:~10681}] | note=update to 0.0539 when TY2025 returns become primary | verified_by=evening-routine */
 function calculate() {
   const status = document.getElementById('filingStatus').value;
   const income = parseFloat(document.getElementById('income').value) || 0;

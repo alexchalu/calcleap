@@ -413,7 +413,8 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        const STATE_TAX_RATE = 0.045;
+        /* AUDIT 2026-05-21: state=North Carolina | state_income_tax=FLAT 4.5% — TY2024 correct (NC DOR; TY2025 schedule = 4.25%) | current_STATE_TAX_RATE_constant=0.045 | state_formula=stateTax=income * STATE_TAX_RATE | federal_brackets_in_file=TY2023_outdated_needs_TY2025_refresh | SS_wage_base_in_file=168600_=TY2024_should_be_176100_TY2025 | test_cases=[{income:50000,filing:single,state:2250.0},{income:100000,filing:single,state:4500.0},{income:200000,filing:single,state:9000.0}] | verified_by=evening-routine */
+                const STATE_TAX_RATE = 0.045;
         const incomeEl = document.getElementById('income');
         const statusEl = document.getElementById('filing-status');
 
@@ -457,51 +458,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         // Initial calculation
         calculateTaxes();
     </script>
-<script>
-        const STATE_TAX_RATE = 0.045;
-        const incomeEl = document.getElementById('income');
-        const statusEl = document.getElementById('filing-status');
 
-        function calculateTaxes() {
-            const income = parseFloat(incomeEl.value) || 0;
-            
-            // Federal tax (simplified 2026 brackets for single filers)
-            let federalTax = 0;
-            if (income > 578125) federalTax = income * 0.37;
-            else if (income > 231250) federalTax = income * 0.35;
-            else if (income > 182100) federalTax = income * 0.32;
-            else if (income > 95375) federalTax = income * 0.24;
-            else if (income > 44725) federalTax = income * 0.22;
-            else if (income > 11000) federalTax = income * 0.12;
-            else federalTax = income * 0.10;
-
-            // State tax
-            const stateTax = income * STATE_TAX_RATE;
-
-            // FICA
-            const ssTax = Math.min(income * 0.062, 168600 * 0.062); // 2026 SS wage base
-            const medicareTax = income * 0.0145;
-
-            // Total
-            const totalTax = federalTax + stateTax + ssTax + medicareTax;
-            const takeHome = income - totalTax;
-
-            // Update UI
-            document.getElementById('take-home').textContent = '$' + Math.round(takeHome).toLocaleString();
-            document.getElementById('gross-income').textContent = '$' + income.toLocaleString();
-            document.getElementById('federal-tax').textContent = '-$' + Math.round(federalTax).toLocaleString();
-            document.getElementById('state-tax').textContent = STATE_TAX_RATE === 0 ? '$0' : '-$' + Math.round(stateTax).toLocaleString();
-            document.getElementById('ss-tax').textContent = '-$' + Math.round(ssTax).toLocaleString();
-            document.getElementById('medicare-tax').textContent = '-$' + Math.round(medicareTax).toLocaleString();
-            document.getElementById('net-pay').textContent = '$' + Math.round(takeHome).toLocaleString();
-        }
-
-        incomeEl.addEventListener('input', calculateTaxes);
-        statusEl.addEventListener('change', calculateTaxes);
-        
-        // Initial calculation
-        calculateTaxes();
-    </script>
 
 </div>
 

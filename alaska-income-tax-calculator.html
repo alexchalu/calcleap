@@ -358,7 +358,8 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        function calculate() {
+        /* AUDIT 2026-05-21: state=Alaska | state_income_tax=NONE — verified against state DOR | state_formula=stateTax=0 | test_cases=[{income:50000,filing:single,state:0},{income:100000,filing:single,state:0},{income:200000,filing:single,state:0}] | federal_brackets_in_file=TY2023_outdated_needs_TY2025_refresh | verified_by=evening-routine */
+                function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
             
@@ -391,40 +392,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             resultBox.style.display = 'block';
         }
     </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let html = '';
-            
-            
-    const income = parseFloat(document.getElementById('income').value);
-    
-    // No state income tax
-    let federalTax = 0;
-    if (income <= 44725) {
-      federalTax = income * 0.12;
-    } else if (income <= 95375) {
-      federalTax = 5367 + (income - 44725) * 0.22;
-    } else if (income <= 182100) {
-      federalTax = 16710 + (income - 95375) * 0.24;
-    } else {
-      federalTax = 37584 + (income - 182100) * 0.32;
-    }
-    
-    const takeHome = income - federalTax;
-    const effectiveRate = (federalTax / income) * 100;
-    
-    html += '<div class="result-value">Take-Home Pay: $' + takeHome.toLocaleString() + '</div>';
-    html += '<div class="result-detail">Gross Income: $' + income.toLocaleString() + '</div>';
-    html += '<div class="result-detail">Alaska State Tax: $0 (no state income tax)</div>';
-    html += '<div class="result-detail">Federal Tax: $' + federalTax.toFixed(2).toLocaleString() + '</div>';
-    html += '<div class="result-detail">Effective Tax Rate: ' + effectiveRate.toFixed(2) + '%</div>';
-  
-            
-            resultBox.innerHTML = '<h3>Tax Results</h3>' + html;
-            resultBox.style.display = 'block';
-        }
-    </script>
+
 
 </div>
 
