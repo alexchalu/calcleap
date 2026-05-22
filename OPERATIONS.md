@@ -51,14 +51,14 @@ For calculators, every page must meet:
 - **Submit changes to IndexNow** after each batch of edits (see `submission script` in repo root).
 - **Don't push 2,000-file commits.** Daily routine ships small, surgical commits — 1–5 files per push, clear messages.
 
-## Current State (last updated: 2026-05-22 by Claude/morning-routine)
+## Current State (last updated: 2026-05-22 by Claude/evening-routine)
 
 | Metric | Now | Target | Gap |
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 13 | 100 gold-standard | 87 to write or rewrite |
 | Blog posts at gold-standard | **6** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21, best-loan-calculator-2026 2026-05-22) | 100 | 94 |
-| Calculators with verified math | 111 audited (50 state property tax + 50 state sales tax + 11 state income tax — 9 no-tax states + IL + MI + NC flat; 38 income-tax state files flagged needing per-state brackets) | 2,800 | Large |
+| Calculators with verified math | 119 audited (50 state property tax + 50 state sales tax + 19 state income tax — 9 no-tax states + IL + MI + NC + AZ + CO + IN + KY + MA + MS + UT + ND flat/3-bracket; 30 income-tax state files still flagged needing per-state brackets) | 2,800 | Large |
 | Calculators with FAQPage schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Calculators with BreadcrumbList schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Pages indexed by Google | ~420 (per memory, Mar 27) | 2,500+ | ~2,000 |
@@ -368,5 +368,28 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
   - All federal student loan rates for the *new* 2026–27 cycle (effective July 1, 2026) are cited from a primary FSA electronic announcement; current 2025–26 rates carried forward from existing references.
   - The article frames loan calculators around *which fields they expose vs. hide* — a deliberately editorial angle that distinguishes us from the dozens of "best loan calculator" listicles that simply rank tools.
 - **Next:** morning slot — `how-many-calories-should-i-eat.html` (next un-checked Tier 1 item).
+
+### 2026-05-22 — Evening (Claude, evening routine) — TIER 3 income-tax math fixes batch #6
+- **Item:** Replace placeholder-bracket / outdated state-tax math in 8 income-tax calculator files (drawn from the 36 Tier-C "NEEDS_HUMAN_REVIEW" flagged 2026-05-21) with verified TY2025 state-DOR rates. Picked the easiest 8 to get right: 6 flat-tax states (AZ, CO, IN, KY, UT, plus MS with its $10k exemption), 1 surtax state (MA), and 1 simple-3-bracket state (ND).
+- **What changed in each file:** the `function calculate()` state-tax block was rewritten with TY2025-correct math, and the 2026-05-21 AUDIT comment block was upgraded from `STATE_MATH=PLACEHOLDER_BROKEN ... status=NEEDS_HUMAN_REVIEW` to a new `AUDIT 2026-05-22` comment with `status=VERIFIED`, the canonical statutory source, the actual formula in plain text, and 3-4 hand-derived `test_cases`.
+- **Per-state TY2025 rates applied (all sourced; sources cited inline in each AUDIT comment):**
+  - **Arizona:** 2.5% flat (HB 2900, 2021; effective TY2023+). Was placeholder progressive 1.25/1.875/2.5%.
+  - **Colorado:** 4.4% flat (Prop 121, 2022). Constant cleaned from float-noise `0.044000000000000004` → `0.044`. (Rate was already correct; status was incorrectly flagged.)
+  - **Indiana:** 3.0% flat (SB 1, 2022 ratchet schedule). Was 3.15% (TY2023 rate; outdated by 5 bp).
+  - **Kentucky:** 4.0% flat (HB 8, 2024). Was 4.5% (TY2023; 50 bp too high).
+  - **Massachusetts:** 5.0% + 4% surtax on income above $1,083,150 (2025 inflation-adjusted threshold; Article 44 Question 1, 2022 ballot). Was missing surtax entirely.
+  - **Mississippi:** 4.4% flat on income above $10,000 exemption (HB 531/2022 + HB 1/2025 "Build-Up Mississippi"). Was placeholder progressive 2.5/3.75/5%.
+  - **Utah:** 4.50% flat (HB 106, 2025 — signed March 26, 2025, retroactive to 1/1/2025). Was 4.85% (TY2022 rate; 35 bp too high).
+  - **North Dakota:** 3-bracket progressive 0% / 1.95% / 2.5% with TY2025 single-filer thresholds $48,475 and $244,825 (HB 1158, 2023). Was placeholder progressive 1.45/2.175/2.9%.
+- **Verification:** Wrote `/tmp/verify_state_tax.py` and `/tmp/extract_and_run.py`. The first compares the hand-derived expected values in each new AUDIT comment against a Python re-implementation of the same formula. The second extracts the actual JS state-tax block from the saved HTML and executes it via `node -e` against the same inputs. 25/25 test cases passed both ways for all 8 files (Arizona 3, Colorado 3, Indiana 3, Kentucky 3, Massachusetts 4 including a $1.5M case landing in the surtax band, Mississippi 3, Utah 3, North Dakota 3).
+- **Validation grep:** all 8 files: brace count balanced (diff=0); exactly one `AUDIT` comment per file (the new 2026-05-22 one); zero `NEEDS_HUMAN_REVIEW` or `PLACEHOLDER_BROKEN` remaining; zero `href=""`.
+- **Known scope limits (NOT fixed this run, intentionally):**
+  - All 8 files still cite TY2023 federal brackets ($44,725 / $95,375 / $182,100 thresholds) — explicitly preserved with `federal_brackets_in_file=TY2023_outdated` flag in the audit comment. Should be replaced repo-wide with TY2025 federal brackets (single: $11,925 / $48,475 / $103,350 / $197,300 / $250,525 / $626,350; +37%) per Rev. Proc. 2024-40 — better done in one infra-wide pass than per-state.
+  - Indiana model excludes county income tax (range 0.5%–3.38% per LIT-1); explicitly noted in audit comment so downstream users / refresh runs do not double-count.
+  - North Dakota model uses single-filer thresholds; joint thresholds differ ($298,075 top); explicitly noted in audit comment.
+  - Massachusetts treats `income` as Part B taxable income (simplified); MA actually separates Part A (interest/dividends) and Part C (long-term cap gains) with the 5% rate. Documented limitation.
+- **Files touched:** 8 (`arizona-income-tax-calculator.html`, `colorado-income-tax-calculator.html`, `indiana-income-tax-calculator.html`, `kentucky-income-tax-calculator.html`, `massachusetts-income-tax-calculator.html`, `mississippi-income-tax-calculator.html`, `utah-income-tax-calculator.html`, `north-dakota-income-tax-calculator.html`) + `OPERATIONS.md`.
+- **Metrics moved:** Calculators with verified math 111 → 119 (added 8 state income-tax calcs with TY2025-correct per-state brackets); Tier-C "NEEDS_HUMAN_REVIEW" income-tax queue 36 → 30 (28 flat-or-progressive remaining + 2 NY/OH simple-flat misapprox; CO bumped from Tier-C to VERIFIED because it was already correct underneath the placeholder flag).
+- **Next:** evening slot — batch #7: next set of 6-8 Tier-C income-tax states with widely-published flat rates (candidates: Michigan-style FICA-template states: NC TY2025 refresh from 4.5% → 4.25%, GA TY2025 schedule 5.39% update from 5.49%, plus a fresh batch of Tier-C flats: WV new 4.4% / 4.12% TY2024→2025 ratchet, IA new 3.8% flat TY2025, LA new 3.0% flat TY2025 per HB 1, NE 3.99% top → 3.7% TY2025, MO 4.7% TY2025, AL 5.0% TY2025 top of 3-bracket).
 
 (Future runs append below.)

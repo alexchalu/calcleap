@@ -358,20 +358,20 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Utah | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Utah-specific. | required_fix=replace with Utah-specific TY2025 brackets from Utah Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-22: state=Utah | state_income_tax=4.50% flat (TY2025) | source=Utah State Tax Commission + Tax Foundation 2025 state tax tables; HB 106 (2025 Utah session, signed March 26, 2025) lowered the flat rate from 4.55% → 4.50% retroactive to taxable years beginning January 1, 2025 | state_formula=stateTax = income * 0.045 | note=Prior file constant 0.048499999999999995 (=4.85%) was the outdated TY2022 rate | test_cases=[{income:50000, stateTax:2250.00}, {income:100000, stateTax:4500.00}, {income:200000, stateTax:9000.00}] | status=VERIFIED | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
-            
-            
+
+
     const income = parseFloat(document.getElementById('income').value);
     const filingStatus = document.getElementById('filing').value;
-    
+
     // Simplified state tax calculation
     let stateTax = 0;
-    
-    // Flat tax rate
-    stateTax = income * 0.048499999999999995;
+
+    // Utah flat tax rate (TY2025; Utah HB 106, signed March 26 2025)
+    stateTax = income * 0.045;
     
     
     // Federal tax (simplified)

@@ -358,26 +358,20 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Arizona | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Arizona-specific. | required_fix=replace with Arizona-specific TY2025 brackets from Arizona Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-22: state=Arizona | state_income_tax=2.5% flat (TY2025) | source=Arizona DOR + Tax Foundation 2025 state tax tables; AZ HB 2900 (2021) phased to single 2.5% rate effective TY2023+ | state_formula=stateTax = income * 0.025 | test_cases=[{income:50000, stateTax:1250.00}, {income:100000, stateTax:2500.00}, {income:200000, stateTax:5000.00}] | status=VERIFIED | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
-            
-            
+
+
     const income = parseFloat(document.getElementById('income').value);
     const filingStatus = document.getElementById('filing').value;
-    
+
     // Simplified state tax calculation
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.0125;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.0125 + (income - 50000) * 0.01875;
-    } else {
-      stateTax = 50000 * 0.0125 + 50000 * 0.01875 + (income - 100000) * 0.025;
-    }
+
+    // Arizona flat tax rate (TY2025; AZ HB 2900)
+    stateTax = income * 0.025;
     
     
     // Federal tax (simplified)

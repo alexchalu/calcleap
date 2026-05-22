@@ -358,26 +358,20 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Mississippi | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Mississippi-specific. | required_fix=replace with Mississippi-specific TY2025 brackets from Mississippi Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-22: state=Mississippi | state_income_tax=4.4% flat on income above $10,000 exemption (TY2025) | source=MS DOR + Tax Foundation 2025 state tax tables; HB 531 (2022) "Mississippi Tax Freedom Act" + HB 1 (2025) "Build-Up Mississippi" — rate ratcheting 5.0% (2022) → 4.7% (2024) → 4.4% (2025) → 4.0% (2026), targeted full elimination by 2030 subject to revenue triggers | state_formula=stateTax = max(0, income - 10000) * 0.044 | test_cases=[{income:50000, stateTax:1760.00}, {income:100000, stateTax:3960.00}, {income:200000, stateTax:8360.00}] | status=VERIFIED | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
-            
-            
+
+
     const income = parseFloat(document.getElementById('income').value);
     const filingStatus = document.getElementById('filing').value;
-    
+
     // Simplified state tax calculation
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.025;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.025 + (income - 50000) * 0.0375;
-    } else {
-      stateTax = 50000 * 0.025 + 50000 * 0.0375 + (income - 100000) * 0.05;
-    }
+
+    // Mississippi: first $10,000 exempt, 4.4% flat on income above (TY2025; HB 531/HB 1)
+    stateTax = Math.max(0, income - 10000) * 0.044;
     
     
     // Federal tax (simplified)
