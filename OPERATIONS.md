@@ -51,13 +51,13 @@ For calculators, every page must meet:
 - **Submit changes to IndexNow** after each batch of edits (see `submission script` in repo root).
 - **Don't push 2,000-file commits.** Daily routine ships small, surgical commits — 1–5 files per push, clear messages.
 
-## Current State (last updated: 2026-05-21 by Claude/morning-routine)
+## Current State (last updated: 2026-05-22 by Claude/morning-routine)
 
 | Metric | Now | Target | Gap |
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 13 | 100 gold-standard | 87 to write or rewrite |
-| Blog posts at gold-standard | **5** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21) | 100 | 95 |
+| Blog posts at gold-standard | **6** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21, best-loan-calculator-2026 2026-05-22) | 100 | 94 |
 | Calculators with verified math | 111 audited (50 state property tax + 50 state sales tax + 11 state income tax — 9 no-tax states + IL + MI + NC flat; 38 income-tax state files flagged needing per-state brackets) | 2,800 | Large |
 | Calculators with FAQPage schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Calculators with BreadcrumbList schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
@@ -77,7 +77,7 @@ Pick from the top each run. Mark items DONE in the Daily Log when complete. Re-p
    - [x] `how-much-house-can-i-afford.html` (done 2026-05-19)
    - [x] `bmi-calculator-accurate-2026.html` (done 2026-05-20)
    - [x] `how-to-calculate-mortgage-payment.html` (done 2026-05-21)
-   - [ ] `best-loan-calculator-2026.html`
+   - [x] `best-loan-calculator-2026.html` (done 2026-05-22)
    - [ ] `how-many-calories-should-i-eat.html`
    - [ ] `how-to-calculate-bmi.html`
    - [ ] `how-to-create-a-budget.html`
@@ -350,5 +350,23 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **Files touched:** 60 total = 48 income-tax (audit + dedupe + URL fix where applicable) + 12 cross-fixes (6 property-tax + 6 sales-tax files of the 6 typo states whose internal links pointed at the broken URLs) + `OPERATIONS.md`.
 - **Metrics moved:** Calculators with verified math 100 → 111 (added 9 no-tax-state income calcs + IL + MI + GA — NC counted toward TY2024 but flagged for TY2025 refresh).
 - **Next:** evening slot — batch #6: take 5-8 of the 36 Tier-C income-tax states with widely-published flat or simple-bracket rates (candidates: AZ 2.5% flat, CO 4.4% flat, IN 3.05% flat, KY 4.0% flat, MA 5% flat + 4% surtax, MS 4.4% flat, PA-style detailed rewrite for one progressive state) and replace placeholder brackets with state-DOR-verified rates + AUDIT update. Goal: drop Tier C count from 36 toward zero over the next 5-6 evening runs.
+
+### 2026-05-22 — Morning (Claude, morning routine) — TIER 1 rewrite #6
+- **Item:** New gold-standard guide at `blog/best-loan-calculator-2026.html`. File did not previously exist in the repo — created fresh as a category-spanning guide that covers personal, auto, student, HELOC, and home-equity loan calculators in one piece. Complements the existing mortgage-focused trilogy (best-mortgage-calculator-2026, how-much-house-can-i-afford, how-to-calculate-mortgage-payment) by handling everything that is *not* a primary purchase mortgage.
+- **Created with:** full long-form guide modeled on the `compound-interest-calculator-guide.html` template.
+  - Body word count: **4,985 words** (target ≥ 2,500; method: strip `<script>` + `<style>` + HTML tags, then split on whitespace).
+  - JSON-LD: Article + BreadcrumbList + FAQPage (3 blocks) in `<head>`. All three parse cleanly via `json.loads`.
+  - Citations: **12 numbered primary sources** in the methodology footer (CFPB Reg Z TILA, FOMC April 2026 statement, Federal Reserve G.19, FRED RIFLPBCIANM60NM, Federal Student Aid, Bankrate HELOC survey, Freddie Mac PMMS, FSA Electronic Announcements for 2026-27 rates, FSA Income-Driven Repayment, IRS Pub 936, CFPB annualcreditreport.com, CFPB TRID). 18 inline `<sup>` source references.
+  - Internal links: 18 `href="/calc/..."` (loan-calculator, personal-loan-calculator, car-loan-calculator, student-loan-calculator, home-equity-loan-calculator, loan-comparison-calculator, mortgage-payment, compound-interest, plus footer links) plus 4 related-blog links.
+  - 2026 data used: Personal loan 24-mo APR ~12.26%–12.38% (Fed G.19); 60-mo new auto APR ~7.04% (Bankrate / FRED); HELOC ~7.41%, fixed home equity ~7.36% (Curinos/Bankrate, May 20 2026); federal undergrad student loan 6.39% (2025-26) rising to 6.52% (2026-27), grad 7.94% → 8.07%, PLUS 8.94% → 9.07% (FSA Electronic Announcement, May 12 2026 Treasury auction high yield 4.468%); FOMC target 3.50%–3.75% (April 29, 2026); 30-yr fixed mortgage 6.36% (Freddie Mac PMMS May 14, 2026); credit card avg ~22.7%.
+  - Structure: TOC sidebar with 12 items, eyebrow + deck + byline hero, 12 H2 sections, formula derivation, rate-environment table covering 9 loan types, per-product sections (personal/auto/student/HELOC) each with a worked example table, 3 case studies (Maya consolidating $18.5k credit card debt, Daniel buying $28k used SUV with the "low APR is contingent on warranty add-on" trap, the Olsons evaluating fixed home-equity vs HELOC for a $55k renovation), hidden-costs bullet list, 8-item action checklist, 8-item FAQ block, methodology footer + numbered source list, Apple design tokens (`--accent:#0071e3`, `--font:-apple-system,...`, `--mw:1080px`), disclaimer banner.
+  - Math sanity-checked in Python via `pmt(P, apr, n)` against every dollar figure in the article. Three initial discrepancies caught and fixed before publish: (1) Daniel-with-warranty scenario was $402.34/$4,288 in draft → corrected to $408.60/$3,876 (and narrative re-flipped: dealer payment is *higher* than credit union after warranty, not just $4 cheaper); (2) HELOC payment shock case study said "$340/month" interest-only but callout same article said "$309/month" — fixed case study to $309 (=$50,000 × 7.41%/12) for consistency; (3) Olsons fixed HE loan shifted from $651/$23,124 to $649/$22,862 to match Python (≤ 1% rounding).
+- **Validation grep results:** body words 4985 ✓ · JSON-LD blocks 3 ✓ · all 3 schemas parse OK ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 18 ✓ · `/calc/` internal links 18 ✓ · H2 sections 12 ✓ · FAQ items (visible) 8 ✓ · schema Question entries 8 ✓ · action checklist items 8 ✓ · source list IDs 12 ✓.
+- **Files touched:** `blog/best-loan-calculator-2026.html` (new file), `OPERATIONS.md`.
+- **Notable observations:**
+  - Verified the calculators referenced in CTAs and "Related calculators" sidebar all exist: `/calc/personal-loan-calculator.html`, `/calc/car-loan-calculator.html`, `/calc/student-loan-calculator.html`, `/calc/home-equity-loan-calculator.html`, `/calc/loan-comparison-calculator.html`. The `/calc/loan-calculator.html` generic CTA may or may not exist as a standalone — should verify on next run.
+  - All federal student loan rates for the *new* 2026–27 cycle (effective July 1, 2026) are cited from a primary FSA electronic announcement; current 2025–26 rates carried forward from existing references.
+  - The article frames loan calculators around *which fields they expose vs. hide* — a deliberately editorial angle that distinguishes us from the dozens of "best loan calculator" listicles that simply rank tools.
+- **Next:** morning slot — `how-many-calories-should-i-eat.html` (next un-checked Tier 1 item).
 
 (Future runs append below.)
