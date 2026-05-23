@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Alabama | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Alabama-specific. | required_fix=replace with Alabama-specific TY2025 brackets from Alabama Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-23: state=Alabama | state_income_tax=3-bracket progressive 2%/4%/5% at $500/$3000 (single TY2025) | source=Alabama Department of Revenue + Code of Alabama §40-18-5; structure stable since 1933, current rates unchanged | state_formula=if(income<=500) stateTax=income*0.02; else if(income<=3000) stateTax=10+(income-500)*0.04; else stateTax=110+(income-3000)*0.05 | test_cases=[{income:50000, stateTax:2460.00}, {income:100000, stateTax:4960.00}, {income:200000, stateTax:9960.00}] | note=single-filer thresholds; MFJ doubles to $1000/$6000; does NOT subtract AL standard deduction (up to $3,000 single) | status=VERIFIED | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -370,13 +370,13 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     // Simplified state tax calculation
     let stateTax = 0;
     
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.025;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.025 + (income - 50000) * 0.0375;
+    // Alabama 3-bracket progressive tax (TY2025; Code of Alabama §40-18-5; single filer)
+    if (income <= 500) {
+      stateTax = income * 0.02;
+    } else if (income <= 3000) {
+      stateTax = 10 + (income - 500) * 0.04;
     } else {
-      stateTax = 50000 * 0.025 + 50000 * 0.0375 + (income - 100000) * 0.05;
+      stateTax = 110 + (income - 3000) * 0.05;
     }
     
     

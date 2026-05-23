@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Oklahoma | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Oklahoma-specific. | required_fix=replace with Oklahoma-specific TY2025 brackets from Oklahoma Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-23: state=Oklahoma | state_income_tax=6-bracket progressive 0.25/0.75/1.75/2.75/3.75/4.75% (single TY2025) | source=Oklahoma Tax Commission Form 511 TY2025 tax tables + SB 1075 (2021) cut; top rate 4.75% unchanged since TY2022 | state_formula=cumulative through 6 brackets at $1000/$2500/$3750/$4900/$7200 | test_cases=[{income:50000, stateTax:2186.50}, {income:100000, stateTax:4561.50}, {income:200000, stateTax:9311.50}] | note=single-filer thresholds; MFJ doubles; does NOT subtract OK standard deduction ($6,350 single conformed); does NOT model parental choice or any TY2026 cut signaled in 2025 session | status=VERIFIED | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -370,13 +370,19 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     // Simplified state tax calculation
     let stateTax = 0;
     
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.02375;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.02375 + (income - 50000) * 0.035625;
+    // Oklahoma 6-bracket progressive tax (TY2025; SB 1075, 2021; single filer)
+    if (income <= 1000) {
+      stateTax = income * 0.0025;
+    } else if (income <= 2500) {
+      stateTax = 2.50 + (income - 1000) * 0.0075;
+    } else if (income <= 3750) {
+      stateTax = 13.75 + (income - 2500) * 0.0175;
+    } else if (income <= 4900) {
+      stateTax = 35.625 + (income - 3750) * 0.0275;
+    } else if (income <= 7200) {
+      stateTax = 67.25 + (income - 4900) * 0.0375;
     } else {
-      stateTax = 50000 * 0.02375 + 50000 * 0.035625 + (income - 100000) * 0.0475;
+      stateTax = 153.50 + (income - 7200) * 0.0475;
     }
     
     

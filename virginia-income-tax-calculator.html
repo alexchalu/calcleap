@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Virginia | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Virginia-specific. | required_fix=replace with Virginia-specific TY2025 brackets from Virginia Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-23: state=Virginia | state_income_tax=4-bracket progressive 2%/3%/5%/5.75% at $3000/$5000/$17000 (single TY2025) | source=Virginia Department of Taxation + VA Code §58.1-320; structure stable since 1972, top 5.75% rate unchanged since 1972 | state_formula=if(income<=3000) tax=income*0.02; if(income<=5000) tax=60+(income-3000)*0.03; if(income<=17000) tax=120+(income-5000)*0.05; else tax=720+(income-17000)*0.0575 | test_cases=[{income:50000, stateTax:2617.50}, {income:100000, stateTax:5492.50}, {income:200000, stateTax:11242.50}] | note=does NOT subtract VA standard deduction ($8,500 single TY2025; doubled from $4,500 by 2022 General Assembly) | status=VERIFIED | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -370,13 +370,15 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     // Simplified state tax calculation
     let stateTax = 0;
     
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.02875;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.02875 + (income - 50000) * 0.043125;
+    // Virginia 4-bracket progressive tax (TY2025; VA Code §58.1-320; long-stable since 1972)
+    if (income <= 3000) {
+      stateTax = income * 0.02;
+    } else if (income <= 5000) {
+      stateTax = 60 + (income - 3000) * 0.03;
+    } else if (income <= 17000) {
+      stateTax = 120 + (income - 5000) * 0.05;
     } else {
-      stateTax = 50000 * 0.02875 + 50000 * 0.043125 + (income - 100000) * 0.0575;
+      stateTax = 720 + (income - 17000) * 0.0575;
     }
     
     

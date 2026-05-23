@@ -51,14 +51,14 @@ For calculators, every page must meet:
 - **Submit changes to IndexNow** after each batch of edits (see `submission script` in repo root).
 - **Don't push 2,000-file commits.** Daily routine ships small, surgical commits — 1–5 files per push, clear messages.
 
-## Current State (last updated: 2026-05-23 by Claude/morning-routine)
+## Current State (last updated: 2026-05-23 by Claude/evening-routine)
 
 | Metric | Now | Target | Gap |
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 14 | 100 gold-standard | 86 to write or rewrite |
 | Blog posts at gold-standard | **7** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21, best-loan-calculator-2026 2026-05-22, how-many-calories-should-i-eat 2026-05-23) | 100 | 93 |
-| Calculators with verified math | 119 audited (50 state property tax + 50 state sales tax + 19 state income tax — 9 no-tax states + IL + MI + NC + AZ + CO + IN + KY + MA + MS + UT + ND flat/3-bracket; 30 income-tax state files still flagged needing per-state brackets) | 2,800 | Large |
+| Calculators with verified math | 125 audited (50 state property tax + 50 state sales tax + 25 state income tax — 9 no-tax states + IL + MI + NC + GA + AZ + CO + IN + KY + MA + MS + UT + ND + LA + IA + AL + VA + MO + OK flat/bracketed; 19 income-tax state files still flagged needing per-state brackets) | 2,800 | Large |
 | Calculators with FAQPage schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Calculators with BreadcrumbList schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Pages indexed by Google | ~420 (per memory, Mar 27) | 2,500+ | ~2,000 |
@@ -409,5 +409,26 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
   - The 2025-2030 Dietary Guidelines released this January are the first major federal nutrition policy shift since 2020, and the protein floor change (0.8 → 1.2-1.6 g/kg) is a substantial editorial differentiator vs. competing "how many calories" articles still citing the old RDA.
   - This piece is health-domain — the first Tier 1 rewrite outside the finance/mortgage cluster since BMI (2026-05-20). Continues the topic-rotation pattern that keeps the blog from looking single-vertical.
 - **Next:** morning slot — `how-to-calculate-bmi.html` (next un-checked Tier 1 item; will lean on the existing BMI gold-standard piece for cross-linking and emphasize the *math* angle, not the categorization angle).
+
+### 2026-05-23 — Evening (Claude, evening routine) — TIER 3 income-tax math fixes batch #7
+- **Item:** Convert 6 more Tier-C "NEEDS_HUMAN_REVIEW" income-tax files (flagged 2026-05-21) to VERIFIED with TY2025 state-DOR rates. Continues batch #6 (2026-05-22, 8 states). Picked 2 flat-rate states with recent 2024–25 legislation, 2 long-stable bracketed states, and 2 multi-bracket states.
+- **What changed in each file:** the placeholder "Progressive tax brackets (simplified)" block was rewritten with TY2025-correct math, and the 2026-05-21 AUDIT comment was upgraded from `STATE_MATH=PLACEHOLDER_BROKEN ... status=NEEDS_HUMAN_REVIEW` to a new `AUDIT 2026-05-23` comment with `status=VERIFIED`, the statutory source, the actual formula in plain text, and 3 hand-derived `test_cases`.
+- **Per-state TY2025 rates applied:**
+  - **Louisiana:** 3.0% flat (HB 1, December 2024 Second Extraordinary Session; effective 1/1/2025; replaces TY2024 3-bracket 1.85/3.50/4.25). Was placeholder progressive 2.125/3.1875/4.25%.
+  - **Iowa:** 3.8% flat (SF 2442 accelerated phase-in; replaces TY2024 3-bracket 4.40/4.82/5.70). Was placeholder progressive 3.0/4.5/6.0%.
+  - **Alabama:** 3-bracket progressive 2%/4%/5% at $500/$3,000 thresholds (single; Code of AL §40-18-5; structure stable since 1933). Was placeholder progressive 2.5/3.75/5.0%.
+  - **Virginia:** 4-bracket progressive 2%/3%/5%/5.75% at $3,000/$5,000/$17,000 (single; VA Code §58.1-320; top rate stable since 1972). Was placeholder progressive 2.875/4.3125/5.75%.
+  - **Missouri:** 8-bracket progressive 0/2/2.5/3/3.5/4/4.5/4.7% (single; MO DOR Form MO-1040 TY2025; SB 3, 2022 ratchet; top rate cut from 4.80% TY2024 → 4.70% TY2025 by revenue trigger). Was placeholder progressive 2.475/3.7125/4.95%.
+  - **Oklahoma:** 6-bracket progressive 0.25/0.75/1.75/2.75/3.75/4.75% (single; OK Tax Commission Form 511; SB 1075, 2021; top 4.75% unchanged since TY2022). Was placeholder progressive 2.375/3.5625/4.75%.
+- **Verification:** Wrote `/tmp/fix_state_tax_batch7.py` and `/tmp/verify_node.py`. The first verifies each spec's documented test cases against an in-Python re-implementation BEFORE applying any edits. The second re-extracts the modified JS block from each saved HTML file and executes it via `node -e` against the same inputs. **18/18 test cases passed both ways for all 6 files** (3 cases each at income = $50k / $100k / $200k).
+- **Validation grep:** all 6 files: brace count balanced (diff=0); exactly one `AUDIT 2026-05-23: state=...` comment per file (the new one); zero `NEEDS_HUMAN_REVIEW` or `PLACEHOLDER_BROKEN` remaining; zero `href=""`; zero `AUDIT 2026-05-21` remaining (the 2026-05-21 broken-status audit was replaced, not duplicated).
+- **Known scope limits (NOT fixed this run, intentionally; consistent with batch #6 policy):**
+  - All 6 files still cite TY2023 federal brackets ($44,725 / $95,375 / $182,100 thresholds) — explicitly preserved with `federal_brackets_in_file=TY2023_outdated (cross-file refresh pending)` flag in each new audit comment. Better done in one infra-wide pass than per-state.
+  - None of the 6 models subtracts a state standard deduction (matches the existing template across the income-tax family). Each AUDIT comment lists the state's SD with the note that low-income filers will see a slight overestimate. (Louisiana $12,500 single; Iowa ~$2,210; Alabama up to $3,000 single; Virginia $8,500 single; Missouri $14,600 conformed; Oklahoma $6,350 single.)
+  - Alabama / Virginia / Oklahoma use single-filer bracket thresholds; MFJ thresholds differ (AL doubles; VA same brackets but joint structure; OK doubles). Explicitly noted.
+  - Missouri does not separately model the long-term capital-gains 50% deduction (HB 1597, 2025) — out of scope for a wage-income calculator.
+- **Files touched:** 6 (`louisiana-income-tax-calculator.html`, `iowa-income-tax-calculator.html`, `alabama-income-tax-calculator.html`, `virginia-income-tax-calculator.html`, `missouri-income-tax-calculator.html`, `oklahoma-income-tax-calculator.html`) + `OPERATIONS.md`.
+- **Metrics moved:** Calculators with verified math 119 → 125 (added 6 state income-tax calcs with TY2025-correct per-state brackets); Tier-C "NEEDS_HUMAN_REVIEW" income-tax queue 25 → 19 remaining (verified by repo-wide grep).
+- **Next:** evening slot — batch #8: next 5–6 Tier-C income-tax states. Candidates: NY (true progressive 4%–10.9% replacing current 6.85% flat approximation), OH (TY2025 simplified 2-bracket: 2.75% to $100k / 3.5% above per HB 33), AR (TY2025 3.9% top per HB 1001 Aug 2024 special session), NM (4-bracket 1.7/3.2/4.7/5.9% single TY2025), WV (TY2025 reduced ratchet 2.22–4.82%), NE (TY2025 top 5.20% per LB 754).
 
 (Future runs append below.)

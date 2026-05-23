@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Missouri | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Missouri-specific. | required_fix=replace with Missouri-specific TY2025 brackets from Missouri Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-23: state=Missouri | state_income_tax=8-bracket progressive 0/2/2.5/3/3.5/4/4.5/4.7% (single TY2025) | source=Missouri Department of Revenue Form MO-1040 TY2025 tax tables + SB 3 (2022) ratchet schedule; top rate cut from 4.80% TY2024 to 4.70% TY2025 by revenue-trigger | state_formula=cumulative through 8 brackets starting at $1,313 (0%) up to $9,191+ (4.70%) | test_cases=[{income:50000, stateTax:2174.07}, {income:100000, stateTax:4524.07}, {income:200000, stateTax:9224.07}] | note=does NOT subtract MO standard deduction ($14,600 single, conformed to federal TY2025); small overestimate vs. actual liability | status=VERIFIED | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -370,13 +370,23 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     // Simplified state tax calculation
     let stateTax = 0;
     
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.02475;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.02475 + (income - 50000) * 0.037125000000000005;
+    // Missouri 8-bracket progressive tax (TY2025; SB 3, 2022 ratchet; top 4.70%)
+    if (income <= 1313) {
+      stateTax = 0;
+    } else if (income <= 2626) {
+      stateTax = (income - 1313) * 0.02;
+    } else if (income <= 3939) {
+      stateTax = 26.26 + (income - 2626) * 0.025;
+    } else if (income <= 5252) {
+      stateTax = 59.09 + (income - 3939) * 0.03;
+    } else if (income <= 6565) {
+      stateTax = 98.48 + (income - 5252) * 0.035;
+    } else if (income <= 7878) {
+      stateTax = 144.44 + (income - 6565) * 0.04;
+    } else if (income <= 9191) {
+      stateTax = 196.96 + (income - 7878) * 0.045;
     } else {
-      stateTax = 50000 * 0.02475 + 50000 * 0.037125000000000005 + (income - 100000) * 0.0495;
+      stateTax = 256.05 + (income - 9191) * 0.047;
     }
     
     
