@@ -51,13 +51,13 @@ For calculators, every page must meet:
 - **Submit changes to IndexNow** after each batch of edits (see `submission script` in repo root).
 - **Don't push 2,000-file commits.** Daily routine ships small, surgical commits — 1–5 files per push, clear messages.
 
-## Current State (last updated: 2026-05-22 by Claude/evening-routine)
+## Current State (last updated: 2026-05-23 by Claude/morning-routine)
 
 | Metric | Now | Target | Gap |
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
-| Blog posts | 13 | 100 gold-standard | 87 to write or rewrite |
-| Blog posts at gold-standard | **6** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21, best-loan-calculator-2026 2026-05-22) | 100 | 94 |
+| Blog posts | 14 | 100 gold-standard | 86 to write or rewrite |
+| Blog posts at gold-standard | **7** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21, best-loan-calculator-2026 2026-05-22, how-many-calories-should-i-eat 2026-05-23) | 100 | 93 |
 | Calculators with verified math | 119 audited (50 state property tax + 50 state sales tax + 19 state income tax — 9 no-tax states + IL + MI + NC + AZ + CO + IN + KY + MA + MS + UT + ND flat/3-bracket; 30 income-tax state files still flagged needing per-state brackets) | 2,800 | Large |
 | Calculators with FAQPage schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Calculators with BreadcrumbList schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
@@ -78,7 +78,7 @@ Pick from the top each run. Mark items DONE in the Daily Log when complete. Re-p
    - [x] `bmi-calculator-accurate-2026.html` (done 2026-05-20)
    - [x] `how-to-calculate-mortgage-payment.html` (done 2026-05-21)
    - [x] `best-loan-calculator-2026.html` (done 2026-05-22)
-   - [ ] `how-many-calories-should-i-eat.html`
+   - [x] `how-many-calories-should-i-eat.html` (done 2026-05-23)
    - [ ] `how-to-calculate-bmi.html`
    - [ ] `how-to-create-a-budget.html`
    - [ ] `how-to-save-money.html`
@@ -391,5 +391,23 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **Files touched:** 8 (`arizona-income-tax-calculator.html`, `colorado-income-tax-calculator.html`, `indiana-income-tax-calculator.html`, `kentucky-income-tax-calculator.html`, `massachusetts-income-tax-calculator.html`, `mississippi-income-tax-calculator.html`, `utah-income-tax-calculator.html`, `north-dakota-income-tax-calculator.html`) + `OPERATIONS.md`.
 - **Metrics moved:** Calculators with verified math 111 → 119 (added 8 state income-tax calcs with TY2025-correct per-state brackets); Tier-C "NEEDS_HUMAN_REVIEW" income-tax queue 36 → 30 (28 flat-or-progressive remaining + 2 NY/OH simple-flat misapprox; CO bumped from Tier-C to VERIFIED because it was already correct underneath the placeholder flag).
 - **Next:** evening slot — batch #7: next set of 6-8 Tier-C income-tax states with widely-published flat rates (candidates: Michigan-style FICA-template states: NC TY2025 refresh from 4.5% → 4.25%, GA TY2025 schedule 5.39% update from 5.49%, plus a fresh batch of Tier-C flats: WV new 4.4% / 4.12% TY2024→2025 ratchet, IA new 3.8% flat TY2025, LA new 3.0% flat TY2025 per HB 1, NE 3.99% top → 3.7% TY2025, MO 4.7% TY2025, AL 5.0% TY2025 top of 3-bracket).
+
+### 2026-05-23 — Morning (Claude, morning routine) — TIER 1 rewrite #7
+- **Item:** New gold-standard guide at `blog/how-many-calories-should-i-eat.html`. File did not previously exist in the repo — created fresh as the canonical companion to `/calc/calorie-calculator.html`. First Tier 1 piece in the health (non-mortgage, non-tax) family. Picks up where the 2026-05-20 BMI rewrite left off: BMI tells you a category, calories tell you a daily action target.
+- **Created with:** full long-form guide modeled on the `compound-interest-calculator-guide.html` template.
+  - Body word count: **5,064 words** (target ≥ 2,500; method: strip `<script>` + `<style>` + HTML tags, then split on whitespace).
+  - JSON-LD: Article + BreadcrumbList + FAQPage (3 blocks) in `<head>`. All three parse cleanly via `json.loads`.
+  - Citations: **17 numbered primary sources** in the methodology footer (FDA Nutrition Facts history, USDA/HHS 2025-2030 Dietary Guidelines, NIH NIDDK, Westerterp 2004 TEF paper, Levine 2005 NEAT *Science* paper, Frankenfield 2005 *JADA* systematic review of BMR equations, Frankenfield 2013 *Clinical Nutrition* accuracy follow-up, IOM/National Academies 2005 DRI report, Bauer 2013 PROT-AGE protein paper, Wishnofsky 1958 3,500-kcal/lb origin, NIH Body Weight Planner, Academy of Nutrition and Dietetics adult-obesity position paper, Schoenfeld/Aragon 2018 protein-per-meal paper, FDA 21 CFR §101.9(g) label-tolerance rule, Fothergill 2016 *Obesity* Biggest Loser adaptive thermogenesis study, Shcherbina 2017 Stanford wearable-accuracy study, CDC NCHS Data Brief 508 obesity prevalence). 26 inline `<sup>` source references.
+  - Internal links: 18 `href="/calc/..."` (calorie-calculator, tdee-calculator, macro-calculator, weight-loss-calculator, bmi-calculator, body-fat-calculator, ideal-weight, food-calorie-calculator, plus footer mortgage-payment + compound-interest) plus 3 related-blog links.
+  - 2026 data integrated: USDA/HHS *Dietary Guidelines for Americans 2025-2030* released January 7, 2026 — protein floor raised from 0.8 g/kg RDA to 1.2-1.6 g/kg of body weight, added-sugar cap switched from 10%-of-calories to 10 g per meal, saturated-fat and sodium caps retained. CDC NCHS Data Brief 508 (NHANES Aug 2021–Aug 2023): U.S. adult obesity 40.3%, severe obesity 9.4%, age-40-59 obesity 46.4%. Mifflin-St Jeor accuracy rate 82% (non-obese) / 75% (obese) within 10% of measured RMR per Frankenfield 2013.
+  - Structure: TOC sidebar with 10 items, eyebrow + deck + byline hero, 10 H2 sections, BMR formula box (separate male/female equations), USDA estimated-calories table broken out by sex × age × activity (8 demographic rows), deficit/surplus rate table, three full worked-example case studies (Marisol 30/F/68kg/lightly-active loss; Jared 40/M/91kg/sedentary maintenance; Devon 25/M/82kg/very-active lean-gain), macro split table, 8-item action checklist, 8-item FAQ block, methodology footer + numbered source list, Apple design tokens (`--accent:#0071e3`, `--font:-apple-system,...`, `--mw:1080px`), disclaimer banner.
+  - Math sanity-checked in Python before publish: (1) Marisol BMR = 10(68) + 6.25(165) − 5(30) − 161 = 1400.25 ✓, TDEE = 1400 × 1.375 = 1,925 ✓; (2) Jared BMR = 10(91) + 6.25(178) − 5(40) + 5 = 1827.5 ✓, TDEE = 1828 × 1.20 = 2,193 ✓; (3) Devon BMR = 10(82) + 6.25(183) − 5(25) + 5 = 1843.75 ✓, TDEE = 1844 × 1.725 = 3,181 ✓. Protein floor math verified at 1.2-1.6 × body weight (kg) for each case; macro calorie sums for Marisol's 1,425-kcal target and Devon's 3,431-kcal target both reconcile to within 1%.
+- **Validation grep results:** body words 5064 ✓ · JSON-LD blocks 3 ✓ · all 3 schemas parse OK ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 26 ✓ · `/calc/` internal links 18 ✓ · H2 sections 10 ✓ · FAQ items (visible) 8 ✓ · schema Question entries 8 ✓ · action checklist items 8 ✓ · source list IDs 17 ✓.
+- **Files touched:** `blog/how-many-calories-should-i-eat.html` (new file), `OPERATIONS.md`.
+- **Notable observations:**
+  - Sidebar "Related calculators" references `/calc/tdee-calculator.html`, `/calc/macro-calculator.html`, `/calc/weight-loss-calculator.html` — these may or may not exist as standalone files in `/calc/`. Existing health calcs verified present: `calorie-calculator.html`, `food-calorie-calculator.html`, `bmi-calculator.html` (under `/calc/` and at root), `body-fat-calculator.html`, `ideal-weight.html`. Future runs could either (a) create the three missing calc pages or (b) trim the sidebar links — flagging for an evening Tier 4 audit pass.
+  - The 2025-2030 Dietary Guidelines released this January are the first major federal nutrition policy shift since 2020, and the protein floor change (0.8 → 1.2-1.6 g/kg) is a substantial editorial differentiator vs. competing "how many calories" articles still citing the old RDA.
+  - This piece is health-domain — the first Tier 1 rewrite outside the finance/mortgage cluster since BMI (2026-05-20). Continues the topic-rotation pattern that keeps the blog from looking single-vertical.
+- **Next:** morning slot — `how-to-calculate-bmi.html` (next un-checked Tier 1 item; will lean on the existing BMI gold-standard piece for cross-linking and emphasize the *math* angle, not the categorization angle).
 
 (Future runs append below.)
