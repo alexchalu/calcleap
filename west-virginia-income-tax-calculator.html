@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=West Virginia | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT West Virginia-specific. | required_fix=replace with West Virginia-specific TY2025 brackets from West Virginia Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-24: state=West Virginia | state_income_tax=PROGRESSIVE-5-BRACKET (TY2025, single) | source=WV State Tax Division 2025 IT-140 Tax Rate Schedule; SB 2033 (2024 1st Special Session) triggered additional 4% rate cut effective 1/1/2025 on top of HB 2526 (2023) 21.25% cut | state_formula=single-filer marginal: 2.22% on $0-10,000; 2.96% on $10,001-25,000; 3.33% on $25,001-40,000; 4.44% on $40,001-60,000; 4.82% on $60,001+ | scope_limit=single-filer/HoH brackets used; MFS uses same brackets but each spouse files separately on own income | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | test_cases=[{income:50000,stateTax:1609.50},{income:100000,stateTax:3981.50},{income:200000,stateTax:8801.50}] | status=VERIFIED | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -368,15 +368,19 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     const filingStatus = document.getElementById('filing').value;
     
     // Simplified state tax calculation
+    // West Virginia TY2025 state income tax (single) — WV State Tax Division 2025 IT-140 Tax Rate Schedule
+    // SB 2033 (2024) + HB 2526 (2023): rate range 2.36%-5.12% (TY2024) -> 2.22%-4.82% (TY2025).
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.0325;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.0325 + (income - 50000) * 0.04875;
+    if (income <= 10000) {
+      stateTax = income * 0.0222;
+    } else if (income <= 25000) {
+      stateTax = 222 + (income - 10000) * 0.0296;
+    } else if (income <= 40000) {
+      stateTax = 222 + 444 + (income - 25000) * 0.0333;
+    } else if (income <= 60000) {
+      stateTax = 222 + 444 + 499.50 + (income - 40000) * 0.0444;
     } else {
-      stateTax = 50000 * 0.0325 + 50000 * 0.04875 + (income - 100000) * 0.065;
+      stateTax = 222 + 444 + 499.50 + 888 + (income - 60000) * 0.0482;
     }
     
     

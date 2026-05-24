@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Nebraska | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Nebraska-specific. | required_fix=replace with Nebraska-specific TY2025 brackets from Nebraska Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-24: state=Nebraska | state_income_tax=PROGRESSIVE-4-BRACKET (TY2025, single) | source=Neb. Rev. Stat. §77-2715.03; Nebraska DOR 2025 Tax Calculation Schedule (Form 1040N); LB 754 (2023) phasedown from 5.84% (TY2024) -> 5.20% (TY2025) -> 4.55% (TY2026) -> 3.99% (TY2027) | state_formula=single-filer marginal: 2.46% on $0-4,030; 3.51% on $4,031-24,120 ($99.14 base); 5.01% on $24,121-38,870 ($804.30 base); 5.20% on $38,871+ ($1,543.28 base) | scope_limit=single-filer brackets used; MFJ/HoH thresholds differ; NE standard deduction $8,150 single TY2025 not subtracted | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | test_cases=[{income:50000,stateTax:2122.04},{income:100000,stateTax:4722.04},{income:200000,stateTax:9922.04}] | status=VERIFIED | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -368,15 +368,17 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     const filingStatus = document.getElementById('filing').value;
     
     // Simplified state tax calculation
+    // Nebraska TY2025 state income tax (single filer) — NE DOR 2025 Tax Calculation Schedule
+    // LB 754 (2023) phasedown; top rate 5.84% (TY2024) -> 5.20% (TY2025).
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.0342;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.0342 + (income - 50000) * 0.0513;
+    if (income <= 4030) {
+      stateTax = income * 0.0246;
+    } else if (income <= 24120) {
+      stateTax = 99.14 + (income - 4030) * 0.0351;
+    } else if (income <= 38870) {
+      stateTax = 804.30 + (income - 24120) * 0.0501;
     } else {
-      stateTax = 50000 * 0.0342 + 50000 * 0.0513 + (income - 100000) * 0.0684;
+      stateTax = 1543.28 + (income - 38870) * 0.0520;
     }
     
     
