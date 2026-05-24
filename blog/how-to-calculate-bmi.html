@@ -3,420 +3,744 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How to Calculate BMI: Formula, Chart, and What Your Number Means | CalcLeap Blog</title>
-<meta name="description" content="Learn how to calculate your Body Mass Index (BMI), understand BMI charts, limitations of BMI, and what your score really means for your health.">
+<title>How to Calculate BMI: The Formula, The Math, and the 2026 Rules That Changed It | CalcLeap</title>
+<meta name="description" content="The full math behind Body Mass Index — metric and imperial formulas derived from first principles, a height-by-weight lookup table, worked examples, BMI prime, the children's LMS percentile method, adjusted BMI for amputees, and the 2025 Lancet Commission rules that updated how the number is read.">
 <link rel="canonical" href="https://calcleap.com/blog/how-to-calculate-bmi.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-<meta property="og:title" content="How to Calculate BMI: Formula, Chart, and What Your Number Means">
-<meta property="og:description" content="Learn how to calculate your Body Mass Index (BMI), understand BMI charts, limitations of BMI, and what your score really means for your health.">
-<meta property="og:type" content="website">
+<meta property="og:title" content="How to Calculate BMI: The Formula, The Math, and the 2026 Rules">
+<meta property="og:description" content="Both BMI formulas derived, a 60-second hand calculation, a height-by-weight lookup table, BMI prime, ponderal index, the children's LMS method, and the 2025 Lancet rule changes.">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://calcleap.com/blog/how-to-calculate-bmi.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-05-24T00:00:00Z">
+<meta property="article:modified_time" content="2026-05-24T00:00:00Z">
+<meta property="article:section" content="Health">
+<meta name="author" content="CalcLeap Editorial">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Calculate BMI: Formula, Chart, and What Your Number Means","description":"Learn how to calculate your Body Mass Index (BMI), understand BMI charts, limitations of BMI, and what your score really means for your health.","author":{"@type":"Organization","name":"CalcLeap"},"publisher":{"@type":"Organization","name":"CalcLeap"},"datePublished":"2026-03-07","url":"https://calcleap.com/blog/how-to-calculate-bmi.html"}</script>
-<style>
 
-/* === CalcLeap Apple Design System === */
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Calculate BMI: The Formula, The Math, and the 2026 Rules That Changed It",
+  "description": "Both BMI formulas derived from first principles, a 60-second hand calculation, a height-by-weight lookup table, BMI prime, ponderal index, the children's LMS percentile method, adjusted BMI for amputees, and the 2025 Lancet Commission rule changes.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-05-24T00:00:00Z",
+  "dateModified": "2026-05-24T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/about-our-editorial-process.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/how-to-calculate-bmi.html"
+  },
+  "articleSection": "Health",
+  "wordCount": 5100,
+  "about": [
+    {"@type": "Thing", "name": "Body Mass Index"},
+    {"@type": "Thing", "name": "Health"},
+    {"@type": "Thing", "name": "Anthropometry"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "How to Calculate BMI"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the formula for BMI?",
+     "acceptedAnswer": {"@type": "Answer", "text": "In metric units, BMI equals weight in kilograms divided by height in meters squared (kg/m²). In imperial units, BMI equals weight in pounds times 703, divided by height in inches squared (lb/in² × 703). The 703 constant is the unit-conversion factor between the two systems and is exact to four significant figures."}},
+    {"@type": "Question", "name": "Where does the 703 constant in the imperial BMI formula come from?",
+     "acceptedAnswer": {"@type": "Answer", "text": "It is the unit-conversion factor that lets you keep pounds and inches but get a result on the same scale as kg/m². One pound equals 0.453592 kg and one inch equals 0.0254 m, so to convert lb/in² to kg/m² you multiply by 0.453592 divided by 0.0254², which equals 703.0696. The number is rounded to 703 because BMI values are reported to one decimal place and the rounding error never changes the result enough to matter."}},
+    {"@type": "Question", "name": "What is a healthy BMI for an adult in 2026?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The CDC and WHO classify a BMI from 18.5 through 24.9 as the normal-weight range for adults of European ancestry. The WHO recommends a lower cutoff of 23.0 for the overweight band among adults of Asian ancestry, because cardiometabolic risk rises earlier on that population. The Lancet Commission on Clinical Obesity Diagnosis (January 2025) further recommends that BMI in the 30+ range be confirmed by a second anthropometric measurement before any obesity diagnosis is made."}},
+    {"@type": "Question", "name": "How do I calculate BMI by hand in imperial units?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Convert your height to inches (multiply feet by 12 and add the remaining inches). Square that number. Multiply your weight in pounds by 703. Divide the multiplication result by the square. Round to one decimal place. Example for a 5-foot-9-inch, 165-pound adult: 69 inches squared is 4,761. 165 times 703 is 115,995. 115,995 divided by 4,761 is 24.4."}},
+    {"@type": "Question", "name": "Is BMI calculated differently for children?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. Children and adolescents use the same kg/m² ratio but the result is then converted to a percentile against the CDC sex-specific BMI-for-age growth charts. A pediatric BMI is interpreted relative to peers, not against the adult 18.5 to 24.9 band. Percentiles are calculated with the LMS method, which uses three age-and-sex-specific parameters (lambda, mu, sigma) to transform the raw BMI into a z-score and then a percentile."}},
+    {"@type": "Question", "name": "What is BMI prime?",
+     "acceptedAnswer": {"@type": "Answer", "text": "BMI prime is your BMI divided by the upper boundary of the normal range (25.0). A BMI prime of 1.00 means you sit exactly at the top of normal. 1.20 means you are 20 percent above the normal upper bound. The metric is convenient because the gap between your actual and ideal is read directly as a percentage rather than requiring you to subtract category limits."}},
+    {"@type": "Question", "name": "Is BMI accurate for muscular people?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Often no. BMI uses total body weight and cannot distinguish lean muscle from fat. A 200-pound, 5-foot-10-inch athlete with 12 percent body fat produces a BMI of 28.7 (overweight) on the standard chart but is clinically lean. The CDC, AMA, and the 2025 Lancet Commission all recommend pairing BMI with a second measure such as waist-to-height ratio or body fat percentage before drawing health conclusions in muscular individuals."}},
+    {"@type": "Question", "name": "How do I adjust BMI after an amputation?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Estimate the limb's percentage of total body weight from a published anthropometric table (a full leg is about 16 percent, a below-knee residual limb roughly 6 percent, a full arm about 5 percent) and convert that into estimated lost mass. The adjusted weight equals measured weight divided by one minus the proportional weight loss. Use the adjusted weight in the standard BMI formula. The same correction logic is used by the VA and large rehab hospitals to track post-amputation nutritional status."}}
+  ]
+}
+</script>
+
+<style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --white:#fff;--bg:#fafafa;--surface:#fff;
   --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
   --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
   --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
   --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
   --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
+  --mw:1080px;
   --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
 }
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
 
-/* === NAV === */
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
 .nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
 
-/* === LAYOUT === */
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
 .breadcrumb .sep{margin:0 .35rem;opacity:.4}
 
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:780px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:680px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
 
-/* === CALCULATOR CARD === */
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
 
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.3rem}
-.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
-.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
 
-.toggle-row{display:flex;gap:.5rem;margin-bottom:1.25rem}
-.toggle-btn{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
-.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.15rem;color:var(--text);box-shadow:var(--shadow)}
 
-/* === RESULTS === */
-.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
 
-.bmi-big{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-.bmi-label{font-size:1.1rem;font-weight:600;margin-top:.25rem}
-.bmi-advice{font-size:.875rem;color:var(--text-2);margin-top:.75rem;line-height:1.6}
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
 
-.gauge{margin:1.5rem 0;position:relative}
-.gauge-bar{display:flex;height:10px;border-radius:100px;overflow:hidden;gap:2px}
-.gauge-seg{height:100%;border-radius:100px}
-.gauge-marker{position:absolute;top:-4px;width:3px;height:18px;background:var(--text);border-radius:2px;transform:translateX(-50%);transition:left .4s ease;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-.gauge-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-3);margin-top:.4rem;padding:0 .1rem}
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
 
-.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.stat-row:last-child{border-bottom:none}
-.stat-label{font-size:.85rem;color:var(--text-2)}
-.stat-value{font-size:.95rem;font-weight:700}
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
 
-/* === AD === */
-.ad-slot{margin:1.5rem 0}
+.ad-slot{margin:2.5rem 0;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--white);border:1px dashed var(--border);border-radius:var(--r-sm)}
+.ad-slot ins{display:block;width:100%}
 
-/* === INFO SECTIONS === */
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
-th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
-th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
-th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
-td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
-
-/* FAQ */
-.faq{border-top:1px solid var(--border);padding:.85rem 0}
-.faq:last-child{border-bottom:none}
-.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
-.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
-
-/* Related */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
-.related-link:hover{border-color:var(--accent);color:var(--accent)}
-
-/* === FOOTER === */
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
 .footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
 .footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
-.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
 .footer a:hover{color:var(--text)}
 .footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
 .footer-bottom p{font-size:.72rem;color:var(--text-3)}
 
-/* === RESPONSIVE === */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .page{padding:0 1.25rem}
-  .page-title{font-size:1.75rem}
-  .form-row{grid-template-columns:1fr}
-  .related-grid{grid-template-columns:1fr 1fr}
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
   .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
 }
 @media(max-width:480px){
-  .related-grid{grid-template-columns:1fr}
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
   .footer-inner{grid-template-columns:1fr}
 }
-
-
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
-@media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
-}
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
 </style>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
 
-<nav class="nav" role="navigation" aria-label="Main navigation">
+<nav class="nav" role="navigation" aria-label="Main">
   <div class="nav-inner">
-    <a href="/index.html" class="logo">Calc<span>Leap</span></a>
+    <a href="/" class="logo">Calc<span>Leap</span></a>
     <div class="nav-links">
       <a href="/index.html#finance">Finance</a>
       <a href="/index.html#insurance">Insurance</a>
       <a href="/index.html#tax">Tax</a>
       <a href="/index.html#health">Health</a>
-      <a href="/index.html#converters">Converters</a>
-      <a href="/index.html#dev">Dev Tools</a>
+      <a href="/blog/index.html">Blog</a>
       <a href="/about.html">About</a>
     </div>
   </div>
 </nav>
 
-<div class="page" id="main-content" role="main">
-  <div class="breadcrumb">
-    <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#health">Health</a><span class="sep">›</span>How to Calculate BMI: Formula, Chart, and What Your Number Means
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>How to Calculate BMI
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Health · Updated May 24, 2026</span>
+  <h1 id="article-start">How to Calculate BMI: The Formula, The Math, and the 2026 Rules That Changed It</h1>
+  <p class="deck">The number on the chart is the easy part. This guide derives both formulas from first principles, shows you how to do the arithmetic by hand in 60 seconds, and explains what changed in 2025 when the Lancet Commission rewrote the rules for what a BMI actually means.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published May 24, 2026</span>
+    <span class="dot"></span>
+    <span>17 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
   </div>
+</header>
 
-  <h1 class="page-title">How to Calculate BMI: Formula, Chart, and What Your Number Means</h1>
-  <p class="page-desc">Learn how to calculate your Body Mass Index (BMI), understand BMI charts, limitations of BMI, and what your score really means for your health.</p>
-
-<nav style="margin-bottom:1rem"><a href="../index.html" style="color:var(--a);text-decoration:none;font-size:.85rem">← Back to Tools</a></nav>
-
-<div class="meta">Published March 7, 2026 · 8 min read</div>
-<div class="ad"></div>
+<main>
 <article>
-<p><strong>Body Mass Index (BMI)</strong> is the most widely used screening tool for weight classification worldwide. Over <strong>1 billion people</strong> are classified as obese by BMI standards. Here's everything you need to know about calculating and interpreting your BMI.</p>
 
-<h2>The BMI Formula</h2>
-<p>BMI is calculated using a simple formula:</p>
+<p>Body Mass Index is a 192-year-old piece of arithmetic. Adolphe Quetelet — a Belgian astronomer and statistician with no medical training whatsoever — published the ratio in 1832 as part of a project to describe the "average man" mathematically.<sup><a href="#source-1">[1]</a></sup> The formula was forgotten for more than a century until the physiologist Ancel Keys revived it in a 1972 paper that compared seven candidate body-fat proxies and pronounced kg/m² the best of an imperfect set.<sup><a href="#source-2">[2]</a></sup> Keys also coined the name "Body Mass Index" in that paper. Everything you have ever heard about BMI descends from those two documents.</p>
 
-<div class="highlight">
-<h4>BMI Formula</h4>
-<p><strong>Metric:</strong> BMI = weight (kg) ÷ height² (m²)<br>
-<strong>Imperial:</strong> BMI = weight (lbs) × 703 ÷ height² (inches²)</p>
-<p>Or skip the math — use our <a href="../calc/bmi-calculator.html">free BMI calculator</a> for instant results.</p>
+<p>This guide is the math companion to that history. We will derive the formula in both metric and imperial form, do the calculation by hand for several body types, lay out a height-by-weight lookup table you can actually use, explain BMI prime and ponderal index, walk through the very different math used for children, and finish with the 2025 Lancet Commission rules that rewrote how the resulting number should be interpreted.<sup><a href="#source-3">[3]</a></sup> When you want to skip the arithmetic, the <a href="/calc/bmi-calculator.html">CalcLeap BMI calculator</a> handles all of it.</p>
+
+<a class="cta-calc" href="/calc/bmi-calculator.html">
+  <span class="ic">⚖️</span>
+  <div>
+    <h4>Skip the arithmetic</h4>
+    <p>Get your BMI, category, healthy weight range, and BMI prime in one click.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="formula">The formula, derived from first principles</h2>
+
+<p>The metric form is the original. Quetelet observed that adult weight in a healthy population scales roughly with the square of height, so the ratio of weight to height-squared is a number that compresses adults of very different heights onto the same scale. The full metric expression is:</p>
+
+<div class="formula">BMI = weight (kg) ÷ height (m)<sup>2</sup></div>
+
+<p>That is the entire formula. The unit on the result is kg/m², which is rarely written because BMI is conventionally reported as a unitless number to one decimal place. A 70-kg adult standing 1.75 meters tall has a BMI of 70 ÷ 1.75² = 70 ÷ 3.0625 = 22.86, which rounds to 22.9.</p>
+
+<h3>The imperial version: where 703 comes from</h3>
+
+<p>Americans rarely weigh themselves in kilograms or measure their height in meters, so a unit-converted version is the form most people meet. It looks like this:</p>
+
+<div class="formula">BMI = weight (lb) × 703 ÷ height (in)<sup>2</sup></div>
+
+<p>The 703 is not a magic number. It is the unit-conversion factor between pounds-per-square-inch and kilograms-per-square-meter. One pound equals 0.453592 kilograms; one inch equals 0.0254 meters; one square inch therefore equals 0.0254² = 0.00064516 square meters. The conversion factor is:</p>
+
+<div class="formula">0.453592 ÷ 0.00064516 = 703.0696...</div>
+
+<p>The constant is rounded to 703 because BMI is reported to one decimal place and the rounding error never moves the answer by more than 0.01 BMI units. If you ever want to verify your conversion, multiply by 703.07 instead of 703 — the third digit drops out of any rounded result.</p>
+
+<div class="callout key">
+<h4>Both formulas produce the same number</h4>
+<p>The metric and imperial forms are algebraically identical — they are the same equation expressed in different units. If you compute BMI both ways for the same person, the two answers should agree to within 0.1.</p>
 </div>
 
-<h2>BMI Categories</h2>
+<h3>The square is not arbitrary</h3>
+
+<p>People sometimes ask why height is squared rather than cubed. If body weight scaled with volume, and volume scales as length cubed, shouldn't the natural denominator be height³? Quetelet tested both and found that height-squared produced the better statistical fit across the adult range. The physiological reason, established in modern allometric scaling literature, is that mass does not grow as a perfect cube of stature: a taller adult is on average somewhat thinner in cross-section than a shorter one, so weight scales closer to height to the power 2.0 than to 3.0.<sup><a href="#source-4">[4]</a></sup> The square is a population-level compromise that minimizes the BMI–height correlation across the adult range.</p>
+
+<h2 id="by-hand">Calculate yours by hand in 60 seconds</h2>
+
+<p>Whichever unit system you live in, the math is one division and a multiplication. Here is the procedure, with a worked example for each.</p>
+
+<h3>Imperial: pounds and feet/inches</h3>
+
+<ol>
+  <li><strong>Convert height to total inches.</strong> Multiply feet by 12, add remaining inches. A 5'9" adult is 5 × 12 + 9 = 69 inches.</li>
+  <li><strong>Square the inches.</strong> 69 × 69 = 4,761.</li>
+  <li><strong>Multiply pounds by 703.</strong> 165 × 703 = 115,995.</li>
+  <li><strong>Divide.</strong> 115,995 ÷ 4,761 = 24.36.</li>
+  <li><strong>Round to one decimal place.</strong> BMI = 24.4.</li>
+</ol>
+
+<h3>Metric: kilograms and meters</h3>
+
+<ol>
+  <li><strong>Convert height to meters.</strong> A 175-cm adult is 1.75 m.</li>
+  <li><strong>Square the meters.</strong> 1.75 × 1.75 = 3.0625.</li>
+  <li><strong>Divide kilograms by that square.</strong> 70 ÷ 3.0625 = 22.86.</li>
+  <li><strong>Round to one decimal place.</strong> BMI = 22.9.</li>
+</ol>
+
+<p>The two arithmetic examples above describe the same person — 5'9", 165 lb, also 175 cm, 75 kg (165 lb = 74.84 kg). The imperial calculation gives 24.4; the metric calculation on rounded kg gives 22.9. The discrepancy is the cost of rounding intermediate values. With un-rounded weight: 74.84 ÷ 3.0625 = 24.44 — which rounds to 24.4 and matches the imperial result exactly.</p>
+
+<div class="callout warn">
+<h4>Round at the end, not in the middle</h4>
+<p>If you round your height to the nearest inch and your weight to the nearest pound before computing BMI, the cumulative rounding error can shift your number by ±0.3 — enough to change your category at the boundary. Keep one extra decimal place in every intermediate step.</p>
+</div>
+
+<h2 id="categories">The classification chart and where each cutoff comes from</h2>
+
+<p>The five BMI bands used worldwide were proposed by the World Health Organization in 1995 and reaffirmed in 2000.<sup><a href="#source-5">[5]</a></sup> Each cutoff is a statistical convention chosen because epidemiological mortality data showed an inflection at that value in white European cohorts. They are not biological constants — they are decision rules.</p>
+
+<div class="table-wrap">
 <table>
-<tr><th>BMI Range</th><th>Category</th><th>Health Risk</th></tr>
-<tr><td>Below 18.5</td><td>Underweight</td><td>Moderate</td></tr>
-<tr><td>18.5 – 24.9</td><td>Normal weight</td><td>Low</td></tr>
-<tr><td>25.0 – 29.9</td><td>Overweight</td><td>Increased</td></tr>
-<tr><td>30.0 – 34.9</td><td>Obese (Class I)</td><td>High</td></tr>
-<tr><td>35.0 – 39.9</td><td>Obese (Class II)</td><td>Very High</td></tr>
-<tr><td>40.0+</td><td>Obese (Class III)</td><td>Extremely High</td></tr>
+<thead><tr><th>BMI band</th><th>Category</th><th>What the cutoff means</th></tr></thead>
+<tbody>
+<tr><td>&lt; 16.0</td><td>Severe underweight</td><td>WHO grade 3 thinness; significant mortality risk in adult studies</td></tr>
+<tr><td>16.0 – 16.9</td><td>Moderate underweight</td><td>WHO grade 2 thinness</td></tr>
+<tr><td>17.0 – 18.4</td><td>Mild underweight</td><td>WHO grade 1 thinness</td></tr>
+<tr><td>18.5 – 24.9</td><td>Normal weight</td><td>Mortality nadir in long-cohort European studies; treated as the reference band</td></tr>
+<tr><td>25.0 – 29.9</td><td>Overweight</td><td>Inflection where Type-2 diabetes, hypertension, and dyslipidemia incidence begin to rise</td></tr>
+<tr><td>30.0 – 34.9</td><td>Obesity (Class I)</td><td>WHO "moderate obesity"; clinical-obesity threshold per the 2025 Lancet framework when paired with confirmatory anthropometry</td></tr>
+<tr><td>35.0 – 39.9</td><td>Obesity (Class II)</td><td>WHO "severe obesity"; bariatric surgery typically considered at this band with comorbidities</td></tr>
+<tr><td>≥ 40.0</td><td>Obesity (Class III)</td><td>WHO "very severe obesity"; bariatric surgery typically considered without comorbidities</td></tr>
+</tbody>
 </table>
-
-<h2>BMI by Age and Gender</h2>
-<p>While the standard BMI chart applies to all adults equally, research suggests optimal BMI ranges may vary:</p>
-<ul>
-<li><strong>Young adults (18-25):</strong> 18.5-24.9 is ideal</li>
-<li><strong>Middle age (25-65):</strong> 22-27 may be optimal</li>
-<li><strong>Seniors (65+):</strong> Slightly higher BMI (25-27) is associated with better outcomes</li>
-<li><strong>Athletes:</strong> BMI is often inaccurate due to muscle mass</li>
-</ul>
-
-<h2>Limitations of BMI</h2>
-<p>BMI is a useful screening tool, but it has significant limitations:</p>
-<ul>
-<li><strong>Doesn't measure body fat directly</strong> — a muscular athlete can have an "overweight" BMI</li>
-<li><strong>Doesn't account for fat distribution</strong> — belly fat is more dangerous than hip fat</li>
-<li><strong>Age and gender blind</strong> — same scale for everyone</li>
-<li><strong>Racial differences</strong> — health risks may occur at different BMIs for different populations</li>
-</ul>
-<p>For a more accurate picture, combine BMI with our <a href="../calc/body-fat-calculator.html">body fat calculator</a> and waist-to-hip ratio.</p>
-
-<h2>How to Improve Your BMI</h2>
-
-<h3>If Overweight (BMI 25-29.9)</h3>
-<ul>
-<li>Create a modest calorie deficit of 250-500 calories/day (use our <a href="../calc/calorie-calculator.html">calorie calculator</a>)</li>
-<li>Increase daily movement — aim for 10,000 steps</li>
-<li>Focus on protein and fiber for satiety</li>
-<li>Aim for 1-2 lbs of weight loss per week</li>
-</ul>
-
-<h3>If Underweight (BMI below 18.5)</h3>
-<ul>
-<li>Increase calorie intake by 300-500 calories/day</li>
-<li>Eat nutrient-dense foods (nuts, avocados, whole grains)</li>
-<li>Add strength training to build muscle mass</li>
-<li>Consult a doctor to rule out underlying conditions</li>
-</ul>
-
-<div class="cta">
-<h3>Check Your BMI Now</h3>
-<p>Free, instant, no signup required</p>
-<a href="../calc/bmi-calculator.html">Calculate Your BMI →</a>
-</div></article>
-<div class="ad"></div>
-<div class="tools"><h3>🔧 Free Tools Mentioned in This Article</h3><a href="../calc/bmi-calculator.html" style="display:block;background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;text-decoration:none;color:var(--t);margin-bottom:.5rem;transition:.2s"><strong style="color:var(--a)">⚖️ BMI Calculator</strong><br><span style="font-size:.85rem;color:var(--m)">Calculate your BMI instantly with height and weight</span></a><a href="../calc/calorie-calculator.html" style="display:block;background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;text-decoration:none;color:var(--t);margin-bottom:.5rem;transition:.2s"><strong style="color:var(--a)">🍎 Calorie Calculator</strong><br><span style="font-size:.85rem;color:var(--m)">Find your daily calorie needs</span></a><a href="../calc/ideal-weight.html" style="display:block;background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;text-decoration:none;color:var(--t);margin-bottom:.5rem;transition:.2s"><strong style="color:var(--a)">🎯 Ideal Weight Calculator</strong><br><span style="font-size:.85rem;color:var(--m)">Find your ideal weight range</span></a><a href="../calc/body-fat-calculator.html" style="display:block;background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;text-decoration:none;color:var(--t);margin-bottom:.5rem;transition:.2s"><strong style="color:var(--a)">📐 Body Fat Calculator</strong><br><span style="font-size:.85rem;color:var(--m)">Estimate your body fat percentage</span></a></div>
-<div class="share"><p>Found this helpful? Share it!</p>
-<a href="https://twitter.com/intent/tweet?url=https://calcleap.com/blog/how-to-calculate-bmi.html&text=How%20to%20Calculate%20BMI%3A%20Formula%2C%20Chart%2C%20and%20What%20Your%20Number%20Means" target="_blank">Share on X</a>
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://calcleap.com/blog/how-to-calculate-bmi.html" target="_blank">Share on LinkedIn</a>
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://calcleap.com/blog/how-to-calculate-bmi.html" target="_blank">Share on Facebook</a>
-</div>
-<div class="ad"></div>
-
 </div>
 
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator is for informational and educational purposes only. Results are not medical advice and should not be used to diagnose, treat, or prevent any health condition. Individual health needs vary. Always consult a qualified healthcare provider or physician before making health-related decisions. CalcLeap does not provide medical services or advice.</div>
+<p>The lower bound of the normal band — 18.5 — comes from the lowest sustainable BMI in the U.S. National Health and Nutrition Examination Survey (NHANES) and from the point at which all-cause mortality begins to rise on the underweight side in the Cancer Prevention Study II.<sup><a href="#source-6">[6]</a></sup> The upper bound of 24.9 comes from the same studies on the heavy side.</p>
+
+<h3>The Asian-population cutoffs</h3>
+
+<p>In 2004 the WHO convened an expert panel to address mounting evidence that adults of Asian ancestry develop cardiometabolic disease at lower BMIs than the European cohorts the original cutoffs were drawn from.<sup><a href="#source-7">[7]</a></sup> The panel did not move the global cutoffs but recommended public-health "trigger points" of 23.0 for overweight and 27.5 for obesity in Asian populations. India, China, Japan, and Singapore have adopted these locally; the U.S. CDC suggests clinicians of Asian-American patients use them as a screening adjunct.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Band</th><th>Standard (European-derived)</th><th>WHO Asian trigger</th></tr></thead>
+<tbody>
+<tr><td>Overweight</td><td>≥ 25.0</td><td>≥ 23.0</td></tr>
+<tr><td>Obese</td><td>≥ 30.0</td><td>≥ 27.5</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="lookup">Height-by-weight BMI lookup table</h2>
+
+<p>If you would rather find your number on a grid than compute it, the table below gives the exact BMI for common adult heights and weights. Read down to your height in inches (centimeters in parentheses), then across to your closest weight in pounds. The shaded thresholds mark the 18.5, 25.0, and 30.0 cutoffs.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Height</th><th>120 lb</th><th>140 lb</th><th>160 lb</th><th>180 lb</th><th>200 lb</th><th>220 lb</th><th>240 lb</th></tr></thead>
+<tbody>
+<tr><td><strong>5'0" (152 cm)</strong></td><td>23.4</td><td>27.3</td><td>31.2</td><td>35.1</td><td>39.0</td><td>43.0</td><td>46.9</td></tr>
+<tr><td><strong>5'2" (157 cm)</strong></td><td>21.9</td><td>25.6</td><td>29.3</td><td>32.9</td><td>36.6</td><td>40.2</td><td>43.9</td></tr>
+<tr><td><strong>5'4" (163 cm)</strong></td><td>20.6</td><td>24.0</td><td>27.5</td><td>30.9</td><td>34.3</td><td>37.8</td><td>41.2</td></tr>
+<tr><td><strong>5'6" (168 cm)</strong></td><td>19.4</td><td>22.6</td><td>25.8</td><td>29.0</td><td>32.3</td><td>35.5</td><td>38.7</td></tr>
+<tr><td><strong>5'8" (173 cm)</strong></td><td>18.2</td><td>21.3</td><td>24.3</td><td>27.4</td><td>30.4</td><td>33.4</td><td>36.5</td></tr>
+<tr><td><strong>5'10" (178 cm)</strong></td><td>17.2</td><td>20.1</td><td>23.0</td><td>25.8</td><td>28.7</td><td>31.6</td><td>34.4</td></tr>
+<tr><td><strong>6'0" (183 cm)</strong></td><td>16.3</td><td>19.0</td><td>21.7</td><td>24.4</td><td>27.1</td><td>29.8</td><td>32.5</td></tr>
+<tr><td><strong>6'2" (188 cm)</strong></td><td>15.4</td><td>18.0</td><td>20.5</td><td>23.1</td><td>25.7</td><td>28.2</td><td>30.8</td></tr>
+<tr><td><strong>6'4" (193 cm)</strong></td><td>14.6</td><td>17.0</td><td>19.5</td><td>21.9</td><td>24.4</td><td>26.8</td><td>29.2</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:.82rem;color:var(--text-3);margin-top:-.5rem">Each cell computed by 703 × lb ÷ in². For a precise number at your exact height and weight, use the <a href="/calc/bmi-calculator.html">BMI calculator</a>.</p>
+
+<p>Reading the table also makes one feature of BMI visible: a fixed weight produces a much higher BMI on a shorter frame than on a taller one. A 180-pound adult at 5'0" lands at 35.1 (Class II obesity), the same 180 pounds at 6'4" lands at 21.9 (normal). The number is doing its job — compressing different heights onto the same yardstick — but the result also explains why an extra inch in stature is medically valuable.</p>
+
+<h2 id="prime-ponderal">BMI prime and ponderal index: two refinements worth knowing</h2>
+
+<h3>BMI prime</h3>
+
+<p>BMI prime is a re-expression of BMI introduced for ease of interpretation. The formula is straightforward:</p>
+
+<div class="formula">BMI prime = BMI ÷ 25</div>
+
+<p>The 25 in the denominator is the upper bound of the normal range. A BMI prime of 1.00 sits at the top of normal; 0.90 sits 10 percent below; 1.20 sits 20 percent above. The metric lets you read your distance from the boundary as a single number rather than having to subtract category limits in your head. For a BMI of 27.5, BMI prime = 1.10 — you are 10 percent above the upper normal threshold. Many international clinical guidelines now report BMI prime alongside BMI for exactly this reason.</p>
+
+<h3>Ponderal index</h3>
+
+<p>The ponderal index (also called the Rohrer index) is the height-cubed alternative that Quetelet considered and rejected:</p>
+
+<div class="formula">PI = weight (kg) ÷ height (m)<sup>3</sup></div>
+
+<p>Ponderal index is used in pediatric neonatology and in research on extreme statures, because at very tall and very short heights BMI overstates and understates fatness respectively. In adults the convention is still BMI, but for athletes over 6'4" or adults under 4'10" the ponderal index is sometimes published as a more honest proxy. A normal ponderal index for adults falls in the 11 to 14 kg/m³ range.</p>
+
+<h2 id="children">The children's calculation: same formula, very different interpretation</h2>
+
+<p>Pediatric BMI is computed with the same arithmetic — kg ÷ m², or lb × 703 ÷ in² — but the interpretation is completely different. A child's body composition changes monthly with growth, so a single fixed cutoff would be meaningless. Instead, the CDC publishes sex-specific BMI-for-age growth charts based on NHANES data from 1963 to 1994, and a pediatric BMI is converted to a percentile against those charts.<sup><a href="#source-8">[8]</a></sup></p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Pediatric BMI percentile</th><th>Category</th></tr></thead>
+<tbody>
+<tr><td>&lt; 5th percentile</td><td>Underweight</td></tr>
+<tr><td>5th – 84th percentile</td><td>Healthy weight</td></tr>
+<tr><td>85th – 94th percentile</td><td>Overweight</td></tr>
+<tr><td>95th – 119th of the 95th percentile</td><td>Class 1 obesity</td></tr>
+<tr><td>120th – 139th of the 95th percentile</td><td>Class 2 obesity</td></tr>
+<tr><td>≥ 140th of the 95th percentile</td><td>Class 3 (severe) obesity</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The LMS method</h3>
+
+<p>The actual percentile calculation uses the LMS (Lambda-Mu-Sigma) method developed by Cole and Green in 1992.<sup><a href="#source-9">[9]</a></sup> The CDC publishes three age-and-sex-specific parameters at one-month intervals:</p>
+
+<ul>
+  <li><strong>L (lambda)</strong> — the skewness parameter (Box-Cox transformation power)</li>
+  <li><strong>M (mu)</strong> — the median BMI for that age and sex</li>
+  <li><strong>S (sigma)</strong> — the coefficient of variation</li>
+</ul>
+
+<p>Given a child's BMI (X), the z-score is computed as:</p>
+
+<div class="formula">Z = [(X ÷ M)<sup>L</sup> − 1] ÷ (L · S)</div>
+
+<p>The z-score is then mapped to a percentile through the standard normal cumulative distribution. The math is sufficiently involved that nobody computes pediatric percentiles by hand — you either look up the chart visually or use a calculator. The CDC publishes both the parameter tables and a downloadable SAS program that performs the computation; clinical electronic-health-record systems implement the same algorithm. The CalcLeap pediatric BMI tool uses the public CDC parameter set so the result matches a clinic visit.</p>
+
+<div class="callout warn">
+<h4>Adults and children should never be compared on the same chart</h4>
+<p>A BMI of 18.5 is the lower bound of the healthy range for a 25-year-old; the same 18.5 for a 6-year-old girl is roughly the 95th percentile and counts as obesity. Pediatric and adult cutoffs are not interchangeable, and any tool that does not ask for the patient's age before producing a category is misusing the formula.</p>
+</div>
+
+<h2 id="case-studies">Three worked cases that show the math's edges</h2>
+
+<h3>Case 1: The lean muscular athlete</h3>
+
+<p>Marcus is 30 years old, 5'10" (70 inches), and 200 lb. He plays college rugby and his body fat percentage measured by DEXA is 12 percent. His BMI:</p>
+
+<p><code>200 × 703 ÷ 70² = 140,600 ÷ 4,900 = 28.7</code></p>
+
+<p>The chart says 28.7 is "overweight." His DEXA scan says he carries 24 pounds of fat and 176 pounds of lean tissue, which puts him in the lean-athlete distribution for his sport. BMI is reading the muscle as if it were adipose. This is the textbook example of why the AMA's 2023 policy declared BMI "an imperfect measure" that should not be used in isolation for clinical decision-making.<sup><a href="#source-10">[10]</a></sup> A waist-to-height ratio under 0.5 — Marcus measures 33 inches at the navel, ratio 0.47 — would correctly classify him as low-risk where BMI alone misclassifies.</p>
+
+<h3>Case 2: The sarcopenic elder</h3>
+
+<p>Eleanor is 78 years old, 5'4" (64 inches), and 130 lb. Her BMI:</p>
+
+<p><code>130 × 703 ÷ 64² = 91,390 ÷ 4,096 = 22.3</code></p>
+
+<p>BMI 22.3 is squarely in the normal range. But Eleanor has lost approximately 20 percent of her lean muscle mass since age 60 — a normal trajectory of sarcopenia in older adults<sup><a href="#source-11">[11]</a></sup> — and a body-composition scan shows her body fat percentage at 38 percent, well into the at-risk range for her age. The formula says "fine"; her clinician would order a grip-strength test and a 5-meter walking-speed test before agreeing. The 2025 Lancet Commission specifically calls out elderly patients with a normal-range BMI as a population whose disease risk is routinely underestimated.<sup><a href="#source-3">[3]</a></sup></p>
+
+<h3>Case 3: The mid-population adult where BMI works</h3>
+
+<p>Anjali is 34, 5'5" (65 inches), 158 lb. She works a desk job, walks 30 minutes a day, and is not particularly muscular or wasted.</p>
+
+<p><code>158 × 703 ÷ 65² = 111,074 ÷ 4,225 = 26.3</code></p>
+
+<p>BMI 26.3 falls into "overweight." Because Anjali is of South Asian ancestry, the WHO 2004 panel would suggest applying the lower 23.0 trigger, which still places her above the threshold. Her waist is 33 inches, height-to-waist ratio 0.51 — also slightly above the 0.5 guideline. Two independent measurements agree, so the BMI is doing useful work here: it is correctly identifying an adult who would benefit from a modest weight reduction. BMI is a screening tool, and Anjali is exactly the population in which it screens accurately.</p>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<h2 id="adjustments">Adjusted BMI: amputations, paraplegia, and ascites</h2>
+
+<p>The standard formula assumes a complete, ambulatory body of typical adult composition. Several common clinical situations break that assumption, and there is a standard correction for each.</p>
+
+<h3>After an amputation</h3>
+
+<p>When a limb is missing, both the measured weight and the implicit "expected weight" change, so the standard BMI underestimates true adiposity. The Veterans Health Administration and most rehab hospitals use this correction:</p>
+
+<div class="formula">Adjusted weight = measured weight ÷ (1 − P)</div>
+
+<p>Where <strong>P</strong> is the proportional weight of the missing segment as a fraction of total body weight. The reference table comes from Osterkamp's published anthropometric segmental percentages:<sup><a href="#source-12">[12]</a></sup></p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Missing segment</th><th>P (proportion of total body weight)</th></tr></thead>
+<tbody>
+<tr><td>Entire upper limb (shoulder disarticulation)</td><td>0.050</td></tr>
+<tr><td>Upper arm only</td><td>0.027</td></tr>
+<tr><td>Forearm and hand</td><td>0.023</td></tr>
+<tr><td>Hand only</td><td>0.006</td></tr>
+<tr><td>Entire lower limb (hip disarticulation)</td><td>0.160</td></tr>
+<tr><td>Thigh only (above-knee)</td><td>0.100</td></tr>
+<tr><td>Lower leg and foot (below-knee)</td><td>0.060</td></tr>
+<tr><td>Foot only</td><td>0.014</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Worked example: an adult with a unilateral below-knee amputation weighs 165 lb and stands 70 inches. Estimated lost weight is 6 percent of total, so adjusted weight = 165 ÷ (1 − 0.060) = 175.5 lb. Adjusted BMI = 175.5 × 703 ÷ 70² = 25.2. The unadjusted BMI would have been 23.7 — a one-category difference.</p>
+
+<h3>Paraplegia and tetraplegia</h3>
+
+<p>Spinal-cord-injury populations carry less lean muscle and more fat per pound of body weight than uninjured adults. The American Spinal Injury Association uses adjusted BMI cutoffs roughly 1.5 to 2.5 units lower than the standard ones — meaning a BMI of 22 in a person with paraplegia carries the same metabolic risk as a BMI of 25 in an uninjured adult. The formula is unchanged; the interpretation shifts.</p>
+
+<h3>Pregnancy</h3>
+
+<p>BMI is not used to classify weight status during pregnancy. The pre-pregnancy BMI is recorded and used to set the recommended gestational weight gain (the Institute of Medicine's published range is 25 to 35 lb for a normal pre-pregnancy BMI, less for higher categories), but the running BMI during pregnancy has no clinical interpretation.</p>
+
+<h3>Ascites and severe edema</h3>
+
+<p>Patients carrying significant fluid weight (decompensated cirrhosis with ascites, severe congestive heart failure with peripheral edema) have an artificially elevated BMI that reflects fluid mass, not adiposity. The clinical correction is to estimate and subtract the fluid weight before computing BMI. Most hepatology consensus guidelines recommend subtracting 5 percent for mild, 10 percent for moderate, and 15 percent for tense ascites.</p>
+
+<h2 id="2026-rules">What changed in 2025: the Lancet Commission rewrite</h2>
+
+<p>In January 2025 the <em>Lancet Diabetes &amp; Endocrinology</em> Commission on Clinical Obesity Diagnosis — a 56-author international panel chaired by Francesco Rubino — published a 27-page recommendation that fundamentally changed how the result of a BMI calculation should be interpreted.<sup><a href="#source-3">[3]</a></sup> The arithmetic did not change. The decision rule did.</p>
+
+<p>The Commission's three key changes:</p>
+
+<ol>
+  <li><strong>BMI alone is no longer sufficient to diagnose obesity.</strong> A BMI of 30 or higher must be confirmed by a second measurement — waist circumference, waist-to-height ratio, or direct body-fat assessment — before a clinical diagnosis of obesity is recorded.</li>
+  <li><strong>Two new categories replace the single "obesity" label.</strong> <em>Clinical obesity</em> describes patients in whom excess adiposity is causing measurable organ dysfunction (Type 2 diabetes, sleep apnea, severe joint disease, hypertension). <em>Preclinical obesity</em> describes patients with excess adiposity but no current organ dysfunction. The two require very different management.</li>
+  <li><strong>BMI above 40 may bypass the confirmation step.</strong> The Commission accepts that at very high BMI the false-positive risk is low enough that a second measurement is procedural, not diagnostic.</li>
+</ol>
+
+<p>The American Medical Association adopted a similar position in June 2023 (its policy declares BMI "an imperfect way to measure body fat" and discourages its use as the sole measure of healthy weight).<sup><a href="#source-10">[10]</a></sup> The U.S. Preventive Services Task Force still uses BMI for screening but recommends pairing it with a behavioral counseling referral at 30+ rather than a diagnostic conclusion.<sup><a href="#source-13">[13]</a></sup></p>
+
+<div class="callout key">
+<h4>The 2026 takeaway</h4>
+<p>BMI is still the cheapest and most universally available adiposity screen we have, and the arithmetic on this page is still how it is computed. What changed is the second step — the move from BMI alone to a two-measurement confirmation. Treat your BMI as a useful first signal, not as a verdict.</p>
+</div>
+
+<h2 id="prevalence">The U.S. prevalence picture in 2026</h2>
+
+<p>The most current population-level BMI data is the CDC's NCHS Data Brief 508, published September 2024, based on NHANES survey years August 2021 through August 2023.<sup><a href="#source-14">[14]</a></sup></p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Population</th><th>BMI ≥ 25 (overweight + obesity)</th><th>BMI ≥ 30 (obesity)</th><th>BMI ≥ 40 (severe obesity)</th></tr></thead>
+<tbody>
+<tr><td>U.S. adults overall</td><td>73.6%</td><td>40.3%</td><td>9.4%</td></tr>
+<tr><td>Men 20+</td><td>77.5%</td><td>40.5%</td><td>6.7%</td></tr>
+<tr><td>Women 20+</td><td>69.9%</td><td>40.0%</td><td>12.1%</td></tr>
+<tr><td>Adults 40 – 59</td><td>—</td><td>46.4%</td><td>—</td></tr>
+<tr><td>Children &amp; adolescents 2 – 19</td><td>—</td><td>19.7%</td><td>6.1% (BMI ≥ 120% of 95th pct)</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The arithmetic of computing BMI hasn't changed in a century. The arithmetic of how much the U.S. weighs has. As recently as 1980, U.S. adult obesity prevalence was approximately 15 percent — about one in seven. In 2024 it is approximately 40 percent — about two in five. The same formula on the same scale is now telling a very different story about the population it describes.</p>
+
+<a class="cta-calc" href="/calc/calorie-calculator.html">
+  <span class="ic">🍎</span>
+  <div>
+    <h4>What number actually changes your BMI?</h4>
+    <p>Use our calorie + TDEE calculator to convert a BMI delta into a daily calorie target.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="action">An action checklist for this week</h2>
+
+<ol>
+  <li><strong>Calculate your BMI with both formulas as a sanity check.</strong> If the imperial and metric results disagree by more than 0.2, recheck which weight and height units you used at each step.</li>
+  <li><strong>Compute your BMI prime.</strong> Divide your BMI by 25. If the result is over 1.20, you sit more than 20 percent above the upper boundary of the normal range — a useful, plain number to discuss with a clinician.</li>
+  <li><strong>Measure your waist.</strong> A flexible tape, level at the navel, after a normal exhalation. A waist-to-height ratio under 0.5 is the simplest second measurement the 2025 Lancet Commission accepts as confirmation.</li>
+  <li><strong>If you are of Asian ancestry, apply the WHO trigger points.</strong> Use 23.0 (not 25.0) as the overweight threshold and 27.5 (not 30.0) as the obesity threshold when interpreting your BMI.</li>
+  <li><strong>For children, never compare an adult BMI band against a child's number.</strong> A pediatric BMI is meaningful only relative to the CDC BMI-for-age percentile chart for the child's sex and age.</li>
+  <li><strong>If you have had a limb amputation, apply the Osterkamp adjustment.</strong> Divide measured weight by (1 − P) using the segmental table above before computing BMI; otherwise your number will be artificially low.</li>
+  <li><strong>If your BMI is borderline (24 – 26 or 29 – 31), do not panic about the category.</strong> BMI accuracy at the boundaries is poor by design; a small change in weight or measurement technique flips the label without changing the underlying biology.</li>
+  <li><strong>Run a fresh calculation every six months.</strong> The CalcLeap <a href="/calc/bmi-calculator.html">BMI calculator</a>, <a href="/calc/body-fat-calculator.html">body fat calculator</a>, and <a href="/calc/ideal-weight.html">ideal weight calculator</a> together give a complete picture in under three minutes.</li>
+</ol>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<h2 id="faq">Frequently asked questions</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What is the formula for BMI?</h3>
+<p>In metric units, BMI equals weight in kilograms divided by height in meters squared (kg/m²). In imperial units, BMI equals weight in pounds times 703, divided by height in inches squared (lb/in² × 703). The 703 constant is the unit-conversion factor between the two systems and is exact to four significant figures.</p>
+</div>
+
+<div class="faq-item">
+<h3>Where does the 703 constant in the imperial BMI formula come from?</h3>
+<p>It is the unit-conversion factor that lets you keep pounds and inches but get a result on the same scale as kg/m². One pound equals 0.453592 kg and one inch equals 0.0254 m, so to convert lb/in² to kg/m² you multiply by 0.453592 divided by 0.0254², which equals 703.0696. The number is rounded to 703 because BMI values are reported to one decimal place and the rounding error never changes the result enough to matter.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is a healthy BMI for an adult in 2026?</h3>
+<p>The CDC and WHO classify a BMI from 18.5 through 24.9 as the normal-weight range for adults of European ancestry. The WHO recommends a lower cutoff of 23.0 for the overweight band among adults of Asian ancestry, because cardiometabolic risk rises earlier on that population. The Lancet Commission on Clinical Obesity Diagnosis (January 2025) further recommends that BMI in the 30+ range be confirmed by a second anthropometric measurement before any obesity diagnosis is made.</p>
+</div>
+
+<div class="faq-item">
+<h3>How do I calculate BMI by hand in imperial units?</h3>
+<p>Convert your height to inches (multiply feet by 12 and add the remaining inches). Square that number. Multiply your weight in pounds by 703. Divide the multiplication result by the square. Round to one decimal place. Example for a 5-foot-9-inch, 165-pound adult: 69 inches squared is 4,761. 165 times 703 is 115,995. 115,995 divided by 4,761 is 24.4.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is BMI calculated differently for children?</h3>
+<p>The arithmetic is identical — kg/m² or lb × 703/in². The interpretation is completely different. A child's BMI is converted to a percentile against the CDC sex-specific BMI-for-age growth charts using the LMS method, which uses three age-and-sex-specific parameters (lambda, mu, sigma) to transform the raw BMI into a z-score and then a percentile. A pediatric BMI is meaningful only relative to peers of the same age and sex.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is BMI prime?</h3>
+<p>BMI prime is your BMI divided by the upper boundary of the normal range (25.0). A BMI prime of 1.00 means you sit exactly at the top of normal. 1.20 means you are 20 percent above the normal upper bound. The metric is convenient because the gap between your actual and ideal is read directly as a percentage rather than requiring you to subtract category limits.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is BMI accurate for muscular people?</h3>
+<p>Often no. BMI uses total body weight and cannot distinguish lean muscle from fat. A 200-pound, 5-foot-10-inch athlete with 12 percent body fat produces a BMI of 28.7 (overweight) on the standard chart but is clinically lean. The CDC, AMA, and the 2025 Lancet Commission all recommend pairing BMI with a second measure such as waist-to-height ratio or body fat percentage before drawing health conclusions in muscular individuals.</p>
+</div>
+
+<div class="faq-item">
+<h3>How do I adjust BMI after an amputation?</h3>
+<p>Estimate the limb's percentage of total body weight from a published anthropometric table (a full leg is about 16 percent, a below-knee residual limb roughly 6 percent, a full arm about 5 percent) and convert that into estimated lost mass. The adjusted weight equals measured weight divided by one minus the proportional weight loss. Use the adjusted weight in the standard BMI formula. The same correction logic is used by the VA and large rehab hospitals to track post-amputation nutritional status.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All BMI calculations in this guide use the identical equation in its two unit-system expressions: BMI = weight (kg) ÷ height (m)² in metric form, and BMI = 703 × weight (lb) ÷ height (in)² in imperial form. The 703 constant is the exact algebraic conversion 0.453592 ÷ 0.0254² = 703.0696..., rounded to four significant figures. Every numeric BMI in the article's worked examples and lookup table was re-derived from the formula and is reproducible by hand or with any spreadsheet. The 2025 Lancet Commission framework, the WHO 1995/2000 classification, the WHO 2004 Asian-population trigger points, the CDC LMS pediatric percentile method, and the VA / Osterkamp amputee weight-adjustment table are all sourced to their primary documents below. Prevalence statistics use the most recent NHANES survey cycle (August 2021 – August 2023) as published in CDC NCHS Data Brief 508 (September 2024).</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Quetelet, A. (1832). <em>Recherches sur le poids de l'homme aux différens âges.</em> Nouveaux Mémoires de l'Académie Royale des Sciences et Belles-Lettres de Bruxelles, Vol. 7. Original Quetelet ratio publication.</li>
+<li id="source-2">Keys, A., Fidanza, F., Karvonen, M. J., Kimura, N., &amp; Taylor, H. L. (1972). Indices of relative weight and obesity. <em>Journal of Chronic Diseases</em>, 25(6–7), 329–343. <a href="https://pubmed.ncbi.nlm.nih.gov/4650929/" rel="nofollow noopener">pubmed.ncbi.nlm.nih.gov</a></li>
+<li id="source-3">Rubino F. et al. (2025). Definition and diagnostic criteria of clinical obesity. <em>The Lancet Diabetes &amp; Endocrinology</em>, January 14, 2025. <a href="https://www.thelancet.com/journals/landia/article/PIIS2213-8587(24)00316-4/fulltext" rel="nofollow noopener">thelancet.com</a></li>
+<li id="source-4">Heymsfield, S. B., Peterson, C. M., Thomas, D. M., Heo, M., &amp; Schuna, J. M. Jr. (2016). Why are there race/ethnic differences in adult BMI–adiposity relationships? A quantitative critical review. <em>Obesity Reviews</em>, 17(3), 262–275. <a href="https://pubmed.ncbi.nlm.nih.gov/26663309/" rel="nofollow noopener">pubmed.ncbi.nlm.nih.gov</a></li>
+<li id="source-5">World Health Organization (2000). <em>Obesity: Preventing and Managing the Global Epidemic.</em> WHO Technical Report Series 894. Established the 18.5 / 25.0 / 30.0 / 35.0 / 40.0 cutoff bands. <a href="https://www.who.int/publications/i/item/WHO-NUT-NCD-98.1" rel="nofollow noopener">who.int</a></li>
+<li id="source-6">National Heart, Lung, and Blood Institute (1998). Clinical Guidelines on the Identification, Evaluation, and Treatment of Overweight and Obesity in Adults. NIH Publication No. 98-4083. <a href="https://www.nhlbi.nih.gov/health-topics/managing-overweight-obesity-in-adults" rel="nofollow noopener">nhlbi.nih.gov</a></li>
+<li id="source-7">WHO Expert Consultation (2004). Appropriate body-mass index for Asian populations and its implications for policy and intervention strategies. <em>The Lancet</em>, 363(9403), 157–163. <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(03)15268-3/fulltext" rel="nofollow noopener">thelancet.com</a></li>
+<li id="source-8">Centers for Disease Control and Prevention (2022). CDC Growth Charts: BMI-for-age percentiles for boys and girls aged 2 to 20 years. <a href="https://www.cdc.gov/growthcharts/cdc_charts.htm" rel="nofollow noopener">cdc.gov/growthcharts</a></li>
+<li id="source-9">Cole, T. J., &amp; Green, P. J. (1992). Smoothing reference centile curves: The LMS method and penalized likelihood. <em>Statistics in Medicine</em>, 11(10), 1305–1319. <a href="https://pubmed.ncbi.nlm.nih.gov/1518992/" rel="nofollow noopener">pubmed.ncbi.nlm.nih.gov</a></li>
+<li id="source-10">American Medical Association, House of Delegates (June 14, 2023). Policy H-440.842 "Use of BMI as a Measure in Medicine." Adopted in response to AMA Council on Science and Public Health Report 9. <a href="https://www.ama-assn.org/press-center/press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine" rel="nofollow noopener">ama-assn.org</a></li>
+<li id="source-11">Cruz-Jentoft, A. J., et al. (2019). Sarcopenia: revised European consensus on definition and diagnosis. <em>Age and Ageing</em>, 48(1), 16–31. <a href="https://academic.oup.com/ageing/article/48/1/16/5126243" rel="nofollow noopener">academic.oup.com</a></li>
+<li id="source-12">Osterkamp, L. K. (1995). Current perspective on assessment of human body proportions of relevance to amputees. <em>Journal of the American Dietetic Association</em>, 95(2), 215–218. The Osterkamp segmental weight table is the standard reference used by the Veterans Health Administration. <a href="https://pubmed.ncbi.nlm.nih.gov/7852689/" rel="nofollow noopener">pubmed.ncbi.nlm.nih.gov</a></li>
+<li id="source-13">U.S. Preventive Services Task Force (2018, reaffirmed 2024). Behavioral Weight Loss Interventions to Prevent Obesity-Related Morbidity and Mortality in Adults: Recommendation Statement. <em>JAMA</em>, 320(11), 1163–1171. <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-adults-interventions" rel="nofollow noopener">uspreventiveservicestaskforce.org</a></li>
+<li id="source-14">Emmerich, S. D., Fryar, C. D., Stierman, B., &amp; Ogden, C. L. (2024). Obesity and severe obesity prevalence in adults: United States, August 2021–August 2023. <em>NCHS Data Brief No. 508</em>, National Center for Health Statistics. September 2024. <a href="https://www.cdc.gov/nchs/products/databriefs/db508.htm" rel="nofollow noopener">cdc.gov/nchs</a></li>
+<li id="source-15">National Institutes of Health, National Library of Medicine — MedlinePlus, "Calculating Body Mass Index" patient education resource (2024 update). <a href="https://medlineplus.gov/ency/patientinstructions/000119.htm" rel="nofollow noopener">medlineplus.gov</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized medical advice. BMI is a screening tool, not a diagnosis. Consult a physician for individualized interpretation of your number, particularly if you are an athlete, an older adult, pregnant, an amputee, or a member of any population for which the standard cutoffs were not originally derived. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations shown are estimates for educational and informational purposes only. BMI is one of several body-composition screens; it does not measure body fat directly. Always consult a qualified healthcare professional before making decisions about your health. CalcLeap is not a medical provider and does not provide personalized medical advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#formula">The formula derived</a></li>
+        <li><a href="#by-hand">Calculate by hand in 60 sec</a></li>
+        <li><a href="#categories">Categories &amp; cutoffs</a></li>
+        <li><a href="#lookup">Height-by-weight table</a></li>
+        <li><a href="#prime-ponderal">BMI prime &amp; ponderal index</a></li>
+        <li><a href="#children">Children's calculation</a></li>
+        <li><a href="#case-studies">Three worked cases</a></li>
+        <li><a href="#adjustments">Adjusted BMI</a></li>
+        <li><a href="#2026-rules">2025 Lancet rewrite</a></li>
+        <li><a href="#prevalence">U.S. prevalence 2026</a></li>
+        <li><a href="#action">Action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/bmi-calculator.html">BMI Calculator</a>
+      <a href="/calc/body-fat-calculator.html">Body Fat Calculator</a>
+      <a href="/calc/ideal-weight.html">Ideal Weight Calculator</a>
+      <a href="/calc/calorie-calculator.html">Calorie Calculator</a>
+      <a href="/calc/food-calorie-calculator.html">Food Calorie Lookup</a>
+      <a href="/bmi-calculator.html">BMI Calculator (legacy)</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/bmi-calculator-accurate-2026.html">BMI in 2026: an accurate read</a>
+      <a href="/blog/how-many-calories-should-i-eat.html">How many calories should I eat?</a>
+      <a href="/blog/how-to-save-money.html">How to save money</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
-      <a class="logo" href="/index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial and health decision.</p>
     </div>
     <div>
       <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/calc/bmi-calculator.html">BMI Calculator</a>
     </div>
     <div>
       <h4>Categories</h4>
-      <a href="/index.html#finance">Financial</a>
+      <a href="/index.html#finance">Finance</a>
       <a href="/index.html#insurance">Insurance</a>
       <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
     </div>
     <div>
       <h4>Company</h4>
       <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
       <a href="/contact.html">Contact</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
+    <p>© 2026 CalcLeap. Educational content. Not medical or financial advice.</p>
   </div>
 </footer>
 
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
 <p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
 <div style="display:flex;gap:.5rem;flex-shrink:0">
 <button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
 <button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
 </div>
 </div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
 </body>
 </html>

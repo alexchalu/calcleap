@@ -57,7 +57,7 @@ For calculators, every page must meet:
 |---|---|---|---|
 | Total pages | ~2,800 | 3,500 (more depth than breadth) | Quality > new pages |
 | Blog posts | 14 | 100 gold-standard | 86 to write or rewrite |
-| Blog posts at gold-standard | **7** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21, best-loan-calculator-2026 2026-05-22, how-many-calories-should-i-eat 2026-05-23) | 100 | 93 |
+| Blog posts at gold-standard | **8** (compound-interest 2026-05-17, best-mortgage-calculator-2026 2026-05-18, how-much-house-can-i-afford 2026-05-19, bmi-calculator-accurate-2026 2026-05-20, how-to-calculate-mortgage-payment 2026-05-21, best-loan-calculator-2026 2026-05-22, how-many-calories-should-i-eat 2026-05-23, how-to-calculate-bmi 2026-05-24) | 100 | 92 |
 | Calculators with verified math | 125 audited (50 state property tax + 50 state sales tax + 25 state income tax — 9 no-tax states + IL + MI + NC + GA + AZ + CO + IN + KY + MA + MS + UT + ND + LA + IA + AL + VA + MO + OK flat/bracketed; 19 income-tax state files still flagged needing per-state brackets) | 2,800 | Large |
 | Calculators with FAQPage schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
 | Calculators with BreadcrumbList schema | **100** (50 state property tax + 50 state sales tax) | 2,800 | Massive |
@@ -79,7 +79,7 @@ Pick from the top each run. Mark items DONE in the Daily Log when complete. Re-p
    - [x] `how-to-calculate-mortgage-payment.html` (done 2026-05-21)
    - [x] `best-loan-calculator-2026.html` (done 2026-05-22)
    - [x] `how-many-calories-should-i-eat.html` (done 2026-05-23)
-   - [ ] `how-to-calculate-bmi.html`
+   - [x] `how-to-calculate-bmi.html` (done 2026-05-24)
    - [ ] `how-to-create-a-budget.html`
    - [ ] `how-to-save-money.html`
    - [ ] `free-password-generator-secure.html`
@@ -430,5 +430,24 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 - **Files touched:** 6 (`louisiana-income-tax-calculator.html`, `iowa-income-tax-calculator.html`, `alabama-income-tax-calculator.html`, `virginia-income-tax-calculator.html`, `missouri-income-tax-calculator.html`, `oklahoma-income-tax-calculator.html`) + `OPERATIONS.md`.
 - **Metrics moved:** Calculators with verified math 119 → 125 (added 6 state income-tax calcs with TY2025-correct per-state brackets); Tier-C "NEEDS_HUMAN_REVIEW" income-tax queue 25 → 19 remaining (verified by repo-wide grep).
 - **Next:** evening slot — batch #8: next 5–6 Tier-C income-tax states. Candidates: NY (true progressive 4%–10.9% replacing current 6.85% flat approximation), OH (TY2025 simplified 2-bracket: 2.75% to $100k / 3.5% above per HB 33), AR (TY2025 3.9% top per HB 1001 Aug 2024 special session), NM (4-bracket 1.7/3.2/4.7/5.9% single TY2025), WV (TY2025 reduced ratchet 2.22–4.82%), NE (TY2025 top 5.20% per LB 754).
+
+### 2026-05-24 — Morning (Claude, morning routine) — TIER 1 rewrite #8
+- **Item:** Gold-standard rewrite of `blog/how-to-calculate-bmi.html`. Prior file was a 27,778-byte thin page (~600 words of body, single Article schema, no BreadcrumbList/FAQPage, no citations). Fully replaced with the math-angle companion to the 2026-05-20 clinical-critique piece (`bmi-calculator-accurate-2026.html`): that one owns the *interpretation* angle, this one owns the *arithmetic* angle.
+- **Replaced with:** full long-form guide modeled on the `compound-interest-calculator-guide.html` template.
+  - Body word count: **4,538 words** (target ≥ 2,500; method: strip `<script>` + `<style>` + HTML tags, then split on whitespace).
+  - JSON-LD: Article + BreadcrumbList + FAQPage (3 blocks) in `<head>`. All three parse cleanly via `json.loads`.
+  - Citations: **15 numbered primary sources** in the methodology footer (Quetelet 1832 original, Keys 1972 *JCD* revival paper, Lancet 2025 Clinical Obesity Commission, Heymsfield 2016 *Obesity Reviews* allometric scaling review, WHO 2000 Technical Report Series 894, NHLBI 1998 Clinical Guidelines NIH 98-4083, WHO 2004 Asian-population *Lancet* expert consultation, CDC Growth Charts 2022, Cole & Green 1992 *Stat Med* LMS method paper, AMA H-440.842 BMI policy 2023, EWGSOP2 sarcopenia consensus 2019, Osterkamp 1995 amputee segmental table, USPSTF 2018/2024 reaffirmed behavioral weight-loss intervention statement, CDC NCHS Data Brief 508 Sept 2024, MedlinePlus). 17 inline `<sup>` source references.
+  - Internal links: 15 `href="/calc/..."` (bmi-calculator x3, body-fat-calculator, ideal-weight, calorie-calculator, food-calorie-calculator, mortgage-payment, compound-interest, plus legacy `/bmi-calculator.html` and footer income-tax) plus 3 related-blog links.
+  - 2026 data integrated: CDC NCHS Data Brief 508 (NHANES Aug 2021–Aug 2023) — adult overweight+obese 73.6%, obesity 40.3%, severe obesity 9.4%, men 40.5% / women 40.0% obesity, age 40–59 obesity 46.4%, child/adolescent obesity 19.7%; Lancet Diabetes & Endocrinology Commission on Clinical Obesity Diagnosis (Rubino et al, Jan 14 2025) — clinical vs preclinical obesity framework and the new two-measurement confirmation rule for BMI ≥ 30; AMA H-440.842 (June 2023); USPSTF reaffirmed 2024; WHO 2004 Asian cutoffs (23.0 overweight / 27.5 obesity).
+  - Structure: TOC sidebar with 12 items, eyebrow + deck + byline hero, 12 H2 sections, dual-unit formula derivation (metric + imperial with the 703 = 0.453592/0.0254² algebra worked out), step-by-step hand-calculation walkthrough for both unit systems, full BMI cutoff table with each band annotated by origin, WHO Asian-cutoff comparison table, 7×9 height-by-weight lookup grid (heights 5'0"–6'4" × weights 120–240 lb), BMI prime + ponderal index sections, children's LMS method box with the z = [(X/M)^L - 1]/(L·S) equation, 3 case-study profiles (Marcus lean rugby athlete BMI 28.7, Eleanor sarcopenic 78yo BMI 22.3, Anjali mid-population South Asian BMI 26.3), Osterkamp amputee weight-adjustment table, paraplegia/pregnancy/ascites adjustment notes, 2025 Lancet rewrite section with the three Commission rule changes spelled out, U.S. prevalence-of-obesity 2026 table, 8-item action checklist, 8-item FAQ block, methodology footer + numbered source list, Apple design tokens (`--accent:#0071e3`, `--font:-apple-system,...`, `--mw:1080px`), disclaimer banner.
+  - Math sanity-checked: every BMI in the worked examples and lookup table is re-derived from 703 × lb / in² (or kg / m²) and matches to ±0.05. Verified spot checks: 5'9"/165lb = 165×703/4761 = 24.36 ✓; 5'10"/200lb = 200×703/4900 = 28.69 ✓; 5'4"/130lb = 130×703/4096 = 22.31 ✓; 5'5"/158lb = 158×703/4225 = 26.29 ✓; 5'0"/120lb = 120×703/3600 = 23.43 ✓; 6'0"/180lb = 180×703/5184 = 24.41 ✓; amputee adjustment 165 lb / (1−0.060) = 175.53 lb → BMI 175.53×703/4900 = 25.18 ≈ 25.2 ✓; unadjusted 165×703/4900 = 23.68 ≈ 23.7 ✓. The 703 unit-constant derivation (0.453592 ÷ 0.00064516 = 703.0696) verified independently.
+- **Validation grep results:** body words 4538 ✓ · JSON-LD blocks 3 ✓ · all 3 schemas parse OK ✓ · `href=""` 0 ✓ · template tokens `{{` 0 ✓ · source refs `<sup><a href="#source-` 17 ✓ · `/calc/` internal links 15 ✓ · H2 sections 12 ✓ · FAQ items (visible) 8 ✓ · schema Question entries 8 ✓ · source list IDs 15 ✓.
+- **Files touched:** `blog/how-to-calculate-bmi.html` (full replacement), `OPERATIONS.md`.
+- **Notable observations:**
+  - This was the first Tier 1 piece to *complement* (rather than replace) an earlier gold-standard rewrite. The 2026-05-20 `bmi-calculator-accurate-2026.html` covers the clinical/interpretation angle; this one covers the formula/arithmetic angle. They cross-link in the related-reading sidebar.
+  - The MedlinePlus citation (source 15) is included as a deliberate "trusted government educational link" beyond the primary research citations — gives the article one more .gov anchor without padding the methodology.
+  - The Osterkamp amputee segmental-weight table is the cleanest published reference; the original 1995 JADA paper is the source the VA still cites in its current nutrition guidelines.
+  - Tier 1 queue is now 8 / 15 complete (53%). Next piece in the queue is the personal-finance basics: `how-to-create-a-budget.html`.
+- **Next:** morning slot — `how-to-create-a-budget.html` (next un-checked Tier 1 item; likely a 50/30/20 framework + Bureau of Labor Statistics consumer expenditure data angle + zero-based budgeting comparison).
 
 (Future runs append below.)
