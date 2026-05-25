@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Montana | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Montana-specific. | required_fix=replace with Montana-specific TY2025 brackets from Montana Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-25: state=Montana | state_income_tax=2-bracket 4.7%/5.9% at $21,100 single threshold (TY2025) | source=Montana Department of Revenue 2025 Tax Rates and Deductions PDF; SB 121 (2021) + SB 399 (2021) collapsed prior 7-bracket structure to 2 brackets effective TY2024; threshold inflation-indexed (TY2024=$20,500 -> TY2025=$21,100); HB 337 (signed Apr 2025) reduces top rate to 5.65% TY2026 and 5.4% TY2027 -- not yet effective | state_formula=marginal-bracket sum; cumulative-at-bracket-cap pre-computed: $991.70 | test_cases=[{income:50000,stateTax:2696.80},{income:100000,stateTax:5646.80},{income:200000,stateTax:11546.80}] | known_limits=single-filer threshold; MFJ doubles to $42,200; Montana standard deduction $5,820 single (20% of AGI capped) NOT subtracted; capital-gains 30% reduction NOT modeled | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | status=VERIFIED | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -368,15 +368,15 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     const filingStatus = document.getElementById('filing').value;
     
     // Simplified state tax calculation
+    // Montana TY2025 state income tax (single filer)
+    // Montana DOR 2025 Tax Rates and Deductions: 2-bracket post-reform
+    // 4.7% on income to $21,100, 5.9% above. SB 121 (2021) + SB 399 (2021)
+    // collapsed prior 7-bracket structure starting TY2024.
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.03375;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.03375 + (income - 50000) * 0.050625;
+    if (income <= 21100) {
+      stateTax = income * 0.047;
     } else {
-      stateTax = 50000 * 0.03375 + 50000 * 0.050625 + (income - 100000) * 0.0675;
+      stateTax = 991.70 + (income - 21100) * 0.059;
     }
     
     

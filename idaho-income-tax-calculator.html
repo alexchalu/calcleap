@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Idaho | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Idaho-specific. | required_fix=replace with Idaho-specific TY2025 brackets from Idaho Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-25: state=Idaho | state_income_tax=flat 5.3% on income above $4,811 exemption (single TY2025) | source=Idaho State Tax Commission Individual Income Tax Rate Schedule; HB 40 signed by Gov. Little 2025 reducing rate from 5.695% (TY2024) to 5.3% effective 1/1/2025 | state_formula=stateTax = max(0, income - 4811) * 0.053 | test_cases=[{income:50000,stateTax:2395.02},{income:100000,stateTax:5045.02},{income:200000,stateTax:10345.02}] | known_limits=single-filer exemption used; MFJ exemption is $9,622 (doubled) | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | status=VERIFIED | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -368,15 +368,12 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     const filingStatus = document.getElementById('filing').value;
     
     // Simplified state tax calculation
+    // Idaho TY2025 state income tax (single filer)
+    // HB 40 (2025): 0% on first $4,811 exemption, 5.3% flat on income above.
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.028999999999999998;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.028999999999999998 + (income - 50000) * 0.0435;
-    } else {
-      stateTax = 50000 * 0.028999999999999998 + 50000 * 0.0435 + (income - 100000) * 0.057999999999999996;
+    const idahoExemption = 4811;
+    if (income > idahoExemption) {
+      stateTax = (income - idahoExemption) * 0.053;
     }
     
     

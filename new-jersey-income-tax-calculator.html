@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=New Jersey | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT New Jersey-specific. | required_fix=replace with New Jersey-specific TY2025 brackets from New Jersey Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-25: state=New Jersey | state_income_tax=7-bracket progressive 1.4/1.75/3.5/5.525/6.37/8.97/10.75% at $20k/$35k/$40k/$75k/$500k/$1M (single TY2025) | source=NJ Division of Taxation NJ-1040 Rate Schedules; top 10.75% "millionaire's tax" extended permanently FY2021 budget (A-10/S-2) | state_formula=marginal-bracket sum; cumulative-at-bracket-cap pre-computed: $280/$542.50/$717.50/$2651.25/$29723.75/$74573.75 | test_cases=[{income:50000,stateTax:1270.00},{income:100000,stateTax:4243.75},{income:200000,stateTax:10613.75},{income:1500000,stateTax:128323.75}] | known_limits=single-filer brackets; joint adds an 8th bracket (2.45%) between 1.75% and 3.5% spanning $50k-$70k; NJ personal exemption $1k/single $2k/joint NOT subtracted | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | status=VERIFIED | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -368,15 +368,24 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     const filingStatus = document.getElementById('filing').value;
     
     // Simplified state tax calculation
+    // New Jersey TY2025 state income tax (single filer)
+    // NJ Division of Taxation 2025 NJ-1040 Rate Schedule: 7-bracket progressive
+    // 1.4% / 1.75% / 3.5% / 5.525% / 6.37% / 8.97% / 10.75% (millionaire's tax).
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.05375;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.05375 + (income - 50000) * 0.080625;
+    if (income <= 20000) {
+      stateTax = income * 0.014;
+    } else if (income <= 35000) {
+      stateTax = 280 + (income - 20000) * 0.0175;
+    } else if (income <= 40000) {
+      stateTax = 542.50 + (income - 35000) * 0.035;
+    } else if (income <= 75000) {
+      stateTax = 717.50 + (income - 40000) * 0.05525;
+    } else if (income <= 500000) {
+      stateTax = 2651.25 + (income - 75000) * 0.0637;
+    } else if (income <= 1000000) {
+      stateTax = 29723.75 + (income - 500000) * 0.0897;
     } else {
-      stateTax = 50000 * 0.05375 + 50000 * 0.080625 + (income - 100000) * 0.1075;
+      stateTax = 74573.75 + (income - 1000000) * 0.1075;
     }
     
     

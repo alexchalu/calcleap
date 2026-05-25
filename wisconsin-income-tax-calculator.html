@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Wisconsin | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Wisconsin-specific. | required_fix=replace with Wisconsin-specific TY2025 brackets from Wisconsin Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-25: state=Wisconsin | state_income_tax=4-bracket progressive 3.50/4.40/5.30/7.65% at $14,680/$50,480/$323,290 (single TY2025) | source=Wisconsin Department of Revenue 2025 Tax Update; 2023 Wis. Act 19 + biennial budget 2025-27 reduced 2nd-bracket rate; brackets inflation-indexed per Wis. Stat. 71.06(2e) | state_formula=marginal-bracket sum; cumulative-at-bracket-cap pre-computed: $513.80/$2,089.00/$16,547.93 | test_cases=[{income:50000,stateTax:2067.88},{income:100000,stateTax:4713.56},{income:200000,stateTax:10013.56}] | known_limits=single-filer brackets; MFJ doubles thresholds (approximately); WI standard deduction $14,260 single (phases out at higher income) NOT subtracted | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | status=VERIFIED | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -368,15 +368,18 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     const filingStatus = document.getElementById('filing').value;
     
     // Simplified state tax calculation
+    // Wisconsin TY2025 state income tax (single filer)
+    // WI DOR 2025 Tax Rate Schedules: 4-bracket progressive
+    // 3.50% / 4.40% / 5.30% / 7.65% at $14,680 / $50,480 / $323,290.
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.03825;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.03825 + (income - 50000) * 0.05737500000000001;
+    if (income <= 14680) {
+      stateTax = income * 0.035;
+    } else if (income <= 50480) {
+      stateTax = 513.80 + (income - 14680) * 0.044;
+    } else if (income <= 323290) {
+      stateTax = 2089.00 + (income - 50480) * 0.053;
     } else {
-      stateTax = 50000 * 0.03825 + 50000 * 0.05737500000000001 + (income - 100000) * 0.0765;
+      stateTax = 16547.93 + (income - 323290) * 0.0765;
     }
     
     
