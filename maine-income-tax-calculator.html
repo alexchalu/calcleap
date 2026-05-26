@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Maine | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Maine-specific. | required_fix=replace with Maine-specific TY2025 brackets from Maine Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-26: state=Maine | status=VERIFIED | state_income_tax_TY2025=3-bracket progressive 5.8%/6.75%/7.15% at single-filer thresholds $26,800/$63,450 | state_formula=5.8%*min(income,26800) + 6.75%*max(0,min(income,63450)-26800) + 7.15%*max(0,income-63450) | source=Maine Revenue Services 2025 Individual Income Tax Rate Schedule (ind_tax_rate_sched_2025.pdf); 36 MRSA Section 5111; thresholds inflation-indexed annually per 36 MRSA Section 5403 (cost-of-living adjustment) | test_cases=[{income:50000,state_tax:3120.40},{income:100000,state_tax:6641.60},{income:200000,state_tax:13791.60}] | scope_limits=single-filer thresholds only (HOH and MFJ have separate inflation-indexed schedules; MFJ TY2025 thresholds $53,600/$126,900); state SD=$15,000 single + personal exemption $5,150 TY2025 not subtracted (matches existing template; low-income filers see slight overestimate); federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -368,15 +368,14 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     const filingStatus = document.getElementById('filing').value;
     
     // Simplified state tax calculation
+    // State tax brackets (TY2025; single-filer thresholds; 36 MRSA Sec 5111)
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.035750000000000004;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.035750000000000004 + (income - 50000) * 0.053625000000000006;
+    if (income <= 26800) {
+      stateTax = income * 0.058;
+    } else if (income <= 63450) {
+      stateTax = 26800 * 0.058 + (income - 26800) * 0.0675;
     } else {
-      stateTax = 50000 * 0.035750000000000004 + 50000 * 0.053625000000000006 + (income - 100000) * 0.07150000000000001;
+      stateTax = 26800 * 0.058 + 36650 * 0.0675 + (income - 63450) * 0.0715;
     }
     
     
