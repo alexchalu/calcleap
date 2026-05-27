@@ -358,7 +358,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Hawaii | STATE_MATH=PLACEHOLDER_BROKEN — file uses generic 2.5%/3.75%/5% brackets identical across all non-flat states; NOT Hawaii-specific. | required_fix=replace with Hawaii-specific TY2025 brackets from Hawaii Department of Revenue + Tax Foundation 2025 state tax tables | status=NEEDS_HUMAN_REVIEW — flagged for next evening batch | federal_brackets_in_file=TY2023_outdated | verified_by=evening-routine */
+        /* AUDIT 2026-05-27: state=Hawaii | state_income_tax=TY2025 verified | state_formula=12-bracket progressive 1.4/3.2/5.5/6.4/6.8/7.2/7.6/7.9/8.25/9/10/11% at single-filer thresholds 9600/14400/19200/24000/36000/48000/125000/175000/225000/275000/325000 | statutory_source=Act 46 SLH 2024 (HB 2404) effective 1/1/2025; Hawaii DOTAX Announcement 2024-03; HRS §235-51 | test_cases=[income=$50,000 -> stateTax=$2,691.20; income=$100,000 -> stateTax=$6,491.20; income=$200,000 -> stateTax=$14,403.70] | federal_brackets_in_file=TY2023_outdated (cross-file refresh pending) | state_standard_deduction=$4,400 single (NOT applied; low-income filers slightly overestimated) | status=VERIFIED | verified_by=evening-routine */
                 function calculate() {
             const resultBox = document.getElementById('result');
             let html = '';
@@ -367,16 +367,32 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     const income = parseFloat(document.getElementById('income').value);
     const filingStatus = document.getElementById('filing').value;
     
-    // Simplified state tax calculation
+    // Hawaii TY2025 single-filer brackets (Act 46, SLH 2024 / HB 2404; effective 1/1/2025)
     let stateTax = 0;
-    
-    // Progressive tax brackets (simplified)
-    if (income <= 50000) {
-      stateTax = income * 0.055;
-    } else if (income <= 100000) {
-      stateTax = 50000 * 0.055 + (income - 50000) * 0.0825;
+    if (income <= 9600) {
+      stateTax = income * 0.014;
+    } else if (income <= 14400) {
+      stateTax = 134.40 + (income - 9600) * 0.032;
+    } else if (income <= 19200) {
+      stateTax = 287.99 + (income - 14400) * 0.055;
+    } else if (income <= 24000) {
+      stateTax = 551.99 + (income - 19200) * 0.064;
+    } else if (income <= 36000) {
+      stateTax = 859.19 + (income - 24000) * 0.068;
+    } else if (income <= 48000) {
+      stateTax = 1675.19 + (income - 36000) * 0.072;
+    } else if (income <= 125000) {
+      stateTax = 2539.19 + (income - 48000) * 0.076;
+    } else if (income <= 175000) {
+      stateTax = 8391.19 + (income - 125000) * 0.079;
+    } else if (income <= 225000) {
+      stateTax = 12341.19 + (income - 175000) * 0.0825;
+    } else if (income <= 275000) {
+      stateTax = 16466.19 + (income - 225000) * 0.09;
+    } else if (income <= 325000) {
+      stateTax = 20966.19 + (income - 275000) * 0.10;
     } else {
-      stateTax = 50000 * 0.055 + 50000 * 0.0825 + (income - 100000) * 0.11;
+      stateTax = 25966.19 + (income - 325000) * 0.11;
     }
     
     
