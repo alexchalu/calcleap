@@ -421,15 +421,23 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         function calculateTaxes() {
             const income = parseFloat(incomeEl.value) || 0;
             
-            // Federal tax (simplified 2026 brackets for single filers)
+            // Federal tax — TY2025 single-filer brackets (IRS Rev. Proc. 2024-40); fixes prior marginal-on-all-income bug; refreshed 2026-05-29 evening-routine
             let federalTax = 0;
-            if (income > 578125) federalTax = income * 0.37;
-            else if (income > 231250) federalTax = income * 0.35;
-            else if (income > 182100) federalTax = income * 0.32;
-            else if (income > 95375) federalTax = income * 0.24;
-            else if (income > 44725) federalTax = income * 0.22;
-            else if (income > 11000) federalTax = income * 0.12;
-            else federalTax = income * 0.10;
+            if (income <= 11925) {
+                federalTax = income * 0.10;
+            } else if (income <= 48475) {
+                federalTax = 1192.50 + (income - 11925) * 0.12;
+            } else if (income <= 103350) {
+                federalTax = 5578.50 + (income - 48475) * 0.22;
+            } else if (income <= 197300) {
+                federalTax = 17651 + (income - 103350) * 0.24;
+            } else if (income <= 250525) {
+                federalTax = 40199 + (income - 197300) * 0.32;
+            } else if (income <= 626350) {
+                federalTax = 57231 + (income - 250525) * 0.35;
+            } else {
+                federalTax = 188769.75 + (income - 626350) * 0.37;
+            }
 
             // State tax
             const stateTax = income * STATE_TAX_RATE;
