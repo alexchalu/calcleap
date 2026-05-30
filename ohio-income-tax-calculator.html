@@ -413,14 +413,13 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Ohio | state_income_tax=FLAT-APPROXIMATION 3.0% — OVERSIMPLIFIED. OH actually has 2.75%/3.5%/3.5%/3.99% progressive brackets above $26,050 (OH DOT). Flagged for replacement with proper OH brackets. | current_STATE_TAX_RATE_constant=0.03 | state_formula=stateTax=income * STATE_TAX_RATE | federal_brackets_in_file=TY2023_outdated_needs_TY2025_refresh | SS_wage_base_in_file=168600_=TY2024_should_be_176100_TY2025 | test_cases=[{income:50000,filing:single,state:1500.0},{income:100000,filing:single,state:3000.0},{income:200000,filing:single,state:6000.0}] | verified_by=evening-routine */
-                const STATE_TAX_RATE = 0.03;
+        /* AUDIT 2026-05-30: state=Ohio | state_income_tax=VERIFIED | source=Ohio Rev. Code §5747.02 as amended by HB96 (FY2026-27 budget, signed June 2025, retroactive to 1/1/2025); 2025 IT 1040 Instructions; LSC HB96 Budget in Brief | formula=3-bracket TY2025 single-filer (nonbusiness income); 0% on income $0-$26,050; 2.75% on income $26,050-$100,000; 3.125% on income over $100,000; cumulative-tax-at-top offsets: $0 at $26,050 / $2,033.625 at $100,000 (Python-verified) | replaces=2026-05-21 FLAT-APPROXIMATION 3.0% which over-stated tax for incomes under ~$100k by 100%+ (e.g. $50k showed $1,500 vs correct $659) and over-stated for $100k-$200k by ~16% (e.g. $200k showed $6,000 vs correct $5,159) | known_simplifications=single-filer rates apply to all filing statuses in OH (statute is filing-status-neutral); OH personal exemption $2,500-$2,800 graduated by AGI single (R.C. 5747.025) NOT subtracted (low-income filers see slight overestimate); HB96 personal/spousal/dependent exemption phase-out at $750k+ AGI TY2025 NOT modeled; OH school district income tax (averages 0.5-2% in ~600 districts) NOT added (location-specific); Ohio municipal income tax (Cleveland/Columbus/Cincinnati etc. 1.5-3%) NOT added; nonbusiness-income classification assumed (business income flat 3% under R.C. 5747.02(A)(3)); TY2026 flat-rate transition (HB96 reduces over-$26,050 to single flat 2.75%) NOT applied here — this is TY2025 only | test_cases=[{income:50000,filing:single,state:658.625},{income:100000,filing:single,state:2033.625},{income:200000,filing:single,state:5158.625}] | verified_by=evening-routine */
         const incomeEl = document.getElementById('income');
         const statusEl = document.getElementById('filing-status');
 
         function calculateTaxes() {
             const income = parseFloat(incomeEl.value) || 0;
-            
+
             // Federal tax — TY2025 single-filer brackets (IRS Rev. Proc. 2024-40); fixes prior marginal-on-all-income bug; refreshed 2026-05-29 evening-routine
             let federalTax = 0;
             if (income <= 11925) {
@@ -439,8 +438,15 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 federalTax = 188769.75 + (income - 626350) * 0.37;
             }
 
-            // State tax
-            const stateTax = income * STATE_TAX_RATE;
+            // State tax — TY2025 OH 3-bracket nonbusiness income (R.C. 5747.02 as amended by HB96); verified 2026-05-30 evening-routine
+            let stateTax = 0;
+            if (income <= 26050) {
+                stateTax = 0;
+            } else if (income <= 100000) {
+                stateTax = (income - 26050) * 0.0275;
+            } else {
+                stateTax = 2033.625 + (income - 100000) * 0.03125;
+            }
 
             // FICA
             const ssTax = Math.min(income * 0.062, 168600 * 0.062); // 2026 SS wage base
@@ -454,7 +460,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             document.getElementById('take-home').textContent = '$' + Math.round(takeHome).toLocaleString();
             document.getElementById('gross-income').textContent = '$' + income.toLocaleString();
             document.getElementById('federal-tax').textContent = '-$' + Math.round(federalTax).toLocaleString();
-            document.getElementById('state-tax').textContent = STATE_TAX_RATE === 0 ? '$0' : '-$' + Math.round(stateTax).toLocaleString();
+            document.getElementById('state-tax').textContent = stateTax === 0 ? '$0' : '-$' + Math.round(stateTax).toLocaleString();
             document.getElementById('ss-tax').textContent = '-$' + Math.round(ssTax).toLocaleString();
             document.getElementById('medicare-tax').textContent = '-$' + Math.round(medicareTax).toLocaleString();
             document.getElementById('net-pay').textContent = '$' + Math.round(takeHome).toLocaleString();

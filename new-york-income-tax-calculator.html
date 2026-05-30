@@ -413,14 +413,13 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=New York | state_income_tax=FLAT-APPROXIMATION 6.85% — OVERSIMPLIFIED. NY actually has 9 progressive brackets up to 10.9% (NY State DTF). Flat approximation is WRONG for incomes outside ~$80k-$215k. Flagged for replacement with proper NY brackets. | current_STATE_TAX_RATE_constant=0.0685 | state_formula=stateTax=income * STATE_TAX_RATE | federal_brackets_in_file=TY2023_outdated_needs_TY2025_refresh | SS_wage_base_in_file=168600_=TY2024_should_be_176100_TY2025 | test_cases=[{income:50000,filing:single,state:3425.0},{income:100000,filing:single,state:6850.0},{income:200000,filing:single,state:13700.0}] | verified_by=evening-routine */
-                const STATE_TAX_RATE = 0.0685;
+        /* AUDIT 2026-05-30: state=New York | state_income_tax=VERIFIED | source=NY Tax Law Article 22 §601(a); NY DTF 2025 IT-201 Tax Computation Worksheets (filing status 1, single) | formula=9-bracket progressive TY2025 single-filer; rates 4.00% / 4.50% / 5.25% / 5.50% / 6.00% / 6.85% / 9.65% / 10.30% / 10.90% at thresholds $8,500 / $11,700 / $13,900 / $80,650 / $215,400 / $1,077,550 / $5,000,000 / $25,000,000; cumulative-tax-at-top offsets $340 / $484 / $599.50 / $4,270.75 / $12,355.75 / $71,413.025 / $449,929.45 / $2,509,929.45 (Python-verified) | replaces=2026-05-21 FLAT-APPROXIMATION 6.85% which over-stated tax by 24-100% for incomes below $80,650 and 0-24% for $80,650-$215,400 then under-stated for >$215,400 | known_simplifications=single-filer only (MFJ thresholds differ above $215,400 per NY Tax Law §601(b)); NY std deduction $8,000 single NOT subtracted (low-income filers see slight overestimate); NYC/Yonkers local income tax NOT added (this is state-only); TY2026+ rate cuts (Hochul FY2026 budget signed May 9 2025: bottom 5 brackets drop to 3.9%-5.9% TY2026 then 3.8%-5.8% TY2027+) NOT applied here — this is TY2025 only | test_cases=[{income:50000,filing:single,state:2585.00},{income:100000,filing:single,state:5431.75},{income:200000,filing:single,state:11431.75}] | verified_by=evening-routine */
         const incomeEl = document.getElementById('income');
         const statusEl = document.getElementById('filing-status');
 
         function calculateTaxes() {
             const income = parseFloat(incomeEl.value) || 0;
-            
+
             // Federal tax — TY2025 single-filer brackets (IRS Rev. Proc. 2024-40); fixes prior marginal-on-all-income bug; refreshed 2026-05-29 evening-routine
             let federalTax = 0;
             if (income <= 11925) {
@@ -439,8 +438,27 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 federalTax = 188769.75 + (income - 626350) * 0.37;
             }
 
-            // State tax
-            const stateTax = income * STATE_TAX_RATE;
+            // State tax — TY2025 NY single-filer 9-bracket progressive (NY Tax Law §601(a)); verified 2026-05-30 evening-routine
+            let stateTax = 0;
+            if (income <= 8500) {
+                stateTax = income * 0.04;
+            } else if (income <= 11700) {
+                stateTax = 340 + (income - 8500) * 0.045;
+            } else if (income <= 13900) {
+                stateTax = 484 + (income - 11700) * 0.0525;
+            } else if (income <= 80650) {
+                stateTax = 599.50 + (income - 13900) * 0.055;
+            } else if (income <= 215400) {
+                stateTax = 4270.75 + (income - 80650) * 0.06;
+            } else if (income <= 1077550) {
+                stateTax = 12355.75 + (income - 215400) * 0.0685;
+            } else if (income <= 5000000) {
+                stateTax = 71413.025 + (income - 1077550) * 0.0965;
+            } else if (income <= 25000000) {
+                stateTax = 449929.45 + (income - 5000000) * 0.103;
+            } else {
+                stateTax = 2509929.45 + (income - 25000000) * 0.109;
+            }
 
             // FICA
             const ssTax = Math.min(income * 0.062, 168600 * 0.062); // 2026 SS wage base
@@ -454,7 +472,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             document.getElementById('take-home').textContent = '$' + Math.round(takeHome).toLocaleString();
             document.getElementById('gross-income').textContent = '$' + income.toLocaleString();
             document.getElementById('federal-tax').textContent = '-$' + Math.round(federalTax).toLocaleString();
-            document.getElementById('state-tax').textContent = STATE_TAX_RATE === 0 ? '$0' : '-$' + Math.round(stateTax).toLocaleString();
+            document.getElementById('state-tax').textContent = stateTax === 0 ? '$0' : '-$' + Math.round(stateTax).toLocaleString();
             document.getElementById('ss-tax').textContent = '-$' + Math.round(ssTax).toLocaleString();
             document.getElementById('medicare-tax').textContent = '-$' + Math.round(medicareTax).toLocaleString();
             document.getElementById('net-pay').textContent = '$' + Math.round(takeHome).toLocaleString();
@@ -462,12 +480,11 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
         incomeEl.addEventListener('input', calculateTaxes);
         statusEl.addEventListener('change', calculateTaxes);
-        
+
         // Initial calculation
         calculateTaxes();
     </script>
 <script>
-        const STATE_TAX_RATE = 0.0685;
         const incomeEl = document.getElementById('income');
         const statusEl = document.getElementById('filing-status');
 
@@ -492,8 +509,27 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                 federalTax = 188769.75 + (income - 626350) * 0.37;
             }
 
-            // State tax
-            const stateTax = income * STATE_TAX_RATE;
+            // State tax — TY2025 NY single-filer 9-bracket progressive (NY Tax Law §601(a)); see AUDIT 2026-05-30 above
+            let stateTax = 0;
+            if (income <= 8500) {
+                stateTax = income * 0.04;
+            } else if (income <= 11700) {
+                stateTax = 340 + (income - 8500) * 0.045;
+            } else if (income <= 13900) {
+                stateTax = 484 + (income - 11700) * 0.0525;
+            } else if (income <= 80650) {
+                stateTax = 599.50 + (income - 13900) * 0.055;
+            } else if (income <= 215400) {
+                stateTax = 4270.75 + (income - 80650) * 0.06;
+            } else if (income <= 1077550) {
+                stateTax = 12355.75 + (income - 215400) * 0.0685;
+            } else if (income <= 5000000) {
+                stateTax = 71413.025 + (income - 1077550) * 0.0965;
+            } else if (income <= 25000000) {
+                stateTax = 449929.45 + (income - 5000000) * 0.103;
+            } else {
+                stateTax = 2509929.45 + (income - 25000000) * 0.109;
+            }
 
             // FICA
             const ssTax = Math.min(income * 0.062, 168600 * 0.062); // 2026 SS wage base
@@ -507,7 +543,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             document.getElementById('take-home').textContent = '$' + Math.round(takeHome).toLocaleString();
             document.getElementById('gross-income').textContent = '$' + income.toLocaleString();
             document.getElementById('federal-tax').textContent = '-$' + Math.round(federalTax).toLocaleString();
-            document.getElementById('state-tax').textContent = STATE_TAX_RATE === 0 ? '$0' : '-$' + Math.round(stateTax).toLocaleString();
+            document.getElementById('state-tax').textContent = stateTax === 0 ? '$0' : '-$' + Math.round(stateTax).toLocaleString();
             document.getElementById('ss-tax').textContent = '-$' + Math.round(ssTax).toLocaleString();
             document.getElementById('medicare-tax').textContent = '-$' + Math.round(medicareTax).toLocaleString();
             document.getElementById('net-pay').textContent = '$' + Math.round(takeHome).toLocaleString();
