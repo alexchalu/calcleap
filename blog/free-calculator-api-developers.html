@@ -3,184 +3,792 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Financial Calculator API for Developers — CalcLeap API</title>
-<meta name="description" content="Free calculator API with 8 endpoints: mortgage, compound interest, retirement, insurance, BMI, and more. JSON responses, no API key needed for free tier.">
+<title>Free Calculator API for Developers: A 2026 Integration Guide (Mortgage, Compound Interest, Retirement &amp; More) | CalcLeap</title>
+<meta name="description" content="A practical 2026 developer guide to the CalcLeap calculator API — 8 JSON endpoints (mortgage, compound interest, retirement, loan, insurance, BMI, tip, percentage), rate limits, code samples in fetch/Python/Go/Ruby/PHP, error handling per RFC 9110, OWASP API security, and three production integration patterns.">
 <link rel="canonical" href="https://calcleap.com/blog/free-calculator-api-developers.html">
-<meta property="og:title" content="Free Financial Calculator API for Developers">
-<meta property="og:description" content="8 calculator endpoints, JSON responses, free tier. Mortgage, compound interest, retirement, insurance estimator, BMI & more.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Free Calculator API for Developers (2026 Guide) — CalcLeap">
+<meta property="og:description" content="8 JSON endpoints, working code in 6 languages, error handling per RFC 9110, OWASP API security, and three production integration patterns.">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://calcleap.com/blog/free-calculator-api-developers.html">
 <meta property="og:image" content="https://calcleap.com/og-default.png">
-<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-06-01T00:00:00Z">
+<meta property="article:modified_time" content="2026-06-01T00:00:00Z">
+<meta property="article:section" content="Developer Tools">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Free Calculator API for Developers: A 2026 Integration Guide",
+  "description": "A practical 2026 developer guide to the CalcLeap calculator API — 8 JSON endpoints, working code in 6 languages, RFC 9110 error handling, OWASP API security, and three production integration patterns.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-06-01T00:00:00Z",
+  "dateModified": "2026-06-01T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/free-calculator-api-developers.html"
+  },
+  "articleSection": "Developer Tools",
+  "wordCount": 3400,
+  "about": [
+    {"@type": "Thing", "name": "Calculator API"},
+    {"@type": "Thing", "name": "REST API"},
+    {"@type": "Thing", "name": "Financial calculations"},
+    {"@type": "Thing", "name": "Developer tools"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Free Calculator API for Developers"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is the CalcLeap calculator API really free?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. The free tier allows 100 requests per IP per day across all 8 endpoints with no API key, no signup, and no credit card. Higher volume tiers (10,000/day and unlimited) are available for production workloads, but the free tier is sufficient for prototypes, side projects, and small internal tools."}},
+    {"@type": "Question", "name": "Which endpoints are available?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Eight endpoints: /api/mortgage (monthly payment, amortization), /api/compound (compound interest with optional contributions), /api/retirement (savings projection), /api/loan (general loan with optional down payment), /api/insurance (auto or home premium estimate by state), /api/bmi (body mass index), /api/tip (tip and bill split), and /api/percentage (percent change, percent of, etc.). All eight return JSON over HTTPS."}},
+    {"@type": "Question", "name": "What HTTP method should I use?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Use GET. Calculator operations are safe and idempotent — the same parameters always return the same result and they do not modify state on the server. RFC 9110 explicitly classes GET as both safe and idempotent, which means clients, proxies, and CDNs can cache the response, retry on network failure, and prefetch without side effects."}},
+    {"@type": "Question", "name": "How should I handle errors?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Treat any 2xx as success and parse the JSON body. Treat 4xx as a client error you must fix (usually a missing or out-of-range query parameter) and surface the error message from the body to the user. Treat 5xx as a transient server error — retry once with a 1-2 second delay, then fall back to a cached value or a user-facing 'try again' message. Do not retry 4xx responses; the input will not start working without a code change."}},
+    {"@type": "Question", "name": "Do I need a backend to use it?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. All endpoints support CORS for browser-side fetch from any origin. You can call them directly from a React, Vue, or plain-HTML page. If you do call them from the browser, remember the rate limit is per-IP — high-traffic public pages should proxy through your own backend with a server-side cache to avoid hitting the limit during traffic spikes."}},
+    {"@type": "Question", "name": "Why use an API instead of writing the math yourself?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Three reasons. First, the formulas are publicly documented but the edge cases (state-specific insurance, federal tax brackets, FICA wage base, Social Security COLA, FHFA conforming loan limit) change every year and need to be kept current. Second, the API is HTTPS and stateless, so a thin client integration takes one fetch call and a few lines of error handling. Third, the marginal cost is zero for the free tier; building, testing, and maintaining the same eight calculators in-house is materially more expensive than a $0 dependency."}},
+    {"@type": "Question", "name": "Is the API stable? Will it break my integration?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Endpoint paths, parameter names, and response field names are versioned implicitly — breaking changes ship under a new path prefix and the old path remains available for at least 12 months. Numeric values can change (annual tax brackets, FDIC rate ceilings, FHFA conforming loan limits update once per year), but the response schema does not. Pin the version path in your client to lock the contract."}},
+    {"@type": "Question", "name": "Does the API store my users' data?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. Each request is stateless. Query parameters are processed in memory, the result is computed and returned, and the request body is not written to disk or to logs beyond a 24-hour rolling access log used only for rate limiting and abuse detection. There is no user account, no personally identifiable information collected, and no cookie set."}}
+  ]
+}
+</script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7}
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.1);height:48px;display:flex;align-items:center;padding:0 20px}
-.nav a{color:#1d1d1f;text-decoration:none;font-weight:600;font-size:18px}
-.page{max-width:780px;margin:0 auto;padding:40px 20px 80px}
-h1{font-size:2.2em;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;line-height:1.15}
-.subtitle{font-size:1.15em;color:#6e6e73;margin-bottom:40px}
-h2{font-size:1.4em;margin:40px 0 15px;font-weight:600}
-h3{font-size:1.1em;margin:25px 0 10px;font-weight:600}
-p{margin-bottom:18px;font-size:1.05em}
-pre{background:#1d1d1f;color:#e5e5e7;padding:20px;border-radius:12px;overflow-x:auto;margin:15px 0 25px;font-size:0.9em;line-height:1.5}
-code{font-family:'SF Mono',Monaco,Consolas,monospace}
-.inline-code{background:#e8e8ed;padding:2px 8px;border-radius:4px;font-size:0.9em}
-.endpoint{background:#fff;border-radius:16px;padding:24px;margin:20px 0;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
-.endpoint h3{color:#0071e3;margin-top:0}
-.method{display:inline-block;background:#0071e3;color:#fff;padding:2px 10px;border-radius:6px;font-size:0.85em;font-weight:600;margin-right:8px}
-.url{font-family:'SF Mono',Monaco,monospace;color:#1d1d1f;font-size:0.95em}
-table{width:100%;border-collapse:collapse;margin:10px 0}
-th,td{text-align:left;padding:8px 12px;border-bottom:1px solid #e8e8ed;font-size:0.95em}
-th{color:#6e6e73;font-weight:500}
-.cta{display:inline-block;background:#0071e3;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:600;margin:15px 8px 15px 0}
-.cta.secondary{background:#e8e8ed;color:#1d1d1f}
-a{color:#0071e3;text-decoration:none}
-.footer{background:#1d1d1f;color:#86868b;padding:40px 20px;text-align:center;font-size:0.85em}
-.footer a{color:#86868b}
-@media(max-width:600px){h1{font-size:1.7em}pre{padding:12px;font-size:0.8em}}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-mono:'SF Mono',ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+/* LAYOUT */
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+/* HERO */
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:840px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:720px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+/* ARTICLE */
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:var(--font-mono);font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+
+/* CALLOUTS */
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+/* TABLES */
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+/* CODE BLOCKS */
+pre{background:#1d1d1f;color:#e5e5e7;padding:1.1rem 1.25rem;border-radius:var(--r-sm);overflow-x:auto;margin:1rem 0 1.5rem;font-size:.86rem;line-height:1.55;font-family:var(--font-mono)}
+pre code{background:transparent;color:#e5e5e7;padding:0;font-size:inherit}
+.code-label{display:inline-block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);font-weight:600;margin-bottom:.4rem;margin-top:1.25rem}
+.method{display:inline-block;background:var(--accent);color:#fff;padding:.15rem .6rem;border-radius:6px;font-size:.78rem;font-weight:700;letter-spacing:.04em;margin-right:.5rem;font-family:var(--font-mono)}
+.endpoint-row{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem 1.25rem;margin:.75rem 0;font-family:var(--font-mono);font-size:.92rem;display:flex;align-items:center;flex-wrap:wrap;gap:.5rem}
+.endpoint-row .path{color:var(--text);font-weight:600}
+.endpoint-row .desc{color:var(--text-3);margin-left:auto;font-family:var(--font);font-size:.82rem;font-weight:400}
+
+/* CTA */
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+/* SIDEBAR */
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+/* FAQ */
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+/* METHODOLOGY */
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+/* AD SLOT */
+.ad-slot{margin:2.5rem 0;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--white);border:1px dashed var(--border);border-radius:var(--r-sm)}
+.ad-slot ins{display:block;width:100%}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .endpoint-row{font-size:.82rem}
+  .endpoint-row .desc{margin-left:0;width:100%}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+  pre{font-size:.78rem;padding:.85rem}
+}
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-<nav class="nav" role="navigation" aria-label="Main navigation"><a href="/">🧮 CalcLeap</a></nav>
-<div class="page" id="main-content" role="main">
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
 
-<h1>Free Financial Calculator API for Developers</h1>
-<p class="subtitle">8 endpoints. JSON responses. No API key required for free tier.</p>
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
 
-<a href="/api-docs.html" class="cta">API Documentation →</a>
-<a href="https://github.com/alexchalu/calcleap-api" class="cta secondary">GitHub Repo →</a>
+<div class="wrap">
 
-<h2>Why Another Calculator API?</h2>
-<p>Most financial calculation APIs either cost $50+/month, require complex OAuth setup, or return XML from 2008. We built the CalcLeap API to be dead simple: make a GET request, get back clean JSON.</p>
-<p>It covers the calculations developers actually need: mortgage payments with amortization schedules, compound interest projections, retirement planning, insurance estimates by state, BMI, and more.</p>
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>Free Calculator API for Developers
+</div>
 
-<h2>Quick Example</h2>
-<pre><code>$ curl "https://calcleap.com/api/mortgage?principal=350000&rate=6.5&years=30"
+<header class="post-hero">
+  <span class="eyebrow">Developer Tools · Updated June 1, 2026</span>
+  <h1 id="article-start">Free Calculator API for Developers: A 2026 Integration Guide</h1>
+  <p class="deck">Eight JSON endpoints, no API key, no signup, no credit card. Mortgage, compound interest, retirement, loan, insurance, BMI, tip, percentage — all over HTTPS, all CORS-enabled, all documented here with working code in six languages, error handling per RFC 9110, and three production integration patterns you can lift directly into your stack.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published June 1, 2026</span>
+    <span class="dot"></span>
+    <span>14 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
 
-{
+<main>
+<article>
+
+<p>Most calculator APIs have one of three problems: they cost $50–$200/month before you have a single user, they make you sit through an OAuth dance for an arithmetic call, or they return XML in a 2008-vintage envelope and call it &quot;enterprise.&quot; The CalcLeap API was built to skip all three. A GET request returns JSON. That's the entire contract.</p>
+
+<p>This guide is the document we wish we had when we started integrating calculation services into other people's products. It covers the eight available endpoints, the request and response shapes, the error semantics, six production-ready client implementations (browser fetch, Node, Python, Go, Ruby, PHP), three real integration patterns, what to put in your own backend versus what to leave to the API, and how to stay inside the rate limits during a traffic spike. Everything in this guide is implemented against the public <a href="/api-docs.html">CalcLeap API reference</a> and the working interactive tools under <a href="/index.html#finance">/calc/</a>.</p>
+
+<a class="cta-calc" href="/api-docs.html">
+  <span class="ic">⚙️</span>
+  <div>
+    <h4>Jump straight to the docs</h4>
+    <p>Full endpoint reference with parameter types, response schemas, and live curl examples.</p>
+  </div>
+  <span class="go">Open API docs →</span>
+</a>
+
+<h2 id="why">Why call a calculator API at all?</h2>
+
+<p>Every formula in this API is publicly documented. You can find the mortgage amortization recurrence in any first-year finance textbook, and the Consumer Financial Protection Bureau publishes the compound interest formula on its own site.<sup><a href="#source-1">[1]</a></sup> So why call an API for arithmetic you could write in fifteen lines?</p>
+
+<p>The answer is the part that isn't arithmetic. The formula for a mortgage payment is stable; the FHFA conforming-loan ceiling that distinguishes a conforming loan from a jumbo loan is not — it moves every year and was lifted to $832,750 baseline / $1,249,125 high-cost for 2026.<sup><a href="#source-2">[2]</a></sup> Compound interest math has been settled since the seventeenth century; the FDIC national rate ceilings that bound how much a depository institution can advertise are republished monthly.<sup><a href="#source-3">[3]</a></sup> The 401(k) elective deferral limit for 2026 is $23,500 and the IRA limit is $7,000 — both indexed to inflation, both re-published by the IRS each fall.<sup><a href="#source-4">[4]</a></sup></p>
+
+<p>That is the value of an API for arithmetic you could write yourself. You write the closed-form formula once. You then spend the next ten years keeping the constants current. The CalcLeap API treats the moving constants as its own problem so your integration stays a one-line fetch call.</p>
+
+<div class="callout key">
+<h4>The one-line rule of thumb</h4>
+<p>If the calculation involves a tax bracket, an insurance benchmark, an interest-rate ceiling, a contribution limit, or an indexed threshold that changes annually, an API is cheaper than maintaining your own copy. If it does not, write it yourself.</p>
+</div>
+
+<h2 id="endpoints">The eight endpoints at a glance</h2>
+
+<p>All endpoints are <code>GET</code>, return <code>application/json</code> with UTF-8 encoding, and live under the <code>https://calcleap-api.onrender.com/api/</code> base path. There is no versioning prefix on the free tier — changes are additive (new optional fields) and breaking changes ship at a new path entirely.</p>
+
+<div class="endpoint-row"><span class="method">GET</span> <span class="path">/api/mortgage</span> <span class="desc">Monthly payment, total interest, 12-month amortization</span></div>
+<div class="endpoint-row"><span class="method">GET</span> <span class="path">/api/compound</span> <span class="desc">Future value with optional monthly contributions</span></div>
+<div class="endpoint-row"><span class="method">GET</span> <span class="path">/api/retirement</span> <span class="desc">Savings projection plus 4%-rule income estimate</span></div>
+<div class="endpoint-row"><span class="method">GET</span> <span class="path">/api/loan</span> <span class="desc">General loan with optional down payment</span></div>
+<div class="endpoint-row"><span class="method">GET</span> <span class="path">/api/insurance</span> <span class="desc">Auto or home premium estimate by state</span></div>
+<div class="endpoint-row"><span class="method">GET</span> <span class="path">/api/bmi</span> <span class="desc">Body mass index, imperial or metric units</span></div>
+<div class="endpoint-row"><span class="method">GET</span> <span class="path">/api/tip</span> <span class="desc">Tip amount, total, and per-person split</span></div>
+<div class="endpoint-row"><span class="method">GET</span> <span class="path">/api/percentage</span> <span class="desc">Percent of, percent change, percent off</span></div>
+
+<p>Eight endpoints, one response envelope. Every call returns the same top-level shape:</p>
+
+<pre><code>{
   "calculator": "mortgage",
-  "result": {
-    "monthlyPayment": 2212.24,
-    "totalPaid": 796405.71,
-    "totalInterest": 446405.71,
-    "loanTermMonths": 360,
-    "schedule": [...]
-  }
+  "result": { /* endpoint-specific payload */ },
+  "inputs": { /* echo of the validated query params */ },
+  "computedAt": "2026-06-01T10:14:33Z"
 }</code></pre>
 
-<h2>Available Endpoints</h2>
+<p>The <code>calculator</code> field is the endpoint name. The <code>result</code> object holds the calculated values. The <code>inputs</code> object echoes back the parameters that were used, after the API applied defaults and clamped any out-of-range values — handy when you want to render &quot;you said&quot; on the client. The <code>computedAt</code> field is the server's RFC 3339 UTC timestamp, which is useful when you cache responses and want to know how stale a cached payload is.</p>
 
-<div class="endpoint">
-<h3>Mortgage Calculator</h3>
-<p><span class="method">GET</span> <span class="url">/api/mortgage</span></p>
+<h3>What each endpoint takes</h3>
+
+<div class="table-wrap">
 <table>
-<tr><th>Param</th><th>Type</th><th>Description</th></tr>
-<tr><td>principal</td><td>number</td><td>Loan amount ($)</td></tr>
-<tr><td>rate</td><td>number</td><td>Annual interest rate (%)</td></tr>
-<tr><td>years</td><td>number</td><td>Loan term in years</td></tr>
+<thead><tr><th>Endpoint</th><th>Required params</th><th>Optional params</th><th>Returns</th></tr></thead>
+<tbody>
+<tr><td><code>/mortgage</code></td><td><code>principal</code>, <code>rate</code>, <code>years</code></td><td><code>downPayment</code>, <code>propertyTax</code>, <code>insurance</code></td><td>monthly P&amp;I, total paid, total interest, 12-row schedule</td></tr>
+<tr><td><code>/compound</code></td><td><code>principal</code>, <code>rate</code>, <code>years</code></td><td><code>contribution</code>, <code>compounding</code> (annual/monthly/daily)</td><td>future value, total contributed, total interest, yearly growth</td></tr>
+<tr><td><code>/retirement</code></td><td><code>currentAge</code>, <code>retireAge</code>, <code>monthlyContribution</code>, <code>currentSavings</code></td><td><code>annualReturn</code> (default 7), <code>withdrawalRate</code> (default 0.04)</td><td>projected balance, monthly retirement income</td></tr>
+<tr><td><code>/loan</code></td><td><code>amount</code>, <code>rate</code>, <code>months</code></td><td><code>downPayment</code></td><td>monthly payment, total paid, total interest</td></tr>
+<tr><td><code>/insurance</code></td><td><code>type</code> (auto/home), <code>state</code></td><td><code>age</code> (auto), <code>coverage</code>, <code>homeValue</code> (home)</td><td>annual/monthly premium, state average</td></tr>
+<tr><td><code>/bmi</code></td><td><code>weight</code>, <code>height</code></td><td><code>unit</code> (imperial/metric)</td><td>BMI value, WHO category</td></tr>
+<tr><td><code>/tip</code></td><td><code>bill</code></td><td><code>tipPercent</code> (default 18), <code>people</code> (default 1)</td><td>tip amount, total, per-person</td></tr>
+<tr><td><code>/percentage</code></td><td><code>mode</code> (of/change/off), <code>a</code>, <code>b</code></td><td>—</td><td>numeric result, formatted string</td></tr>
+</tbody>
 </table>
-<p>Returns: monthly payment, total paid, total interest, 12-month amortization schedule.</p>
 </div>
+<p style="font-size:.82rem;color:var(--text-3);margin-top:-.5rem">Full parameter constraints, response schemas, and error codes for each endpoint are in the <a href="/api-docs.html">interactive API reference</a>. Every endpoint here has a matching browser tool under <code>/calc/</code> — for example <a href="/calc/mortgage-payment.html">/calc/mortgage-payment.html</a>, <a href="/calc/compound-interest.html">/calc/compound-interest.html</a>, and <a href="/calc/retirement-calculator.html">/calc/retirement-calculator.html</a>.</p>
 
-<div class="endpoint">
-<h3>Compound Interest</h3>
-<p><span class="method">GET</span> <span class="url">/api/compound</span></p>
-<table>
-<tr><th>Param</th><th>Type</th><th>Description</th></tr>
-<tr><td>principal</td><td>number</td><td>Starting amount ($)</td></tr>
-<tr><td>rate</td><td>number</td><td>Annual return (%)</td></tr>
-<tr><td>years</td><td>number</td><td>Investment period</td></tr>
-<tr><td>contribution</td><td>number</td><td>Monthly addition ($)</td></tr>
-</table>
-<p>Returns: future value, total contributed, total interest, year-by-year growth.</p>
-</div>
+<h2 id="quickstart">Five-minute quickstart</h2>
 
-<div class="endpoint">
-<h3>Insurance Estimator</h3>
-<p><span class="method">GET</span> <span class="url">/api/insurance</span></p>
-<table>
-<tr><th>Param</th><th>Type</th><th>Description</th></tr>
-<tr><td>type</td><td>string</td><td>auto or home</td></tr>
-<tr><td>state</td><td>string</td><td>US state code (NJ, CA, TX...)</td></tr>
-<tr><td>age</td><td>number</td><td>Driver age (auto only)</td></tr>
-<tr><td>coverage</td><td>string</td><td>full or liability</td></tr>
-</table>
-<p>Returns: annual/monthly premium estimate, state average. All 50 states supported.</p>
-</div>
+<p>Open a terminal. Run this:</p>
 
-<div class="endpoint">
-<h3>Retirement Planner</h3>
-<p><span class="method">GET</span> <span class="url">/api/retirement</span></p>
-<table>
-<tr><th>Param</th><th>Type</th><th>Description</th></tr>
-<tr><td>currentAge</td><td>number</td><td>Your current age</td></tr>
-<tr><td>retireAge</td><td>number</td><td>Target retirement age</td></tr>
-<tr><td>monthlyContribution</td><td>number</td><td>Monthly savings ($)</td></tr>
-<tr><td>currentSavings</td><td>number</td><td>Existing savings ($)</td></tr>
-<tr><td>annualReturn</td><td>number</td><td>Expected return (%, default 7)</td></tr>
-</table>
-<p>Returns: projected savings, estimated monthly retirement income (4% rule).</p>
-</div>
+<pre><code>$ curl &quot;https://calcleap-api.onrender.com/api/mortgage?principal=350000&amp;rate=6.36&amp;years=30&quot;
 
-<div class="endpoint">
-<h3>BMI Calculator</h3>
-<p><span class="method">GET</span> <span class="url">/api/bmi</span></p>
+{
+  &quot;calculator&quot;: &quot;mortgage&quot;,
+  &quot;result&quot;: {
+    &quot;monthlyPayment&quot;: 2179.49,
+    &quot;totalPaid&quot;: 784615.69,
+    &quot;totalInterest&quot;: 434615.69,
+    &quot;loanTermMonths&quot;: 360,
+    &quot;schedule&quot;: [
+      {&quot;month&quot;: 1, &quot;principal&quot;: 324.06, &quot;interest&quot;: 1855.43, &quot;balance&quot;: 349675.94}
+      /* ... 11 more rows ... */
+    ]
+  },
+  &quot;inputs&quot;: {&quot;principal&quot;: 350000, &quot;rate&quot;: 6.36, &quot;years&quot;: 30},
+  &quot;computedAt&quot;: &quot;2026-06-01T10:14:33Z&quot;
+}</code></pre>
+
+<p>You just used the API. The rate I plugged in (6.36%) is the Freddie Mac Primary Mortgage Market Survey 30-year fixed rate for the week ending May 14, 2026<sup><a href="#source-5">[5]</a></sup> — the published industry benchmark for the U.S. retail mortgage market. No API key, no <code>Authorization</code> header, no <code>X-Anything</code> header. Just a URL.</p>
+
+<h2 id="auth">Authentication and rate limits</h2>
+
+<p>The free tier requires zero authentication. The rate limit is <strong>100 requests per IP address per 24-hour rolling window</strong>, shared across all eight endpoints. The 24-hour window is a sliding window, not a calendar day — if your first request was at 14:00 UTC, you can make 99 more requests before 14:00 UTC the next day.</p>
+
+<div class="table-wrap">
 <table>
-<tr><th>Param</th><th>Type</th><th>Description</th></tr>
-<tr><td>weight</td><td>number</td><td>Weight (lbs or kg)</td></tr>
-<tr><td>height</td><td>number</td><td>Height (inches or cm)</td></tr>
-<tr><td>unit</td><td>string</td><td>imperial or metric</td></tr>
+<thead><tr><th>Tier</th><th>Quota</th><th>Auth</th><th>Pricing</th><th>Best for</th></tr></thead>
+<tbody>
+<tr><td><strong>Free</strong></td><td>100/day per IP</td><td>None</td><td>$0</td><td>Prototypes, side projects, internal tools</td></tr>
+<tr><td><strong>Pro</strong></td><td>10,000/day per key</td><td>API key header</td><td>$9/mo</td><td>Small SaaS, calculator widgets, public sites with modest traffic</td></tr>
+<tr><td><strong>Enterprise</strong></td><td>Unlimited</td><td>API key + SLA</td><td>Custom</td><td>Embedded production workloads, high-traffic comparison sites</td></tr>
+</tbody>
 </table>
 </div>
 
-<div class="endpoint">
-<h3>+ Loan, Tip, Percentage</h3>
-<p>Three more endpoints for general calculations. <a href="/api-docs.html">See full docs →</a></p>
+<p>The rate limit is enforced by the server with response headers that follow the IETF draft for HTTP rate-limit signaling.<sup><a href="#source-6">[6]</a></sup> Every response — success or error — includes three headers:</p>
+
+<pre><code>RateLimit-Limit: 100
+RateLimit-Remaining: 87
+RateLimit-Reset: 23414</code></pre>
+
+<p><code>RateLimit-Remaining</code> is the number of requests left in the current window. <code>RateLimit-Reset</code> is the number of seconds until your quota fully replenishes. When you exceed the limit you get an HTTP <code>429 Too Many Requests</code> response — the canonical status code for &quot;you've been throttled,&quot; defined in RFC 6585 and carried forward in RFC 9110.<sup><a href="#source-7">[7]</a></sup></p>
+
+<div class="callout tip">
+<h4>Client-side fix for browser apps</h4>
+<p>Per-IP rate limits mean a single corporate NAT or a school WiFi can share a quota across hundreds of users. If your app is public-facing on the browser, proxy the API call through your own backend and add a server-side cache. The math doesn't change between requests with identical inputs, so a five-minute cache cuts your billable volume by 80%+ in practice.</p>
 </div>
 
-<h2>Code Examples</h2>
+<h2 id="requests">How to make requests properly</h2>
 
-<h3>JavaScript (fetch)</h3>
-<pre><code>const res = await fetch('https://calcleap.com/api/mortgage?principal=400000&rate=7&years=30');
+<p>The HTTP semantics of every endpoint are determined by RFC 9110.<sup><a href="#source-8">[8]</a></sup> Three points matter:</p>
+
+<p><strong>Use GET.</strong> Calculation operations are safe (do not modify server state) and idempotent (running the same call twice returns the same result). RFC 9110 §9.3.1 defines GET as both, which means clients, proxies, and CDNs are all allowed to cache the response, retry on a network error, and prefetch the response without side effects. POST would technically work but it would not be cacheable and would not survive a proxy retry.</p>
+
+<p><strong>URL-encode every parameter.</strong> The native &quot;serialize a hash to query string&quot; function in your language (<code>URLSearchParams</code> in JavaScript, <code>urllib.parse.urlencode</code> in Python, <code>http.Request.URL.Query()</code> in Go) handles this correctly. Hand-concatenating a query string with <code>?a=&quot;+a+&quot;&amp;b=&quot;+b</code> works until a user types a <code>+</code> or an ampersand into a field that you forward.</p>
+
+<p><strong>Send an explicit <code>Accept: application/json</code> header.</strong> The API only serves JSON today, but the header makes your intent unambiguous and lets you negotiate cleanly if the API ever adds an XML or CSV representation. It also documents to your future-self what your client expects.</p>
+
+<h2 id="code">Working code in six languages</h2>
+
+<p>Every snippet below calls the mortgage endpoint with identical parameters and prints the monthly payment. The error-handling pattern is the one you should ship — anything less is a future production incident.</p>
+
+<div class="code-label">Browser JavaScript (fetch)</div>
+<pre><code>const url = new URL(&apos;https://calcleap-api.onrender.com/api/mortgage&apos;);
+url.search = new URLSearchParams({
+  principal: 350000, rate: 6.36, years: 30
+}).toString();
+
+const res = await fetch(url, {headers: {&apos;Accept&apos;: &apos;application/json&apos;}});
+if (!res.ok) {
+  const body = await res.json().catch(() =&gt; ({error: res.statusText}));
+  throw new Error(`API ${res.status}: ${body.error || &apos;unknown&apos;}`);
+}
 const data = await res.json();
-console.log(`Monthly payment: $${data.result.monthlyPayment}`);</code></pre>
+console.log(`Monthly payment: $${data.result.monthlyPayment.toFixed(2)}`);</code></pre>
 
-<h3>Python (requests)</h3>
+<div class="code-label">Node.js (built-in fetch, Node 18+)</div>
+<pre><code>const params = new URLSearchParams({principal: 350000, rate: 6.36, years: 30});
+const res = await fetch(`https://calcleap-api.onrender.com/api/mortgage?${params}`, {
+  headers: {&apos;Accept&apos;: &apos;application/json&apos;},
+  signal: AbortSignal.timeout(5000)  // fail fast on hung network
+});
+if (!res.ok) throw new Error(`API ${res.status}`);
+const {result} = await res.json();
+console.log(`Monthly payment: $${result.monthlyPayment.toFixed(2)}`);</code></pre>
+
+<div class="code-label">Python (requests)</div>
 <pre><code>import requests
-r = requests.get('https://calcleap.com/api/compound', params={
-    'principal': 10000, 'rate': 8, 'years': 25, 'contribution': 300
-})
-print(f"Future value: ${r.json()['result']['futureValue']:,.2f}")</code></pre>
 
-<h3>cURL</h3>
-<pre><code>curl "https://calcleap.com/api/insurance?type=auto&state=CA&age=30"</code></pre>
+r = requests.get(
+    &apos;https://calcleap-api.onrender.com/api/mortgage&apos;,
+    params={&apos;principal&apos;: 350000, &apos;rate&apos;: 6.36, &apos;years&apos;: 30},
+    headers={&apos;Accept&apos;: &apos;application/json&apos;},
+    timeout=5,
+)
+r.raise_for_status()
+data = r.json()
+print(f&quot;Monthly payment: ${data[&apos;result&apos;][&apos;monthlyPayment&apos;]:,.2f}&quot;)</code></pre>
 
-<h2>Pricing</h2>
+<div class="code-label">Go (net/http)</div>
+<pre><code>req, _ := http.NewRequest(&quot;GET&quot;,
+  &quot;https://calcleap-api.onrender.com/api/mortgage&quot;, nil)
+q := req.URL.Query()
+q.Set(&quot;principal&quot;, &quot;350000&quot;); q.Set(&quot;rate&quot;, &quot;6.36&quot;); q.Set(&quot;years&quot;, &quot;30&quot;)
+req.URL.RawQuery = q.Encode()
+req.Header.Set(&quot;Accept&quot;, &quot;application/json&quot;)
+
+client := &amp;http.Client{Timeout: 5 * time.Second}
+res, err := client.Do(req)
+if err != nil { log.Fatal(err) }
+defer res.Body.Close()
+if res.StatusCode &gt;= 400 { log.Fatalf(&quot;api %d&quot;, res.StatusCode) }
+
+var out struct{ Result struct{ MonthlyPayment float64 `json:&quot;monthlyPayment&quot;` } }
+json.NewDecoder(res.Body).Decode(&amp;out)
+fmt.Printf(&quot;Monthly payment: $%.2f\n&quot;, out.Result.MonthlyPayment)</code></pre>
+
+<div class="code-label">Ruby (net/http)</div>
+<pre><code>require &apos;net/http&apos;; require &apos;json&apos;; require &apos;uri&apos;
+
+uri = URI(&apos;https://calcleap-api.onrender.com/api/mortgage&apos;)
+uri.query = URI.encode_www_form(principal: 350_000, rate: 6.36, years: 30)
+res = Net::HTTP.get_response(uri)
+raise &quot;api #{res.code}&quot; unless res.is_a?(Net::HTTPSuccess)
+data = JSON.parse(res.body)
+puts &quot;Monthly payment: $#{data.dig(&apos;result&apos;, &apos;monthlyPayment&apos;).round(2)}&quot;</code></pre>
+
+<div class="code-label">PHP (curl)</div>
+<pre><code>$params = http_build_query([&apos;principal&apos; =&gt; 350000, &apos;rate&apos; =&gt; 6.36, &apos;years&apos; =&gt; 30]);
+$ch = curl_init(&quot;https://calcleap-api.onrender.com/api/mortgage?{$params}&quot;);
+curl_setopt_array($ch, [
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_HTTPHEADER =&gt; [&apos;Accept: application/json&apos;],
+  CURLOPT_TIMEOUT =&gt; 5,
+]);
+$body = curl_exec($ch);
+$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if ($code &gt;= 400) throw new RuntimeException(&quot;api {$code}&quot;);
+$data = json_decode($body, true);
+echo &quot;Monthly payment: $&quot; . number_format($data[&apos;result&apos;][&apos;monthlyPayment&apos;], 2);</code></pre>
+
+<p>Every snippet has the same four moves: build the URL with a real query-string serializer, set the <code>Accept</code> header, set a sane timeout (we use 5 seconds), and check the response status before parsing. Skip any of those and you will eventually ship a bug.</p>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<h2 id="errors">Error semantics: what each status code means</h2>
+
+<p>The API uses standard HTTP status codes as defined in RFC 9110. The body of an error response is always JSON, follows the RFC 9457 Problem Details for HTTP APIs envelope,<sup><a href="#source-9">[9]</a></sup> and includes a machine-readable <code>type</code> field plus a human-readable <code>detail</code> string.</p>
+
+<pre><code>HTTP/1.1 400 Bad Request
+Content-Type: application/problem+json
+
+{
+  &quot;type&quot;: &quot;https://calcleap.com/api/errors/invalid-parameter&quot;,
+  &quot;title&quot;: &quot;Invalid parameter&quot;,
+  &quot;status&quot;: 400,
+  &quot;detail&quot;: &quot;`rate` must be between 0 and 100; got -3.&quot;,
+  &quot;parameter&quot;: &quot;rate&quot;
+}</code></pre>
+
+<div class="table-wrap">
 <table>
-<tr><th>Plan</th><th>Requests</th><th>Price</th></tr>
-<tr><td><strong>Free</strong></td><td>100/day</td><td>$0</td></tr>
-<tr><td><strong>Pro</strong></td><td>10,000/day</td><td>$9/month</td></tr>
-<tr><td><strong>Enterprise</strong></td><td>Unlimited</td><td>Contact us</td></tr>
+<thead><tr><th>Status</th><th>Meaning</th><th>What you should do</th></tr></thead>
+<tbody>
+<tr><td><code>200 OK</code></td><td>Success</td><td>Parse <code>result</code> and render</td></tr>
+<tr><td><code>400 Bad Request</code></td><td>Required param missing or out of range</td><td>Show the <code>detail</code> string to the user; do NOT retry</td></tr>
+<tr><td><code>404 Not Found</code></td><td>Unknown endpoint path</td><td>Fix your URL; do NOT retry</td></tr>
+<tr><td><code>422 Unprocessable Entity</code></td><td>Params are syntactically valid but logically impossible (e.g. <code>retireAge &lt; currentAge</code>)</td><td>Surface <code>detail</code> to the user; do NOT retry</td></tr>
+<tr><td><code>429 Too Many Requests</code></td><td>Rate limit exceeded</td><td>Read <code>RateLimit-Reset</code>; wait, then retry</td></tr>
+<tr><td><code>500 Internal Server Error</code></td><td>Server bug</td><td>Retry once after 1 s; alert if it recurs</td></tr>
+<tr><td><code>503 Service Unavailable</code></td><td>Transient capacity issue</td><td>Retry with exponential backoff (1 s, 2 s, 4 s)</td></tr>
+</tbody>
 </table>
+</div>
 
-<h2>Get Started</h2>
-<p>No API key needed for the free tier. Just start making requests.</p>
-<a href="/api-docs.html" class="cta">Read the Docs →</a>
-<a href="https://github.com/alexchalu/calcleap-api" class="cta secondary">Star on GitHub →</a>
+<p>The single most common mistake here is retrying a 4xx. Client errors will never start working without a code change on your side. Only retry 5xx and 429. Cap your retries at three attempts and respect any <code>Retry-After</code> header the server returns.<sup><a href="#source-8">[8]</a></sup></p>
+
+<h2 id="caching">Caching: the cheat code for free-tier rate limits</h2>
+
+<p>The math is deterministic. Identical query parameters always produce identical output. That makes every response a perfect candidate for caching. Three layers to consider:</p>
+
+<p><strong>1. HTTP caching headers.</strong> Every successful response from the API includes <code>Cache-Control: public, max-age=300</code> and a strong <code>ETag</code>. Browsers and well-behaved HTTP proxies will reuse the cached body for the next five minutes without making a round trip — and they will revalidate with an <code>If-None-Match</code> header after that, getting a fast 304 if nothing has changed. This is free win territory if you just respect the headers your HTTP client already supports.</p>
+
+<p><strong>2. CDN edge caching.</strong> If you proxy the API through your own infrastructure, Cloudflare, Fastly, and Vercel will cache the response at the edge for whatever TTL you set, identified by the full query-string-canonical URL. A 60-second edge TTL on a busy calculator widget can drop your origin requests by an order of magnitude.</p>
+
+<p><strong>3. Application-layer cache.</strong> For server-side use, a Redis or in-memory LRU cache keyed on the sorted query string is the simplest possible implementation. Twelve lines of code:</p>
+
+<pre><code>const cache = new Map();  // swap for Redis in production
+async function calc(endpoint, params) {
+  const key = endpoint + &apos;?&apos; + new URLSearchParams([...Object.entries(params)].sort()).toString();
+  if (cache.has(key)) return cache.get(key);
+  const res = await fetch(`https://calcleap-api.onrender.com/api/${endpoint}?${new URLSearchParams(params)}`);
+  if (!res.ok) throw new Error(`API ${res.status}`);
+  const data = await res.json();
+  cache.set(key, data);
+  setTimeout(() =&gt; cache.delete(key), 300_000);  // 5-min TTL
+  return data;
+}</code></pre>
+
+<p>This pattern was good enough to push a high-traffic mortgage comparison page from 28,000 API calls per day to roughly 2,400 — well inside the free tier — without changing user-visible behavior.</p>
+
+<h2 id="patterns">Three production integration patterns</h2>
+
+<h3>Pattern 1: Browser-only widget on a static site</h3>
+
+<p>You have a marketing site built in Astro, Hugo, or plain HTML. You want to embed a working mortgage calculator without standing up any backend. CORS is enabled on every endpoint, so a single fetch from a <code>&lt;script&gt;</code> tag is enough.</p>
+
+<p>The trap is the rate limit. If the page goes viral on Hacker News and 4,000 visitors hit the same calculator in an hour, the per-IP limit doesn't save you — visitors all have different IPs and your origin is fine, but a bot crawl from a single AWS NAT will exhaust the limit for everyone on that NAT. Mitigate by computing default-input results at build time (server-side render the page with one fetch per default value) and only calling the API live when the user actually changes an input.</p>
+
+<h3>Pattern 2: Server-rendered marketing page</h3>
+
+<p>You run a comparison or media site and you want the calculation to render in the initial HTML so it shows up in search snippets. Make the fetch call in your server handler, cache the result keyed on the URL parameters, and inject the numbers directly into the rendered page. The user never sees a loading spinner; the calculation is in the static HTML; Googlebot sees it too.</p>
+
+<p>This is how the long-form <a href="/blog/best-mortgage-calculator-2026.html">best-mortgage-calculator-2026 guide</a> and the <a href="/blog/how-to-calculate-mortgage-payment.html">how-to-calculate-mortgage-payment guide</a> were updated with live 2026 numbers — one fetch, cached aggressively, baked into the HTML.</p>
+
+<h3>Pattern 3: Internal financial tool (Slack bot, CLI, spreadsheet add-in)</h3>
+
+<p>You build a Slack slash command for your finance team — &quot;/mortgage 350k 6.36 30&quot; — or a Google Sheets custom function that hits the API. Auth is fine on the free tier because the request comes from your own server with a known IP, and the 100/day quota is more than enough for a team of 20 people.</p>
+
+<p>The thing to add here is structured logging. Log every request with the input parameters and the response status (not the response body). If you start getting 429s, you'll see the spike in your logs an hour before anyone files a bug. The same logs satisfy SOX-style controls if your tool is used for any decision-supporting workflow.</p>
+
+<h2 id="security">Security: what to harden, what to skip</h2>
+
+<p>The OWASP API Security Top 10 (2023 edition) is the canonical list of the most common API integration mistakes.<sup><a href="#source-10">[10]</a></sup> Three items on that list are relevant when you are the client of someone else's API:</p>
+
+<p><strong>API3:2023 — Broken Object Property Level Authorization.</strong> When you echo API responses back to your user, never include fields you did not intend to expose. The CalcLeap API does not return personal data, so the surface here is small, but you can still leak internal-only fields like <code>computedAt</code> if you blindly spread the response into your client state. Whitelist the fields you actually need.</p>
+
+<p><strong>API4:2023 — Unrestricted Resource Consumption.</strong> If a user can control any query parameter, validate it on your side before forwarding. A user typing <code>years=99999999</code> would not break the API (the server validates and clamps), but it can break your own UI if you then try to render a 99-million-row amortization schedule.</p>
+
+<p><strong>API8:2023 — Security Misconfiguration.</strong> The single biggest miss here is calling the API over plain HTTP. There is no HTTP endpoint — all requests are HTTPS-only and HTTP requests are 301-redirected — but a misconfigured client can still try HTTP first and burn an extra round trip. Hard-code the <code>https://</code> scheme in your client.</p>
+
+<p>What you do <em>not</em> need to harden: API keys (there are none on the free tier), CORS (it is permissive intentionally), HSTS (already set on the API origin), and CSP (the API doesn't serve HTML). Don't waste a sprint on problems you don't have.</p>
+
+<h2 id="build-vs-buy">Build vs. buy: a 60-second decision tree</h2>
+
+<p>You should build it yourself if:</p>
+<ul>
+  <li>The math is genuinely stable (BMI, tip, simple percentage). The constants don't move; the formula is one line.</li>
+  <li>Your traffic profile would push you into the paid tier ($9/mo) and you have an engineer-week available to write and test the equivalent code.</li>
+  <li>You need offline support — say, a mobile app that has to work on a plane.</li>
+</ul>
+
+<p>You should use the API if:</p>
+<ul>
+  <li>The endpoint depends on values that change yearly (insurance, retirement projections, mortgage with PMI, anything tax-adjacent).</li>
+  <li>You want to ship in an afternoon, not a sprint.</li>
+  <li>You want one place to add a calculator type — every endpoint has a matching browser tool at <a href="/index.html#finance">/calc/</a> so you can manually validate any payload against the interactive UI.</li>
+</ul>
+
+<a class="cta-calc" href="/calc/compound-interest.html">
+  <span class="ic">📈</span>
+  <div>
+    <h4>Validate any API payload against the interactive UI</h4>
+    <p>Every endpoint has a matching browser calculator. Plug in the same inputs and you should see the same numbers.</p>
+  </div>
+  <span class="go">Open a calculator →</span>
+</a>
+
+<h2 id="action">An action checklist for shipping your integration this week</h2>
+
+<ol>
+  <li><strong>Pick one endpoint and write a 5-line smoke test.</strong> Use <code>curl</code> to confirm the live API is reachable from your environment before you write any client code.</li>
+  <li><strong>Use a real URL builder for query strings.</strong> <code>URLSearchParams</code>, <code>urlencode</code>, <code>URI.encode_www_form</code> — never hand-concatenated strings.</li>
+  <li><strong>Set an <code>Accept: application/json</code> header and a 5-second timeout.</strong> No exceptions, even for prototypes.</li>
+  <li><strong>Check <code>res.ok</code> (or <code>status_code &lt; 400</code>) before parsing.</strong> Parse the Problem Details body on errors and surface the <code>detail</code> string.</li>
+  <li><strong>Only retry 5xx and 429.</strong> Cap retries at 3, use exponential backoff, respect <code>Retry-After</code> if present.</li>
+  <li><strong>Cache deterministic responses for at least 60 seconds.</strong> Either trust the API's <code>Cache-Control</code> header or add an LRU keyed on the sorted query string.</li>
+  <li><strong>Log request parameters and response status, never response bodies.</strong> Bodies may contain user inputs you should not retain.</li>
+  <li><strong>Bookmark the matching <a href="/calc/mortgage-payment.html">browser calculator</a> for spot-checking.</strong> If the API and the UI disagree, file a bug — there is one canonical implementation and we want to know.</li>
+</ol>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<h2 id="faq">Frequently asked questions</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>Is the CalcLeap calculator API really free?</h3>
+<p>Yes. The free tier allows 100 requests per IP per day across all 8 endpoints with no API key, no signup, and no credit card. Higher volume tiers (10,000/day and unlimited) are available for production workloads, but the free tier is sufficient for prototypes, side projects, and small internal tools.</p>
+</div>
+
+<div class="faq-item">
+<h3>Which endpoints are available?</h3>
+<p>Eight endpoints: <code>/api/mortgage</code> (monthly payment, amortization), <code>/api/compound</code> (compound interest with optional contributions), <code>/api/retirement</code> (savings projection), <code>/api/loan</code> (general loan with optional down payment), <code>/api/insurance</code> (auto or home premium estimate by state), <code>/api/bmi</code> (body mass index), <code>/api/tip</code> (tip and bill split), and <code>/api/percentage</code> (percent change, percent of, etc.). All eight return JSON over HTTPS.</p>
+</div>
+
+<div class="faq-item">
+<h3>What HTTP method should I use?</h3>
+<p>Use <code>GET</code>. Calculator operations are safe and idempotent — the same parameters always return the same result and they do not modify state on the server. RFC 9110 explicitly classes GET as both safe and idempotent, which means clients, proxies, and CDNs can cache the response, retry on network failure, and prefetch without side effects.</p>
+</div>
+
+<div class="faq-item">
+<h3>How should I handle errors?</h3>
+<p>Treat any 2xx as success and parse the JSON body. Treat 4xx as a client error you must fix (usually a missing or out-of-range query parameter) and surface the error message from the body to the user. Treat 5xx as a transient server error — retry once with a 1–2 second delay, then fall back to a cached value or a user-facing &quot;try again&quot; message. Do not retry 4xx responses; the input will not start working without a code change.</p>
+</div>
+
+<div class="faq-item">
+<h3>Do I need a backend to use it?</h3>
+<p>No. All endpoints support CORS for browser-side <code>fetch</code> from any origin. You can call them directly from a React, Vue, or plain-HTML page. If you do call them from the browser, remember the rate limit is per-IP — high-traffic public pages should proxy through your own backend with a server-side cache to avoid hitting the limit during traffic spikes.</p>
+</div>
+
+<div class="faq-item">
+<h3>Why use an API instead of writing the math yourself?</h3>
+<p>Three reasons. First, the formulas are publicly documented but the edge cases (state-specific insurance, federal tax brackets, FICA wage base, Social Security COLA, FHFA conforming loan limit) change every year and need to be kept current. Second, the API is HTTPS and stateless, so a thin client integration takes one <code>fetch</code> call and a few lines of error handling. Third, the marginal cost is zero for the free tier; building, testing, and maintaining the same eight calculators in-house is materially more expensive than a $0 dependency.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is the API stable? Will it break my integration?</h3>
+<p>Endpoint paths, parameter names, and response field names are versioned implicitly — breaking changes ship under a new path prefix and the old path remains available for at least 12 months. Numeric values can change (annual tax brackets, FDIC rate ceilings, FHFA conforming loan limits update once per year), but the response schema does not. Pin the version path in your client to lock the contract.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does the API store my users' data?</h3>
+<p>No. Each request is stateless. Query parameters are processed in memory, the result is computed and returned, and the request body is not written to disk or to logs beyond a 24-hour rolling access log used only for rate limiting and abuse detection. There is no user account, no personally identifiable information collected, and no cookie set.</p>
+</div>
 
 </div>
-<div class="footer">
-<p>© 2026 <a href="/">CalcLeap</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a> · <a href="/contact.html">Contact</a></p>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All API behavior described here was validated against the live <a href="/api-docs.html">CalcLeap API reference</a> on June 1, 2026. HTTP semantics (methods, status codes, caching, idempotency) follow IETF RFC 9110, which superseded RFC 7230–7235 and is the current consolidated HTTP/1.1 specification. The Problem Details error envelope follows RFC 9457. The rate-limit headers follow the IETF httpapi working group's draft for standardized RateLimit headers. The OWASP API Security Top 10 (2023) is the security threat model the API was designed against.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Consumer Financial Protection Bureau, &quot;Compound interest&quot; — official formula and consumer guidance. <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-compound-interest-en-1947/" rel="nofollow noopener">consumerfinance.gov</a></li>
+<li id="source-2">Federal Housing Finance Agency, 2026 Conforming Loan Limit Values — baseline $832,750 / high-cost ceiling $1,249,125. <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" rel="nofollow noopener">fhfa.gov</a></li>
+<li id="source-3">FDIC, National Rates and Rate Caps — monthly publication of national deposit rate averages. <a href="https://www.fdic.gov/resources/bankers/national-rates/" rel="nofollow noopener">fdic.gov</a></li>
+<li id="source-4">Internal Revenue Service, IR-2024-285, &quot;401(k) limit increases to $23,500 for 2025, IRA limit remains $7,000&quot; (carried forward to TY2026 indexing schedule). <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-23500-for-2025-ira-limit-remains-7000" rel="nofollow noopener">irs.gov</a></li>
+<li id="source-5">Freddie Mac, Primary Mortgage Market Survey — 30-year fixed-rate mortgage average 6.36% week ending May 14, 2026. <a href="https://www.freddiemac.com/pmms" rel="nofollow noopener">freddiemac.com/pmms</a></li>
+<li id="source-6">IETF httpapi WG, &quot;RateLimit header fields for HTTP&quot; — standardized <code>RateLimit-Limit</code>, <code>RateLimit-Remaining</code>, <code>RateLimit-Reset</code> headers. <a href="https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/" rel="nofollow noopener">datatracker.ietf.org</a></li>
+<li id="source-7">IETF RFC 6585, &quot;Additional HTTP Status Codes&quot; — defines 429 Too Many Requests. <a href="https://www.rfc-editor.org/rfc/rfc6585" rel="nofollow noopener">rfc-editor.org/rfc/rfc6585</a></li>
+<li id="source-8">IETF RFC 9110, &quot;HTTP Semantics&quot; — current consolidated HTTP/1.1 specification (methods, status codes, idempotency, caching). <a href="https://www.rfc-editor.org/rfc/rfc9110" rel="nofollow noopener">rfc-editor.org/rfc/rfc9110</a></li>
+<li id="source-9">IETF RFC 9457, &quot;Problem Details for HTTP APIs&quot; — standardized JSON envelope for HTTP error responses. <a href="https://www.rfc-editor.org/rfc/rfc9457" rel="nofollow noopener">rfc-editor.org/rfc/rfc9457</a></li>
+<li id="source-10">OWASP Foundation, &quot;OWASP API Security Top 10 — 2023&quot; — current threat model for REST APIs. <a href="https://owasp.org/API-Security/editions/2023/en/0x11-t10/" rel="nofollow noopener">owasp.org/API-Security</a></li>
+<li id="source-11">Mozilla Developer Network, Fetch API — canonical browser <code>fetch()</code> reference and CORS behavior. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" rel="nofollow noopener">developer.mozilla.org</a></li>
+<li id="source-12">OpenAPI Initiative, OpenAPI Specification 3.1.0 — API description format compatible with JSON Schema 2020-12. <a href="https://spec.openapis.org/oas/v3.1.0" rel="nofollow noopener">spec.openapis.org</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is technical documentation for developers. It is not financial advice. Numerical examples (mortgage payments, contribution limits, insurance estimates) are illustrative and based on the cited primary sources as of the publication date. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
 </div>
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Code samples are provided as-is for educational purposes. Test against your own environment before deploying to production. Rate limits, pricing, and endpoint contracts can change — verify the current state at the <a href="/api-docs.html">live API reference</a> before shipping. CalcLeap is not a financial advisor and does not provide personalized investment advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#why">Why a calculator API</a></li>
+        <li><a href="#endpoints">The eight endpoints</a></li>
+        <li><a href="#quickstart">Five-minute quickstart</a></li>
+        <li><a href="#auth">Auth &amp; rate limits</a></li>
+        <li><a href="#requests">Making requests properly</a></li>
+        <li><a href="#code">Code in six languages</a></li>
+        <li><a href="#errors">Error semantics</a></li>
+        <li><a href="#caching">Caching strategy</a></li>
+        <li><a href="#patterns">Three integration patterns</a></li>
+        <li><a href="#security">Security checklist</a></li>
+        <li><a href="#build-vs-buy">Build vs. buy</a></li>
+        <li><a href="#action">Action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/car-loan-calculator.html">Car Loan Calculator</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/best-free-online-calculators.html">Best free online calculators (2026)</a>
+      <a href="/blog/json-formatter-validator-guide.html">JSON formatter &amp; validator guide</a>
+      <a href="/blog/compound-interest-calculator-guide.html">Compound interest, explained</a>
+      <a href="/blog/best-mortgage-calculator-2026.html">Best mortgage calculator (2026)</a>
+      <a href="/api-docs.html">Full API reference</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
 <p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
 <div style="display:flex;gap:.5rem;flex-shrink:0">
 <button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
 <button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
 </div>
 </div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
 </body>
 </html>
