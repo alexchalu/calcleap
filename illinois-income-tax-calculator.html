@@ -413,7 +413,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-21: state=Illinois | state_income_tax=FLAT 4.95% — verified correct (IL DOR; 4.95% since 2017) | current_STATE_TAX_RATE_constant=0.0495 | state_formula=stateTax=income * STATE_TAX_RATE | federal_brackets_in_file=TY2023_outdated_needs_TY2025_refresh | SS_wage_base_in_file=168600_=TY2024_should_be_176100_TY2025 | test_cases=[{income:50000,filing:single,state:2475.0},{income:100000,filing:single,state:4950.0},{income:200000,filing:single,state:9900.0}] | verified_by=evening-routine */
+        /* AUDIT 2026-05-21: state=Illinois | state_income_tax=FLAT 4.95% — verified correct (IL DOR; 4.95% since 2017) | current_STATE_TAX_RATE_constant=0.0495 | state_formula=stateTax=income * STATE_TAX_RATE | test_cases=[{income:50000,filing:single,state:2475.0},{income:100000,filing:single,state:4950.0},{income:200000,filing:single,state:9900.0}] | verified_by=evening-routine | AUDIT 2026-06-02 evening: FICA SS wage base 168600 -> 176100 (TY2024 -> TY2025) per SSA Press Release Oct 2024; federal brackets already TY2025 (refreshed 2026-05-29) */
                 const STATE_TAX_RATE = 0.0495;
         const incomeEl = document.getElementById('income');
         const statusEl = document.getElementById('filing-status');
@@ -443,7 +443,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             const stateTax = income * STATE_TAX_RATE;
 
             // FICA
-            const ssTax = Math.min(income * 0.062, 168600 * 0.062); // 2026 SS wage base
+            const ssTax = Math.min(income * 0.062, 176100 * 0.062); // SSA TY2025 wage base $176,100 (Press Release Oct 2024); FICA SS tax = 6.2% on wages up to cap
             const medicareTax = income * 0.0145;
 
             // Total
