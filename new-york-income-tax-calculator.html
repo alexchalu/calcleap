@@ -413,7 +413,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-30: state=New York | state_income_tax=VERIFIED | source=NY Tax Law Article 22 §601(a); NY DTF 2025 IT-201 Tax Computation Worksheets (filing status 1, single) | formula=9-bracket progressive TY2025 single-filer; rates 4.00% / 4.50% / 5.25% / 5.50% / 6.00% / 6.85% / 9.65% / 10.30% / 10.90% at thresholds $8,500 / $11,700 / $13,900 / $80,650 / $215,400 / $1,077,550 / $5,000,000 / $25,000,000; cumulative-tax-at-top offsets $340 / $484 / $599.50 / $4,270.75 / $12,355.75 / $71,413.025 / $449,929.45 / $2,509,929.45 (Python-verified) | replaces=2026-05-21 FLAT-APPROXIMATION 6.85% which over-stated tax by 24-100% for incomes below $80,650 and 0-24% for $80,650-$215,400 then under-stated for >$215,400 | known_simplifications=single-filer only (MFJ thresholds differ above $215,400 per NY Tax Law §601(b)); NY std deduction $8,000 single NOT subtracted (low-income filers see slight overestimate); NYC/Yonkers local income tax NOT added (this is state-only); TY2026+ rate cuts (Hochul FY2026 budget signed May 9 2025: bottom 5 brackets drop to 3.9%-5.9% TY2026 then 3.8%-5.8% TY2027+) NOT applied here — this is TY2025 only | test_cases=[{income:50000,filing:single,state:2585.00},{income:100000,filing:single,state:5431.75},{income:200000,filing:single,state:11431.75}] | verified_by=evening-routine | AUDIT 2026-06-02 evening: FICA SS wage base 168600 -> 176100 (TY2024 -> TY2025) per SSA Press Release Oct 2024; federal brackets already TY2025 (refreshed 2026-05-29) */
+        /* AUDIT 2026-05-30: state=New York | state_income_tax=VERIFIED | source=NY Tax Law Article 22 §601(a); NY DTF 2025 IT-201 Tax Computation Worksheets (filing status 1, single) | formula=9-bracket progressive TY2025 single-filer; rates 4.00% / 4.50% / 5.25% / 5.50% / 6.00% / 6.85% / 9.65% / 10.30% / 10.90% at thresholds $8,500 / $11,700 / $13,900 / $80,650 / $215,400 / $1,077,550 / $5,000,000 / $25,000,000; cumulative-tax-at-top offsets $340 / $484 / $599.50 / $4,270.75 / $12,355.75 / $71,413.025 / $449,929.45 / $2,509,929.45 (Python-verified) | replaces=2026-05-21 FLAT-APPROXIMATION 6.85% which over-stated tax by 24-100% for incomes below $80,650 and 0-24% for $80,650-$215,400 then under-stated for >$215,400 | known_simplifications=single-filer only (MFJ thresholds differ above $215,400 per NY Tax Law §601(b)); NY std deduction $8,000 single NOT subtracted (low-income filers see slight overestimate); NYC/Yonkers local income tax NOT added (this is state-only); TY2026+ rate cuts (Hochul FY2026 budget signed May 9 2025: bottom 5 brackets drop to 3.9%-5.9% TY2026 then 3.8%-5.8% TY2027+) NOT applied here — this is TY2025 only | test_cases=[{income:50000,filing:single,state:2585.00},{income:100000,filing:single,state:5431.75},{income:200000,filing:single,state:11431.75}] | verified_by=evening-routine | AUDIT 2026-06-02 evening: FICA SS wage base 168600 -> 176100 (TY2024 -> TY2025) per SSA Press Release Oct 2024; federal brackets already TY2025 (refreshed 2026-05-29) | AUDIT 2026-06-03 evening: federal standard deduction $15,000 (TY2025 single, IRS Rev. Proc. 2024-40 Sec 3.18) subtracted before bracket lookup; was missing, caused ~$1.5-3.8K federal overestimate for typical wage earners; test_cases_updated=[{income:50000,fed:3961.50},{income:100000,fed:13614.00},{income:200000,fed:37247.00},{income:500000,fed:139297.25}]; STILL TODO: filing-status-aware brackets (currently single-only — MFJ/HoH selectors are no-ops) */
         const incomeEl = document.getElementById('income');
         const statusEl = document.getElementById('filing-status');
 
@@ -421,21 +421,24 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             const income = parseFloat(incomeEl.value) || 0;
 
             // Federal tax — TY2025 single-filer brackets (IRS Rev. Proc. 2024-40); fixes prior marginal-on-all-income bug; refreshed 2026-05-29 evening-routine
+            // Federal standard deduction TY2025 single = $15,000 (IRS Rev. Proc. 2024-40 Sec 3.18); subtracted before bracket lookup 2026-06-03 evening-routine
+            const STD_DEDUCTION = 15000;
+            const federalTaxableIncome = Math.max(0, income - STD_DEDUCTION);
             let federalTax = 0;
-            if (income <= 11925) {
-                federalTax = income * 0.10;
-            } else if (income <= 48475) {
-                federalTax = 1192.50 + (income - 11925) * 0.12;
-            } else if (income <= 103350) {
-                federalTax = 5578.50 + (income - 48475) * 0.22;
-            } else if (income <= 197300) {
-                federalTax = 17651 + (income - 103350) * 0.24;
-            } else if (income <= 250525) {
-                federalTax = 40199 + (income - 197300) * 0.32;
-            } else if (income <= 626350) {
-                federalTax = 57231 + (income - 250525) * 0.35;
+            if (federalTaxableIncome <= 11925) {
+                federalTax = federalTaxableIncome * 0.10;
+            } else if (federalTaxableIncome <= 48475) {
+                federalTax = 1192.50 + (federalTaxableIncome - 11925) * 0.12;
+            } else if (federalTaxableIncome <= 103350) {
+                federalTax = 5578.50 + (federalTaxableIncome - 48475) * 0.22;
+            } else if (federalTaxableIncome <= 197300) {
+                federalTax = 17651 + (federalTaxableIncome - 103350) * 0.24;
+            } else if (federalTaxableIncome <= 250525) {
+                federalTax = 40199 + (federalTaxableIncome - 197300) * 0.32;
+            } else if (federalTaxableIncome <= 626350) {
+                federalTax = 57231 + (federalTaxableIncome - 250525) * 0.35;
             } else {
-                federalTax = 188769.75 + (income - 626350) * 0.37;
+                federalTax = 188769.75 + (federalTaxableIncome - 626350) * 0.37;
             }
 
             // State tax — TY2025 NY single-filer 9-bracket progressive (NY Tax Law §601(a)); verified 2026-05-30 evening-routine
@@ -492,21 +495,24 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             const income = parseFloat(incomeEl.value) || 0;
             
             // Federal tax — TY2025 single-filer brackets (IRS Rev. Proc. 2024-40); fixes prior marginal-on-all-income bug; refreshed 2026-05-29 evening-routine
+            // Federal standard deduction TY2025 single = $15,000 (IRS Rev. Proc. 2024-40 Sec 3.18); subtracted before bracket lookup 2026-06-03 evening-routine
+            const STD_DEDUCTION = 15000;
+            const federalTaxableIncome = Math.max(0, income - STD_DEDUCTION);
             let federalTax = 0;
-            if (income <= 11925) {
-                federalTax = income * 0.10;
-            } else if (income <= 48475) {
-                federalTax = 1192.50 + (income - 11925) * 0.12;
-            } else if (income <= 103350) {
-                federalTax = 5578.50 + (income - 48475) * 0.22;
-            } else if (income <= 197300) {
-                federalTax = 17651 + (income - 103350) * 0.24;
-            } else if (income <= 250525) {
-                federalTax = 40199 + (income - 197300) * 0.32;
-            } else if (income <= 626350) {
-                federalTax = 57231 + (income - 250525) * 0.35;
+            if (federalTaxableIncome <= 11925) {
+                federalTax = federalTaxableIncome * 0.10;
+            } else if (federalTaxableIncome <= 48475) {
+                federalTax = 1192.50 + (federalTaxableIncome - 11925) * 0.12;
+            } else if (federalTaxableIncome <= 103350) {
+                federalTax = 5578.50 + (federalTaxableIncome - 48475) * 0.22;
+            } else if (federalTaxableIncome <= 197300) {
+                federalTax = 17651 + (federalTaxableIncome - 103350) * 0.24;
+            } else if (federalTaxableIncome <= 250525) {
+                federalTax = 40199 + (federalTaxableIncome - 197300) * 0.32;
+            } else if (federalTaxableIncome <= 626350) {
+                federalTax = 57231 + (federalTaxableIncome - 250525) * 0.35;
             } else {
-                federalTax = 188769.75 + (income - 626350) * 0.37;
+                federalTax = 188769.75 + (federalTaxableIncome - 626350) * 0.37;
             }
 
             // State tax — TY2025 NY single-filer 9-bracket progressive (NY Tax Law §601(a)); see AUDIT 2026-05-30 above
