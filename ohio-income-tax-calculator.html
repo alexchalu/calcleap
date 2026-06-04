@@ -413,32 +413,53 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        /* AUDIT 2026-05-30: state=Ohio | state_income_tax=VERIFIED | source=Ohio Rev. Code §5747.02 as amended by HB96 (FY2026-27 budget, signed June 2025, retroactive to 1/1/2025); 2025 IT 1040 Instructions; LSC HB96 Budget in Brief | formula=3-bracket TY2025 single-filer (nonbusiness income); 0% on income $0-$26,050; 2.75% on income $26,050-$100,000; 3.125% on income over $100,000; cumulative-tax-at-top offsets: $0 at $26,050 / $2,033.625 at $100,000 (Python-verified) | replaces=2026-05-21 FLAT-APPROXIMATION 3.0% which over-stated tax for incomes under ~$100k by 100%+ (e.g. $50k showed $1,500 vs correct $659) and over-stated for $100k-$200k by ~16% (e.g. $200k showed $6,000 vs correct $5,159) | known_simplifications=single-filer rates apply to all filing statuses in OH (statute is filing-status-neutral); OH personal exemption $2,500-$2,800 graduated by AGI single (R.C. 5747.025) NOT subtracted (low-income filers see slight overestimate); HB96 personal/spousal/dependent exemption phase-out at $750k+ AGI TY2025 NOT modeled; OH school district income tax (averages 0.5-2% in ~600 districts) NOT added (location-specific); Ohio municipal income tax (Cleveland/Columbus/Cincinnati etc. 1.5-3%) NOT added; nonbusiness-income classification assumed (business income flat 3% under R.C. 5747.02(A)(3)); TY2026 flat-rate transition (HB96 reduces over-$26,050 to single flat 2.75%) NOT applied here — this is TY2025 only | test_cases=[{income:50000,filing:single,state:658.625},{income:100000,filing:single,state:2033.625},{income:200000,filing:single,state:5158.625}] | verified_by=evening-routine | AUDIT 2026-06-02 evening: FICA SS wage base 168600 -> 176100 (TY2024 -> TY2025) per SSA Press Release Oct 2024; federal brackets already TY2025 (refreshed 2026-05-29) | AUDIT 2026-06-03 evening: federal standard deduction $15,000 (TY2025 single, IRS Rev. Proc. 2024-40 Sec 3.18) subtracted before bracket lookup; was missing, caused ~$1.5-3.8K federal overestimate for typical wage earners; test_cases_updated=[{income:50000,fed:3961.50},{income:100000,fed:13614.00},{income:200000,fed:37247.00},{income:500000,fed:139297.25}]; STILL TODO: filing-status-aware brackets (currently single-only — MFJ/HoH selectors are no-ops) */
+        /* AUDIT 2026-05-30: state=Ohio | state_income_tax=VERIFIED | source=Ohio Rev. Code §5747.02 as amended by HB96 (FY2026-27 budget, signed June 2025, retroactive to 1/1/2025); 2025 IT 1040 Instructions; LSC HB96 Budget in Brief | formula=3-bracket TY2025 single-filer (nonbusiness income); 0% on income $0-$26,050; 2.75% on income $26,050-$100,000; 3.125% on income over $100,000; cumulative-tax-at-top offsets: $0 at $26,050 / $2,033.625 at $100,000 (Python-verified) | replaces=2026-05-21 FLAT-APPROXIMATION 3.0% which over-stated tax for incomes under ~$100k by 100%+ (e.g. $50k showed $1,500 vs correct $659) and over-stated for $100k-$200k by ~16% (e.g. $200k showed $6,000 vs correct $5,159) | known_simplifications=single-filer rates apply to all filing statuses in OH (statute is filing-status-neutral); OH personal exemption $2,500-$2,800 graduated by AGI single (R.C. 5747.025) NOT subtracted (low-income filers see slight overestimate); HB96 personal/spousal/dependent exemption phase-out at $750k+ AGI TY2025 NOT modeled; OH school district income tax (averages 0.5-2% in ~600 districts) NOT added (location-specific); Ohio municipal income tax (Cleveland/Columbus/Cincinnati etc. 1.5-3%) NOT added; nonbusiness-income classification assumed (business income flat 3% under R.C. 5747.02(A)(3)); TY2026 flat-rate transition (HB96 reduces over-$26,050 to single flat 2.75%) NOT applied here — this is TY2025 only | test_cases=[{income:50000,filing:single,state:658.625},{income:100000,filing:single,state:2033.625},{income:200000,filing:single,state:5158.625}] | verified_by=evening-routine | AUDIT 2026-06-02 evening: FICA SS wage base 168600 -> 176100 (TY2024 -> TY2025) per SSA Press Release Oct 2024; federal brackets already TY2025 (refreshed 2026-05-29) | AUDIT 2026-06-03 evening: federal standard deduction $15,000 (TY2025 single, IRS Rev. Proc. 2024-40 Sec 3.18) subtracted before bracket lookup; was missing, caused ~$1.5-3.8K federal overestimate for typical wage earners; test_cases_updated=[{income:50000,fed:3961.50},{income:100000,fed:13614.00},{income:200000,fed:37247.00},{income:500000,fed:139297.25}]; STILL TODO: filing-status-aware brackets (currently single-only — MFJ/HoH selectors are no-ops) | AUDIT 2026-06-04 evening: filing-status-aware federal brackets + standard deduction (IRS Rev. Proc. 2024-40); single $15,000 std ded / TY2025 single brackets vs MFJ $30,000 std ded / TY2025 MFJ brackets; the 'married' UI option was previously a no-op — now wired to MFJ brackets and $30K deduction; test_cases_MFJ=[{income:50000,fed:2000.00},{income:100000,fed:7923.00},{income:200000,fed:27228.00},{income:500000,fed:104526.00}]; MFJ bracket cumulative tax constants: 2385/11157/35302/80398/114462/202154.50 at thresholds 23850/96950/206700/394600/501050/751600 */
         const incomeEl = document.getElementById('income');
         const statusEl = document.getElementById('filing-status');
 
         function calculateTaxes() {
             const income = parseFloat(incomeEl.value) || 0;
 
-            // Federal tax — TY2025 single-filer brackets (IRS Rev. Proc. 2024-40); fixes prior marginal-on-all-income bug; refreshed 2026-05-29 evening-routine
-            // Federal standard deduction TY2025 single = $15,000 (IRS Rev. Proc. 2024-40 Sec 3.18); subtracted before bracket lookup 2026-06-03 evening-routine
-            const STD_DEDUCTION = 15000;
+            // Federal tax — TY2025 brackets (IRS Rev. Proc. 2024-40); filing-status-aware 2026-06-04 evening-routine; refreshed 2026-05-29 evening-routine; fixes prior marginal-on-all-income bug
+            // Federal standard deduction TY2025 Sec 3.18: $15,000 single / $30,000 MFJ; subtracted before bracket lookup 2026-06-03 evening-routine
+            const filingStatus = statusEl.value;
+            const STD_DEDUCTION = filingStatus === 'married' ? 30000 : 15000;
             const federalTaxableIncome = Math.max(0, income - STD_DEDUCTION);
             let federalTax = 0;
-            if (federalTaxableIncome <= 11925) {
-                federalTax = federalTaxableIncome * 0.10;
-            } else if (federalTaxableIncome <= 48475) {
-                federalTax = 1192.50 + (federalTaxableIncome - 11925) * 0.12;
-            } else if (federalTaxableIncome <= 103350) {
-                federalTax = 5578.50 + (federalTaxableIncome - 48475) * 0.22;
-            } else if (federalTaxableIncome <= 197300) {
-                federalTax = 17651 + (federalTaxableIncome - 103350) * 0.24;
-            } else if (federalTaxableIncome <= 250525) {
-                federalTax = 40199 + (federalTaxableIncome - 197300) * 0.32;
-            } else if (federalTaxableIncome <= 626350) {
-                federalTax = 57231 + (federalTaxableIncome - 250525) * 0.35;
+            if (filingStatus === 'married') {
+                // MFJ brackets — Rev. Proc. 2024-40
+                if (federalTaxableIncome <= 23850) {
+                    federalTax = federalTaxableIncome * 0.10;
+                } else if (federalTaxableIncome <= 96950) {
+                    federalTax = 2385 + (federalTaxableIncome - 23850) * 0.12;
+                } else if (federalTaxableIncome <= 206700) {
+                    federalTax = 11157 + (federalTaxableIncome - 96950) * 0.22;
+                } else if (federalTaxableIncome <= 394600) {
+                    federalTax = 35302 + (federalTaxableIncome - 206700) * 0.24;
+                } else if (federalTaxableIncome <= 501050) {
+                    federalTax = 80398 + (federalTaxableIncome - 394600) * 0.32;
+                } else if (federalTaxableIncome <= 751600) {
+                    federalTax = 114462 + (federalTaxableIncome - 501050) * 0.35;
+                } else {
+                    federalTax = 202154.50 + (federalTaxableIncome - 751600) * 0.37;
+                }
             } else {
-                federalTax = 188769.75 + (federalTaxableIncome - 626350) * 0.37;
+                // Single brackets — Rev. Proc. 2024-40
+                if (federalTaxableIncome <= 11925) {
+                    federalTax = federalTaxableIncome * 0.10;
+                } else if (federalTaxableIncome <= 48475) {
+                    federalTax = 1192.50 + (federalTaxableIncome - 11925) * 0.12;
+                } else if (federalTaxableIncome <= 103350) {
+                    federalTax = 5578.50 + (federalTaxableIncome - 48475) * 0.22;
+                } else if (federalTaxableIncome <= 197300) {
+                    federalTax = 17651 + (federalTaxableIncome - 103350) * 0.24;
+                } else if (federalTaxableIncome <= 250525) {
+                    federalTax = 40199 + (federalTaxableIncome - 197300) * 0.32;
+                } else if (federalTaxableIncome <= 626350) {
+                    federalTax = 57231 + (federalTaxableIncome - 250525) * 0.35;
+                } else {
+                    federalTax = 188769.75 + (federalTaxableIncome - 626350) * 0.37;
+                }
             }
 
             // State tax — TY2025 OH 3-bracket nonbusiness income (R.C. 5747.02 as amended by HB96); verified 2026-05-30 evening-routine
