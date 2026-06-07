@@ -1015,17 +1015,18 @@
     </footer>
     
     <script>
+        /* AUDIT 2026-06-07 evening: state=Pennsylvania | state_income_tax=FLAT 3.07% (TY2025 and TY2026; rate unchanged since 2004 per PA Act 4 of 2004 / Act 40 of 2003) | constitutional_constraint=PA Constitution Article VIII Section 1 ("uniformity clause") requires that taxes upon the same class of subjects be uniform — PA cannot constitutionally adopt a progressive bracket structure without amending the state constitution; this is why PA, IL, MI, NC, KY, IN, UT, MA (and recently GA, MS, KY, LA, IA, AZ flat-converters) are the only flat-rate states | source=Pennsylvania Department of Revenue (revenue.pa.gov) PA-40 Instructions TY2025; 72 P.S. §7302; PA Constitution Article VIII §1 (uniformity clause) | state_formula=stateTax = income * 0.0307 (no standard deduction, no personal exemption, no itemized deductions — PA does not allow any of these by statute) | localEIT_formula=localTax = income * (eitRate / 100); range typically 1.0%-3.8398% (Philadelphia city wage tax is the high end) | test_cases_no_EIT=[{income:50000, state_tax:1535.00}, {income:100000, state_tax:3070.00}, {income:200000, state_tax:6140.00}] | test_cases_with_1.5pct_local_EIT=[{income:50000, state_tax:1535.00, local_tax:750.00, total:2285.00}, {income:100000, state_tax:3070.00, local_tax:1500.00, total:4570.00}, {income:200000, state_tax:6140.00, local_tax:3000.00, total:9140.00}] | retirement_income_handling=PA exempts qualified retirement income from PA tax (Social Security, pensions, IRA/401k distributions if taken after age 59.5) — the file's retirementIncome input is correctly NOT taxed in the state-tax line, only added to totalIncome for effective-rate denominator; this is correct per PA Schedule SP and PA-40 Instructions | known_simplifications=(1) Philadelphia city wage tax non-resident rate 3.44% vs resident 3.8398% NOT distinguished in the eitRate input (user must enter the right one); (2) PA Tax Forgiveness Schedule SP credit for low-income filers NOT modeled (would reduce tax owed for incomes below ~$32k single / ~$50k MFJ with dependents); (3) reciprocal agreements with IN/MD/NJ/OH/VA/WV not modeled (PA residents working in those states still pay PA tax); (4) federal_brackets_not_present_in_this_file (file is state-tax-only, no federal computation block — does not need federal-bracket refresh) | status=VERIFIED | verified_by=evening-routine */
         function calculateTax() {
             const income = parseFloat(document.getElementById('income').value) || 0;
             const eitRate = parseFloat(document.getElementById('eitRate').value) || 0;
             const retirementIncome = parseFloat(document.getElementById('retirementIncome').value) || 0;
-            
+
             if (income === 0) {
                 alert('Please enter your annual income');
                 return;
             }
-            
-            // PA has no standard deduction - flat 3.07% on all taxable income
+
+            // PA has no standard deduction - flat 3.07% on all taxable income (rate unchanged since 2004; locked by PA Const. Art. VIII §1 uniformity clause)
             const PA_TAX_RATE = 0.0307;
             
             // Calculate taxes

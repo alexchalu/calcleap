@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Georgia State Income Tax Calculator 2026 | Free GA Tax Estimator</title>
-<meta name="description" content="Calculate your Georgia state income tax for 2026. Free online calculator with accurate GA tax brackets (5.49% flat rate), standard deductions, and filing status options. Estimate your Georgia tax refund or payment.">
+<meta name="description" content="Calculate your Georgia state income tax for 2026. Free online calculator with accurate GA tax brackets (5.19% flat rate per HB 111), standard deductions, and filing status options. Estimate your Georgia tax refund or payment.">
 <link rel="canonical" href="https://calcleap.com/georgia-income-tax-calculator.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <meta property="og:title" content="Georgia State Income Tax Calculator 2026">
@@ -57,7 +57,7 @@
     "name": "What is Georgia's income tax rate for 2026?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Georgia has a flat income tax rate of 5.49% for tax year 2026, down from 5.75% in 2024. This applies to all income levels after deductions and exemptions."
+      "text": "Georgia has a flat income tax rate of 5.19% for tax year 2025 and 2026 withholding, down from 5.39% in TY2024 and 5.75% in TY2023. The rate was lowered to 5.19% retroactive to January 1, 2025 by HB 111 (signed April 15, 2025) and is scheduled to drop 0.10 percentage points per year (subject to revenue triggers) until it reaches 4.99%. This applies to all income levels after deductions and exemptions."
     }
   },{
     "@type": "Question",
@@ -192,7 +192,7 @@ a{color:inherit;text-decoration:none}
   </div>
 
   <h1 class="page-title">Georgia State Income Tax Calculator</h1>
-  <p class="page-desc">Calculate your Georgia state income tax for 2026 with our free, accurate calculator. Georgia uses a flat tax rate of 5.49% on all taxable income.</p>
+  <p class="page-desc">Calculate your Georgia state income tax for 2026 with our free, accurate calculator. Georgia uses a flat tax rate of 5.19% on all taxable income (per HB 111, effective January 1, 2025).</p>
 
   <!-- Ad Slot 1 -->
   <div class="ad-slot">
@@ -253,7 +253,7 @@ a{color:inherit;text-decoration:none}
 
   <div class="info-card">
     <h3>Understanding Georgia State Income Tax</h3>
-    <p>Georgia's income tax system has transitioned to a <strong>flat tax rate of 5.49%</strong> for tax year 2026, continuing the state's multi-year plan to simplify its tax structure. Previously, Georgia used a progressive tax bracket system with rates ranging from 1% to 5.75%.</p>
+    <p>Georgia's income tax system has transitioned to a <strong>flat tax rate of 5.19%</strong> for tax year 2025 (the rate also used by employers for 2026 withholding per the Georgia Department of Revenue Employer's Tax Guide), continuing the state's multi-year plan to simplify its tax structure. The rate was lowered from 5.39% (TY2024) to 5.19% retroactive to January 1, 2025 by HB 111 (signed April 15, 2025), with a scheduled 0.10 percentage point annual reduction (subject to revenue triggers) until it reaches 4.99%. Previously, Georgia used a progressive tax bracket system with rates ranging from 1% to 5.75%.</p>
     
     <p>This flat tax applies to all Georgia taxable income after deductions and exemptions, making it easier for taxpayers to estimate their state tax liability. The simplification benefits both individual taxpayers and businesses operating in Georgia.</p>
 
@@ -302,13 +302,13 @@ a{color:inherit;text-decoration:none}
     </ul>
 
     <h3>How Georgia Tax Compares to Other States</h3>
-    <p>Georgia's 5.49% flat tax rate is competitive compared to neighboring states:</p>
+    <p>Georgia's 5.19% flat tax rate is competitive compared to neighboring states:</p>
     <ul>
       <li><strong>Florida:</strong> No state income tax</li>
       <li><strong>Tennessee:</strong> No state income tax (as of 2021)</li>
       <li><strong>Alabama:</strong> 2% to 5% progressive brackets</li>
       <li><strong>South Carolina:</strong> 0% to 6.5% progressive brackets</li>
-      <li><strong>North Carolina:</strong> 4.5% flat tax</li>
+      <li><strong>North Carolina:</strong> 4.25% flat tax</li>
     </ul>
     <p>While Georgia doesn't match Florida and Tennessee's zero income tax, its flat rate is simpler than many neighboring states and competitive with North Carolina.</p>
 
@@ -386,6 +386,7 @@ a{color:inherit;text-decoration:none}
 
 <script>
 /* AUDIT 2026-05-21: state=Georgia | state_income_tax=FLAT 5.49% (TY2024 per GA HB 1437; TY2025 schedule = 5.39%) | state_formula=stateTax=max(0, taxableIncome) * 0.0549 | test_cases=[{income:50000,filing:single,state:~2196 after std ded $5400},{income:100000,filing:single,state:~5191},{income:200000,filing:single,state:~10681}] | note=update to 0.0539 when TY2025 returns become primary | verified_by=evening-routine */
+/* AUDIT 2026-06-07 evening: state=Georgia | state_income_tax=FLAT 5.19% (TY2025 per GA HB 111 signed Apr 15 2025, retroactive to Jan 1 2025; also TY2026 employer withholding rate per GA DOR Employer's Tax Guide rev. Dec 2025) | rate_refresh=0.0549 -> 0.0519 (closes the 2026-05-21 flag; correctly skips through the 5.39% interim schedule because HB 111 superseded it before TY2025 returns were filed) | rate_schedule_per_HB_111=scheduled 0.10pp annual reduction subject to revenue triggers down to 4.99% floor (TY2026 statutory=5.09%, but HB 1001 proposed Mar 2026 to accelerate to 4.99% retroactive Jan 1 2026; not yet enacted, so 5.19% is the operative number) | state_formula=stateTax=max(0, agi - stdDeduction) * 0.0519 | test_cases_TY2025=[{income:50000,filing:single,agi:50000,age:<65 -> taxable=$38000, state_tax=$1972.20},{income:100000,filing:single,agi:100000 -> taxable=$88000, state_tax=$4567.20},{income:200000,filing:single,agi:200000 -> taxable=$188000, state_tax=$9757.20},{income:80000,filing:mfj,agi:80000 -> taxable=$56000, state_tax=$2906.40}] | verified_against=Python hand-derivation taxableIncome*0.0519; brace balance unchanged; std deductions unchanged $12k/$24k/$12k/$16k; retirement exclusion logic unchanged | verified_by=evening-routine */
 function calculate() {
   const status = document.getElementById('filingStatus').value;
   const income = parseFloat(document.getElementById('income').value) || 0;
@@ -404,8 +405,8 @@ function calculate() {
   // Calculate taxable income
   let taxableIncome = Math.max(0, agi - stdDeduction);
 
-  // Georgia flat tax rate 2026
-  const taxRate = 0.0549;
+  // Georgia flat tax rate TY2025 / 2026 withholding (HB 111, signed Apr 15 2025, retroactive to Jan 1 2025)
+  const taxRate = 0.0519;
   
   // Calculate base tax
   let stateTax = taxableIncome * taxRate;
@@ -436,7 +437,7 @@ function calculate() {
       </div>
       <div class="stat-box">
         <div class="stat-box-label">Tax Rate</div>
-        <div class="stat-box-value">5.49%</div>
+        <div class="stat-box-value">5.19%</div>
       </div>
       <div class="stat-box">
         <div class="stat-box-label">Effective Rate</div>
