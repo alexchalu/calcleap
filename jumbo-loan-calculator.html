@@ -282,6 +282,18 @@
     </div>
 
     <script>
+        /* AUDIT 2026-06-08: jumbo (non-conforming) mortgage payment calculator
+           family: amount-down-rate-term (homeValue / downPayment / annualRate% / termYears -> monthly P&I)
+           formula: standard amortization M = P * r * (1+r)^n / ((1+r)^n - 1), where P = (amount - down), r = annual_rate/100/12, n = years * 12
+           also: totalPaid = M * n; totalInterest = totalPaid - P; zero-rate branch (rate=0): M = P / n
+           test_cases (hand-derived in Python + cross-verified via Node execution of the live function() body below):
+                        TC1: amount=300000, down=60000, rate=6.5, term=30 -> loan=240000, monthly=$1516.96, totalInterest=$306106.77
+             TC2: amount=500000, down=100000, rate=7.0, term=30 -> loan=400000, monthly=$2661.21, totalInterest=$558035.59
+             TC3: amount=200000, down=40000, rate=5.0, term=15 -> loan=160000, monthly=$1265.27, totalInterest=$67748.56
+           known simplifications / flags (NOT math errors, scope-for-future refresh):
+             Jumbo loans exceed the FHFA conforming loan limit (2026 baseline $832,750 / high-cost ceiling $1,249,125 per FHFA news release Nov 2025). The math is pure amortization; jumbo-specific quirks (tighter DTI/reserves/credit-score thresholds, possible interest-only or 7/1 ARM structures) are NOT modeled - this is a fixed-rate level-payment amortization calculator.
+           verified_by: evening-routine
+        */
         function calculate() {
             const amount = parseFloat(document.getElementById('amount').value) || 0;
             const down = parseFloat(document.getElementById('down').value) || 0;

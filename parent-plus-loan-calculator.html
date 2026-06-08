@@ -280,6 +280,18 @@
     </div>
 
     <script>
+        /* AUDIT 2026-06-08: Direct Parent PLUS federal student loan payment calculator
+           family: balance-rate-term (loanBalance / annualRate% / termYears -> monthly payment)
+           formula: standard amortization M = P * r * (1+r)^n / ((1+r)^n - 1), where P = balance, r = annual_rate/100/12, n = years * 12
+           also: totalPaid = M * n; totalInterest = totalPaid - balance; zero-rate branch (rate=0): M = balance / n
+           test_cases (hand-derived in Python + cross-verified via Node execution of the live function() body below):
+                        TC1: balance=50000, rate=7.0, term=10 -> monthly=$580.54, totalPaid=$69665.09, totalInterest=$19665.09
+             TC2: balance=80000, rate=8.05, term=10 -> monthly=$972.74, totalPaid=$116728.28, totalInterest=$36728.28
+             TC3: balance=30000, rate=6.5, term=20 -> monthly=$223.67, totalPaid=$53681.27, totalInterest=$23681.27
+           known simplifications / flags (NOT math errors, scope-for-future refresh):
+             Same rate-setting formula as Grad PLUS = 10-yr T-Note + 4.60% cap 10.50%. AY2025-26 rate: 9.08%. The 5.5% default is stale. Does NOT model the 4.228% origination fee (taken at disbursement, reduces net proceeds but does NOT reduce balance for amortization purposes). Parent PLUS has no graduate-school deferment by default and standard repayment begins immediately after final disbursement unless deferred via separate request.
+           verified_by: evening-routine
+        */
         function calculate() {
             const balance = parseFloat(document.getElementById('balance').value) || 0;
             const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.055;
