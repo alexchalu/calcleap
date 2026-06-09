@@ -591,6 +591,24 @@
   </footer>
 
   <script>
+    /* AUDIT 2026-06-09: file=mortgage-refinance-calculator.html | loan_type=mortgage refinance break-even analyzer | family=TWO std_amortization calls (current + new) + break-even; n_input_unit=YEARS (multiplied *12 internally)
+   formula: currentRate_monthly = currentRate/100/12; remainingMonths = remainingYears*12; newRate_monthly = newRate/100/12; newTermMonths = newTerm*12
+            currentPayment = currentBalance * cR * (1+cR)^cM / ((1+cR)^cM - 1)
+            newPayment = currentBalance * nR * (1+nR)^nM / ((1+nR)^nM - 1)
+            monthlySavings = currentPayment - newPayment
+            breakEvenMonths = closingCosts / monthlySavings
+            currentTotalInterest = currentPayment * remainingMonths - currentBalance
+            newTotalInterest = newPayment * newTerm - currentBalance
+            netSavings = currentTotalInterest - newTotalInterest - closingCosts
+   zero_rate_branch: ABSENT for both calls — same flag as 2026-06-08 evening batch.
+   recommendation tiers: breakEven<=3y favorable; 3-7y cautious; >7y unfavorable; monthlySavings<=0 unfavorable.
+   test_cases (Python hand-derivation matches Node JS exact-bit on 2026-06-09):
+     TC1: bal=$250000, curRt=6.5%, remY=25, newRt=5.5%, newT=30, closing=$5000 -> curMP=$1688.02 newMP=$1419.47 monthlySave=$268.55 breakEven=18.6mo (1.55y) curTotalInt=$256405 newTotalInt=$261010 netLifeSavings=-$9605 (NEGATIVE — term extension wipes out monthly savings)
+     TC2: bal=$300000, curRt=7.0%, remY=20, newRt=6.0%, newT=30, closing=$6000 -> curMP=$2325.90 newMP=$1798.65 monthlySave=$527.25 breakEven=11.4mo (0.95y) curTotalInt=$258215 newTotalInt=$347515 netLifeSavings=-$95299 (NEGATIVE — extending 20y->30y at lower rate still costs more in total interest)
+     TC3: bal=$200000, curRt=8.0%, remY=15, newRt=5.5%, newT=20, closing=$4000 -> curMP=$1911.30 newMP=$1375.77 monthlySave=$535.53 breakEven=7.5mo (0.62y) curTotalInt=$144035 newTotalInt=$130186 netLifeSavings=$9849
+   flags: (a) no zero-rate branch; (b) breakEven uses simple closingCosts/monthlySavings — does NOT model opportunity cost of closing costs (e.g., if invested at 4.5% T-bill yield); (c) TC1 + TC2 demonstrate the TERM-EXTENSION TRAP — lower monthly payment but higher total interest because 25y->30y or 20y->30y resets amortization clock; UI does surface this via netSavings display but recommendation tier logic uses ONLY monthlySavings + breakEvenMonths, NOT netSavings — so it can recommend 'favorable' (TC1 break-even 1.55y) while netSavings is -$9605. **This is a UX bug, not a math bug**: math is correct, recommendation logic ignores life-of-loan cost. Flag for future fix — recommendation tier should incorporate netSavings sign; (d) does NOT model cash-out vs rate-and-term refi distinction, mortgage insurance changes, or rate-lock-period fees; (e) Freddie Mac PMMS week ending May 14 2026: 30-yr 6.36%, 15-yr 5.71%; cash-out add-on typically 25-50bps.
+   verified_by: evening-routine 2026-06-09 */
+
     function calculate() {
       // Get current mortgage values
       const currentBalance = parseFloat(document.getElementById('currentBalance').value);

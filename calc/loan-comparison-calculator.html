@@ -408,6 +408,18 @@
             });
         });
 
+        /* AUDIT 2026-06-09: file=loan-comparison-calculator.html | loan_type=side-by-side comparison of up to 4 loans | family=multi-loan std_amortization + simplified APR approximation; n_input_unit=YEARS (multiplied *12 internally)
+   formula (per loan): monthlyRate = rate/100/12; numPayments = term_years*12; monthlyPayment = amount * monthlyRate * (1+monthlyRate)^numPayments / ((1+monthlyRate)^numPayments - 1); totalPaid = monthlyPayment * numPayments; totalInterest = totalPaid - amount; totalCost = totalPaid + fees
+   APR_approximation: apr = (totalInterest / (amount/2) / years) * 100 — this is a SIMPLE-INTEREST APR APPROXIMATION, NOT the TILA/Reg Z APR. True TILA APR requires solving for the rate that equates PV of payments to (amount - fees) financed; this approximation does NOT account for fees in the rate calculation (fees only enter totalCost, not APR). Flag carried for future refresh — replace with TILA APR solver.
+   zero_rate_branch: ABSENT — if rate=0 the formula hits 0/0 (NaN). Form validation rejects rate<=0 via `if (amount > 0 && rate > 0 && term > 0)` short-circuit, so loop entries with rate=0 are silently dropped — that's a graceful failure but invisible to the user.
+   best-loan selection: minimizes totalCost (= totalPaid + fees). Correct objective for an apples-to-apples shopper.
+   test_cases (Python hand-derivation matches Node JS exact-bit on 2026-06-09):
+     TC1: amt=$20000, rate=7.0%, term=5y, fees=$500 -> mp=$396.02 totalInt=$3761.44 totalCost=$24261.44 APR_approx=7.52%
+     TC2: amt=$15000, rate=8.5%, term=3y, fees=$300 -> mp=$473.51 totalInt=$2046.47 totalCost=$17346.47 APR_approx=9.10%
+     TC3: amt=$50000, rate=6.0%, term=10y, fees=$1000 -> mp=$555.10 totalInt=$16612.30 totalCost=$67612.30 APR_approx=6.64%
+   flags: (a) APR is approximation, not TILA — for TC1 ($20K @ 7% / 5y + $500 fees), true TILA APR via iterative solver is closer to 7.97%, the displayed 7.52% understates by ~45 bps; (b) no zero-rate branch; (c) no prepayment penalty modeling; (d) form allows term to be a non-integer year — internally multiplied *12 so 3.5 -> 42 months works correctly, but UI does not surface this.
+   verified_by: evening-routine 2026-06-09 */
+
         function compareLoans() {
             const loans = [];
             

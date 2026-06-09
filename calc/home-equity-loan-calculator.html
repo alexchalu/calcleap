@@ -555,6 +555,17 @@
   </footer>
 
   <script>
+    /* AUDIT 2026-06-09: file=home-equity-loan-calculator.html (/calc/ sibling to root home-equity-loan-calculator.html audited 2026-06-08 evening) | loan_type=HEL (closed-end home equity loan) | family=homeValue+mortgageBalance+loanAmount+rate+termYears; std_amortization + LTV/CLTV; n_input_unit=YEARS (multiplied *12 internally)
+   formula: monthlyRate = annualRate/100/12; numPayments = years*12; monthlyPayment = loanAmount * monthlyRate * (1+monthlyRate)^numPayments / ((1+monthlyRate)^numPayments - 1); totalPaid = mp * numPayments; totalInterest = totalPaid - loanAmount
+   LTV/CLTV: ltv = mortgageBalance/homeValue * 100; cltv = (mortgageBalance + loanAmount)/homeValue * 100; availableEquity = homeValue*0.85 - mortgageBalance - loanAmount; warnings at cltv>85 (rejected) and 80<cltv<=85 (caution).
+   zero_rate_branch: ABSENT — same flag as 2026-06-08 evening batch.
+   test_cases (Python hand-derivation matches Node JS exact-bit on 2026-06-09):
+     TC1: hv=$400000, mb=$250000, la=$50000, rate=7.5%, term=10y -> mp=$593.51 totalInt=$21221.06 totalPaid=$71221.06 ltv=62.5% cltv=75.0% availEq=$40000
+     TC2: hv=$500000, mb=$300000, la=$75000, rate=8.0%, term=15y -> mp=$716.74 totalInt=$54013.03 totalPaid=$129013.03 ltv=60.0% cltv=75.0% availEq=$50000
+     TC3: hv=$350000, mb=$200000, la=$40000, rate=7.0%, term=5y -> mp=$792.05 totalInt=$7522.88 totalPaid=$47522.88 ltv=57.1% cltv=68.6% availEq=$57500
+   flags (same as root file audit 2026-06-08): (a) no zero-rate branch; (b) does NOT model 3-day right of rescission per CFPB Reg Z §1026.23 (closed-end consumer credit secured by principal residence); (c) does NOT model TCJA §163(h)(3)(F) 'buy/build/substantially improve' interest-deductibility test — most HEL borrowers using funds for consolidation/education get ZERO interest deduction; (d) 85% CLTV ceiling for 'availableEquity' is a national-avg lender cap; some credit unions allow 90% (Navy Federal, PenFed) and some banks cap at 80%; (e) Bankrate week ending June 3 2026: national 15-yr fixed HEL avg 7.36%, 5-yr 8.12%, 30-yr 8.20% — the 7.5% default is reasonable mid-range.
+   verified_by: evening-routine 2026-06-09 */
+
     function calculate() {
       const homeValue = parseFloat(document.getElementById('homeValue').value);
       const mortgageBalance = parseFloat(document.getElementById('mortgageBalance').value);
