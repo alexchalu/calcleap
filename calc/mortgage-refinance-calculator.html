@@ -686,13 +686,19 @@
       document.getElementById('newAmount').textContent = '$' + newPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
 
       // Show recommendation
+      // FIX 2026-06-11 evening: term-extension trap — a lower monthly payment from extending the
+      // amortization clock (e.g., 25y -> 30y) can still cost more in total interest than staying put.
+      // The "favorable" tier now requires BOTH monthlySavings > 0 AND netSavings > 0 so the green
+      // banner cannot fire on net-negative scenarios (see AUDIT 2026-06-09 TC1 / TC2).
       let recommendation = '';
-      if (monthlySavings > 0 && breakEvenYears <= 3) {
+      if (monthlySavings > 0 && netSavings <= 0) {
+        recommendation = `<div class="warning"><strong>⚠ Term-extension trap.</strong> You'd save $${monthlySavings.toFixed(2)} per month, but extending the amortization schedule means you'd pay <strong>$${Math.abs(netSavings).toLocaleString('en-US', {maximumFractionDigits: 0})} more</strong> in total interest plus closing costs over the life of the loan. Lower monthly payments are not the same as saving money — consider keeping your current term, making extra principal payments, or refinancing into a term that matches your remaining years.</div>`;
+      } else if (monthlySavings > 0 && breakEvenYears <= 3 && netSavings > 0) {
         recommendation = `<div class="success"><strong>✓ Refinancing looks favorable!</strong> You'll save $${monthlySavings.toFixed(2)} per month and break even in ${breakEvenYears.toFixed(1)} years. If you plan to stay in your home for at least ${Math.ceil(breakEvenYears)} years, refinancing could save you $${netSavings.toLocaleString('en-US', {maximumFractionDigits: 0})} over the life of the loan.</div>`;
-      } else if (monthlySavings > 0 && breakEvenYears > 3 && breakEvenYears <= 7) {
-        recommendation = `<div class="warning"><strong>⚠ Consider your timeline.</strong> While you'll save $${monthlySavings.toFixed(2)} per month, it will take ${breakEvenYears.toFixed(1)} years to break even on the $${closingCosts.toLocaleString('en-US')} closing costs. Refinancing makes sense if you plan to stay in your home for ${Math.ceil(breakEvenYears)}+ years.</div>`;
-      } else if (monthlySavings > 0 && breakEvenYears > 7) {
-        recommendation = `<div class="warning"><strong>⚠ Long break-even period.</strong> It will take ${breakEvenYears.toFixed(1)} years to recoup the closing costs. Unless you're planning to stay in your home long-term, the savings may not justify refinancing. Consider negotiating lower closing costs or waiting for rates to drop further.</div>`;
+      } else if (monthlySavings > 0 && breakEvenYears > 3 && breakEvenYears <= 7 && netSavings > 0) {
+        recommendation = `<div class="warning"><strong>⚠ Consider your timeline.</strong> While you'll save $${monthlySavings.toFixed(2)} per month and net $${netSavings.toLocaleString('en-US', {maximumFractionDigits: 0})} over the life of the loan, it will take ${breakEvenYears.toFixed(1)} years to break even on the $${closingCosts.toLocaleString('en-US')} closing costs. Refinancing makes sense if you plan to stay in your home for ${Math.ceil(breakEvenYears)}+ years.</div>`;
+      } else if (monthlySavings > 0 && breakEvenYears > 7 && netSavings > 0) {
+        recommendation = `<div class="warning"><strong>⚠ Long break-even period.</strong> It will take ${breakEvenYears.toFixed(1)} years to recoup the closing costs. Unless you're planning to stay in your home long-term, the $${netSavings.toLocaleString('en-US', {maximumFractionDigits: 0})} in lifetime savings may not justify refinancing. Consider negotiating lower closing costs or waiting for rates to drop further.</div>`;
       } else {
         recommendation = `<div class="warning"><strong>⚠ Refinancing may not save money.</strong> Your monthly payment would increase by $${Math.abs(monthlySavings).toFixed(2)}. Consider waiting for interest rates to drop further, or explore other refinancing options like changing your loan term or eliminating PMI.</div>`;
       }

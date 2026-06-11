@@ -403,6 +403,21 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         
     </div>
 <script>
+/* AUDIT 2026-06-11: file=mortgage-refinance-calculator.html (root) | loan_type=mortgage refinance break-even | family=TWO std_amortization calls + break-even + lifetimeSavings
+   formula: cR = currentRate/100/12; cM = currentYears*12; nR = newRate/100/12; nM = newTerm*12
+            currentPayment = balance * cR * (1+cR)^cM / ((1+cR)^cM - 1)
+            newPayment = balance * nR * (1+nR)^nM / ((1+nR)^nM - 1)
+            monthlySavings = currentPayment - newPayment
+            breakEvenMonths = ceil(closingCosts / monthlySavings)
+            totalCurrentInterest = currentPayment * cM - balance
+            totalNewInterest = newPayment * nM - balance
+            lifetimeSavings = totalCurrentInterest - totalNewInterest - closingCosts
+   test_cases (Node execution of live calculate() body matches Python hand-derivation exact-bit; same TCs as /calc/ sibling audited 2026-06-09):
+     TC1: bal=$250000, curRt=6.5%, curY=25, newRt=5.5%, newT=30, closing=$5000 -> curMP=$1688.02 newMP=$1419.47 monthlySave=$268.55 breakEven=19mo lifetimeSavings=-$9605 (NEGATIVE — term-extension trap)
+     TC2: bal=$300000, curRt=7.0%, curY=20, newRt=6.0%, newT=30, closing=$6000 -> curMP=$2325.90 newMP=$1798.65 monthlySave=$527.25 breakEven=12mo lifetimeSavings=-$95299 (NEGATIVE)
+     TC3: bal=$200000, curRt=8.0%, curY=15, newRt=5.5%, newT=20, closing=$4000 -> curMP=$1911.30 newMP=$1375.77 monthlySave=$535.53 breakEven=8mo lifetimeSavings=+$9849
+   flags: (a) no zero-rate branch — NaN if user enters rate=0; (b) breakEven uses simple closingCosts/monthlySavings — does NOT model opportunity cost; (c) prior version did NOT display lifetimeSavings and showed green "Refinancing saves you" banner whenever monthlySavings>0 — fixed 2026-06-11 evening (term-extension-trap branch added); (d) no cash-out vs rate-and-term distinction.
+   verified_by: evening-routine 2026-06-11 */
 function calculate() {
     const resultBox = document.getElementById('result');
     let html = '<h3>Refinance Results</h3>';
@@ -434,9 +449,16 @@ function calculate() {
     html += '<div class="result-detail"><strong>Break-even Point:</strong> ' + breakEvenMonths + ' months (' + (breakEvenMonths / 12).toFixed(1) + ' years)</div>';
     html += '<div class="result-detail"><strong>Total Current Interest:</strong> $' + totalCurrentInterest.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</div>';
     html += '<div class="result-detail"><strong>Total New Interest:</strong> $' + totalNewInterest.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</div>';
+    var lifetimeFmt = (lifetimeSavings >= 0 ? '$' : '-$') + Math.abs(lifetimeSavings).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    html += '<div class="result-detail"><strong>Lifetime Savings (after closing costs):</strong> ' + lifetimeFmt + '</div>';
     html += '<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #374151">';
-    if (monthlySavings > 0) {
-        html += '<div class="result-detail" style="color:#34d399;font-weight:700;font-size:1.1rem">✅ Refinancing saves you $' + monthlySavings.toFixed(2) + '/month</div>';
+    // FIX 2026-06-11 evening: term-extension trap — lower monthly payment can still mean higher
+    // total interest when the new amortization term resets the clock. Green banner now requires
+    // BOTH monthlySavings > 0 AND lifetimeSavings > 0.
+    if (monthlySavings > 0 && lifetimeSavings > 0) {
+        html += '<div class="result-detail" style="color:#34d399;font-weight:700;font-size:1.1rem">✅ Refinancing saves you $' + monthlySavings.toFixed(2) + '/month and ' + lifetimeFmt + ' over the life of the loan</div>';
+    } else if (monthlySavings > 0 && lifetimeSavings <= 0) {
+        html += '<div class="result-detail" style="color:#f59e0b;font-weight:700;font-size:1.1rem">⚠️ Term-extension trap: monthly payment drops by $' + monthlySavings.toFixed(2) + ', but total interest + closing costs are ' + (-lifetimeSavings).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' dollars HIGHER over the life of the loan.</div>';
     } else {
         html += '<div class="result-detail" style="color:#f87171;font-weight:700;font-size:1.1rem">❌ Refinancing would cost you more per month</div>';
     }
