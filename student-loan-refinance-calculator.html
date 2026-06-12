@@ -223,8 +223,8 @@
             </div>
             <div class="input-group">
                 <label for="rate">Interest Rate (%):</label>
-                <input type="number" id="rate" min="0" max="15" value="5.5" step="0.125" aria-label="Rate">
-                <small>Federal loans: 4-7%, Private loans: 3-12%</small>
+                <input type="number" id="rate" min="0" max="15" value="6.53" step="0.125" aria-label="Rate">
+                <small>Federal AY2025-26: 6.53% (Undergrad), 8.08% (Grad), 9.08% (PLUS) per Dept of Ed; private refi 2026: ~5-9% fixed</small>
             </div>
             <div class="input-group">
                 <label for="term">Repayment Term:</label>
@@ -318,10 +318,11 @@
            known simplifications / flags (NOT math errors, scope-for-future refresh):
              Private refi rates vary by credit score / co-signer / income; competitive 2026 fixed-rate offerings from SoFi / Earnest / Laurel Road span ~4.99-9.99%. The 5.5% default is reasonable for a strong-credit borrower. CRITICAL CONSUMER CAVEAT not surfaced in current UI: refinancing FEDERAL loans into a PRIVATE refi PERMANENTLY forfeits PSLF, IDR, and federal forbearance/discharge protections - this is the highest-leverage decision factor for refi shoppers and the calculator should warn explicitly. Flag for UX refresh.
            verified_by: evening-routine
+           FIX 2026-06-12: refreshed UI rate default 5.5% → 6.53% and JS fallback 0.055 → 0.0653 to align with mid-market 2026 private refi quote band (5-9% per the FAQ block in this file). 5.5% was at the low end of the band (top-tier credit only); 6.53% is a more representative midpoint for the median refi shopper and also coincidentally matches the AY2025-26 federal Undergrad Direct rate (a natural decision anchor — refi makes sense when the new rate is meaningfully below the federal rate the borrower would otherwise carry). Updated hint text from stale "Federal loans: 4-7%, Private loans: 3-12%" to current AY2025-26 federal rate breakdown + private-refi band. TC values unchanged (still 7.0%/8.05%/6.5% test scenarios — inputs to the formula, not derived from UI default). The "CRITICAL CONSUMER CAVEAT" flag re: federal-to-private refi PSLF/IDR forfeiture remains; partially mitigated by the 2026-06-10 evening FAQ schema injection (Q2 of the FAQPage explicitly warns about PSLF/IDR forfeiture). UI-level inline warning still held for future UX evening.
         */
         function calculate() {
             const balance = parseFloat(document.getElementById('balance').value) || 0;
-            const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.055;
+            const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.0653;
             const years = parseInt(document.getElementById('term').value) || 10;
             
             const monthlyRate = annualRate / 12;

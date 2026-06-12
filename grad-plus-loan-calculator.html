@@ -223,8 +223,8 @@
             </div>
             <div class="input-group">
                 <label for="rate">Interest Rate (%):</label>
-                <input type="number" id="rate" min="0" max="15" value="5.5" step="0.125" aria-label="Rate">
-                <small>Federal loans: 4-7%, Private loans: 3-12%</small>
+                <input type="number" id="rate" min="0" max="15" value="9.08" step="0.125" aria-label="Rate">
+                <small>AY2025-26 Grad PLUS fixed rate: 9.08% per Dept of Ed (Bipartisan Student Loan Certainty Act 2013: 10-yr T-Note May high yield + 4.60%, capped at 10.50%)</small>
             </div>
             <div class="input-group">
                 <label for="term">Repayment Term:</label>
@@ -316,12 +316,13 @@
              TC2: balance=80000, rate=8.05, term=10 -> monthly=$972.74, totalPaid=$116728.28, totalInterest=$36728.28
              TC3: balance=30000, rate=6.5, term=20 -> monthly=$223.67, totalPaid=$53681.27, totalInterest=$23681.27
            known simplifications / flags (NOT math errors, scope-for-future refresh):
-             Grad PLUS interest rate is set by Bipartisan Student Loan Certainty Act 2013 = 10-yr T-Note high yield (May auction) + 4.60%, capped at 10.50%. AY2025-26 (loans first disbursed July 1, 2025 - June 30, 2026): 9.08% per Dept of Ed. The 5.5% default in the input is stale (matches AY2020-21 era) - flag for UX rate-default refresh. Also does NOT model the one-time 4.228% origination fee deducted at disbursement per HEA §455(c).
+             Grad PLUS interest rate is set by Bipartisan Student Loan Certainty Act 2013 = 10-yr T-Note high yield (May auction) + 4.60%, capped at 10.50%. AY2025-26 (loans first disbursed July 1, 2025 - June 30, 2026): 9.08% per Dept of Ed. Also does NOT model the one-time 4.228% origination fee deducted at disbursement per HEA §455(c).
            verified_by: evening-routine
+           FIX 2026-06-12: refreshed UI rate default 5.5% → 9.08% and JS fallback 0.055 → 0.0908 to match the AY2025-26 statutory rate per Dept of Ed for loans first disbursed July 1, 2025 - June 30, 2026. The 5.5% default matched the AY2020-21 era and was stale by 4 disbursement years; a graduate borrower loading this calculator today would face 9.08%, not 5.5%, so the UI default now reflects reality. Updated hint text to surface the statutory citation directly (helps the calculator double as an explainer of how the rate is set). TC values unchanged (7.0%/8.05%/6.5% — historical hand-verified canonical tests, not derived from UI default). Closes the stale-default flag from the 2026-06-08 audit. The 4.228% origination-fee flag remains open (requires net-vs-gross display refactor; held for future evening).
         */
         function calculate() {
             const balance = parseFloat(document.getElementById('balance').value) || 0;
-            const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.055;
+            const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.0908;
             const years = parseInt(document.getElementById('term').value) || 10;
             
             const monthlyRate = annualRate / 12;
