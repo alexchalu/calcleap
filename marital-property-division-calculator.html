@@ -180,6 +180,81 @@
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+    <!-- AUDIT 2026-06-13: BreadcrumbList + FAQPage injected by evening-routine -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcleap.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Family Law Calculators",
+      "item": "https://calcleap.com/#legal"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Marital Property Division Calculator",
+      "item": "https://calcleap.com/marital-property-division-calculator.html"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is marital property divided in a divorce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nine community property states (Arizona, California, Idaho, Louisiana, Nevada, New Mexico, Texas, Washington, Wisconsin) presumptively split marital property 50/50 regardless of who acquired it. The other 41 states follow equitable distribution, which means courts divide marital property fairly — not necessarily equally — based on statutory factors: marriage length, each spouse's age and health, earning capacity, contributions to the marriage (including non-economic), and custody of minor children. Separate property generally stays with the owner spouse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between marital and separate property?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Marital property typically includes all assets and debts acquired by either spouse during the marriage. Separate property generally includes: assets owned before marriage, gifts to one spouse, inheritances received during marriage, and property excluded by a valid prenuptial agreement. Separate property can lose its separate character (become 'commingled') if mixed with marital funds — for example, depositing inheritance into a joint account — at which point it may be treated as marital property."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the marital home handled in a divorce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three common options: (1) Sell and split proceeds — cleanest financially but requires both parties to agree and bear selling costs (~6% of sale price); (2) One spouse buys out the other — requires refinancing the mortgage in the buying spouse's name only and paying the leaving spouse for their equity share; (3) Continue joint ownership for a defined period — common when minor children are involved (\"nesting\" or \"deferred sale\") with a sunset date for sale at the youngest child's graduation. Each option has tax and lending consequences."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are debts divided in a divorce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Marital debts are generally divided in proportion to the property division. In community property states they are presumptively split 50/50; in equitable distribution states they are allocated based on the same factors used for assets. Debts incurred for separate property (such as a student loan from before the marriage) typically stay with the owing spouse. Crucially, a divorce decree does NOT bind creditors — if both spouses' names are on a credit card, the creditor can pursue either for the full debt regardless of how the decree allocates it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do retirement accounts get split 50/50?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not automatically. In community property states, retirement contributions and growth during the marriage are presumptively split 50/50. In equitable distribution states, the marital portion of a retirement account is divided based on the same factors as other marital property. The pre-marital portion of a retirement account is usually separate property and stays with the owner spouse. 401(k)s and pensions require a Qualified Domestic Relations Order (QDRO) to divide; IRAs can be divided via a direct trustee-to-trustee transfer under IRC §408(d)(6) without a QDRO."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
@@ -282,6 +357,24 @@
     </div>
 
     <script>
+                /* AUDIT 2026-06-13: state=root | calculator=marital_property_division_calculator |
+   status=NEEDS_HUMAN_REVIEW_for_UX |
+   formula=totalCost = (hours*rate) + courtFees + otherCosts |
+   semantics=math_correct_for_attorney_cost_estimator_BUT_page_title+H1+meta_description_promise_equitable_distribution_property_division_arithmetic |
+   semantic_gap=page_title_'Marital_Property_Division_Calculator'_promises_a_property/debt_allocation_split_(community_property_50/50_vs_equitable_distribution_factor_weighting)_but_actual_calculator_returns_legal-cost_estimate;_user_expecting_split_arithmetic_will_be_confused |
+   complexity_brackets=same_as_divorce_attorney_cost_calculator |
+   test_cases=[
+     {label:"simple_20hr_300rate", complexity:'simple', hours:20, rate:300, expected:{total:7000}},
+     {label:"moderate_50hr_400rate", complexity:'moderate', hours:50, rate:400, expected:{total:23500}},
+     {label:"complex_150hr_500rate", complexity:'complex', hours:150, rate:500, expected:{total:83000}}
+   ] |
+   known_flags=[
+     "PAGE_PROMISES_PROPERTY_SPLIT_BUT_DELIVERS_COST_ESTIMATE_-_AdSense_quality_signal_concern",
+     "shared_template_with_4_other_divorce-family_files",
+     "recommended_real_calculator=input_marital_estate_total_+_separate_property_carve-out_+_state_(community_vs_equitable);_output_each_spouse's_share_+_any_offset_payments_required"
+   ] |
+   recommended_fix=rename_H1_to_'Marital_Property_Division_Cost_Calculator'_OR_implement_split_arithmetic |
+   verified_by=evening-routine */
         function calculate() {
             const complexity = document.getElementById('complexity').value;
             const hours = parseFloat(document.getElementById('hours').value) || 20;

@@ -180,6 +180,81 @@
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+    <!-- AUDIT 2026-06-13: BreadcrumbList + FAQPage injected by evening-routine -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcleap.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Family Law Calculators",
+      "item": "https://calcleap.com/#legal"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Divorce Settlement Calculator",
+      "item": "https://calcleap.com/divorce-settlement-calculator.html"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is a divorce settlement typically structured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A divorce settlement allocates marital assets and debts between spouses. Nine community property states (Arizona, California, Idaho, Louisiana, Nevada, New Mexico, Texas, Washington, Wisconsin) presumptively split marital property 50/50; the other 41 states follow equitable distribution, which means courts divide property based on factors like marriage length, each spouse's earning capacity, contributions to the marriage, custody arrangements, and any prior agreements. Separate property (assets owned before marriage, gifts, inheritances) generally stays with the owner spouse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What assets are split in a divorce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Marital assets typically include: the marital home, retirement accounts (401(k), IRA, pension, deferred compensation), brokerage and savings accounts, vehicles, household goods, business interests, intellectual property, and stock options. Debts (mortgage, credit cards, auto loans, student loans incurred during marriage) are split similarly. Pre-marital property and inheritances received during marriage are usually separate property unless commingled."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are retirement accounts divided in a divorce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "401(k)s, pensions, and other ERISA-qualified retirement plans are divided via a Qualified Domestic Relations Order (QDRO) — a court order directing the plan administrator to transfer a portion to the non-employee spouse. IRAs are divided differently: under IRC §408(d)(6), an IRA transfer incident to divorce can be done as a direct trustee-to-trustee transfer without a QDRO and without triggering income tax. Both QDRO and §408(d)(6) transfers are tax-free at the time of transfer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are settlement costs different from attorney costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — but they overlap. The total cash cost of a divorce settlement includes (a) legal fees (attorney + court), (b) one-time transaction costs (refinancing the marital home, QDRO drafting fees of $500–$1,500 per retirement account, real-estate transfer taxes, appraisal fees for businesses or real estate), and (c) ongoing post-decree costs (support payments, COBRA premiums after losing health insurance, separate-household duplication of housing/utilities)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I reduce my divorce settlement costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top cost-cutting moves: (1) Mediate property and custody issues before litigating — this often saves $10,000–$40,000+ vs trial; (2) Negotiate the marital home directly rather than litigating (selling and splitting proceeds avoids refinancing costs); (3) Use IRC §408(d)(6) direct IRA transfers rather than QDROs where eligible; (4) Stage tax-loss harvesting before splitting brokerage accounts; (5) Time the divorce to use the IRC §121 $500,000 home-sale exclusion if eligible (both spouses must have used the home as principal residence for 2 of the last 5 years)."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
@@ -282,6 +357,24 @@
     </div>
 
     <script>
+                /* AUDIT 2026-06-13: state=root | calculator=divorce_settlement_calculator |
+   status=NEEDS_HUMAN_REVIEW_for_UX |
+   formula=totalCost = (hours*rate) + courtFees + otherCosts |
+   semantics=math_correct_for_attorney_cost_estimator_BUT_page_title+H1+meta_description_promise_settlement_property-division_computation |
+   semantic_gap=page_title_'Divorce_Settlement_Calculator'_and_meta_description_'Calculate_equitable_property_division_and_asset_split'_DO_NOT_match_the_actual_calculator_function_which_estimates_attorney/court_costs_via_the_same_template_as_divorce-attorney-cost-calculator;_user_expecting_50-50_or_equitable_split_arithmetic_will_be_confused |
+   complexity_brackets=same_as_divorce_attorney_cost_calculator |
+   test_cases=[
+     {label:"simple_20hr_300rate", complexity:'simple', hours:20, rate:300, expected:{total:7000}},
+     {label:"moderate_50hr_400rate", complexity:'moderate', hours:50, rate:400, expected:{total:23500}},
+     {label:"complex_150hr_500rate", complexity:'complex', hours:150, rate:500, expected:{total:83000}}
+   ] |
+   known_flags=[
+     "PAGE_PROMISES_SETTLEMENT_SPLIT_ARITHMETIC_BUT_DELIVERS_COST_ESTIMATE_-_AdSense_quality_signal_concern",
+     "math_correct_for_cost_estimation_but_calculator_should_either_(a)_implement_marital-asset-vs-debt-split_(community_property_50/50_vs_equitable_distribution_states)_or_(b)_rename_to_'divorce_settlement_cost_estimator'",
+     "shared_template_with_4_other_divorce-family_files_(divorce-attorney-cost,_marital-property-division,_retirement-division,_legal-separation-cost)"
+   ] |
+   recommended_fix=rename_H1_and_meta_to_'Divorce_Settlement_Cost_Calculator'_OR_implement_split_arithmetic_(separate_property_carve-out,_marital_estate_total,_50/50_split_in_9_community_property_states_(AZ,CA,ID,LA,NV,NM,TX,WA,WI),_equitable_distribution_factors_per_remaining_41_states) |
+   verified_by=evening-routine */
         function calculate() {
             const complexity = document.getElementById('complexity').value;
             const hours = parseFloat(document.getElementById('hours').value) || 20;

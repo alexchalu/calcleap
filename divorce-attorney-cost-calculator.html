@@ -180,6 +180,81 @@
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+    <!-- AUDIT 2026-06-13: BreadcrumbList + FAQPage injected by evening-routine -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcleap.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Family Law Calculators",
+      "item": "https://calcleap.com/#legal"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Divorce Attorney Cost Calculator",
+      "item": "https://calcleap.com/divorce-attorney-cost-calculator.html"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much do divorce attorneys charge per hour in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divorce attorney hourly rates typically run $250–$500 nationally, with metro markets (NYC, San Francisco, DC, Boston, Los Angeles) often $400–$700+ and rural areas closer to $200–$300. Senior partners at boutique family-law firms may bill $600–$1,000+. The American Academy of Matrimonial Lawyers practice surveys are the most reliable published source for these ranges; individual state bar associations also publish median rates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many hours does a typical divorce take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uncontested divorces with no children average 10–20 attorney hours per spouse. Moderately complex divorces — some asset disputes or basic custody issues but no trial — average 20–50 hours. Contested divorces with custody disputes, business valuations, or trial typically run 50–200+ hours per spouse. The single biggest hour-driver is whether the case settles before trial; trial preparation alone can add 40–80 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get my spouse to pay my attorney fees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In many states, yes. Courts can order the higher-earning spouse to pay all or part of the lower-earning spouse's attorney fees, especially when there is a significant income disparity that would otherwise leave one party without effective representation. The legal standard varies by state — \"need and ability to pay\" is common — and the request is usually made via motion at the start of the case."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a retainer and how does it work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A retainer is an upfront deposit (typically $3,000–$10,000 for uncontested cases, $10,000–$25,000+ for contested cases) that the attorney bills against as work is performed. Once the retainer is depleted, you are billed for additional time or asked to replenish. Unused portions of the retainer are refunded at the end of representation. Some attorneys offer flat-fee structures for uncontested divorces — typically $1,500–$5,000 — which can be more predictable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I reduce my attorney fees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strategies that reliably cut attorney time: (1) Mediation before litigation — mediators charge $150–$400/hour and most cases close in 2–6 sessions; (2) Limited-scope (unbundled) representation where the attorney only handles specific tasks; (3) Provide documents promptly and organized — disorganized clients are the single biggest source of wasted attorney time; (4) Settle issues directly with your spouse when possible to avoid attorney intermediary billing; (5) Be selective about motions — every motion adds attorney time and court fees."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
@@ -282,6 +357,26 @@
     </div>
 
     <script>
+                /* AUDIT 2026-06-13: state=root | calculator=divorce_attorney_cost_estimator |
+   formula=totalCost = (hours*rate) + courtFees + otherCosts |
+   complexity_brackets={
+     simple/uncontested:    courtFees=$500,  otherCosts=$500,  default_hours=20,
+     moderate:              courtFees=$1500, otherCosts=$2000, default_hours=20,
+     complex/contested:     courtFees=$3000, otherCosts=$5000, default_hours=20
+   } |
+   test_cases=[
+     {label:"simple_20hr_300rate", complexity:'simple', hours:20, rate:300, expected:{attorneyFees:6000, courtFees:500, otherCosts:500, total:7000}},
+     {label:"moderate_50hr_400rate", complexity:'moderate', hours:50, rate:400, expected:{attorneyFees:20000, courtFees:1500, otherCosts:2000, total:23500}},
+     {label:"complex_150hr_500rate", complexity:'complex', hours:150, rate:500, expected:{attorneyFees:75000, courtFees:3000, otherCosts:5000, total:83000}}
+   ] |
+   known_flags=[
+     "complexity_brackets_set_to_FIXED_court+other_costs_per_tier;_in_reality_court_fees_vary_BY_STATE_($70_MS_to_$435_CA)_not_BY_COMPLEXITY",
+     "no_per_state_filing_fee_lookup",
+     "no_appeal_or_post-decree_modification_cost_modeling",
+     "no_mediation_alternative_cost_path_modeling",
+     "default_hours_remains_20_regardless_of_complexity_selection_(user_must_manually_adjust)"
+   ] |
+   verified_by=evening-routine */
         function calculate() {
             const complexity = document.getElementById('complexity').value;
             const hours = parseFloat(document.getElementById('hours').value) || 20;

@@ -180,6 +180,81 @@
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+    <!-- AUDIT 2026-06-13: BreadcrumbList + FAQPage injected by evening-routine -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcleap.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Family Law Calculators",
+      "item": "https://calcleap.com/#legal"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Retirement Division Calculator",
+      "item": "https://calcleap.com/retirement-division-calculator.html"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How are retirement accounts divided in a divorce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "401(k)s, 403(b)s, pensions, and other ERISA-qualified plans are divided via a Qualified Domestic Relations Order (QDRO) — a court order directing the plan administrator to transfer a portion to the non-employee spouse (the 'alternate payee'). Once the QDRO is approved, the alternate payee can receive the funds directly or roll them into their own IRA. IRAs are divided differently: under IRC §408(d)(6), an IRA can be divided via a direct trustee-to-trustee transfer using the divorce decree alone — no QDRO required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do IRAs need a QDRO to divide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This is one of the most expensive misunderstandings in divorce. IRAs are divided under IRC §408(d)(6) via a direct trustee-to-trustee transfer using the divorce decree or separation agreement. The transfer is tax-free, no penalty applies, and no QDRO is required. Industry sources estimate hundreds of millions of dollars are wasted annually on unnecessary QDRO drafting for IRAs. Only ERISA-qualified employer plans (401(k), 403(b), pension, deferred compensation) require a QDRO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What portion of my retirement account does my spouse get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually the 'marital portion' — the share accumulated during the marriage. In community property states this is typically 50/50; in equitable distribution states it is divided based on the statutory factors. The marital portion is computed via either (a) the time-rule / coverture fraction = years married during employment / total years of employment, applied to the current balance, or (b) account-segregation = compare balance at marriage date vs balance at divorce date and split only the growth. Pre-marital contributions and growth typically remain separate property."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I take distributions from my divided 401(k) without penalty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — partially. Under IRC §72(t)(2)(C), the alternate payee in a QDRO can take distributions from the segregated portion at any age without the 10% early-withdrawal penalty (regular income tax still applies). This is one of the few legal ways to access 401(k) funds before age 59½ without penalty. After rolling the QDRO distribution into an IRA, however, the §72(t)(2)(C) exception is lost — withdrawals from the IRA before 59½ are subject to the standard 10% penalty unless another exception applies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a QDRO cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typical QDRO drafting fees run $500–$1,500 per retirement plan when prepared by an experienced QDRO attorney or specialist drafting service. Complex pension plans (especially union or governmental plans with hybrid defined-benefit/defined-contribution structures) can run $2,000–$5,000+. Many family-law attorneys outsource QDRO drafting to specialists because the technical requirements vary by plan and a defective QDRO can be rejected by the plan administrator, requiring re-drafting and re-filing."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
@@ -282,6 +357,25 @@
     </div>
 
     <script>
+                /* AUDIT 2026-06-13: state=root | calculator=retirement_division_calculator |
+   status=NEEDS_HUMAN_REVIEW_for_UX |
+   formula=totalCost = (hours*rate) + courtFees + otherCosts |
+   semantics=math_correct_for_attorney_cost_estimator_BUT_page_title+H1+meta_description_promise_QDRO/retirement-asset_split_computation |
+   semantic_gap=page_title_'Retirement_Division_Calculator'_promises_a_QDRO_marital-portion_calculation_(time-rule_or_coverture_fraction)_or_account-balance_split_but_actual_calculator_returns_legal-cost_estimate;_user_expecting_to_compute_'what_share_of_my_401k_does_my_spouse_get'_will_be_confused |
+   complexity_brackets=same_as_divorce_attorney_cost_calculator |
+   test_cases=[
+     {label:"simple_20hr_300rate", complexity:'simple', hours:20, rate:300, expected:{total:7000}},
+     {label:"moderate_50hr_400rate", complexity:'moderate', hours:50, rate:400, expected:{total:23500}},
+     {label:"complex_150hr_500rate", complexity:'complex', hours:150, rate:500, expected:{total:83000}}
+   ] |
+   known_flags=[
+     "PAGE_PROMISES_RETIREMENT_SPLIT_BUT_DELIVERS_COST_ESTIMATE_-_AdSense_quality_signal_concern",
+     "shared_template_with_4_other_divorce-family_files",
+     "recommended_real_calculator=input_account_balance_at_marriage_+_balance_at_divorce_+_marriage_years_during_employment_+_total_employment_years;_compute_marital_portion_via_coverture_fraction_or_account-segregation;_output_QDRO_split_share_(typically_50%)_or_offset_in_lieu_of_split",
+     "no_QDRO_vs_IRA_§408(d)(6)_distinction_(IRAs_do_NOT_need_QDROs_-_widely_misunderstood_high-leverage_education_point)"
+   ] |
+   recommended_fix=rename_H1_to_'Retirement_Division_Cost_Calculator'_OR_implement_coverture-fraction_split_arithmetic |
+   verified_by=evening-routine */
         function calculate() {
             const complexity = document.getElementById('complexity').value;
             const hours = parseFloat(document.getElementById('hours').value) || 20;

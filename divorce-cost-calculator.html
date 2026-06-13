@@ -337,6 +337,81 @@
             }
         }
     </style>
+    <!-- AUDIT 2026-06-13: BreadcrumbList + FAQPage injected by evening-routine -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcleap.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Family Law Calculators",
+      "item": "https://calcleap.com/#legal"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Divorce Cost Calculator",
+      "item": "https://calcleap.com/divorce-cost-calculator.html"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a divorce cost in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total cost ranges from about $300 for a DIY uncontested filing to $50,000+ per spouse for contested litigation. The American Academy of Matrimonial Lawyers' practice surveys put the median contested divorce in the $15,000–$30,000-per-spouse range when settled before trial, and $25,000–$50,000+ when tried. Attorney hourly rates of $250–$500 (metro $600+) and 20–200 billable hours are the biggest drivers; court filing fees range from $70 (Mississippi) to $435 (California)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between contested and uncontested divorce costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uncontested divorces — where both spouses agree on property, custody, and support — typically run $1,500–$8,000 total because attorneys spend 10–20 hours. Contested cases require depositions, discovery motions, custody evaluations, and possibly trial, pushing attorney time to 50–200 hours per spouse and total cost to $15,000–$150,000+. The single biggest cost lever in a divorce is whether the parties can settle before trial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are divorce attorney fees tax deductible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally no. Personal legal fees for divorce are not deductible under IRC §67(g) (the TCJA-era suspension of miscellaneous itemized deductions through 2025). Fees specifically allocated to tax advice or to securing taxable income (for example, pre-2019 alimony determination) may still qualify under prior rules; fees for property-division advice may be added to the cost basis of the property received. Consult a tax professional for case-specific guidance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I reduce my divorce costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top cost-reduction strategies: (1) Use mediation before litigation — mediators charge $150–$400/hour and most cases close in 2–6 sessions ($3,000–$8,000 total); (2) Choose limited-scope (unbundled) representation where the attorney handles only specific tasks; (3) Stay organized so attorney time is not wasted on document gathering; (4) Settle issues directly with your spouse where possible to reduce attorney-intermediary billing; (5) File for fee waivers if you qualify based on income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I cannot afford divorce costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Several options exist: court fee waivers based on income, free legal aid through non-profit organizations, pro bono representation for qualifying cases, attorney payment plans, unbundled (task-based) legal services, and supervised law school clinic assistance. In many states courts can also order the higher-earning spouse to pay the lower-earning spouse's attorney fees when there is significant income disparity, ensuring both parties have fair representation."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <div class="container">
@@ -631,6 +706,21 @@
     </div>
     
     <script>
+                /* AUDIT 2026-06-13: state=root | calculator=divorce_total_cost_estimator |
+   formula=totalCost = attorneyRate*estimatedHours + courtFilingFees + (mediationSessions*mediationRate) + (expertWitnesses*expertCost) + serviceProcessing + otherCosts |
+   semantics=simple_summation_of_independently_entered_line_items |
+   test_cases=[
+     {label:"uncontested_simple", inputs:{type:'uncontested',attorneyRate:300,hours:10,court:500,sessions:2,medRate:200,experts:0,expCost:0,service:75,other:200}, expected:{attorneyFees:3000,medCosts:400,expCosts:0,total:4175}},
+     {label:"contested_moderate", inputs:{type:'contested',attorneyRate:400,hours:80,court:750,sessions:0,medRate:0,experts:2,expCost:2500,service:150,other:1500}, expected:{attorneyFees:32000,medCosts:0,expCosts:5000,total:39400}},
+     {label:"contested_complex_high_net_worth", inputs:{type:'contested',attorneyRate:500,hours:200,court:1500,sessions:0,medRate:0,experts:3,expCost:3500,service:200,other:5000}, expected:{attorneyFees:100000,expCosts:10500,total:117200}}
+   ] |
+   known_flags=[
+     "default_estimatedHours_jumps_10_to_80_on_radio_change_no_intermediate_for_partially_contested",
+     "no_per_state_filing_fee_lookup_(uses_user_input)_-_state_range_$70_MS_to_$435_CA",
+     "no_post_decree_modification_cost_modeling",
+     "no_tax_treatment_of_legal_fees_(generally_non-deductible_per_TCJA_§67(g)_for_personal_divorce_fees)"
+   ] |
+   verified_by=evening-routine */
         function calculateDivorceCost() {
             // Get input values
             const divorceType = document.querySelector('input[name="divorceType"]:checked').value;

@@ -180,6 +180,81 @@
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+    <!-- AUDIT 2026-06-13: BreadcrumbList + FAQPage injected by evening-routine -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcleap.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Family Law Calculators",
+      "item": "https://calcleap.com/#legal"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Legal Separation Cost Calculator",
+      "item": "https://calcleap.com/legal-separation-cost-calculator.html"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a legal separation cost compared to divorce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Legal separation typically runs $2,000–$15,000 total — meaningfully less than a full divorce ($15,000–$50,000+ contested) because most states do not require full property division at the separation stage. Uncontested separations with minimal disputes can run as little as $1,500–$3,000 with limited-scope attorney representation. If the parties later convert the separation to divorce, additional legal work is required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between legal separation and divorce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Legal separation gives spouses court-ordered terms (support, custody, property division) while remaining legally married. Divorce terminates the marriage. People choose legal separation for religious reasons (some faiths prohibit divorce), to preserve health-insurance coverage under a spouse's employer plan, to maintain military or Social Security spousal benefits (10-year marriage threshold for SS divorced-spouse benefits), or as a trial period before deciding to divorce."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does legal separation affect health insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often yes — but it depends on the specific insurance plan. Some employer health plans treat legal separation the same as divorce and require the non-employee spouse to be removed from coverage; others allow continued coverage. Federal COBRA continuation rights are triggered by legal separation, giving the affected spouse up to 36 months of continuation coverage. Check the plan's Summary Plan Description for specific rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I file for legal separation in any state?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Legal separation is not available in every state. Delaware, Florida, Georgia, Mississippi, Pennsylvania, and Texas do not formally recognize legal separation as a separate legal status. Couples in those states typically either remain married, enter a private separation agreement (a contract enforceable in family court but without separation status), or proceed directly to divorce."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a legal separation to a divorce later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — in every state that recognizes legal separation. The procedural mechanics vary: some states allow a simple motion to convert; others require a fresh divorce filing that references the separation agreement; a few impose a waiting period (typically 6–12 months). Property and support terms from the separation typically carry over but can be revisited if there has been a material change in circumstances."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
@@ -282,6 +357,22 @@
     </div>
 
     <script>
+                /* AUDIT 2026-06-13: state=root | calculator=legal_separation_cost_estimator |
+   formula=totalCost = (hours*rate) + courtFees + otherCosts |
+   complexity_brackets=same_as_divorce_attorney_cost_calculator |
+   note=shares_identical_calculate()_implementation_with_divorce-attorney-cost/divorce-settlement/marital-property-division/retirement-division |
+   test_cases=[
+     {label:"simple_20hr_300rate", complexity:'simple', hours:20, rate:300, expected:{total:7000}},
+     {label:"moderate_50hr_400rate", complexity:'moderate', hours:50, rate:400, expected:{total:23500}},
+     {label:"complex_150hr_500rate", complexity:'complex', hours:150, rate:500, expected:{total:83000}}
+   ] |
+   known_flags=[
+     "shared_template_with_divorce_cost_files_-_NOT_separation_specific",
+     "legal_separation_typically_runs_$2k-$15k_total_(less_than_full_divorce)_because_no_property_division_required_in_many_states_-_calculator_does_not_model_this_separation-specific_cost_reduction",
+     "legal_separation_vs_divorce_distinction_NOT_surfaced_in_UI_(separation_preserves_marriage_for_religious/insurance/SS_benefit_reasons;_divorce_terminates)",
+     "no_state-specific_filing_fee_lookup"
+   ] |
+   verified_by=evening-routine */
         function calculate() {
             const complexity = document.getElementById('complexity').value;
             const hours = parseFloat(document.getElementById('hours').value) || 20;

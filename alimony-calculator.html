@@ -255,6 +255,81 @@
             }
         }
     </style>
+    <!-- AUDIT 2026-06-13: BreadcrumbList + FAQPage injected by evening-routine -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcleap.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Family Law Calculators",
+      "item": "https://calcleap.com/#legal"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Alimony Calculator",
+      "item": "https://calcleap.com/alimony-calculator.html"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is alimony calculated in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twelve states (including Illinois, Massachusetts, and Pennsylvania) have statutory alimony formulas — typically expressed as a percentage of the payor's income minus a percentage of the recipient's income. Other states leave alimony to judicial discretion based on factors like marriage length, age, health, earning capacity, and standard of living. As a rough national approximation, alimony often runs 20–40 percent of the income difference between spouses, but actual awards can vary widely from this band."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does alimony last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Duration generally tracks marriage length. Common rules of thumb from state guidelines: marriages under 5 years → 1–3 years of alimony; 5–10 years → 3–5 years; 10–20 years → 5–10 years; 20+ years → potentially indefinite (until death, remarriage, or court modification). Massachusetts' Alimony Reform Act of 2011 codified specific fractions: 50% of marriage length for marriages under 5 years, 60% for 5–10 years, 70% for 10–15 years, 80% for 15–20 years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is alimony tax-deductible after the TCJA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For divorce or separation agreements executed on or after January 1, 2019, alimony is no longer deductible by the payor and no longer taxable income to the recipient, per the Tax Cuts and Jobs Act of 2017 (Public Law 115-97, §11051). This change is permanent and was NOT subject to the 2025 TCJA bracket sunset. Pre-2019 agreements still follow the old rules — payor deducts, recipient includes — unless modified post-2018 with an explicit invocation of the new rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can alimony be modified after the divorce is final?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most states permit modification on a material change in circumstances — job loss, disability, retirement (post full retirement age), substantial income changes, recipient cohabitation with a new partner, or recipient remarriage. Modifications require court approval; do not stop paying unilaterally. Some agreements contain non-modifiable alimony clauses that contractually waive the right to seek modification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to alimony if my ex remarries or cohabits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most states alimony automatically terminates upon the recipient's remarriage; the payor does not have to return to court. Cohabitation with a new partner may terminate or reduce alimony in many states but typically requires the payor to file a motion and show that the cohabitation has reduced the recipient's financial need (often by demonstrating shared expenses or quasi-spousal financial arrangements)."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <div class="container">
@@ -468,6 +543,32 @@
     </div>
     
     <script>
+                /* AUDIT 2026-06-13: state=root | calculator=alimony_state_guideline_estimator |
+   formula=state_specific_annual_alimony_formulas_from_user_supplied_annual_incomes |
+   state_formulas={
+     CA: payor*0.40 - payee*0.50 (Santa Clara/Alameda guideline approximation),
+     NY: payor*0.30 - payee*0.20 (DRL §236 approximation; statutory cap on payor income $203k 2024 not modeled),
+     IL: payor*0.333 - payee*0.25 (750 ILCS 5/504(b-1) statutory formula),
+     PA: min(payor*0.40 - payee*0.50, payor*0.40) (Pa.R.C.P. 1910.16-4 spousal-support formula approximation),
+     CO: (payor+payee)*0.40 - payee (CRS §14-10-114 guideline; only if combined < $240k),
+     MA: (payor-payee)*0.35 (M.G.L. c.208 §53 Alimony Reform Act midpoint of 30-35% range),
+     default: (payor-payee)*0.30 (generic guideline approximation for states without statutory formula)
+   } |
+   then: monthly=annual/12; total=annual*durationYears; pctOfPayor=annual/payorIncome |
+   test_cases=[
+     {label:"CA_payor200k_payee80k_5yr", state:'california', payor:200000, payee:80000, duration:5, expected:{annual:40000, monthly:3333.33, total:200000, pctOfPayor:'20.0%'}},
+     {label:"NY_payor150k_payee50k_4yr", state:'new-york', payor:150000, payee:50000, duration:4, expected:{annual:35000, monthly:2916.67, total:140000, pctOfPayor:'23.3%'}},
+     {label:"IL_payor250k_payee100k_8yr", state:'illinois', payor:250000, payee:100000, duration:8, expected:{annual:58250, monthly:4854.17, total:466000, pctOfPayor:'23.3%'}}
+   ] |
+   known_flags=[
+     "CA_formula_uses_GROSS_income;_statute_actually_uses_NET_after_taxes_-_overestimates_by_~20-30%_at_typical_brackets",
+     "NY_formula_omits_$203k_payor_income_cap_(DRL_§236(B)(5-a))_-_overestimates_for_high_earners",
+     "PA_formula_omits_child-adjustment_(33%_with_kids_vs_40%_no_kids)",
+     "no_marriage_length_-_>_duration_recommendation_(MA_Alimony_Reform_Act_caps_duration_at_marriage_length_fractions:_50%_for_<5y,_60%_for_5-10y,_70%_for_10-15y,_80%_for_15-20y,_indefinite_for_20+y)",
+     "no_TCJA_post-2018_tax_treatment_modeling_(payor_no_longer_deducts;_recipient_no_longer_includes)",
+     "result_can_go_negative_pre_Math.max(0,_x)_-_correctly_clamped"
+   ] |
+   verified_by=evening-routine */
         function calculate() {
             const state = document.getElementById('state').value;
             const payorIncome = parseFloat(document.getElementById('payorIncome').value) || 0;

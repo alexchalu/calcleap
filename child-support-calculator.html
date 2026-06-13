@@ -28,6 +28,81 @@
         .state-selector { margin-bottom: 30px; }
         .help-text { font-size: 14px; color: #7f8c8d; margin-top: 5px; }
     </style>
+    <!-- AUDIT 2026-06-13: BreadcrumbList + FAQPage injected by evening-routine -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcleap.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Family Law Calculators",
+      "item": "https://calcleap.com/#legal"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Child Support Calculator",
+      "item": "https://calcleap.com/child-support-calculator.html"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is child support calculated in the U.S.?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forty-one states use the Income Shares model: combine both parents' incomes, look up a basic support obligation from the state schedule, then allocate it in proportion to each parent's share of combined income. Six states (Mississippi, Nevada, North Dakota, Wisconsin, Alaska, Texas) use the Percentage of Income model — a flat percentage of the non-custodial parent's income, scaled by number of children. Three states (Delaware, Hawaii, Montana) use the Melson formula, which preserves a self-support reserve for each parent before allocating remaining income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What percentage of income goes to child support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under the Percentage of Income model, common multipliers are roughly 17–20% of obligor income for 1 child, 25% for 2 children, 29–30% for 3 children, 31–35% for 4 children, and 34–40% for 5+ children. Income Shares states arrive at similar totals but split the obligation between parents based on income share. Many states cap the combined-income figure used in the schedule — New York, for example, caps it at $193,000 effective March 1, 2026 (per DRL §240(1-b))."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does shared custody reduce child support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in most states. Once the paying parent has roughly 30% or more of overnight parenting time, courts apply a custody adjustment that reduces basic support. The specific threshold and formula vary by state — Colorado kicks in at 25%, while some Income Shares states use a more gradual scale. At 50/50 joint physical custody, support is often calculated as the difference between what each parent would owe the other and then offset, with the higher earner paying the difference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are healthcare and childcare added on top of basic child support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Courts typically order the parents to share work-related childcare costs and the children's health-insurance premiums and uncovered medical expenses in proportion to their share of combined income. These are added to (not included in) the basic support obligation. Extracurricular activities, private school tuition, and college costs are usually handled separately by agreement or court order."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is child support tax-deductible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Child support is not deductible by the payor and not taxable income to the recipient — this rule comes from IRC §§ 71 and 215 and was not changed by the TCJA. (Note: alimony tax treatment WAS changed by the TCJA for post-2018 agreements, but child support was not affected.) Either parent may still claim the Child Tax Credit, but only one can claim each child in a given year — typically the custodial parent unless waived via IRS Form 8332."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -155,6 +230,29 @@
     </footer>
 
     <script>
+                /* AUDIT 2026-06-13: state=root | calculator=child_support_three_model_estimator |
+   formula=three_state_guideline_models_from_user_supplied_MONTHLY_gross_income |
+   models={
+     income_shares_(41_states): basicObligation = combinedMonthlyIncome * pct[numKids]; payorObligation = basicObligation * (payorIncome/combinedIncome); pct=[0,0.17,0.25,0.29,0.31,0.34,0.35],
+     percentage_of_obligor_(6_states_MS_NV_ND_WI_AK_TX): basicObligation = payorMonthlyIncome * pct[numKids]; payorObligation = basicObligation; pct=[0,0.20,0.25,0.30,0.35,0.40,0.45],
+     melson_(3_states_DE_HI_MT): selfSupportReserve=$1200; basicObligation = (payorAfterReserve + receiverAfterReserve) * pct[numKids]; payorObligation = basicObligation * (payorIncome/combinedIncome); pct=[0,0.18,0.26,0.30,0.32,0.35,0.36]
+   } |
+   then: totalMonthly = max(0, payorObligation + healthcare*payorShare + childcare*payorShare + custodyAdjustment); annual = totalMonthly*12 |
+   custodyAdjustment = -(payorObligation * (custodyPct/100) * 0.5) if 30<=custodyPct<=50, else 0 |
+   test_cases=[
+     {label:"IS_payor5000mo_recv3000mo_2kids_no_custody", model:'income-shares', payor:5000, recv:3000, kids:2, custody:0, hc:0, cc:0, expected:{combined:8000, basic:2000, payorShare:'62.5%', payorObl:1250, totalMonthly:1250, annual:15000}},
+     {label:"Pct_payor6000mo_1kid", model:'percentage', payor:6000, recv:0, kids:1, custody:0, hc:0, cc:0, expected:{combined:6000, basic:1200, payorShare:'100.0%', payorObl:1200, totalMonthly:1200, annual:14400}},
+     {label:"IS_payor8000mo_recv4000mo_3kids_40pct_custody", model:'income-shares', payor:8000, recv:4000, kids:3, custody:40, hc:0, cc:0, expected:{combined:12000, basic:3480, payorShare:'66.7%', payorObl:2320, custodyAdj:-464, totalMonthly:1856, annual:22272}}
+   ] |
+   known_flags=[
+     "percentages_are_national_averages_NOT_per_state;_actual_state_schedules_(e.g._OCSE_Income_Shares_table)_vary_by_income_band_and_can_differ_5-15%",
+     "Melson_self_support_reserve_hardcoded_$1200_NOT_per_state_(DE_2026_uses_~$1,158;_MT_uses_~$1,250)",
+     "custody_adjustment_only_kicks_in_at_30%+_overnight_threshold;_states_with_lower_thresholds_(e.g._CO_at_25%)_underestimate_offset",
+     "no_tax_treatment_modeling_(child_support_is_non-deductible_to_payor_and_non-taxable_to_recipient_per_IRC_§71_§215_-_unchanged_by_TCJA)",
+     "no_modeling_of_state-specific_caps_(NY_2026_$193k_combined_income_cap_per_DRL_§240(1-b)_effective_2026-03-01)",
+     "labels_say_MONTHLY_gross_income_-_user_must_input_monthly_NOT_annual_(common_user_error;_typing_$60000_annual_into_monthly_field_yields_$15k/mo_basic_obligation,_absurd)"
+   ] |
+   verified_by=evening-routine */
         function calculateChildSupport() {
             const state = document.getElementById('state').value;
             const payorIncome = parseFloat(document.getElementById('payorIncome').value) || 0;
