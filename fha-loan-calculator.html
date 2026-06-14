@@ -224,7 +224,7 @@
             <div class="input-group">
                 <label for="down">Down Payment ($):</label>
                 <input type="number" id="down" min="0" value="60000" step="1000" aria-label="Down">
-                <small>Typically 20% of property value</small>
+                <small>FHA minimum down payment: 3.5% (FICO 580+) or 10% (FICO 500–579) per HUD ML 2023-05</small>
             </div>
             <div class="input-group">
                 <label for="rate">Interest Rate (%):</label>
@@ -318,7 +318,8 @@
              TC2: amount=500000, down=100000, rate=7.0, term=30 -> loan=400000, monthly=$2661.21, totalInterest=$558035.59
              TC3: amount=200000, down=40000, rate=5.0, term=15 -> loan=160000, monthly=$1265.27, totalInterest=$67748.56
            known simplifications / flags (NOT math errors, scope-for-future refresh):
-             FHA mortgages also carry an upfront MIP (1.75% of base loan, financed) and an annual MIP (0.55% of avg outstanding balance, paid monthly) per HUD ML 2023-05 - this calculator does NOT model MIP, only the base P&I amortization. The 'Typically 20% of property value' hint under Down Payment is FHA-incorrect; FHA's minimum is 3.5% (580+ FICO) - flag for UX refresh.
+             FHA mortgages also carry an upfront MIP (1.75% of base loan, financed) and an annual MIP (0.55% of avg outstanding balance, paid monthly) per HUD ML 2023-05 - this calculator does NOT model MIP, only the base P&I amortization.
+           FIX 2026-06-14: Down-payment hint "Typically 20% of property value" -> "FHA minimum down payment: 3.5% (FICO 580+) or 10% (FICO 500-579) per HUD ML 2023-05". Closes the UX flag carried for ~6 evenings since the original 2026-06-08 audit; same flag re-surfaced 2026-06-10 / 2026-06-12 / 2026-06-13 evening as highest-AdSense-leverage micro-effort.
            verified_by: evening-routine
         */
         function calculate() {

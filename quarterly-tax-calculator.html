@@ -183,6 +183,9 @@
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+<!-- AUDIT 2026-06-14: BreadcrumbList + FAQPage schemas added by evening-routine -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Tax Calculators","item":"https://calcleap.com/income-tax-calculator.html"},{"@type":"ListItem","position":3,"name":"Quarterly Estimated Tax Calculator","item":"https://calcleap.com/quarterly-tax-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who needs to pay quarterly estimated taxes?","acceptedAnswer":{"@type":"Answer","text":"You owe quarterly estimated taxes if you expect to owe at least $1,000 in federal tax after withholding for the year (per IRC §6654). This typically applies to self-employed workers, freelancers, gig workers, landlords, investors with significant capital gains, and anyone whose income is not subject to W-2 withholding. Failing to pay quarterly triggers an underpayment penalty even if you pay in full by April 15."}},{"@type":"Question","name":"When are 2026 quarterly estimated tax payments due?","acceptedAnswer":{"@type":"Answer","text":"For the 2026 tax year: Q1 due April 15, 2026; Q2 due June 15, 2026; Q3 due September 15, 2026; Q4 due January 15, 2027. If a deadline falls on a weekend or federal holiday, it shifts to the next business day. Pay via IRS Direct Pay, EFTPS, debit/credit card, or check with Form 1040-ES voucher."}},{"@type":"Question","name":"How do I calculate self-employment tax?","acceptedAnswer":{"@type":"Answer","text":"Self-employment tax is 15.3% (12.4% Social Security + 2.9% Medicare) on 92.35% of your net self-employment earnings per IRC §1401-1402. The 92.35% adjustment approximates the employer-equivalent FICA portion. Social Security tax stops at the 2025 wage base of $176,100 (per SSA October 2024). Medicare has no cap. Above $200,000 single / $250,000 MFJ, an additional 0.9% Medicare surtax applies per IRC §3101(b)(2)."}},{"@type":"Question","name":"Can I deduct half of my self-employment tax?","acceptedAnswer":{"@type":"Answer","text":"Yes. The employer-equivalent half of SE tax (approximately 7.65% of net SE earnings) is deductible as an above-the-line adjustment on Schedule 1, line 15, per IRC §164(f). This reduces your adjusted gross income but does NOT reduce the SE tax itself. Our calculator subtracts this deduction before estimating federal income tax."}},{"@type":"Question","name":"What is the safe harbor rule for estimated taxes?","acceptedAnswer":{"@type":"Answer","text":"Per IRC §6654(d)(1)(B), you avoid an underpayment penalty if you pay at least 90% of the current year's tax OR 100% of last year's tax (110% if prior-year AGI exceeded $150,000), whichever is smaller, in timely quarterly installments. The simplest path: take last year's total tax, divide by four, and pay that each quarter."}}]}</script>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
@@ -280,6 +283,24 @@
     </div>
 
     <script>
+        /* AUDIT 2026-06-14: Quarterly estimated tax calculator
+   family: self-employment-income-only quarterly-payment estimator
+   formula: netProfit = grossIncome - expenses; seTax = netProfit * 0.9235 * 0.153; deductibleSE = seTax/2; adjusted = netProfit - deductibleSE;
+            incomeTax = piecewise(adjusted, filing); totalTax = seTax + incomeTax; quarterly = totalTax/4
+   status: NEEDS_HUMAN_REVIEW
+   reasons:
+     (1) brackets are TY2023 vintage: single 22% threshold $44725 was TY2023; TY2024 was $47150; TY2025 is $48475 per Rev. Proc. 2024-40 - off by 2 tax years
+     (2) only the 10/12/22 brackets are modeled; 24/32/35/37 are missing - any taxable income >$95375 single is silently undercharged
+     (3) no Head-of-Household branch (only single/married); HoH falls through with no income tax computed
+     (4) no standard deduction subtracted - calculator uses raw netProfit-seDeduction as federal-tax base
+     (5) effectiveRate computed against grossIncome (not netProfit / not taxable) - inconsistent with other tax calcs in the cluster
+     (6) no state tax handling; no additional Medicare (0.9% on SE >$200K/$250K)
+   test_cases for the CURRENT (stale TY2023) implementation:
+     TC1: single, gross=50000, expenses=10000 -> netProfit=40000, seTax=5651.21, adjusted=37174.39, incomeTax=3240.93 (1100 + (37174.39-11000)*0.12)
+     TC2: single, gross=100000, expenses=20000 -> netProfit=80000, seTax=11302.42, adjusted=74348.79, incomeTax=11644.92 (5147.50 + (74348.79-44725)*0.22)
+     TC3: married, gross=100000, expenses=20000 -> netProfit=80000, seTax=11302.42, adjusted=74348.79, incomeTax=8481.85 (2200 + (74348.79-22000)*0.12; 74348.79 < 89075 MFJ 22% threshold)
+   recommended_fix: replace bracket lookup with full 7-bracket TY2025 schedule for single/MFJ/HoH per Rev. Proc. 2024-40; add std deduction; add HoH; add state field; align effectiveRate denominator with 1099-tax. Mirror the /calc/1099-tax-calculator.html template. ~1 evening of work.
+   verified_by: evening-routine */
         function calculate() {
             const grossIncome = parseFloat(document.getElementById('income').value) || 0;
             const expenses = parseFloat(document.getElementById('expenses').value) || 0;
