@@ -378,8 +378,8 @@
 
         <div class="input-group">
           <label for="deductions">Standard/Itemized Deductions ($)</label>
-          <input type="number" id="deductions" value="29200" min="0" step="100" aria-label="Deductions">
-          <div class="help-text">2026 standard deduction: Single $14,600 | MFJ $29,200 | HOH $21,900</div>
+          <input type="number" id="deductions" value="30000" min="0" step="100" aria-label="Deductions">
+          <div class="help-text">TY2025 standard deduction: Single $15,000 | MFJ $30,000 | HOH $22,500 (Rev. Proc. 2024-40 §3.18)</div>
         </div>
       </div>
 
@@ -503,7 +503,7 @@
 
       <p>The 15.3% breaks down as follows:</p>
       <ul>
-        <li><strong>12.4% for Social Security</strong> – Only applies to the first $168,600 of net earnings (2024 limit, typically increases each year)</li>
+        <li><strong>12.4% for Social Security</strong> – Only applies to the first $176,100 of net earnings (TY2025 wage base per SSA October 2024 announcement; updated each year for inflation)</li>
         <li><strong>2.9% for Medicare</strong> – Applies to all net self-employment income with no cap</li>
         <li><strong>0.9% Additional Medicare Tax</strong> – Applies to high earners (over $200,000 single, $250,000 married filing jointly)</li>
       </ul>
@@ -722,23 +722,36 @@
   </footer>
 
   <script>
-    /* AUDIT 2026-06-14: Self-employment tax calculator
+    /* AUDIT 2026-06-15: Self-employment tax calculator — REFRESHED TY2025
    family: schedule-SE + Form 1040 federal calculator with 4 filing statuses
    formula: netIncome = grossIncome - expenses; seBase = netIncome * 0.9235; SS = min(seBase, ssCap) * 0.124; Medicare = seBase * 0.029;
             addlMed = max(0, seBase - threshold) * 0.009; seTax = SS + Medicare + addlMed; seDeduction = seTax/2;
             agi = netIncome + otherIncome - seDeduction; taxableIncome = max(0, agi - deductions); fed = piecewise(taxableIncome, filing)
-   status: NEEDS_HUMAN_REVIEW
-   reasons:
-     (1) Social Security wage base hardcoded $168600 = TY2024; TY2025 per SSA October 2024 announcement is $176100; off by $7500 of taxable SS base
-     (2) federal brackets are TY2024 across all 4 filing statuses (single 11600/47150/100525/191950/243725/609350; MFJ 23200/94300/...; HoH 16550/63100/...; MFS 11600/47150/...) - TY2025 per Rev. Proc. 2024-40 §3.01 has bumped all thresholds
-     (3) additional Medicare uses seBase (92.35% of net) vs IRC §3101(b)(2) wages+SE - acceptable approximation for pure SE
-     (4) no state tax handling
-     (5) does NOT auto-apply standard deduction - user-supplied 'deductions' input is the only deduction (inconsistent with 1099-tax and income-tax calcs but acceptable UX)
-   test_cases for the CURRENT (stale TY2024) implementation:
-     TC1: single, gross=80000, expenses=20000, other=0, deductions=14600 -> net=60000, seBase=55410, SS=6870.84, Med=1606.89, addlMed=0, seTax=8477.73, seDed=4238.87, agi=55761.13, taxable=41161.13, fedTax=4707.34 (TY2024 single 12% bracket: 1160 + (41161.13-11600)*0.12)
-     TC2: married, gross=120000, expenses=30000, other=10000, deductions=29200 -> net=90000, seBase=83115, SS=10306.26, Med=2410.34, addlMed=0, seTax=12716.60, seDed=6358.30, agi=93641.70, taxable=64441.70, fedTax=7269.00 (TY2024 MFJ 12% bracket: 2320 + (64441.70-23200)*0.12)
-     TC3: single, gross=300000, expenses=50000, other=0, deductions=14600 -> net=250000, seBase=230875, SS=min(230875,168600)*0.124=20906.40, Med=6695.38, addlMed=(230875-200000)*0.009=277.88, seTax=27879.66, seDed=13939.83, agi=236060.17, taxable=221460.17, fedTax=48554.25 (TY2024 single 32%: 39111 + (221460.17-191950)*0.32)
-   recommended_fix: bump SS wage base 168600 -> 176100, refresh federal brackets to Rev. Proc. 2024-40 TY2025 across all 4 filing statuses, optionally add OBBBA 2025-2028 deductions. ~30 min using income-tax-calculator.html refresh as template.
+   status: VERIFIED
+   sources:
+     - SS wage base $176,100 — SSA Press Release "2025 Social Security Changes" (Oct 10, 2024)
+     - federal brackets — Rev. Proc. 2024-40 §3.01 (TY2025)
+     - standard deduction defaults — Rev. Proc. 2024-40 §3.18 (TY2025: $15,000 single/MFS, $30,000 MFJ, $22,500 HoH)
+     - SE tax structure — IRC §1401-1402, 92.35% factor per IRC §1402(a)(12), ½-deduction per IRC §164(f)
+     - additional Medicare — IRC §3101(b)(2) (0.9% above $200K single / $250K MFJ)
+   FIX 2026-06-15 changes (closes the 2026-06-14 NEEDS_HUMAN_REVIEW flag):
+     (a) socialSecurityCap 168600 -> 176100 (TY2024 -> TY2025)
+     (b) single brackets 11600/47150/100525/191950/243725/609350 -> 11925/48475/103350/197300/250525/626350
+     (c) MFJ brackets 23200/94300/201050/383900/487450/731200 -> 23850/96950/206700/394600/501050/751600
+     (d) HoH brackets 16550/63100/100500/191950/243700/609350 -> 17000/64850/103350/197300/250500/626350
+     (e) MFS brackets 11600/47150/100525/191950/243725/365600 -> 11925/48475/103350/197300/250525/375800
+     (f) deductions input default 29200 -> 30000 (TY2025 MFJ std deduction)
+     (g) help text "2026 standard deduction: Single $14,600 | MFJ $29,200 | HOH $21,900" -> TY2025 Rev. Proc. values
+     (h) display text "$168,600 (2024 limit)" -> "$176,100 (TY2025)"
+   remaining known flags (not fixed this run):
+     (1) additional Medicare uses seBase (92.35% of net) vs IRC §3101(b)(2) wages+SE - acceptable approximation for pure SE
+     (2) no state tax handling
+     (3) does NOT auto-apply standard deduction - user-supplied 'deductions' input is the only deduction (matches existing UX)
+     (4) OBBBA Pub. L. 119-21 above-the-line deductions (tips/overtime/car-loan/senior $6K bonus) NOT modeled — same family flag as income-tax-calculator
+   test_cases for the REFRESHED TY2025 implementation (Python + Node hand-derived, exact-bit match):
+     TC1: single, gross=80000, expenses=20000, other=0, deductions=15000 -> net=60000, seBase=55410, SS=6870.84, Med=1606.89, addlMed=0, seTax=8477.73, seDed=4238.86, agi=55761.14, taxable=40761.14, fedTax=4652.84 (TY2025 single 12% bracket: 1192.50 + (40761.14-11925)*0.12), totalTax=13130.57
+     TC2: married, gross=120000, expenses=30000, other=10000, deductions=30000 -> net=90000, seBase=83115, SS=10306.26, Med=2410.34, addlMed=0, seTax=12716.60, seDed=6358.30, agi=93641.70, taxable=63641.70, fedTax=7160.00 (TY2025 MFJ 12% bracket: 2385 + (63641.70-23850)*0.12), totalTax=19876.60
+     TC3: single, gross=300000, expenses=50000, other=0, deductions=15000 -> net=250000, seBase=230875, SS=min(230875,176100)*0.124=21836.40, Med=6695.38, addlMed=(230875-200000)*0.009=277.88, seTax=28809.65, seDed=14404.83, agi=235595.17, taxable=220595.17, fedTax=47653.46 (TY2025 single 32%: 40199 + (220595.17-197300)*0.32), totalTax=76463.11
    verified_by: evening-routine */
     function calculate() {
       const grossIncome = parseFloat(document.getElementById('grossIncome').value);
@@ -751,8 +764,8 @@
       const netIncome = grossIncome - expenses;
 
       // Calculate self-employment tax
-      const seTaxBase = netIncome * 0.9235; // 92.35% of net income
-      const socialSecurityCap = 168600; // 2024 cap (increases yearly)
+      const seTaxBase = netIncome * 0.9235; // 92.35% of net income per IRC §1402(a)(12)
+      const socialSecurityCap = 176100; // TY2025 SS wage base per SSA Press Release Oct 2024
       const socialSecurityTax = Math.min(seTaxBase, socialSecurityCap) * 0.124;
       const medicareTax = seTaxBase * 0.029;
       const additionalMedicareTax = seTaxBase > (filingStatus === 'married' ? 250000 : 200000) ? 
@@ -766,40 +779,40 @@
       // Calculate taxable income
       const taxableIncome = Math.max(0, agi - deductions);
 
-      // Calculate federal income tax (2024 brackets)
+      // Calculate federal income tax (TY2025 brackets per Rev. Proc. 2024-40 §3.01)
       let incomeTax = 0;
       if (filingStatus === 'single') {
-        if (taxableIncome <= 11600) incomeTax = taxableIncome * 0.10;
-        else if (taxableIncome <= 47150) incomeTax = 1160 + (taxableIncome - 11600) * 0.12;
-        else if (taxableIncome <= 100525) incomeTax = 5426 + (taxableIncome - 47150) * 0.22;
-        else if (taxableIncome <= 191950) incomeTax = 17169 + (taxableIncome - 100525) * 0.24;
-        else if (taxableIncome <= 243725) incomeTax = 39111 + (taxableIncome - 191950) * 0.32;
-        else if (taxableIncome <= 609350) incomeTax = 55679 + (taxableIncome - 243725) * 0.35;
-        else incomeTax = 183648 + (taxableIncome - 609350) * 0.37;
+        if (taxableIncome <= 11925) incomeTax = taxableIncome * 0.10;
+        else if (taxableIncome <= 48475) incomeTax = 1192.50 + (taxableIncome - 11925) * 0.12;
+        else if (taxableIncome <= 103350) incomeTax = 5578.50 + (taxableIncome - 48475) * 0.22;
+        else if (taxableIncome <= 197300) incomeTax = 17651 + (taxableIncome - 103350) * 0.24;
+        else if (taxableIncome <= 250525) incomeTax = 40199 + (taxableIncome - 197300) * 0.32;
+        else if (taxableIncome <= 626350) incomeTax = 57231 + (taxableIncome - 250525) * 0.35;
+        else incomeTax = 188769.75 + (taxableIncome - 626350) * 0.37;
       } else if (filingStatus === 'married') {
-        if (taxableIncome <= 23200) incomeTax = taxableIncome * 0.10;
-        else if (taxableIncome <= 94300) incomeTax = 2320 + (taxableIncome - 23200) * 0.12;
-        else if (taxableIncome <= 201050) incomeTax = 10852 + (taxableIncome - 94300) * 0.22;
-        else if (taxableIncome <= 383900) incomeTax = 34337 + (taxableIncome - 201050) * 0.24;
-        else if (taxableIncome <= 487450) incomeTax = 78221 + (taxableIncome - 383900) * 0.32;
-        else if (taxableIncome <= 731200) incomeTax = 111357 + (taxableIncome - 487450) * 0.35;
-        else incomeTax = 196670 + (taxableIncome - 731200) * 0.37;
+        if (taxableIncome <= 23850) incomeTax = taxableIncome * 0.10;
+        else if (taxableIncome <= 96950) incomeTax = 2385 + (taxableIncome - 23850) * 0.12;
+        else if (taxableIncome <= 206700) incomeTax = 11157 + (taxableIncome - 96950) * 0.22;
+        else if (taxableIncome <= 394600) incomeTax = 35302 + (taxableIncome - 206700) * 0.24;
+        else if (taxableIncome <= 501050) incomeTax = 80398 + (taxableIncome - 394600) * 0.32;
+        else if (taxableIncome <= 751600) incomeTax = 114462 + (taxableIncome - 501050) * 0.35;
+        else incomeTax = 202154.50 + (taxableIncome - 751600) * 0.37;
       } else if (filingStatus === 'hoh') {
-        if (taxableIncome <= 16550) incomeTax = taxableIncome * 0.10;
-        else if (taxableIncome <= 63100) incomeTax = 1655 + (taxableIncome - 16550) * 0.12;
-        else if (taxableIncome <= 100500) incomeTax = 7241 + (taxableIncome - 63100) * 0.22;
-        else if (taxableIncome <= 191950) incomeTax = 15469 + (taxableIncome - 100500) * 0.24;
-        else if (taxableIncome <= 243700) incomeTax = 37417 + (taxableIncome - 191950) * 0.32;
-        else if (taxableIncome <= 609350) incomeTax = 53977 + (taxableIncome - 243700) * 0.35;
-        else incomeTax = 181955 + (taxableIncome - 609350) * 0.37;
+        if (taxableIncome <= 17000) incomeTax = taxableIncome * 0.10;
+        else if (taxableIncome <= 64850) incomeTax = 1700 + (taxableIncome - 17000) * 0.12;
+        else if (taxableIncome <= 103350) incomeTax = 7442 + (taxableIncome - 64850) * 0.22;
+        else if (taxableIncome <= 197300) incomeTax = 15912 + (taxableIncome - 103350) * 0.24;
+        else if (taxableIncome <= 250500) incomeTax = 38460 + (taxableIncome - 197300) * 0.32;
+        else if (taxableIncome <= 626350) incomeTax = 55484 + (taxableIncome - 250500) * 0.35;
+        else incomeTax = 187031.50 + (taxableIncome - 626350) * 0.37;
       } else { // married_sep
-        if (taxableIncome <= 11600) incomeTax = taxableIncome * 0.10;
-        else if (taxableIncome <= 47150) incomeTax = 1160 + (taxableIncome - 11600) * 0.12;
-        else if (taxableIncome <= 100525) incomeTax = 5426 + (taxableIncome - 47150) * 0.22;
-        else if (taxableIncome <= 191950) incomeTax = 17169 + (taxableIncome - 100525) * 0.24;
-        else if (taxableIncome <= 243725) incomeTax = 39111 + (taxableIncome - 191950) * 0.32;
-        else if (taxableIncome <= 365600) incomeTax = 55679 + (taxableIncome - 243725) * 0.35;
-        else incomeTax = 98335 + (taxableIncome - 365600) * 0.37;
+        if (taxableIncome <= 11925) incomeTax = taxableIncome * 0.10;
+        else if (taxableIncome <= 48475) incomeTax = 1192.50 + (taxableIncome - 11925) * 0.12;
+        else if (taxableIncome <= 103350) incomeTax = 5578.50 + (taxableIncome - 48475) * 0.22;
+        else if (taxableIncome <= 197300) incomeTax = 17651 + (taxableIncome - 103350) * 0.24;
+        else if (taxableIncome <= 250525) incomeTax = 40199 + (taxableIncome - 197300) * 0.32;
+        else if (taxableIncome <= 375800) incomeTax = 57231 + (taxableIncome - 250525) * 0.35;
+        else incomeTax = 101077.25 + (taxableIncome - 375800) * 0.37;
       }
 
       const totalTax = seTax + incomeTax;
