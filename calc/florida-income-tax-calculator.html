@@ -450,11 +450,13 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
      (a) federal brackets all 3 statuses TY2024 -> TY2025
      (b) standard deductions $14,600/$29,200/$21,900 -> $15,000/$30,000/$22,500
      (c) ssWageBase 168600 -> 176100
+   FIX 2026-06-17 evening changes:
+     (d) addl Medicare threshold made filing-status-aware per IRC §3101(b)(2): $200K single/HoH, $250K MFJ
+         (was hardcoded $200K for all statuses — caused $225 of incorrect surtax on a MFJ filer at $225K)
    known flags (not fixed):
      (1) additional Medicare uses gross income (not wages) — acceptable for W-2-only calc
      (2) no state income tax (correct for FL)
-     (3) addl Medicare threshold $200K hardcoded — does not branch on filing status (MFJ $250K)
-     (4) MFS bracket not implemented
+     (3) MFS bracket not implemented ($125K addl-Medicare threshold)
    test_cases (Python hand-derived):
      TC1: income=75000, status=single -> taxable=60000, fedTax=8114.00 (TY2025 single 22% bracket: 5578.50 + (60000-48475)*0.22 = 8114.00), SS=4650, Med=1087.50, total=13851.50
      TC2: income=150000, status=married, home=400000, spending=40000 -> taxable=120000, fedTax=16228.00 (TY2025 MFJ 22% bracket: 11157 + (120000-96950)*0.22), SS=9300, Med=2175, propTax=3200, salesTax=2400, total=33303.00
@@ -526,7 +528,9 @@ function calculate(e) {
   const ssWageBase = 176100;
   const socialSecurity = Math.min(income, ssWageBase) * 0.062;
   const medicare = income * 0.0145;
-  const additionalMedicare = income > 200000 ? (income - 200000) * 0.009 : 0;
+  // Additional Medicare per IRC §3101(b)(2) — filing-status-aware threshold ($200K single+HoH / $250K MFJ); wired 2026-06-17 evening
+  const addlMedThreshold = status === 'married' ? 250000 : 200000;
+  const additionalMedicare = income > addlMedThreshold ? (income - addlMedThreshold) * 0.009 : 0;
   const ficaTax = socialSecurity + medicare + additionalMedicare;
   
   // Property tax (Florida average: 0.80%)
