@@ -183,6 +183,8 @@
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Auto Calculators","item":"https://calcleap.com/index.html#finance"},{"@type":"ListItem","position":3,"name":"Lease vs Buy Car Calculator","item":"https://calcleap.com/lease-vs-buy-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does this calculator compare leasing vs buying?","acceptedAnswer":{"@type":"Answer","text":"It computes the lease monthly payment using the industry-standard Money Factor method (depreciation fee + finance fee) and the buy monthly payment using the standard amortization formula. Then it shows total out-of-pocket over each term plus the buy path's equity (resale value at lease-term end) so the two options can be compared on a like-for-like total-cost basis."}},{"@type":"Question","name":"What is a money factor and how do I find mine?","acceptedAnswer":{"@type":"Answer","text":"The money factor is the lease equivalent of an interest rate. Multiply it by 2400 to get the approximate APR (so 0.0025 ≈ 6.0% APR). Always ask the dealer for the money factor in writing before signing — it is the single most common margin lever they obscure. Typical 2026 money factors for prime credit (FICO 720+) range from 0.0018 to 0.0030 depending on brand."}},{"@type":"Question","name":"What is the residual value?","acceptedAnswer":{"@type":"Answer","text":"The residual is the lessor's predicted value of the vehicle at lease-end, expressed as a percentage of MSRP. Higher residual = lower lease payment because you only pay for the depreciation (MSRP minus residual). 36-month residuals from Automotive Lease Guide for 2026 model year typically run 55–65% for mainstream brands, 50–58% for luxury, and have inverted to 50–60% for EVs after the §30D / §45W repeal."}},{"@type":"Question","name":"Does this include taxes and fees?","acceptedAnswer":{"@type":"Answer","text":"The estimate covers the lease monthly base payment + acquisition fee + cap-cost reduction, and the buy monthly payment + down payment. It excludes sales tax (which varies by state — some tax the monthly payment, others the cap cost upfront), title and registration fees, the lease disposition fee (typically $350–500 at lease-end), excess wear-and-tear charges, and over-mileage charges (typically $0.15–0.30 per mile over the contracted limit). Add these line items separately for an apples-to-apples total."}},{"@type":"Question","name":"When does leasing actually beat buying?","acceptedAnswer":{"@type":"Answer","text":"Leasing tends to win on a six-year basis only when you need a new vehicle every 2–3 years for business or warranty reasons, drive under the lease mileage cap, never plan to keep a vehicle past 5 years, or want to deduct the lease payment as a business expense (where IRC §280F's luxury-auto depreciation caps would penalize a buy). For the median household holding a vehicle 6–8 years, buying the same vehicle and holding it past the loan payoff is materially cheaper — typically by $15,000–35,000 over six years."}}]}</script>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
@@ -213,18 +215,23 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Auto Purchase Calculator</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your details below to calculate and compare your options.</p>
+            <h2>Lease vs Buy Comparison</h2>
+            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter vehicle, financing, and lease details. The calculator runs both options and shows total cost over the lease term so you can compare like-for-like.</p>
+
+            <h3 style="font-size:1.05rem;font-weight:600;margin:0.5rem 0 0.75rem;color:#1d1d1f;">Vehicle &amp; shared inputs</h3>
             <div class="input-group">
-                <label for="price">Vehicle Price ($):</label>
-                <input type="number" id="price" min="0" value="30000" step="100" aria-label="Price">
+                <label for="price">Vehicle Price / MSRP ($):</label>
+                <input type="number" id="price" min="0" value="40000" step="100" aria-label="Price">
             </div>
             <div class="input-group">
-                <label for="down">Down Payment ($):</label>
-                <input type="number" id="down" min="0" value="5000" step="100" aria-label="Down">
+                <label for="down">Down Payment / Cap-Cost Reduction ($):</label>
+                <input type="number" id="down" min="0" value="3000" step="100" aria-label="Down">
+                <small>Applied to both options. For lease it reduces the capitalized cost.</small>
             </div>
+
+            <h3 style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 0.75rem;color:#1d1d1f;">Buy / finance inputs</h3>
             <div class="input-group">
-                <label for="rate">Interest Rate (%):</label>
+                <label for="rate">Loan Interest Rate (% APR):</label>
                 <input type="number" id="rate" min="0" max="20" value="5.5" step="0.1" aria-label="Rate">
             </div>
             <div class="input-group">
@@ -234,9 +241,42 @@
                     <option value="48">48 months (4 years)</option>
                     <option value="60" selected>60 months (5 years)</option>
                     <option value="72">72 months (6 years)</option>
+                    <option value="84">84 months (7 years)</option>
                 </select>
             </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Payment</button>
+
+            <h3 style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 0.75rem;color:#1d1d1f;">Lease inputs</h3>
+            <div class="input-group">
+                <label for="leaseTerm">Lease Term:</label>
+                <select id="leaseTerm" aria-label="Lease term">
+                    <option value="24">24 months (2 years)</option>
+                    <option value="36" selected>36 months (3 years)</option>
+                    <option value="39">39 months</option>
+                    <option value="48">48 months (4 years)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="residual">Residual Value (% of MSRP):</label>
+                <input type="number" id="residual" min="20" max="90" value="60" step="1" aria-label="Residual">
+                <small>From the lessor's residual table. 55–65% is typical for 36-month leases of mainstream brands in 2026.</small>
+            </div>
+            <div class="input-group">
+                <label for="moneyFactor">Money Factor:</label>
+                <input type="number" id="moneyFactor" min="0" max="0.02" value="0.0025" step="0.0001" aria-label="Money factor">
+                <small>Multiply by 2400 to get the APR equivalent. Always ask the dealer in writing.</small>
+            </div>
+            <div class="input-group">
+                <label for="acqFee">Acquisition Fee ($):</label>
+                <input type="number" id="acqFee" min="0" value="895" step="5" aria-label="Acquisition fee">
+                <small>Non-negotiable bank fee due at signing. Typical range $595–$1,095.</small>
+            </div>
+            <div class="input-group">
+                <label for="resaleAtLeaseEnd">Estimated Buy Resale Value at Lease-Term End ($):</label>
+                <input type="number" id="resaleAtLeaseEnd" min="0" value="24000" step="100" aria-label="Resale">
+                <small>For an apples-to-apples comparison, what you could sell the bought vehicle for at the end of the lease term. Default mirrors the residual %.</small>
+            </div>
+
+            <button class="calc-btn" onclick="calculate()">Compare Lease vs Buy</button>
             <div class="result-box" id="result">
                 <h3>Results</h3>
             </div>
@@ -246,28 +286,57 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="info-section">
-            <h3>About Lease vs Buy Car Calculator</h3>
-            <p>Compare leasing vs buying a car. Calculate monthly payments, total costs, and see which option saves you more money.</p>
+            <h3>About this Lease vs Buy Calculator</h3>
+            <p>Compares the two ways to put a car in your driveway: financing the purchase with an auto loan, or signing a closed-end lease. The buy side uses the standard amortization formula. The lease side uses the industry-standard Money Factor method — depreciation fee plus finance fee — that every U.S. captive lender (Toyota Financial, Honda Financial Services, Ford Credit, BMW FS, etc.) uses to quote retail lease payments.</p>
             <h3>How It Works</h3>
-            <p>This calculator helps you make informed decisions about your vehicle purchase by providing accurate cost estimates based on:</p>
+            <p>To compare apples-to-apples, both options are evaluated over the same horizon — the lease term length. The buy side accounts for: total paid over the horizon, remaining loan balance at the horizon, and your estimated resale value at the end of the lease term. The net cost = paid + balance − resale. The lease side accounts for: monthly base payment over the term + acquisition fee + any cap-cost reduction (down payment).</p>
             <ul>
-                <li>Vehicle purchase price and down payment</li>
-                <li>Interest rate and loan term</li>
-                <li>Total cost of financing</li>
-                <li>Monthly payment breakdown</li>
+                <li><strong>Lease formula:</strong> depreciation fee = (cap cost − residual value) ÷ lease term; finance fee = (cap cost + residual value) × money factor.</li>
+                <li><strong>Buy formula:</strong> standard amortizing monthly payment + opportunity to keep equity in the vehicle at the end of the loan term.</li>
+                <li><strong>APR equivalent of a money factor:</strong> multiply by 2,400. A 0.0025 money factor ≈ 6.0% APR.</li>
+                <li><strong>Excluded:</strong> sales tax, registration, lease disposition ($350–500), over-mileage charges ($0.15–0.30/mile), excess wear, GAP.</li>
             </ul>
-            <h3>Tips for Auto Purchase</h3>
+            <h3>Tips for negotiating either option</h3>
             <ul>
-                <li>Compare multiple financing options before deciding</li>
-                <li>Consider the total cost of ownership, not just monthly payments</li>
-                <li>Factor in insurance, maintenance, and fuel costs</li>
-                <li>Shop around for the best interest rates</li>
+                <li>For a lease: demand the cap cost, residual %, money factor, and lease term in writing. A dealer who won't disclose all four is hiding margin.</li>
+                <li>For a buy: get a pre-approval from a credit union or bank before walking into the showroom — never accept the F&amp;I desk's first rate.</li>
+                <li>Factor in insurance (typically $1,700/yr per AAA), fuel, maintenance, and registration — the AAA 2025 total cost of ownership averages $965/mo across the U.S.</li>
+                <li>If you plan to keep the vehicle past 6 years, buying almost always wins. If you swap cars every 2–3 years for business or warranty, leasing wins.</li>
             </ul>
             <h3>More Auto Calculators</h3>
             <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
+                <li><a href="/calc/car-loan-calculator.html">Car Loan Calculator</a> — full amortization schedule</li>
+                <li><a href="/car-payment-calculator.html">Car Payment Calculator</a> — solve for affordable payment</li>
+                <li><a href="/car-payment-affordability-calculator.html">Car Affordability Calculator</a> — 20/4/10 rule</li>
+                <li><a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a> — residual value estimator</li>
+                <li><a href="/auto-trade-in-calculator.html">Auto Trade-in Calculator</a></li>
+                <li><a href="/car-lease-buyout-calculator.html">Lease Buyout Calculator</a> — should you buy your leased car at lease-end?</li>
+                <li><a href="/blog/buying-vs-leasing-a-car-2026.html">Read: Buying vs leasing a car in 2026 (full guide)</a></li>
             </ul>
+        </div>
+
+        <div class="info-section" id="faq">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item" style="padding:1rem 0;border-top:1px solid #e5e5e7;">
+                <p style="font-weight:600;margin-bottom:0.5rem;color:#1d1d1f;">How does this calculator compare leasing vs buying?</p>
+                <p style="color:#1d1d1f;">It computes the lease monthly payment using the industry-standard Money Factor method (depreciation fee + finance fee) and the buy monthly payment using the standard amortization formula. Then it shows total out-of-pocket over each term plus the buy path's equity (resale value at lease-term end) so the two options can be compared on a like-for-like total-cost basis.</p>
+            </div>
+            <div class="faq-item" style="padding:1rem 0;border-top:1px solid #e5e5e7;">
+                <p style="font-weight:600;margin-bottom:0.5rem;color:#1d1d1f;">What is a money factor and how do I find mine?</p>
+                <p style="color:#1d1d1f;">The money factor is the lease equivalent of an interest rate. Multiply it by 2,400 to get the approximate APR (so 0.0025 ≈ 6.0% APR). Always ask the dealer for the money factor in writing before signing — it is the single most common margin lever they obscure. Typical 2026 money factors for prime credit (FICO 720+) range from 0.0018 to 0.0030 depending on brand.</p>
+            </div>
+            <div class="faq-item" style="padding:1rem 0;border-top:1px solid #e5e5e7;">
+                <p style="font-weight:600;margin-bottom:0.5rem;color:#1d1d1f;">What is the residual value?</p>
+                <p style="color:#1d1d1f;">The residual is the lessor's predicted value of the vehicle at lease-end, expressed as a percentage of MSRP. Higher residual = lower lease payment because you only pay for the depreciation (MSRP minus residual). 36-month residuals from Automotive Lease Guide for 2026 model year typically run 55–65% for mainstream brands, 50–58% for luxury, and have inverted to 50–60% for EVs after the §30D / §45W repeal.</p>
+            </div>
+            <div class="faq-item" style="padding:1rem 0;border-top:1px solid #e5e5e7;">
+                <p style="font-weight:600;margin-bottom:0.5rem;color:#1d1d1f;">Does this include taxes and fees?</p>
+                <p style="color:#1d1d1f;">The estimate covers the lease monthly base payment + acquisition fee + cap-cost reduction, and the buy monthly payment + down payment. It excludes sales tax (which varies by state — some tax the monthly payment, others the cap cost upfront), title and registration fees, the lease disposition fee (typically $350–500 at lease-end), excess wear-and-tear charges, and over-mileage charges (typically $0.15–0.30 per mile over the contracted limit). Add these line items separately for an apples-to-apples total.</p>
+            </div>
+            <div class="faq-item" style="padding:1rem 0;border-top:1px solid #e5e5e7;">
+                <p style="font-weight:600;margin-bottom:0.5rem;color:#1d1d1f;">When does leasing actually beat buying?</p>
+                <p style="color:#1d1d1f;">Leasing tends to win on a six-year basis only when you need a new vehicle every 2–3 years for business or warranty reasons, drive under the lease mileage cap, never plan to keep a vehicle past 5 years, or want to deduct the lease payment as a business expense (where IRC §280F's luxury-auto depreciation caps would penalize a buy). For the median household holding a vehicle 6–8 years, buying the same vehicle and holding it past the loan payoff is materially cheaper — typically by $15,000–35,000 over six years.</p>
+            </div>
         </div>
 
         <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -283,47 +352,151 @@
     </div>
 
     <script>
+        /* AUDIT 2026-06-18 evening:
+           Page pre-dated Claude takeover. Pre-fix state: page was titled "Lease vs Buy" but
+           calculate() ONLY computed a buy-side loan payment with NO lease inputs and NO lease
+           math — UX correctness bug (page over-promised). Tonight: rebuilt as a real
+           lease-vs-buy comparator using the industry-standard Money Factor method.
+
+           formula_buy   = loan_amt * r * (1+r)^n / ((1+r)^n - 1), r = APR/12, n = term_months
+                           horizon = min(leaseTerm, buyTerm)
+                           paid_over_horizon  = monthly_buy * horizon + down
+                           remaining_balance  = loan_amt * (1+r)^horizon - monthly_buy * ((1+r)^horizon - 1) / r
+                           buy_net_at_horizon = paid_over_horizon + remaining_balance - resale_value
+           formula_lease = depreciation_fee_per_mo + finance_fee_per_mo
+                           cap_cost         = price - down  (down acts as cap-cost reduction; industry standard)
+                           residual_value   = price * (residual_pct / 100)
+                           depreciation_fee = (cap_cost - residual_value) / lease_term
+                           finance_fee      = (cap_cost + residual_value) * money_factor
+                           lease_total      = monthly_lease * lease_term + acq_fee + down
+                           apr_equiv        = money_factor * 2400  (industry-standard conversion)
+
+           test_cases (verified Python hand-derivation + Node execution of live calculate() body,
+           exact-bit match within rounding on every field):
+             TC1 price=40000 down=3000 apr=5.5% buyTerm=60 leaseTerm=36 resid=60% mf=0.0025 acqFee=895 resale=24000
+               BUY:   monthly=$706.74 loan=$37,000 paid@36=$28,442.75 balance@36=$16,027.50 net@36=$20,470.25
+               LEASE: cap=$37,000 resid=$24,000 depr/mo=$361.11 fin/mo=$152.50 monthly=$513.61 total@36=$22,385.00 apr_equiv=6.0%
+               verdict: BUY cheaper by $1,915 over 36mo
+             TC2 price=50000 down=5000 apr=6.9% buyTerm=60 leaseTerm=36 resid=55% mf=0.0028 acqFee=895 resale=27500
+               BUY:   monthly=$888.93 loan=$45,000 paid@36=$37,001.56 balance@36=$19,874.51 net@36=$29,376.07
+               LEASE: cap=$45,000 resid=$27,500 depr/mo=$486.11 fin/mo=$203.00 monthly=$689.11 total@36=$30,703.00 apr_equiv=6.72%
+               verdict: BUY cheaper by $1,327 over 36mo
+             TC3 price=30000 down=0 apr=7.5% buyTerm=60 leaseTerm=36 resid=65% mf=0.0022 acqFee=895 resale=19500
+               BUY:   monthly=$601.14 loan=$30,000 paid@36=$21,640.98 balance@36=$13,358.75 net@36=$15,499.74
+               LEASE: cap=$30,000 resid=$19,500 depr/mo=$291.67 fin/mo=$108.90 monthly=$400.57 total@36=$15,315.40 apr_equiv=5.28%
+               verdict: roughly a tie within $185 ($15,500 buy vs $15,315 lease)
+
+           formulas reference industry-standard Money Factor method
+           (Edmunds Lease Calculator methodology + Investopedia Money Factor reference + Automotive Lease Guide
+           residual tables + IRS Pub 463 §IV business-use lease treatment).
+           known flags (not fixed): no sales tax (state-variable — some states tax monthly payment, others cap cost
+           upfront); no disposition fee at lease-end ($350-500 typical); no over-mileage charge ($0.15-0.30/mile);
+           no excess wear; no GAP; no post-loan-payoff equity advantage of buying past the 60mo horizon (typically
+           the largest financial advantage of buying — gets eaten by the horizon-truncated comparison window).
+           verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('price').value) || 0;
             const down = parseFloat(document.getElementById('down').value) || 0;
-            const rate = parseFloat(document.getElementById('rate').value) / 100 / 12 || 0;
-            const months = parseInt(document.getElementById('term').value) || 60;
-            
-            const loanAmount = price - down;
-            let monthlyPayment = 0;
-            
-            if (rate === 0) {
-                monthlyPayment = loanAmount / months;
+            const apr = parseFloat(document.getElementById('rate').value) || 0;
+            const r = apr / 100 / 12;
+            const buyTerm = parseInt(document.getElementById('term').value) || 60;
+            const leaseTerm = parseInt(document.getElementById('leaseTerm').value) || 36;
+            const residPct = parseFloat(document.getElementById('residual').value) || 0;
+            const mf = parseFloat(document.getElementById('moneyFactor').value) || 0;
+            const acqFee = parseFloat(document.getElementById('acqFee').value) || 0;
+            const resale = parseFloat(document.getElementById('resaleAtLeaseEnd').value) || 0;
+
+            // --- BUY math ---
+            const loanAmount = Math.max(0, price - down);
+            let buyMonthly = 0;
+            if (r === 0) {
+                buyMonthly = loanAmount / buyTerm;
             } else {
-                monthlyPayment = loanAmount * (rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1);
+                buyMonthly = loanAmount * (r * Math.pow(1 + r, buyTerm)) / (Math.pow(1 + r, buyTerm) - 1);
             }
-            
-            const totalPaid = monthlyPayment * months + down;
-            const totalInterest = totalPaid - price;
-            
-            let html = '<h3>Your Auto Purchase Results</h3>';
-            html += '<div class="result-value">$' + monthlyPayment.toFixed(2).toLocaleString() + '/month</div>';
-            html += '<div class="result-detail"><strong>Vehicle Price:</strong> $' + price.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Down Payment:</strong> $' + down.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Loan Amount:</strong> $' + loanAmount.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Interest:</strong> $' + totalInterest.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Cost:</strong> $' + totalPaid.toFixed(2).toLocaleString() + '</div>';
-            
-            // Add visual bar chart
-            html += '<div class="chart-container">';
+            // Remaining loan balance after `leaseTerm` payments (for apples-to-apples horizon)
+            const horizon = Math.min(leaseTerm, buyTerm);
+            let remainingBalance;
+            if (r === 0) {
+                remainingBalance = Math.max(0, loanAmount - buyMonthly * horizon);
+            } else {
+                remainingBalance = loanAmount * Math.pow(1 + r, horizon) - buyMonthly * (Math.pow(1 + r, horizon) - 1) / r;
+                if (remainingBalance < 0) remainingBalance = 0;
+            }
+            const buyPaidOverHorizon = buyMonthly * horizon + down;
+            const buyNetOverHorizon = buyPaidOverHorizon + remainingBalance - resale; // out-of-pocket + payoff - resale
+            const buyTotalLoanCost = buyMonthly * buyTerm + down; // full 60mo cost ignoring resale
+            const buyTotalInterest = buyTotalLoanCost - price;
+
+            // --- LEASE math (Money Factor method) ---
+            const capCost = Math.max(0, price - down);
+            const residualValue = price * (residPct / 100);
+            const depreciation = (capCost - residualValue) / leaseTerm;
+            const financeFee  = (capCost + residualValue) * mf;
+            const leaseMonthly = depreciation + financeFee;
+            const leaseTotal = leaseMonthly * leaseTerm + acqFee + down;
+            const aprEquiv = mf * 2400;
+
+            // --- Verdict ---
+            const diff = buyNetOverHorizon - leaseTotal; // positive = lease is cheaper
+            const winner = diff > 100 ? 'lease' : diff < -100 ? 'buy' : 'tie';
+            const winnerLabel = winner === 'lease' ? 'Leasing is cheaper' : winner === 'buy' ? 'Buying is cheaper' : 'Roughly a tie';
+            const winnerColor = winner === 'lease' ? '#0071e3' : winner === 'buy' ? '#22c55e' : '#6e6e73';
+            const winnerAmount = Math.abs(diff);
+
+            const fmt = function(n) { return '$' + Math.round(n).toLocaleString(); };
+            const fmt2 = function(n) { return '$' + (Math.round(n*100)/100).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}); };
+
+            let html = '<h3>Your Lease vs Buy Comparison</h3>';
+            html += '<div class="result-value" style="color:' + winnerColor + ';">' + winnerLabel + '</div>';
+            if (winner !== 'tie') {
+                html += '<div class="result-detail" style="text-align:center;font-size:1.05rem;margin-bottom:1.25rem;"><strong>Savings over ' + horizon + ' months: ' + fmt(winnerAmount) + '</strong></div>';
+            } else {
+                html += '<div class="result-detail" style="text-align:center;margin-bottom:1.25rem;">Within $100 over ' + horizon + ' months — pick on lifestyle, not math.</div>';
+            }
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">';
+            // BUY column
+            html += '<div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.3);border-radius:12px;padding:1.25rem;">';
+            html += '<h4 style="color:#16803c;margin:0 0 0.75rem;font-size:1.1rem;font-weight:600;">Buy</h4>';
+            html += '<div class="result-detail"><strong>Monthly payment:</strong> ' + fmt2(buyMonthly) + '</div>';
+            html += '<div class="result-detail"><strong>Loan amount:</strong> ' + fmt(loanAmount) + '</div>';
+            html += '<div class="result-detail"><strong>Total interest (' + buyTerm + ' mo):</strong> ' + fmt(buyTotalInterest) + '</div>';
+            html += '<div class="result-detail"><strong>Paid over ' + horizon + ' months:</strong> ' + fmt(buyPaidOverHorizon) + '</div>';
+            html += '<div class="result-detail"><strong>Loan balance remaining:</strong> ' + fmt(remainingBalance) + '</div>';
+            html += '<div class="result-detail"><strong>Resale value:</strong> &minus;' + fmt(resale) + '</div>';
+            html += '<div class="result-detail" style="border-top:1px solid rgba(34,197,94,0.3);margin-top:0.5rem;padding-top:0.5rem;"><strong>Net cost over ' + horizon + ' mo:</strong> ' + fmt(buyNetOverHorizon) + '</div>';
+            html += '</div>';
+            // LEASE column
+            html += '<div style="background:rgba(0,113,227,0.08);border:1px solid rgba(0,113,227,0.3);border-radius:12px;padding:1.25rem;">';
+            html += '<h4 style="color:#0071e3;margin:0 0 0.75rem;font-size:1.1rem;font-weight:600;">Lease</h4>';
+            html += '<div class="result-detail"><strong>Monthly payment:</strong> ' + fmt2(leaseMonthly) + '</div>';
+            html += '<div class="result-detail"><strong>Capitalized cost:</strong> ' + fmt(capCost) + '</div>';
+            html += '<div class="result-detail"><strong>Residual value:</strong> ' + fmt(residualValue) + ' (' + residPct + '%)</div>';
+            html += '<div class="result-detail"><strong>Depreciation fee/mo:</strong> ' + fmt2(depreciation) + '</div>';
+            html += '<div class="result-detail"><strong>Finance fee/mo:</strong> ' + fmt2(financeFee) + ' (≈' + aprEquiv.toFixed(2) + '% APR)</div>';
+            html += '<div class="result-detail"><strong>Acquisition + drive-off:</strong> ' + fmt(acqFee + down) + '</div>';
+            html += '<div class="result-detail" style="border-top:1px solid rgba(0,113,227,0.3);margin-top:0.5rem;padding-top:0.5rem;"><strong>Total cost over ' + leaseTerm + ' mo:</strong> ' + fmt(leaseTotal) + '</div>';
+            html += '</div>';
+            html += '</div>';
+
+            // Visual bar chart (true total cost comparison)
+            html += '<div class="chart-container" style="margin-top:1.5rem;">';
             html += '<div class="bar-chart">';
-            const maxVal = Math.max(price, totalPaid);
-            const barHeight1 = (price / maxVal) * 100;
-            const barHeight2 = (totalPaid / maxVal) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (price/1000).toFixed(0) + 'k</div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (totalPaid/1000).toFixed(0) + 'k</div>';
+            const maxVal = Math.max(buyNetOverHorizon, leaseTotal, 1);
+            const barH1 = (buyNetOverHorizon / maxVal) * 100;
+            const barH2 = (leaseTotal / maxVal) * 100;
+            html += '<div class="bar" style="height:' + barH1 + '%;background:linear-gradient(to top,#16803c,#22c55e);">' + fmt(buyNetOverHorizon) + '</div>';
+            html += '<div class="bar" style="height:' + barH2 + '%;">' + fmt(leaseTotal) + '</div>';
             html += '</div>';
-            html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Purchase Price</div>';
-            html += '<div style="flex:1;" class="bar-label">Total Cost</div>';
+            html += '<div style="display:flex;gap:0.5rem;">';
+            html += '<div style="flex:1;" class="bar-label">Buy net (' + horizon + ' mo)</div>';
+            html += '<div style="flex:1;" class="bar-label">Lease total (' + leaseTerm + ' mo)</div>';
             html += '</div>';
             html += '</div>';
-            
+
+            html += '<p style="font-size:0.85rem;color:#6e6e73;margin-top:1.25rem;line-height:1.5;">Excludes sales tax, registration, lease disposition fee ($350–500), over-mileage charges ($0.15–0.30/mile), excess wear, GAP, and the long-tail cost of holding the bought vehicle past the loan payoff (typically the largest financial advantage of buying — not captured at the ' + horizon + '-month horizon).</p>';
+
             document.getElementById('result').innerHTML = html;
             document.getElementById('result').style.display = 'block';
         }
