@@ -213,30 +213,39 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Auto Tax Calculator</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your details below to calculate and compare your options.</p>
+            <h2>Auto Sales Tax Calculator</h2>
+            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your purchase details to estimate sales tax, registration, and total out-the-door cost.</p>
             <div class="input-group">
                 <label for="price">Vehicle Price ($):</label>
-                <input type="number" id="price" min="0" value="30000" step="100" aria-label="Price">
+                <input type="number" id="price" min="0" value="40000" step="100" aria-label="Vehicle price">
+                <small>Negotiated selling price before tax and fees.</small>
             </div>
             <div class="input-group">
-                <label for="down">Down Payment ($):</label>
-                <input type="number" id="down" min="0" value="5000" step="100" aria-label="Down">
+                <label for="tradein">Trade-In Value ($):</label>
+                <input type="number" id="tradein" min="0" value="0" step="100" aria-label="Trade-in value">
+                <small>Most states tax only (price − trade-in). Set to 0 if none.</small>
             </div>
             <div class="input-group">
-                <label for="rate">Interest Rate (%):</label>
-                <input type="number" id="rate" min="0" max="20" value="5.5" step="0.1" aria-label="Rate">
+                <label for="rebate">Manufacturer Rebate ($):</label>
+                <input type="number" id="rebate" min="0" value="0" step="100" aria-label="Rebate">
+                <small>Some states tax the pre-rebate price. We follow majority-state rule and tax post-rebate.</small>
             </div>
             <div class="input-group">
-                <label for="term">Loan Term:</label>
-                <select id="term" aria-label="Term">
-                    <option value="36">36 months (3 years)</option>
-                    <option value="48">48 months (4 years)</option>
-                    <option value="60" selected>60 months (5 years)</option>
-                    <option value="72">72 months (6 years)</option>
-                </select>
+                <label for="taxRate">State + Local Sales Tax Rate (%):</label>
+                <input type="number" id="taxRate" min="0" max="15" value="6.5" step="0.01" aria-label="Tax rate">
+                <small>Combined state and local rate. Look up your state on /alabama-sales-tax-calculator.html etc.</small>
             </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Payment</button>
+            <div class="input-group">
+                <label for="regFee">Registration / Title / DMV Fees ($):</label>
+                <input type="number" id="regFee" min="0" value="200" step="10" aria-label="Registration fee">
+                <small>Varies $30–$700 by state. Includes title, plate, and registration.</small>
+            </div>
+            <div class="input-group">
+                <label for="docFee">Dealer Doc Fee ($):</label>
+                <input type="number" id="docFee" min="0" value="150" step="10" aria-label="Doc fee">
+                <small>Typical $75–$800. Capped by law in some states; negotiable.</small>
+            </div>
+            <button class="calc-btn" onclick="calculate()">Calculate Total Cost</button>
             <div class="result-box" id="result">
                 <h3>Results</h3>
             </div>
@@ -283,47 +292,77 @@
     </div>
 
     <script>
+        /* AUDIT 2026-06-19 evening: pre-fix the page TITLE was "Auto Sales Tax Calculator" but
+           calculate() was a buy-only loan-payment routine with zero tax math. Rebuilt with the
+           canonical (price - trade-in - rebate) * rate = tax model used by the 50 state-sales-tax
+           sibling files, plus registration + doc fee out-the-door total.
+           formula:
+             taxable = max(price - tradeIn - rebate, 0)
+             tax     = taxable * (taxRate / 100)
+             outTheDoor = price + tax + regFee + docFee   (trade-in offsets reduce tax but not OTD)
+             // The OTD line treats trade-in as a separate credit, not a price reduction, so the
+             // buyer sees the cash they actually need to deliver (or finance) at signing.
+             otdMinusTrade = outTheDoor - tradeIn
+           test_cases=[
+             {price:40000,trade:0,rebate:0,rate:6.5,reg:200,doc:150,
+              tax:2600.00,outTheDoor:42950.00,otdMinusTrade:42950.00},
+             {price:35000,trade:8000,rebate:1500,rate:8.82,reg:350,doc:295,
+              taxable:25500,tax:2249.10,outTheDoor:37894.10,otdMinusTrade:29894.10},
+             {price:55000,trade:0,rebate:0,rate:0,reg:75,doc:75,
+              tax:0,outTheDoor:55150.00,otdMinusTrade:55150.00}
+           ]
+           note: 6 trade-in-non-deduction states (CA, DC, HI, KY, MD, MI, VA) still tax the gross
+                 price; user can model this by setting trade-in field to 0. Caveat surfaced in FAQ.
+           sources: Tax Foundation 2024 state combined-rate averages; NHTSA / state DMV fee schedules.
+           verified_by=evening-routine */
         function calculate() {
             const price = parseFloat(document.getElementById('price').value) || 0;
-            const down = parseFloat(document.getElementById('down').value) || 0;
-            const rate = parseFloat(document.getElementById('rate').value) / 100 / 12 || 0;
-            const months = parseInt(document.getElementById('term').value) || 60;
-            
-            const loanAmount = price - down;
-            let monthlyPayment = 0;
-            
-            if (rate === 0) {
-                monthlyPayment = loanAmount / months;
-            } else {
-                monthlyPayment = loanAmount * (rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1);
+            const tradeIn = parseFloat(document.getElementById('tradein').value) || 0;
+            const rebate = parseFloat(document.getElementById('rebate').value) || 0;
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+            const regFee = parseFloat(document.getElementById('regFee').value) || 0;
+            const docFee = parseFloat(document.getElementById('docFee').value) || 0;
+
+            if (price <= 0) {
+                document.getElementById('result').innerHTML = '<h3>Enter a vehicle price above</h3>';
+                document.getElementById('result').style.display = 'block';
+                return;
             }
-            
-            const totalPaid = monthlyPayment * months + down;
-            const totalInterest = totalPaid - price;
-            
-            let html = '<h3>Your Auto Tax Results</h3>';
-            html += '<div class="result-value">$' + monthlyPayment.toFixed(2).toLocaleString() + '/month</div>';
-            html += '<div class="result-detail"><strong>Vehicle Price:</strong> $' + price.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Down Payment:</strong> $' + down.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Loan Amount:</strong> $' + loanAmount.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Interest:</strong> $' + totalInterest.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Cost:</strong> $' + totalPaid.toFixed(2).toLocaleString() + '</div>';
-            
-            // Add visual bar chart
+
+            const taxable = Math.max(price - tradeIn - rebate, 0);
+            const tax = taxable * (taxRate / 100);
+            const outTheDoor = price + tax + regFee + docFee;
+            const otdMinusTrade = outTheDoor - tradeIn;
+            const fmt = (v) => v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+            let html = '<h3>Your Out-the-Door Estimate</h3>';
+            html += '<div class="result-value">$' + fmt(otdMinusTrade) + '</div>';
+            html += '<div class="result-detail" style="margin-bottom:1rem"><strong>Cash (or finance amount) at signing after trade-in credit.</strong></div>';
+            html += '<div class="result-detail"><strong>Vehicle Price:</strong> $' + fmt(price) + '</div>';
+            html += '<div class="result-detail"><strong>Trade-In Credit:</strong> &minus;$' + fmt(tradeIn) + '</div>';
+            html += '<div class="result-detail"><strong>Rebate:</strong> &minus;$' + fmt(rebate) + '</div>';
+            html += '<div class="result-detail"><strong>Taxable Amount:</strong> $' + fmt(taxable) + '</div>';
+            html += '<div class="result-detail"><strong>Sales Tax (' + taxRate.toFixed(2) + '%):</strong> $' + fmt(tax) + '</div>';
+            html += '<div class="result-detail"><strong>Registration / Title / DMV:</strong> $' + fmt(regFee) + '</div>';
+            html += '<div class="result-detail"><strong>Dealer Doc Fee:</strong> $' + fmt(docFee) + '</div>';
+            html += '<hr style="margin:1rem 0;border:0;border-top:1px solid #d2d2d7">';
+            html += '<div class="result-detail"><strong>Out-the-Door (before trade credit):</strong> $' + fmt(outTheDoor) + '</div>';
+            html += '<div class="result-detail"><strong>Net Cash Due (after trade credit):</strong> $' + fmt(otdMinusTrade) + '</div>';
+
             html += '<div class="chart-container">';
             html += '<div class="bar-chart">';
-            const maxVal = Math.max(price, totalPaid);
+            const maxVal = Math.max(price, outTheDoor);
             const barHeight1 = (price / maxVal) * 100;
-            const barHeight2 = (totalPaid / maxVal) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (price/1000).toFixed(0) + 'k</div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (totalPaid/1000).toFixed(0) + 'k</div>';
+            const barHeight2 = (outTheDoor / maxVal) * 100;
+            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (price/1000).toFixed(1) + 'k</div>';
+            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (outTheDoor/1000).toFixed(1) + 'k</div>';
             html += '</div>';
             html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Purchase Price</div>';
-            html += '<div style="flex:1;" class="bar-label">Total Cost</div>';
+            html += '<div style="flex:1;" class="bar-label">Sticker Price</div>';
+            html += '<div style="flex:1;" class="bar-label">Out-the-Door</div>';
             html += '</div>';
             html += '</div>';
-            
+
             document.getElementById('result').innerHTML = html;
             document.getElementById('result').style.display = 'block';
         }

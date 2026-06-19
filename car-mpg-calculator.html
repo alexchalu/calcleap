@@ -214,29 +214,28 @@
 
         <div class="calc-box">
             <h2>Fuel Economy Calculator</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your details below to calculate and compare your options.</p>
+            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your trip distance and gallons used to calculate MPG, plus annual fuel cost at your usage.</p>
             <div class="input-group">
-                <label for="price">Vehicle Price ($):</label>
-                <input type="number" id="price" min="0" value="30000" step="100" aria-label="Price">
+                <label for="miles">Miles Driven:</label>
+                <input type="number" id="miles" min="0" value="300" step="1" aria-label="Miles driven">
+                <small>Distance between two fill-ups, ideally on the same fuel grade.</small>
             </div>
             <div class="input-group">
-                <label for="down">Down Payment ($):</label>
-                <input type="number" id="down" min="0" value="5000" step="100" aria-label="Down">
+                <label for="gallons">Gallons Used:</label>
+                <input type="number" id="gallons" min="0" value="12" step="0.01" aria-label="Gallons used">
+                <small>Gallons it took to refill the tank after that distance.</small>
             </div>
             <div class="input-group">
-                <label for="rate">Interest Rate (%):</label>
-                <input type="number" id="rate" min="0" max="20" value="5.5" step="0.1" aria-label="Rate">
+                <label for="price">Fuel Price ($ per gallon):</label>
+                <input type="number" id="price" min="0" value="3.30" step="0.01" aria-label="Fuel price">
+                <small>Current pump price. U.S. average regular gasoline ~$3.30 (EIA, mid-2026).</small>
             </div>
             <div class="input-group">
-                <label for="term">Loan Term:</label>
-                <select id="term" aria-label="Term">
-                    <option value="36">36 months (3 years)</option>
-                    <option value="48">48 months (4 years)</option>
-                    <option value="60" selected>60 months (5 years)</option>
-                    <option value="72">72 months (6 years)</option>
-                </select>
+                <label for="annual">Annual Miles Driven:</label>
+                <input type="number" id="annual" min="0" value="13500" step="100" aria-label="Annual miles">
+                <small>U.S. average ~13,500 mi/yr (FHWA, 2024). Adjust to your situation.</small>
             </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Payment</button>
+            <button class="calc-btn" onclick="calculate()">Calculate MPG</button>
             <div class="result-box" id="result">
                 <h3>Results</h3>
             </div>
@@ -283,44 +282,66 @@
     </div>
 
     <script>
+        /* AUDIT 2026-06-19 evening: pre-fix the page TITLE was "MPG Calculator" but calculate()
+           was a buy-only loan-payment routine with zero MPG math. Rebuilt with canonical MPG
+           formula plus annual fuel cost projection.
+           formulas:
+             mpg = miles / gallons
+             costPerMile = pricePerGallon / mpg
+             annualFuelCost = (annualMiles / mpg) * pricePerGallon
+             annualGallons = annualMiles / mpg
+           test_cases=[
+             {miles:300, gallons:12, price:3.30, annual:13500,
+              mpg:25.0, costPerMile:0.132, annualGallons:540.0, annualFuelCost:1782.00},
+             {miles:420, gallons:14, price:3.30, annual:15000,
+              mpg:30.0, costPerMile:0.110, annualGallons:500.0, annualFuelCost:1650.00},
+             {miles:350, gallons:20, price:3.50, annual:20000,
+              mpg:17.5, costPerMile:0.200, annualGallons:1142.86, annualFuelCost:4000.00}
+           ]
+           sources: EIA U.S. average gasoline price; FHWA Highway Statistics 2024 average annual VMT.
+           limitations: city/highway split not modeled; EPA window-sticker MPG combined uses 55/45.
+           verified_by=evening-routine */
         function calculate() {
+            const miles = parseFloat(document.getElementById('miles').value) || 0;
+            const gallons = parseFloat(document.getElementById('gallons').value) || 0;
             const price = parseFloat(document.getElementById('price').value) || 0;
-            const down = parseFloat(document.getElementById('down').value) || 0;
-            const rate = parseFloat(document.getElementById('rate').value) / 100 / 12 || 0;
-            const months = parseInt(document.getElementById('term').value) || 60;
-            
-            const loanAmount = price - down;
-            let monthlyPayment = 0;
-            
-            if (rate === 0) {
-                monthlyPayment = loanAmount / months;
-            } else {
-                monthlyPayment = loanAmount * (rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1);
+            const annual = parseFloat(document.getElementById('annual').value) || 0;
+
+            if (miles <= 0 || gallons <= 0) {
+                document.getElementById('result').innerHTML = '<h3>Enter miles driven and gallons used</h3>';
+                document.getElementById('result').style.display = 'block';
+                return;
             }
-            
-            const totalPaid = monthlyPayment * months + down;
-            const totalInterest = totalPaid - price;
-            
+
+            const mpg = miles / gallons;
+            const costPerMile = mpg > 0 ? price / mpg : 0;
+            const annualGallons = mpg > 0 ? annual / mpg : 0;
+            const annualFuelCost = annualGallons * price;
+            const fmt2 = (v) => v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
             let html = '<h3>Your Fuel Economy Results</h3>';
-            html += '<div class="result-value">$' + monthlyPayment.toFixed(2).toLocaleString() + '/month</div>';
-            html += '<div class="result-detail"><strong>Vehicle Price:</strong> $' + price.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Down Payment:</strong> $' + down.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Loan Amount:</strong> $' + loanAmount.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Interest:</strong> $' + totalInterest.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Cost:</strong> $' + totalPaid.toFixed(2).toLocaleString() + '</div>';
-            
-            // Add visual bar chart
+            html += '<div class="result-value">' + mpg.toFixed(1) + ' MPG</div>';
+            html += '<div class="result-detail"><strong>Miles Driven:</strong> ' + miles.toLocaleString() + '</div>';
+            html += '<div class="result-detail"><strong>Gallons Used:</strong> ' + gallons.toLocaleString() + '</div>';
+            html += '<div class="result-detail"><strong>Cost Per Mile:</strong> $' + costPerMile.toFixed(3) + '</div>';
+            html += '<hr style="margin:1rem 0;border:0;border-top:1px solid #d2d2d7">';
+            html += '<div class="result-detail"><strong>Annual Gallons (at ' + annual.toLocaleString() + ' mi/yr):</strong> ' + annualGallons.toFixed(1) + '</div>';
+            html += '<div class="result-detail"><strong>Annual Fuel Cost:</strong> $' + fmt2(annualFuelCost) + '</div>';
+            html += '<div class="result-detail" style="font-size:.85rem;color:#6e6e73;margin-top:.75rem">For context: EPA 2026 fleet-average new vehicles ~27.7 MPG combined; midsize sedan ~32 MPG; midsize SUV ~26 MPG; pickup ~22 MPG.</div>';
+
+            // Comparison bar chart: this MPG vs U.S. fleet average 27.7
             html += '<div class="chart-container">';
             html += '<div class="bar-chart">';
-            const maxVal = Math.max(price, totalPaid);
-            const barHeight1 = (price / maxVal) * 100;
-            const barHeight2 = (totalPaid / maxVal) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (price/1000).toFixed(0) + 'k</div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (totalPaid/1000).toFixed(0) + 'k</div>';
+            const benchmark = 27.7;
+            const maxMpg = Math.max(mpg, benchmark) * 1.1;
+            const bh1 = (mpg / maxMpg) * 100;
+            const bh2 = (benchmark / maxMpg) * 100;
+            html += '<div class="bar" style="height:' + bh1 + '%">' + mpg.toFixed(1) + '</div>';
+            html += '<div class="bar" style="height:' + bh2 + '%; background: linear-gradient(to top,#94a3b8,#cbd5e1)">' + benchmark.toFixed(1) + '</div>';
             html += '</div>';
             html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Purchase Price</div>';
-            html += '<div style="flex:1;" class="bar-label">Total Cost</div>';
+            html += '<div style="flex:1;" class="bar-label">Your MPG</div>';
+            html += '<div style="flex:1;" class="bar-label">U.S. Fleet Avg</div>';
             html += '</div>';
             html += '</div>';
             
