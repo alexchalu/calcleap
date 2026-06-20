@@ -371,97 +371,184 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script src="../app-calculator.js"></script>
+    <!-- AUDIT 2026-06-20 evening: rebuilt /calc/capital-gains-tax-calculator.html
+         pre-fix status (per AUDIT 2026-06-14): BROKEN — file had TWO top-level `const calcConfig`
+           declarations (SyntaxError on the second <script> parse) AND neither defined a `calculate`
+           function, so clicking "Calculate" triggered TypeError via app-calculator.js line 58.
+         post-fix: single <script> block with calcConfig.calculate implementing TY2025 federal math:
+           - long-term gain: stacked on ordinaryTaxable, taxed at 0/15/20% per Rev. Proc. 2024-40 §3.03
+               (Single: 0% to $48,350, 15% to $533,400, 20% above
+                MFJ:    0% to $96,700, 15% to $600,050, 20% above
+                MFS:    0% to $48,350, 15% to $300,000, 20% above
+                HoH:    0% to $64,750, 15% to $566,700, 20% above)
+           - short-term gain: stacked on top of ordinaryTaxable, taxed via ordinary brackets per
+               Rev. Proc. 2024-40 §3.01 (TY2025 marginal 10/12/22/24/32/35/37 schedule, filing-status
+               aware) — implemented as `ordinaryTax(ord+gain) - ordinaryTax(ord)` so cross-bracket
+               gains see the correct blended rate.
+           - standard deduction subtracted from `income` before bracket lookup per Rev. Proc.
+               2024-40 §3.18 ($15K single / $30K MFJ / $15K MFS / $22.5K HoH).
+           - NIIT 3.8% per IRC §1411 on min(gain, MAGI-threshold) where MAGI≈income+gain and
+               thresholds are $200K single/HoH, $250K MFJ, $125K MFS.
+           - loss case (gain<=0) zeroes federal tax and surfaces the IRC §1211(b) $3K
+               ordinary-offset + carryforward note.
+         formulas:
+           ordinaryTax(t) = piecewise marginal-bracket sum (filing-status-aware)
+           ordinaryTaxable = max(0, income - stdDed)
+           LT fedTax = sum over 0/15/20% bands stacked above ordinaryTaxable
+           ST fedTax = ordinaryTax(ordinaryTaxable + gain) - ordinaryTax(ordinaryTaxable)
+           NIIT = 0.038 * min(gain, max(0, income+gain - niitThresh))
+           totalTax = fedTax + NIIT; net = gain - totalTax
+         test_cases (verified via Node execution of live calculate() body, exact-bit match against
+           Python hand-derivation):
+           TC1 — Single, $50K basis, $75K sale, LONG-term, $100K income:
+             gain=$25,000; ordinaryTaxable=$85,000 (above 0% LTCG threshold $48,350, well under
+             15% top $533,400) → all $25K through 15% band → fedTax=$3,750.00; MAGI=$125K under
+             $200K NIIT threshold → NIIT=$0; totalTax=$3,750.00; net=$21,250.00;
+             effRate=15.00%.
+           TC2 — Single, $50K basis, $75K sale, SHORT-term, $100K income:
+             gain=$25,000 stacked as ordinary; ordinaryTax($85K)=$13,614.00; ordinaryTax($110K)=
+             $19,247.00 (crosses 22%→24% at $103,350); fedTax=$5,633.00; NIIT=$0;
+             totalTax=$5,633.00; net=$19,367.00; effRate=22.532%.
+           TC3 — MFJ, $200K basis, $500K sale, LONG-term, $400K income:
+             gain=$300,000; ordinaryTaxable=$370,000 (above 0% threshold $96,700, between 15% and
+             20% pivot $600,050) → amt15=$230,050 to top-of-15%, amt20=$69,950 → fedTax=
+             $48,497.50; MAGI=$700K, NIIT base=min($300K, $700K-$250K)=$300K → NIIT=$11,400.00;
+             totalTax=$59,897.50; net=$240,102.50; effRate=16.17% (pre-NIIT) / 19.97% (incl NIIT).
+         known flags (NOT errors):
+           - state capital-gains tax not included (federal only); CA/NY/HI/NJ residents owe
+             ordinary-rate state cap-gains on top — flagged in info-section.
+           - §121 primary-residence exclusion ($250K single / $500K MFJ) not modeled — for home
+             sales subtract exclusion from gain before entering.
+           - §1014 inherited-basis step-up + §1015 carryover-basis on gifts not modeled — user
+             enters their own cost basis.
+           - §1091 wash-sale rule not modeled (only affects losses).
+           - §1250 unrecaptured depreciation (25% rate cap on real-estate depreciation recapture)
+             not modeled — investment property with depreciation needs separate calc.
+           - QSBS §1202 exclusion not modeled.
+           - collectibles 28% rate (IRC §1(h)(4)) not modeled — for collectibles use ordinary calc.
+           - MFS NIIT MAGI threshold $125K matches IRC §1411(b)(2).
+         verified_by: evening-routine -->
     <script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "purchasePrice",
-      "label": "Purchase Price ($)",
-      "type": "number",
-      "placeholder": "50000"
-    },
-    {
-      "name": "salePrice",
-      "label": "Sale Price ($)",
-      "type": "number",
-      "placeholder": "75000"
-    },
-    {
-      "name": "holdingPeriod",
-      "label": "Holding Period",
-      "type": "select",
-      "options": [
-        "Short-term (<1 year)",
-        "Long-term (>1 year)"
-      ]
-    },
-    {
-      "name": "income",
-      "label": "Annual Income ($)",
-      "type": "number",
-      "placeholder": "100000"
-    },
-    {
-      "name": "filingStatus",
-      "label": "Filing Status",
-      "type": "select",
-      "options": [
-        "Single",
-        "Married Filing Jointly",
-        "Married Filing Separately",
-        "Head of Household"
-      ]
-    }
+const calcConfig = {
+  inputs: [
+    {name:"purchasePrice", label:"Cost Basis / Purchase Price ($)", type:"number", placeholder:"50000"},
+    {name:"salePrice",     label:"Sale Price ($)",                  type:"number", placeholder:"75000"},
+    {name:"holdingPeriod", label:"Holding Period",                  type:"select",
+      options:["Long-term (>1 year)","Short-term (≤1 year)"]},
+    {name:"income",        label:"Other Taxable Income ($/yr, before this gain)", type:"number", placeholder:"100000"},
+    {name:"filingStatus",  label:"Filing Status",                   type:"select",
+      options:["Single","Married Filing Jointly","Married Filing Separately","Head of Household"]}
   ],
-  "info": "<p>Capital gains tax is paid on profits from selling investments like stocks, bonds, or real estate.</p><p><strong>Key Points:</strong></p><ul><li>Short-term gains (held <1 year) taxed as ordinary income (10%-37%)</li><li>Long-term gains (held >1 year) taxed at lower rates (0%, 15%, 20%)</li><li>Hold investments longer than 1 year to qualify for lower rates</li><li>Tax-loss harvesting can offset gains</li><li>2026 rates shown - subject to change</li></ul>"
-};
-        initCalculator(calcConfig);
-    </script>
-<script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "purchasePrice",
-      "label": "Purchase Price ($)",
-      "type": "number",
-      "placeholder": "50000"
-    },
-    {
-      "name": "salePrice",
-      "label": "Sale Price ($)",
-      "type": "number",
-      "placeholder": "75000"
-    },
-    {
-      "name": "holdingPeriod",
-      "label": "Holding Period",
-      "type": "select",
-      "options": [
-        "Short-term (<1 year)",
-        "Long-term (>1 year)"
-      ]
-    },
-    {
-      "name": "income",
-      "label": "Annual Income ($)",
-      "type": "number",
-      "placeholder": "100000"
-    },
-    {
-      "name": "filingStatus",
-      "label": "Filing Status",
-      "type": "select",
-      "options": [
-        "Single",
-        "Married Filing Jointly",
-        "Married Filing Separately",
-        "Head of Household"
-      ]
+  info: "<p>Estimates federal capital-gains tax for tax year 2025 using IRS-published brackets (Rev. Proc. 2024-40). Long-term gains (assets held more than one year) get preferential 0%/15%/20% rates stacked on top of your ordinary taxable income; short-term gains are taxed as ordinary income (10%-37% marginal). High earners also owe the 3.8% Net Investment Income Tax (NIIT) under IRC §1411 once MAGI passes $200,000 (single/HoH), $250,000 (MFJ), or $125,000 (MFS).</p><p><strong>What this calculator includes:</strong> federal LTCG bracket stacking, federal ordinary-rate ST treatment with filing-status-aware brackets, TY2025 standard deduction subtraction, NIIT 3.8%, loss / harvesting note (IRC §1211(b)).</p><p><strong>What it excludes (handle separately):</strong> state capital-gains tax (most states tax at ordinary rates; FL/TX/WA/NV/NH/SD/TN/WY have no state cap-gains; CA/NY/HI/NJ have no preferential rate); IRC §121 primary-residence exclusion ($250K single / $500K MFJ — subtract from gain before entering); IRC §1014 inherited-basis step-up; §1091 wash-sale disallowance (losses only); §1250 unrecaptured real-estate depreciation 25% rate; §1202 QSBS exclusion; §1(h)(4) collectibles 28% rate. Always confirm with a CPA before filing.</p>",
+  calculate: function(data) {
+    var gain   = (Number(data.salePrice)||0) - (Number(data.purchasePrice)||0);
+    var income = Number(data.income) || 0;
+    var status = data.filingStatus || 'Single';
+    var isLongTerm = (data.holdingPeriod || '').indexOf('Long') >= 0;
+
+    var stdDeductions = {
+      'Single': 15000, 'Married Filing Jointly': 30000,
+      'Married Filing Separately': 15000, 'Head of Household': 22500
+    };
+    var ordinaryBrackets = {
+      'Single':                    [[11925,.10],[48475,.12],[103350,.22],[197300,.24],[250525,.32],[626350,.35],[Infinity,.37]],
+      'Married Filing Jointly':    [[23850,.10],[96950,.12],[206700,.22],[394600,.24],[501050,.32],[751600,.35],[Infinity,.37]],
+      'Married Filing Separately': [[11925,.10],[48475,.12],[103350,.22],[197300,.24],[250525,.32],[375800,.35],[Infinity,.37]],
+      'Head of Household':         [[17000,.10],[64850,.12],[103350,.22],[197300,.24],[250500,.32],[626350,.35],[Infinity,.37]]
+    };
+    var ltcgBrackets = {
+      'Single':                    [48350, 533400],
+      'Married Filing Jointly':    [96700, 600050],
+      'Married Filing Separately': [48350, 300000],
+      'Head of Household':         [64750, 566700]
+    };
+    var niitThresholds = {
+      'Single': 200000, 'Married Filing Jointly': 250000,
+      'Married Filing Separately': 125000, 'Head of Household': 200000
+    };
+
+    var stdDed = stdDeductions[status] || 15000;
+    var brackets = ordinaryBrackets[status] || ordinaryBrackets['Single'];
+    var ltcg = ltcgBrackets[status] || ltcgBrackets['Single'];
+    var niitThresh = niitThresholds[status] || 200000;
+
+    function ordinaryTax(taxable) {
+      if (taxable <= 0) return 0;
+      var tax = 0, prev = 0;
+      for (var i = 0; i < brackets.length; i++) {
+        var top = brackets[i][0], rate = brackets[i][1];
+        if (taxable <= top) { return tax + (taxable - prev) * rate; }
+        tax += (top - prev) * rate;
+        prev = top;
+      }
+      return tax;
     }
-  ],
-  "info": "<p>Capital gains tax is paid on profits from selling investments like stocks, bonds, or real estate.</p><p><strong>Key Points:</strong></p><ul><li>Short-term gains (held <1 year) taxed as ordinary income (10%-37%)</li><li>Long-term gains (held >1 year) taxed at lower rates (0%, 15%, 20%)</li><li>Hold investments longer than 1 year to qualify for lower rates</li><li>Tax-loss harvesting can offset gains</li><li>2026 rates shown - subject to change</li></ul>"
+
+    var ordinaryTaxable = Math.max(0, income - stdDed);
+    var fedTax = 0, marginalRate = 0;
+    var ltBreakdown = null;
+
+    if (gain > 0 && !isLongTerm) {
+      var withGain = ordinaryTaxable + gain;
+      fedTax = ordinaryTax(withGain) - ordinaryTax(ordinaryTaxable);
+      marginalRate = fedTax / gain;
+    } else if (gain > 0 && isLongTerm) {
+      var amt0  = Math.max(0, Math.min(gain, ltcg[0] - ordinaryTaxable));
+      var rem   = gain - amt0;
+      var stack15 = Math.max(ltcg[0], ordinaryTaxable + amt0);
+      var amt15 = Math.max(0, Math.min(rem, ltcg[1] - stack15));
+      var amt20 = Math.max(0, rem - amt15);
+      fedTax = amt15 * 0.15 + amt20 * 0.20;
+      marginalRate = fedTax / gain;
+      ltBreakdown = {amt0:amt0, amt15:amt15, amt20:amt20};
+    }
+
+    var magi = income + Math.max(0, gain);
+    var niit = (gain > 0 && magi > niitThresh) ? 0.038 * Math.min(gain, magi - niitThresh) : 0;
+    var totalTax = fedTax + niit;
+    var netProceeds = gain - totalTax;
+
+    function fmt(n) { return '$' + n.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2}); }
+    function pct(n) { return (n * 100).toFixed(2) + '%'; }
+
+    var out = {};
+    out['Capital Gain'] = fmt(gain);
+    out['Gain Type'] = isLongTerm ? 'Long-term (>1 year)' : 'Short-term (≤1 year)';
+
+    if (gain <= 0) {
+      out['Federal Capital Gains Tax'] = '$0.00';
+      out['Net Investment Income Tax (3.8%)'] = '$0.00';
+      out['Total Federal Tax'] = '$0.00';
+      out['Net Proceeds'] = fmt(gain);
+      if (gain < 0) {
+        out['Capital Loss Available'] = fmt(-gain);
+        out['Loss Treatment'] = 'Up to $3,000/yr offsets ordinary income; excess carries forward (IRC §1211(b))';
+      }
+      return out;
+    }
+
+    if (isLongTerm && ltBreakdown) {
+      if (ltBreakdown.amt0  > 0) out['  Portion Taxed at 0%']  = fmt(ltBreakdown.amt0);
+      if (ltBreakdown.amt15 > 0) out['  Portion Taxed at 15%'] = fmt(ltBreakdown.amt15);
+      if (ltBreakdown.amt20 > 0) out['  Portion Taxed at 20%'] = fmt(ltBreakdown.amt20);
+    }
+    out['Federal Capital Gains Tax'] = fmt(fedTax);
+    out['Effective Federal Rate on Gain'] = pct(marginalRate);
+    out['Net Investment Income Tax (3.8%)'] = fmt(niit);
+    out['Total Federal Tax'] = fmt(totalTax);
+    out['Net Proceeds After Tax'] = fmt(netProceeds);
+
+    if (isLongTerm) {
+      var stHypothetical = ordinaryTax(ordinaryTaxable + gain) - ordinaryTax(ordinaryTaxable);
+      var savings = stHypothetical - fedTax;
+      if (savings > 0) {
+        out['Tax Saved by Holding >1 Year'] = fmt(savings) + ' vs short-term treatment';
+      }
+    }
+    return out;
+  }
 };
-        initCalculator(calcConfig);
+initCalculator(calcConfig);
     </script>
 
 </div>
