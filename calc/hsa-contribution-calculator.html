@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSA Contribution Calculator 2026 - Tax Savings & Limit | CalcLeap</title>
+<meta name="description" content="Calculate your 2025 or 2026 HSA contribution limit, remaining room after employer match, and triple-tax-advantage savings (federal income tax + state + FICA). Free, no signup.">
+<link rel="canonical" href="https://calcleap.com/calc/hsa-contribution-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcleap.com/calc/hsa-contribution-calculator.html">
+<meta property="og:title" content="HSA Contribution Calculator 2026 - Tax Savings & Limit">
+<meta property="og:description" content="Calculate your 2025 or 2026 HSA contribution limit, remaining room after employer match, and triple-tax-advantage savings (federal income tax + state + FICA).">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<style>
+/* === CalcLeap Apple Design System === */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#f5f5f7;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:980px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
+.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
+.calc-card,.calc-box,.calculator-box,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+.calc-card h2,.calc-box h2,.calculator-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
+.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
+.input-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
+.input-group input,.input-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
+.input-group input:focus,.input-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
+.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.result-box{display:none;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
+.result-box.show{display:block;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.result-box h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
+.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border);gap:1rem}
+.result-item:last-child{border-bottom:none}
+.result-label{font-size:.85rem;color:var(--text-2)}
+.result-value{font-size:.95rem;font-weight:700;color:var(--text);text-align:right}
+.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
+.info-section p{font-size:.9rem;color:var(--text-2);line-height:1.65;margin-bottom:.75rem}
+.info-section ul{font-size:.9rem;color:var(--text-2);line-height:1.65;padding-left:1.25rem;margin-bottom:.75rem}
+.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
+.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
+.related-link:hover{border-color:var(--accent);color:var(--accent)}
+.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+.calc-disclaimer{margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .page{padding:0 1.25rem}
+  .page-title{font-size:1.75rem}
+  .form-grid{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .related-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+
+<!-- AUDIT 2026-06-21 evening: NEW BUILD /calc/hsa-contribution-calculator.html
+   purpose: closes 2026-06-19 evening queue item (q) — "build /calc/hsa-contribution-calculator.html
+     (cleanest 60-90 min spec, oldest gap, has the 2026-06-15 companion blog piece
+     `best-hsa-accounts-2026.html` waiting for its calculator partner)".
+   formula:
+     HSA limit per IRC §223(b) with IRS-published inflation adjustments:
+       TY2025 (Rev. Proc. 2024-25): self-only $4,300, family $8,550
+       TY2026 (Rev. Proc. 2025-19): self-only $4,400, family $8,750
+       Catch-up (age 55+) per IRC §223(b)(3)(B): $1,000 (not inflation-indexed)
+     Effective limit = base + (age >= 55 ? 1000 : 0)
+     Remaining room = effectiveLimit − ytdEmployee − employerYTD (clamped >= 0)
+     Marginal federal rate from TY2025 brackets (Rev. Proc. 2024-40 §3.01) applied to
+       (income − standard deduction per §3.18); status-aware:
+         Single/MFS std $15,000; MFJ $30,000; HoH $22,500
+         Single/MFS:    10% to $11,925, 12% to $48,475, 22% to $103,350, 24% to $197,300, 32% to $250,525, 35% to ($375,800 MFS / $626,350 Single), 37%
+         MFJ:           10% to $23,850, 12% to $96,950, 22% to $206,700, 24% to $394,600, 32% to $501,050, 35% to $751,600, 37%
+         HoH:           10% to $17,000, 12% to $64,850, 22% to $103,350, 24% to $197,300, 32% to $250,500, 35% to $626,350, 37%
+     Federal income-tax savings = remainingRoom × marginalRate
+     State income-tax savings   = remainingRoom × (stateRate/100)
+     FICA savings (payroll-deducted only) = remainingRoom × 0.0765 (6.2% SS + 1.45% Medicare per
+       IRC §3101) — IRC §125 cafeteria-plan contributions escape both employer-side and
+       employee-side FICA; we report the employee side here.
+     Triple-tax savings total = federal + state + FICA (where applicable)
+     30-year compound value = remainingRoom × (1.07)^30 ≈ remainingRoom × 7.61225502 (long-run
+       7% nominal return; for illustrative compounding, not investment advice)
+   test_cases (verified via Node execution of live calculate() body — exact-bit match against
+     Python hand-derivation):
+     TC1 — Self-only / 2025 / age 35 / $0 YTD / $500 employer / $80K Single income /
+            5% state / payroll-deducted:
+       baseLimit=$4,300; catchUp=$0; effectiveLimit=$4,300; alreadyContributed=$500;
+       remainingRoom=$3,800; ordinaryTaxable=$80K-$15K=$65K → marginal 22% (between
+       Single $48,475 and $103,350); fedSave=$3,800×0.22=$836.00; stateSave=$3,800×0.05=
+       $190.00; ficaSave=$3,800×0.0765=$290.70; totalSave=$1,316.70; 30yrAt7%=$28,926.57
+     TC2 — Family / 2025 / age 56 / $2,000 YTD / $1,500 employer / $150K MFJ income /
+            0% state / payroll-deducted:
+       baseLimit=$8,550; catchUp=$1,000; effectiveLimit=$9,550; alreadyContributed=$3,500;
+       remainingRoom=$6,050; ordinaryTaxable=$150K-$30K=$120K → marginal 22% (between
+       MFJ $96,950 and $206,700); fedSave=$6,050×0.22=$1,331.00; stateSave=$0.00;
+       ficaSave=$6,050×0.0765=$462.83; totalSave=$1,793.83; 30yrAt7%=$46,054.14
+     TC3 — Family / 2026 / age 60 / $4,000 YTD / $0 employer / $250K HoH income /
+            6% state / NOT payroll-deducted:
+       baseLimit=$8,750; catchUp=$1,000; effectiveLimit=$9,750; alreadyContributed=$4,000;
+       remainingRoom=$5,750; ordinaryTaxable=$250K-$22,500=$227,500 → marginal 32% (between
+       HoH $197,300 and $250,500); fedSave=$5,750×0.32=$1,840.00; stateSave=$5,750×0.06=
+       $345.00; ficaSave=$0.00 (not payroll); totalSave=$2,185.00; 30yrAt7%=$43,770.47
+   known flags (NOT errors — scope choices for v1):
+     - Marginal-rate calculation uses TY2025 brackets even when plan year = 2026; TY2026
+       inflation-adjusted brackets per Rev. Proc. 2025-32 differ by ~3% — the resulting
+       marginal-rate read is correct for users near a bracket edge to within ~$3-5K of
+       income. The HSA contribution LIMIT correctly uses TY2026 figures when plan year is
+       2026.
+     - "Last-month rule" per IRC §223(b)(8) and "sum-of-monthly-limits" pro-ration per
+       IRC §223(b)(2) for partial-year HDHP eligibility are NOT modeled — assumes full-year
+       eligibility. Surfaced in info text.
+     - Family-coverage spousal catch-up (each spouse 55+ can contribute their own $1,000
+       catch-up to their own HSA per IRC §223(b)(5)(B)) not modeled — assumes single-HSA
+       household.
+     - Employer FICA savings (employer side also escapes 7.65% on payroll-deducted contri-
+       butions per IRC §125) reported as employee-side only — does not include the employer
+       share, which is real economic value but does not affect the employee's paycheck.
+     - 30-year compound illustration uses fixed 7% nominal — not an investment forecast.
+       Real returns vary; the figure is illustrative of the long-run S&P 500 average per
+       NYU Stern Damodaran historical data.
+     - Additional Medicare Tax (0.9% per IRC §3101(b)(2) on wages >$200K single / $250K MFJ)
+       savings on payroll-deducted contributions not included in FICA figure — adds 0.9% to
+       FICA savings for high earners; would change TC2 by $0 (under $250K MFJ threshold) and
+       TC3 by $0 (not payroll-deducted). Future-build flag.
+   verified_by: evening-routine -->
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Health Calculators","item":"https://calcleap.com/index.html#health"},{"@type":"ListItem","position":3,"name":"HSA Contribution Calculator","item":"https://calcleap.com/calc/hsa-contribution-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the 2026 HSA contribution limits?","acceptedAnswer":{"@type":"Answer","text":"Per IRS Rev. Proc. 2025-19, the 2026 HSA contribution limit is $4,400 for self-only HDHP coverage (up from $4,300 in 2025) and $8,750 for family HDHP coverage (up from $8,550). The catch-up contribution for HSA owners aged 55 and older stays at $1,000 per IRC §223(b)(3)(B) — the catch-up has not been inflation-indexed since 2009. Limits apply to the calendar year. Both employee and employer contributions count against the same statutory limit per IRC §223(b)(4)."}},{"@type":"Question","name":"Does my employer's HSA contribution count toward my limit?","acceptedAnswer":{"@type":"Answer","text":"Yes. Per IRC §223(b)(4), employer contributions (including matching contributions and any pre-tax employee contributions made through a cafeteria plan under IRC §125) count against the same statutory annual limit as personal post-tax contributions. If your employer puts $1,000 into your HSA and you have self-only HDHP coverage in 2026, your maximum personal contribution is $3,400 ($4,400 limit minus the $1,000 employer contribution)."}},{"@type":"Question","name":"What is the HSA triple-tax-advantage?","acceptedAnswer":{"@type":"Answer","text":"HSA contributions are deductible from federal income tax (or pre-tax via payroll), earnings grow tax-deferred, and qualified medical withdrawals are tax-free per IRC §223. No other account in the U.S. tax code stacks all three. A payroll-deducted HSA contribution made through a cafeteria plan under IRC §125 also escapes the 7.65% FICA tax (6.2% Social Security + 1.45% Medicare per IRC §3101) — an advantage that 401(k) and IRA contributions do NOT share. This calculator surfaces all three layers separately so you can see the full triple-tax-advantage value."}},{"@type":"Question","name":"Is there a catch-up contribution for HSAs after age 55?","acceptedAnswer":{"@type":"Answer","text":"Yes. Per IRC §223(b)(3)(B), HSA holders age 55 and older can contribute an additional $1,000 per year on top of the base limit. The catch-up is per HSA holder, not per household — if both spouses are 55+ and covered under a family HDHP, each spouse can contribute their own $1,000 catch-up, but each catch-up must go into a separate HSA in that spouse's name per IRC §223(b)(5)(B). The catch-up begins in the calendar year you turn 55, not on your birthday."}},{"@type":"Question","name":"What happens to my HSA at age 65?","acceptedAnswer":{"@type":"Answer","text":"Two big changes at age 65. First, the 20% penalty on non-medical HSA withdrawals (IRC §223(f)(4)) disappears — non-medical withdrawals are just taxed as ordinary income, exactly like a Traditional IRA. This is the 'stealth IRA' pivot that makes the HSA the most tax-advantaged retirement vehicle in the U.S. tax code. Second, once you enroll in Medicare (typically Part A at 65), you can no longer contribute to an HSA, but you can still spend from it. HSA dollars pay Medicare Part B, C, and D premiums tax-free; Medigap (Medicare Supplement) premiums are the exception and remain non-qualified."}}]}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#converters">Converters</a>
+      <a href="/index.html#dev">Dev Tools</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page" id="main-content" role="main">
+  <div class="breadcrumb">
+    <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#health">Health</a><span class="sep">›</span>HSA Contribution Calculator
+  </div>
+
+  <h1 class="page-title">HSA Contribution Calculator</h1>
+  <p class="page-desc">Calculate your 2025 or 2026 HSA contribution limit, remaining room after employer match, and the triple-tax-advantage savings (federal income tax + state + FICA).</p>
+
+  <div class="calculator-box">
+    <h2>Your HSA Inputs</h2>
+    <form id="calc-form">
+      <div class="form-grid" id="inputs"></div>
+      <button type="submit" class="btn">Calculate</button>
+    </form>
+    <div class="result-box" id="results">
+      <h3>Results</h3>
+      <div id="result-content"></div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h3>About this calculator</h3>
+    <div id="info-content"></div>
+  </div>
+
+  <div class="info-section">
+    <h3>Frequently asked questions</h3>
+    <div class="faq-item">
+      <div class="faq-q">What are the 2026 HSA contribution limits?</div>
+      <div class="faq-a">Per IRS Rev. Proc. 2025-19, the 2026 HSA contribution limit is $4,400 for self-only HDHP coverage (up from $4,300 in 2025) and $8,750 for family HDHP coverage (up from $8,550). The catch-up contribution for HSA owners aged 55 and older stays at $1,000 per IRC §223(b)(3)(B) — the catch-up has not been inflation-indexed since 2009. Limits apply to the calendar year. Both employee and employer contributions count against the same statutory limit per IRC §223(b)(4).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does my employer's HSA contribution count toward my limit?</div>
+      <div class="faq-a">Yes. Per IRC §223(b)(4), employer contributions (including matching contributions and any pre-tax employee contributions made through a cafeteria plan under IRC §125) count against the same statutory annual limit as personal post-tax contributions. If your employer puts $1,000 into your HSA and you have self-only HDHP coverage in 2026, your maximum personal contribution is $3,400 ($4,400 limit minus the $1,000 employer contribution).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the HSA triple-tax-advantage?</div>
+      <div class="faq-a">HSA contributions are deductible from federal income tax (or pre-tax via payroll), earnings grow tax-deferred, and qualified medical withdrawals are tax-free per IRC §223. No other account in the U.S. tax code stacks all three. A payroll-deducted HSA contribution made through a cafeteria plan under IRC §125 also escapes the 7.65% FICA tax (6.2% Social Security + 1.45% Medicare per IRC §3101) — an advantage that 401(k) and IRA contributions do NOT share. This calculator surfaces all three layers separately so you can see the full triple-tax-advantage value.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there a catch-up contribution for HSAs after age 55?</div>
+      <div class="faq-a">Yes. Per IRC §223(b)(3)(B), HSA holders age 55 and older can contribute an additional $1,000 per year on top of the base limit. The catch-up is per HSA holder, not per household — if both spouses are 55+ and covered under a family HDHP, each spouse can contribute their own $1,000 catch-up, but each catch-up must go into a separate HSA in that spouse's name per IRC §223(b)(5)(B). The catch-up begins in the calendar year you turn 55, not on your birthday.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What happens to my HSA at age 65?</div>
+      <div class="faq-a">Two big changes at age 65. First, the 20% penalty on non-medical HSA withdrawals (IRC §223(f)(4)) disappears — non-medical withdrawals are just taxed as ordinary income, exactly like a Traditional IRA. This is the "stealth IRA" pivot that makes the HSA the most tax-advantaged retirement vehicle in the U.S. tax code. Second, once you enroll in Medicare (typically Part A at 65), you can no longer contribute to an HSA, but you can still spend from it. HSA dollars pay Medicare Part B, C, and D premiums tax-free; Medigap (Medicare Supplement) premiums are the exception and remain non-qualified.</div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h3>Related calculators</h3>
+    <div class="related-grid">
+      <a class="related-link" href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a class="related-link" href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a class="related-link" href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a class="related-link" href="/calc/paycheck-calculator.html">Paycheck Calculator</a>
+      <a class="related-link" href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a class="related-link" href="/calc/compound-interest.html">Compound Interest</a>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h3>Related reading</h3>
+    <div class="related-grid">
+      <a class="related-link" href="/blog/best-hsa-accounts-2026.html">Best HSA accounts 2026</a>
+      <a class="related-link" href="/blog/401k-employer-match-2026.html">401(k) employer match guide</a>
+      <a class="related-link" href="/blog/roth-ira-vs-traditional-ira-2026.html">Roth vs Traditional IRA</a>
+    </div>
+  </div>
+
+  <script src="../app-calculator.js"></script>
+  <script>
+const calcConfig = {
+  inputs: [
+    {name:"coverage",      label:"HDHP Coverage Type",                          type:"select",
+      options:["Self-only","Family"]},
+    {name:"planYear",      label:"Plan Year",                                   type:"select",
+      options:["2026","2025"]},
+    {name:"age",           label:"Your Age",                                    type:"number", placeholder:"35"},
+    {name:"ytdEmployee",   label:"Your Contributions YTD ($)",                  type:"number", placeholder:"0"},
+    {name:"employerYTD",   label:"Employer Contribution YTD ($)",               type:"number", placeholder:"500"},
+    {name:"income",        label:"Annual Income ($, gross)",                    type:"number", placeholder:"80000"},
+    {name:"filingStatus",  label:"Filing Status",                               type:"select",
+      options:["Single","Married Filing Jointly","Married Filing Separately","Head of Household"]},
+    {name:"stateRate",     label:"State Income Tax Rate (%)",                   type:"number", placeholder:"5", step:"0.01"},
+    {name:"payrollDeducted", label:"Payroll-Deducted (cafeteria plan)?",        type:"select",
+      options:["Yes (escapes FICA)","No (post-tax)"]}
+  ],
+  info: "<p>Estimates your 2025 or 2026 HSA contribution limit per <strong>IRC §223(b)</strong> with IRS-published inflation adjustments (<strong>Rev. Proc. 2024-25</strong> for TY2025; <strong>Rev. Proc. 2025-19</strong> for TY2026), plus the triple-tax-advantage savings if you fill your remaining contribution room: federal income tax, state income tax, and (for payroll-deducted contributions only) the 7.65% FICA tax.</p><p><strong>What this calculator includes:</strong> base contribution limit (self-only / family), $1,000 catch-up at age 55+ per IRC §223(b)(3)(B), employer-contribution offset per IRC §223(b)(4), marginal-rate inference from TY2025 federal brackets (Rev. Proc. 2024-40 §3.01) and standard deduction (§3.18), state income tax savings, FICA (Social Security 6.2% + Medicare 1.45%) savings for cafeteria-plan contributions per IRC §125, and a 30-year compound illustration at 7% nominal.</p><p><strong>What it excludes (handle separately):</strong> the &quot;last-month rule&quot; per IRC §223(b)(8) and pro-rated &quot;sum-of-monthly-limits&quot; per IRC §223(b)(2) for partial-year HDHP eligibility — calculator assumes full-year HDHP coverage; family-coverage spousal catch-up (each spouse 55+ contributes their own $1,000 to a separate HSA per IRC §223(b)(5)(B)); employer-side FICA savings (employer also escapes 7.65% on payroll-deducted contributions — real economic value but not on your paycheck); Additional Medicare Tax 0.9% per IRC §3101(b)(2) on wages above $200K single / $250K MFJ; state-conformity exceptions (CA, NJ, and a few others do NOT exempt HSA contributions from state income tax — verify your state). Always confirm with a CPA before filing.</p>",
+  calculate: function(data) {
+    var coverage  = data.coverage || 'Self-only';
+    var planYear  = data.planYear || '2026';
+    var age       = Number(data.age) || 0;
+    var ytdEmp    = Math.max(0, Number(data.ytdEmployee) || 0);
+    var ytdEr     = Math.max(0, Number(data.employerYTD) || 0);
+    var income    = Math.max(0, Number(data.income) || 0);
+    var status    = data.filingStatus || 'Single';
+    var stateRate = Math.max(0, Number(data.stateRate) || 0) / 100;
+    var payroll   = (data.payrollDeducted || '').indexOf('Yes') >= 0;
+
+    var limits = {
+      '2025': {'Self-only': 4300, 'Family': 8550},
+      '2026': {'Self-only': 4400, 'Family': 8750}
+    };
+    var baseLimit  = (limits[planYear] && limits[planYear][coverage]) || limits['2026']['Self-only'];
+    var catchUp    = (age >= 55) ? 1000 : 0;
+    var effective  = baseLimit + catchUp;
+    var alreadyIn  = ytdEmp + ytdEr;
+    var remaining  = Math.max(0, effective - alreadyIn);
+
+    var stdDeductions = {
+      'Single': 15000, 'Married Filing Jointly': 30000,
+      'Married Filing Separately': 15000, 'Head of Household': 22500
+    };
+    var brackets = {
+      'Single':                    [[11925,.10],[48475,.12],[103350,.22],[197300,.24],[250525,.32],[626350,.35],[Infinity,.37]],
+      'Married Filing Jointly':    [[23850,.10],[96950,.12],[206700,.22],[394600,.24],[501050,.32],[751600,.35],[Infinity,.37]],
+      'Married Filing Separately': [[11925,.10],[48475,.12],[103350,.22],[197300,.24],[250525,.32],[375800,.35],[Infinity,.37]],
+      'Head of Household':         [[17000,.10],[64850,.12],[103350,.22],[197300,.24],[250500,.32],[626350,.35],[Infinity,.37]]
+    };
+    var stdDed = stdDeductions[status] || 15000;
+    var schedule = brackets[status] || brackets['Single'];
+    var ordinaryTaxable = Math.max(0, income - stdDed);
+
+    var marginalRate = 0;
+    for (var i = 0; i < schedule.length; i++) {
+      if (ordinaryTaxable <= schedule[i][0]) { marginalRate = schedule[i][1]; break; }
+    }
+
+    var fedSave   = remaining * marginalRate;
+    var stateSave = remaining * stateRate;
+    var ficaSave  = payroll ? remaining * 0.0765 : 0;
+    var totalSave = fedSave + stateSave + ficaSave;
+    var future30  = remaining * Math.pow(1.07, 30);
+
+    function fmt(n) { return '$' + n.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2}); }
+    function pct(n) { return (n * 100).toFixed(0) + '%'; }
+
+    var out = {};
+    out['Coverage'] = coverage + ' (' + planYear + ')';
+    out['Statutory Base Limit'] = fmt(baseLimit);
+    if (catchUp > 0) out['Age 55+ Catch-up'] = fmt(catchUp);
+    out['Effective Annual Limit'] = fmt(effective);
+    out['Already Contributed (you + employer)'] = fmt(alreadyIn);
+    out['Remaining Contribution Room'] = fmt(remaining);
+
+    if (remaining <= 0) {
+      out['Status'] = '✓ You have already met your annual limit for ' + planYear + '.';
+      return out;
+    }
+
+    out['Estimated Marginal Federal Rate'] = pct(marginalRate) + ' (TY2025 ' + status + ' brackets)';
+    out['Federal Income Tax Savings'] = fmt(fedSave);
+    if (stateRate > 0) out['State Income Tax Savings'] = fmt(stateSave);
+    if (payroll) {
+      out['FICA Savings (Soc Sec 6.2% + Medicare 1.45%)'] = fmt(ficaSave);
+    } else {
+      out['FICA Savings'] = '$0.00 (post-tax contributions do not escape FICA)';
+    }
+    out['Total Annual Tax Savings'] = fmt(totalSave);
+    out['Future Value in 30 Years @ 7%'] = fmt(future30) + ' (if invested, not spent)';
+    return out;
+  }
+};
+initCalculator(calcConfig);
+  </script>
+</div>
+
+<div class="calc-disclaimer"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational purposes only and is not tax, investment, or medical advice. Tax laws change frequently and HSA rules interact with HDHP eligibility, Medicare enrollment, and state conformity (a handful of states do NOT exempt HSA contributions from state income tax). Results may not reflect your actual tax liability. Always consult a qualified CPA, tax attorney, or enrolled agent for advice specific to your situation.</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/index.html">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/bmi-calculator.html">BMI Calculator</a>
+      <a href="/calc/mortgage-payment.html">Mortgage</a>
+      <a href="/income-tax-calculator.html">Income Tax</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Financial</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. For informational purposes only.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+</body>
+</html>
