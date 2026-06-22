@@ -444,7 +444,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
    sources:
      - federal brackets — Rev. Proc. 2024-40 §3.01 (TY2025)
      - standard deduction — Rev. Proc. 2024-40 §3.18 (TY2025: $15,000 single, $30,000 MFJ, $22,500 HoH)
-     - SS wage base $176,100 — SSA Press Release Oct 2024
+     - SS wage base $184,500 — SSA Press Release Oct 24 2025 (TY2026; was $176,100 TY2025)
      - FL property tax avg — Tax Foundation 2024 effective rate
    FIX 2026-06-15 changes:
      (a) federal brackets all 3 statuses TY2024 -> TY2025
@@ -460,7 +460,8 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
    test_cases (Python hand-derived):
      TC1: income=75000, status=single -> taxable=60000, fedTax=8114.00 (TY2025 single 22% bracket: 5578.50 + (60000-48475)*0.22 = 8114.00), SS=4650, Med=1087.50, total=13851.50
      TC2: income=150000, status=married, home=400000, spending=40000 -> taxable=120000, fedTax=16228.00 (TY2025 MFJ 22% bracket: 11157 + (120000-96950)*0.22), SS=9300, Med=2175, propTax=3200, salesTax=2400, total=33303.00
-     TC3: income=250000, status=single, home=600000, spending=60000 -> taxable=235000, fedTax=52263.00 (TY2025 single 32% bracket: 40199 + (235000-197300)*0.32 = 52263.00), SS=176100*0.062=10918.20, Med=3625, addlMed=(250000-200000)*0.009=450, propTax=4800, salesTax=3600, total=75656.20
+     TC3: income=250000, status=single, home=600000, spending=60000 -> taxable=235000, fedTax=52263.00 (TY2025 single 32% bracket: 40199 + (235000-197300)*0.32 = 52263.00), SS=min(250000,184500)*0.062=11439.00, Med=3625, addlMed=(250000-200000)*0.009=450, propTax=4800, salesTax=3600, total=76177.00 (was 75656.20 pre-2026-06-22-evening wage-base refresh; SS jumped 10918.20 -> 11439.00 = $520.80 of additional payroll tax for this high-earner)
+   FIX 2026-06-22 evening: (e) ssWageBase 176100 -> 184500 (TY2025 -> TY2026) per SSA Press Release Oct 24 2025; federal brackets + std deductions remain TY2025 per Rev. Proc. 2024-40 — known transient inconsistency (TY2026 wage cap with TY2025 brackets); flagged that TY2026 brackets per Rev. Proc. 2025-32 (std deductions $15,750/$31,500/$23,625) are the natural next refresh step
    verified_by: evening-routine */
 function calculate(e) {
   e.preventDefault();
@@ -524,8 +525,8 @@ function calculate(e) {
     if (remaining <= 0) break;
   }
   
-  // FICA tax — SS 6.2% up to TY2025 wage base $176,100 (SSA Press Release Oct 2024)
-  const ssWageBase = 176100;
+  // FICA tax — SS 6.2% up to TY2026 wage base $184,500 (SSA Press Release Oct 24 2025; TY2025 was $176,100)
+  const ssWageBase = 184500;
   const socialSecurity = Math.min(income, ssWageBase) * 0.062;
   const medicare = income * 0.0145;
   // Additional Medicare per IRC §3101(b)(2) — filing-status-aware threshold ($200K single+HoH / $250K MFJ); wired 2026-06-17 evening
