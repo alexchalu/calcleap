@@ -280,7 +280,8 @@
     </div>
 
     <script>
-        function calculate() {
+        /* AUDIT 2026-06-23 evening: formula=StandardAmortization{monthlyRate=annualRate/12; months=years*12; monthlyPayment=balance*(monthlyRate*(1+monthlyRate)^months)/((1+monthlyRate)^months-1); totalPaid=monthlyPayment*months; totalInterest=totalPaid-balance} | test_cases (all verified via Node execution of live calculate() body = Python hand-derivation exact-bit match): TC1 $30K @ 6.39% (TY2025-26 Direct Sub/Unsub per ED May 2025) 10y -> mp=$338.97 totalPaid=$40,676.07 totalInterest=$10,676.07; TC2 $50K @ 7.94% (TY2025-26 Direct Grad Unsub) 10y -> mp=$605.05 totalPaid=$72,606.47 totalInterest=$22,606.47; TC3 $100K @ 8.94% (TY2025-26 Direct PLUS) 10y -> mp=$1,263.51 totalPaid=$151,621.54 totalInterest=$51,621.54 | NAME_MISMATCH_FLAG: this file is titled 'Income-Driven Repayment Calculator' but the implementation runs STANDARD AMORTIZATION, not IDR math. A real IDR calc needs: AGI input + filing status + family size + state for FPL multiplier (HHS 2026: $15,650 single / +$5,500/dep) + plan switch [IBR/PAYE/ICR legacy; RAP for post-Jul-2026 first-time borrowers per OBBBA §82001/HEA §493D] + discretionary-income formula (150% FPL for IBR/PAYE, AGI-based for RAP 10-tier brackets 1%-10%) + forgiveness clock (20-25y legacy / 30y RAP) + post-2025 taxability per IRC §108(f)(5) lapse. Scoped as NEEDS_REBUILD — same disease as the 2026-06-18 lease-vs-buy / 2026-06-19 auto-cluster pattern. Estimated rebuild: 60-90 min. | verified_by=evening-routine */
+                function calculate() {
             const balance = parseFloat(document.getElementById('balance').value) || 0;
             const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.055;
             const years = parseInt(document.getElementById('term').value) || 10;

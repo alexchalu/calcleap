@@ -280,7 +280,8 @@
     </div>
 
     <script>
-        function calculate() {
+        /* AUDIT 2026-06-23 evening: formula=StandardAmortization{monthlyRate=annualRate/12; months=years*12; monthlyPayment=balance*(monthlyRate*(1+monthlyRate)^months)/((1+monthlyRate)^months-1); totalPaid=monthlyPayment*months; totalInterest=totalPaid-balance} | test_cases (all verified via Node execution of live calculate() body = Python hand-derivation exact-bit match): TC1 $30K @ 6.39% (TY2025-26 Direct Sub/Unsub per ED May 2025) 10y -> mp=$338.97 totalPaid=$40,676.07 totalInterest=$10,676.07; TC2 $50K @ 7.94% (TY2025-26 Direct Grad Unsub) 10y -> mp=$605.05 totalPaid=$72,606.47 totalInterest=$22,606.47; TC3 $100K @ 8.94% (TY2025-26 Direct PLUS) 10y -> mp=$1,263.51 totalPaid=$151,621.54 totalInterest=$51,621.54 | NAME_MISMATCH_FLAG: titled 'Student Loan Forgiveness Calculator' but implementation is STANDARD AMORTIZATION. A real forgiveness calc needs: PSLF eligibility (employer type + 120-payment count) OR IDR forgiveness (plan + payments-made + remaining-clock + taxability flag per IRC §108(f)(5) post-2025) + total-paid-before-forgiveness + forgiven-amount + post-forgiveness tax estimate (RAP/IBR taxable, PSLF tax-free per §108(f)(1)). Scoped as NEEDS_REBUILD. Estimated rebuild: 60-75 min. | verified_by=evening-routine */
+                function calculate() {
             const balance = parseFloat(document.getElementById('balance').value) || 0;
             const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.055;
             const years = parseInt(document.getElementById('term').value) || 10;
