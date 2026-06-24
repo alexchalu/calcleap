@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Loan Interest Deduction Calculator - Free Tax Deduction Tool | CalcLeap</title>
-    <meta name="description" content="Calculate student loan interest tax deduction and see how it reduces your tax bill.. Free online calculator with instant results and payment projections.">
+    <title>Student Loan Interest Deduction Calculator 2026 — IRC §221 Tax Savings | CalcLeap</title>
+    <meta name="description" content="Calculate your federal tax savings from the student loan interest deduction (IRC §221) with TY2026 MAGI phase-outs and the $2,500 statutory cap. Filing-status aware.">
     <link rel="canonical" href="https://calcleap.com/student-loan-tax-deduction-calculator.html">
-<meta property="og:title" content="Student Loan Interest Deduction Calculator - Free Tax Deduction Tool">
-<meta property="og:description" content="Calculate student loan interest tax deduction and see how it reduces your tax bill.. Free online calculator with instant results and payment projections.">
+<meta property="og:title" content="Student Loan Interest Deduction Calculator 2026 — IRC §221 Tax Savings">
+<meta property="og:description" content="Calculate your federal tax savings from the student loan interest deduction (IRC §221) with TY2026 MAGI phase-outs and the $2,500 statutory cap.">
 <meta property="og:url" content="https://calcleap.com/student-loan-tax-deduction-calculator.html">
 <meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Tax Calculators","item":"https://calcleap.com/index.html#tax"},{"@type":"ListItem","position":3,"name":"Student Loan Interest Deduction Calculator","item":"https://calcleap.com/student-loan-tax-deduction-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the student loan interest deduction work in 2026?","acceptedAnswer":{"@type":"Answer","text":"IRC §221 lets you deduct up to $2,500 of student loan interest paid during the year as an above-the-line adjustment to income (you don't have to itemize). The deduction phases out based on your modified adjusted gross income (MAGI) and filing status. For tax year 2026 per Rev. Proc. 2025-32 §3.21, the phase-out ranges are $85,000–$100,000 for single and head-of-household filers and $170,000–$200,000 for married filing jointly. Married filing separately filers cannot claim the deduction at all."}},{"@type":"Question","name":"What is the $2,500 cap on the student loan interest deduction?","acceptedAnswer":{"@type":"Answer","text":"IRC §221(b)(1) caps the deduction at $2,500 per return per year, regardless of how much interest you actually paid. A high-balance graduate borrower paying $6,000 in annual interest can only deduct $2,500. The cap is per return (not per borrower), so a married couple filing jointly with two separate student loans still shares the single $2,500 limit."}},{"@type":"Question","name":"Why can't married filing separately filers claim the §221 deduction?","acceptedAnswer":{"@type":"Answer","text":"IRC §221(e)(2) explicitly disallows the deduction for any taxpayer using the married filing separately (MFS) status. This is the same anti-abuse rule that disqualifies MFS from several other education and family tax benefits (American Opportunity Credit, Lifetime Learning Credit, EITC). If one spouse on income-driven repayment uses MFS to shrink their reported income for IDR purposes, the trade-off is losing the §221 deduction entirely on the joint household."}},{"@type":"Question","name":"What counts as \"qualified\" student loan interest?","acceptedAnswer":{"@type":"Answer","text":"Per IRC §221(d), qualified interest is interest on a loan taken solely to pay qualified higher education expenses (tuition, fees, room and board, required books and supplies) for you, your spouse, or a dependent at an eligible institution, while enrolled at least half-time. Federal Direct loans, Grad PLUS, Parent PLUS, FFEL loans, and private student loans all qualify. Mixed-purpose loans (e.g., a personal loan partly used for tuition) do not. Voluntary interest payments during in-school periods or grace also qualify."}},{"@type":"Question","name":"Do I get a 1098-E from my loan servicer?","acceptedAnswer":{"@type":"Answer","text":"Yes, if you paid $600 or more in interest during the year. Loan servicers issue Form 1098-E by January 31 of the following year showing total interest paid. If you paid less than $600 across all servicers, you may not receive a 1098-E automatically — but you can still log into your servicer account, pull the year-end interest summary, and claim it. Many borrowers miss the deduction in their first year of repayment because they fall below the $600 mailing threshold."}}]}</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
@@ -204,7 +206,7 @@
     <div class="header">
         <div class="container">
             <h1 class="page-title">Student Loan Interest Deduction Calculator</h1>
-            <p>Calculate student loan interest tax deduction and see how it reduces your tax bill.</p>
+            <p>Estimate your federal tax savings from the IRC §221 student loan interest deduction (TY2026 rules).</p>
         </div>
     </div>
 
@@ -213,27 +215,29 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Tax Deduction Calculator</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your student loan details to calculate payments and total cost.</p>
+            <h2>Student Loan Interest Deduction (IRC §221)</h2>
+            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter the student loan interest you paid this year, your MAGI, and your filing status to estimate your federal tax savings under TY2026 phase-out rules.</p>
             <div class="input-group">
-                <label for="balance">Total Loan Balance ($):</label>
-                <input type="number" id="balance" min="0" value="35000" step="1000" aria-label="Balance">
+                <label for="interest">Student Loan Interest Paid This Year ($):</label>
+                <input type="number" id="interest" min="0" value="1800" step="50" aria-label="Interest paid">
+                <small>From Form 1098-E. Capped at $2,500 per IRC §221(b)(1).</small>
             </div>
             <div class="input-group">
-                <label for="rate">Interest Rate (%):</label>
-                <input type="number" id="rate" min="0" max="15" value="5.5" step="0.125" aria-label="Rate">
-                <small>Federal loans: 4-7%, Private loans: 3-12%</small>
+                <label for="magi">Modified Adjusted Gross Income — MAGI ($):</label>
+                <input type="number" id="magi" min="0" value="65000" step="1000" aria-label="MAGI">
+                <small>For most filers, MAGI = AGI + a few add-backs (foreign earned income exclusion, etc.). For most workers MAGI ≈ AGI.</small>
             </div>
             <div class="input-group">
-                <label for="term">Repayment Term:</label>
-                <select id="term" aria-label="Term">
-                    <option value="10">10 years (Standard)</option>
-                    <option value="15">15 years</option>
-                    <option value="20">20 years</option>
-                    <option value="25">25 years (Extended)</option>
+                <label for="filing">Filing Status:</label>
+                <select id="filing" aria-label="Filing status">
+                    <option value="single">Single</option>
+                    <option value="mfj">Married Filing Jointly</option>
+                    <option value="hoh">Head of Household</option>
+                    <option value="mfs">Married Filing Separately</option>
                 </select>
+                <small>MFS filers cannot claim the §221 deduction per IRC §221(e)(2).</small>
             </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Payment</button>
+            <button class="calc-btn" onclick="calculate()">Calculate Tax Savings</button>
             <div class="result-box" id="result">
                 <h3>Results</h3>
             </div>
@@ -243,28 +247,58 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="info-section">
-            <h3>About Student Loan Interest Deduction Calculator</h3>
-            <p>Calculate student loan interest tax deduction and see how it reduces your tax bill.</p>
-            <h3>Understanding Tax Deduction</h3>
-            <p>Key factors in managing student loans:</p>
+            <h3>About the Student Loan Interest Deduction (IRC §221)</h3>
+            <p>Internal Revenue Code §221 lets borrowers deduct up to <strong>$2,500</strong> of student loan interest paid during the year as an <em>above-the-line</em> adjustment to income — meaning you claim it on Schedule 1 of Form 1040 whether or not you itemize. The deduction reduces your AGI directly, so it can also shrink other AGI-tied phase-outs (Saver's Credit, IRA deduction, premium tax credit eligibility).</p>
+            <h3>TY2026 phase-outs at a glance (Rev. Proc. 2025-32 §3.21)</h3>
             <ul>
-                <li>Federal loans offer protections like income-driven repayment and forgiveness programs</li>
-                <li>Interest rates and repayment terms significantly impact total cost</li>
-                <li>Making extra payments reduces interest and shortens payoff time</li>
-                <li>Refinancing may lower rates but eliminates federal protections</li>
+                <li><strong>Single / Head of Household:</strong> deduction begins phasing out at MAGI $85,000 and is fully phased out at MAGI $100,000.</li>
+                <li><strong>Married Filing Jointly:</strong> phase-out band $170,000–$200,000.</li>
+                <li><strong>Married Filing Separately:</strong> deduction is disallowed entirely per IRC §221(e)(2).</li>
             </ul>
-            <h3>Repayment Strategies</h3>
+            <h3>What qualifies as student loan interest</h3>
             <ul>
-                <li>Standard 10-year plan minimizes total interest paid</li>
-                <li>Income-driven plans base payments on earnings (IBR, PAYE, REPAYE)</li>
-                <li>Refinancing makes sense if you have good credit and don't need federal benefits</li>
-                <li>Consider loan forgiveness programs if working in public service or teaching</li>
+                <li>Interest on loans taken solely to pay qualified higher-education expenses (tuition, fees, room and board, required books and supplies) for you, your spouse, or a dependent.</li>
+                <li>The loan must be issued for attendance at an eligible institution and the student must be enrolled at least half-time.</li>
+                <li>Federal Direct loans (Sub / Unsub / Grad PLUS / Parent PLUS), FFEL loans, refinanced loans (federal or private), and qualifying private student loans all count.</li>
+                <li>Mixed-purpose loans (e.g., a personal loan partly used for tuition) and loans from related parties do <strong>not</strong> qualify.</li>
             </ul>
-            <h3>More Education Calculators</h3>
+            <h3>Related calculators</h3>
             <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
+                <li><a href="/calc/student-loan-calculator.html">Student Loan Repayment Calculator</a></li>
+                <li><a href="/income-driven-repayment-calculator.html">Income-Driven Repayment Calculator</a></li>
+                <li><a href="/student-loan-refinance-calculator.html">Student Loan Refinance Calculator</a></li>
+                <li><a href="/income-tax-calculator.html">Federal Income Tax Calculator</a></li>
+                <li><a href="/calc/1099-tax-calculator.html">1099 Tax Calculator</a></li>
             </ul>
+            <h3>Related reading</h3>
+            <ul>
+                <li><a href="/blog/how-student-loan-repayment-works-2026.html">How student loan repayment actually works in 2026</a></li>
+                <li><a href="/blog/how-to-file-taxes-online-2026.html">How to file taxes online in 2026</a></li>
+            </ul>
+        </div>
+
+        <div class="info-section" id="faq">
+            <h3>Frequently asked questions</h3>
+            <div class="faq-item">
+                <h4 style="font-size:1.05rem;font-weight:600;margin-bottom:.5rem">How does the student loan interest deduction work in 2026?</h4>
+                <p>IRC §221 lets you deduct up to $2,500 of student loan interest paid during the year as an above-the-line adjustment to income (you don't have to itemize). The deduction phases out based on your modified adjusted gross income (MAGI) and filing status. For tax year 2026 per Rev. Proc. 2025-32 §3.21, the phase-out ranges are $85,000–$100,000 for single and head-of-household filers and $170,000–$200,000 for married filing jointly. Married filing separately filers cannot claim the deduction at all.</p>
+            </div>
+            <div class="faq-item">
+                <h4 style="font-size:1.05rem;font-weight:600;margin-bottom:.5rem">What is the $2,500 cap on the student loan interest deduction?</h4>
+                <p>IRC §221(b)(1) caps the deduction at $2,500 per return per year, regardless of how much interest you actually paid. A high-balance graduate borrower paying $6,000 in annual interest can only deduct $2,500. The cap is per return (not per borrower), so a married couple filing jointly with two separate student loans still shares the single $2,500 limit.</p>
+            </div>
+            <div class="faq-item">
+                <h4 style="font-size:1.05rem;font-weight:600;margin-bottom:.5rem">Why can't married filing separately filers claim the §221 deduction?</h4>
+                <p>IRC §221(e)(2) explicitly disallows the deduction for any taxpayer using the married filing separately (MFS) status. This is the same anti-abuse rule that disqualifies MFS from several other education and family tax benefits (American Opportunity Credit, Lifetime Learning Credit, EITC). If one spouse on income-driven repayment uses MFS to shrink their reported income for IDR purposes, the trade-off is losing the §221 deduction entirely on the joint household.</p>
+            </div>
+            <div class="faq-item">
+                <h4 style="font-size:1.05rem;font-weight:600;margin-bottom:.5rem">What counts as "qualified" student loan interest?</h4>
+                <p>Per IRC §221(d), qualified interest is interest on a loan taken solely to pay qualified higher education expenses (tuition, fees, room and board, required books and supplies) for you, your spouse, or a dependent at an eligible institution, while enrolled at least half-time. Federal Direct loans, Grad PLUS, Parent PLUS, FFEL loans, and private student loans all qualify. Mixed-purpose loans (e.g., a personal loan partly used for tuition) do not. Voluntary interest payments during in-school periods or grace also qualify.</p>
+            </div>
+            <div class="faq-item">
+                <h4 style="font-size:1.05rem;font-weight:600;margin-bottom:.5rem">Do I get a 1098-E from my loan servicer?</h4>
+                <p>Yes, if you paid $600 or more in interest during the year. Loan servicers issue Form 1098-E by January 31 of the following year showing total interest paid. If you paid less than $600 across all servicers, you may not receive a 1098-E automatically — but you can still log into your servicer account, pull the year-end interest summary, and claim it. Many borrowers miss the deduction in their first year of repayment because they fall below the $600 mailing threshold.</p>
+            </div>
         </div>
 
         <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -280,49 +314,108 @@
     </div>
 
     <script>
-        /* AUDIT 2026-06-23 evening: formula=StandardAmortization{monthlyRate=annualRate/12; months=years*12; monthlyPayment=balance*(monthlyRate*(1+monthlyRate)^months)/((1+monthlyRate)^months-1); totalPaid=monthlyPayment*months; totalInterest=totalPaid-balance} | test_cases (all verified via Node execution of live calculate() body = Python hand-derivation exact-bit match): TC1 $30K @ 6.39% (TY2025-26 Direct Sub/Unsub per ED May 2025) 10y -> mp=$338.97 totalPaid=$40,676.07 totalInterest=$10,676.07; TC2 $50K @ 7.94% (TY2025-26 Direct Grad Unsub) 10y -> mp=$605.05 totalPaid=$72,606.47 totalInterest=$22,606.47; TC3 $100K @ 8.94% (TY2025-26 Direct PLUS) 10y -> mp=$1,263.51 totalPaid=$151,621.54 totalInterest=$51,621.54 | NAME_MISMATCH_FLAG: titled 'Student Loan Tax Deduction Calculator' but implementation is STANDARD AMORTIZATION. A real §221 deduction calc needs: interest-paid input (or balance/rate to derive interest in year 1 of amortization) + MAGI + filing status + TY2026 phase-out per Rev. Proc. 2025-32 §3.21 ($85K-$100K single / $170K-$200K MFJ / MFS-disallowed) + marginal-rate federal-tax savings + the $2,500 statutory cap per IRC §221(b). Scoped as NEEDS_REBUILD. Estimated rebuild: 30-45 min. | verified_by=evening-routine */
-                function calculate() {
-            const balance = parseFloat(document.getElementById('balance').value) || 0;
-            const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.055;
-            const years = parseInt(document.getElementById('term').value) || 10;
-            
-            const monthlyRate = annualRate / 12;
-            const months = years * 12;
-            
-            let monthlyPayment = 0;
-            if (monthlyRate === 0) {
-                monthlyPayment = balance / months;
+        /* AUDIT 2026-06-24 evening: REBUILD closes 2026-06-23 evening queue item (yy). Pre-rebuild this file ran standard-amortization math despite being titled "Student Loan Tax Deduction Calculator" — NAME_MISMATCH_FLAG documented in prior AUDIT 2026-06-23 evening block (now superseded). Post-rebuild implements IRC §221 deduction math.
+           formula = §221 mechanics per IRC §221(b)+(d) and TY2026 phase-outs per Rev. Proc. 2025-32 §3.21:
+             cappedInterest = min(interestPaid, 2500)                              // IRC §221(b)(1) $2,500 statutory cap
+             if filingStatus == 'mfs': allowed = 0                                 // IRC §221(e)(2) MFS disallowed
+             elif filingStatus in ('single','hoh'):
+               phaseStart = 85000; phaseEnd = 100000; phaseRange = 15000
+             elif filingStatus == 'mfj':
+               phaseStart = 170000; phaseEnd = 200000; phaseRange = 30000
+             if magi <= phaseStart: allowed = cappedInterest
+             elif magi >= phaseEnd: allowed = 0
+             else: allowed = cappedInterest * (phaseEnd - magi) / phaseRange       // pro-rata phase-out reduction
+             marginalRate = lookup(magi, filingStatus) using TY2026 brackets per Rev. Proc. 2025-32 §3.01 (10%/12%/22%/24%/32%/35%/37%)
+             federalSavings = allowed * marginalRate
+           test_cases (all verified via Node execution of live calculate() body = Python hand-derivation exact-bit match):
+             TC1 Single MAGI=$65K interest=$1800 -> cappedInterest=$1800 (below cap), phaseStart=85000, magi<phaseStart so allowed=$1800, marginalRate=22% (single $65K above $48,475 below $103,350), federalSavings=$396.00
+             TC2 MFJ MAGI=$185K interest=$3000 -> cappedInterest=$2500 (at cap), phaseStart=170000 phaseEnd=200000, partial phase-out: allowed = 2500 * (200000-185000)/30000 = 2500*0.5 = $1250.00, marginalRate=22% (MFJ $185K above $96,950 below $206,700), federalSavings=$275.00
+             TC3 MFS MAGI=$50K interest=$1500 -> MFS disallowed under IRC §221(e)(2), allowed=$0, federalSavings=$0
+           known flags (NOT modeled): (a) qualified-loan determination per IRC §221(d) (assumes input interest is from qualified higher-ed loans); (b) dependent rule per IRC §221(c) (deduction belongs to person legally obligated on the loan, not always the person paying); (c) state-level conformity (most states with income tax adopt §221 by reference but a handful adjust or disallow); (d) MAGI add-back computation (assumes input MAGI already includes the §911 / §931 / §933 add-backs); (e) marginal-rate-by-MAGI is a proxy for the bracket the deduction shaves off the top — does not iterate through brackets if the deduction crosses a bracket boundary; (f) HoH uses the single-filer phase-out per §221(b)(2)(B); (g) does not model the (rare) §221(b)(2)(C) inflation rounding when limits land on uneven multiples.
+           verified_by=evening-routine */
+        function calculate() {
+            const interest = parseFloat(document.getElementById('interest').value) || 0;
+            const magi = parseFloat(document.getElementById('magi').value) || 0;
+            const filing = document.getElementById('filing').value || 'single';
+
+            // IRC §221(b)(1) $2,500 statutory cap per return
+            const CAP = 2500;
+            const cappedInterest = Math.min(interest, CAP);
+
+            // TY2026 phase-out per Rev. Proc. 2025-32 §3.21
+            // Single/HoH: $85,000 – $100,000  (phaseRange=$15,000)
+            // MFJ: $170,000 – $200,000        (phaseRange=$30,000)
+            // MFS: disallowed entirely per IRC §221(e)(2)
+            let phaseStart, phaseEnd, phaseRange, allowed, mfsDisallowed = false;
+            if (filing === 'mfs') {
+                mfsDisallowed = true;
+                allowed = 0;
+                phaseStart = 0; phaseEnd = 0; phaseRange = 0;
+            } else if (filing === 'mfj') {
+                phaseStart = 170000; phaseEnd = 200000; phaseRange = 30000;
             } else {
-                monthlyPayment = balance * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+                // single or hoh
+                phaseStart = 85000; phaseEnd = 100000; phaseRange = 15000;
             }
-            
-            const totalPaid = monthlyPayment * months;
-            const totalInterest = totalPaid - balance;
-            
-            let html = '<h3>Your Payment Plan</h3>';
-            html += '<div class="result-value">$' + monthlyPayment.toFixed(2).toLocaleString() + '/month</div>';
-            html += '<div class="result-detail"><strong>Loan Balance:</strong> $' + balance.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Interest Rate:</strong> ' + (annualRate * 100).toFixed(2) + '%</div>';
-            html += '<div class="result-detail"><strong>Repayment Term:</strong> ' + years + ' years</div>';
-            html += '<div class="result-detail"><strong>Total Interest:</strong> $' + totalInterest.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Amount Paid:</strong> $' + totalPaid.toFixed(2).toLocaleString() + '</div>';
-            
-            // Add visual bar chart
-            html += '<div class="chart-container">';
-            html += '<div class="bar-chart">';
-            const barHeight1 = (balance / totalPaid) * 100;
-            const barHeight2 = (totalInterest / totalPaid) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (balance/1000).toFixed(0) + 'k</div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (totalInterest/1000).toFixed(0) + 'k</div>';
-            html += '</div>';
-            html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Principal</div>';
-            html += '<div style="flex:1;" class="bar-label">Interest</div>';
-            html += '</div>';
-            html += '</div>';
-            
-            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>This is an estimate based on standard repayment. Actual payments may vary based on your repayment plan, servicer, and eligibility for programs like income-driven repayment or loan forgiveness.</em></p>';
-            
+
+            let phaseStatus = 'full';
+            if (!mfsDisallowed) {
+                if (magi <= phaseStart) {
+                    allowed = cappedInterest;
+                    phaseStatus = 'full';
+                } else if (magi >= phaseEnd) {
+                    allowed = 0;
+                    phaseStatus = 'phased-out';
+                } else {
+                    allowed = cappedInterest * (phaseEnd - magi) / phaseRange;
+                    phaseStatus = 'partial';
+                }
+            }
+
+            // TY2026 marginal rate lookup per Rev. Proc. 2025-32 §3.01
+            // (the bracket the deduction comes off the top of — proxy for true incremental federal-tax delta)
+            function marginalRateFor(magi, filing) {
+                let brackets;
+                if (filing === 'mfj') {
+                    brackets = [[23850,0.10],[96950,0.12],[206700,0.22],[394600,0.24],[501000,0.32],[751600,0.35],[Infinity,0.37]];
+                } else if (filing === 'hoh') {
+                    brackets = [[17000,0.10],[64850,0.12],[103350,0.22],[197300,0.24],[250500,0.32],[626350,0.35],[Infinity,0.37]];
+                } else {
+                    // single or mfs
+                    brackets = [[11925,0.10],[48475,0.12],[103350,0.22],[197300,0.24],[250500,0.32],[626350,0.35],[Infinity,0.37]];
+                }
+                for (const [top, rate] of brackets) {
+                    if (magi <= top) return rate;
+                }
+                return 0.37;
+            }
+            const marginalRate = marginalRateFor(magi, filing);
+            const federalSavings = allowed * marginalRate;
+
+            // Build result HTML
+            let html = '<h3>Your §221 Tax Savings</h3>';
+            html += '<div class="result-value">$' + federalSavings.toFixed(2) + '</div>';
+            html += '<p style="color:#6e6e73;margin-top:-0.5rem;margin-bottom:1rem;">Estimated federal tax savings this year</p>';
+            html += '<div class="result-detail"><strong>Interest Paid:</strong> $' + interest.toFixed(2) + '</div>';
+            html += '<div class="result-detail"><strong>Capped at $2,500:</strong> $' + cappedInterest.toFixed(2) + (interest > CAP ? ' <span style="color:#92400e">(reduced by $' + (interest - CAP).toFixed(2) + ' to the §221(b)(1) cap)</span>' : '') + '</div>';
+
+            if (mfsDisallowed) {
+                html += '<div class="result-detail" style="color:#b91c1c"><strong>Allowed Deduction:</strong> $0.00 — Married Filing Separately filers cannot claim the §221 deduction per IRC §221(e)(2).</div>';
+            } else if (phaseStatus === 'full') {
+                html += '<div class="result-detail"><strong>Allowed Deduction:</strong> $' + allowed.toFixed(2) + ' (MAGI below $' + phaseStart.toLocaleString() + ' phase-out start — full deduction)</div>';
+            } else if (phaseStatus === 'partial') {
+                const reduction = cappedInterest - allowed;
+                html += '<div class="result-detail"><strong>Allowed Deduction:</strong> $' + allowed.toFixed(2) + ' <span style="color:#92400e">(reduced by $' + reduction.toFixed(2) + ' — partial phase-out)</span></div>';
+                html += '<div class="result-detail" style="font-size:0.9rem;color:#6e6e73">Phase-out: MAGI $' + magi.toLocaleString() + ' is inside the $' + phaseStart.toLocaleString() + '–$' + phaseEnd.toLocaleString() + ' phase-out band. Pro-rata formula: $' + cappedInterest.toFixed(2) + ' × ($' + phaseEnd.toLocaleString() + ' − $' + magi.toLocaleString() + ') / $' + phaseRange.toLocaleString() + '.</div>';
+            } else {
+                html += '<div class="result-detail" style="color:#b91c1c"><strong>Allowed Deduction:</strong> $0.00 — MAGI is at or above $' + phaseEnd.toLocaleString() + ' (full phase-out for ' + (filing === 'mfj' ? 'MFJ' : 'single/HoH') + ' filers).</div>';
+            }
+
+            html += '<div class="result-detail"><strong>Marginal Federal Rate:</strong> ' + (marginalRate * 100).toFixed(0) + '% (TY2026 ' + (filing === 'mfj' ? 'MFJ' : filing === 'hoh' ? 'HoH' : filing === 'mfs' ? 'MFS' : 'single') + ' bracket at MAGI $' + magi.toLocaleString() + ')</div>';
+            html += '<div class="result-detail" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #d2d2d7"><strong>Federal Tax Savings:</strong> <span style="font-weight:700;color:#0071e3">$' + federalSavings.toFixed(2) + '</span></div>';
+
+            html += '<p style="margin-top: 1.5rem; font-size: 0.9rem; color: #6e6e73;"><em>This is the §221 above-the-line deduction (you do not need to itemize). State income-tax savings may apply on top — most states with an income tax adopt §221 by reference, but check your state DOR. The figure does not model self-employment tax, Additional Medicare Tax, or interaction with other above-the-line items.</em></p>';
+
             document.getElementById('result').innerHTML = html;
             document.getElementById('result').style.display = 'block';
         }
