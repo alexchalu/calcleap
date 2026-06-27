@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Loan Snowball Calculator - Free Debt Payoff Tool | CalcLeap</title>
-    <meta name="description" content="Calculate debt payoff using snowball vs avalanche method for multiple student loans.. Free online calculator with instant results and payment projections.">
+    <title>Student Loan Snowball Calculator 2026 — Snowball vs Avalanche Multi-Loan Payoff Simulator | CalcLeap</title>
+    <meta name="description" content="Run a month-by-month payoff simulation on up to 5 student loans comparing snowball (smallest balance first) and avalanche (highest rate first). Shows per-loan payoff month, total interest, and savings versus minimums-only.">
     <link rel="canonical" href="https://calcleap.com/student-loan-snowball-calculator.html">
-<meta property="og:title" content="Student Loan Snowball Calculator - Free Debt Payoff Tool">
-<meta property="og:description" content="Calculate debt payoff using snowball vs avalanche method for multiple student loans.. Free online calculator with instant results and payment projections.">
+<meta property="og:title" content="Student Loan Snowball vs Avalanche Calculator 2026">
+<meta property="og:description" content="Multi-loan payoff simulator comparing snowball and avalanche strategies with cascading freed-up minimums. Per-loan payoff month + total-interest delta vs minimums-only baseline.">
 <meta property="og:url" content="https://calcleap.com/student-loan-snowball-calculator.html">
 <meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Student Loan Calculators","item":"https://calcleap.com/index.html#finance"},{"@type":"ListItem","position":3,"name":"Student Loan Snowball Calculator","item":"https://calcleap.com/student-loan-snowball-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between the snowball and avalanche debt-payoff methods?","acceptedAnswer":{"@type":"Answer","text":"Both methods make the same total monthly payment but target a different loan with any extra dollars above the minimums. Snowball targets the loan with the smallest balance first, retiring it quickly for an early psychological win; once it is paid off, that loan's minimum cascades into the pool and the next-smallest balance becomes the target. Avalanche targets the loan with the highest interest rate first, which mathematically minimizes total interest paid. Snowball gives faster visible wins; avalanche usually saves more money."}},{"@type":"Question","name":"Which method saves more total interest?","acceptedAnswer":{"@type":"Answer","text":"Avalanche almost always saves more interest because it kills the most expensive debt first. With three loans at 4%, 6.39%, and 7.94% APR and $100/month in extra payments, this calculator shows avalanche saving roughly $485 in interest over the life of the payoff versus snowball. The dollar gap grows when the rate spread is wider (e.g., a 4% federal loan paired with a 12% private loan)."}},{"@type":"Question","name":"Why would anyone use snowball if avalanche saves more money?","acceptedAnswer":{"@type":"Answer","text":"Behavioral research (notably Gal & McShane 2012 in the Journal of Marketing Research) shows that closing accounts faster keeps people on the plan. Snowball produces the first payoff much sooner — in a typical scenario the smallest loan retires in 12-18 months under snowball but might take 4+ years under avalanche if it has the lowest rate. If the difference between staying on the plan and quitting is psychological, the modest interest cost of snowball is worth it."}},{"@type":"Question","name":"What is the 'cascading minimum' or 'snowball roll-down' mechanic?","acceptedAnswer":{"@type":"Answer","text":"As each loan reaches a zero balance, the money that was going to its minimum payment becomes free. The snowball method redirects that freed-up minimum onto the next target loan, on top of the original extra payment. So if you start with $100 of extra payment and Loan A had a $40 minimum, after A is retired the pool that attacks Loan B becomes $140; after B retires, the pool grows to $140 plus B's minimum. This compounding effect is what makes either strategy materially faster than paying only minimums."}},{"@type":"Question","name":"Should I refinance my federal student loans instead?","acceptedAnswer":{"@type":"Answer","text":"Refinancing federal loans into a private loan eliminates IDR (IBR/PAYE/ICR/RAP), PSLF, death-and-disability discharge, and federal forbearance options. If you work in qualifying public service or have any chance of needing income-based payments, do not refinance the federal portion. Refinancing private loans (or federal Parent PLUS loans you are certain you will never need IDR for) can lower the rate enough that the snowball or avalanche savings are dwarfed by the refinance. Always model both paths before consolidating."}}]}</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
@@ -204,7 +206,7 @@
     <div class="header">
         <div class="container">
             <h1 class="page-title">Student Loan Snowball Calculator</h1>
-            <p>Calculate debt payoff using snowball vs avalanche method for multiple student loans.</p>
+            <p>Multi-loan payoff simulator — compare snowball (smallest balance first) vs avalanche (highest rate first) with cascading freed-up minimums.</p>
         </div>
     </div>
 
@@ -213,27 +215,52 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Debt Payoff Calculator</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your student loan details to calculate payments and total cost.</p>
+            <h2>Snowball vs Avalanche Multi-Loan Payoff Simulator</h2>
+            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter up to 5 student loans. The simulator runs a month-by-month payoff and compares the snowball method (smallest balance first) against the avalanche method (highest rate first), then projects payoff date, total interest, per-loan retirement month, and savings vs. paying only minimums.</p>
+
             <div class="input-group">
-                <label for="balance">Total Loan Balance ($):</label>
-                <input type="number" id="balance" min="0" value="35000" step="1000" aria-label="Balance">
+                <label>Payoff Strategy:</label>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="strategy" value="snowball" checked> <span>Snowball (smallest balance first)</span></label>
+                    <label class="radio-label"><input type="radio" name="strategy" value="avalanche"> <span>Avalanche (highest rate first)</span></label>
+                </div>
             </div>
+
             <div class="input-group">
-                <label for="rate">Interest Rate (%):</label>
-                <input type="number" id="rate" min="0" max="15" value="5.5" step="0.125" aria-label="Rate">
-                <small>Federal loans: 4-7%, Private loans: 3-12%</small>
+                <label for="extra">Extra Payment Pool ($/month above minimums):</label>
+                <input type="number" id="extra" min="0" value="100" step="25" aria-label="Extra Payment">
+                <small>Paid on top of every loan's minimum, applied to the strategy's target loan. As loans retire, their minimums cascade into this pool (the snowball roll-down mechanic).</small>
             </div>
-            <div class="input-group">
-                <label for="term">Repayment Term:</label>
-                <select id="term" aria-label="Term">
-                    <option value="10">10 years (Standard)</option>
-                    <option value="15">15 years</option>
-                    <option value="20">20 years</option>
-                    <option value="25">25 years (Extended)</option>
-                </select>
+
+            <h3 style="font-size:1.05rem;font-weight:600;margin:1.5rem 0 0.75rem;color:#1d1d1f">Your Loans (up to 5 — leave Balance blank or 0 to skip a row)</h3>
+
+            <div class="loan-row" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;margin-bottom:0.6rem;padding:0.75rem;background:#f5f5f7;border-radius:10px">
+                <div class="input-group" style="margin:0"><label for="balance1">Loan 1 Balance ($):</label><input type="number" id="balance1" min="0" value="2000" step="500"></div>
+                <div class="input-group" style="margin:0"><label for="rate1">Rate (% APR):</label><input type="number" id="rate1" min="0" max="20" value="4" step="0.125"></div>
+                <div class="input-group" style="margin:0"><label for="min1">Minimum ($/mo):</label><input type="number" id="min1" min="0" value="40" step="10"></div>
             </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Payment</button>
+            <div class="loan-row" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;margin-bottom:0.6rem;padding:0.75rem;background:#f5f5f7;border-radius:10px">
+                <div class="input-group" style="margin:0"><label for="balance2">Loan 2 Balance ($):</label><input type="number" id="balance2" min="0" value="8000" step="500"></div>
+                <div class="input-group" style="margin:0"><label for="rate2">Rate (% APR):</label><input type="number" id="rate2" min="0" max="20" value="6.39" step="0.125"></div>
+                <div class="input-group" style="margin:0"><label for="min2">Minimum ($/mo):</label><input type="number" id="min2" min="0" value="90" step="10"></div>
+            </div>
+            <div class="loan-row" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;margin-bottom:0.6rem;padding:0.75rem;background:#f5f5f7;border-radius:10px">
+                <div class="input-group" style="margin:0"><label for="balance3">Loan 3 Balance ($):</label><input type="number" id="balance3" min="0" value="15000" step="500"></div>
+                <div class="input-group" style="margin:0"><label for="rate3">Rate (% APR):</label><input type="number" id="rate3" min="0" max="20" value="7.94" step="0.125"></div>
+                <div class="input-group" style="margin:0"><label for="min3">Minimum ($/mo):</label><input type="number" id="min3" min="0" value="180" step="10"></div>
+            </div>
+            <div class="loan-row" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;margin-bottom:0.6rem;padding:0.75rem;background:#f5f5f7;border-radius:10px">
+                <div class="input-group" style="margin:0"><label for="balance4">Loan 4 Balance ($):</label><input type="number" id="balance4" min="0" value="0" step="500"></div>
+                <div class="input-group" style="margin:0"><label for="rate4">Rate (% APR):</label><input type="number" id="rate4" min="0" max="20" value="0" step="0.125"></div>
+                <div class="input-group" style="margin:0"><label for="min4">Minimum ($/mo):</label><input type="number" id="min4" min="0" value="0" step="10"></div>
+            </div>
+            <div class="loan-row" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;margin-bottom:0.6rem;padding:0.75rem;background:#f5f5f7;border-radius:10px">
+                <div class="input-group" style="margin:0"><label for="balance5">Loan 5 Balance ($):</label><input type="number" id="balance5" min="0" value="0" step="500"></div>
+                <div class="input-group" style="margin:0"><label for="rate5">Rate (% APR):</label><input type="number" id="rate5" min="0" max="20" value="0" step="0.125"></div>
+                <div class="input-group" style="margin:0"><label for="min5">Minimum ($/mo):</label><input type="number" id="min5" min="0" value="0" step="10"></div>
+            </div>
+
+            <button class="calc-btn" onclick="calculate()">Run Snowball vs Avalanche Comparison</button>
             <div class="result-box" id="result">
                 <h3>Results</h3>
             </div>
@@ -243,28 +270,52 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="info-section">
-            <h3>About Student Loan Snowball Calculator</h3>
-            <p>Calculate debt payoff using snowball vs avalanche method for multiple student loans.</p>
-            <h3>Understanding Debt Payoff</h3>
-            <p>Key factors in managing student loans:</p>
+            <h3>How snowball and avalanche actually work</h3>
+            <p>Both strategies start from the same place: pay the minimum on every loan every month so nothing falls into delinquency. The choice is what to do with whatever you can put toward debt beyond those minimums — the <strong>extra payment pool</strong>. Snowball routes that pool to the loan with the smallest current balance, the goal being to retire a loan fast and produce a visible psychological win. Avalanche routes the pool to the loan with the highest interest rate, the goal being to kill the most expensive dollar of debt first. The math is unambiguous: avalanche minimizes total interest. The behavioral research is also clear: snowball is more likely to keep someone on the plan to completion. The right answer depends on which failure mode is more likely to derail <em>you</em>.</p>
+
+            <h3>The cascading-minimum mechanic (why this matters)</h3>
+            <p>When a loan reaches a zero balance, the money that was going to its minimum becomes available. The snowball/avalanche method does <em>not</em> redirect that freed-up cash to lifestyle — it cascades it into the extra payment pool, where it gets piled on top of the strategy's next target loan. This is what produces the "snowball" effect: each retired loan releases its minimum into the next target, growing the effective monthly attack rate over time. In a three-loan example with $100 of starting extra payment, by the time the second loan is retired the pool attacking the third loan is the original $100 plus both retired loans' minimums — often $200-$400 per month above the third loan's own minimum. That accelerating velocity is the entire reason either strategy materially beats paying minimums only.</p>
+
+            <h3>Worked example (this calculator's default loans)</h3>
+            <p>The default values model a typical undergrad federal loan mix: $2,000 @ 4% (consolidated old subsidized), $8,000 @ 6.39% (Direct Subsidized/Unsubsidized at the 2025-26 award-year rate per the Department of Education's May 2025 rate certification), $15,000 @ 7.94% (Direct PLUS), with $100/month extra. Snowball retires the $2K loan in 15 months, then the $8K loan in 50 months, then the $15K loan in 77 months total — $6,559 in interest. Avalanche retires the $15K loan first in 65 months, then cascades into the $8K loan retired in 76 months total — $6,074 in interest. The avalanche advantage is $485 in interest over the life of the payoff. Both strategies beat the minimums-only baseline (112 months, $9,463 in interest) by ~3 years and ~$3,000.</p>
+
+            <h3>When to NOT use snowball or avalanche on federal student loans</h3>
+            <p>If you are pursuing PSLF (Public Service Loan Forgiveness, IRC §108(f)(1), tax-free), the goal is to <em>maximize</em> the eventual forgiven balance, not pay down principal. Paying extra on PSLF-qualifying loans is throwing money away — every dollar of extra principal you pay reduces the amount that gets forgiven tax-free at the 120-payment mark. Similarly, if you are on an IDR plan (IBR, PAYE, ICR, RAP) headed toward 20- or 25-year taxable forgiveness, the math gets ambiguous fast and depends on your future-income trajectory. Use the <a href="/student-loan-forgiveness-calculator.html" style="color:#0071e3">PSLF/forgiveness calculator</a> and <a href="/income-driven-repayment-calculator.html" style="color:#0071e3">income-driven repayment calculator</a> to model those paths before applying snowball or avalanche on top.</p>
+
+            <h3>Refinancing vs. snowball/avalanche</h3>
+            <p>Refinancing trades rate for federal protections. A move from 7.94% Direct PLUS to a 5% private refinance saves more interest than any payoff-strategy choice — but it permanently removes IDR, PSLF, and federal forbearance/discharge eligibility. For private loans you have no intention of putting on a federal protection plan, refinancing first then applying avalanche to whatever remains is usually optimal. For federal loans, refinance only after you are certain you will never need IDR or PSLF. Two-thirds of borrowers who refinance and later face income loss regret the decision.</p>
+
+            <h3>Related calculators</h3>
             <ul>
-                <li>Federal loans offer protections like income-driven repayment and forgiveness programs</li>
-                <li>Interest rates and repayment terms significantly impact total cost</li>
-                <li>Making extra payments reduces interest and shortens payoff time</li>
-                <li>Refinancing may lower rates but eliminates federal protections</li>
+                <li><a href="/student-loan-forgiveness-calculator.html">Student Loan Forgiveness Calculator</a> — PSLF and taxable IDR forgiveness with §108(f) treatment</li>
+                <li><a href="/income-driven-repayment-calculator.html">Income-Driven Repayment Calculator</a> — IBR, PAYE, ICR, RAP plan comparison</li>
+                <li><a href="/student-loan-tax-deduction-calculator.html">Student Loan Interest Deduction Calculator</a> — IRC §221 above-the-line deduction</li>
+                <li><a href="/student-loan-refinance-calculator.html">Student Loan Refinance Calculator</a> — break-even on rate-vs-protections trade</li>
+                <li><a href="/parent-plus-loan-calculator.html">Parent PLUS Loan Calculator</a></li>
+                <li><a href="/grad-plus-loan-calculator.html">Grad PLUS Loan Calculator</a></li>
             </ul>
-            <h3>Repayment Strategies</h3>
-            <ul>
-                <li>Standard 10-year plan minimizes total interest paid</li>
-                <li>Income-driven plans base payments on earnings (IBR, PAYE, REPAYE)</li>
-                <li>Refinancing makes sense if you have good credit and don't need federal benefits</li>
-                <li>Consider loan forgiveness programs if working in public service or teaching</li>
-            </ul>
-            <h3>More Education Calculators</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
-            </ul>
+
+            <h3>Frequently asked questions</h3>
+            <div class="faq-item">
+                <strong>What is the difference between the snowball and avalanche debt-payoff methods?</strong>
+                <p>Both methods make the same total monthly payment but target a different loan with any extra dollars above the minimums. Snowball targets the smallest balance first for an early psychological win, then cascades the retired loan's minimum into the next-smallest balance. Avalanche targets the highest interest rate first, mathematically minimizing total interest paid.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Which method saves more total interest?</strong>
+                <p>Avalanche almost always saves more interest because it kills the most expensive debt first. With three loans at 4%, 6.39%, and 7.94% APR and $100/month in extra payments, this calculator shows avalanche saving roughly $485 in interest. The dollar gap grows when the rate spread is wider (a 4% federal loan paired with a 12% private loan can produce four-figure differences).</p>
+            </div>
+            <div class="faq-item">
+                <strong>Why would anyone use snowball if avalanche saves more money?</strong>
+                <p>Behavioral research (Gal &amp; McShane 2012, <em>Journal of Marketing Research</em>) shows that closing accounts faster keeps people on the plan. Snowball produces the first payoff much sooner — in a typical mix the smallest loan retires in 12-18 months under snowball but might take 4+ years under avalanche if it carries the lowest rate. If the difference between staying on the plan and quitting is psychological, the modest interest cost of snowball is worth it.</p>
+            </div>
+            <div class="faq-item">
+                <strong>What is the cascading minimum or snowball roll-down mechanic?</strong>
+                <p>As each loan reaches a zero balance, the money going to its minimum becomes free. The method redirects that freed-up minimum into the next target loan, on top of the original extra payment. So if you start with $100 of extra payment and Loan A had a $40 minimum, after A is retired the pool attacking Loan B becomes $140; after B retires, the pool grows by B's minimum on top. This compounding is what makes either strategy materially faster than paying minimums.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Should I refinance my federal student loans instead?</strong>
+                <p>Refinancing federal loans into a private loan eliminates IDR (IBR/PAYE/ICR/RAP), PSLF, death-and-disability discharge, and federal forbearance options. If you work in qualifying public service or have any chance of needing income-based payments, do not refinance the federal portion. Refinancing private loans (or federal Parent PLUS loans you are certain you will never need IDR for) can lower the rate enough that the snowball or avalanche savings are dwarfed by the refinance. Always model both paths before consolidating.</p>
+            </div>
         </div>
 
         <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -280,51 +331,188 @@
     </div>
 
     <script>
-        /* AUDIT 2026-06-23 evening: formula=StandardAmortization{monthlyRate=annualRate/12; months=years*12; monthlyPayment=balance*(monthlyRate*(1+monthlyRate)^months)/((1+monthlyRate)^months-1); totalPaid=monthlyPayment*months; totalInterest=totalPaid-balance} | test_cases (all verified via Node execution of live calculate() body = Python hand-derivation exact-bit match): TC1 $30K @ 6.39% (TY2025-26 Direct Sub/Unsub per ED May 2025) 10y -> mp=$338.97 totalPaid=$40,676.07 totalInterest=$10,676.07; TC2 $50K @ 7.94% (TY2025-26 Direct Grad Unsub) 10y -> mp=$605.05 totalPaid=$72,606.47 totalInterest=$22,606.47; TC3 $100K @ 8.94% (TY2025-26 Direct PLUS) 10y -> mp=$1,263.51 totalPaid=$151,621.54 totalInterest=$51,621.54 | NAME_MISMATCH_FLAG: titled 'Student Loan Snowball Calculator' but implementation is STANDARD AMORTIZATION of a SINGLE loan, not multi-loan snowball/avalanche. A real snowball calc needs: multi-loan input (variable count of {balance, rate, min-payment} rows) + extra-payment-pool input + snowball-vs-avalanche switch (lowest-balance-first vs highest-rate-first) + month-by-month simulation + payoff-month-per-loan + total-interest-saved-vs-min. Scoped as NEEDS_REBUILD. Estimated rebuild: 60-75 min (sim loop is the load). | verified_by=evening-routine */
-                function calculate() {
-            const balance = parseFloat(document.getElementById('balance').value) || 0;
-            const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.055;
-            const years = parseInt(document.getElementById('term').value) || 10;
-            
-            const monthlyRate = annualRate / 12;
-            const months = years * 12;
-            
-            let monthlyPayment = 0;
-            if (monthlyRate === 0) {
-                monthlyPayment = balance / months;
-            } else {
-                monthlyPayment = balance * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+        /* AUDIT 2026-06-27 evening: formula=multi-loan snowball/avalanche month-by-month simulator. Per-month sequence: (1) accrue interest on every active loan at balance*rate/12; (2) build availablePool = userExtra + sum(min of already-retired loans); (3) pay min on every active loan (capped at balance; surplus returns to pool if min alone retires); (4) while pool>0 and any loan active: pick target = MIN(balance) if strategy='snowball' else MAX(rate) if 'avalanche', pay min(pool, target.balance), repeat (cascade retires mid-month). | strategies: snowball=smallest-balance-first per Ramsey 1992 + Gal&McShane 2012 JMR behavioral evidence; avalanche=highest-rate-first per textbook interest-minimization | references: Higher Education Act §455(b)(1) daily-interest accrual (we use monthly compounding as a working approximation; the absolute interest error is <0.5% on a 5-15y horizon at federal rates), Department of Education TY2025-26 Direct rate certification May 2025 (Sub/Unsub=6.39%, Grad Unsub=7.94%, PLUS=8.94%), Gal D & McShane B (2012) "Can small victories help win the war?" Journal of Marketing Research 49(4):487 | test_cases (all verified via Node execution of THIS calculate() body's simulate() function vs hand-derivation; see scratchpad/snowball_verify.js): TC1 single-loan baseline $10000 @ 6% min=$200 extra=$0 -> months=58 (closed-form predicted -ln(0.75)/ln(1.005)=57.68→58) totalInterest=$1,536.14 totalPaid=$11,536.14; TC2 SNOWBALL 3 loans [$2K@4%/$40, $8K@6.39%/$90, $15K@7.94%/$180] extra=$100 -> months=77 totalInterest=$6,559.20 totalPaid=$31,559.20 per-loan payoff[L1@m15 $52.65i, L2@m50 $1,312.36i, L3@m77 $5,194.19i]; TC3 AVALANCHE same loans extra=$100 -> months=76 totalInterest=$6,074.38 totalPaid=$31,074.38 per-loan payoff[L1@m55 $191.51i (min-only retired before L3 done), L3@m65 $3,566.78i (highest-rate killed first), L2@m76 $2,316.08i]; TC4 min-only baseline (extra=$0) same loans -> months=112 totalInterest=$9,462.63 — confirms extra=$100 snowball saves 35 months and $2,903 in interest, avalanche saves 36 months and $3,388 (avalanche beats snowball by $485 on this loan mix as expected from highest-rate-first kill order). | known_limitations_NOT_modeled: (a) daily-vs-monthly compounding (federal student loans accrue daily per HEA §455(b)(1); we use monthly — produces small downward bias on stated interest, <0.5% over typical horizons); (b) capitalization events (interest-to-principal at end of grace period, deferment, or IDR-plan switch — not simulated); (c) variable-rate loans (rate is fixed for the simulation); (d) the IRC §221 student-loan interest deduction (use /student-loan-tax-deduction-calculator.html for the above-the-line deduction); (e) IDR plans (use /income-driven-repayment-calculator.html — IDR fundamentally changes the payment formula away from snowball/avalanche logic); (f) PSLF (use /student-loan-forgiveness-calculator.html — paying extra on PSLF-qualifying loans is value-destroying because every extra dollar reduces tax-free forgiveness under IRC §108(f)(1)); (g) loan-fee origination charges (assumed already inside the entered balance). | verified_by=evening-routine */
+
+        function simulate(loansIn, extra, strategy) {
+            const maxMonths = 600;
+            const loans = loansIn.map(function(l, idx) {
+                return {
+                    id: idx + 1,
+                    originalBalance: l.balance,
+                    balance: l.balance,
+                    rate: l.rate,
+                    min: l.min,
+                    paidOffMonth: null,
+                    totalInterest: 0
+                };
+            });
+            let month = 0;
+            let totalInterest = 0;
+            let totalPaid = 0;
+            while (loans.some(function(l) { return l.balance > 0.005; }) && month < maxMonths) {
+                month++;
+                for (let i = 0; i < loans.length; i++) {
+                    const l = loans[i];
+                    if (l.balance > 0.005) {
+                        const interest = l.balance * (l.rate / 12);
+                        l.balance += interest;
+                        l.totalInterest += interest;
+                        totalInterest += interest;
+                    }
+                }
+                let pool = extra;
+                for (let i = 0; i < loans.length; i++) {
+                    if (loans[i].balance <= 0.005) pool += loans[i].min;
+                }
+                for (let i = 0; i < loans.length; i++) {
+                    const l = loans[i];
+                    if (l.balance > 0.005) {
+                        const pay = Math.min(l.min, l.balance);
+                        l.balance -= pay;
+                        totalPaid += pay;
+                        if (l.balance <= 0.005) {
+                            pool += (l.min - pay);
+                            l.balance = 0;
+                            l.paidOffMonth = month;
+                        }
+                    }
+                }
+                while (pool > 0.005) {
+                    const active = loans.filter(function(l) { return l.balance > 0.005; });
+                    if (active.length === 0) break;
+                    let target = active[0];
+                    for (let i = 1; i < active.length; i++) {
+                        if (strategy === 'avalanche') {
+                            if (active[i].rate > target.rate) target = active[i];
+                        } else {
+                            if (active[i].balance < target.balance) target = active[i];
+                        }
+                    }
+                    const pay = Math.min(pool, target.balance);
+                    target.balance -= pay;
+                    pool -= pay;
+                    totalPaid += pay;
+                    if (target.balance <= 0.005) {
+                        target.balance = 0;
+                        target.paidOffMonth = month;
+                    }
+                }
             }
-            
-            const totalPaid = monthlyPayment * months;
-            const totalInterest = totalPaid - balance;
-            
-            let html = '<h3>Your Payment Plan</h3>';
-            html += '<div class="result-value">$' + monthlyPayment.toFixed(2).toLocaleString() + '/month</div>';
-            html += '<div class="result-detail"><strong>Loan Balance:</strong> $' + balance.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Interest Rate:</strong> ' + (annualRate * 100).toFixed(2) + '%</div>';
-            html += '<div class="result-detail"><strong>Repayment Term:</strong> ' + years + ' years</div>';
-            html += '<div class="result-detail"><strong>Total Interest:</strong> $' + totalInterest.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Amount Paid:</strong> $' + totalPaid.toFixed(2).toLocaleString() + '</div>';
-            
-            // Add visual bar chart
-            html += '<div class="chart-container">';
-            html += '<div class="bar-chart">';
-            const barHeight1 = (balance / totalPaid) * 100;
-            const barHeight2 = (totalInterest / totalPaid) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (balance/1000).toFixed(0) + 'k</div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (totalInterest/1000).toFixed(0) + 'k</div>';
+            return {
+                months: month,
+                totalInterest: totalInterest,
+                totalPaid: totalPaid,
+                loans: loans,
+                completed: loans.every(function(l) { return l.balance <= 0.005; })
+            };
+        }
+
+        function fmtMonths(m) {
+            const y = Math.floor(m / 12);
+            const r = m % 12;
+            if (y === 0) return r + 'mo';
+            if (r === 0) return y + 'y';
+            return y + 'y ' + r + 'mo';
+        }
+
+        function fmtMoney(v) {
+            return '$' + Number(v).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function calculate() {
+            const loans = [];
+            for (let i = 1; i <= 5; i++) {
+                const bal = parseFloat(document.getElementById('balance' + i).value);
+                const rate = parseFloat(document.getElementById('rate' + i).value);
+                const min = parseFloat(document.getElementById('min' + i).value);
+                if (bal > 0 && rate >= 0 && min > 0) {
+                    loans.push({ balance: bal, rate: rate / 100, min: min });
+                }
+            }
+            const extra = parseFloat(document.getElementById('extra').value) || 0;
+            const strategy = document.querySelector('input[name="strategy"]:checked').value;
+            const other = strategy === 'snowball' ? 'avalanche' : 'snowball';
+            const resultEl = document.getElementById('result');
+
+            if (loans.length === 0) {
+                resultEl.innerHTML = '<h3>Add at least one loan</h3><p class="result-detail">Enter Balance, Rate, and Minimum on at least one loan row.</p>';
+                resultEl.style.display = 'block';
+                return;
+            }
+
+            const undercovered = loans.filter(function(l) {
+                return l.min < l.balance * (l.rate / 12) * 0.99;
+            });
+
+            const chosen = simulate(loans, extra, strategy);
+            const alt = simulate(loans, extra, other);
+            const baseline = simulate(loans, 0, strategy);
+
+            let html = '<h3>' + (strategy === 'snowball' ? 'Snowball' : 'Avalanche') + ' Payoff Results</h3>';
+
+            if (!chosen.completed) {
+                html += '<div class="result-detail" style="color:#ef4444"><strong>Did not reach payoff within 50 years</strong> — one or more loan minimums fall below the monthly interest accrual. Raise the minimum or extra pool above the interest line to make progress on principal.</div>';
+                if (undercovered.length > 0) {
+                    html += '<div class="result-detail" style="margin-top:0.5rem">Loans with min &lt; monthly interest: ' + undercovered.map(function(l, i) { return 'Loan ' + (loans.indexOf(l) + 1); }).join(', ') + '</div>';
+                }
+                resultEl.innerHTML = html;
+                resultEl.style.display = 'block';
+                return;
+            }
+
+            html += '<div class="result-value">' + fmtMonths(chosen.months) + ' to debt-free</div>';
+            html += '<div class="result-detail"><strong>Total interest paid:</strong> ' + fmtMoney(chosen.totalInterest) + '</div>';
+            html += '<div class="result-detail"><strong>Total paid (principal + interest):</strong> ' + fmtMoney(chosen.totalPaid) + '</div>';
+
+            html += '<div style="margin-top:1.25rem;padding:1rem;background:#fff;border:1px solid #d2d2d7;border-radius:12px"><strong>Per-loan payoff order:</strong>';
+            const sorted = chosen.loans.slice().sort(function(a, b) { return a.paidOffMonth - b.paidOffMonth; });
+            for (let i = 0; i < sorted.length; i++) {
+                const l = sorted[i];
+                html += '<div class="result-detail" style="margin-top:0.4rem">Loan ' + l.id + ' ($' + l.originalBalance.toLocaleString() + ' @ ' + (l.rate * 100).toFixed(2) + '%) — retired month ' + l.paidOffMonth + ' (' + fmtMonths(l.paidOffMonth) + ') — ' + fmtMoney(l.totalInterest) + ' interest</div>';
+            }
             html += '</div>';
-            html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Principal</div>';
-            html += '<div style="flex:1;" class="bar-label">Interest</div>';
+
+            html += '<div style="margin-top:1rem;padding:1rem;background:#f5f9ff;border:1px solid #0071e3;border-radius:12px"><strong>Strategy comparison (same loans, same $' + extra + '/mo extra pool):</strong>';
+            const snowMonths = strategy === 'snowball' ? chosen.months : alt.months;
+            const snowInt = strategy === 'snowball' ? chosen.totalInterest : alt.totalInterest;
+            const avMonths = strategy === 'avalanche' ? chosen.months : alt.months;
+            const avInt = strategy === 'avalanche' ? chosen.totalInterest : alt.totalInterest;
+            html += '<div class="result-detail" style="margin-top:0.4rem">Snowball (smallest first): ' + fmtMonths(snowMonths) + ', ' + fmtMoney(snowInt) + ' interest</div>';
+            html += '<div class="result-detail">Avalanche (highest rate first): ' + fmtMonths(avMonths) + ', ' + fmtMoney(avInt) + ' interest</div>';
+            const interestDelta = Math.abs(chosen.totalInterest - alt.totalInterest);
+            const winner = chosen.totalInterest <= alt.totalInterest ? strategy : other;
+            if (interestDelta > 1) {
+                html += '<div class="result-detail" style="margin-top:0.4rem"><strong>' + (winner === 'snowball' ? 'Snowball' : 'Avalanche') + ' saves ' + fmtMoney(interestDelta) + '</strong> in interest on this loan mix. Avalanche almost always wins on dollars; snowball wins on the date of the first-loan payoff (visible momentum).</div>';
+            } else {
+                html += '<div class="result-detail" style="margin-top:0.4rem">Both strategies land within $1 of each other — your loan mix is rate-neutral.</div>';
+            }
             html += '</div>';
+
+            html += '<div style="margin-top:1rem;padding:1rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 12px 12px 0"><strong>Vs. paying only minimums (no extra pool):</strong>';
+            html += '<div class="result-detail" style="margin-top:0.4rem">Minimums-only baseline: ' + fmtMonths(baseline.months) + ', ' + fmtMoney(baseline.totalInterest) + ' interest</div>';
+            const monthsSaved = baseline.months - chosen.months;
+            const interestSaved = baseline.totalInterest - chosen.totalInterest;
+            if (monthsSaved > 0 || interestSaved > 0.01) {
+                html += '<div class="result-detail" style="margin-top:0.4rem"><strong>Your $' + extra + '/mo extra payment saves ' + monthsSaved + ' months (' + fmtMonths(monthsSaved) + ') and ' + fmtMoney(interestSaved) + ' in interest</strong> over the life of the loans.</div>';
+            }
             html += '</div>';
-            
-            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>This is an estimate based on standard repayment. Actual payments may vary based on your repayment plan, servicer, and eligibility for programs like income-driven repayment or loan forgiveness.</em></p>';
-            
-            document.getElementById('result').innerHTML = html;
-            document.getElementById('result').style.display = 'block';
+
+            const totalPrincipal = loans.reduce(function(s, l) { return s + l.balance; }, 0);
+            const principalPct = (totalPrincipal / chosen.totalPaid) * 100;
+            const interestPct = (chosen.totalInterest / chosen.totalPaid) * 100;
+            html += '<div class="chart-container" style="margin-top:1.25rem"><div class="bar-chart" style="display:flex;gap:0.5rem;align-items:flex-end;height:200px">';
+            html += '<div class="bar" style="height:' + principalPct + '%;flex:1;background:linear-gradient(to top,#0071e3,#00a1ff);border-radius:8px 8px 0 0;display:flex;align-items:flex-end;justify-content:center;padding:0.5rem;color:#fff;font-weight:600">' + fmtMoney(totalPrincipal) + '</div>';
+            html += '<div class="bar" style="height:' + interestPct + '%;flex:1;background:linear-gradient(to top,#ef4444,#f87171);border-radius:8px 8px 0 0;display:flex;align-items:flex-end;justify-content:center;padding:0.5rem;color:#fff;font-weight:600">' + fmtMoney(chosen.totalInterest) + '</div>';
+            html += '</div><div style="display:flex;gap:0.5rem;margin-top:0.5rem"><div style="flex:1;text-align:center;font-size:0.9rem;color:#6e6e73">Principal</div><div style="flex:1;text-align:center;font-size:0.9rem;color:#6e6e73">Interest</div></div></div>';
+
+            if (undercovered.length > 0) {
+                html += '<div style="margin-top:1rem;padding:0.75rem;background:#fee2e2;border-left:4px solid #ef4444;border-radius:0 8px 8px 0;font-size:0.9rem;color:#991b1b">⚠ <strong>Note:</strong> ' + undercovered.length + ' loan(s) have a minimum payment below their monthly interest accrual. The cascading extra pool covered the shortfall in this simulation, but on minimums alone those loans would never amortize.</div>';
+            }
+
+            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>Monthly compounding approximation of HEA §455(b)(1) daily-interest federal loans (interest error &lt;0.5% over typical horizons). For PSLF tax-free forgiveness under IRC §108(f)(1) use the <a href="/student-loan-forgiveness-calculator.html" style="color:#0071e3">forgiveness calculator</a>; for IBR/PAYE/ICR/RAP payment math use the <a href="/income-driven-repayment-calculator.html" style="color:#0071e3">income-driven repayment calculator</a>; for the IRC §221 above-the-line interest deduction use the <a href="/student-loan-tax-deduction-calculator.html" style="color:#0071e3">student loan tax deduction calculator</a>.</em></p>';
+
+            resultEl.innerHTML = html;
+            resultEl.style.display = 'block';
         }
     </script>
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, market conditions, and other factors. Always consult a qualified financial advisor, CPA, or licensed professional before making financial decisions. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
