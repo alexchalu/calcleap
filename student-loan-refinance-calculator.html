@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Loan Refinance Calculator - Free Loan Refinance Tool | CalcLeap</title>
-    <meta name="description" content="Compare refinancing vs keeping federal loans. Calculate savings from lower interest rates.. Free online calculator with instant results and payment projections.">
+    <title>Student Loan Refinance Calculator 2026 — Side-by-Side Payment, Lifetime Savings, Break-Even | CalcLeap</title>
+    <meta name="description" content="Compare your current student loan against a private refinance offer: monthly payment delta, total interest delta, break-even months on closing costs, and the federal-protections checklist before you refinance federal loans.">
     <link rel="canonical" href="https://calcleap.com/student-loan-refinance-calculator.html">
-<meta property="og:title" content="Student Loan Refinance Calculator - Free Loan Refinance Tool">
-<meta property="og:description" content="Compare refinancing vs keeping federal loans. Calculate savings from lower interest rates.. Free online calculator with instant results and payment projections.">
+<meta property="og:title" content="Student Loan Refinance Calculator 2026 — Side-by-Side + Break-Even">
+<meta property="og:description" content="Side-by-side current-vs-refinance comparison with monthly + lifetime savings, break-even on closing costs, and the federal-protections forfeiture checklist.">
 <meta property="og:url" content="https://calcleap.com/student-loan-refinance-calculator.html">
 <meta property="og:type" content="website">
     <style>
@@ -25,6 +25,9 @@
         .input-group input, .input-group select { width: 100%; padding: 0.875rem 1rem; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 1rem; transition: all 0.2s; background: white; }
         .input-group input:focus, .input-group select:focus { outline: none; border-color: #0071e3; box-shadow: 0 0 0 4px rgba(0,113,227,0.1); }
         .input-group small { color: #6e6e73; font-size: 0.9rem; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 600px) { .input-row { grid-template-columns: 1fr; } }
+        .panel-divider { margin: 1.75rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #d2d2d7; font-weight: 600; font-size: 1.05rem; color: #6e6e73; text-transform: uppercase; letter-spacing: 0.04em; }
         .calc-btn { background: #0071e3; color: white; border: none; padding: 1rem 2rem; font-size: 1.125rem; font-weight: 500; border-radius: 12px; cursor: pointer; width: 100%; transition: background 0.2s; }
         .calc-btn:hover { background: #0077ed; }
         .result-box { background: linear-gradient(135deg, #f5f9ff 0%, #e8f4ff 100%); border: 1px solid #0071e3; padding: 2rem; border-radius: 18px; margin-top: 1.5rem; display: none; }
@@ -32,20 +35,30 @@
         .result-value { font-size: 2.5rem; font-weight: 700; color: #0071e3; margin: 0.75rem 0; }
         .result-detail { margin: 0.75rem 0; color: #1d1d1f; font-size: 1.05rem; }
         .result-detail strong { font-weight: 600; }
+        .compare-table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: white; border-radius: 12px; overflow: hidden; }
+        .compare-table th, .compare-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid #e5e5e7; font-size: 0.95rem; }
+        .compare-table th { background: #f5f5f7; font-weight: 600; color: #1d1d1f; }
+        .compare-table td.num { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+        .callout { padding: 1rem 1.25rem; border-radius: 10px; margin: 1rem 0; font-size: 0.95rem; line-height: 1.55; }
+        .callout.green { background: #ecfdf5; border-left: 4px solid #10b981; color: #065f46; }
+        .callout.yellow { background: #fffbeb; border-left: 4px solid #f59e0b; color: #92400e; }
+        .callout.red { background: #fef2f2; border-left: 4px solid #ef4444; color: #991b1b; }
         .chart-container { margin: 1.5rem 0; }
-        .bar-chart { display: flex; gap: 0.5rem; align-items: flex-end; height: 200px; }
+        .bar-chart { display: flex; gap: 0.75rem; align-items: flex-end; height: 200px; }
         .bar { flex: 1; background: linear-gradient(to top, #0071e3, #00a1ff); border-radius: 8px 8px 0 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0.5rem; color: white; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s; }
+        .bar.new { background: linear-gradient(to top, #10b981, #34d399); }
         .bar:hover { transform: translateY(-5px); }
         .bar-label { margin-top: 0.5rem; font-size: 0.9rem; color: #6e6e73; text-align: center; }
         .info-section { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
-        .info-section h3 { color: #1d1d1f; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600; }
+        .info-section h3 { color: #1d1d1f; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600; margin-top: 1.5rem; }
+        .info-section h3:first-child { margin-top: 0; }
         .info-section p { margin-bottom: 1rem; color: #1d1d1f; line-height: 1.7; }
         .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
         .info-section li { margin-bottom: 0.5rem; color: #1d1d1f; }
         .footer { background: #f5f5f7; padding: 2rem 0; text-align: center; border-top: 1px solid #e5e5e7; margin-top: 4rem; }
         .footer a { color: #0071e3; text-decoration: none; }
         @media (max-width: 768px) { .header h1 { font-size: 1.75rem; } .calc-box, .info-section { padding: 1.5rem; } }
-    
+
 
 /* === COMPREHENSIVE COMPONENT STYLES === */
 
@@ -183,11 +196,11 @@
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Finance","item":"https://calcleap.com/index.html#finance"},{"@type":"ListItem","position":3,"name":"Student Loan Refinance Calculator","item":"https://calcleap.com/student-loan-refinance-calculator.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does student loan refinancing work?","acceptedAnswer":{"@type":"Answer","text":"Student loan refinancing replaces one or more existing loans with a new private loan at a (typically) lower interest rate. Monthly payment on the new loan uses standard amortization: M = P \u00d7 r \u00d7 (1+r)^n / ((1+r)^n \u2212 1). On a $50,000 balance at 5.5% over 10 years the payment is about $543 versus $635 at the 9.08% federal PLUS rate \u2014 saving roughly $92 per month and $11,000 in total interest. Savings depend on credit score, income, co-signer, and the rate spread to your current loans."}},{"@type":"Question","name":"Should I refinance federal student loans into a private loan?","acceptedAnswer":{"@type":"Answer","text":"Refinancing federal loans into a private loan is irreversible \u2014 you cannot un-refinance back into the federal system. Doing so permanently forfeits access to Public Service Loan Forgiveness, all income-driven repayment plans (SAVE/PAYE/IBR), federal forbearance and discharge protections, and the option for federal forgiveness in special circumstances. For high-income, high-credit borrowers with no PSLF prospects, the rate savings may justify the trade-off; for anyone with PSLF eligibility or income volatility, refinancing federal loans is rarely the right move."}},{"@type":"Question","name":"What rates can I get on a student loan refinance?","acceptedAnswer":{"@type":"Answer","text":"Competitive 2026 fixed-rate offerings from SoFi, Earnest, Laurel Road, Splash Financial, and others span roughly 5.0%\u20139.0% depending on credit profile, income, debt-to-income, and term. Variable rates start lower (often 4.5%\u20135.5%) but reset monthly with prime. Borrowers with 720+ FICO, six-figure incomes, and stable employment in lender-favored fields (healthcare, law, finance, tech) get the lowest quotes. Always shop at least three lenders \u2014 refi pricing varies meaningfully."}},{"@type":"Question","name":"Does refinancing require a co-signer?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily, but a co-signer with strong credit can lower your rate by 50\u2013150 basis points. Most refinance lenders require minimum 670 FICO and $30,000\u2013$50,000 income for the primary borrower; below that, a co-signer makes approval likely. Some lenders offer co-signer release after 24\u201348 months of on-time payments \u2014 verify the release terms before accepting a co-signer."}},{"@type":"Question","name":"Can I refinance student loans more than once?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is no legal or industry limit on how many times you refinance, and there is no prepayment penalty on a private refi. If rates drop after you refinance, or if your credit and income improve, refinancing again to capture a lower rate is straightforward. The main friction is closing costs (most refi lenders charge none, but verify) and the small credit-score hit from each new credit pull."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Student Loan Calculators","item":"https://calcleap.com/index.html#finance"},{"@type":"ListItem","position":3,"name":"Student Loan Refinance Calculator","item":"https://calcleap.com/student-loan-refinance-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does this refinance calculator work?","acceptedAnswer":{"@type":"Answer","text":"It takes your current loan (balance, current annual rate, months remaining) and a refinance offer (new annual rate, new term in years, closing/origination fees) and computes both sides with standard amortization: M = P × r × (1+r)^n / ((1+r)^n − 1). It then reports current monthly payment vs new monthly payment, the lifetime total cost of each path (including fees on the refinance side), the monthly savings, the lifetime savings (negative = refinance costs more total), and the break-even months = fees / monthly savings. A new rate that is higher than the current rate produces a negative-savings warning, and a lower monthly payment achieved by extending the term flags the term-extension trap if lifetime cost goes up."}},{"@type":"Question","name":"What is the break-even on a student loan refinance?","acceptedAnswer":{"@type":"Answer","text":"Break-even is the number of months it takes for cumulative monthly savings to recover the upfront refinance costs. The formula is fees ÷ (current monthly payment − new monthly payment). If the break-even exceeds the remaining time on the loan, the refinance loses money even though the monthly payment dropped. The 2026 private student-loan refinance market is largely no-fee — SoFi, Earnest, ELFI, and Laurel Road advertise zero origination and zero application fees — so for most quotes the break-even is zero and any monthly savings translates directly to lifetime savings. Verify the lender’s Truth-in-Lending disclosure for any fee at closing."}},{"@type":"Question","name":"Should I refinance federal student loans into a private loan?","acceptedAnswer":{"@type":"Answer","text":"Refinancing federal loans into a private loan is irreversible — once converted to private, the loan can never re-enter the federal system. Doing so permanently forfeits Public Service Loan Forgiveness (PSLF, IRC §108(f)(1) tax-free discharge), all income-driven repayment plans (IBR, PAYE, ICR, and the new OBBBA Repayment Assistance Plan per HEA §493D), Department of Education forbearance and deferment, death and total-and-permanent-disability discharge, and access to any future federal forgiveness Congress may enact. The calculator surfaces a red federal-protections warning when you mark the current loan as federal. For high-income borrowers with stable employment in non-public-service careers and no expectation of IDR or PSLF, the rate savings can justify the trade-off. For anyone with PSLF eligibility, income volatility, or balances over 1.5× annual income, refinancing federal loans is rarely the right call."}},{"@type":"Question","name":"Does extending the loan term reduce my total cost?","acceptedAnswer":{"@type":"Answer","text":"No — extending the term almost always increases total interest paid even at a lower rate, because you finance the balance for more months. The calculator flags this with a yellow term-extension-trap callout when monthly payment falls but lifetime cost rises. Example built into the test cases: a $40,000 loan at 7.5% with 96 months remaining vs a 6.25% refinance over 144 months (12 years) cuts the monthly payment from $555 to $396 (−$160/mo), but lifetime cost rises from $53,314 to $56,957 — the refinance costs $3,643 MORE total despite the lower monthly payment. Refinance into a SHORTER or SAME term to capture rate savings without the term-extension penalty."}},{"@type":"Question","name":"What 2026 refinance rates can I realistically expect?","acceptedAnswer":{"@type":"Answer","text":"Per published 2026 rate disclosures from SoFi, Earnest, Education Loan Finance (ELFI), Laurel Road, and Splash Financial, fixed-rate quotes span roughly 4.99%–9.99% APR depending on credit score, income, debt-to-income ratio, and chosen term. Variable-rate quotes start lower (often 4.49%–5.50%) but reset monthly with the prime rate (currently 7.25% per the Fed H.15 release). Borrowers with 720+ FICO, household income above $80,000, and stable W-2 employment in lender-favored fields (medicine, law, finance, engineering) qualify for the bottom of the band. Always shop at least three lenders and pull all soft-credit pre-qualifications within a 14-day window to consolidate the inquiries into a single FICO event per FCRA §615(f)(3) credit-scoring rules."}}]}</script>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position='fixed';this.style.left='0';this.style.top='0';this.style.width='auto';this.style.height='auto';this.style.overflow='visible'" onblur="this.style.position='absolute';this.style.left='-9999px';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden'">Skip to content</a>
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="logo">Calc<span>Leap</span></a>
@@ -206,36 +219,71 @@
     <div class="header">
         <div class="container">
             <h1 class="page-title">Student Loan Refinance Calculator</h1>
-            <p>Compare refinancing vs keeping federal loans. Calculate savings from lower interest rates.</p>
+            <p>Compare your current loan against a refinance offer — monthly + lifetime savings + break-even on closing costs.</p>
         </div>
     </div>
 
-    <div class="main container">
+    <div class="main container" id="main-content">
         <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Loan Refinance Calculator</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your student loan details to calculate payments and total cost.</p>
-            <div class="input-group">
-                <label for="balance">Total Loan Balance ($):</label>
-                <input type="number" id="balance" min="0" value="35000" step="1000" aria-label="Balance">
+            <h2>Student Loan Refinance Calculator</h2>
+            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your current loan, then the refinance offer. The calculator returns side-by-side monthly payments, lifetime cost of each path, break-even months on any closing costs, and a federal-protections checklist if your current loan is federal.</p>
+
+            <div class="panel-divider">Current Loan</div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="balance">Current Loan Balance ($):</label>
+                    <input type="number" id="balance" min="0" value="50000" step="1000" aria-label="Current loan balance">
+                </div>
+                <div class="input-group">
+                    <label for="curRate">Current Annual Rate (%):</label>
+                    <input type="number" id="curRate" min="0" max="20" value="7.94" step="0.01" aria-label="Current annual rate">
+                    <small>AY2025-26 federal: 6.39% Direct Undergrad, 7.94% Direct Grad, 8.94% PLUS (per Dept of Ed May 2025).</small>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="remainMonths">Months Remaining on Current Loan:</label>
+                    <input type="number" id="remainMonths" min="1" max="360" value="120" step="1" aria-label="Months remaining">
+                </div>
+                <div class="input-group">
+                    <label for="loanType">Current Loan Type:</label>
+                    <select id="loanType" aria-label="Current loan type">
+                        <option value="federal">Federal (Direct / FFEL / PLUS)</option>
+                        <option value="private">Private</option>
+                    </select>
+                    <small>If federal, refinancing into private permanently forfeits PSLF + IDR access.</small>
+                </div>
+            </div>
+
+            <div class="panel-divider">Refinance Offer</div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="newRate">New Annual Rate (%):</label>
+                    <input type="number" id="newRate" min="0" max="20" value="5.49" step="0.01" aria-label="New annual rate">
+                    <small>2026 private refi fixed-rate quotes: ~4.99–9.99% (SoFi, Earnest, ELFI, Laurel Road).</small>
+                </div>
+                <div class="input-group">
+                    <label for="newTerm">New Repayment Term (years):</label>
+                    <select id="newTerm" aria-label="New term">
+                        <option value="5">5 years</option>
+                        <option value="7">7 years</option>
+                        <option value="10" selected>10 years</option>
+                        <option value="12">12 years</option>
+                        <option value="15">15 years</option>
+                        <option value="20">20 years</option>
+                    </select>
+                </div>
             </div>
             <div class="input-group">
-                <label for="rate">Interest Rate (%):</label>
-                <input type="number" id="rate" min="0" max="15" value="6.53" step="0.125" aria-label="Rate">
-                <small>Federal AY2025-26: 6.53% (Undergrad), 8.08% (Grad), 9.08% (PLUS) per Dept of Ed; private refi 2026: ~5-9% fixed</small>
+                <label for="fees">Closing / Origination Fees ($):</label>
+                <input type="number" id="fees" min="0" value="0" step="50" aria-label="Closing fees">
+                <small>Most 2026 private refi lenders advertise $0 fees. Verify the Truth-in-Lending disclosure.</small>
             </div>
-            <div class="input-group">
-                <label for="term">Repayment Term:</label>
-                <select id="term" aria-label="Term">
-                    <option value="10">10 years (Standard)</option>
-                    <option value="15">15 years</option>
-                    <option value="20">20 years</option>
-                    <option value="25">25 years (Extended)</option>
-                </select>
-            </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Payment</button>
+
+            <button class="calc-btn" onclick="calculate()">Compare Refinance</button>
             <div class="result-box" id="result">
                 <h3>Results</h3>
             </div>
@@ -245,27 +293,52 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="info-section">
-            <h3>About Student Loan Refinance Calculator</h3>
-            <p>Compare refinancing vs keeping federal loans. Calculate savings from lower interest rates.</p>
-            <h3>Understanding Loan Refinance</h3>
-            <p>Key factors in managing student loans:</p>
+            <h3>How the math works</h3>
+            <p>Both sides of the comparison use the standard fixed-rate amortization formula:</p>
+            <p style="font-family:monospace;background:#f5f5f7;padding:0.75rem;border-radius:8px"><strong>M = P × r × (1+r)<sup>n</sup> / ((1+r)<sup>n</sup> − 1)</strong></p>
+            <p>where <strong>P</strong> is the loan balance, <strong>r</strong> is the monthly rate (annual rate ÷ 12), and <strong>n</strong> is the number of months. Lifetime cost on each side is <code>M × n</code>; the refinance side adds any closing fees on top. Break-even months are <code>fees ÷ (M<sub>old</sub> − M<sub>new</sub>)</code> — the number of months you must hold the refinanced loan before the cumulative monthly savings recover the fees.</p>
+
+            <h3>When refinance saves money</h3>
             <ul>
-                <li>Federal loans offer protections like income-driven repayment and forgiveness programs</li>
-                <li>Interest rates and repayment terms significantly impact total cost</li>
-                <li>Making extra payments reduces interest and shortens payoff time</li>
-                <li>Refinancing may lower rates but eliminates federal protections</li>
+                <li><strong>New rate is meaningfully lower</strong> than the current rate — generally a 1+ percentage-point drop to overcome friction.</li>
+                <li><strong>Same or shorter term</strong> — extending the term can erase rate savings (term-extension trap, see below).</li>
+                <li><strong>Break-even fits inside the remaining loan life</strong> — a 36-month break-even on a 24-month-remaining loan loses money.</li>
+                <li><strong>You don't need federal protections</strong> — see the IDR/PSLF/forbearance forfeiture checklist below for federal loans.</li>
             </ul>
-            <h3>Repayment Strategies</h3>
+
+            <h3>The term-extension trap</h3>
+            <p>Refinancing $40,000 from 7.5% / 96 months remaining into 6.25% / 144 months (12 years) drops the monthly payment from $555 to $396 — a $160/mo headline "savings" — but lifetime cost rises from $53,314 to $56,957, a $3,643 lifetime LOSS. The lower monthly payment is paid back many times over the extra 48 months of interest. The calculator flags this with a yellow callout when monthly drops but lifetime rises.</p>
+
+            <h3>Federal-to-private forfeiture checklist</h3>
+            <p>When the current loan is marked federal, the calculator surfaces a red warning listing the protections that <strong>permanently disappear</strong> on refinance:</p>
             <ul>
-                <li>Standard 10-year plan minimizes total interest paid</li>
-                <li>Income-driven plans base payments on earnings (IBR, PAYE, REPAYE)</li>
-                <li>Refinancing makes sense if you have good credit and don't need federal benefits</li>
-                <li>Consider loan forgiveness programs if working in public service or teaching</li>
+                <li><strong>PSLF</strong> — Public Service Loan Forgiveness after 120 qualifying payments (tax-free per IRC §108(f)(1)).</li>
+                <li><strong>IDR</strong> — Income-Driven Repayment (IBR, PAYE, ICR for pre-Jul-2026 borrowers; RAP per HEA §493D / OBBBA Pub. L. 119-21 §82001 for new borrowers).</li>
+                <li><strong>Federal forbearance + deferment</strong> — economic hardship, unemployment, in-school, and natural-disaster forbearance.</li>
+                <li><strong>Death + total-and-permanent-disability discharge</strong> — federal loans extinguish at death; private loans pass to the estate or co-signer.</li>
+                <li><strong>Future federal forgiveness</strong> — any program Congress enacts in the future (the 2022 Biden cancellation, the 2023 SAVE plan, etc.) is forever out of reach once the loan is private.</li>
+                <li><strong>Tax-free PSLF status</strong> — IRC §108(f)(1) permanent exclusion does not extend to private refinanced loans.</li>
             </ul>
-            <h3>More Education Calculators</h3>
+
+            <h3>2026 rate landscape</h3>
+            <p>Federal AY2025-26 rates (per Dept. of Ed. May 2025 announcement): <strong>6.39%</strong> Direct Subsidized/Unsubsidized Undergrad, <strong>7.94%</strong> Direct Unsubsidized Grad, <strong>8.94%</strong> Direct PLUS. Private refinance quotes (per 2026 lender disclosures): <strong>4.99–9.99%</strong> fixed APR depending on credit profile. Variable-rate quotes typically start 50–100bp lower but reset monthly with the prime rate (currently 7.25% per Fed H.15 release).</p>
+
+            <h3>Related calculators</h3>
             <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
+                <li><a href="/calc/student-loan-calculator.html">Student Loan Repayment Calculator</a></li>
+                <li><a href="/income-driven-repayment-calculator.html">Income-Driven Repayment Calculator</a></li>
+                <li><a href="/student-loan-forgiveness-calculator.html">Student Loan Forgiveness Calculator (PSLF / IBR / PAYE / RAP)</a></li>
+                <li><a href="/student-loan-tax-deduction-calculator.html">Student Loan Interest Deduction (§221) Calculator</a></li>
+                <li><a href="/student-loan-snowball-calculator.html">Student Loan Snowball vs Avalanche Calculator</a></li>
+                <li><a href="/parent-plus-loan-calculator.html">Parent PLUS Loan Calculator</a></li>
+                <li><a href="/grad-plus-loan-calculator.html">Grad PLUS Loan Calculator</a></li>
+            </ul>
+
+            <h3>Related reading</h3>
+            <ul>
+                <li><a href="/blog/how-student-loan-repayment-works-2026.html">How student loan repayment actually works in 2026</a></li>
+                <li><a href="/blog/how-pslf-actually-works-2026.html">How PSLF actually works in 2026</a></li>
+                <li><a href="/blog/mortgage-refinance-when-does-it-save-money-2026.html">When does refinancing save money (mortgage edition) — same break-even math</a></li>
             </ul>
         </div>
 
@@ -275,24 +348,24 @@
         <div class="info-section" id="faq" aria-labelledby="faq-heading">
             <h3 id="faq-heading">Frequently Asked Questions</h3>
             <div class="faq-item">
-                <h4 class="faq-q" style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1d1d1f">How does student loan refinancing work?</h4>
-                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">Student loan refinancing replaces one or more existing loans with a new private loan at a (typically) lower interest rate. Monthly payment on the new loan uses standard amortization: M = P × r × (1+r)^n / ((1+r)^n − 1). On a $50,000 balance at 5.5% over 10 years the payment is about $543 versus $635 at the 9.08% federal PLUS rate — saving roughly $92 per month and $11,000 in total interest. Savings depend on credit score, income, co-signer, and the rate spread to your current loans.</p>
+                <h4 class="faq-q" style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1d1d1f">How does this refinance calculator work?</h4>
+                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">It takes your current loan (balance, current annual rate, months remaining) and a refinance offer (new annual rate, new term in years, closing/origination fees) and computes both sides with standard amortization: M = P × r × (1+r)^n / ((1+r)^n − 1). It then reports current monthly payment vs new monthly payment, the lifetime total cost of each path (including fees on the refinance side), the monthly savings, the lifetime savings (negative = refinance costs more total), and the break-even months = fees / monthly savings. A new rate that is higher than the current rate produces a negative-savings warning, and a lower monthly payment achieved by extending the term flags the term-extension trap if lifetime cost goes up.</p>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-q" style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1d1d1f">What is the break-even on a student loan refinance?</h4>
+                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">Break-even is the number of months it takes for cumulative monthly savings to recover the upfront refinance costs. The formula is fees ÷ (current monthly payment − new monthly payment). If the break-even exceeds the remaining time on the loan, the refinance loses money even though the monthly payment dropped. The 2026 private student-loan refinance market is largely no-fee — SoFi, Earnest, ELFI, and Laurel Road advertise zero origination and zero application fees — so for most quotes the break-even is zero and any monthly savings translates directly to lifetime savings. Verify the lender's Truth-in-Lending disclosure for any fee at closing.</p>
             </div>
             <div class="faq-item">
                 <h4 class="faq-q" style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1d1d1f">Should I refinance federal student loans into a private loan?</h4>
-                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">Refinancing federal loans into a private loan is irreversible — you cannot un-refinance back into the federal system. Doing so permanently forfeits access to Public Service Loan Forgiveness, all income-driven repayment plans (SAVE/PAYE/IBR), federal forbearance and discharge protections, and the option for federal forgiveness in special circumstances. For high-income, high-credit borrowers with no PSLF prospects, the rate savings may justify the trade-off; for anyone with PSLF eligibility or income volatility, refinancing federal loans is rarely the right move.</p>
+                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">Refinancing federal loans into a private loan is irreversible — once converted to private, the loan can never re-enter the federal system. Doing so permanently forfeits Public Service Loan Forgiveness (PSLF, IRC §108(f)(1) tax-free discharge), all income-driven repayment plans (IBR, PAYE, ICR, and the new OBBBA Repayment Assistance Plan per HEA §493D), Department of Education forbearance and deferment, death and total-and-permanent-disability discharge, and access to any future federal forgiveness Congress may enact. The calculator surfaces a red federal-protections warning when you mark the current loan as federal. For high-income borrowers with stable employment in non-public-service careers and no expectation of IDR or PSLF, the rate savings can justify the trade-off. For anyone with PSLF eligibility, income volatility, or balances over 1.5× annual income, refinancing federal loans is rarely the right call.</p>
             </div>
             <div class="faq-item">
-                <h4 class="faq-q" style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1d1d1f">What rates can I get on a student loan refinance?</h4>
-                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">Competitive 2026 fixed-rate offerings from SoFi, Earnest, Laurel Road, Splash Financial, and others span roughly 5.0%–9.0% depending on credit profile, income, debt-to-income, and term. Variable rates start lower (often 4.5%–5.5%) but reset monthly with prime. Borrowers with 720+ FICO, six-figure incomes, and stable employment in lender-favored fields (healthcare, law, finance, tech) get the lowest quotes. Always shop at least three lenders — refi pricing varies meaningfully.</p>
+                <h4 class="faq-q" style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1d1d1f">Does extending the loan term reduce my total cost?</h4>
+                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">No — extending the term almost always increases total interest paid even at a lower rate, because you finance the balance for more months. The calculator flags this with a yellow term-extension-trap callout when monthly payment falls but lifetime cost rises. Example built into the test cases: a $40,000 loan at 7.5% with 96 months remaining vs a 6.25% refinance over 144 months (12 years) cuts the monthly payment from $555 to $396 (−$160/mo), but lifetime cost rises from $53,314 to $56,957 — the refinance costs $3,643 MORE total despite the lower monthly payment. Refinance into a SHORTER or SAME term to capture rate savings without the term-extension penalty.</p>
             </div>
             <div class="faq-item">
-                <h4 class="faq-q" style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1d1d1f">Does refinancing require a co-signer?</h4>
-                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">Not necessarily, but a co-signer with strong credit can lower your rate by 50–150 basis points. Most refinance lenders require minimum 670 FICO and $30,000–$50,000 income for the primary borrower; below that, a co-signer makes approval likely. Some lenders offer co-signer release after 24–48 months of on-time payments — verify the release terms before accepting a co-signer.</p>
-            </div>
-            <div class="faq-item">
-                <h4 class="faq-q" style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1d1d1f">Can I refinance student loans more than once?</h4>
-                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">Yes. There is no legal or industry limit on how many times you refinance, and there is no prepayment penalty on a private refi. If rates drop after you refinance, or if your credit and income improve, refinancing again to capture a lower rate is straightforward. The main friction is closing costs (most refi lenders charge none, but verify) and the small credit-score hit from each new credit pull.</p>
+                <h4 class="faq-q" style="font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1d1d1f">What 2026 refinance rates can I realistically expect?</h4>
+                <p class="faq-a" style="margin:0 0 .5rem;color:#3a3a3c;line-height:1.65">Per published 2026 rate disclosures from SoFi, Earnest, Education Loan Finance (ELFI), Laurel Road, and Splash Financial, fixed-rate quotes span roughly 4.99%–9.99% APR depending on credit score, income, debt-to-income ratio, and chosen term. Variable-rate quotes start lower (often 4.49%–5.50%) but reset monthly with the prime rate (currently 7.25% per the Fed H.15 release). Borrowers with 720+ FICO, household income above $80,000, and stable W-2 employment in lender-favored fields (medicine, law, finance, engineering) qualify for the bottom of the band. Always shop at least three lenders and pull all soft-credit pre-qualifications within a 14-day window to consolidate the inquiries into a single FICO event per FCRA §615(f)(3) credit-scoring rules.</p>
             </div>
         </div>
 
@@ -307,66 +380,156 @@
     </div>
 
     <script>
-        /* AUDIT 2026-06-08: private student loan refinance payment calculator
-           family: balance-rate-term (loanBalance / annualRate% / termYears -> monthly payment)
-           formula: standard amortization M = P * r * (1+r)^n / ((1+r)^n - 1), where P = balance, r = annual_rate/100/12, n = years * 12
-           also: totalPaid = M * n; totalInterest = totalPaid - balance; zero-rate branch (rate=0): M = balance / n
-           test_cases (hand-derived in Python + cross-verified via Node execution of the live function() body below):
-                        TC1: balance=50000, rate=7.0, term=10 -> monthly=$580.54, totalPaid=$69665.09, totalInterest=$19665.09
-             TC2: balance=80000, rate=8.05, term=10 -> monthly=$972.74, totalPaid=$116728.28, totalInterest=$36728.28
-             TC3: balance=30000, rate=6.5, term=20 -> monthly=$223.67, totalPaid=$53681.27, totalInterest=$23681.27
-           known simplifications / flags (NOT math errors, scope-for-future refresh):
-             Private refi rates vary by credit score / co-signer / income; competitive 2026 fixed-rate offerings from SoFi / Earnest / Laurel Road span ~4.99-9.99%. The 5.5% default is reasonable for a strong-credit borrower. CRITICAL CONSUMER CAVEAT not surfaced in current UI: refinancing FEDERAL loans into a PRIVATE refi PERMANENTLY forfeits PSLF, IDR, and federal forbearance/discharge protections - this is the highest-leverage decision factor for refi shoppers and the calculator should warn explicitly. Flag for UX refresh.
-           verified_by: evening-routine
-           FIX 2026-06-12: refreshed UI rate default 5.5% → 6.53% and JS fallback 0.055 → 0.0653 to align with mid-market 2026 private refi quote band (5-9% per the FAQ block in this file). 5.5% was at the low end of the band (top-tier credit only); 6.53% is a more representative midpoint for the median refi shopper and also coincidentally matches the AY2025-26 federal Undergrad Direct rate (a natural decision anchor — refi makes sense when the new rate is meaningfully below the federal rate the borrower would otherwise carry). Updated hint text from stale "Federal loans: 4-7%, Private loans: 3-12%" to current AY2025-26 federal rate breakdown + private-refi band. TC values unchanged (still 7.0%/8.05%/6.5% test scenarios — inputs to the formula, not derived from UI default). The "CRITICAL CONSUMER CAVEAT" flag re: federal-to-private refi PSLF/IDR forfeiture remains; partially mitigated by the 2026-06-10 evening FAQ schema injection (Q2 of the FAQPage explicitly warns about PSLF/IDR forfeiture). UI-level inline warning still held for future UX evening.
-        */
+        /* AUDIT 2026-06-28 evening: REBUILD closes 2026-06-23 evening queue item (aaa) — the last 2026-06-23 student-loan NAME_MISMATCH file. Pre-rebuild this file ran single-input standard-amortization math despite being titled "Student Loan Refinance Calculator" (no current-vs-new comparison, no break-even, no federal-forfeiture warning). The 2026-06-08 evening AUDIT block correctly documented the standard-amortization formula it implemented but flagged the NAME_MISMATCH/CRITICAL CONSUMER CAVEAT explicitly. Post-rebuild this file implements proper refinance math: side-by-side current-vs-new payment comparison + lifetime cost delta + break-even months on closing fees + federal-protections forfeiture checklist when current loan is marked federal.
+           formula = standard amortization on each side per Reg Z 12 CFR §1026 Appendix J:
+             monthlyPmt(balance, annualRate, months) =
+               if annualRate == 0: balance / months
+               else: balance * (annualRate/12) * (1+annualRate/12)^months / ((1+annualRate/12)^months - 1)
+             m_old      = monthlyPmt(balance, curRate, remainMonths)
+             m_new      = monthlyPmt(balance, newRate, newTermMonths)
+             total_old  = m_old * remainMonths
+             total_new  = m_new * newTermMonths + fees                                  // fees treated as upfront cost, not financed
+             monthly_savings  = m_old - m_new
+             lifetime_savings = total_old - total_new                                   // negative = refinance costs more total
+             break_even_months = fees / monthly_savings   when monthly_savings > 0      // else N/A (savings ≤ 0 means refi never pays back fees)
+           decision branches surfaced in UI:
+             (a) new rate >= old rate                                  -> red callout "rate increase, do not refinance"
+             (b) monthly_savings > 0 AND lifetime_savings >= 0         -> green callout, savings figure highlighted
+             (c) monthly_savings > 0 AND lifetime_savings < 0          -> yellow TERM-EXTENSION-TRAP callout (refi lowers monthly but raises lifetime cost)
+             (d) break_even_months > remainMonths                      -> yellow "fee break-even exceeds remaining loan life" callout
+             (e) loanType == 'federal'                                 -> red federal-forfeiture checklist (PSLF / IDR / forbearance / discharge / future federal forgiveness)
+           test_cases (all verified via Python hand-derivation, see scratchpad/refi_verify.py + cross-verified via Node execution of this calc body):
+             TC1 prime same-term refi (balance=$50K, curRate=7.94 [will use 8.05 for verification — both demo same path; see below], remain=120, newRate=5.49, newTerm=10y, fees=$0):
+               using curRate=8.05 (Direct Grad AY2024-25): m_old=$607.96, m_new=$542.38, monthly_savings=$65.58/mo, total_old=$72,955.17, total_new=$65,086.04, lifetime_savings=$7,869.13, break_even=N/A ($0 fees), branch (b) green callout
+             TC2 term-extension trap (balance=$40K, curRate=7.5, remain=96, newRate=6.25, newTerm=12y/144mo, fees=$0):
+               m_old=$555.35, m_new=$395.53, monthly_savings=$159.82/mo, total_old=$53,314.06, total_new=$56,957.00, lifetime_savings=-$3,642.94, branch (c) yellow term-extension-trap callout
+             TC3 fee break-even exceeds remaining life (balance=$20K, curRate=6.0, remain=60, newRate=5.5, newTerm=5y, fees=$400):
+               m_old=$386.66, m_new=$382.02, monthly_savings=$4.63/mo, break_even=86.34mo > 60mo remaining, lifetime_savings=-$122.03, branch (d) yellow "break-even exceeds loan life" callout
+             TC4 rate increase (balance=$30K, curRate=5.5, remain=84, newRate=6.5, newTerm=7y/84mo, fees=$0):
+               m_old=$431.10, m_new=$445.48, monthly_savings=-$14.38/mo (NEGATIVE — refi makes it worse), lifetime_savings=-$1,208.07, branch (a) red rate-increase callout
+           known flags (NOT modeled, scope-for-future):
+             (a) fees-rolled-into-balance variant — current calc treats fees as upfront cost not financed; some lenders amortize closing costs into the new balance. Adding a "finance fees into new balance" checkbox is a 5-line follow-up.
+             (b) variable-rate refinance — current calc assumes fixed APR on the new loan; variable-rate refi resets monthly with prime per WSJ Prime Rate and the lifetime cost is a forecast not a calculation.
+             (c) tax-adjusted comparison — does not subtract the §221 deduction (max $2,500/yr interest deduction) from interest savings; user can pair with /student-loan-tax-deduction-calculator.html.
+             (d) PSLF opportunity cost — does not quantify the dollar value of forfeited PSLF; user can pair with /student-loan-forgiveness-calculator.html which estimates net PSLF benefit.
+             (e) state-tax conformity on private refi interest — most states with income tax adopt §221 by reference but some (CA, MA) have idiosyncratic conformity.
+             (f) co-signer release timeline — UI mentions but does not model the 24-48mo on-time-payment release windows lenders advertise.
+             (g) IDR-recertification interaction — if borrower is currently on IDR and the refi pulls them off IDR, the cash-flow projection in IDR vs the refi monthly payment is not surfaced side-by-side.
+             (h) credit-score-impact on quoted rate — calc takes the quoted new rate as given; does not predict what rate a particular FICO range would actually get.
+           verified_by=evening-routine */
+        function monthlyPmt(balance, annualRate, months) {
+            if (annualRate === 0) return balance / months;
+            const r = annualRate / 12;
+            const pow = Math.pow(1 + r, months);
+            return balance * r * pow / (pow - 1);
+        }
+
         function calculate() {
             const balance = parseFloat(document.getElementById('balance').value) || 0;
-            const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.0653;
-            const years = parseInt(document.getElementById('term').value) || 10;
-            
-            const monthlyRate = annualRate / 12;
-            const months = years * 12;
-            
-            let monthlyPayment = 0;
-            if (monthlyRate === 0) {
-                monthlyPayment = balance / months;
-            } else {
-                monthlyPayment = balance * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+            const curRate = (parseFloat(document.getElementById('curRate').value) || 0) / 100;
+            const remainMonths = parseInt(document.getElementById('remainMonths').value) || 1;
+            const loanType = document.getElementById('loanType').value || 'federal';
+            const newRate = (parseFloat(document.getElementById('newRate').value) || 0) / 100;
+            const newTermYears = parseInt(document.getElementById('newTerm').value) || 10;
+            const fees = parseFloat(document.getElementById('fees').value) || 0;
+
+            const newTermMonths = newTermYears * 12;
+
+            const mOld = monthlyPmt(balance, curRate, remainMonths);
+            const mNew = monthlyPmt(balance, newRate, newTermMonths);
+            const totalOld = mOld * remainMonths;
+            const totalNew = mNew * newTermMonths + fees;
+            const monthlySavings = mOld - mNew;
+            const lifetimeSavings = totalOld - totalNew;
+            const breakEvenMonths = monthlySavings > 0 ? fees / monthlySavings : null;
+
+            const fmt = (n) => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            const fmt0 = (n) => '$' + Math.round(n).toLocaleString();
+
+            let html = '<h3>Side-by-Side Comparison</h3>';
+
+            // Side-by-side comparison table
+            html += '<table class="compare-table">';
+            html += '<thead><tr><th></th><th style="text-align:right">Current Loan</th><th style="text-align:right">Refinance Offer</th></tr></thead><tbody>';
+            html += '<tr><td>Balance</td><td class="num">' + fmt(balance) + '</td><td class="num">' + fmt(balance) + '</td></tr>';
+            html += '<tr><td>Rate (annual)</td><td class="num">' + (curRate*100).toFixed(2) + '%</td><td class="num">' + (newRate*100).toFixed(2) + '%</td></tr>';
+            html += '<tr><td>Term remaining</td><td class="num">' + remainMonths + ' months</td><td class="num">' + newTermMonths + ' months</td></tr>';
+            html += '<tr><td><strong>Monthly payment</strong></td><td class="num"><strong>' + fmt(mOld) + '</strong></td><td class="num"><strong>' + fmt(mNew) + '</strong></td></tr>';
+            html += '<tr><td>Closing fees</td><td class="num">—</td><td class="num">' + fmt(fees) + '</td></tr>';
+            html += '<tr><td><strong>Lifetime cost</strong></td><td class="num"><strong>' + fmt(totalOld) + '</strong></td><td class="num"><strong>' + fmt(totalNew) + '</strong></td></tr>';
+            html += '</tbody></table>';
+
+            // Headline savings figure
+            const savingsColor = lifetimeSavings >= 0 ? '#10b981' : '#ef4444';
+            const savingsLabel = lifetimeSavings >= 0 ? 'Lifetime Savings' : 'Lifetime LOSS';
+            html += '<div style="text-align:center;margin:1.5rem 0">';
+            html += '<div class="result-detail" style="color:#6e6e73;font-size:0.95rem">' + savingsLabel + '</div>';
+            html += '<div class="result-value" style="color:' + savingsColor + '">' + fmt(Math.abs(lifetimeSavings)) + '</div>';
+            html += '<div class="result-detail" style="color:#6e6e73;font-size:0.95rem">Monthly delta: ' + (monthlySavings >= 0 ? '−' : '+') + fmt(Math.abs(mNew - mOld)) + ' (you ' + (monthlySavings >= 0 ? 'save' : 'pay') + ' ' + fmt(Math.abs(monthlySavings)) + '/mo)</div>';
+            html += '</div>';
+
+            // Branch (a) — rate increase
+            if (newRate > curRate) {
+                html += '<div class="callout red"><strong>Rate increase — do not refinance.</strong> The new rate (' + (newRate*100).toFixed(2) + '%) is higher than your current rate (' + (curRate*100).toFixed(2) + '%). Refinancing would raise both your monthly payment and lifetime cost by ' + fmt(Math.abs(lifetimeSavings)) + '. The only reason to refinance into a higher rate is to convert federal to private to break some other federal restriction — and that case is rare.</div>';
             }
-            
-            const totalPaid = monthlyPayment * months;
-            const totalInterest = totalPaid - balance;
-            
-            let html = '<h3>Your Payment Plan</h3>';
-            html += '<div class="result-value">$' + monthlyPayment.toFixed(2).toLocaleString() + '/month</div>';
-            html += '<div class="result-detail"><strong>Loan Balance:</strong> $' + balance.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Interest Rate:</strong> ' + (annualRate * 100).toFixed(2) + '%</div>';
-            html += '<div class="result-detail"><strong>Repayment Term:</strong> ' + years + ' years</div>';
-            html += '<div class="result-detail"><strong>Total Interest:</strong> $' + totalInterest.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Amount Paid:</strong> $' + totalPaid.toFixed(2).toLocaleString() + '</div>';
-            
-            // Add visual bar chart
+            // Branch (c) — term-extension trap
+            else if (monthlySavings > 0 && lifetimeSavings < 0) {
+                const extraMonths = newTermMonths - remainMonths;
+                html += '<div class="callout yellow"><strong>Term-extension trap.</strong> The refinance lowers your monthly payment by ' + fmt(monthlySavings) + ', but the longer ' + newTermYears + '-year term means you pay ' + fmt(Math.abs(lifetimeSavings)) + ' MORE in total cost over the life of the loan — ' + extraMonths + ' extra months of interest more than wipe out the rate savings. To capture the rate drop without the lifetime penalty, refinance into a SHORTER or SAME term (' + Math.ceil(remainMonths/12) + ' years or less).</div>';
+            }
+            // Branch (b) — clean savings
+            else if (monthlySavings > 0 && lifetimeSavings >= 0) {
+                html += '<div class="callout green"><strong>Refinance saves money.</strong> Both monthly (' + fmt(monthlySavings) + '/mo) and lifetime (' + fmt(lifetimeSavings) + ' total) point in the same direction. ' + (fees > 0 ? 'After recovering the ' + fmt(fees) + ' in fees, ' : '') + 'this is a clean win — assuming you do not need federal protections (see below if your current loan is federal).</div>';
+            }
+            // Branch (d) — break-even exceeds loan life
+            if (breakEvenMonths !== null && breakEvenMonths > remainMonths) {
+                html += '<div class="callout yellow"><strong>Break-even exceeds remaining loan life.</strong> It would take ' + breakEvenMonths.toFixed(1) + ' months of savings to recover the ' + fmt(fees) + ' in fees, but you only have ' + remainMonths + ' months left on your current loan. The refinance loses money even though the monthly payment dropped. Shop for a no-fee lender or wait until rates drop further.</div>';
+            }
+
+            // Break-even line
+            if (breakEvenMonths !== null) {
+                if (breakEvenMonths === 0 || fees === 0) {
+                    html += '<div class="result-detail"><strong>Break-even on fees:</strong> 0 months (no fees) — any monthly savings is pure lifetime savings.</div>';
+                } else {
+                    html += '<div class="result-detail"><strong>Break-even on fees:</strong> ' + breakEvenMonths.toFixed(1) + ' months (' + fmt(fees) + ' fees ÷ ' + fmt(monthlySavings) + '/mo savings).</div>';
+                }
+            } else if (fees > 0) {
+                html += '<div class="result-detail"><strong>Break-even on fees:</strong> never (monthly savings is ' + (monthlySavings <= 0 ? '≤ 0' : 'positive but does not exist') + ').</div>';
+            }
+
+            // Branch (e) — federal-forfeiture checklist
+            if (loanType === 'federal') {
+                html += '<div class="callout red" style="margin-top:1.25rem"><strong>⚠ Federal-protections forfeiture — irreversible.</strong> Refinancing federal loans into a private loan PERMANENTLY forfeits:<ul style="margin:0.5rem 0 0 1.25rem;padding:0">';
+                html += '<li>PSLF — Public Service Loan Forgiveness after 120 qualifying payments, tax-free per IRC §108(f)(1).</li>';
+                html += '<li>IDR — IBR/PAYE/ICR for pre-Jul-2026 borrowers; RAP per HEA §493D for new borrowers (OBBBA Pub. L. 119-21 §82001).</li>';
+                html += '<li>Federal forbearance + deferment + economic-hardship + in-school + natural-disaster relief.</li>';
+                html += '<li>Death + total-and-permanent-disability discharge.</li>';
+                html += '<li>Future federal forgiveness Congress may enact.</li>';
+                html += '</ul><div style="margin-top:0.75rem;font-size:0.9em">The ' + fmt(Math.abs(lifetimeSavings)) + ' in nominal ' + (lifetimeSavings >= 0 ? 'savings' : 'loss') + ' does not price in the option-value of these protections. Pair this calc with <a href="/student-loan-forgiveness-calculator.html" style="color:#991b1b;text-decoration:underline">/student-loan-forgiveness-calculator.html</a> to quantify PSLF and IDR forgiveness value before deciding.</div></div>';
+            }
+
+            // Visualization
             html += '<div class="chart-container">';
             html += '<div class="bar-chart">';
-            const barHeight1 = (balance / totalPaid) * 100;
-            const barHeight2 = (totalInterest / totalPaid) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (balance/1000).toFixed(0) + 'k</div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (totalInterest/1000).toFixed(0) + 'k</div>';
+            const maxTotal = Math.max(totalOld, totalNew);
+            const oldHeight = (totalOld / maxTotal) * 100;
+            const newHeight = (totalNew / maxTotal) * 100;
+            html += '<div class="bar" style="height:' + oldHeight + '%">' + fmt0(totalOld) + '</div>';
+            html += '<div class="bar new" style="height:' + newHeight + '%">' + fmt0(totalNew) + '</div>';
             html += '</div>';
-            html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Principal</div>';
-            html += '<div style="flex:1;" class="bar-label">Interest</div>';
+            html += '<div style="display:flex; gap:0.75rem;">';
+            html += '<div style="flex:1;" class="bar-label">Current loan (lifetime)</div>';
+            html += '<div style="flex:1;" class="bar-label">Refinance (lifetime + fees)</div>';
             html += '</div>';
             html += '</div>';
-            
-            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>This is an estimate based on standard repayment. Actual payments may vary based on your repayment plan, servicer, and eligibility for programs like income-driven repayment or loan forgiveness.</em></p>';
-            
+
+            html += '<p style="margin-top:1.5rem; font-size:0.9rem; color:#6e6e73;"><em>Standard amortization assumes a fixed APR on the new loan. Variable-rate refi quotes can start lower but reset monthly with prime. Fees here are treated as upfront cost (not financed into the new balance). Tax savings from the §221 student-loan-interest deduction (up to $2,500/yr) are not subtracted from interest figures — pair with <a href="/student-loan-tax-deduction-calculator.html">/student-loan-tax-deduction-calculator.html</a> for the after-tax view.</em></p>';
+
             document.getElementById('result').innerHTML = html;
             document.getElementById('result').style.display = 'block';
         }
     </script>
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, market conditions, and other factors. Always consult a qualified financial advisor, CPA, or licensed professional before making financial decisions. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
+<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, lender pricing, credit score, and market conditions. Refinancing federal student loans into a private loan is irreversible and forfeits federal benefits including PSLF, IDR plans, and federal forbearance. Always consult a qualified financial advisor or student-loan counselor before refinancing federal loans. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
 <footer class="footer" role="contentinfo"><div class="footer-inner"><div class="footer-grid"><div><h4>CalcLeap</h4><p style="font-size:.8rem;color:var(--text-3);line-height:1.5">Free calculators and tools for everyone.</p></div><div><h4>Popular</h4><a href="/bmi-calculator.html">BMI Calculator</a><a href="/calc/mortgage-payment.html">Mortgage Calculator</a><a href="/income-tax-calculator.html">Tax Calculator</a></div><div><h4>Categories</h4><a href="/index.html#finance">Finance</a><a href="/index.html#health">Health</a><a href="/index.html#insurance">Insurance</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div><p style="text-align:center;font-size:.75rem;color:var(--text-3);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)">© 2026 CalcLeap. All rights reserved.</p></div></footer>
 <div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
 <p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
