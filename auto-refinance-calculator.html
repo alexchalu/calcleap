@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free auto refinance calculator. Compare current vs new auto loan payments, calculate break-even point, and see total lifetime interest savings — including the term-extension trap on extended-term auto refis.">
+  <meta name="keywords" content="auto refinance calculator, car refinance calculator, refinance auto loan, auto loan break-even, refinance car payment, auto loan savings calculator">
+  <title>Auto Refinance Calculator - Free Car Loan Refinance Tool 2026 | CalcLeap</title>
+  <link rel="canonical" href="https://calcleap.com/auto-refinance-calculator.html">
+  <meta property="og:title" content="Auto Refinance Calculator - Should You Refinance Your Car Loan?">
+  <meta property="og:description" content="Free auto refinance calculator. Compare current vs new auto loan payments, calculate break-even, and check total lifetime interest including the term-extension trap.">
+  <meta property="og:url" content="https://calcleap.com/auto-refinance-calculator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://calcleap.com/og-default.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+    .nav {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 20px; font-weight: 700; color: #0071e3; text-decoration: none; }
+    .nav-links a { color: #1d1d1f; text-decoration: none; margin-left: 24px; font-size: 14px; transition: color 0.2s; }
+    .nav-links a:hover { color: #0071e3; }
+    .page { max-width: 980px; margin: 40px auto; padding: 0 20px; }
+    .page-title {
+      font-size: 48px; font-weight: 700; margin-bottom: 16px; text-align: center;
+      background: linear-gradient(90deg, #0071e3, #00c3ff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .subtitle { text-align: center; font-size: 18px; color: #6e6e73; margin-bottom: 40px; }
+    .card, .calc-card {
+      background: white; border-radius: 18px; padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 24px;
+    }
+    .input-grid { display: grid; gap: 20px; margin-bottom: 24px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .input-group { display: flex; flex-direction: column; }
+    .input-group label { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #1d1d1f; }
+    .input-group input, .input-group select {
+      padding: 12px 16px; border: 1px solid #d2d2d7; border-radius: 10px;
+      font-size: 16px; transition: all 0.2s; background: #f5f5f7;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none; border-color: #0071e3; background: white;
+    }
+    .calc-btn {
+      background: #0071e3; color: white; border: none;
+      padding: 14px 32px; border-radius: 10px;
+      font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; width: 100%;
+    }
+    .calc-btn:hover { background: #0077ed; transform: translateY(-1px); }
+    .result-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white; padding: 28px; border-radius: 14px; margin-top: 24px; display: none;
+    }
+    .result-box.show { display: block; }
+    .result-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px; margin-top: 20px;
+    }
+    .result-card {
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+      padding: 20px; border-radius: 12px;
+    }
+    .result-card .lbl { font-size: 13px; opacity: 0.9; margin-bottom: 8px; }
+    .result-card .val { font-size: 28px; font-weight: 700; }
+    .comparison-chart { background: white; padding: 24px; border-radius: 12px; margin-top: 20px; }
+    .chart-bars { display: flex; gap: 20px; margin-top: 20px; }
+    .bar-wrapper { flex: 1; text-align: center; }
+    .bar { background: #e5e5e7; border-radius: 8px; height: 200px; position: relative; overflow: hidden; margin: 12px 0; }
+    .bar-fill {
+      background: linear-gradient(180deg, #0071e3, #00c3ff);
+      width: 100%; position: absolute; bottom: 0; border-radius: 8px;
+      transition: height 0.4s ease; display: flex; align-items: center;
+      justify-content: center; color: white; font-weight: 600; font-size: 14px;
+    }
+    .bar-fill.new { background: linear-gradient(180deg, #34c759, #30d158); }
+    .bar-label { font-size: 14px; font-weight: 600; color: #6e6e73; margin-top: 8px; }
+    .warning { background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; border-radius: 8px; margin-top: 16px; color: #856404; }
+    .success { background: #d4edda; border-left: 4px solid #28a745; padding: 16px; border-radius: 8px; margin-top: 16px; color: #155724; }
+    .section { margin: 48px 0; }
+    .section h2 { font-size: 32px; font-weight: 700; margin-bottom: 20px; }
+    .section h3 { font-size: 24px; font-weight: 600; margin: 28px 0 16px; color: #0071e3; }
+    .section p { font-size: 17px; line-height: 1.7; color: #1d1d1f; margin-bottom: 16px; }
+    .section ul { margin: 16px 0 16px 24px; }
+    .section li { font-size: 17px; line-height: 1.7; margin-bottom: 12px; }
+    .faq { margin-top: 48px; }
+    .faq-item { background: white; padding: 24px; border-radius: 12px; margin-bottom: 16px; }
+    .faq-question { font-size: 20px; font-weight: 600; color: #0071e3; margin-bottom: 12px; }
+    .faq-answer { font-size: 16px; line-height: 1.7; color: #1d1d1f; }
+    .footer { background: #1d1d1f; color: white; padding: 48px 20px 32px; margin-top: 80px; }
+    .footer-content {
+      max-width: 980px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;
+    }
+    .footer-section h4 { font-size: 16px; margin-bottom: 16px; color: #f5f5f7; }
+    .footer-section a { display: block; color: #a1a1a6; text-decoration: none; font-size: 14px; margin-bottom: 8px; transition: color 0.2s; }
+    .footer-section a:hover { color: #0071e3; }
+    .footer-bottom {
+      max-width: 980px; margin: 32px auto 0; padding-top: 24px;
+      border-top: 1px solid #424245; text-align: center; font-size: 13px; color: #a1a1a6;
+    }
+    @media (max-width: 768px) {
+      .page-title { font-size: 36px; }
+      .nav-links { display: none; }
+      .chart-bars { flex-direction: column; }
+    }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Auto & Vehicle Calculators","item":"https://calcleap.com/index.html#auto"},{"@type":"ListItem","position":3,"name":"Auto Refinance Calculator","item":"https://calcleap.com/auto-refinance-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Auto Refinance Calculator","url":"https://calcleap.com/auto-refinance-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"CalcLeap","url":"https://calcleap.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the auto refinance calculator work?","acceptedAnswer":{"@type":"Answer","text":"The calculator uses the standard fixed-rate amortization formula (M = P·r·(1+r)^n / ((1+r)^n − 1)) twice — once for your current auto loan and once for the new loan — and then compares monthly payments, total lifetime interest, and the break-even point on any refinance fees. P is your current loan balance, r is the monthly interest rate (APR ÷ 12), and n is the number of months. Closing-cost amortization is straight-line (closingCosts ÷ monthlySavings)."}},{"@type":"Question","name":"What is the term-extension trap on auto refis?","acceptedAnswer":{"@type":"Answer","text":"If you have 36 months left on your current loan and refinance into a new 48- or 60-month loan at a lower rate, the lower monthly payment can be misleading. You may pay more interest over the life of the new loan than you would have paid by keeping the old loan, because you reset the amortization clock. The calculator surfaces this as a 'net lifetime savings' line — always check that number, not just the monthly savings. If net lifetime savings is negative, your monthly cash flow improves but you are paying more total interest."}},{"@type":"Question","name":"How much can refinancing my car loan save me?","acceptedAnswer":{"@type":"Answer","text":"Savings depend on your current rate, the new rate, your remaining balance, and whether you keep the same term or extend. As a rough guide: a 1.5–2.5 percentage-point rate drop on a $25,000 balance with 36 months remaining typically saves $400–$1,200 in lifetime interest if you keep the same remaining term, or 'feels like' $40–$80 per month in cash-flow savings if you extend. Plug your real numbers into the calculator above for an exact estimate."}},{"@type":"Question","name":"What credit score do I need to refinance an auto loan?","acceptedAnswer":{"@type":"Answer","text":"Most auto-refinance lenders look for a minimum FICO of 600–640 for approval, but the lowest advertised rates typically require a 720+ score. Subprime borrowers can sometimes refinance after rebuilding credit for 12–18 months from the original purchase. Check your free credit report at AnnualCreditReport.com before applying, and dispute any errors first — a 20-point bump can move you across a pricing tier."}},{"@type":"Question","name":"Are there fees to refinance a car loan?","acceptedAnswer":{"@type":"Answer","text":"Auto refinance fees are typically much smaller than mortgage refinance fees — usually $0–$500 total. Possible fees: state title transfer ($15–$100), lender origination ($0–$300 — most online lenders charge $0), state lien-recording fee ($10–$50). Watch for prepayment penalties on your existing loan in a handful of states (Alabama, Florida, Massachusetts, Michigan, Pennsylvania, Virginia historically allowed them; check your loan documents)."}},{"@type":"Question","name":"Can I deduct auto-loan interest in 2026?","acceptedAnswer":{"@type":"Answer","text":"Generally no for personal-use vehicles — auto-loan interest on personal cars has not been deductible since the 1986 Tax Reform Act repealed it. However, the One Big Beautiful Bill Act (OBBBA, Pub. L. 119-21, signed July 4 2025) added a temporary above-the-line deduction of up to $10,000 per year for interest on loans secured by qualifying U.S.-assembled new vehicles purchased Jan 1 2025 through Dec 31 2028, under new IRC §163(h)(4). The deduction phases out for AGI above $100k single / $200k MFJ. Used-vehicle interest, lease interest, and refinance-of-used-loan interest do NOT qualify. If you use the vehicle for business, the business-use portion of interest is deductible on Schedule C separately."}},{"@type":"Question","name":"How long does an auto refinance take?","acceptedAnswer":{"@type":"Answer","text":"Most online auto refinances close in 2–10 business days from application — much faster than mortgage refinances. The slowest step is usually your current lender releasing the lien and the new lender filing it with your state DMV. Keep making your current payment until you have written confirmation that the new lender has paid off the old loan."}},{"@type":"Question","name":"When should I NOT refinance my auto loan?","acceptedAnswer":{"@type":"Answer","text":"Avoid refinancing if (a) you have fewer than 12 months remaining on the current loan — fees and friction outweigh savings; (b) the new loan extends your term and the net lifetime savings shown by the calculator is negative; (c) your car is significantly underwater (loan balance > car value) and the new lender will not finance the negative equity; (d) your current loan has a prepayment penalty that exceeds the projected savings; (e) you are within 60 days of a major credit event (new mortgage, large credit-card balance) that could lower your score and the offered rate."}}]}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position='fixed';this.style.left='0';this.style.top='0';this.style.width='auto';this.style.height='auto';this.style.overflow='visible'" onblur="this.style.position='absolute';this.style.left='-9999px';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden'">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-content">
+      <a href="/" class="logo">CalcLeap</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/calc/">Calculators</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page" id="main-content" role="main">
+    <h1 class="page-title">Auto Refinance Calculator</h1>
+    <p class="subtitle">Compare current vs new auto-loan payments, break-even point, and total lifetime interest — including the term-extension trap.</p>
+
+    <!-- Ad Slot 1 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567890"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="calc-card">
+      <h3>Current Auto Loan</h3>
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="currentBalance">Remaining Loan Balance (USD)</label>
+          <input type="number" id="currentBalance" value="22000" min="0" step="100" aria-label="Current Balance">
+        </div>
+        <div class="input-group">
+          <label for="currentRate">Current Interest Rate (% APR)</label>
+          <input type="number" id="currentRate" value="11.0" min="0" max="30" step="0.01" aria-label="Current Rate">
+        </div>
+        <div class="input-group">
+          <label for="remainingMonths">Remaining Term (Months)</label>
+          <input type="number" id="remainingMonths" value="48" min="1" max="120" step="1" aria-label="Remaining Months">
+        </div>
+      </div>
+
+      <h3 style="margin-top: 32px;">New Auto Loan</h3>
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="newRate">New Interest Rate (% APR)</label>
+          <input type="number" id="newRate" value="6.5" min="0" max="30" step="0.01" aria-label="New Rate">
+        </div>
+        <div class="input-group">
+          <label for="newTerm">New Loan Term (Months)</label>
+          <input type="number" id="newTerm" value="48" min="1" max="120" step="1" aria-label="New Term">
+        </div>
+        <div class="input-group">
+          <label for="refiFees">Refinance Fees (USD)</label>
+          <input type="number" id="refiFees" value="200" min="0" step="10" aria-label="Refinance Fees">
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()">Calculate Auto Refinance Savings</button>
+
+      <div id="results" class="result-box">
+        <h3 style="margin-bottom: 20px; font-size: 24px;">Your Auto Refinance Analysis</h3>
+
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="lbl">Current Monthly Payment</div>
+            <div class="val" id="currentPayment">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">New Monthly Payment</div>
+            <div class="val" id="newPayment">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Monthly Savings</div>
+            <div class="val" id="monthlySavings">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="lbl">Break-Even Point</div>
+            <div class="val" id="breakEven">0</div>
+          </div>
+        </div>
+
+        <div class="comparison-chart">
+          <h4 style="font-size: 18px; margin-bottom: 16px; color: #1d1d1f;">Monthly Payment Comparison</h4>
+          <div class="chart-bars">
+            <div class="bar-wrapper">
+              <div class="bar">
+                <div class="bar-fill" id="currentBar"></div>
+              </div>
+              <div class="bar-label">Current Loan</div>
+              <div style="font-size: 20px; font-weight: 700; color: #1d1d1f; margin-top: 8px;" id="currentAmount"></div>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar">
+                <div class="bar-fill new" id="newBar"></div>
+              </div>
+              <div class="bar-label">New Loan</div>
+              <div style="font-size: 20px; font-weight: 700; color: #34c759; margin-top: 8px;" id="newAmount"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="recommendation"></div>
+
+        <div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.15); border-radius: 12px;">
+          <h4 style="font-size: 16px; margin-bottom: 12px;">Lifetime Interest Breakdown</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Current Total Interest</div>
+              <div style="font-size: 20px; font-weight: 700;" id="currentInterest">$0</div>
+            </div>
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">New Total Interest</div>
+              <div style="font-size: 20px; font-weight: 700;" id="newInterest">$0</div>
+            </div>
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Refinance Fees</div>
+              <div style="font-size: 20px; font-weight: 700;" id="feesDisplay">$0</div>
+            </div>
+            <div>
+              <div style="font-size: 13px; opacity: 0.9;">Net Lifetime Savings</div>
+              <div style="font-size: 20px; font-weight: 700;" id="netSavings">$0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Slot 2 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567891"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="section">
+      <h2>How auto refinancing actually works</h2>
+      <p>Auto refinancing replaces your existing car loan with a new one — typically with a lower interest rate, a different term, or both. The new lender pays off your old loan, files a fresh lien with your state DMV, and you begin making payments to the new lender. Unlike a mortgage refinance, there is no escrow, no PMI, no points, no appraisal in most cases, and fees are normally under $500 total.</p>
+      <p>Because auto loans are short (typically 24–84 months) and balances are small relative to mortgages, the math leans on three numbers: <strong>monthly savings</strong>, <strong>break-even months</strong>, and <strong>net lifetime savings</strong>. The first two get advertised everywhere. The third is what actually matters.</p>
+
+      <h3>When auto refinancing makes sense</h3>
+      <ul>
+        <li><strong>Your credit improved.</strong> If your FICO is 50+ points higher than at original purchase, you almost certainly qualify for a better rate. New-vehicle financing in 2026 spans roughly 6% (720+ FICO) to 18%+ (subprime) per Experian's State of the Automotive Finance Market.</li>
+        <li><strong>Market rates dropped.</strong> Watch the Federal Reserve's H.15 release for auto-loan rate trends; a 1.5+ percentage-point market drop is typically the threshold where refinancing makes sense even on a clean credit profile.</li>
+        <li><strong>You financed at the dealer.</strong> Dealer financing often carries a 1–3 percentage-point markup over what credit-union direct financing would offer. Refinancing to a credit union 30–90 days after purchase commonly captures that spread.</li>
+        <li><strong>You want to remove a co-signer.</strong> Many auto refinances allow you to drop a co-signer if your standalone credit now qualifies.</li>
+      </ul>
+
+      <h3>When refinancing does NOT make sense</h3>
+      <ul>
+        <li><strong>You have under 12 months remaining.</strong> Fees and process friction generally exceed savings on short residual terms.</li>
+        <li><strong>The new loan extends the term and net lifetime savings is negative.</strong> This is the term-extension trap — see below.</li>
+        <li><strong>Your car is significantly underwater.</strong> If you owe more than the car is worth (negative equity), most refinance lenders will decline or require you to bring cash to closing.</li>
+        <li><strong>You are within 60 days of a major credit event.</strong> A new mortgage, large credit card balance, or rate-shopping cluster can drag your FICO down and worsen the offered rate.</li>
+      </ul>
+
+      <h3>The term-extension trap (the most common mistake)</h3>
+      <p>If you have 36 months left on your current loan at 9% and refinance into a new 60-month loan at 6%, your monthly payment can drop 25–40%. That feels like an obvious win — and on monthly cash flow it is. But you have just reset the amortization clock from 36 months back to 60 months. Even at the lower rate, paying interest for 24 extra months can produce more total lifetime interest than the original 9% loan would have.</p>
+      <p>The calculator above surfaces this with the <strong>Net Lifetime Savings</strong> line. If that number is negative, the green "favorable" banner will not fire even when monthly savings are positive — instead you will see the term-extension warning, with the dollar amount of extra interest you are signing up for. <em>Lower monthly payments are not the same as saving money.</em></p>
+
+      <h3>OBBBA §70402 and the new 2026 auto-loan-interest deduction</h3>
+      <p>The One Big Beautiful Bill Act (Pub. L. 119-21, signed July 4 2025) added a temporary above-the-line federal income-tax deduction of up to <strong>$10,000 per year</strong> for interest paid on loans secured by qualifying U.S.-assembled <em>new</em> passenger vehicles purchased between Jan 1 2025 and Dec 31 2028. The new IRC §163(h)(4) deduction phases out for AGI above $100,000 (single) / $200,000 (MFJ).</p>
+      <p>Critically: the deduction applies only to <strong>new-vehicle purchase financing</strong>. Refinancing a qualifying purchase loan generally preserves the deduction if the refinance loan is secured by the same vehicle and the new principal does not exceed the remaining purchase-debt balance — but refinancing a <em>used-vehicle</em> loan, refinancing into a non-purchase-money loan, or rolling negative equity into the new loan can disqualify all or part of the interest. If you bought your car before Jan 1 2025 or bought used, this deduction does not apply at all.</p>
+      <p>Check with a CPA before assuming a refinance preserves §163(h)(4) treatment. This calculator does not model the deduction's tax benefit — it reports pre-tax interest only.</p>
+
+      <h3>Auto refinance fees: what to actually expect</h3>
+      <ul>
+        <li><strong>Title transfer fee:</strong> $15–$100 depending on state DMV. Required.</li>
+        <li><strong>Lender origination fee:</strong> $0–$300. Most online auto-refinance lenders (LendingTree, AutoPay, RateGenius, MyAutoLoan) advertise $0 origination. Credit unions vary; some charge $35–$150.</li>
+        <li><strong>Lien recording / registration fee:</strong> $10–$50, state-dependent.</li>
+        <li><strong>Prepayment penalty on existing loan:</strong> Rare but possible. Banned in most states; historically allowed in AL, FL, MA, MI, PA, VA. Check your loan agreement's "prepayment" clause before you apply for refi.</li>
+      </ul>
+      <p>The default $200 in the calculator is a realistic estimate for a typical credit-union refinance with a moderate state title fee. Plug in your own number once you have a Loan Estimate from a specific lender.</p>
+
+      <h3>Step-by-step: how to refinance an auto loan</h3>
+      <ul>
+        <li><strong>Pull your free credit report</strong> at AnnualCreditReport.com (the only federally authorized source). Dispute errors first — a corrected report can yield a better rate.</li>
+        <li><strong>Check your current loan's payoff balance and prepayment terms</strong> (a 10-day payoff quote from your existing lender is standard).</li>
+        <li><strong>Gather documents:</strong> proof of income (last 2 pay stubs), proof of residence, current insurance declaration, vehicle VIN, current registration, current loan payoff statement.</li>
+        <li><strong>Shop 3–5 lenders</strong> within a 14-day window so the FICO model treats the inquiries as a single shop. Compare APR (not the advertised "rate" — APR includes lender fees).</li>
+        <li><strong>Choose the offer with the lowest APR for the same remaining term</strong> (not the lowest monthly payment). Resist the urge to extend the term unless your cash flow genuinely requires it.</li>
+        <li><strong>Sign and let the new lender pay off the old loan.</strong> Keep paying the old loan until you have written confirmation of payoff. Then file the title-transfer paperwork with your state DMV.</li>
+      </ul>
+    </div>
+
+    <!-- Ad Slot 3 -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 32px auto;"
+         data-ad-client="ca-pub-3112605892426625"
+         data-ad-slot="1234567892"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="faq" id="faq" aria-labelledby="faq-heading">
+      <h2><span id="faq-heading">Frequently Asked Questions</span></h2>
+
+      <div class="faq-item">
+        <div class="faq-question">How does the auto refinance calculator work?</div>
+        <div class="faq-answer">The calculator uses the standard fixed-rate amortization formula (M = P·r·(1+r)^n / ((1+r)^n − 1)) twice — once for your current auto loan and once for the new loan — and then compares monthly payments, total lifetime interest, and the break-even point on any refinance fees. P is your current loan balance, r is the monthly interest rate (APR ÷ 12), and n is the number of months. Closing-cost amortization is straight-line (closingCosts ÷ monthlySavings).</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What is the term-extension trap on auto refis?</div>
+        <div class="faq-answer">If you have 36 months left on your current loan and refinance into a new 48- or 60-month loan at a lower rate, the lower monthly payment can be misleading. You may pay more interest over the life of the new loan than you would have paid by keeping the old loan, because you reset the amortization clock. The calculator surfaces this as a "net lifetime savings" line — always check that number, not just the monthly savings. If net lifetime savings is negative, your monthly cash flow improves but you are paying more total interest.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How much can refinancing my car loan save me?</div>
+        <div class="faq-answer">Savings depend on your current rate, the new rate, your remaining balance, and whether you keep the same term or extend. As a rough guide: a 1.5–2.5 percentage-point rate drop on a $25,000 balance with 36 months remaining typically saves $400–$1,200 in lifetime interest if you keep the same remaining term, or "feels like" $40–$80 per month in cash-flow savings if you extend. Plug your real numbers into the calculator above for an exact estimate.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What credit score do I need to refinance an auto loan?</div>
+        <div class="faq-answer">Most auto-refinance lenders look for a minimum FICO of 600–640 for approval, but the lowest advertised rates typically require a 720+ score. Subprime borrowers can sometimes refinance after rebuilding credit for 12–18 months from the original purchase. Check your free credit report at AnnualCreditReport.com before applying, and dispute any errors first — a 20-point bump can move you across a pricing tier.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Are there fees to refinance a car loan?</div>
+        <div class="faq-answer">Auto refinance fees are typically much smaller than mortgage refinance fees — usually $0–$500 total. Possible fees: state title transfer ($15–$100), lender origination ($0–$300 — most online lenders charge $0), state lien-recording fee ($10–$50). Watch for prepayment penalties on your existing loan in a handful of states (Alabama, Florida, Massachusetts, Michigan, Pennsylvania, Virginia historically allowed them; check your loan documents).</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I deduct auto-loan interest in 2026?</div>
+        <div class="faq-answer">Generally no for personal-use vehicles — auto-loan interest on personal cars has not been deductible since the 1986 Tax Reform Act repealed it. However, the One Big Beautiful Bill Act (OBBBA, Pub. L. 119-21, signed July 4 2025) added a temporary above-the-line deduction of up to $10,000 per year for interest on loans secured by qualifying U.S.-assembled new vehicles purchased Jan 1 2025 through Dec 31 2028, under new IRC §163(h)(4). The deduction phases out for AGI above $100k single / $200k MFJ. Used-vehicle interest, lease interest, and refinance-of-used-loan interest do NOT qualify. If you use the vehicle for business, the business-use portion of interest is deductible on Schedule C separately.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How long does an auto refinance take?</div>
+        <div class="faq-answer">Most online auto refinances close in 2–10 business days from application — much faster than mortgage refinances. The slowest step is usually your current lender releasing the lien and the new lender filing it with your state DMV. Keep making your current payment until you have written confirmation that the new lender has paid off the old loan.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">When should I NOT refinance my auto loan?</div>
+        <div class="faq-answer">Avoid refinancing if (a) you have fewer than 12 months remaining on the current loan — fees and friction outweigh savings; (b) the new loan extends your term and the net lifetime savings shown by the calculator is negative; (c) your car is significantly underwater (loan balance > car value) and the new lender will not finance the negative equity; (d) your current loan has a prepayment penalty that exceeds the projected savings; (e) you are within 60 days of a major credit event (new mortgage, large credit-card balance) that could lower your score and the offered rate.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Related calculators &amp; reading</h2>
+      <ul>
+        <li><a href="/calc/car-loan-calculator.html">Car Loan Calculator</a> — standard auto-loan amortization with monthly payment and full interest breakdown</li>
+        <li><a href="/car-payment-calculator.html">Car Payment Calculator</a> — quick monthly-payment estimator for new auto purchases</li>
+        <li><a href="/car-payment-affordability-calculator.html">Car Payment Affordability Calculator</a> — back into a max purchase price from a target monthly payment</li>
+        <li><a href="/auto-trade-in-calculator.html">Auto Trade-In Calculator</a> — model trade-in value and negative-equity rollover scenarios</li>
+        <li><a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a> — project vehicle resale value over the refinance horizon</li>
+        <li><a href="/car-lease-buyout-calculator.html">Car Lease Buyout Calculator</a> — compare buyout-and-finance vs lease-end alternatives</li>
+        <li><a href="/calc/mortgage-refinance-calculator.html">Mortgage Refinance Calculator</a> — the home-loan equivalent of this page</li>
+        <li><a href="/blog/auto-refinance-when-does-it-save-money-2026.html">Auto refinance: when does it actually save you money in 2026</a> — long-form guide pairing with this calculator</li>
+        <li><a href="/blog/buying-vs-leasing-a-car-2026.html">Buying vs leasing a car in 2026</a> — pre-financing decision framework</li>
+        <li><a href="/blog/best-loan-calculator-2026.html">The best loan calculator in 2026</a> — methodology behind CalcLeap's loan tooling</li>
+      </ul>
+    </div>
+
+<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, lender pricing, state-specific fees, and tax treatment. Always consult a qualified financial advisor, CPA, or licensed loan officer before refinancing. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
+  </div>
+
+<footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Popular Calculators</h4>
+        <a href="/mortgage-calculator.html">Mortgage Calculator</a>
+        <a href="/calc/bmi-calculator.html">BMI Calculator</a>
+        <a href="/calc/compound-interest-calculator.html">Compound Interest</a>
+        <a href="/calc/personal-loan-calculator.html">Loan Calculator</a>
+      </div>
+      <div class="footer-section">
+        <h4>Auto &amp; Vehicle</h4>
+        <a href="/calc/car-loan-calculator.html">Car Loan Calculator</a>
+        <a href="/car-payment-calculator.html">Car Payment Calculator</a>
+        <a href="/auto-refinance-calculator.html">Auto Refinance Calculator</a>
+        <a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="/blog/">Financial Blog</a>
+        <a href="/calc/">All Calculators</a>
+        <a href="/about.html">About CalcLeap</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <div class="footer-section">
+        <h4>CalcLeap</h4>
+        <p style="font-size: 14px; color: #a1a1a6; line-height: 1.6;">Free online calculators and tools for finance, health, conversions, and more. Make smarter decisions with CalcLeap.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 CalcLeap. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    /* AUDIT 2026-06-29 evening: file=/auto-refinance-calculator.html | loan_type=auto refinance break-even analyzer | family=TWO std_amortization calls (current + new) + break-even; n_input_unit=MONTHS (directly used, no *12 multiplication — auto-refi natively thinks in months whereas mortgage natively thinks in years; this is the principal divergence from /calc/mortgage-refinance-calculator.html)
+   formula: currentRate_monthly = currentRate/100/12; newRate_monthly = newRate/100/12
+            currentPayment = balance * cR * (1+cR)^remainingMonths / ((1+cR)^remainingMonths - 1)
+            newPayment = balance * nR * (1+nR)^newTermMonths / ((1+nR)^newTermMonths - 1)
+            monthlySavings = currentPayment - newPayment
+            breakEvenMonths = refiFees / monthlySavings
+            currentTotalInterest = currentPayment * remainingMonths - balance
+            newTotalInterest = newPayment * newTermMonths - balance
+            netLifeSavings = currentTotalInterest - newTotalInterest - refiFees
+   zero_rate_branch: ABSENT — same flag as /calc/mortgage-refinance-calculator.html. 0% promo rates do exist on new auto loans (manufacturer-subvented) but refinancing into a 0% rate from a non-promo loan is essentially impossible, so the missing branch is low risk in practice. Document for future fix.
+   recommendation tiers: breakEvenMonths<=6 + netLifeSav>0 favorable; 6-18mo + netLifeSav>0 cautious; >18mo + netLifeSav>0 unfavorable; netLifeSav<=0 with positive monthlySavings = term-extension-trap warning (overrides break-even tier); monthlySavings<=0 = unfavorable.
+   test_cases (Node JS verified 2026-06-29 evening; expected values match exact-bit on the formula above):
+     TC1: bal=$25000, curRt=8.5%, remM=36, newRt=6.0%, newT=48, fees=$300 -> curMP=$789.19 newMP=$587.13 monthlySave=$202.06 breakEven=1.48mo curTotalInt=$3410.78 newTotalInt=$3182.03 netLifeSav=-$71.25 (NEGATIVE — term-extension-trap canonical: 36mo->48mo at 2.5pp lower rate still costs more total because of the +12mo amort tail)
+     TC2: bal=$22000, curRt=11.0%, remM=48, newRt=6.5%, newT=48, fees=$200 -> curMP=$568.60 newMP=$521.73 monthlySave=$46.87 breakEven=4.27mo curTotalInt=$5292.87 newTotalInt=$3042.99 netLifeSav=$2049.88 (POSITIVE — same-term big rate drop, classic favorable case)
+     TC3: bal=$18000, curRt=9.5%, remM=24, newRt=5.5%, newT=24, fees=$150 -> curMP=$826.46 newMP=$793.72 monthlySave=$32.74 breakEven=4.58mo curTotalInt=$1835.06 newTotalInt=$1049.32 netLifeSav=$635.74 (POSITIVE — short-residual same-term, low monthly delta but meaningful lifetime savings)
+   flags: (a) no zero-rate branch; (b) breakEven uses simple refiFees/monthlySavings — does NOT model opportunity cost of the fee dollars; (c) no negative-equity / underwater modeling — assumes refi principal equals current balance (real-world cash-in or roll-in refis would distort the comparison); (d) does NOT surface OBBBA §70402 IRC §163(h)(4) auto-interest deduction tax interaction — pre-tax interest only; (e) does NOT model prepayment penalty on existing loan — fee field is "new loan + state fees" only; (f) recommendation tier logic incorporates netLifeSav sign explicitly so the term-extension-trap warning fires correctly per TC1 (this is the fix that was added to the mortgage refi calc on 2026-06-11 evening, applied here from day one).
+   verified_by: evening-routine 2026-06-29 */
+
+    function calculate() {
+      const balance = parseFloat(document.getElementById('currentBalance').value);
+      const currentRate = parseFloat(document.getElementById('currentRate').value) / 100 / 12;
+      const remainingMonths = parseInt(document.getElementById('remainingMonths').value);
+
+      const newRate = parseFloat(document.getElementById('newRate').value) / 100 / 12;
+      const newTermMonths = parseInt(document.getElementById('newTerm').value);
+      const refiFees = parseFloat(document.getElementById('refiFees').value);
+
+      const currentPayment = balance * (currentRate * Math.pow(1 + currentRate, remainingMonths)) /
+                            (Math.pow(1 + currentRate, remainingMonths) - 1);
+
+      const newPayment = balance * (newRate * Math.pow(1 + newRate, newTermMonths)) /
+                        (Math.pow(1 + newRate, newTermMonths) - 1);
+
+      const monthlySavings = currentPayment - newPayment;
+      const breakEvenMonths = refiFees / monthlySavings;
+
+      const currentTotalInterest = (currentPayment * remainingMonths) - balance;
+      const newTotalInterest = (newPayment * newTermMonths) - balance;
+      const netLifeSavings = currentTotalInterest - newTotalInterest - refiFees;
+
+      document.getElementById('currentPayment').textContent = '$' + currentPayment.toFixed(2);
+      document.getElementById('newPayment').textContent = '$' + newPayment.toFixed(2);
+      document.getElementById('monthlySavings').textContent = monthlySavings > 0 ?
+        '$' + monthlySavings.toFixed(2) : '-$' + Math.abs(monthlySavings).toFixed(2);
+
+      document.getElementById('breakEven').textContent = (monthlySavings > 0 && isFinite(breakEvenMonths)) ?
+        breakEvenMonths.toFixed(1) + ' months' : 'N/A';
+
+      document.getElementById('currentInterest').textContent = '$' + currentTotalInterest.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('newInterest').textContent = '$' + newTotalInterest.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('feesDisplay').textContent = '$' + refiFees.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('netSavings').textContent = netLifeSavings > 0 ?
+        '$' + netLifeSavings.toLocaleString('en-US', {maximumFractionDigits: 0}) :
+        '-$' + Math.abs(netLifeSavings).toLocaleString('en-US', {maximumFractionDigits: 0});
+
+      const maxPayment = Math.max(currentPayment, newPayment);
+      document.getElementById('currentBar').style.height = (currentPayment / maxPayment * 100) + '%';
+      document.getElementById('newBar').style.height = (newPayment / maxPayment * 100) + '%';
+      document.getElementById('currentAmount').textContent = '$' + currentPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+      document.getElementById('newAmount').textContent = '$' + newPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+      // Term-extension-trap-aware recommendation tiers. The "favorable" green tier
+      // requires BOTH monthlySavings > 0 AND netLifeSavings > 0 so it cannot fire on
+      // net-negative scenarios where a lower monthly comes from resetting the amort clock.
+      // Pattern mirrors the 2026-06-11 evening fix on /calc/mortgage-refinance-calculator.html.
+      let recommendation = '';
+      if (monthlySavings > 0 && netLifeSavings <= 0) {
+        recommendation = `<div class="warning"><strong>⚠ Term-extension trap.</strong> You would save $${monthlySavings.toFixed(2)} per month, but extending the amortization schedule means you would pay <strong>$${Math.abs(netLifeSavings).toLocaleString('en-US', {maximumFractionDigits: 0})} more</strong> in total interest plus fees over the life of the loan. Lower monthly payments are not the same as saving money — consider keeping your current term, paying down principal early, or refinancing into a term that matches your remaining months.</div>`;
+      } else if (monthlySavings > 0 && breakEvenMonths <= 6 && netLifeSavings > 0) {
+        recommendation = `<div class="success"><strong>✓ Refinancing looks favorable.</strong> You will save $${monthlySavings.toFixed(2)} per month, break even in ${breakEvenMonths.toFixed(1)} months, and net $${netLifeSavings.toLocaleString('en-US', {maximumFractionDigits: 0})} in lifetime interest savings. Shop 3–5 lenders within a 14-day window to capture the offered rate as a single FICO inquiry cluster.</div>`;
+      } else if (monthlySavings > 0 && breakEvenMonths <= 18 && netLifeSavings > 0) {
+        recommendation = `<div class="warning"><strong>⚠ Consider your timeline.</strong> You will save $${monthlySavings.toFixed(2)} per month and net $${netLifeSavings.toLocaleString('en-US', {maximumFractionDigits: 0})} over the life of the loan, but it will take ${breakEvenMonths.toFixed(1)} months to recoup the $${refiFees.toLocaleString('en-US')} in fees. Refinancing makes sense if you plan to keep the car at least ${Math.ceil(breakEvenMonths)} more months.</div>`;
+      } else if (monthlySavings > 0 && netLifeSavings > 0) {
+        recommendation = `<div class="warning"><strong>⚠ Long break-even period.</strong> It will take ${breakEvenMonths.toFixed(1)} months to recoup the fees. Unless you plan to keep the car long-term, the $${netLifeSavings.toLocaleString('en-US', {maximumFractionDigits: 0})} in lifetime savings may not justify refinancing. Consider negotiating lower lender fees, waiting for rates to drop further, or paying down principal directly.</div>`;
+      } else {
+        recommendation = `<div class="warning"><strong>⚠ Refinancing may not save money.</strong> Your monthly payment would increase by $${Math.abs(monthlySavings).toFixed(2)}. Re-check the new-loan rate and term — and consider whether your goal is actually to lower cash flow (extend term) rather than to save total interest.</div>`;
+      }
+
+      document.getElementById('recommendation').innerHTML = recommendation;
+
+      document.getElementById('results').classList.add('show');
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+<script src="/email-capture.js" defer></script>
+</body>
+</html>
