@@ -280,13 +280,56 @@
     </div>
 
     <script>
+        /* AUDIT 2026-07-02 evening: S-corp tax calculator
+   family: root-level shared-template variant (SE tax + income tax bracket lookup)
+   status: NEEDS_HUMAN_REVIEW — SEMANTIC MODEL MISMATCH
+   reasons:
+     (1) S-corp shareholders do NOT pay SE tax on their distributive share of business
+         income. Per Rev. Rul. 59-221 and IRC §1402(a), S-corp K-1 distributive share
+         is EXCLUDED from net earnings from self-employment. Only "reasonable
+         compensation" wages paid to a shareholder-employee via Form W-2 are subject
+         to FICA (7.65% employee + 7.65% employer = 15.3% combined). Applying SE tax
+         to S-corp net profit incorrectly taxes what should be K-1 distribution income.
+     (2) The whole reason business owners elect S-corp status is precisely to convert
+         part of what would be Schedule C SE-taxable income into K-1 distributions that
+         escape SE tax. A calculator that applies flat 15.3% to S-corp net profit tells
+         the exact opposite story from the correct tax outcome.
+     (3) Correct S-corp model needs TWO inputs: (a) reasonable-comp W-2 wages
+         and (b) distributive share (K-1). FICA applies to (a) only; income tax
+         applies to (a)+(b). Optional S-corp savings comparison vs Schedule C
+         is the primary user value-prop.
+   Also inherits family issues (TY2023 brackets; no HoH; no state; no std deduction).
+   PARTIAL FIX 2026-07-02 evening: SS wage-base cap $184,500 applied on the SE-tax leg
+     for consistency with sibling calcs closed tonight (queue item uuu). Reduces the
+     wrong-model overstatement magnitude on high earners but does NOT correct the
+     underlying model error. Full rebuild deferred (~1 evening).
+   test_cases (documenting CURRENT wrong-model behavior; below-cap identical to pre-fix):
+     TC1 single below-cap: gross=50000, expenses=10000 -> netProfit=40000, seTax=5651.82
+         (correct-S-corp: depends on wage split; if $0 W-2 wages then $0 FICA)
+     TC2 single below-cap: gross=100000, expenses=20000 -> netProfit=80000, seTax=11303.64
+         (correct-S-corp with $40K reasonable-comp: FICA on $40K only = $6120)
+     TC3 single ABOVE-CAP: gross=300000, expenses=0 -> seBase=277050, ssTax=22878.00
+         (CAP BINDS), medTax=8034.45, seTax=30912.45 (pre-fix 42388.65)
+   recommended_fix (deferred): full rebuild — add W-2 wages input, add K-1 distributive
+     share input, apply FICA to wages only, apply income tax to wages+K-1, show
+     S-corp-vs-Sole-Prop savings comparison. Mirror /calc/1099-tax-calculator.html
+     for the wage leg's FICA computation (already has SS cap + Additional Medicare).
+   verified_by: evening-routine */
         function calculate() {
             const grossIncome = parseFloat(document.getElementById('income').value) || 0;
             const expenses = parseFloat(document.getElementById('expenses').value) || 0;
             const filing = document.getElementById('filing').value;
-            
+
             const netProfit = grossIncome - expenses;
-            const selfEmploymentTax = netProfit * 0.9235 * 0.153; // 92.35% of net profit × 15.3%
+            // NOTE: applying SE tax to S-corp net profit is the WRONG MODEL (see AUDIT block).
+            // The SS wage-base cap is applied here for consistency with sibling calcs,
+            // reducing the wrong-model overstatement magnitude on high earners while the
+            // calc awaits a full rebuild (K-1 vs W-2 split).
+            const seTaxBase = Math.max(0, netProfit) * 0.9235;
+            const SS_WAGE_BASE = 184500; // TY2026 SS wage base per SSA Press Release Oct 24 2025
+            const socialSecurityTax = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124;
+            const medicareTax = seTaxBase * 0.029;
+            const selfEmploymentTax = socialSecurityTax + medicareTax;
             const deductibleSETax = selfEmploymentTax * 0.5;
             const adjustedIncome = netProfit - deductibleSETax;
             

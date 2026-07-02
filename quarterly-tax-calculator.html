@@ -283,31 +283,39 @@
     </div>
 
     <script>
-        /* AUDIT 2026-06-14: Quarterly estimated tax calculator
-   family: self-employment-income-only quarterly-payment estimator
-   formula: netProfit = grossIncome - expenses; seTax = netProfit * 0.9235 * 0.153; deductibleSE = seTax/2; adjusted = netProfit - deductibleSE;
+        /* AUDIT 2026-06-14 (updated 2026-07-02 evening): Quarterly estimated tax calculator
+   family: self-employment-income-only quarterly-payment estimator (root-level shared-template variant)
+   formula: netProfit = grossIncome - expenses; seTaxBase = max(0, netProfit) * 0.9235;
+            ssTax = min(seTaxBase, 184500) * 0.124; medTax = seTaxBase * 0.029;
+            selfEmploymentTax = ssTax + medTax; deductibleSE = seTax/2; adjusted = netProfit - deductibleSE;
             incomeTax = piecewise(adjusted, filing); totalTax = seTax + incomeTax; quarterly = totalTax/4
-   status: NEEDS_HUMAN_REVIEW
-   reasons:
+   FIX 2026-07-02 evening: added SS wage-base cap $184,500 per SSA Press Release Oct 24 2025
+     (queue item (uuu) - closes the SS-cap portion of the NEEDS_HUMAN_REVIEW flag; the
+     bracket/HoH/std-deduction/state-tax rewrite is still deferred to a separate future item).
+   REMAINING NEEDS_HUMAN_REVIEW reasons (bracket/coverage layer, unchanged by tonight's fix):
      (1) brackets are TY2023 vintage: single 22% threshold $44725 was TY2023; TY2024 was $47150; TY2025 is $48475 per Rev. Proc. 2024-40 - off by 2 tax years
      (2) only the 10/12/22 brackets are modeled; 24/32/35/37 are missing - any taxable income >$95375 single is silently undercharged
      (3) no Head-of-Household branch (only single/married); HoH falls through with no income tax computed
      (4) no standard deduction subtracted - calculator uses raw netProfit-seDeduction as federal-tax base
      (5) effectiveRate computed against grossIncome (not netProfit / not taxable) - inconsistent with other tax calcs in the cluster
-     (6) no state tax handling; no additional Medicare (0.9% on SE >$200K/$250K)
-   test_cases for the CURRENT (stale TY2023) implementation:
-     TC1: single, gross=50000, expenses=10000 -> netProfit=40000, seTax=5651.21, adjusted=37174.39, incomeTax=3240.93 (1100 + (37174.39-11000)*0.12)
-     TC2: single, gross=100000, expenses=20000 -> netProfit=80000, seTax=11302.42, adjusted=74348.79, incomeTax=11644.92 (5147.50 + (74348.79-44725)*0.22)
-     TC3: married, gross=100000, expenses=20000 -> netProfit=80000, seTax=11302.42, adjusted=74348.79, incomeTax=8481.85 (2200 + (74348.79-22000)*0.12; 74348.79 < 89075 MFJ 22% threshold)
-   recommended_fix: replace bracket lookup with full 7-bracket TY2025 schedule for single/MFJ/HoH per Rev. Proc. 2024-40; add std deduction; add HoH; add state field; align effectiveRate denominator with 1099-tax. Mirror the /calc/1099-tax-calculator.html template. ~1 evening of work.
-   verified_by: evening-routine */
+     (6) no additional Medicare (0.9% on seBase >$200K/$250K); no state tax handling
+   test_cases (Node-verified via /tmp/.../scratchpad/verify_secap.js — exact-cent match on SE tax leg):
+     TC1: single, gross=50000, expenses=10000 -> netProfit=40000, seBase=36940, ssTax=4580.56, medTax=1071.26, seTax=5651.82 (identical to pre-fix below cap); adjusted=37174.09; incomeTax=3240.89 (1100 + (37174.09-11000)*0.12)
+     TC2: single, gross=100000, expenses=20000 -> netProfit=80000, seBase=73880, seTax=11303.64 (identical to pre-fix); adjusted=74348.18; incomeTax=11644.75 (5147.50 + (74348.18-44725)*0.22)
+     TC3 (NEW - ABOVE CAP): single, gross=300000, expenses=0 -> netProfit=300000, seBase=277050, ssTax=min(277050,184500)*0.124=22878.00, medTax=8034.45, seTax=30912.45 (pre-fix 42388.65 - overstatement of $11,476.20/yr; SS cap binds)
+   recommended_fix (deferred): replace bracket lookup with full 7-bracket TY2025 schedule for single/MFJ/HoH per Rev. Proc. 2024-40; add std deduction; add HoH; add state field; align effectiveRate denominator with 1099-tax. Mirror the /calc/1099-tax-calculator.html template. ~1 evening of work.
+   verified_by: evening-routine (updated 2026-07-02 evening) */
         function calculate() {
             const grossIncome = parseFloat(document.getElementById('income').value) || 0;
             const expenses = parseFloat(document.getElementById('expenses').value) || 0;
             const filing = document.getElementById('filing').value;
-            
+
             const netProfit = grossIncome - expenses;
-            const selfEmploymentTax = netProfit * 0.9235 * 0.153; // 92.35% of net profit × 15.3%
+            const seTaxBase = Math.max(0, netProfit) * 0.9235; // §1402(a)(12) - 92.35% of net profit
+            const SS_WAGE_BASE = 184500; // TY2026 SS wage base per SSA Press Release Oct 24 2025
+            const socialSecurityTax = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124; // §1401(a) OASDI (capped)
+            const medicareTax = seTaxBase * 0.029; // §1401(b) Medicare (uncapped)
+            const selfEmploymentTax = socialSecurityTax + medicareTax;
             const deductibleSETax = selfEmploymentTax * 0.5;
             const adjustedIncome = netProfit - deductibleSETax;
             

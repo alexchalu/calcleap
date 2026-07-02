@@ -353,21 +353,57 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             
         </div>
 <script>
+        /* AUDIT 2026-07-02 evening: quarterly-tax.html (barebones estimator variant)
+   family: single-input SE-check quarterly-payment estimator (older, simpler than the
+     sibling /quarterly-tax-calculator.html and /calc/estimated-quarterly-tax-calculator.html)
+   status: NEEDS_HUMAN_REVIEW - multiple stale-parameter issues beyond tonight's fix
+   PARTIAL FIX 2026-07-02 evening (queue item uuu):
+     (1) Added 92.35% factor per IRC §1402(a)(12) - pre-fix `netIncome * 0.153` was missing
+         the Schedule SE §1402(a)(12) adjustment entirely, overstating SE tax at all
+         income levels by roughly 1.53%/0.9235 -> 1.66% of the applied factor (i.e., a
+         $10K net earner was over-taxed by ~$115). This IS a math bug, not just a stale
+         parameter, because §1402(a)(12) is a permanent statutory feature since 1990.
+     (2) Added SS wage-base cap $184,500 per SSA Press Release Oct 24 2025 (same bug
+         family as sibling calcs closed tonight - queue item (uuu)).
+     (3) Clamp negative net income to $0 (no SE tax on losses).
+   REMAINING NEEDS_HUMAN_REVIEW (not fixed tonight - separate future item):
+     (a) Standard deduction hard-coded $13,850 (TY2023 single; TY2025 is $15,000);
+         no filing-status branching (MFJ std deduction is $30,000 TY2025).
+     (b) Federal tax is flat 22% on all taxable income - misses the entire progressive
+         bracket schedule; overtaxes low earners and undertaxes high earners.
+     (c) No Additional Medicare 0.9% surtax on seBase >$200K/$250K per IRC §3101(b)(2).
+     (d) No state tax handling.
+     (e) Q2 due date shown as "Jun 15" is correct for TY2026 - no fix needed.
+   test_cases (post-fix, Node-verified):
+     TC1 SE-checked below-cap: income=50000, expenses=10000, SE=on -> netIncome=40000,
+         seBase=36940, ssTax=4580.56, medTax=1071.26, seTax=5651.82 (pre-fix was
+         netIncome*0.153=6120 - overstatement of $468.18 fixed by adding 92.35% factor)
+     TC2 SE-checked below-cap: income=100000, expenses=20000, SE=on -> netIncome=80000,
+         seBase=73880, seTax=11303.64 (pre-fix was 12240 - overstatement of $936.36 fixed)
+     TC3 SE-checked ABOVE-CAP: income=300000, expenses=0, SE=on -> netIncome=300000,
+         seBase=277050, ssTax=min(277050,184500)*0.124=22878.00 (CAP), medTax=8034.45,
+         seTax=30912.45 (pre-fix was 300000*0.153=45900 - overstatement of $14,987.55 fixed)
+   verified_by: evening-routine */
         function calculate() {
-            
+
       const income = parseFloat(document.getElementById('annualIncome').value) || 0;
       const expenses = parseFloat(document.getElementById('expenses').value) || 0;
       const includeSE = document.getElementById('selfEmploymentTax').checked;
-      
+
       const netIncome = income - expenses;
       const standardDeduction = 13850;
       const taxableIncome = Math.max(0, netIncome - standardDeduction);
-      
-      // Simplified federal tax (22% bracket for typical self-employed)
+
+      // Simplified federal tax (22% bracket for typical self-employed - FLAGGED IN AUDIT BLOCK)
       const federalTax = taxableIncome * 0.22;
-      
-      // Self-employment tax (15.3% of net income)
-      const seTax = includeSE ? netIncome * 0.153 : 0;
+
+      // Self-employment tax with SS wage-base cap (IRC §1401(a)/(b) + §1402(a)(12))
+      // FIX 2026-07-02 evening: added 92.35% factor + SS cap $184,500 (TY2026 SSA wage base)
+      const seTaxBase = Math.max(0, netIncome) * 0.9235;
+      const SS_WAGE_BASE = 184500;
+      const seSs = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124;
+      const seMed = seTaxBase * 0.029;
+      const seTax = includeSE ? (seSs + seMed) : 0;
       
       const totalAnnualTax = federalTax + seTax;
       const quarterlyPayment = totalAnnualTax / 4;

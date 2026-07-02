@@ -301,13 +301,39 @@
     </div>
 
     <script>
+        /* AUDIT 2026-07-02 evening: 1099 contractor tax calculator (root-level shared-template variant)
+   family: schedule-SE quick-estimate for 1099-NEC/1099-MISC recipients
+   related: /calc/1099-tax-calculator.html is the richer variant with full bracket schedule
+   formula: netProfit = grossIncome - expenses; seTaxBase = max(0, netProfit) * 0.9235;
+            ssTax = min(seTaxBase, 184500) * 0.124; medTax = seTaxBase * 0.029;
+            selfEmploymentTax = ssTax + medTax; deductibleSE = seTax/2;
+            adjusted = netProfit - deductibleSE; incomeTax = piecewise(adjusted, filing);
+   FIX 2026-07-02 evening: added SS wage-base cap $184,500 per SSA Press Release Oct 24 2025
+     (queue item (uuu) — same bug family as (tt) closed on /calc/paycheck-calculator.html
+     on 2026-06-22 evening and closed on /calc/estimated-quarterly-tax-calculator.html
+     on 2026-07-01 evening). Pre-fix applied flat 15.3% to unlimited SE earnings.
+   test_cases (Node-verified — exact-cent match, see /tmp/.../scratchpad/verify_secap.js):
+     TC1 single below-cap: gross=50000, expenses=10000 -> seBase=36940, seTax=5651.82 (unchanged)
+     TC2 single below-cap: gross=100000, expenses=20000 -> seBase=73880, seTax=11303.64 (unchanged)
+     TC3 single ABOVE-CAP: gross=300000, expenses=0 -> seBase=277050,
+         ssTax=min(277050,184500)*0.124=22878.00 (CAP BINDS), medTax=8034.45, seTax=30912.45
+         (pre-fix seTax was 42388.65 - overstatement of $11,476.20/yr per user)
+   NEEDS_HUMAN_REVIEW (deferred as separate future evening item):
+     brackets are TY2023 vintage; only 10/12/22 modeled; no HoH branch;
+     no Additional Medicare 0.9% surtax; no state tax field; no standard deduction.
+     The /calc/1099-tax-calculator.html sibling has the fully-modeled TY2025 template.
+   verified_by: evening-routine */
         function calculate() {
             const grossIncome = parseFloat(document.getElementById('income').value) || 0;
             const expenses = parseFloat(document.getElementById('expenses').value) || 0;
             const filing = document.getElementById('filing').value;
-            
+
             const netProfit = grossIncome - expenses;
-            const selfEmploymentTax = netProfit * 0.9235 * 0.153; // 92.35% of net profit × 15.3%
+            const seTaxBase = Math.max(0, netProfit) * 0.9235; // §1402(a)(12) - 92.35% of net profit
+            const SS_WAGE_BASE = 184500; // TY2026 SS wage base per SSA Press Release Oct 24 2025
+            const socialSecurityTax = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124; // §1401(a) OASDI (capped)
+            const medicareTax = seTaxBase * 0.029; // §1401(b) Medicare (uncapped)
+            const selfEmploymentTax = socialSecurityTax + medicareTax;
             const deductibleSETax = selfEmploymentTax * 0.5;
             const adjustedIncome = netProfit - deductibleSETax;
             

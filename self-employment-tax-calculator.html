@@ -280,13 +280,43 @@
     </div>
 
     <script>
+        /* AUDIT 2026-07-02 evening: Self-employment tax calculator
+   family: schedule-SE quick-estimate (root-level shared-template variant)
+   formula: netProfit = grossIncome - expenses; seTaxBase = max(0, netProfit) * 0.9235;
+            ssTax = min(seTaxBase, 184500) * 0.124; medicareTax = seTaxBase * 0.029;
+            selfEmploymentTax = ssTax + medicareTax; deductibleSE = seTax/2;
+            adjusted = netProfit - deductibleSE; incomeTax = piecewise(adjusted, filing);
+   FIX 2026-07-02 evening: added SS wage-base cap $184,500 per SSA Press Release Oct 24 2025
+     (queue item (uuu) — same bug family as (tt) closed on /calc/paycheck-calculator.html
+     on 2026-06-22 evening and closed on /calc/estimated-quarterly-tax-calculator.html
+     on 2026-07-01 evening). Pre-fix applied flat 15.3% to unlimited SE earnings,
+     over-taxing high earners whose seBase exceeded the SS wage base.
+   test_cases (Node-verified via /tmp/.../scratchpad/verify_secap.js — exact-cent match):
+     TC1 single below-cap: gross=50000, expenses=10000 -> netProfit=40000, seBase=36940,
+         ssTax=4580.56, medTax=1071.26, seTax=5651.82 (identical to pre-fix; below cap)
+     TC2 single below-cap: gross=100000, expenses=20000 -> netProfit=80000, seBase=73880,
+         ssTax=9161.12, medTax=2142.52, seTax=11303.64 (identical to pre-fix; below cap)
+     TC3 single ABOVE-CAP: gross=300000, expenses=0 -> netProfit=300000, seBase=277050,
+         ssTax=min(277050,184500)*0.124=22878.00 (CAP BINDS; pre-fix was 34354.20),
+         medTax=8034.45, seTax=30912.45 (pre-fix 42388.65). Per-user delta: -$11,476.20/yr.
+   NEEDS_HUMAN_REVIEW (separate future item, tracked as (sss)-like bracket refresh):
+     brackets are TY2023 vintage: single 22% threshold $44725 (TY2024=$47150, TY2025=$48475);
+     only 10/12/22 modeled - taxable income >$95375 single silently undercharged;
+     no HoH branch (HoH falls through to incomeTax=0); no state tax; no standard deduction
+     applied; no Additional Medicare (0.9% surtax on seBase >$200K/$250K).
+   Bracket rewrite is a separate 45-min evening item — this run scopes the SS-cap fix only.
+   verified_by: evening-routine */
         function calculate() {
             const grossIncome = parseFloat(document.getElementById('income').value) || 0;
             const expenses = parseFloat(document.getElementById('expenses').value) || 0;
             const filing = document.getElementById('filing').value;
-            
+
             const netProfit = grossIncome - expenses;
-            const selfEmploymentTax = netProfit * 0.9235 * 0.153; // 92.35% of net profit × 15.3%
+            const seTaxBase = Math.max(0, netProfit) * 0.9235; // §1402(a)(12) - 92.35% of net profit
+            const SS_WAGE_BASE = 184500; // TY2026 SS wage base per SSA Press Release Oct 24 2025
+            const socialSecurityTax = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124; // §1401(a) OASDI (capped)
+            const medicareTax = seTaxBase * 0.029; // §1401(b) Medicare (uncapped)
+            const selfEmploymentTax = socialSecurityTax + medicareTax;
             const deductibleSETax = selfEmploymentTax * 0.5;
             const adjustedIncome = netProfit - deductibleSETax;
             
