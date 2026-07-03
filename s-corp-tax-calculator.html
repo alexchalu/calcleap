@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S Corp Tax Calculator - Free Business Structure Tool | CalcLeap</title>
-    <meta name="description" content="Calculate S Corporation tax savings vs sole proprietorship or LLC taxation.. Free online calculator with instant results and visual breakdowns.">
+    <title>S Corp Tax Calculator 2026 - Reasonable Comp & Savings vs Sole Prop | CalcLeap</title>
+    <meta name="description" content="See exactly how much an S-corp election saves you vs a sole proprietorship. Enter net profit and reasonable W-2 comp; get FICA, income tax, and dollar savings side-by-side.">
     <link rel="canonical" href="https://calcleap.com/s-corp-tax-calculator.html">
-<meta property="og:title" content="S Corp Tax Calculator - Free Business Structure Tool">
-<meta property="og:description" content="Calculate S Corporation tax savings vs sole proprietorship or LLC taxation.. Free online calculator with instant results and visual breakdowns.">
+<meta property="og:title" content="S Corp Tax Calculator 2026 - Reasonable Comp & Savings vs Sole Prop">
+<meta property="og:description" content="See exactly how much an S-corp election saves you vs a sole proprietorship. Enter net profit and reasonable W-2 comp; get FICA, income tax, and dollar savings side-by-side.">
 <meta property="og:url" content="https://calcleap.com/s-corp-tax-calculator.html">
 <meta property="og:type" content="website">
     <style>
@@ -32,20 +32,35 @@
         .result-value { font-size: 2.5rem; font-weight: 700; color: #0071e3; margin: 0.75rem 0; }
         .result-detail { margin: 0.75rem 0; color: #1d1d1f; font-size: 1.05rem; }
         .result-detail strong { font-weight: 600; }
-        .chart-container { margin: 1.5rem 0; }
-        .bar-chart { display: flex; gap: 0.5rem; align-items: flex-end; height: 200px; }
-        .bar { flex: 1; background: linear-gradient(to top, #0071e3, #00a1ff); border-radius: 8px 8px 0 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0.5rem; color: white; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s; }
-        .bar:hover { transform: translateY(-5px); }
-        .bar-label { margin-top: 0.5rem; font-size: 0.9rem; color: #6e6e73; text-align: center; }
+        .cmp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+        .cmp-card { background: white; border: 1px solid #e5e5e7; border-radius: 12px; padding: 1.25rem; }
+        .cmp-card h4 { font-size: 0.85rem; font-weight: 600; color: #6e6e73; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; }
+        .cmp-card .cmp-total { font-size: 1.5rem; font-weight: 700; color: #1d1d1f; margin-bottom: 0.75rem; }
+        .cmp-card .cmp-row { display: flex; justify-content: space-between; font-size: 0.9rem; color: #6e6e73; padding: 0.35rem 0; border-bottom: 1px solid #f0f0f0; }
+        .cmp-card .cmp-row:last-child { border-bottom: none; }
+        .cmp-card .cmp-row strong { color: #1d1d1f; font-weight: 600; }
+        .savings-hero { background: linear-gradient(135deg,#e6f9ec 0%,#c8f0d6 100%); border:1px solid #22c55e; border-radius:16px; padding:1.5rem; text-align:center; margin-bottom:1.25rem; }
+        .savings-hero .savings-label { font-size:0.9rem; color:#166534; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; }
+        .savings-hero .savings-value { font-size:2.5rem; font-weight:800; color:#166534; margin:0.35rem 0; }
+        .savings-hero .savings-sub { font-size:0.9rem; color:#166534; }
+        .savings-hero.negative { background: linear-gradient(135deg,#fef2f2 0%,#fecaca 100%); border-color:#ef4444; }
+        .savings-hero.negative .savings-label,.savings-hero.negative .savings-value,.savings-hero.negative .savings-sub { color:#991b1b; }
+        .warn-note { background:#fff8e1; border-left:4px solid #f59e0b; padding:0.85rem 1rem; border-radius:0 8px 8px 0; margin:1rem 0; font-size:0.9rem; color:#92400e; line-height:1.5; }
         .info-section { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
         .info-section h3 { color: #1d1d1f; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600; }
+        .info-section h4 { color: #1d1d1f; margin: 1rem 0 0.5rem; font-size: 1.1rem; font-weight: 600; }
         .info-section p { margin-bottom: 1rem; color: #1d1d1f; line-height: 1.7; }
         .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
         .info-section li { margin-bottom: 0.5rem; color: #1d1d1f; }
+        .faq details { border-top:1px solid #e5e5e7; padding:1rem 0; }
+        .faq details:first-child { border-top:none; }
+        .faq summary { font-weight:600; cursor:pointer; color:#1d1d1f; font-size:1.05rem; }
+        .faq details[open] summary { margin-bottom:0.5rem; }
+        .faq details p { margin:0.5rem 0 0; color:#3d3d43; line-height:1.65; }
         .footer { background: #f5f5f7; padding: 2rem 0; text-align: center; border-top: 1px solid #e5e5e7; margin-top: 4rem; }
         .footer a { color: #0071e3; text-decoration: none; }
-        @media (max-width: 768px) { .header h1 { font-size: 1.75rem; } .calc-box, .info-section { padding: 1.5rem; } }
-    
+        @media (max-width: 768px) { .header h1 { font-size: 1.75rem; } .calc-box, .info-section { padding: 1.5rem; } .cmp-grid { grid-template-columns: 1fr; } }
+
 
 /* === COMPREHENSIVE COMPONENT STYLES === */
 
@@ -183,9 +198,68 @@
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tax Calculators", "item": "https://calcleap.com/index.html#tax" },
+    { "@type": "ListItem", "position": 3, "name": "S Corp Tax Calculator", "item": "https://calcleap.com/s-corp-tax-calculator.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does an S corporation save taxes compared to a sole proprietorship?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A sole proprietor pays self-employment tax (12.4% Social Security up to the wage base plus 2.9% Medicare) on 92.35% of net earnings from self-employment. An S-corp shareholder-employee pays FICA only on the reasonable-compensation W-2 wages they draw; the remainder distributed as a K-1 pass-through is exempt from FICA per IRC §1402(a) and Rev. Rul. 59-221. The FICA savings on the distribution portion is where the S-corp benefit comes from."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is 'reasonable compensation' for an S corp shareholder-employee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IRC §162(a) requires a shareholder providing services to receive reasonable compensation. The IRS applies a facts-and-circumstances test based on training, experience, duties, time devoted, comparable salaries, dividend history, timing/manner of payments, and what a comparable business would pay for similar services. In David E. Watson, P.C. v. United States (8th Cir. 2012) the court upheld the IRS reclassifying $67,044 of the $203,651 distributions as wages. Setting wages artificially low to dodge FICA is the top S-corp audit trigger."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the S-corp itself pay any tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most cases no. An S corporation is a pass-through entity under IRC Subchapter S — the entity files Form 1120-S and issues each shareholder a Schedule K-1. Ordinary business income, deductions, and credits flow through to the shareholder's Form 1040. Exceptions include the built-in gains tax under §1374 for corporations that converted from C-corp status and the passive investment income tax under §1375. The S-corp is also responsible for the employer half of FICA on wages paid, but this is deductible against ordinary income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there costs to running an S corp that offset the FICA savings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ongoing costs typically include (a) a separate Form 1120-S return (roughly $800-$2,000/year at a CPA), (b) payroll processing to run W-2 wages ($300-$800/year), (c) unemployment insurance (federal FUTA plus state SUTA) on wages, (d) state franchise or minimum-entity taxes (California charges $800/yr; some states charge more), and (e) higher bookkeeping burden. As a rule of thumb, the S-corp election typically breaks even around $40,000-$50,000 of net profit above what you'd pay yourself as reasonable comp; below that, the compliance overhead can exceed the FICA savings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Section 199A QBI deduction interact with the S-corp choice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both S-corp K-1 distributive share and sole-prop Schedule C net income qualify for the 20% qualified business income deduction under IRC §199A, subject to taxable income thresholds and the specified service trade or business (SSTB) limitations. However, W-2 wages paid to the shareholder-employee do NOT qualify for QBI on the recipient's side but DO count toward the §199A(b)(2) wage-limit for the entity. For higher earners (above the §199A phase-in thresholds), an S-corp with sufficient W-2 wages can preserve QBI where a sole prop with no wages might have it limited. This calculator does not model §199A — factor it in with a CPA."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position='fixed';this.style.left='0';this.style.top='0';this.style.width='auto';this.style.height='auto';this.style.overflow='visible'" onblur="this.style.position='absolute';this.style.left='-9999px';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden'">Skip to content</a>
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="logo">Calc<span>Leap</span></a>
@@ -204,36 +278,36 @@
     <div class="header">
         <div class="container">
             <h1 class="page-title">S Corp Tax Calculator</h1>
-            <p>Calculate S Corporation tax savings vs sole proprietorship or LLC taxation.</p>
+            <p>See how much a Sub S election saves you vs a sole proprietorship, with the FICA split done right.</p>
         </div>
     </div>
 
-    <div class="main container">
+    <div class="main container" id="main-content">
         <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="calc-box">
-            <h2>Business Structure Calculator</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your income and business details to calculate your tax liability.</p>
+            <h2>S-Corp Savings Calculator</h2>
+            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your business net profit, the reasonable W-2 compensation you'd pay yourself as a shareholder-employee, and your filing status. The calc compares an S-corp election against a Schedule C sole proprietorship on the same profit.</p>
             <div class="input-group">
-                <label for="income">Gross Income ($):</label>
-                <input type="number" id="income" min="0" value="75000" step="1000" aria-label="Income">
-                <small>Total business or 1099 income before expenses</small>
+                <label for="netProfit">Business Net Profit ($):</label>
+                <input type="number" id="netProfit" min="0" value="150000" step="1000" aria-label="Net profit">
+                <small>Business gross receipts minus deductible business expenses, before any owner compensation.</small>
             </div>
             <div class="input-group">
-                <label for="expenses">Business Expenses ($):</label>
-                <input type="number" id="expenses" min="0" value="15000" step="100" aria-label="Expenses">
-                <small>Deductible business expenses</small>
+                <label for="wages">Reasonable W-2 Compensation ($):</label>
+                <input type="number" id="wages" min="0" value="60000" step="1000" aria-label="Reasonable compensation wages">
+                <small>What you'd pay yourself in W-2 wages as a shareholder-employee. Must reflect fair market compensation for services rendered (IRC §162(a), Rev. Rul. 74-44, Watson v. US).</small>
             </div>
             <div class="input-group">
                 <label for="filing">Filing Status:</label>
-                <select id="filing" aria-label="Filing">
+                <select id="filing" aria-label="Filing status">
                     <option value="single">Single</option>
                     <option value="married">Married Filing Jointly</option>
-                    <option value="hoh">Head of Household</option>
+                    <option value="head">Head of Household</option>
                 </select>
             </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Tax</button>
+            <button class="calc-btn" onclick="calculate()">Calculate S-Corp Savings</button>
             <div class="result-box" id="result">
                 <h3>Results</h3>
             </div>
@@ -243,27 +317,60 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
         <div class="info-section">
-            <h3>About S Corp Tax Calculator</h3>
-            <p>Calculate S Corporation tax savings vs sole proprietorship or LLC taxation.</p>
-            <h3>Understanding Business Structure</h3>
-            <p>When calculating business taxes, it's important to understand:</p>
+            <h3>Why an S-corp election can save money</h3>
+            <p>A sole proprietor (or single-member LLC taxed as a disregarded entity) reports business income on Schedule C and pays self-employment tax under IRC §1401 on 92.35% of net earnings — 12.4% Social Security up to the wage base plus 2.9% Medicare, with a 0.9% Additional Medicare surtax above $200,000 (single) / $250,000 (MFJ). That's 15.3% (plus surtax) on essentially the entire profit.</p>
+            <p>An S corporation, elected under IRC §1362 by filing Form 2553, is a pass-through entity. The shareholder-employee draws a W-2 salary — "reasonable compensation" — and receives the remaining profit as a distribution reported on Schedule K-1. FICA applies to the wages only; the K-1 distributive share is <em>not</em> subject to SE tax per IRC §1402(a) and Rev. Rul. 59-221. Income tax still applies to the combined wages plus distribution.</p>
+
+            <h3>What the calculator does</h3>
             <ul>
-                <li>Self-employment tax (15.3%) covers Social Security and Medicare</li>
-                <li>Income tax is calculated on net profit (income minus expenses)</li>
-                <li>Quarterly estimated tax payments help avoid penalties</li>
-                <li>Proper record-keeping is essential for deductions</li>
+                <li>Computes the employer half of FICA on your wages (6.2% Social Security up to the $184,500 TY2026 wage base plus 1.45% Medicare) and subtracts it from net profit to derive the K-1 distributive share.</li>
+                <li>Computes the employee half of FICA on your wages, including the 0.9% Additional Medicare surtax if wages exceed the filing-status threshold under IRC §3101(b)(2).</li>
+                <li>Applies TY2025 federal income-tax brackets (per Rev. Proc. 2024-40 §3.01) and standard deduction to the combined W-2 wages plus K-1 distribution.</li>
+                <li>In parallel, computes what you'd pay as a sole proprietor on the same net profit — SE tax under §1401 with the same Social Security cap plus the §164(f) half-SE-tax deduction, then federal income tax on the remainder.</li>
+                <li>Returns the dollar savings, or flags a negative savings result when your inputs would produce a worse tax outcome under S-corp (e.g., wages exceeding the profit).</li>
             </ul>
-            <h3>Common Business Deductions</h3>
+
+            <h3>Assumptions and limits</h3>
             <ul>
-                <li>Home office expenses (simplified or actual method)</li>
-                <li>Vehicle and mileage (standard rate or actual expenses)</li>
-                <li>Equipment and supplies</li>
-                <li>Professional services and software subscriptions</li>
+                <li>Federal income tax only. State income tax varies widely (California charges an additional 1.5% S-corp franchise tax; New York City charges an unincorporated business tax on sole props; check your state).</li>
+                <li>The comparison assumes the S-corp has no other employees, no fringe benefit costs, no state franchise or minimum-entity tax, and no additional accounting or payroll fees. In practice budget $1,000-$3,000/year for the 1120-S return and payroll compliance.</li>
+                <li>The §199A qualified business income deduction is not modeled. Both structures generally qualify; the wage-limit interaction can favor S-corp above the phase-in thresholds.</li>
+                <li>Retirement contributions (Solo 401(k), SEP-IRA), health insurance treatment, and Section 125 cafeteria plans are not modeled.</li>
+                <li>Wages must reflect reasonable compensation — underpaying yourself to inflate the K-1 distribution is a leading S-corp audit trigger.</li>
             </ul>
-            <h3>More Business Calculators</h3>
+
+            <h3 id="faq">Frequently asked questions</h3>
+            <div class="faq">
+                <details>
+                    <summary>How does an S corporation save taxes compared to a sole proprietorship?</summary>
+                    <p>A sole proprietor pays self-employment tax (12.4% Social Security up to the wage base plus 2.9% Medicare) on 92.35% of net earnings from self-employment. An S-corp shareholder-employee pays FICA only on the reasonable-compensation W-2 wages they draw; the remainder distributed as a K-1 pass-through is exempt from FICA per IRC §1402(a) and Rev. Rul. 59-221. The FICA savings on the distribution portion is where the S-corp benefit comes from.</p>
+                </details>
+                <details>
+                    <summary>What is "reasonable compensation" for an S corp shareholder-employee?</summary>
+                    <p>IRC §162(a) requires a shareholder providing services to receive reasonable compensation. The IRS applies a facts-and-circumstances test based on training, experience, duties, time devoted, comparable salaries, dividend history, timing and manner of payments, and what a comparable business would pay for similar services. In <em>David E. Watson, P.C. v. United States</em> (8th Cir. 2012) the court upheld the IRS reclassifying $67,044 of the $203,651 in distributions as wages. Setting wages artificially low to dodge FICA is the top S-corp audit trigger.</p>
+                </details>
+                <details>
+                    <summary>Does the S-corp itself pay any tax?</summary>
+                    <p>In most cases no. An S corporation is a pass-through entity under IRC Subchapter S — the entity files Form 1120-S and issues each shareholder a Schedule K-1. Ordinary business income, deductions, and credits flow through to the shareholder's Form 1040. Exceptions include the built-in gains tax under §1374 for corporations that converted from C-corp status and the passive investment income tax under §1375. The S-corp is also responsible for the employer half of FICA on wages paid, but this is deductible against ordinary income.</p>
+                </details>
+                <details>
+                    <summary>Are there costs to running an S corp that offset the FICA savings?</summary>
+                    <p>Yes. Ongoing costs typically include (a) a separate Form 1120-S return (roughly $800-$2,000/year at a CPA), (b) payroll processing to run W-2 wages ($300-$800/year), (c) unemployment insurance (federal FUTA plus state SUTA) on wages, (d) state franchise or minimum-entity taxes (California charges $800/yr; some states charge more), and (e) higher bookkeeping burden. As a rule of thumb, the S-corp election typically breaks even around $40,000-$50,000 of net profit above what you'd pay yourself as reasonable comp; below that, the compliance overhead can exceed the FICA savings.</p>
+                </details>
+                <details>
+                    <summary>How does the Section 199A QBI deduction interact with the S-corp choice?</summary>
+                    <p>Both S-corp K-1 distributive share and sole-prop Schedule C net income qualify for the 20% qualified business income deduction under IRC §199A, subject to taxable income thresholds and the specified service trade or business (SSTB) limitations. However, W-2 wages paid to the shareholder-employee do NOT qualify for QBI on the recipient's side but DO count toward the §199A(b)(2) wage-limit for the entity. For higher earners (above the §199A phase-in thresholds), an S-corp with sufficient W-2 wages can preserve QBI where a sole prop with no wages might have it limited. This calculator does not model §199A — factor it in with a CPA.</p>
+                </details>
+            </div>
+
+            <h3>Related calculators</h3>
             <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
+                <li><a href="/self-employment-tax-calculator.html">Self-Employment Tax Calculator</a> — SE tax for a Schedule C sole prop</li>
+                <li><a href="/1099-tax-calculator.html">1099 Tax Calculator</a> — federal + SE tax for independent contractors</li>
+                <li><a href="/llc-tax-calculator.html">LLC Tax Calculator</a> — single-member LLC on Schedule C</li>
+                <li><a href="/quarterly-tax-calculator.html">Quarterly Estimated Tax Calculator</a> — Form 1040-ES payments</li>
+                <li><a href="/calc/paycheck-calculator.html">Paycheck Calculator</a> — net take-home from W-2 wages</li>
+                <li><a href="index.html">All calculators</a></li>
             </ul>
         </div>
 
@@ -280,105 +387,221 @@
     </div>
 
     <script>
-        /* AUDIT 2026-07-02 evening: S-corp tax calculator
-   family: root-level shared-template variant (SE tax + income tax bracket lookup)
-   status: NEEDS_HUMAN_REVIEW — SEMANTIC MODEL MISMATCH
-   reasons:
-     (1) S-corp shareholders do NOT pay SE tax on their distributive share of business
-         income. Per Rev. Rul. 59-221 and IRC §1402(a), S-corp K-1 distributive share
-         is EXCLUDED from net earnings from self-employment. Only "reasonable
-         compensation" wages paid to a shareholder-employee via Form W-2 are subject
-         to FICA (7.65% employee + 7.65% employer = 15.3% combined). Applying SE tax
-         to S-corp net profit incorrectly taxes what should be K-1 distribution income.
-     (2) The whole reason business owners elect S-corp status is precisely to convert
-         part of what would be Schedule C SE-taxable income into K-1 distributions that
-         escape SE tax. A calculator that applies flat 15.3% to S-corp net profit tells
-         the exact opposite story from the correct tax outcome.
-     (3) Correct S-corp model needs TWO inputs: (a) reasonable-comp W-2 wages
-         and (b) distributive share (K-1). FICA applies to (a) only; income tax
-         applies to (a)+(b). Optional S-corp savings comparison vs Schedule C
-         is the primary user value-prop.
-   Also inherits family issues (TY2023 brackets; no HoH; no state; no std deduction).
-   PARTIAL FIX 2026-07-02 evening: SS wage-base cap $184,500 applied on the SE-tax leg
-     for consistency with sibling calcs closed tonight (queue item uuu). Reduces the
-     wrong-model overstatement magnitude on high earners but does NOT correct the
-     underlying model error. Full rebuild deferred (~1 evening).
-   test_cases (documenting CURRENT wrong-model behavior; below-cap identical to pre-fix):
-     TC1 single below-cap: gross=50000, expenses=10000 -> netProfit=40000, seTax=5651.82
-         (correct-S-corp: depends on wage split; if $0 W-2 wages then $0 FICA)
-     TC2 single below-cap: gross=100000, expenses=20000 -> netProfit=80000, seTax=11303.64
-         (correct-S-corp with $40K reasonable-comp: FICA on $40K only = $6120)
-     TC3 single ABOVE-CAP: gross=300000, expenses=0 -> seBase=277050, ssTax=22878.00
-         (CAP BINDS), medTax=8034.45, seTax=30912.45 (pre-fix 42388.65)
-   recommended_fix (deferred): full rebuild — add W-2 wages input, add K-1 distributive
-     share input, apply FICA to wages only, apply income tax to wages+K-1, show
-     S-corp-vs-Sole-Prop savings comparison. Mirror /calc/1099-tax-calculator.html
-     for the wage leg's FICA computation (already has SS cap + Additional Medicare).
+        /* AUDIT 2026-07-03 evening: S-corp tax calculator — FULL REBUILD (closes queue item (vvv))
+   family: root-level S-corp calc, semantically distinct from the SE-tax sibling family
+     because the S-corp election converts what would be SE-taxable net profit into
+     FICA-taxable W-2 wages + FICA-exempt K-1 distribution
+   status: VERIFIED
+   formula:
+     Inputs: netProfit (pre-owner-comp), wages (reasonable comp W-2), filing (single/married/head)
+     S-corp side:
+       employerFICA = min(wages, 184500)*0.062 + wages*0.0145  // IRC §3111
+       employeeFICA = min(wages, 184500)*0.062 + wages*0.0145 + max(0, wages-thresh)*0.009
+         // thresh: single/head=200000, married=250000 per IRC §3101(b)(2)
+       totalFICA_owner_cost = employerFICA + employeeFICA
+       distribution = max(0, netProfit - wages - employerFICA)  // K-1 flow-through
+       agi = wages + distribution
+       taxable = max(0, agi - stdDeduction[filing])
+       fedTax = progressive bracket lookup TY2025 per Rev. Proc. 2024-40 §3.01
+       scorpTotal = totalFICA_owner_cost + fedTax
+     Sole-prop side (comparison, same netProfit):
+       seBase = netProfit * 0.9235                                 // IRC §1402(a)(12)
+       ssTax  = min(seBase, 184500) * 0.124                        // IRC §1401(a) capped
+       medTax = seBase * 0.029                                     // IRC §1401(b) uncapped
+       addlMed = max(0, seBase - thresh) * 0.009                   // IRC §1401(b) surtax
+       seTax = ssTax + medTax + addlMed
+       seDeduction = (ssTax + medTax) / 2                          // IRC §164(f) - excludes addlMed
+       agi = netProfit - seDeduction
+       taxable = max(0, agi - stdDeduction[filing])
+       fedTax = same bracket lookup
+       spTotal = seTax + fedTax
+     savings = spTotal - scorpTotal  // positive = S-corp saves money
+   test_cases (all Node-verified vs Python hand-derivation, exact-cent match — see /tmp/.../scratchpad/verify_scorp.js):
+     TC1 low_single: netProfit=$50K, wages=$30K, single
+       S-corp: employerFICA=$2,295, employeeFICA=$2,295 (addlMed=$0), totalFICA=$4,590, distribution=$17,705, taxable=$32,705, fedTax=$3,686.10, TOTAL=$8,276.10
+       SP: seBase=$46,175, seTax=$7,064.77, seDed=$3,532.39, taxable=$31,467.61, fedTax=$3,537.61, TOTAL=$10,602.39
+       SAVINGS=$2,326.29
+     TC2 mid_married: netProfit=$200K, wages=$80K, MFJ
+       S-corp: employerFICA=$6,120, employeeFICA=$6,120, totalFICA=$12,240, distribution=$113,880, taxable=$163,880, fedTax=$25,882.60, TOTAL=$38,122.60
+       SP: seBase=$184,700, seTax=$28,234.30 (SS cap binds), seDed=$14,117.15, taxable=$155,882.85, fedTax=$24,123.23, TOTAL=$52,357.53
+       SAVINGS=$14,234.93 (the sweet spot: wages well below SS cap, netProfit at SS cap)
+     TC3 high_single_cap: netProfit=$300K, wages=$200K, single (both hit the SS cap)
+       S-corp: employerFICA=$14,339 (SS capped at $184,500 × 6.2% = $11,439), employeeFICA=$14,339 (addlMed=$0 since wages exactly at $200K threshold, not above), totalFICA=$28,678, distribution=$85,661, taxable=$270,661, fedTax=$64,278.60, TOTAL=$92,956.60
+       SP: seBase=$277,050, seTax=$31,605.90 (incl $693.45 addlMed), seDed=$15,456.23, taxable=$269,543.78, fedTax=$63,887.57, TOTAL=$95,493.47
+       SAVINGS=$2,536.87 (small — wages of $200K nearly max out the SS cap so most SE-tax benefit erased)
+     TC4 hoh_mid: netProfit=$150K, wages=$60K, HoH -> SAVINGS=$10,572.61
+   edge cases (verified):
+     wages_gt_netProfit: netProfit=$50K, wages=$60K, single -> distribution clamps to $0, S-corp costs MORE ($14,341.50 vs $10,602.39 sole-prop), savings=-$3,739.11 (calc surfaces a red warning)
+     no_wages: netProfit=$100K, wages=$0, single -> S-corp shows $12,575.30 savings but calc surfaces an IRS-audit-risk warning (reasonable-comp doctrine)
+     negative_netProfit: clamps distribution to $0, SP seBase to $0
+   known simplifications (NOT math errors, all documented in copy):
+     TY2025 brackets + standard deduction to match sibling /calc/1099-tax-calculator.html family; TY2026 refresh flagged as queue item (www)
+     no §199A QBI deduction (documented in FAQ + info section)
+     no state income tax (federal only, documented in info section)
+     no retirement contributions (Solo 401(k) / SEP-IRA), no fringe/health insurance
+     no state franchise or minimum-entity tax (documented; California $800 SB 1447 flagged)
+     no payroll compliance costs (documented in FAQ)
    verified_by: evening-routine */
+
+        const taxBrackets = {
+            single: [
+                { limit: 11925, rate: 0.10 },
+                { limit: 48475, rate: 0.12 },
+                { limit: 103350, rate: 0.22 },
+                { limit: 197300, rate: 0.24 },
+                { limit: 250525, rate: 0.32 },
+                { limit: 626350, rate: 0.35 },
+                { limit: Infinity, rate: 0.37 }
+            ],
+            married: [
+                { limit: 23800, rate: 0.10 },
+                { limit: 96950, rate: 0.12 },
+                { limit: 206700, rate: 0.22 },
+                { limit: 394600, rate: 0.24 },
+                { limit: 501050, rate: 0.32 },
+                { limit: 751600, rate: 0.35 },
+                { limit: Infinity, rate: 0.37 }
+            ],
+            head: [
+                { limit: 17000, rate: 0.10 },
+                { limit: 64850, rate: 0.12 },
+                { limit: 103350, rate: 0.22 },
+                { limit: 197300, rate: 0.24 },
+                { limit: 250500, rate: 0.32 },
+                { limit: 626350, rate: 0.35 },
+                { limit: Infinity, rate: 0.37 }
+            ]
+        };
+        const standardDeduction = { single: 15000, married: 30000, head: 22500 };
+        const SS_WAGE_BASE = 184500; // TY2026 per SSA Press Release Oct 24 2025
+        const ADDL_MED_THRESHOLD = { single: 200000, married: 250000, head: 200000 };
+
+        function calcBracketTax(taxableIncome, filing) {
+            const brackets = taxBrackets[filing];
+            let tax = 0;
+            let prevLimit = 0;
+            for (const b of brackets) {
+                if (taxableIncome <= prevLimit) break;
+                const inBracket = Math.min(taxableIncome, b.limit) - prevLimit;
+                tax += inBracket * b.rate;
+                prevLimit = b.limit;
+            }
+            return tax;
+        }
+
+        function fmt(x) {
+            return '$' + x.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        }
+        function fmtCents(x) {
+            return '$' + x.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function scorpCalc(netProfit, wages, filing) {
+            const cappedWages = Math.min(wages, SS_WAGE_BASE);
+            const employerSS = cappedWages * 0.062;
+            const employerMed = wages * 0.0145;
+            const employerFICA = employerSS + employerMed;
+            const employeeSS = cappedWages * 0.062;
+            const employeeMed = wages * 0.0145;
+            const addlMed = Math.max(0, wages - ADDL_MED_THRESHOLD[filing]) * 0.009;
+            const employeeFICA = employeeSS + employeeMed + addlMed;
+            const totalFICA = employerFICA + employeeFICA;
+            const distribution = Math.max(0, netProfit - wages - employerFICA);
+            const agi = wages + distribution;
+            const taxable = Math.max(0, agi - standardDeduction[filing]);
+            const fedTax = calcBracketTax(taxable, filing);
+            const totalTax = totalFICA + fedTax;
+            return { employerFICA, employeeFICA, addlMed, totalFICA, distribution, agi, taxable, fedTax, totalTax };
+        }
+
+        function solepropCalc(netProfit, filing) {
+            const seBase = Math.max(0, netProfit) * 0.9235;
+            const ssTax = Math.min(seBase, SS_WAGE_BASE) * 0.124;
+            const medTax = seBase * 0.029;
+            const addlMed = Math.max(0, seBase - ADDL_MED_THRESHOLD[filing]) * 0.009;
+            const seTax = ssTax + medTax + addlMed;
+            const seDeduction = (ssTax + medTax) / 2;
+            const agi = netProfit - seDeduction;
+            const taxable = Math.max(0, agi - standardDeduction[filing]);
+            const fedTax = calcBracketTax(taxable, filing);
+            const totalTax = seTax + fedTax;
+            return { seBase, ssTax, medTax, addlMed, seTax, seDeduction, agi, taxable, fedTax, totalTax };
+        }
+
         function calculate() {
-            const grossIncome = parseFloat(document.getElementById('income').value) || 0;
-            const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+            const netProfit = Math.max(0, parseFloat(document.getElementById('netProfit').value) || 0);
+            const wages = Math.max(0, parseFloat(document.getElementById('wages').value) || 0);
             const filing = document.getElementById('filing').value;
 
-            const netProfit = grossIncome - expenses;
-            // NOTE: applying SE tax to S-corp net profit is the WRONG MODEL (see AUDIT block).
-            // The SS wage-base cap is applied here for consistency with sibling calcs,
-            // reducing the wrong-model overstatement magnitude on high earners while the
-            // calc awaits a full rebuild (K-1 vs W-2 split).
-            const seTaxBase = Math.max(0, netProfit) * 0.9235;
-            const SS_WAGE_BASE = 184500; // TY2026 SS wage base per SSA Press Release Oct 24 2025
-            const socialSecurityTax = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124;
-            const medicareTax = seTaxBase * 0.029;
-            const selfEmploymentTax = socialSecurityTax + medicareTax;
-            const deductibleSETax = selfEmploymentTax * 0.5;
-            const adjustedIncome = netProfit - deductibleSETax;
-            
-            // Simplified income tax (rough estimate)
-            let incomeTax = 0;
-            if (filing === 'single') {
-                if (adjustedIncome > 44725) incomeTax = 5147.50 + (adjustedIncome - 44725) * 0.22;
-                else if (adjustedIncome > 11000) incomeTax = 1100 + (adjustedIncome - 11000) * 0.12;
-                else incomeTax = adjustedIncome * 0.10;
-            } else if (filing === 'married') {
-                if (adjustedIncome > 89075) incomeTax = 10294 + (adjustedIncome - 89075) * 0.22;
-                else if (adjustedIncome > 22000) incomeTax = 2200 + (adjustedIncome - 22000) * 0.12;
-                else incomeTax = adjustedIncome * 0.10;
+            const sc = scorpCalc(netProfit, wages, filing);
+            const sp = solepropCalc(netProfit, filing);
+            const savings = sp.totalTax - sc.totalTax;
+
+            const filingLabel = { single: 'Single', married: 'MFJ', head: 'Head of Household' }[filing];
+            const heroClass = savings < 0 ? 'savings-hero negative' : 'savings-hero';
+            const heroLabel = savings < 0 ? 'S-Corp costs MORE by' : 'S-Corp saves you';
+            const heroSub = savings < 0
+                ? 'With these inputs, the sole-prop path costs less. Try lowering wages to a smaller reasonable-comp amount.'
+                : 'Federal FICA + income tax savings before compliance costs (Form 1120-S, payroll, state franchise fees).';
+
+            let html = '';
+            html += '<div class="' + heroClass + '">';
+            html += '  <div class="savings-label">' + heroLabel + '</div>';
+            html += '  <div class="savings-value">' + fmt(Math.abs(savings)) + '<span style="font-size:1rem; font-weight:600;"> / yr</span></div>';
+            html += '  <div class="savings-sub">' + heroSub + '</div>';
+            html += '</div>';
+
+            // Warnings
+            if (wages > netProfit) {
+                html += '<div class="warn-note"><strong>Reasonable-comp exceeds net profit.</strong> You cannot pay yourself more in wages than the business earns. The K-1 distribution is clamped to $0 and the S-corp effectively costs more than a sole-prop on these numbers. Lower wages, or increase net profit.</div>';
+            } else if (netProfit > 0 && wages < netProfit * 0.30 && netProfit >= 50000) {
+                html += '<div class="warn-note"><strong>Wages look low relative to net profit.</strong> A ratio below ~30% (or an absolute figure well under industry-comparable pay) draws IRS scrutiny under the reasonable-compensation doctrine (<em>Watson v. US</em>, 8th Cir. 2012). Look up comparable salaries with the RCReports database or BLS OES data before finalizing.</div>';
             }
-            
-            const totalTax = selfEmploymentTax + incomeTax;
-            const quarterlyPayment = totalTax / 4;
-            const effectiveRate = (totalTax / grossIncome) * 100;
-            
-            let html = '<h3>Your Tax Breakdown</h3>';
-            html += '<div class="result-value">$' + totalTax.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Gross Income:</strong> $' + grossIncome.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Business Expenses:</strong> $' + expenses.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Net Profit:</strong> $' + netProfit.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Self-Employment Tax:</strong> $' + selfEmploymentTax.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Income Tax:</strong> $' + incomeTax.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Quarterly Payment:</strong> $' + quarterlyPayment.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Effective Tax Rate:</strong> ' + effectiveRate.toFixed(1) + '%</div>';
-            
-            // Add visual bar chart
-            html += '<div class="chart-container">';
-            html += '<div class="bar-chart">';
-            const maxVal = Math.max(netProfit, totalTax);
-            const barHeight1 = (netProfit / grossIncome) * 100;
-            const barHeight2 = (totalTax / grossIncome) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (netProfit/1000).toFixed(0) + 'k</div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (totalTax/1000).toFixed(0) + 'k</div>';
+            if (netProfit > 0 && netProfit < 40000) {
+                html += '<div class="warn-note"><strong>Below the typical break-even.</strong> Below roughly $40,000-$50,000 of net profit, annual S-corp compliance costs (Form 1120-S preparation ≈ $800-$2,000, payroll ≈ $300-$800, state franchise fees) often exceed the FICA savings. Run the numbers with a CPA.</div>';
+            }
+
+            html += '<div class="cmp-grid">';
+            html += '  <div class="cmp-card">';
+            html += '    <h4>S-Corp Election</h4>';
+            html += '    <div class="cmp-total">' + fmt(sc.totalTax) + '</div>';
+            html += '    <div class="cmp-row"><span>W-2 wages</span><strong>' + fmt(wages) + '</strong></div>';
+            html += '    <div class="cmp-row"><span>K-1 distribution</span><strong>' + fmt(sc.distribution) + '</strong></div>';
+            html += '    <div class="cmp-row"><span>Employer FICA (deducted before K-1)</span><strong>' + fmt(sc.employerFICA) + '</strong></div>';
+            html += '    <div class="cmp-row"><span>Employee FICA (incl. 0.9% Addl Med)</span><strong>' + fmt(sc.employeeFICA) + '</strong></div>';
+            if (sc.addlMed > 0) {
+                html += '    <div class="cmp-row"><span>&nbsp;&nbsp;of which Additional Medicare</span><strong>' + fmt(sc.addlMed) + '</strong></div>';
+            }
+            html += '    <div class="cmp-row"><span>Federal income tax</span><strong>' + fmt(sc.fedTax) + '</strong></div>';
+            html += '    <div class="cmp-row"><span>Taxable income</span><strong>' + fmt(sc.taxable) + '</strong></div>';
+            html += '  </div>';
+            html += '  <div class="cmp-card">';
+            html += '    <h4>Sole Prop / Schedule C</h4>';
+            html += '    <div class="cmp-total">' + fmt(sp.totalTax) + '</div>';
+            html += '    <div class="cmp-row"><span>Net profit</span><strong>' + fmt(netProfit) + '</strong></div>';
+            html += '    <div class="cmp-row"><span>SE tax base (92.35% × profit)</span><strong>' + fmt(sp.seBase) + '</strong></div>';
+            html += '    <div class="cmp-row"><span>Social Security tax (capped)</span><strong>' + fmt(sp.ssTax) + '</strong></div>';
+            html += '    <div class="cmp-row"><span>Medicare tax (uncapped)</span><strong>' + fmt(sp.medTax) + '</strong></div>';
+            if (sp.addlMed > 0) {
+                html += '    <div class="cmp-row"><span>Additional Medicare surtax</span><strong>' + fmt(sp.addlMed) + '</strong></div>';
+            }
+            html += '    <div class="cmp-row"><span>½ SE-tax deduction (§164(f))</span><strong>' + fmt(sp.seDeduction) + '</strong></div>';
+            html += '    <div class="cmp-row"><span>Federal income tax</span><strong>' + fmt(sp.fedTax) + '</strong></div>';
+            html += '    <div class="cmp-row"><span>Taxable income</span><strong>' + fmt(sp.taxable) + '</strong></div>';
+            html += '  </div>';
             html += '</div>';
-            html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Net Profit</div>';
-            html += '<div style="flex:1;" class="bar-label">Total Tax</div>';
-            html += '</div>';
-            html += '</div>';
-            
-            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>This is an estimate for planning purposes. Actual tax liability may vary based on deductions, credits, and state taxes. Consult a tax professional for personalized advice.</em></p>';
-            
+
+            html += '<div class="result-detail" style="margin-top:1rem;"><strong>Filing status:</strong> ' + filingLabel + ' &nbsp;·&nbsp; <strong>Standard deduction:</strong> ' + fmt(standardDeduction[filing]) + ' &nbsp;·&nbsp; <strong>SS wage base:</strong> $184,500 (TY2026)</div>';
+            html += '<p style="margin-top:1.25rem; font-size:0.9rem; color:#6e6e73; line-height:1.6;"><em>Estimate for federal FICA + federal income tax only. Does not include state income tax, state franchise/minimum-entity taxes, §199A QBI deduction, retirement contributions, or the $1,000-$3,000/yr compliance costs of running an S-corp (Form 1120-S, payroll, FUTA/SUTA). Not tax advice; consult a CPA before electing S-corp status via Form 2553.</em></p>';
+
             document.getElementById('result').innerHTML = html;
             document.getElementById('result').style.display = 'block';
         }
+
+        document.getElementById('netProfit').addEventListener('input', calculate);
+        document.getElementById('wages').addEventListener('input', calculate);
+        document.getElementById('filing').addEventListener('change', calculate);
+        calculate();
     </script>
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational purposes only and is not tax advice. Tax laws are complex and change frequently. Results may not reflect your actual tax liability. Always consult a qualified CPA, tax attorney, or enrolled agent for tax advice specific to your situation. CalcLeap is not a tax preparation service and does not file taxes.</div>
 <footer class="footer" role="contentinfo"><div class="footer-inner"><div class="footer-grid"><div><h4>CalcLeap</h4><p style="font-size:.8rem;color:var(--text-3);line-height:1.5">Free calculators and tools for everyone.</p></div><div><h4>Popular</h4><a href="/bmi-calculator.html">BMI Calculator</a><a href="/calc/mortgage-payment.html">Mortgage Calculator</a><a href="/income-tax-calculator.html">Tax Calculator</a></div><div><h4>Categories</h4><a href="/index.html#finance">Finance</a><a href="/index.html#health">Health</a><a href="/index.html#insurance">Insurance</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div><p style="text-align:center;font-size:.75rem;color:var(--text-3);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)">© 2026 CalcLeap. All rights reserved.</p></div></footer>
