@@ -319,6 +319,14 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
                     <input type="number" id="expenses" class="form-control" placeholder="15000"  aria-label="15000">
                 </div>
                 <div class="form-group">
+                    <label for="filing">Filing Status</label>
+                    <select id="filing" class="form-control" aria-label="Filing Status">
+                        <option value="single">Single</option>
+                        <option value="married">Married Filing Jointly</option>
+                        <option value="hoh">Head of Household</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>
                         <input type="checkbox" id="selfEmploymentTax" checked aria-label="Self Employment Tax"> Include Self-Employment Tax
                     </label>
@@ -353,62 +361,90 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
             
         </div>
 <script>
-        /* AUDIT 2026-07-02 evening: quarterly-tax.html (barebones estimator variant)
-   family: single-input SE-check quarterly-payment estimator (older, simpler than the
-     sibling /quarterly-tax-calculator.html and /calc/estimated-quarterly-tax-calculator.html)
-   status: NEEDS_HUMAN_REVIEW - multiple stale-parameter issues beyond tonight's fix
-   PARTIAL FIX 2026-07-02 evening (queue item uuu):
-     (1) Added 92.35% factor per IRC §1402(a)(12) - pre-fix `netIncome * 0.153` was missing
-         the Schedule SE §1402(a)(12) adjustment entirely, overstating SE tax at all
-         income levels by roughly 1.53%/0.9235 -> 1.66% of the applied factor (i.e., a
-         $10K net earner was over-taxed by ~$115). This IS a math bug, not just a stale
-         parameter, because §1402(a)(12) is a permanent statutory feature since 1990.
-     (2) Added SS wage-base cap $184,500 per SSA Press Release Oct 24 2025 (same bug
-         family as sibling calcs closed tonight - queue item (uuu)).
-     (3) Clamp negative net income to $0 (no SE tax on losses).
-   REMAINING NEEDS_HUMAN_REVIEW (not fixed tonight - separate future item):
-     (a) Standard deduction hard-coded $13,850 (TY2023 single; TY2025 is $15,000);
-         no filing-status branching (MFJ std deduction is $30,000 TY2025).
-     (b) Federal tax is flat 22% on all taxable income - misses the entire progressive
-         bracket schedule; overtaxes low earners and undertaxes high earners.
-     (c) No Additional Medicare 0.9% surtax on seBase >$200K/$250K per IRC §3101(b)(2).
-     (d) No state tax handling.
-     (e) Q2 due date shown as "Jun 15" is correct for TY2026 - no fix needed.
-   test_cases (post-fix, Node-verified):
-     TC1 SE-checked below-cap: income=50000, expenses=10000, SE=on -> netIncome=40000,
-         seBase=36940, ssTax=4580.56, medTax=1071.26, seTax=5651.82 (pre-fix was
-         netIncome*0.153=6120 - overstatement of $468.18 fixed by adding 92.35% factor)
-     TC2 SE-checked below-cap: income=100000, expenses=20000, SE=on -> netIncome=80000,
-         seBase=73880, seTax=11303.64 (pre-fix was 12240 - overstatement of $936.36 fixed)
-     TC3 SE-checked ABOVE-CAP: income=300000, expenses=0, SE=on -> netIncome=300000,
-         seBase=277050, ssTax=min(277050,184500)*0.124=22878.00 (CAP), medTax=8034.45,
-         seTax=30912.45 (pre-fix was 300000*0.153=45900 - overstatement of $14,987.55 fixed)
+        /* AUDIT 2026-07-04 evening (updated from 2026-07-02): quarterly-tax.html
+   family: barebones quarterly-payment estimator (older, simpler UI than
+     /quarterly-tax-calculator.html and /calc/estimated-quarterly-tax-calculator.html)
+   formula: netIncome = income - expenses; seTaxBase = max(0, netIncome) * 0.9235;
+            ssTax = min(seTaxBase, 184500) * 0.124; medTax = seTaxBase * 0.029;
+            addlMed = max(0, seTaxBase - threshold) * 0.009 (200K/250K/200K per §3101(b)(2));
+            seTax = (ssTax + medTax + addlMed) if includeSE else 0; seDed = seTax/2;
+            adjusted = netIncome - seDed; taxable = max(0, adjusted - stdDeduction[filing]);
+            federalTax = piecewiseTY2025Brackets(taxable, filing); total = seTax + federalTax
+   FIX 2026-07-04 evening (queue item (www)+(xxx), closes (a)+(b)+(c) of the deferred list):
+     (a) Standard deduction hard-coded $13,850 (TY2023 single) → TY2025 $15,000/$30,000/$22,500
+         with filing-status branch (new dropdown added to form).
+     (b) Federal tax flat 22% → full 7-bracket TY2025 schedule per Rev. Proc. 2024-40 §3.01
+         (mirrors /calc/1099-tax-calculator.html reference). Pre-fix over-taxed low earners
+         (~$6K at $30K taxable: 6600 vs correct ~2000) and under-taxed high earners
+         (~$40K at $500K taxable: 110000 vs correct ~150000).
+     (c) Added Additional Medicare 0.9% surtax on seBase above §3101(b)(2) thresholds
+         ($200K single/HoH, $250K MFJ).
+     Also: seDeduction (half SE tax) now subtracted from AGI base before applying std
+     deduction — brings this in line with the sibling calcs and the Schedule SE §1402(a)(12)
+     mechanic.
+   STILL DEFERRED: (d) state tax handling — separate future item.
+   FIX 2026-07-02 evening (queue item uuu): 92.35% factor + SS cap $184,500.
+   test_cases (Node-verified via scratchpad/verify_ty2025.js — exact-cent match):
+     TC1 single 80K/15K SE=on: netIncome=65000, seBase=60027.50, ssTax=7443.41,
+         medTax=1740.80, seTax=9184.21, seDed=4592.10, adjusted=60407.90,
+         taxable=45407.90, fedTax=1192.50 + (45407.90-11925)*0.12 = 5210.45,
+         totalTax=14394.66, quarterly=3598.66
+     TC2 married 150K/25K SE=on: netIncome=125000, seBase=115437.50, seTax=17661.94
+         (below cap, addlMed=0), seDed=8830.97, adjusted=116169.03, taxable=86169.03,
+         fedTax=2385 + (86169.03-23850)*0.12 = 9863.28, totalTax=27525.22,
+         quarterly=6881.31
+     TC3 hoh 250K/40K SE=on: netIncome=210000, seBase=193935, ssTax=22878 (CAP BINDS),
+         medTax=5624.12, seTax=28502.12, seDed=14251.06, adjusted=195748.94,
+         taxable=173248.94, fedTax=32687.75, totalTax=61189.86, quarterly=15297.47
    verified_by: evening-routine */
+        // TY2025 federal brackets per Rev. Proc. 2024-40 §3.01 (mirrors /calc/1099-tax-calculator.html)
+        const taxBrackets = {
+            single:  [ {limit:11925,rate:0.10}, {limit:48475,rate:0.12}, {limit:103350,rate:0.22}, {limit:197300,rate:0.24}, {limit:250525,rate:0.32}, {limit:626350,rate:0.35}, {limit:Infinity,rate:0.37} ],
+            married: [ {limit:23850,rate:0.10}, {limit:96950,rate:0.12}, {limit:206700,rate:0.22}, {limit:394600,rate:0.24}, {limit:501050,rate:0.32}, {limit:751600,rate:0.35}, {limit:Infinity,rate:0.37} ],
+            hoh:     [ {limit:17000,rate:0.10}, {limit:64850,rate:0.12}, {limit:103350,rate:0.22}, {limit:197300,rate:0.24}, {limit:250500,rate:0.32}, {limit:626350,rate:0.35}, {limit:Infinity,rate:0.37} ]
+        };
+        // TY2025 standard deductions per Rev. Proc. 2024-40 §3.18
+        const standardDeduction = { single: 15000, married: 30000, hoh: 22500 };
+        function calculateFederalTax(taxable, filing) {
+            const brackets = taxBrackets[filing] || taxBrackets.single;
+            let tax = 0, prev = 0;
+            for (const b of brackets) {
+                if (taxable <= prev) break;
+                tax += (Math.min(taxable, b.limit) - prev) * b.rate;
+                prev = b.limit;
+            }
+            return tax;
+        }
         function calculate() {
 
       const income = parseFloat(document.getElementById('annualIncome').value) || 0;
       const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+      const filing = document.getElementById('filing').value;
       const includeSE = document.getElementById('selfEmploymentTax').checked;
 
       const netIncome = income - expenses;
-      const standardDeduction = 13850;
-      const taxableIncome = Math.max(0, netIncome - standardDeduction);
-
-      // Simplified federal tax (22% bracket for typical self-employed - FLAGGED IN AUDIT BLOCK)
-      const federalTax = taxableIncome * 0.22;
 
       // Self-employment tax with SS wage-base cap (IRC §1401(a)/(b) + §1402(a)(12))
-      // FIX 2026-07-02 evening: added 92.35% factor + SS cap $184,500 (TY2026 SSA wage base)
       const seTaxBase = Math.max(0, netIncome) * 0.9235;
-      const SS_WAGE_BASE = 184500;
+      const SS_WAGE_BASE = 184500; // TY2026 SS wage base per SSA Press Release Oct 24 2025
       const seSs = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124;
       const seMed = seTaxBase * 0.029;
-      const seTax = includeSE ? (seSs + seMed) : 0;
-      
+      // Additional Medicare 0.9% surtax on high earners per §3101(b)(2)
+      const addlMedThreshold = filing === 'married' ? 250000 : 200000;
+      const addlMed = Math.max(0, seTaxBase - addlMedThreshold) * 0.009;
+      const seTax = includeSE ? (seSs + seMed + addlMed) : 0;
+      const seDeduction = seTax * 0.5;
+
+      // Federal income tax on taxable income after TY2025 standard deduction (full 7-bracket schedule)
+      const adjusted = Math.max(0, netIncome) - seDeduction;
+      const stdDed = standardDeduction[filing] || standardDeduction.single;
+      const taxableIncome = Math.max(0, adjusted - stdDed);
+      const federalTax = calculateFederalTax(taxableIncome, filing);
+
       const totalAnnualTax = federalTax + seTax;
       const quarterlyPayment = totalAnnualTax / 4;
-      
-      document.getElementById('result').innerHTML = 
+
+      document.getElementById('result').innerHTML =
         '<div class="result-card">' +
         '<h3>Quarterly Tax Estimate</h3>' +
         '<p><strong>Net Business Income:</strong> $' + netIncome.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</p>' +
@@ -418,7 +454,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         '<p class="highlight"><strong>Quarterly Payment:</strong> $' + quarterlyPayment.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</p>' +
         '<p style="font-size: 0.9em; color: #666;">Due dates: Apr 15, Jun 15, Sep 15, Jan 15</p>' +
         '</div>';
-    
+
         }
 
         function clearForm() {

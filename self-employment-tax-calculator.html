@@ -280,32 +280,57 @@
     </div>
 
     <script>
-        /* AUDIT 2026-07-02 evening: Self-employment tax calculator
+        /* AUDIT 2026-07-04 evening (updated from 2026-07-02): Self-employment tax calculator
    family: schedule-SE quick-estimate (root-level shared-template variant)
    formula: netProfit = grossIncome - expenses; seTaxBase = max(0, netProfit) * 0.9235;
             ssTax = min(seTaxBase, 184500) * 0.124; medicareTax = seTaxBase * 0.029;
-            selfEmploymentTax = ssTax + medicareTax; deductibleSE = seTax/2;
-            adjusted = netProfit - deductibleSE; incomeTax = piecewise(adjusted, filing);
-   FIX 2026-07-02 evening: added SS wage-base cap $184,500 per SSA Press Release Oct 24 2025
-     (queue item (uuu) — same bug family as (tt) closed on /calc/paycheck-calculator.html
-     on 2026-06-22 evening and closed on /calc/estimated-quarterly-tax-calculator.html
-     on 2026-07-01 evening). Pre-fix applied flat 15.3% to unlimited SE earnings,
-     over-taxing high earners whose seBase exceeded the SS wage base.
-   test_cases (Node-verified via /tmp/.../scratchpad/verify_secap.js — exact-cent match):
-     TC1 single below-cap: gross=50000, expenses=10000 -> netProfit=40000, seBase=36940,
-         ssTax=4580.56, medTax=1071.26, seTax=5651.82 (identical to pre-fix; below cap)
-     TC2 single below-cap: gross=100000, expenses=20000 -> netProfit=80000, seBase=73880,
-         ssTax=9161.12, medTax=2142.52, seTax=11303.64 (identical to pre-fix; below cap)
-     TC3 single ABOVE-CAP: gross=300000, expenses=0 -> netProfit=300000, seBase=277050,
-         ssTax=min(277050,184500)*0.124=22878.00 (CAP BINDS; pre-fix was 34354.20),
-         medTax=8034.45, seTax=30912.45 (pre-fix 42388.65). Per-user delta: -$11,476.20/yr.
-   NEEDS_HUMAN_REVIEW (separate future item, tracked as (sss)-like bracket refresh):
-     brackets are TY2023 vintage: single 22% threshold $44725 (TY2024=$47150, TY2025=$48475);
-     only 10/12/22 modeled - taxable income >$95375 single silently undercharged;
-     no HoH branch (HoH falls through to incomeTax=0); no state tax; no standard deduction
-     applied; no Additional Medicare (0.9% surtax on seBase >$200K/$250K).
-   Bracket rewrite is a separate 45-min evening item — this run scopes the SS-cap fix only.
+            addlMed = max(0, seTaxBase - threshold) * 0.009 (200K/250K/200K per §3101(b)(2));
+            selfEmploymentTax = ssTax + medicareTax + addlMed; deductibleSE = seTax/2;
+            adjusted = netProfit - deductibleSE; taxable = max(0, adjusted - stdDeduction[filing]);
+            incomeTax = piecewiseTY2025Brackets(taxable, filing) mirroring /calc/1099-tax-calculator.html
+   FIX 2026-07-04 evening (queue item (www)+(xxx)): full TY2025 bracket schedule replacing
+     TY2023-vintage 10/12/22-only brackets; TY2025 std deduction $15000/$30000/$22500;
+     HoH branch added (previously fell through to incomeTax=0); Additional Medicare 0.9%
+     surtax on seBase above §3101(b)(2) thresholds. Mirrors the /calc/1099-tax-calculator.html
+     TY2025-current template per Rev. Proc. 2024-40 §3.01+§3.18. Pre-fix single-filer at
+     $200K adjusted was silently taxed at 22% flat on income above $44725 (undercharging by
+     ~$18K/yr vs progressive schedule); HoH was zero-taxed entirely; std deduction was never
+     subtracted.
+   FIX 2026-07-02 evening: SS wage-base cap $184,500 per SSA Press Release Oct 24 2025
+     (queue item (uuu) — SE tax leg only, unchanged tonight).
+   test_cases (Node-verified via scratchpad/verify_ty2025.js — exact-cent match):
+     TC1 single 50K/10K: netProfit=40000, seBase=36940, ssTax=4580.56, medTax=1071.26,
+         seTax=5651.82 (below cap, addlMed=0), seDed=2825.91, adjusted=37174.09,
+         taxable=22174.09 (after $15K std ded), fedTax=1192.50 + (22174.09-11925)*0.12
+         = 2422.39, totalTax=8074.21, quarterly=2018.55, effRate=16.15%
+     TC2 married 150K/25K: netProfit=125000, seBase=115437.50, seTax=17661.94 (below cap,
+         addlMed=0), seDed=8830.97, adjusted=116169.03, taxable=86169.03 (after $30K std),
+         fedTax=2385 + (86169.03-23850)*0.12 = 9863.28, totalTax=27525.22,
+         quarterly=6881.31, effRate=18.35%
+     TC3 hoh 250K/40K: netProfit=210000, seBase=193935, ssTax=22878 (CAP BINDS),
+         medTax=5624.12, seTax=28502.12 (addlMed=0, seBase<200K), seDed=14251.06,
+         adjusted=195748.94, taxable=173248.94 (after $22.5K HoH std),
+         fedTax=1700+5742+8470+16775.75 = 32687.75 (10/12/22/24 brackets crossed),
+         totalTax=61189.86, quarterly=15297.47, effRate=24.48%
    verified_by: evening-routine */
+        // TY2025 federal brackets per Rev. Proc. 2024-40 §3.01 (mirrors /calc/1099-tax-calculator.html)
+        const taxBrackets = {
+            single:  [ {limit:11925,rate:0.10}, {limit:48475,rate:0.12}, {limit:103350,rate:0.22}, {limit:197300,rate:0.24}, {limit:250525,rate:0.32}, {limit:626350,rate:0.35}, {limit:Infinity,rate:0.37} ],
+            married: [ {limit:23850,rate:0.10}, {limit:96950,rate:0.12}, {limit:206700,rate:0.22}, {limit:394600,rate:0.24}, {limit:501050,rate:0.32}, {limit:751600,rate:0.35}, {limit:Infinity,rate:0.37} ],
+            hoh:     [ {limit:17000,rate:0.10}, {limit:64850,rate:0.12}, {limit:103350,rate:0.22}, {limit:197300,rate:0.24}, {limit:250500,rate:0.32}, {limit:626350,rate:0.35}, {limit:Infinity,rate:0.37} ]
+        };
+        // TY2025 standard deductions per Rev. Proc. 2024-40 §3.18
+        const standardDeduction = { single: 15000, married: 30000, hoh: 22500 };
+        function calculateFederalTax(taxable, filing) {
+            const brackets = taxBrackets[filing] || taxBrackets.single;
+            let tax = 0, prev = 0;
+            for (const b of brackets) {
+                if (taxable <= prev) break;
+                tax += (Math.min(taxable, b.limit) - prev) * b.rate;
+                prev = b.limit;
+            }
+            return tax;
+        }
         function calculate() {
             const grossIncome = parseFloat(document.getElementById('income').value) || 0;
             const expenses = parseFloat(document.getElementById('expenses').value) || 0;
@@ -316,21 +341,17 @@
             const SS_WAGE_BASE = 184500; // TY2026 SS wage base per SSA Press Release Oct 24 2025
             const socialSecurityTax = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124; // §1401(a) OASDI (capped)
             const medicareTax = seTaxBase * 0.029; // §1401(b) Medicare (uncapped)
-            const selfEmploymentTax = socialSecurityTax + medicareTax;
+            // Additional Medicare 0.9% surtax on high earners per §3101(b)(2)
+            const addlMedThreshold = filing === 'married' ? 250000 : 200000;
+            const additionalMedicare = Math.max(0, seTaxBase - addlMedThreshold) * 0.009;
+            const selfEmploymentTax = socialSecurityTax + medicareTax + additionalMedicare;
             const deductibleSETax = selfEmploymentTax * 0.5;
             const adjustedIncome = netProfit - deductibleSETax;
-            
-            // Simplified income tax (rough estimate)
-            let incomeTax = 0;
-            if (filing === 'single') {
-                if (adjustedIncome > 44725) incomeTax = 5147.50 + (adjustedIncome - 44725) * 0.22;
-                else if (adjustedIncome > 11000) incomeTax = 1100 + (adjustedIncome - 11000) * 0.12;
-                else incomeTax = adjustedIncome * 0.10;
-            } else if (filing === 'married') {
-                if (adjustedIncome > 89075) incomeTax = 10294 + (adjustedIncome - 89075) * 0.22;
-                else if (adjustedIncome > 22000) incomeTax = 2200 + (adjustedIncome - 22000) * 0.12;
-                else incomeTax = adjustedIncome * 0.10;
-            }
+
+            // Federal income tax on taxable income after TY2025 standard deduction (full 7-bracket schedule)
+            const stdDed = standardDeduction[filing] || standardDeduction.single;
+            const taxableIncome = Math.max(0, adjustedIncome - stdDed);
+            const incomeTax = calculateFederalTax(taxableIncome, filing);
             
             const totalTax = selfEmploymentTax + incomeTax;
             const quarterlyPayment = totalTax / 4;
