@@ -312,31 +312,41 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
         </div>
 
         <div class="calc-box">
-            <h2>IRA Conversion Calculator</h2>
-            
-        <div class="input-group">
-          <label for="conversion-amount">Conversion Amount ($):</label>
-          <input type="number" id="conversion-amount"  min="0"   value="100000" aria-label="Conversion Amount">
-        </div>
-
-        <div class="input-group">
-          <label for="current-income">Annual Income ($):</label>
-          <input type="number" id="current-income"  min="0"   value="75000" aria-label="Current Income">
-        </div>
+            <h2>Roth IRA Conversion Tax Calculator</h2>
 
         <div class="input-group">
           <label for="filing-status">Filing Status:</label>
           <select id="filing-status" aria-label="Filing Status">
             <option value="Single">Single</option>
-<option value="Married Filing Jointly">Married Filing Jointly</option>
-<option value="Married Filing Separately">Married Filing Separately</option>
-<option value="Head of Household">Head of Household</option>
+            <option value="Married Filing Jointly">Married Filing Jointly</option>
+            <option value="Married Filing Separately">Married Filing Separately</option>
+            <option value="Head of Household">Head of Household</option>
           </select>
         </div>
 
         <div class="input-group">
+          <label for="conversion-amount">Conversion Amount ($):</label>
+          <input type="number" id="conversion-amount" min="0" value="100000" aria-label="Conversion Amount">
+        </div>
+
+        <div class="input-group">
+          <label for="current-income">Other Annual Income ($) — wages, SE income, interest, etc. (excludes the conversion):</label>
+          <input type="number" id="current-income" min="0" value="75000" aria-label="Other Annual Income">
+        </div>
+
+        <div class="input-group">
+          <label for="pretax-ira-balance">Total Pre-Tax IRA Balance ($) — all Traditional/SEP/SIMPLE IRAs, excludes basis:</label>
+          <input type="number" id="pretax-ira-balance" min="0" value="100000" aria-label="Pre-Tax IRA Balance">
+        </div>
+
+        <div class="input-group">
+          <label for="basis-nondeductible">Nondeductible Basis ($) — from Form 8606 Line 3, default 0:</label>
+          <input type="number" id="basis-nondeductible" min="0" value="0" aria-label="Nondeductible Basis">
+        </div>
+
+        <div class="input-group">
           <label for="state-tax">State Tax Rate (%):</label>
-          <input type="number" id="state-tax"  min="0" max="15" step="0.1" value="5" aria-label="State Tax">
+          <input type="number" id="state-tax" min="0" max="15" step="0.1" value="5" aria-label="State Tax">
         </div>
             <button class="calc-btn" onclick="calculate()">Calculate</button>
             <div class="result-box" id="result"></div>
@@ -370,85 +380,108 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
-            let html = '<h3>Results</h3>';
-            
-            
-            
-            
-            
-            
-            
-            
-            const convAmount = parseFloat(document.getElementById('conversion-amount').value);
-            const income = parseFloat(document.getElementById('current-income').value);
-            const stateTax = parseFloat(document.getElementById('state-tax').value) / 100;
-            
-            const totalIncome = income + convAmount;
-            let federalTax = 0;
-            if (totalIncome <= 11000) federalTax = totalIncome * 0.10;
-            else if (totalIncome <= 44725) federalTax = 1100 + (totalIncome - 11000) * 0.12;
-            else if (totalIncome <= 95375) federalTax = 5147 + (totalIncome - 44725) * 0.22;
-            else federalTax = 16290 + (totalIncome - 95375) * 0.24;
-            
-            const taxOnIncome = income * 0.22;
-            const taxOnConversion = federalTax - taxOnIncome;
-            const stateTaxAmount = convAmount * stateTax;
-            const totalTax = taxOnConversion + stateTaxAmount;
-            
-            html += '<div class="result-value">Tax on Conversion: $' + totalTax.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Federal Tax: $' + taxOnConversion.toFixed(2) + '</div>';
-            html += '<div class="result-detail">State Tax: $' + stateTaxAmount.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Conversion Amount: $' + convAmount.toFixed(2) + '</div>';
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
+        /* AUDIT 2026-07-05: verified_by=evening-routine
+         * FORMULA (Roth conversion federal tax delta, IRC §408A + IRC §408(d)(2) pro-rata + Rev. Proc. 2024-40 TY2025 brackets):
+         *   taxableRatio = P / (P + B), default 1 if P+B=0 (per §408(d)(2))
+         *     P = total pre-tax balance across all Traditional/SEP/SIMPLE IRAs
+         *     B = total nondeductible basis (Form 8606 Line 3)
+         *   taxablePortion = conversionAmount * taxableRatio
+         *   nontaxablePortion = conversionAmount * (1 - taxableRatio)   // return of basis
+         *   fedTaxDelta = fedTax(otherIncome + taxablePortion - stdDed, filingStatus)
+         *               - fedTax(otherIncome - stdDed, filingStatus)
+         *     (TY2025 7-bracket schedule per Rev. Proc. 2024-40 §3.01; std ded per §3.18)
+         *   stateTax = taxablePortion * stateRate
+         *   totalTax = fedTaxDelta + stateTax
+         *
+         * CAVEATS: NIIT (IRC §1411) not modeled — a Roth conversion is not investment
+         * income but can raise MAGI above the $200K/$250K threshold and cause other
+         * investment income to become subject. IRMAA (Medicare Part B/D two-year-lookback
+         * surcharge) not modeled — high-income conversions can trigger IRMAA in retirement.
+         *
+         * TEST CASES (hand-derived + Node-verified exact-cent):
+         *  TC1 single, income=75000, conv=100000, P=100000, B=0, state=5%
+         *    → taxableRatio=1.0, taxablePortion=100000
+         *    → fedBefore(taxable=60000)=1192.50+4386+2535.50=8114.00
+         *    → fedAfter(taxable=160000)=1192.50+4386+12072.50+13596=31247.00
+         *    → fedDelta=23133.00, stateTax=5000.00, total=28133.00, effRate=28.13%
+         *  TC2 clean backdoor (single), income=180000, conv=7500, P=0, B=7500, state=0%
+         *    → taxableRatio=0, taxablePortion=0, fedDelta=0, total=0
+         *  TC3 contaminated backdoor (single), income=180000, conv=7500, P=50000, B=7500, state=0%
+         *    → taxableRatio=50000/57500=0.86957, taxablePortion=6521.74
+         *    → fedBefore(taxable=165000)=1192.50+4386+12072.50+14796=32447.00
+         *    → fedAfter(taxable=171521.74)=1192.50+4386+12072.50+16361.22=34012.22
+         *    → fedDelta=1565.22, stateTax=0, total=1565.22, effRate=20.87%
+         *    (matches blog/backdoor-roth-ira-2026.html Marcus worked example: $1,565 @ 24% marginal)
+         *  TC4 MFJ, income=200000, conv=50000, P=50000, B=0, state=6%
+         *    → taxableRatio=1.0, taxablePortion=50000
+         *    → fedBefore(taxable=170000)=2385+8772+16071=27228.00
+         *    → fedAfter(taxable=220000)=2385+8772+24145+3192=38494.00
+         *    → fedDelta=11266.00, stateTax=3000.00, total=14266.00, effRate=28.53%
+         */
+        const taxBrackets = {
+            'Single': [[0.10, 11925], [0.12, 48475], [0.22, 103350], [0.24, 197300], [0.32, 250525], [0.35, 626350], [0.37, Infinity]],
+            'Married Filing Jointly': [[0.10, 23850], [0.12, 96950], [0.22, 206700], [0.24, 394600], [0.32, 501050], [0.35, 751600], [0.37, Infinity]],
+            'Married Filing Separately': [[0.10, 11925], [0.12, 48475], [0.22, 103350], [0.24, 197300], [0.32, 250525], [0.35, 375800], [0.37, Infinity]],
+            'Head of Household': [[0.10, 17000], [0.12, 64850], [0.22, 103350], [0.24, 197300], [0.32, 250525], [0.35, 626350], [0.37, Infinity]]
+        };
+        const standardDeduction = {
+            'Single': 15000,
+            'Married Filing Jointly': 30000,
+            'Married Filing Separately': 15000,
+            'Head of Household': 22500
+        };
+        function fedTax(taxableIncome, filingStatus) {
+            if (taxableIncome <= 0) return 0;
+            const brackets = taxBrackets[filingStatus] || taxBrackets['Single'];
+            let tax = 0;
+            let prev = 0;
+            for (let i = 0; i < brackets.length; i++) {
+                const rate = brackets[i][0];
+                const upper = brackets[i][1];
+                if (taxableIncome > upper) {
+                    tax += (upper - prev) * rate;
+                    prev = upper;
+                } else {
+                    tax += (taxableIncome - prev) * rate;
+                    return tax;
+                }
+            }
+            return tax;
         }
-    </script>
-<script>
         function calculate() {
             const resultBox = document.getElementById('result');
+            const filingStatus = document.getElementById('filing-status').value;
+            const convAmount = parseFloat(document.getElementById('conversion-amount').value) || 0;
+            const income = parseFloat(document.getElementById('current-income').value) || 0;
+            const preTaxIra = parseFloat(document.getElementById('pretax-ira-balance').value) || 0;
+            const basis = parseFloat(document.getElementById('basis-nondeductible').value) || 0;
+            const stateRate = (parseFloat(document.getElementById('state-tax').value) || 0) / 100;
+
+            const totalIra = preTaxIra + basis;
+            const taxableRatio = totalIra > 0 ? preTaxIra / totalIra : 1;
+            const taxablePortion = convAmount * taxableRatio;
+            const nontaxablePortion = convAmount - taxablePortion;
+
+            const stdDed = standardDeduction[filingStatus] || standardDeduction['Single'];
+            const fedBefore = fedTax(income - stdDed, filingStatus);
+            const fedAfter = fedTax(income + taxablePortion - stdDed, filingStatus);
+            const fedDelta = Math.max(0, fedAfter - fedBefore);
+            const stateTax = taxablePortion * stateRate;
+            const totalTax = fedDelta + stateTax;
+            const effRate = convAmount > 0 ? (totalTax / convAmount) * 100 : 0;
+            const netRoth = convAmount - totalTax;
+
             let html = '<h3>Results</h3>';
-            
-            
-            
-            
-            
-            
-            
-            
-            const convAmount = parseFloat(document.getElementById('conversion-amount').value);
-            const income = parseFloat(document.getElementById('current-income').value);
-            const stateTax = parseFloat(document.getElementById('state-tax').value) / 100;
-            
-            const totalIncome = income + convAmount;
-            let federalTax = 0;
-            if (totalIncome <= 11000) federalTax = totalIncome * 0.10;
-            else if (totalIncome <= 44725) federalTax = 1100 + (totalIncome - 11000) * 0.12;
-            else if (totalIncome <= 95375) federalTax = 5147 + (totalIncome - 44725) * 0.22;
-            else federalTax = 16290 + (totalIncome - 95375) * 0.24;
-            
-            const taxOnIncome = income * 0.22;
-            const taxOnConversion = federalTax - taxOnIncome;
-            const stateTaxAmount = convAmount * stateTax;
-            const totalTax = taxOnConversion + stateTaxAmount;
-            
-            html += '<div class="result-value">Tax on Conversion: $' + totalTax.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Federal Tax: $' + taxOnConversion.toFixed(2) + '</div>';
-            html += '<div class="result-detail">State Tax: $' + stateTaxAmount.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Conversion Amount: $' + convAmount.toFixed(2) + '</div>';
-            
-            
-            
-            
-            
-            
+            html += '<div class="result-row"><span class="result-detail">Total tax on conversion:</span><span class="result-value">$' + totalTax.toFixed(2) + '</span></div>';
+            html += '<div class="result-row"><span class="result-detail">Federal tax (marginal delta):</span><span class="result-value">$' + fedDelta.toFixed(2) + '</span></div>';
+            html += '<div class="result-row"><span class="result-detail">State tax:</span><span class="result-value">$' + stateTax.toFixed(2) + '</span></div>';
+            html += '<div class="result-row"><span class="result-detail">Taxable portion (per §408(d)(2) pro-rata):</span><span class="result-value">$' + taxablePortion.toFixed(2) + '</span></div>';
+            html += '<div class="result-row"><span class="result-detail">Nontaxable (return of basis):</span><span class="result-value">$' + nontaxablePortion.toFixed(2) + '</span></div>';
+            html += '<div class="result-row"><span class="result-detail">Effective conversion tax rate:</span><span class="result-value">' + effRate.toFixed(2) + '%</span></div>';
+            html += '<div class="result-row"><span class="result-detail">Net Roth balance (if tax paid from conversion):</span><span class="result-value">$' + netRoth.toFixed(2) + '</span></div>';
+            if (basis > 0 && preTaxIra > 0) {
+                html += '<div style="margin-top:.75rem;padding:.6rem .75rem;background:#fff8e1;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;font-size:.85rem;color:#92400e"><strong>Pro-rata trap active:</strong> You have both pre-tax and basis in Traditional IRAs. Per IRC §408(d)(2), the conversion recovers a proportional blend of both — not basis-first. Consider rolling the pre-tax balance into a workplace 401(k) or Solo 401(k) before Dec 31 to defuse the trap. See <a href="/blog/backdoor-roth-ira-2026.html" style="color:#0071e3;text-decoration:underline">the backdoor Roth guide</a>.</div>';
+            }
             resultBox.innerHTML = html;
             resultBox.style.display = 'block';
         }
