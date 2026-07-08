@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to File Form 8606 in 2026: Nondeductible IRAs, Backdoor Roth, and the Pro-Rata Rule Line by Line | CalcLeap</title>
+<meta name="description" content="The complete 2026 guide to IRS Form 8606 — who must file it, Parts I / II / III walked through line by line, the pro-rata rule math, the one-day rollover fix, amendment rules, and the mistakes that lose basis forever.">
+<link rel="canonical" href="https://calcleap.com/blog/how-to-file-form-8606-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="How to File Form 8606 in 2026 — CalcLeap">
+<meta property="og:description" content="Nondeductible IRAs, backdoor Roth reporting, and the pro-rata rule walked through line by line for TY2025 returns filed in 2026.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/how-to-file-form-8606-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-07-08T00:00:00Z">
+<meta property="article:modified_time" content="2026-07-08T00:00:00Z">
+<meta property="article:section" content="Taxes">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to File Form 8606 in 2026: Nondeductible IRAs, Backdoor Roth, and the Pro-Rata Rule Line by Line",
+  "description": "The complete 2026 guide to IRS Form 8606 — who must file it, Parts I / II / III walked through line by line, the pro-rata rule math, the one-day rollover fix, amendment rules, and the mistakes that lose basis forever.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-07-08T00:00:00Z",
+  "dateModified": "2026-07-08T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/how-to-file-form-8606-2026.html"
+  },
+  "articleSection": "Taxes",
+  "wordCount": 5800,
+  "about": [
+    {"@type": "Thing", "name": "Form 8606"},
+    {"@type": "Thing", "name": "Nondeductible IRA"},
+    {"@type": "Thing", "name": "Backdoor Roth IRA"},
+    {"@type": "Thing", "name": "Pro-rata rule"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "How to File Form 8606 in 2026"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Who is required to file Form 8606 in 2026?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Any taxpayer who (1) made a nondeductible contribution to a Traditional IRA for the tax year, (2) received a distribution from a Traditional, SEP, or SIMPLE IRA while carrying basis, (3) converted any amount from a Traditional/SEP/SIMPLE IRA to a Roth IRA, or (4) took a nonqualified Roth IRA distribution. That covers essentially every backdoor Roth participant. The form attaches to your Form 1040 and is filed for each spouse separately if both trigger the form."}},
+    {"@type": "Question", "name": "What is the penalty for not filing Form 8606?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §6693(b) imposes a $50 penalty per year for failing to file Form 8606 when required, unless you can show reasonable cause. A separate $100 penalty applies to overstating nondeductible contributions. The bigger, silent cost is losing basis: without a filed 8606 on record you cannot prove that any part of a later distribution is tax-free, and the IRS defaults to treating the entire withdrawal as taxable ordinary income."}},
+    {"@type": "Question", "name": "How does the pro-rata rule work with Form 8606?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §408(d)(2) requires you to combine all Traditional, SEP, and SIMPLE IRA balances into one pool for the taxability calculation. Form 8606 Line 6 asks for the December 31 total value of that pool, Line 5 asks for your total basis, and Line 10 divides the two to produce your nondeductible ratio. If you have $30,000 of basis in a $300,000 combined balance, only 10% of any distribution or conversion is tax-free — the other 90% is taxable, no matter which specific account you withdrew from."}},
+    {"@type": "Question", "name": "Do I need Form 8606 for a Roth 401(k) contribution or a Roth 401(k) to Roth IRA rollover?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. Form 8606 only tracks IRA-side basis. Roth 401(k) contributions are reported on your W-2 in Box 12 Code AA, and Roth 401(k) to Roth IRA rollovers are reported on Form 1099-R with Distribution Code H — neither touches Form 8606. If you also have Roth IRA basis or converted amounts, however, those still get tracked on Part III of Form 8606 in the year you take a nonqualified Roth distribution."}},
+    {"@type": "Question", "name": "What is the one-day rollover fix for the pro-rata rule?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §408(d)(3)(A)(ii) allows any pretax Traditional IRA balance to be rolled into a workplace 401(k) plan that accepts incoming rollovers, and the transferred amount is not counted in the December 31 pro-rata denominator. If you roll every pretax dollar out of your IRAs before December 31, your Form 8606 Line 6 shows only the after-tax basis, the ratio hits 100%, and any conversion that year (including the backdoor Roth) is fully tax-free. The rollover must be complete by December 31 of the same tax year as the conversion — the form takes a year-end snapshot."}},
+    {"@type": "Question", "name": "Can I amend a prior year's Form 8606 to reclaim missed basis?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes, and the IRS explicitly allows a standalone Form 8606 amendment even when no other line on the return changes. The general three-year statute of limitations under IRC §6511 does not apply — you can file a corrected Form 8606 for any prior year in which you made a nondeductible contribution that went unreported. The IRS may still assess the $50-per-year late-filing penalty per §6693(b), but the basis itself is recoverable. Attach a statement explaining the correction and mail the standalone 8606 (do not use Form 1040-X unless the amendment also changes taxable income)."}},
+    {"@type": "Question", "name": "Which spouse files Form 8606 when only one made a nondeductible contribution?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Each spouse files a separate Form 8606 under their own SSN when they trigger a filing requirement. IRAs are individual accounts by law (the 'I' is 'Individual'), so basis and pro-rata ratios are tracked per person, not per household — even on a joint return. If both spouses did backdoor Roths, you attach two Forms 8606 to the same Form 1040. If only one did, only one form gets attached."}},
+    {"@type": "Question", "name": "What's the difference between basis on Form 8606 and basis on Form 5498?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Form 5498 is what the IRA custodian files to report contributions and year-end fair market value. It shows what you contributed but not whether the contribution was deductible or nondeductible — the custodian has no way to know. Form 8606 is where you (the taxpayer) declare that portion of your Traditional IRA contribution as nondeductible. Form 5498 is informational and gets a copy sent to the IRS; Form 8606 is the legal record of your basis. If they disagree, Form 8606 controls for basis tracking."}},
+    {"@type": "Question", "name": "Does a backdoor Roth conversion require Form 8606 every year I do one?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. Each year you make a nondeductible contribution AND each year you do a conversion, both Parts I and II of Form 8606 must be filed for that tax year. Line 1 shows this year's nondeductible contribution; Line 2 carries forward prior basis; Line 8 shows the amount converted; Line 18 (Part II) reports the taxable portion of the conversion. The backdoor Roth is the single most common reason a Form 8606 shows up on a return, and skipping it in any year breaks the basis chain going forward."}},
+    {"@type": "Question", "name": "What is the deadline for filing Form 8606 for 2025 contributions?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Form 8606 for tax year 2025 is due with your Form 1040 by April 15, 2026 (or October 15, 2026 if you filed Form 4868 for an extension). You can also make a 2025 nondeductible contribution up until April 15, 2026 and still report it on the 2025 Form 8606 — the IRA contribution deadline mirrors the return deadline. Conversion actions, however, are tied to the calendar year they occur — a January 2026 conversion is a 2026 event even if funded by a 2025 contribution."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:720px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.05rem;color:var(--text);box-shadow:var(--shadow);line-height:1.5}
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.88rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+.ad-slot{margin:2.5rem 0;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--white);border:1px dashed var(--border);border-radius:var(--r-sm)}
+.ad-slot ins{display:block;width:100%}
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+.checklist{margin:1.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.checklist h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.75rem}
+.checklist ol{margin:0 0 0 1.4rem;font-size:.98rem}
+.checklist li{margin-bottom:.65rem;color:var(--text-2)}
+.checklist li strong{color:var(--text)}
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>How to File Form 8606 in 2026
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Taxes · Updated July 8, 2026</span>
+  <h1 id="article-start">How to File Form 8606 in 2026: Nondeductible IRAs, Backdoor Roth, and the Pro-Rata Rule Line by Line</h1>
+  <p class="deck">The one-page tax form that stands between a $7,500 backdoor Roth and a $1,650 avoidable tax bill. Every line, every trap, every worked example — for the 2025 return you file in April 2026 and the 2026 return you file next year.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published July 8, 2026</span>
+    <span class="dot"></span>
+    <span>17 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>Form 8606 is the IRS's memory of what you already paid tax on inside your IRA. It is one page long, has three parts, and — for the roughly 3.6 million households that execute a backdoor Roth in a given year<sup><a href="#source-1">[1]</a></sup> — is the single most consequential piece of paper in the return. Skip it, botch it, or file it inconsistently across years and you can turn a supposedly tax-free conversion into a fully taxable event, forfeit basis you spent real dollars to build, and eat a $50-per-year penalty under IRC §6693(b) on top.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>This guide walks Form 8606 line by line for the 2025 tax year (the return you file by April 15, 2026) and calls out the changes for the 2026 tax year (returns filed in 2027) driven by IRS Notice 2025-67's revised IRA limits and MAGI phaseouts.<sup><a href="#source-3">[3]</a></sup> Every dollar figure, statutory citation, and mechanical rule below is sourced to the 2025 Instructions for Form 8606, the underlying Internal Revenue Code sections, or the primary IRS Notice that adjusted it. When you are ready to model your own basis and pro-rata ratio in advance, the <a href="/backdoor-roth-calculator.html">CalcLeap backdoor Roth calculator</a> does the arithmetic; when you need to sanity-check the ending balance of a conversion, the <a href="/roth-ira-conversion-calculator.html">Roth conversion calculator</a> handles the year-by-year projection.</p>
+
+<a class="cta-calc" href="/backdoor-roth-calculator.html">
+  <span class="ic">📄</span>
+  <div>
+    <h4>Model your basis and pro-rata ratio before filing</h4>
+    <p>Enter your Traditional IRA balances, basis, and planned conversion — see the taxable portion instantly.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="what-it-is">1. What Form 8606 actually is (and why the IRS made you write it)</h2>
+
+<p>The IRS taxes retirement dollars once. Never twice, never zero times. Every dollar sitting inside a Traditional, SEP, or SIMPLE IRA is either <strong>pretax</strong> (the IRS has not taxed it yet, so it will be taxed on the way out) or <strong>after-tax</strong> (the IRS already taxed it, so it must not be taxed again). Form 8606 is the running tally that separates the two.<sup><a href="#source-4">[4]</a></sup></p>
+
+<p>The single most important number on the form is <strong>basis</strong> — the running total of every after-tax dollar you have ever contributed to any Traditional, SEP, or SIMPLE IRA. Basis matters because IRC §408(d)(2) treats every one of your IRA balances as a single pool for the purpose of computing what fraction of any distribution or conversion escapes tax. The formula, which we will walk through in painful detail below, is <code>tax-free portion = basis ÷ total IRA value × distribution</code>. Every year that you contribute nondeductibly or take a distribution while carrying basis, you file a fresh Form 8606 to update the number.</p>
+
+<p>The form is <em>not</em> optional. IRC §6693(b) authorizes a $50 penalty per year for failing to file it when required, and a separate $100 penalty for overstating a nondeductible contribution.<sup><a href="#source-2">[2]</a></sup> Those numbers are trivial. The silent penalty — the one no one warns you about — is that in a year where you take a distribution and cannot produce a filed 8606 establishing basis, the IRS defaults to treating the entire withdrawal as taxable ordinary income. Ten years of nondeductible contributions that were never reported vanish into the pretax pool; the after-tax dollars get taxed again on withdrawal; the basis is lost forever.</p>
+
+<div class="callout key">
+<h4>The one-sentence purpose of Form 8606</h4>
+<p>The form exists so that the IRS knows which dollars in your IRA it has already taxed and which ones it has not. Without a filed 8606 on record, every dollar coming out is presumed to be pretax and taxable at your ordinary income rate.</p>
+</div>
+
+<h2 id="who-must-file">2. Who is required to file it in 2026</h2>
+
+<p>The 2025 Instructions for Form 8606 name four separate trigger events, any one of which requires you to file.<sup><a href="#source-4">[4]</a></sup> If you hit any of them for tax year 2025, you attach an 8606 to your Form 1040 by April 15, 2026 (October 15, 2026 with a §6081 extension). If you hit any of them for tax year 2026, you file with your 2026 return in April 2027. In practice, the four triggers cover essentially every non-trivial IRA move a household makes:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Trigger</th><th>Which part of Form 8606 you complete</th><th>Statutory anchor</th></tr></thead>
+<tbody>
+<tr><td>You made a <strong>nondeductible contribution</strong> to a Traditional IRA for the tax year (e.g., you're over the deduction phaseout, or you chose to contribute without taking a deduction)</td><td>Part I, Lines 1–3, 14</td><td>IRC §408(o)</td></tr>
+<tr><td>You took a <strong>distribution</strong> from any Traditional, SEP, or SIMPLE IRA in a year you carry basis</td><td>Part I, Lines 4–15c</td><td>IRC §408(d)(1)–(2)</td></tr>
+<tr><td>You <strong>converted</strong> any amount from a Traditional, SEP, or SIMPLE IRA to a Roth IRA (this is the backdoor Roth line)</td><td>Part II, Lines 16–18</td><td>IRC §408A(d)(3)</td></tr>
+<tr><td>You took a <strong>nonqualified Roth IRA distribution</strong> (e.g., withdrew Roth earnings before the 5-year clock + age 59½ tests were both met)</td><td>Part III, Lines 19–25c</td><td>IRC §408A(d)(2)–(3)</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Two important nuances. First, IRAs are individual by law — the "I" in "IRA" is "Individual" — so basis and pro-rata ratios are tracked per person, not per household. A married couple filing jointly attaches <em>two</em> Forms 8606 (one per SSN) if both spouses triggered the form, or just one if only one triggered it. The form itself has a top-line SSN field precisely so the IRS can attribute basis to the right taxpayer.<sup><a href="#source-4">[4]</a></sup> Second, Roth 401(k) contributions and Roth 401(k) → Roth IRA rollovers do <em>not</em> touch Form 8606. Roth 401(k) basis lives inside the plan and travels via Form 1099-R with Distribution Code H; only the IRA side (contributions, conversions, and IRA-to-IRA rollovers) triggers 8606 reporting. We cover the workplace-plan side of the equation in the <a href="/blog/roth-401k-vs-traditional-401k-2026.html">Roth 401(k) vs Traditional 401(k) 2026 guide</a>.</p>
+
+<div class="callout warn">
+<h4>The rollover from a workplace plan is the exception</h4>
+<p>If you rolled a Traditional 401(k) with <em>after-tax</em> contributions (not Roth, not pretax — the third bucket) into a Traditional IRA, the after-tax portion becomes IRA basis and must be reported on Line 2 of Form 8606 in the year of the rollover. Almost every mega backdoor Roth participant will hit this scenario. IRS Notice 2014-54 governs the in-plan pro-rata split that produces the after-tax distribution in the first place.<sup><a href="#source-5">[5]</a></sup></p>
+</div>
+
+<h2 id="triggers">3. The three trigger events, in the order they arise on a real return</h2>
+
+<p>Most 8606 filers don't hit all three trigger categories in a single year. A typical annual sequence looks like this:</p>
+
+<ol>
+<li><strong>January or February 2026.</strong> You (or your spouse) contribute $7,500 to a Traditional IRA as the funding step of a backdoor Roth for tax year 2026 — knowing your income puts you above the $168,000 single or $252,000 MFJ Roth IRA MAGI phaseout ceiling per IRS Notice 2025-67.<sup><a href="#source-3">[3]</a></sup> This contribution is <em>nondeductible</em> because your workplace plan participation puts you over the §219(g) deduction phaseout too. Triggers Part I for 2026.</li>
+<li><strong>Same day or one week later.</strong> You convert the $7,500 (plus any interest that accrued in the sweep account) to a Roth IRA. Triggers Part II for 2026.</li>
+<li><strong>Year-end 2026.</strong> If Line 6 (December 31 aggregate Traditional IRA balance) is anything other than zero, the pro-rata rule bites the conversion. If Line 6 is zero because you cleared out all pretax IRAs earlier in the year via a rollover to your 401(k), the conversion is fully tax-free.</li>
+</ol>
+
+<p>Both Part I and Part II are filed on the same Form 8606 for the same tax year. You don't file two separate forms for the same conversion; you file one form with two sections completed. The 2025 instructions are explicit that Lines 1–3 (Part I contribution reporting) and Lines 16–18 (Part II conversion reporting) both get filled in when a backdoor Roth is executed within a single tax year.<sup><a href="#source-4">[4]</a></sup></p>
+
+<h2 id="part-i">4. Part I line by line — nondeductible contributions and pro-rata for distributions</h2>
+
+<p>Part I is the section that most trips people up because it does double duty: reporting <em>this year's</em> nondeductible contribution AND computing the taxable/nontaxable split of any distribution or conversion for the year.</p>
+
+<h3>Line 1 — Nondeductible contributions this year</h3>
+<p>Enter the dollar amount contributed to any Traditional IRA for the year that you elected to treat as nondeductible. For tax year 2026 the maximum here is $7,500 ($8,600 for filers age 50+), per IRS Notice 2025-67.<sup><a href="#source-3">[3]</a></sup> For tax year 2025 the maximum was $7,000 ($8,000 catch-up). The election is made on the return, not with the custodian — the custodian reports the total contribution on Form 5498 without distinguishing deductible from nondeductible; Line 1 is where <em>you</em> declare which portion is which.</p>
+
+<h3>Line 2 — Total basis in Traditional IRAs from prior years</h3>
+<p>This is where the chain lives. Line 2 for tax year 2026 must equal Line 14 from your most recently filed Form 8606 (which for most people is the 2025 return). Break the chain and you break your basis tracking. If you never filed an 8606 in a year you should have, Line 2 does not include those contributions until you go back and file the missing forms — see the amendment section below.</p>
+
+<h3>Line 3 — Add Lines 1 and 2</h3>
+<p>Trivial arithmetic; this is your cumulative basis <em>before</em> any distributions or conversions for the current year.</p>
+
+<h3>Lines 4–5 — Determining whether Part I ends here</h3>
+<p>Line 4 asks if you took any distributions or did any Roth conversions during the year. If no, you jump straight to Line 14 (which equals Line 3), sign the form, and you're done — you filed 8606 purely to declare a nondeductible contribution and update basis. If yes, you continue through Lines 5–15.</p>
+
+<h3>Line 6 — December 31 aggregate Traditional IRA value</h3>
+<p>This is the load-bearing number for pro-rata. Add the December 31 fair market value of <em>every</em> Traditional, SEP, and SIMPLE IRA in your name. Custodians send you this on Form 5498 by May 31 of the following year, but the value is a December 31 snapshot regardless of when the custodian reports it.<sup><a href="#source-6">[6]</a></sup> If you have IRAs at Fidelity, Vanguard, and Schwab, you sum all three. If you have a rollover IRA from a prior employer, that counts too. A common failure mode: forgetting an old rollover IRA at a former custodian.</p>
+
+<div class="callout warn">
+<h4>Roth IRAs and Roth 401(k)s do NOT go on Line 6</h4>
+<p>Line 6 is only Traditional, SEP, and SIMPLE. Your Roth IRA balance is invisible to the pro-rata calculation on Form 8606. This is why the backdoor Roth works: the Roth side is separate; only the Traditional/SEP/SIMPLE side gets pro-rata'd.</p>
+</div>
+
+<h3>Lines 7–9 — The pieces of the pie</h3>
+<p>Line 7 is the total distribution taken during the year (excluding any amount converted to a Roth, which sits on Line 8). Line 8 is the total converted to a Roth. Line 9 sums Lines 6 + 7 + 8 — the denominator of the pro-rata ratio.</p>
+
+<h3>Line 10 — The nondeductible ratio</h3>
+<p>Line 10 divides Line 5 (your basis) by Line 9 (the total pie). Instructions cap the result at 1.000 and require six decimal places. This ratio is <em>the</em> number that determines what fraction of any distribution or conversion escapes tax:</p>
+
+<div class="formula">
+Nondeductible ratio = basis ÷ (December 31 balance + distributions + conversions)<br>
+&nbsp;<br>
+Tax-free portion of distribution = ratio × Line 7<br>
+Tax-free portion of conversion = ratio × Line 8
+</div>
+
+<h3>Lines 11–15c — Applying the ratio</h3>
+<p>Line 11 multiplies the ratio by Line 8 (the converted amount) — the tax-free portion of the conversion. Line 12 multiplies the ratio by Line 7 (regular distributions) — the tax-free portion of ordinary distributions. Line 13 sums Lines 11 + 12 — total basis "used" this year. Line 14 subtracts Line 13 from Line 3 — your remaining basis carried into next year. Line 15a is the taxable portion of any distribution (Line 7 minus Line 12); Line 15b handles a rare qualified disaster distribution flow (IRC §72(t)(2)(M)); Line 15c is the ordinary taxable amount that flows to Form 1040 Line 4b.</p>
+
+<h2 id="part-ii">5. Part II line by line — the backdoor Roth's home</h2>
+
+<p>Part II handles the tax reporting of any Traditional, SEP, or SIMPLE IRA amount converted to a Roth IRA during the year. It is the shortest section on the form and the one most 8606 filers spend the most time on.</p>
+
+<h3>Line 16 — Total amount converted</h3>
+<p>The dollar amount that left the Traditional/SEP/SIMPLE IRA and landed in the Roth IRA. This should match what your custodian reports in Box 1 of the Form 1099-R issued for the conversion (Distribution Code 2 or 7, depending on age).<sup><a href="#source-7">[7]</a></sup></p>
+
+<h3>Line 17 — Basis "used" for the conversion</h3>
+<p>Line 17 pulls from Line 11 of Part I. This is where the pro-rata rule actually applies to the Roth side: only the fraction of the conversion computed via the Line 10 ratio comes across tax-free. If you have no other Traditional/SEP/SIMPLE IRAs (Line 6 = 0), the ratio is 1.0 and Line 17 equals Line 16 — a fully tax-free conversion, the "clean backdoor Roth."</p>
+
+<h3>Line 18 — Taxable portion of the conversion</h3>
+<p>Line 18 subtracts Line 17 from Line 16. This dollar amount flows to Form 1040 Line 4b as ordinary income taxable at your marginal rate. When Line 6 is zero and the backdoor works cleanly, Line 18 is zero (or a handful of dollars for any interest that accrued in the Traditional IRA between contribution and conversion).</p>
+
+<div class="callout tip">
+<h4>The "clean backdoor" is the entire game</h4>
+<p>The backdoor Roth's tax-free premise depends on Line 18 being zero (or nearly zero). That requires Line 6 to be zero on December 31 — which requires clearing every pretax Traditional/SEP/SIMPLE IRA balance out of your name by year-end. The most common technique is a rollover to your employer's 401(k). We walk through the mechanic below.</p>
+</div>
+
+<h2 id="part-iii">6. Part III line by line — nonqualified Roth IRA distributions</h2>
+
+<p>Part III applies only in a year you took a distribution from a Roth IRA that was <em>nonqualified</em>. A qualified Roth IRA distribution — one that is both (a) after you turned 59½ and (b) at least five years after your first Roth IRA contribution — is entirely tax-free and doesn't touch Form 8606 at all. Everything else runs through Part III, where the ordering rules of IRC §408A(d)(4) unfold in dollar terms.<sup><a href="#source-8">[8]</a></sup></p>
+
+<h3>The three-tier ordering rule</h3>
+<p>Roth IRA withdrawals are treated as coming out in a fixed order, and Part III computes them in that order:</p>
+<ol>
+<li><strong>Regular Roth contributions first.</strong> These come out tax-free and penalty-free at any age, for any reason.</li>
+<li><strong>Conversion amounts next</strong>, oldest first. Each conversion has its own 5-year clock for the 10% early-withdrawal penalty; the tax was already paid on conversion.</li>
+<li><strong>Earnings last.</strong> Earnings are taxable (and, if under 59½, subject to a 10% penalty) if the qualified-distribution test is not met.</li>
+</ol>
+
+<h3>Lines 19–22 — Total distribution and basis reduction</h3>
+<p>Line 19 is the total nonqualified Roth distribution. Line 20 is the amount attributable to first-time homebuyer expenses under IRC §72(t)(2)(F) (capped at a lifetime $10,000). Line 21 subtracts Line 20 from Line 19. Line 22 is your basis in Roth IRA contributions (running total of regular Roth IRA contributions ever made, minus any prior tax-free withdrawals of those contributions).</p>
+
+<h3>Lines 23–25c — Conversion basis and taxable amount</h3>
+<p>Line 23 is your basis in conversions and rollovers — the running total of all Traditional-to-Roth conversion amounts across your lifetime. Line 24 subtracts Line 22 + 23 from Line 21 to isolate the earnings piece. Line 25a is the taxable amount (typically Line 24 unless a qualified reason applies). Line 25b handles qualified disaster distributions. Line 25c is the amount subject to the 10% early-withdrawal penalty under IRC §72(t), which is computed on Form 5329.</p>
+
+<h2 id="pro-rata-trap">7. The pro-rata trap in dollar terms</h2>
+
+<p>Nothing on Form 8606 causes more expensive mistakes than the pro-rata rule of IRC §408(d)(2). Two identical taxpayers can execute what looks like the same $7,500 backdoor Roth and end up with wildly different tax bills — the only difference is what other Traditional/SEP/SIMPLE IRA balances they carry on December 31.</p>
+
+<h3>Worked example: the clean backdoor Roth</h3>
+<p>Ravi is 34, files single, and earns $180,000 in W-2 wages — well above the $168,000 Roth IRA MAGI phaseout ceiling for 2026. He has $0 in Traditional, SEP, or SIMPLE IRAs. In January 2026 he contributes $7,500 to a fresh Traditional IRA and elects nondeductible treatment. One week later he converts the full $7,507.12 (the extra $7.12 is a week of sweep interest) to a Roth IRA.</p>
+
+<div class="formula">
+Line 6 (Dec 31 balance) = $0<br>
+Line 9 (total pie) = $0 + $0 + $7,507.12 = $7,507.12<br>
+Line 5 (basis) = $7,500<br>
+Line 10 (ratio) = $7,500 ÷ $7,507.12 = 0.999052<br>
+Line 11 (tax-free conversion) = 0.999052 × $7,507.12 = $7,500.00<br>
+Line 18 (taxable conversion) = $7,507.12 − $7,500.00 = <strong>$7.12</strong>
+</div>
+
+<p>Ravi owes federal income tax at his 24% marginal rate on $7.12 — one dollar and seventy-one cents. His entire $7,500 nondeductible contribution moves to the Roth side tax-free. This is the "clean backdoor" the strategy is named for.</p>
+
+<h3>Worked example: the polluted backdoor Roth</h3>
+<p>Meera is Ravi's coworker. Same income, same age, same $7,500 contribution and same-day conversion. The only difference: Meera has a $270,000 rollover IRA at Fidelity from a prior employer's 401(k) — pure pretax dollars, never contributed to nondeductibly. She never rolled it into her current 401(k).</p>
+
+<div class="formula">
+Line 6 (Dec 31 balance) = $270,000<br>
+Line 9 (total pie) = $270,000 + $0 + $7,507.12 = $277,507.12<br>
+Line 5 (basis) = $7,500<br>
+Line 10 (ratio) = $7,500 ÷ $277,507.12 = 0.027026<br>
+Line 11 (tax-free conversion) = 0.027026 × $7,507.12 = $202.86<br>
+Line 18 (taxable conversion) = $7,507.12 − $202.86 = <strong>$7,304.26</strong>
+</div>
+
+<p>Meera pays federal income tax on $7,304.26 at her 24% marginal rate — <strong>$1,753.02</strong>. Her state income tax (5% California-typical after credits) adds roughly $365 more. Total tax on the "backdoor Roth" that Ravi executed for $1.71: <strong>$2,118</strong>. The remaining basis of $7,297.14 stays inside her Traditional IRA and rides forward on next year's Form 8606 Line 14 — she has effectively pre-paid tax on a portion of her pretax IRA balance, which will offset a future distribution but only at 2.7 cents on the dollar.</p>
+
+<div class="callout warn">
+<h4>The pro-rata rule cannot be gamed by picking accounts</h4>
+<p>You cannot execute the conversion "from" the fresh Traditional IRA and claim it was untouched by the rollover IRA. IRC §408(d)(2) explicitly requires aggregating all Traditional, SEP, and SIMPLE IRAs. The custodian's paperwork is irrelevant — the tax law treats them as one pool. This is why the one-day rollover fix (below) is the load-bearing move for high-income households with legacy IRA balances.</p>
+</div>
+
+<h2 id="rollover-fix">8. The one-day rollover fix</h2>
+
+<p>The mechanical solution to Meera's problem is the "reverse rollover": moving all pretax Traditional/SEP/SIMPLE IRA dollars <em>out</em> of your name and <em>into</em> a workplace 401(k) that accepts incoming rollovers. IRC §408(d)(3)(A)(ii) explicitly permits this direction of movement, and the amount rolled into the plan does not appear on Form 8606 Line 6.<sup><a href="#source-9">[9]</a></sup></p>
+
+<p>Only the pretax portion is eligible for the reverse rollover — nondeductible contributions (basis) must stay in the IRA. This is actually the point: after the reverse rollover, the Traditional IRA holds <em>only</em> basis, Line 6 shows $0 at year-end, and the pro-rata ratio hits 1.0. Any conversion that year is fully tax-free.</p>
+
+<h3>The mechanical steps</h3>
+<ol>
+<li><strong>Confirm your employer's 401(k) accepts incoming rollovers.</strong> Not all plans do. About 91% of large-employer plans do; roughly 70% of small-employer plans do.<sup><a href="#source-10">[10]</a></sup> Check the plan's Summary Plan Description or ask HR.</li>
+<li><strong>Determine the pretax vs after-tax split of each IRA account.</strong> Custodians can produce this on request. If you have prior 8606s on file, the after-tax portion of each is your existing basis.</li>
+<li><strong>Direct-transfer the pretax portion only</strong> to the 401(k). Custodians handle this via a trustee-to-trustee transfer — no 60-day rule applies, no withholding, no 1099-R Distribution Code 7 headaches.</li>
+<li><strong>Complete the rollover by December 31</strong> of the tax year in which you want the pro-rata ratio to be 1.0. The Form 8606 pro-rata calculation takes a December 31 snapshot; a January transfer is too late for the prior year.</li>
+<li><strong>Execute the backdoor Roth conversion any time after</strong> — same day or same year. Line 6 stays at $0 (assuming the after-tax basis was converted, not held); Line 18 hits zero (or near-zero for any accrued sweep interest); the backdoor works cleanly.</li>
+</ol>
+
+<div class="callout key">
+<h4>Timing note for 2026</h4>
+<p>If you are executing the reverse-rollover-plus-backdoor sequence for tax year 2026, both the rollover and the conversion must happen in calendar year 2026. The rollover must be complete before December 31, 2026; the conversion can occur any time between January 1, 2026 and December 31, 2026. Both events land on the same Form 8606 for tax year 2026, filed by April 15, 2027.</p>
+</div>
+
+<h2 id="mistakes">9. Common 8606 mistakes that cost basis (and money)</h2>
+
+<p>Basis is fragile. It exists on paper — literally, in the sense that its legal record is a filed Form 8606 — and disappears the moment the paper trail breaks. The most common failure modes:</p>
+
+<h3>Missing an 8606 in a nondeductible contribution year</h3>
+<p>The Fidelity or Vanguard-side reporting on Form 5498 shows a $7,000 contribution but doesn't distinguish deductible from nondeductible. If you don't file Form 8606, the IRS has no record that any portion was after-tax. Ten years later, when you take a distribution, the entire amount is presumed pretax and taxable. Line 14 becomes zero and any basis you didn't declare on the paper trail is lost.</p>
+
+<h3>Filing Line 2 as zero when you have prior basis</h3>
+<p>Line 2 must equal Line 14 of the most recently filed 8606. If you filed 8606 for 2022 with Line 14 = $18,000 but skipped filing for 2023 and 2024, your 2025 Line 2 should still be $18,000 (assuming no distributions in the missed years). Many taxpayers reset Line 2 to zero every year — this quietly erases prior basis.</p>
+
+<h3>Forgetting an old rollover IRA on Line 6</h3>
+<p>Line 6 is the aggregate December 31 value of every Traditional, SEP, and SIMPLE IRA in your name. A common failure is a dormant rollover IRA at a prior custodian (e.g., a $180,000 balance left at Merrill Lynch after switching employers in 2019). If you omit it from Line 6, your ratio inflates, more of the conversion appears tax-free than actually is, and the IRS will match Form 5498 filings against Line 6 during any audit.</p>
+
+<h3>Skipping Part II when a conversion happened</h3>
+<p>A conversion without a 1099-R is impossible; a 1099-R with Distribution Code 2 (or 7) is impossible to miss on the return. If the 1099-R appears on Form 1040 Line 4a but Part II of the 8606 is blank, the IRS matching system flags it. The default outcome is treating the conversion as fully taxable — even if you had basis that would have offset it.</p>
+
+<h3>Confusing Roth 401(k) basis with Roth IRA basis</h3>
+<p>Roth 401(k) contributions do not create Form 8606 basis. If you rolled a Roth 401(k) to a Roth IRA, the Roth 401(k)'s contribution history transfers to the Roth IRA's Line 22 basis (in Part III), but the Roth 401(k)'s five-year clock does not — the clock resets to the Roth IRA's clock. This is why practitioners recommend opening a $1,000 Roth IRA early to start the five-year clock for later use.</p>
+
+<h3>Filing joint 8606s under one SSN</h3>
+<p>The form is per person. If both spouses execute a backdoor Roth, both file their own Form 8606 with their own SSN at the top. Filing a single 8606 with combined numbers under one spouse's SSN misattributes basis and can strip the other spouse's basis on a future audit.</p>
+
+<h2 id="amendments">10. Amending prior 8606s to reclaim missed basis</h2>
+
+<p>Missed basis is not always lost. The IRS explicitly allows a standalone Form 8606 filing to correct any prior year in which a nondeductible contribution went unreported.<sup><a href="#source-11">[11]</a></sup> Unlike most tax return amendments, the general three-year statute of limitations under IRC §6511 does not close the door — basis correction is not a refund claim, so the SOL doesn't attach.</p>
+
+<h3>How to file the correction</h3>
+<p>Prepare a Form 8606 for the missed year using the version of the form current in that year (not the current version). Complete only Lines 1, 2, 3, and 14. Sign and date the form. Attach a plain-English statement explaining that the nondeductible contribution was made in [year] but not previously reported. Mail the standalone form to the IRS service center for your state — do <em>not</em> use Form 1040-X unless the correction also changes taxable income or a credit on the original return.</p>
+
+<h3>Penalty exposure</h3>
+<p>The IRS may assess the §6693(b) $50-per-year late filing penalty per Form 8606. In practice, IRS Publication 590-A notes the Service routinely waives the penalty for good-faith corrections; the penalty exists mainly as leverage against willful non-filers, not honest late-filers.<sup><a href="#source-12">[12]</a></sup> A cover letter citing reasonable cause (e.g., "the accountant preparing my return failed to file 8606 for that year") is generally granted.</p>
+
+<h3>Six-year rule when the missed basis would have reduced taxable income</h3>
+<p>If your missed 8606 would have made a distribution partially tax-free in a subsequent year, and that subsequent year is still open under §6511 (three years from filing, or two years from tax paid, whichever is later), you can also amend the distribution year via Form 1040-X to claim a refund. The §6501(e) six-year rule extends the assessment window to six years if the missed reporting caused a 25%+ omission from gross income; the mirror-image refund window remains three years.</p>
+
+<h2 id="inherited">11. Form 8606 for inherited IRAs, spousal, and after death</h2>
+
+<p>Inherited IRAs get their own basis chain. If you inherit a Traditional IRA that carried basis, the decedent's Form 8606 basis transfers to you and you file Form 8606 for any distribution from that inherited IRA. Critically, inherited IRA basis does <em>not</em> mix with your own IRA basis for pro-rata purposes — they are separate pools under IRC §408(d)(2)(B).<sup><a href="#source-13">[13]</a></sup> A separate Form 8606 is filed for each inherited IRA pool.</p>
+
+<p>Spousal rollovers under IRC §402(c)(9) are the exception: a spouse who elects to treat an inherited IRA as their own (rather than as an "inherited IRA") merges the basis into their own IRA pool. This is often the better tax move at the cost of losing the age 59½ / RMD carve-out that inherited-IRA status confers on a younger surviving spouse.</p>
+
+<p>After the account owner's death, the estate or the beneficiary files a final Form 8606 for the year of death if the decedent had a filing requirement. The SECURE Act's 10-year distribution rule applies to non-spouse beneficiaries who inherit after 2019, and every year they take a distribution while basis remains, another 8606 filing is triggered — no different mechanically from any other basis-tracking chain, just with a shorter runway.</p>
+
+<h2 id="checklist">12. Your 8-item Form 8606 checklist for 2026</h2>
+
+<div class="checklist">
+<h3>Do this before you file your 2025 return by April 15, 2026 (or your 2026 return in April 2027):</h3>
+<ol>
+<li><strong>Pull every Form 5498 in your name for the year.</strong> Each custodian sends one by May 31 covering contributions and December 31 value. If you had IRAs at multiple custodians, you need every one.</li>
+<li><strong>Compute Line 6 as the sum of every Traditional/SEP/SIMPLE IRA balance on December 31.</strong> Include dormant rollover IRAs at prior custodians. Do NOT include Roth IRAs, Roth 401(k)s, or workplace 401(k)s.</li>
+<li><strong>Confirm Line 2 matches Line 14 of your most recently filed 8606.</strong> If a prior year 8606 is missing, file the standalone correction now — do not skip forward with a false Line 2.</li>
+<li><strong>If you did a backdoor Roth, verify the conversion appears in Part II Line 16</strong> and that the amount matches Form 1099-R Box 1 from the custodian.</li>
+<li><strong>If Line 6 is nonzero and you did a conversion, model the pro-rata ratio</strong> using the <a href="/backdoor-roth-calculator.html">backdoor Roth calculator</a> before filing — the difference between a clean backdoor and a polluted one is often $1,500+ in avoidable federal tax.</li>
+<li><strong>If Line 6 will be nonzero at year-end, execute the one-day rollover</strong> to your employer's 401(k) <em>before December 31</em>. The Form 8606 snapshot is calendar-year — a January reverse rollover is too late for the prior tax year.</li>
+<li><strong>File a separate 8606 for each spouse who triggers a filing requirement.</strong> Basis is per person. Never combine spouses on a single form.</li>
+<li><strong>Retain every Form 8606 you have ever filed indefinitely.</strong> Unlike most tax records, which the IRS suggests keeping for 3–7 years, basis records must survive as long as the IRA (i.e., decades). Store PDFs in your permanent tax file.</li>
+</ol>
+</div>
+
+<a class="cta-calc" href="/roth-ira-conversion-calculator.html">
+  <span class="ic">🔄</span>
+  <div>
+    <h4>Model a Roth conversion after your rollover fix</h4>
+    <p>See the year-by-year growth of your converted balance plus the tax cost of the conversion year.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<h2 id="faq">13. Frequently asked questions</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>Who is required to file Form 8606 in 2026?</h3>
+<p>Any taxpayer who (1) made a nondeductible contribution to a Traditional IRA for the tax year, (2) received a distribution from a Traditional, SEP, or SIMPLE IRA while carrying basis, (3) converted any amount from a Traditional/SEP/SIMPLE IRA to a Roth IRA, or (4) took a nonqualified Roth IRA distribution. That covers essentially every backdoor Roth participant. The form attaches to your Form 1040 and is filed for each spouse separately if both trigger the form.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the penalty for not filing Form 8606?</h3>
+<p>IRC §6693(b) imposes a $50 penalty per year for failing to file Form 8606 when required, unless you can show reasonable cause. A separate $100 penalty applies to overstating nondeductible contributions. The bigger, silent cost is losing basis: without a filed 8606 on record you cannot prove that any part of a later distribution is tax-free, and the IRS defaults to treating the entire withdrawal as taxable ordinary income.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does the pro-rata rule work with Form 8606?</h3>
+<p>IRC §408(d)(2) requires you to combine all Traditional, SEP, and SIMPLE IRA balances into one pool for the taxability calculation. Form 8606 Line 6 asks for the December 31 total value of that pool, Line 5 asks for your total basis, and Line 10 divides the two to produce your nondeductible ratio. If you have $30,000 of basis in a $300,000 combined balance, only 10% of any distribution or conversion is tax-free — the other 90% is taxable, no matter which specific account you withdrew from.</p>
+</div>
+
+<div class="faq-item">
+<h3>Do I need Form 8606 for a Roth 401(k) contribution or a Roth 401(k) to Roth IRA rollover?</h3>
+<p>No. Form 8606 only tracks IRA-side basis. Roth 401(k) contributions are reported on your W-2 in Box 12 Code AA, and Roth 401(k) to Roth IRA rollovers are reported on Form 1099-R with Distribution Code H — neither touches Form 8606. If you also have Roth IRA basis or converted amounts, however, those still get tracked on Part III of Form 8606 in the year you take a nonqualified Roth distribution.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the one-day rollover fix for the pro-rata rule?</h3>
+<p>IRC §408(d)(3)(A)(ii) allows any pretax Traditional IRA balance to be rolled into a workplace 401(k) plan that accepts incoming rollovers, and the transferred amount is not counted in the December 31 pro-rata denominator. If you roll every pretax dollar out of your IRAs before December 31, your Form 8606 Line 6 shows only the after-tax basis, the ratio hits 100%, and any conversion that year (including the backdoor Roth) is fully tax-free. The rollover must be complete by December 31 of the same tax year as the conversion — the form takes a year-end snapshot.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can I amend a prior year's Form 8606 to reclaim missed basis?</h3>
+<p>Yes, and the IRS explicitly allows a standalone Form 8606 amendment even when no other line on the return changes. The general three-year statute of limitations under IRC §6511 does not apply — you can file a corrected Form 8606 for any prior year in which you made a nondeductible contribution that went unreported. The IRS may still assess the $50-per-year late-filing penalty per §6693(b), but the basis itself is recoverable. Attach a statement explaining the correction and mail the standalone 8606 (do not use Form 1040-X unless the amendment also changes taxable income).</p>
+</div>
+
+<div class="faq-item">
+<h3>Which spouse files Form 8606 when only one made a nondeductible contribution?</h3>
+<p>Each spouse files a separate Form 8606 under their own SSN when they trigger a filing requirement. IRAs are individual accounts by law (the "I" is "Individual"), so basis and pro-rata ratios are tracked per person, not per household — even on a joint return. If both spouses did backdoor Roths, you attach two Forms 8606 to the same Form 1040. If only one did, only one form gets attached.</p>
+</div>
+
+<div class="faq-item">
+<h3>What's the difference between basis on Form 8606 and basis on Form 5498?</h3>
+<p>Form 5498 is what the IRA custodian files to report contributions and year-end fair market value. It shows what you contributed but not whether the contribution was deductible or nondeductible — the custodian has no way to know. Form 8606 is where you (the taxpayer) declare that portion of your Traditional IRA contribution as nondeductible. Form 5498 is informational and gets a copy sent to the IRS; Form 8606 is the legal record of your basis. If they disagree, Form 8606 controls for basis tracking.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does a backdoor Roth conversion require Form 8606 every year I do one?</h3>
+<p>Yes. Each year you make a nondeductible contribution AND each year you do a conversion, both Parts I and II of Form 8606 must be filed for that tax year. Line 1 shows this year's nondeductible contribution; Line 2 carries forward prior basis; Line 8 shows the amount converted; Line 18 (Part II) reports the taxable portion of the conversion. The backdoor Roth is the single most common reason a Form 8606 shows up on a return, and skipping it in any year breaks the basis chain going forward.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the deadline for filing Form 8606 for 2025 contributions?</h3>
+<p>Form 8606 for tax year 2025 is due with your Form 1040 by April 15, 2026 (or October 15, 2026 if you filed Form 4868 for an extension). You can also make a 2025 nondeductible contribution up until April 15, 2026 and still report it on the 2025 Form 8606 — the IRA contribution deadline mirrors the return deadline. Conversion actions, however, are tied to the calendar year they occur — a January 2026 conversion is a 2026 event even if funded by a 2025 contribution.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>Every dollar figure, statutory citation, and mechanical rule in this article is sourced to the 2025 Instructions for Form 8606, the 2025 Form 8606 itself, the underlying Internal Revenue Code sections, IRS Notice 2025-67 (which established the 2026 contribution limits and MAGI phaseouts), and IRS Publication 590-A / 590-B for supporting operational detail. The 2026 IRA contribution limit is $7,500 ($8,600 with §219(b)(5)(B) catch-up); 2026 Roth IRA MAGI phaseouts are $153,000–$168,000 (single) and $242,000–$252,000 (MFJ). Worked examples use TY2025-26 24% marginal federal bracket for a single filer at $180,000 income. State income tax is estimated at 5% (California-typical after credits) for the polluted-backdoor case study and is not modeled elsewhere. Pro-rata ratio calculations follow IRC §408(d)(2) and the 2025 Form 8606 line ordering exactly. Rates, dollar amounts, and statutory citations verified as of July 8, 2026.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Employee Benefit Research Institute, IRA Database — nondeductible contribution and Roth conversion volumes. <a href="https://www.ebri.org/retirement/ira-database" rel="nofollow noopener">ebri.org</a></li>
+<li id="source-2">Internal Revenue Code §6693(b), penalty for failure to file Form 8606 and §6693(b)(2) for overstating nondeductible contributions. <a href="https://www.law.cornell.edu/uscode/text/26/6693" rel="nofollow noopener">law.cornell.edu/uscode/text/26/6693</a></li>
+<li id="source-3">Internal Revenue Service, Notice 2025-67 / IR-2025-176, "401(k) limit increases to $24,500 for 2026, IRA limit increases to $7,500." <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" rel="nofollow noopener">irs.gov/newsroom</a></li>
+<li id="source-4">Internal Revenue Service, 2025 Instructions for Form 8606 (Nondeductible IRAs). <a href="https://www.irs.gov/instructions/i8606" rel="nofollow noopener">irs.gov/instructions/i8606</a></li>
+<li id="source-5">Internal Revenue Service, Notice 2014-54, "Allocation of After-Tax Amounts to Rollovers." <a href="https://www.irs.gov/pub/irs-drop/n-14-54.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-14-54</a></li>
+<li id="source-6">Internal Revenue Service, About Form 5498, IRA Contribution Information. <a href="https://www.irs.gov/forms-pubs/about-form-5498" rel="nofollow noopener">irs.gov/forms-pubs/about-form-5498</a></li>
+<li id="source-7">Internal Revenue Service, 2025 Instructions for Forms 1099-R and 5498. <a href="https://www.irs.gov/instructions/i1099r" rel="nofollow noopener">irs.gov/instructions/i1099r</a></li>
+<li id="source-8">Internal Revenue Code §408A(d)(4), Roth IRA ordering rules for distributions. <a href="https://www.law.cornell.edu/uscode/text/26/408A" rel="nofollow noopener">law.cornell.edu/uscode/text/26/408A</a></li>
+<li id="source-9">Internal Revenue Code §408(d)(3)(A)(ii), rollover contribution to eligible retirement plan. <a href="https://www.law.cornell.edu/uscode/text/26/408" rel="nofollow noopener">law.cornell.edu/uscode/text/26/408</a></li>
+<li id="source-10">Plan Sponsor Council of America, 67th Annual Survey of Profit Sharing and 401(k) Plans — incoming rollover feature adoption rates. <a href="https://www.psca.org/research/401k/67thAS" rel="nofollow noopener">psca.org/research</a></li>
+<li id="source-11">Internal Revenue Service, Publication 590-A, Contributions to Individual Retirement Arrangements (IRAs) — Recharacterizations and standalone amendments. <a href="https://www.irs.gov/publications/p590a" rel="nofollow noopener">irs.gov/publications/p590a</a></li>
+<li id="source-12">Internal Revenue Service, Publication 590-B, Distributions from Individual Retirement Arrangements (IRAs). <a href="https://www.irs.gov/publications/p590b" rel="nofollow noopener">irs.gov/publications/p590b</a></li>
+<li id="source-13">Internal Revenue Code §408(d)(2)(B), separate aggregation for inherited IRAs. <a href="https://www.law.cornell.edu/uscode/text/26/408" rel="nofollow noopener">law.cornell.edu/uscode/text/26/408</a></li>
+<li id="source-14">Internal Revenue Service, About Form 8606, Nondeductible IRAs (2025 form and instructions). <a href="https://www.irs.gov/forms-pubs/about-form-8606" rel="nofollow noopener">irs.gov/forms-pubs/about-form-8606</a></li>
+<li id="source-15">Setting Every Community Up for Retirement Enhancement Act of 2019 (SECURE Act), Pub. L. 116-94, §401 — 10-year distribution rule for non-spouse beneficiaries. <a href="https://www.congress.gov/bill/116th-congress/house-bill/1994" rel="nofollow noopener">congress.gov</a></li>
+<li id="source-16">Internal Revenue Service, Retirement Topics — Beneficiary. <a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-beneficiary" rel="nofollow noopener">irs.gov/retirement-plans</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized tax advice. Tax rules change and individual situations vary. Consult a fee-only fiduciary advisor or a CPA/EA before executing a backdoor Roth, reverse rollover, or 8606 amendment. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Results may not reflect your actual situation. Tax rules change frequently. Always verify current IRS forms, instructions, and rulings before filing and consult a qualified tax professional. CalcLeap is not a tax advisor and does not provide personalized tax advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#what-it-is">What Form 8606 actually is</a></li>
+        <li><a href="#who-must-file">Who is required to file it</a></li>
+        <li><a href="#triggers">The three trigger events</a></li>
+        <li><a href="#part-i">Part I line by line</a></li>
+        <li><a href="#part-ii">Part II — backdoor Roth reporting</a></li>
+        <li><a href="#part-iii">Part III — nonqualified Roth distributions</a></li>
+        <li><a href="#pro-rata-trap">The pro-rata trap in dollars</a></li>
+        <li><a href="#rollover-fix">The one-day rollover fix</a></li>
+        <li><a href="#mistakes">Common mistakes that cost basis</a></li>
+        <li><a href="#amendments">Amending prior 8606s</a></li>
+        <li><a href="#inherited">Inherited IRAs and spousal</a></li>
+        <li><a href="#checklist">Your 8-item 2026 checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/backdoor-roth-calculator.html">Backdoor Roth Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth Conversion Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/mega-backdoor-roth-calculator.html">Mega Backdoor Roth Calculator</a>
+      <a href="/sep-ira-calculator.html">SEP IRA Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/backdoor-roth-ira-2026.html">Backdoor Roth IRA in 2026</a>
+      <a href="/blog/roth-401k-vs-traditional-401k-2026.html">Roth 401(k) vs Traditional 401(k) 2026</a>
+      <a href="/blog/roth-ira-vs-traditional-ira-2026.html">Roth IRA vs Traditional IRA 2026</a>
+      <a href="/blog/roth-conversion-ladder-early-retirement-2026.html">Roth conversion ladder</a>
+      <a href="/blog/sep-ira-vs-solo-401k-2026.html">SEP-IRA vs Solo 401(k) 2026</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
