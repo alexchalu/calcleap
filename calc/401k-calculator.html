@@ -1,546 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>401(k) Calculator - Free Investment Tool | CalcLeap</title>
-<meta name="description" content="Calculate 401(k) retirement savings with employer match. Free online 401(k) calculator with detailed results. No signup required.">
-<link rel="canonical" href="https://calcleap.com/calc/401k-calculator.html">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calcleap.com/calc/401k-calculator.html">
-<meta property="og:title" content="401(k) Calculator - Free Investment Tool">
-<meta property="og:description" content="Calculate 401(k) retirement savings with employer match. Free online 401(k) calculator with detailed results. No signup required.">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-
-<style>
-
-/* === CalcLeap Apple Design System === */
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --white:#fff;--bg:#f5f5f7;--surface:#fff;
-  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
-  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
-  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
-  --r:16px;--r-sm:12px;--r-xs:8px;
-  --mw:980px;
-  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.5}
-a{color:inherit;text-decoration:none}
-
-/* === NAV === */
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:.15rem}
-.nav-links a{font-size:.8rem;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:all .15s}
-.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
-
-/* === LAYOUT === */
-.page{max-width:var(--mw);margin:0 auto;padding:0 2rem}
-
-.breadcrumb{padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
-.breadcrumb a{color:var(--text-2)}.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb .sep{margin:0 .35rem;opacity:.4}
-
-.page-title{font-size:2.25rem;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.page-desc{font-size:1.05rem;color:var(--text-2);line-height:1.5;margin-bottom:2rem;max-width:600px}
-
-/* === CALCULATOR CARD === */
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.card h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.3rem}
-.form-group label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase}
-.form-group input,.form-group select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-.toggle-row{display:flex;gap:.5rem;margin-bottom:1.25rem}
-.toggle-btn{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.5rem}
-.btn:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* === RESULTS === */
-.result-area{display:none;margin-top:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-.bmi-big{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-.bmi-label{font-size:1.1rem;font-weight:600;margin-top:.25rem}
-.bmi-advice{font-size:.875rem;color:var(--text-2);margin-top:.75rem;line-height:1.6}
-
-.gauge{margin:1.5rem 0;position:relative}
-.gauge-bar{display:flex;height:10px;border-radius:100px;overflow:hidden;gap:2px}
-.gauge-seg{height:100%;border-radius:100px}
-.gauge-marker{position:absolute;top:-4px;width:3px;height:18px;background:var(--text);border-radius:2px;transform:translateX(-50%);transition:left .4s ease;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-.gauge-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-3);margin-top:.4rem;padding:0 .1rem}
-
-.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.stat-row:last-child{border-bottom:none}
-.stat-label{font-size:.85rem;color:var(--text-2)}
-.stat-value{font-size:.95rem;font-weight:700}
-
-/* === AD === */
-.ad-slot{margin:1.5rem 0}
-
-/* === INFO SECTIONS === */
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.info-card h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem}
-th{background:var(--bg);font-weight:600;text-align:left;padding:.6rem .85rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3)}
-th:first-child{border-radius:var(--r-xs) 0 0 var(--r-xs)}
-th:last-child{border-radius:0 var(--r-xs) var(--r-xs) 0}
-td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;vertical-align:middle}
-
-/* FAQ */
-.faq{border-top:1px solid var(--border);padding:.85rem 0}
-.faq:last-child{border-bottom:none}
-.faq-q{font-size:.9rem;font-weight:600;margin-bottom:.35rem}
-.faq-a{font-size:.85rem;color:var(--text-2);line-height:1.65}
-
-/* Related */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.related-link{display:block;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.8rem;color:var(--text-2);font-weight:500;transition:all .2s}
-.related-link:hover{border-color:var(--accent);color:var(--accent)}
-
-/* === FOOTER === */
-.footer{border-top:1px solid var(--border);margin-top:3rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
-.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.footer h5{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
-.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
-.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s}
-.footer a:hover{color:var(--text)}
-.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
-.footer-bottom p{font-size:.72rem;color:var(--text-3)}
-
-/* === RESPONSIVE === */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .page{padding:0 1.25rem}
-  .page-title{font-size:1.75rem}
-  .form-row{grid-template-columns:1fr}
-  .related-grid{grid-template-columns:1fr 1fr}
-  .footer-inner{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .related-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-}
-
-
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
-@media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
-}
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
-</style>
-<meta property="og:image" content="https://calcleap.com/og-default.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>401(k) Calculator 2026 — $24,500 §402(g) + $8,000 / $11,250 Catch-Up, §415(c) $72K Cap, SECURE 2.0 §603 Roth Catch-Up | CalcLeap</title>
+    <meta name="description" content="2026 401(k) calculator with the actual IRS Notice 2025-67 numbers — $24,500 §402(g) elective deferral, $8,000 age-50 catch-up, $11,250 age-60-63 super catch-up, $72,000 §415(c) ceiling, $360,000 §401(a)(17) compensation cap, and SECURE 2.0 §603 mandatory-Roth-catch-up detection above $150,000 prior-year FICA wages. Traditional / Roth / Split bucket toggle. Employer match modeled with §401(a)(17) comp cap and §415(c) combined ceiling.">
+    <link rel="canonical" href="https://calcleap.com/calc/401k-calculator.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calcleap.com/calc/401k-calculator.html">
+    <meta property="og:title" content="401(k) Calculator 2026 — Traditional / Roth / Split, §402(g) + Catch-Up, Employer Match, Projected Balance">
+    <meta property="og:description" content="Models the 2026 IRS Notice 2025-67 401(k) numbers ($24,500 base / $8,000 catch-up / $11,250 super catch-up / $72,000 §415(c) / $360,000 §401(a)(17)) with SECURE 2.0 §603 mandatory-Roth-catch-up detection above $150,000 salary.">
+    <meta property="og:image" content="https://calcleap.com/og-default.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Retirement Calculators","item":"https://calcleap.com/index.html#finance"},{"@type":"ListItem","position":3,"name":"401(k) Calculator","item":"https://calcleap.com/calc/401k-calculator.html"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the 2026 401(k) contribution limit?","acceptedAnswer":{"@type":"Answer","text":"For 2026, per IRS Notice 2025-67 and IR-2025-176, the base §402(g) employee elective deferral limit is $24,500 (up from $23,500 in 2025). Employees age 50+ get an additional $8,000 catch-up under IRC §414(v)(2) for a total of $32,500. Employees age 60-63 get the SECURE 2.0 §109 super catch-up of $11,250 (replacing the standard $8,000) for a total of $35,750. The combined §415(c)(1)(A) annual defined-contribution ceiling — employee + employer — is $72,000. Compensation above $360,000 (§401(a)(17)) is ignored when computing employer contributions."}},{"@type":"Question","name":"What is the SECURE 2.0 §603 mandatory Roth catch-up rule?","acceptedAnswer":{"@type":"Answer","text":"Effective January 1, 2026 (delayed from 2024 by IRS Notice 2023-62 administrative-transition relief), IRC §414(v)(7) as enacted by SECURE 2.0 §603 requires that catch-up contributions for participants whose prior-year FICA wages from the same employer exceeded $150,000 (indexed) be made on a Roth (after-tax) basis. Traditional pre-tax catch-up is disallowed for these participants. New hires with zero prior-year FICA wages from that employer, Schedule C sole proprietors, and Solo 401(k) sponsors are exempt because the wage test is applied per-employer. If your salary is above $150,000 and you are 50 or older, the calculator automatically routes your $8,000 (or $11,250 for age 60-63) catch-up to the Roth bucket regardless of your Traditional / Roth / Split bucket election."}},{"@type":"Question","name":"How is the employer match calculated?","acceptedAnswer":{"@type":"Answer","text":"The calculator models the standard 401(k) matching formula as (match rate) × (match cap % of compensation). For example, a 100% match on the first 5% of pay applied to a $100,000 salary produces a $5,000 match. Two caps then bite: (1) the §401(a)(17) $360,000 compensation cap for 2026, which limits the salary used in the match calculation — so a $500,000 earner with an 8% match cap is matched on 8% × $360,000 = $28,800, not 8% × $500,000 = $40,000; and (2) the §415(c) $72,000 total-DC ceiling, which caps the sum of employee deferrals and employer contributions. Employer matches are always pre-tax (Traditional) unless the plan has elected to allow SECURE 2.0 §604 Roth employer matches, which is optional and not universally offered — the calculator models employer contributions as Traditional pre-tax by default."}},{"@type":"Question","name":"Traditional vs Roth 401(k): which should I choose?","acceptedAnswer":{"@type":"Answer","text":"The break-even rule is the bracket-arbitrage ratio (1−t_now)/(1−t_later), which comes from the algebraic equivalence of $10,000 × (1+r)^n × (1−t_later) versus $10,000 × (1−t_now) × (1+r)^n. If you expect to be in a HIGHER bracket in retirement (typically because you are early in your career or plan to work into your peak-earning years), Roth wins. If you expect to be in a LOWER bracket in retirement (typically peak earners near retirement), Traditional wins. Roth also wins if the marginal tax rate is legislated up (as under the pre-OBBBA sunset), if you are subject to SECURE 2.0 §603 mandatory-Roth-catch-up (>$150K salary, age 50+), if you plan to fund a Roth conversion ladder, or if you value inheritance flexibility (Roth has no RMDs under SECURE 2.0 §325). See our Roth vs Traditional 401(k) in 2026 deep-dive for the full 4-scenario worked-example table."}},{"@type":"Question","name":"Do I lose the employer match if I hit the $24,500 §402(g) cap early?","acceptedAnswer":{"@type":"Answer","text":"Not automatically, but you may — this is the front-loading trap. The §402(g) $24,500 cap is annual, not per-paycheck. If you set your deferral rate high enough to hit $24,500 in June, your employee contributions stop for the rest of the year — and if your employer matches per-paycheck (the most common formula), your match also stops the moment your deferral hits zero, forfeiting the remaining match capacity. To avoid the front-loading trap, either (a) confirm your plan has a 'true-up' provision that back-fills the missed match at year-end (most Fortune 500 plans do; check your Summary Plan Description), or (b) spread your deferrals across the full year by setting the annual contribution to exactly $24,500 ÷ pay-periods, so you receive the match on every check. The calculator assumes you receive the full match — if your plan does not true-up and you front-load, your actual match will be lower."}}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
+        .header { background: white; border-bottom: 1px solid #e5e5e7; padding: 1rem 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(255,255,255,0.8); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 2rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem; }
+        .header p { color: #6e6e73; font-size: 1.1rem; }
+        .main { padding: 3rem 0; }
+        .calc-box { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
+        .calc-box h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; color: #1d1d1f; }
+        .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.5rem; }
+        .input-group { margin-bottom: 1rem; }
+        .input-group.full { grid-column: 1 / -1; }
+        .input-group label { display: block; margin-bottom: 0.4rem; font-weight: 500; color: #1d1d1f; font-size: 0.95rem; }
+        .input-group input, .input-group select { width: 100%; padding: 0.75rem 1rem; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 1rem; transition: all 0.2s; background: white; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #0071e3; box-shadow: 0 0 0 4px rgba(0,113,227,0.1); }
+        .input-group small { color: #6e6e73; font-size: 0.85rem; display: block; margin-top: 0.25rem; }
+        .calc-btn { background: #0071e3; color: white; border: none; padding: 1rem 2rem; font-size: 1.125rem; font-weight: 500; border-radius: 12px; cursor: pointer; width: 100%; transition: background 0.2s; margin-top: 1rem; }
+        .calc-btn:hover { background: #0077ed; }
+        .result-box { background: linear-gradient(135deg, #f5f9ff 0%, #e8f4ff 100%); border: 1px solid #0071e3; padding: 2rem; border-radius: 18px; margin-top: 1.5rem; display: none; }
+        .result-box h3 { color: #0071e3; margin-bottom: 1.25rem; font-size: 1.4rem; font-weight: 600; }
+        .result-value { font-size: 2.5rem; font-weight: 700; color: #0071e3; margin: 0.5rem 0; }
+        .result-detail { margin: 0.6rem 0; color: #1d1d1f; font-size: 1rem; }
+        .result-detail strong { font-weight: 600; }
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+        .split-card { background: white; border: 1px solid #e5e5e7; border-radius: 12px; padding: 1rem; }
+        .split-card .lbl { font-size: 0.8rem; color: #6e6e73; text-transform: uppercase; letter-spacing: 0.03em; font-weight: 600; margin-bottom: 0.25rem; }
+        .split-card .val { font-size: 1.5rem; font-weight: 700; color: #1d1d1f; }
+        .chart-container { margin: 1.5rem 0; }
+        .bar-chart { display: flex; gap: 0.5rem; align-items: flex-end; height: 200px; }
+        .bar { flex: 1; background: linear-gradient(to top, #0071e3, #00a1ff); border-radius: 8px 8px 0 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0.5rem; color: white; font-weight: 600; font-size: 0.9rem; }
+        .bar.roth { background: linear-gradient(to top, #059669, #10b981); }
+        .bar.match { background: linear-gradient(to top, #f59e0b, #fbbf24); }
+        .bar.growth { background: linear-gradient(to top, #7c3aed, #a78bfa); }
+        .bar-label { margin-top: 0.5rem; font-size: 0.85rem; color: #6e6e73; text-align: center; flex: 1; }
+        .info-section { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
+        .info-section h3 { color: #1d1d1f; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600; margin-top: 1.5rem; }
+        .info-section h3:first-child { margin-top: 0; }
+        .info-section p { margin-bottom: 1rem; color: #1d1d1f; line-height: 1.7; }
+        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section li { margin-bottom: 0.5rem; color: #1d1d1f; }
+        .callout { background: #f5f9ff; border-left: 4px solid #0071e3; padding: 0.85rem 1rem; border-radius: 0 6px 6px 0; margin: 1rem 0; font-size: 0.95rem; }
+        .warning { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 0.85rem 1rem; border-radius: 0 6px 6px 0; margin: 1rem 0; font-size: 0.95rem; color: #78350f; }
+        .warning a { color: #92400e; text-decoration: underline; }
+        .footer { background: #f5f5f7; padding: 2rem 0; text-align: center; border-top: 1px solid #e5e5e7; margin-top: 4rem; }
+        .footer a { color: #0071e3; text-decoration: none; }
+        .nav-simple { display: flex; gap: 1rem; font-size: 0.9rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+        .nav-simple a { color: #0071e3; text-decoration: none; }
+        .breadcrumb { font-size: 0.85rem; color: #6e6e73; margin-bottom: 0.75rem; }
+        .breadcrumb a { color: #0071e3; text-decoration: none; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.5rem; }
+            .calc-box, .info-section { padding: 1.5rem; }
+            .input-grid { grid-template-columns: 1fr; }
+            .split-grid { grid-template-columns: 1fr; }
+            .bar-chart { height: 150px; }
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="/index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="/index.html#finance">Finance</a>
-      <a href="/index.html#insurance">Insurance</a>
-      <a href="/index.html#tax">Tax</a>
-      <a href="/index.html#health">Health</a>
-      <a href="/index.html#converters">Converters</a>
-      <a href="/index.html#dev">Dev Tools</a>
-      <a href="/about.html">About</a>
-    </div>
-  </div>
-</nav>
-
-<div class="page" id="main-content" role="main">
-  <div class="breadcrumb">
-    <a href="/index.html">Home</a><span class="sep">›</span><a href="/index.html#finance">Finance</a><span class="sep">›</span>401(k) Calculator
-  </div>
-
-  <h1 class="page-title">401(k) Calculator</h1>
-  <p class="page-desc">Calculate 401(k) retirement savings with employer match. Free online 401(k) calculator with detailed results. No signup required.</p>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position='fixed';this.style.left='0';this.style.top='0';this.style.width='auto';this.style.height='auto';this.style.overflow='visible'" onblur="this.style.position='absolute';this.style.left='-9999px';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden'">Skip to content</a>
 
 <div class="header">
-        <div class="container">
-            
-            <p>Calculate 401(k) retirement savings with employer match</p>
-            </div>
+    <div class="container">
+        <div class="nav-simple">
+            <a href="/index.html">Home</a>
+            <a href="/index.html#finance">Finance</a>
+            <a href="/index.html#tax">Tax</a>
+            <a href="/about.html">About</a>
+        </div>
+        <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/index.html#finance">Retirement Calculators</a> &rsaquo; 401(k) Calculator</div>
+        <h1>401(k) Calculator (2026)</h1>
+        <p>Model your 2026 401(k) employee deferral, employer match, and projected retirement balance under the actual IRS Notice 2025-67 numbers &mdash; including SECURE 2.0 &sect;603 mandatory-Roth-catch-up detection.</p>
     </div>
-
-    <div class="main container">
-        <!-- Ad Slot 1 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="calculator-box">
-            <h2>401(k) Calculator</h2>
-            <form id="calc-form">
-                <div class="form-grid" id="inputs"></div>
-                <button type="submit" class="btn">Calculate</button>
-            </form>
-            <div class="result-box" id="results">
-                <h3>Results</h3>
-                <div id="result-content"></div>
-            </div>
-        </div>
-
-        <!-- Ad Slot 2 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>About 401(k) Calculator</h3>
-            <div id="info-content"></div>
-        </div>
-
-        <!-- Ad Slot 3 -->
-        <div class="ad-placeholder">
-            
-        </div>
-
-        <div class="info-section">
-            <h3>More Investment & Financial Tools</h3>
-            <p>Check out our other calculators:</p>
-            <ul>
-                <li><a href="../index.html">CalcLeap Home - All Tools</a></li>
-                <li><a href="https://calcleap.com/">SmartCalc - Financial Calculators</a></li>
-                <li><a href="https://calcleap.com/">HealthCalcs - Health & Wellness</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online tools and calculators.</p>
-            <p><a href="../index.html">Home</a> | <a href="https://calcleap.com/">SmartCalc</a> | <a href="https://calcleap.com/">HealthCalcs</a></p>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">Calculations are for informational purposes only. Consult a financial advisor for investment advice.</p>
-        </div>
-    </div>
-
-    <script src="../app-calculator.js"></script>
-    <script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "age",
-      "label": "Current Age",
-      "type": "number",
-      "placeholder": "30",
-      "min": 18,
-      "max": 100
-    },
-    {
-      "name": "retirementAge",
-      "label": "Retirement Age",
-      "type": "number",
-      "placeholder": "65",
-      "min": 50,
-      "max": 80
-    },
-    {
-      "name": "currentBalance",
-      "label": "Current 401(k) Balance ($)",
-      "type": "number",
-      "placeholder": "50000",
-      "min": 0
-    },
-    {
-      "name": "annualSalary",
-      "label": "Annual Salary ($)",
-      "type": "number",
-      "placeholder": "75000",
-      "min": 0
-    },
-    {
-      "name": "contribution",
-      "label": "Your Contribution (%)",
-      "type": "number",
-      "placeholder": "10",
-      "min": 0,
-      "max": 100,
-      "step": 0.5
-    },
-    {
-      "name": "employerMatch",
-      "label": "Employer Match (%)",
-      "type": "number",
-      "placeholder": "5",
-      "min": 0,
-      "max": 50,
-      "step": 0.5
-    },
-    {
-      "name": "returnRate",
-      "label": "Annual Return Rate (%)",
-      "type": "number",
-      "placeholder": "7",
-      "min": 0,
-      "max": 30,
-      "step": 0.1
-    },
-    {
-      "name": "salaryIncrease",
-      "label": "Annual Salary Increase (%)",
-      "type": "number",
-      "placeholder": "3",
-      "min": 0,
-      "max": 20,
-      "step": 0.1
-    }
-  ],
-  "info": "<p>A 401(k) is a retirement savings plan sponsored by an employer. Contributions are made pre-tax, reducing your taxable income.</p><p><strong>Key Points:</strong></p><ul><li>2026 contribution limit: $23,500 (under 50), $31,000 (50+)</li><li>Employer match is free money - always contribute enough to get the full match</li><li>Earnings grow tax-deferred until withdrawal</li><li>Early withdrawals before age 59½ face 10% penalty + income tax</li></ul>"
-};
-        initCalculator(calcConfig);
-    </script>
-<script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "age",
-      "label": "Current Age",
-      "type": "number",
-      "placeholder": "30",
-      "min": 18,
-      "max": 100
-    },
-    {
-      "name": "retirementAge",
-      "label": "Retirement Age",
-      "type": "number",
-      "placeholder": "65",
-      "min": 50,
-      "max": 80
-    },
-    {
-      "name": "currentBalance",
-      "label": "Current 401(k) Balance ($)",
-      "type": "number",
-      "placeholder": "50000",
-      "min": 0
-    },
-    {
-      "name": "annualSalary",
-      "label": "Annual Salary ($)",
-      "type": "number",
-      "placeholder": "75000",
-      "min": 0
-    },
-    {
-      "name": "contribution",
-      "label": "Your Contribution (%)",
-      "type": "number",
-      "placeholder": "10",
-      "min": 0,
-      "max": 100,
-      "step": 0.5
-    },
-    {
-      "name": "employerMatch",
-      "label": "Employer Match (%)",
-      "type": "number",
-      "placeholder": "5",
-      "min": 0,
-      "max": 50,
-      "step": 0.5
-    },
-    {
-      "name": "returnRate",
-      "label": "Annual Return Rate (%)",
-      "type": "number",
-      "placeholder": "7",
-      "min": 0,
-      "max": 30,
-      "step": 0.1
-    },
-    {
-      "name": "salaryIncrease",
-      "label": "Annual Salary Increase (%)",
-      "type": "number",
-      "placeholder": "3",
-      "min": 0,
-      "max": 20,
-      "step": 0.1
-    }
-  ],
-  "info": "<p>A 401(k) is a retirement savings plan sponsored by an employer. Contributions are made pre-tax, reducing your taxable income.</p><p><strong>Key Points:</strong></p><ul><li>2026 contribution limit: $23,500 (under 50), $31,000 (50+)</li><li>Employer match is free money - always contribute enough to get the full match</li><li>Earnings grow tax-deferred until withdrawal</li><li>Early withdrawals before age 59½ face 10% penalty + income tax</li></ul>"
-};
-        initCalculator(calcConfig);
-    </script>
-
 </div>
 
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, market conditions, and other factors. Always consult a qualified financial advisor, CPA, or licensed professional before making financial decisions. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
-<footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="/index.html">Calc<span>Leap</span></a>
-      <p style="margin-top:.4rem">Fast, beautiful, private calculators. Free forever.</p>
+<div class="main" id="main-content" role="main">
+    <div class="container">
+        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:0 0 2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div class="calc-box">
+            <h2>Calculate Your 2026 401(k)</h2>
+            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your age, salary, contribution rate, and employer match. The calculator applies the 2026 IRS Notice 2025-67 limits ($24,500 &sect;402(g) base / $8,000 age-50 catch-up / $11,250 age-60-63 super catch-up / $72,000 &sect;415(c) ceiling / $360,000 &sect;401(a)(17) comp cap) and routes your catch-up to Roth when SECURE 2.0 &sect;603 is triggered (salary &gt; $150,000 and age 50+).</p>
+
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="age">Current Age</label>
+                    <input type="number" id="age" min="18" max="79" value="35" step="1">
+                    <small>Age 50+ unlocks the $8,000 catch-up. Age 60-63 unlocks the $11,250 super catch-up (replaces standard catch-up).</small>
+                </div>
+                <div class="input-group">
+                    <label for="retAge">Retirement Age</label>
+                    <input type="number" id="retAge" min="50" max="80" value="65" step="1">
+                    <small>Projection horizon = retirement age &minus; current age.</small>
+                </div>
+                <div class="input-group">
+                    <label for="salary">Annual Salary ($)</label>
+                    <input type="number" id="salary" min="0" value="100000" step="1000">
+                    <small>Your gross W-2 compensation. Above $150,000, SECURE 2.0 &sect;603 forces catch-up to Roth for participants age 50+.</small>
+                </div>
+                <div class="input-group">
+                    <label for="salaryInc">Annual Salary Increase (%)</label>
+                    <input type="number" id="salaryInc" min="0" max="15" value="3" step="0.5">
+                    <small>Projected annual raise. Employee % contribution scales with salary each year.</small>
+                </div>
+                <div class="input-group">
+                    <label for="current">Current 401(k) Balance ($)</label>
+                    <input type="number" id="current" min="0" value="50000" step="1000">
+                </div>
+                <div class="input-group">
+                    <label for="bucket">Contribution Bucket</label>
+                    <select id="bucket">
+                        <option value="traditional" selected>Traditional (pre-tax)</option>
+                        <option value="roth">Roth (after-tax)</option>
+                        <option value="split">Split 50/50</option>
+                    </select>
+                    <small>Employer match is always Traditional (pre-tax) unless the plan opts SECURE 2.0 &sect;604 Roth match. &sect;603 overrides may still force catch-up to Roth.</small>
+                </div>
+                <div class="input-group">
+                    <label for="contribPct">Your Contribution (% of salary)</label>
+                    <input type="number" id="contribPct" min="0" max="100" value="10" step="0.5">
+                    <small>Capped by &sect;402(g) $24,500 + catch-up. If your nominal % exceeds the limit, the calculator caps it.</small>
+                </div>
+                <div class="input-group">
+                    <label for="matchPct">Employer Match Rate (%)</label>
+                    <input type="number" id="matchPct" min="0" max="200" value="100" step="1">
+                    <small>Match rate, e.g., 100% = dollar-for-dollar match; 50% = 50 cents on the dollar.</small>
+                </div>
+                <div class="input-group">
+                    <label for="matchCap">Match Cap (% of salary)</label>
+                    <input type="number" id="matchCap" min="0" max="25" value="5" step="0.5">
+                    <small>Match rate applies up to this % of your salary. Common: 100% up to 5% = $5,000 match on $100K salary.</small>
+                </div>
+                <div class="input-group">
+                    <label for="retRate">Expected Annual Return (%)</label>
+                    <input type="number" id="retRate" min="0" max="20" value="7" step="0.5">
+                    <small>NYU Stern long-run S&amp;P 500 real return: ~7%.</small>
+                </div>
+            </div>
+
+            <button class="calc-btn" onclick="calculate()">Calculate 2026 Contribution + Projected Balance</button>
+
+            <div class="result-box" id="result">
+                <h3>Results</h3>
+            </div>
+        </div>
+
+        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div class="info-section">
+            <h3>How this 401(k) calculator works</h3>
+            <p>A 401(k) is a workplace-sponsored defined-contribution retirement plan authorized by IRC &sect;401(k). Employees defer a percentage of their salary; employers typically match some or all of the deferral up to a cap. This calculator models the actual 2026 limits, catch-up rules, and the SECURE 2.0 &sect;603 mandatory-Roth-catch-up rule that took effect on January 1, 2026.</p>
+
+            <h3>The 2026 numbers, from IRS Notice 2025-67 and IR-2025-176</h3>
+            <ul>
+                <li><strong>&sect;402(g) employee elective deferral:</strong> $24,500 for 2026 (up from $23,500 in 2025).</li>
+                <li><strong>Age 50+ catch-up per &sect;414(v):</strong> $8,000 (total $32,500).</li>
+                <li><strong>Age 60-63 super catch-up per SECURE 2.0 &sect;109 (IRC &sect;414(v)(2)(E)):</strong> $11,250 (total $35,750). This <em>replaces</em> the standard $8,000 catch-up for those four ages &mdash; not additive.</li>
+                <li><strong>&sect;415(c) annual DC ceiling:</strong> $72,000 for 2026 (up from $70,000). This is the combined employee + employer + forfeitures ceiling.</li>
+                <li><strong>&sect;401(a)(17) compensation cap:</strong> $360,000 for 2026 (up from $350,000). Compensation above this amount is ignored when computing employer contributions.</li>
+                <li><strong>SECURE 2.0 &sect;603 threshold:</strong> $150,000 in prior-year FICA wages from the same employer (indexed from $145,000 statutory base per SECURE Act 2.0). Participants who exceed this threshold and are age 50+ must direct their catch-up to Roth (after-tax) per IRC &sect;414(v)(7).</li>
+            </ul>
+
+            <h3>Why SECURE 2.0 &sect;603 was a big deal</h3>
+            <p>Enacted by the SECURE 2.0 Act of 2022 with an original effective date of January 1, 2024, IRC &sect;414(v)(7) was delayed by two years through IRS Notice 2023-62's administrative-transition relief because payroll systems and plan documents needed time to add Roth-catch-up buckets. As of January 1, 2026, the delay is over: participants earning more than $150,000 in prior-year FICA wages from the same employer who elect to make catch-up contributions must direct them to the Roth bucket. Traditional catch-up is disallowed for these participants.</p>
+            <p>Three groups are exempt because the wage test is applied per-employer:</p>
+            <ul>
+                <li><strong>New hires</strong> with zero prior-year FICA wages from that employer.</li>
+                <li><strong>Schedule C sole proprietors</strong> and other self-employed individuals (they don't have FICA wages &mdash; they have SE tax).</li>
+                <li><strong>Solo 401(k) sponsors</strong> for the same reason.</li>
+            </ul>
+            <p>If your salary is above $150,000 and you are age 50 or older, the calculator automatically routes your catch-up ($8,000 or $11,250) to the Roth bucket regardless of your Traditional / Roth / Split election. The base $24,500 still follows your election.</p>
+
+            <h3>How the employer match is modeled</h3>
+            <p>The calculator uses the standard 401(k) match formula: <code>match = matchRate &times; min(matchCap%, contributionRate%) &times; min(salary, &sect;401(a)(17) $360K)</code>, subject to the &sect;415(c) $72,000 combined ceiling. For simplicity, we assume you contribute at least up to the match cap &mdash; the display formula is <code>matchRate &times; matchCap% &times; cappedSalary</code>. Employer contributions are always Traditional (pre-tax) unless the plan explicitly elects the SECURE 2.0 &sect;604 Roth-match option, which is optional and not universally offered as of 2026.</p>
+
+            <h3>Related calculators and reading</h3>
+            <ul>
+                <li><a href="/blog/roth-401k-vs-traditional-401k-2026.html">Roth 401(k) vs Traditional 401(k) in 2026 &mdash; the bracket-arbitrage playbook</a> &mdash; deep-dive on how to pick between the two buckets with the (1&minus;t_now)/(1&minus;t_later) formula, 4-scenario break-even table, and the SECURE 2.0 &sect;603 catch-up mechanics.</li>
+                <li><a href="/blog/401k-employer-match-2026.html">401(k) employer match: how to never leave money on the table</a> &mdash; front-loading trap, true-up mechanics, vesting schedules.</li>
+                <li><a href="/blog/how-to-file-form-8606-2026.html">How to file Form 8606 in 2026</a> &mdash; nondeductible IRA basis reporting, backdoor Roth line-by-line walkthrough, and the pro-rata trap. Note: Form 8606 does NOT apply to Roth 401(k) balances &mdash; it tracks IRA basis only.</li>
+                <li><a href="/blog/backdoor-roth-ira-2026.html">Backdoor Roth IRA in 2026 &mdash; the pro-rata trap defusing playbook</a>.</li>
+                <li><a href="/blog/roth-conversion-ladder-early-retirement-2026.html">Roth conversion ladder for early retirement</a>.</li>
+                <li><a href="/blog/sep-ira-vs-solo-401k-2026.html">SEP-IRA vs Solo 401(k) for freelancers in 2026</a> &mdash; if you're self-employed and this calculator's SECURE &sect;603 note doesn't apply to you.</li>
+                <li><a href="/blog/simple-ira-vs-sep-vs-solo-401k-2026.html">SIMPLE IRA vs SEP-IRA vs Solo 401(k) in 2026 &mdash; the small-business retirement trio</a>.</li>
+                <li><a href="/sep-ira-calculator.html">SEP-IRA calculator</a> &middot; <a href="/simple-ira-calculator.html">SIMPLE IRA calculator</a> &middot; <a href="/roth-ira-conversion-calculator.html">Roth conversion calculator</a> &middot; <a href="/backdoor-roth-calculator.html">Backdoor Roth calculator</a> &middot; <a href="/calc/retirement-calculator.html">General retirement calculator</a></li>
+                <li><a href="/index.html">All CalcLeap calculators</a> &middot; <a href="/about.html">About CalcLeap Editorial</a></li>
+            </ul>
+
+            <h3>Primary sources</h3>
+            <ul>
+                <li>IRS Notice 2025-67 (2026 pension plan COLA adjustments, October 2025).</li>
+                <li>IRS News Release IR-2025-176 (2026 retirement contribution limits).</li>
+                <li>IRS Notice 2023-62 (SECURE 2.0 &sect;603 administrative-transition relief delaying effective date from 2024 to 2026).</li>
+                <li>IRC &sect;401(k) (401(k) plan authorization).</li>
+                <li>IRC &sect;402(g)(1) (employee elective deferral limit).</li>
+                <li>IRC &sect;414(v) (age-50 catch-up).</li>
+                <li>IRC &sect;414(v)(2)(E) as added by SECURE 2.0 &sect;109 (age-60-63 super catch-up).</li>
+                <li>IRC &sect;414(v)(7) as added by SECURE 2.0 &sect;603 (mandatory-Roth catch-up above threshold).</li>
+                <li>IRC &sect;415(c)(1)(A) ($72,000 total-DC ceiling for 2026).</li>
+                <li>IRC &sect;401(a)(17) ($360,000 compensation cap for 2026).</li>
+                <li>SECURE 2.0 Act &sect;325 (Roth 401(k) lifetime RMD elimination effective 2024).</li>
+                <li>SECURE 2.0 Act &sect;604 (optional Roth employer match).</li>
+                <li>NYU Stern School of Business, Historical Returns on Stocks, Bonds and Bills 1928-2024 (long-run S&amp;P 500 nominal return ~10%, real return ~7%).</li>
+            </ul>
+        </div>
+
+        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
-    <div>
-      <h4>Popular</h4>
-      <a href="bmi-calculator.html">BMI Calculator</a>
-      <a href="/calc/mortgage-payment.html">Mortgage</a>
-      <a href="income-tax-calculator.html">Income Tax</a>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <p>&copy; 2026 CalcLeap. Free online calculators and tools.</p>
+        <p><a href="/index.html">Home</a> &bull; <a href="/about.html">About</a> &bull; <a href="/privacy.html">Privacy</a> &bull; <a href="/terms.html">Terms</a> &bull; <a href="/contact.html">Contact</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">Calculations are for informational purposes only. Consult a financial advisor for investment advice.</p>
     </div>
-    <div>
-      <h4>Categories</h4>
-      <a href="/index.html#finance">Financial</a>
-      <a href="/index.html#insurance">Insurance</a>
-      <a href="/index.html#health">Health</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="/about.html">About</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 CalcLeap. For informational purposes only.</p>
-  </div>
-</footer>
+</div>
+
+<div class="calc-disclaimer" style="max-width:1200px;margin:1.5rem auto;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>&#9888;&#65039; Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on plan-specific match formulas, true-up provisions, vesting schedules, market conditions, and legislative changes. Always consult a qualified financial advisor, CPA, or licensed retirement planner before making financial decisions. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
+
+<script>
+/*
+  AUDIT 2026-07-08: formula=IRC §401(k) 401(k) plan + IRC §402(g)(1) $24,500 employee elective deferral 2026 + IRC §414(v) $8,000 age-50 catch-up + SECURE 2.0 §109 IRC §414(v)(2)(E) $11,250 age-60-63 super catch-up + IRC §415(c)(1)(A) $72,000 combined ceiling 2026 + IRC §401(a)(17) $360,000 compensation cap 2026 + SECURE 2.0 §603 IRC §414(v)(7) mandatory-Roth-catch-up at $150,000 prior-year FICA wage threshold + IRS Notice 2025-67 / IR-2025-176 (2026 COLAs).
+
+  Per-year contribution logic:
+    Employee catch-up eligibility:
+      age 60-63 → $11,250 super catch-up (replaces standard catch-up, not additive).
+      age 50-59 or age 64+ → $8,000 standard catch-up.
+      age <50 → no catch-up.
+    Employee limit = $24,500 base + catch-up.
+    Employee nominal = contribPct × salaryYr (salaryYr grows with salaryIncrease per year).
+    Total employee contribution = min(nominal, limit).
+    Base used = min(total, $24,500); catchup used = total − base.
+
+    Bucket split (base_used follows user's Traditional/Roth/Split election; catchup_used may be forced Roth):
+      Trad election, §603 NOT triggered: all → Traditional.
+      Trad election, §603 triggered (age ≥ 50 AND salary > $150K): base → Traditional, catch-up → Roth.
+      Roth election: all → Roth (§603 is moot since Roth is already elected).
+      Split election, §603 NOT triggered: 50/50 across full total.
+      Split election, §603 triggered: base × 50% Trad + base × 50% Roth + catch-up → Roth.
+
+    Employer match = matchPct × matchCap% × min(salary, $360,000 §401(a)(17)).
+    Employer contribution = min(match nominal, $72,000 §415(c) − total_employee).
+    Employer contributions are Traditional (pre-tax) — SECURE 2.0 §604 Roth match is optional and not modeled by default.
+
+  Projection: iterate age from currentAge to retAge−1, end-of-year contribution timing:
+    bal_{i+1} = bal_i × (1 + retRate) + contribution_i
+    salary_yr = salary_0 × (1 + salaryInc)^i
+    Cumulative: cumTrad, cumRoth, cumMatch — nominal $ contributed (not future-value).
+
+  test_cases=[
+    // TC1: young, no catch-up, no caps bind, flat salary
+    {in:{age:30, salary:100000, contribPct:10, matchPct:100, matchCap:5, bucket:'traditional', current:50000, retAge:65, retRate:7, salaryInc:0},
+     out:{yr1_employee:10000, yr1_trad:10000, yr1_roth:0, yr1_match:5000, yr1_total:15000, forcedRothCatchup:false,
+          finalBalance:2607382.25, totContrib:525000.00, cumTrad:350000.00, cumRoth:0.00, cumMatch:175000.00}},
+
+    // TC2: age 55, high earner triggers §603, Traditional election → catch-up forced Roth
+    {in:{age:55, salary:300000, contribPct:15, matchPct:100, matchCap:5, bucket:'traditional', current:500000, retAge:65, retRate:7, salaryInc:0},
+     out:{yr1_employee:32500, yr1_trad:24500, yr1_roth:8000, yr1_match:15000, yr1_total:47500, forcedRothCatchup:true,
+          yr5_super_catchup:35750, // ages 60-63 super catch-up window unlocks $11,250
+          finalBalance:1655296.86, totContrib:488000.00, cumTrad:245000.00, cumRoth:93000.00, cumMatch:150000.00,
+          note:'Ages 55-59 $47,500/yr; ages 60-63 super catch-up bumps to $50,750/yr; age 64 back to $47,500'}},
+
+    // TC3: age 62, super catch-up active, high earner, Split bucket
+    {in:{age:62, salary:200000, contribPct:25, matchPct:50, matchCap:6, bucket:'split', current:800000, retAge:65, retRate:6, salaryInc:0},
+     out:{yr1_employee:35750, yr1_trad:12250, yr1_roth:23500, yr1_match:6000, yr1_total:41750, forcedRothCatchup:true,
+          yr3_age64:38500, // super catch-up ends at 63, back to standard $8K catch-up
+          finalBalance:1082478.10, totContrib:122000.00, cumTrad:36750.00, cumRoth:67250.00, cumMatch:18000.00}},
+
+    // TC4: age 40, high salary $500K → §401(a)(17) $360K cap binds employer match
+    {in:{age:40, salary:500000, contribPct:5, matchPct:100, matchCap:8, bucket:'traditional', current:100000, retAge:65, retRate:7, salaryInc:0},
+     out:{yr1_employee:24500, yr1_match:28800, yr1_total:53300, cappedByComp401a17:true, cappedByEmployee402g:true,
+          yr11_age50:53800, // §402(g) $24,500 cap unlocks catch-up bump to $25,000 (nominal); §603 forces $500 catch-up to Roth
+          finalBalance:3926481.49, totContrib:1340000.00, cumTrad:612500.00, cumRoth:7500.00, cumMatch:720000.00,
+          note:'Employer match capped at 8% × $360K = $28,800, not 8% × $500K = $40,000'}}
+  ] verified_by=evening-routine, scratchpad/verify_401k.js exact-cent match on all 4.
+
+  NOT MODELED (documented caveats):
+    (i) §603 uses PRIOR-YEAR FICA wages, not current-year salary — modeled as salary_yr > $150K for UI simplicity. Small model error for participants with year-over-year salary crossings around $150K.
+    (ii) Employer true-up provision for front-loaded deferrals — assumes full annual match received. Plans without true-up may pay less if participant hits §402(g) mid-year and match is per-paycheck.
+    (iii) Vesting schedules for employer contributions (cliff, graded, immediate) — projection assumes 100% vested.
+    (iv) SECURE 2.0 §604 optional Roth employer match — modeled as Traditional pre-tax match by default.
+    (v) After-tax non-Roth voluntary contributions (mega backdoor Roth mechanic) — not modeled; see /mega-backdoor-roth-calculator.html.
+    (vi) In-plan Roth conversion of Traditional balance (§402A(c)(4)) — not modeled.
+    (vii) Roth 401(k) 5-year clock for qualified distributions (§402A(d)(2)) — not modeled at withdrawal.
+    (viii) Post-tax withdrawal modeling (RMDs, ordinary income tax on Traditional, tax-free on qualified Roth) — projection shows pre-withdrawal balance only.
+    (ix) State-tax deduction on Traditional deferrals — not modeled at contribution.
+    (x) SECURE 2.0 §325 Roth 401(k) lifetime RMD elimination — noted in info section, does not affect accumulation math.
+*/
+
+const SEC402G_2026 = 24500;
+const CATCHUP_50_2026 = 8000;
+const CATCHUP_6063_2026 = 11250;
+const SEC415C_2026 = 72000;
+const SEC401A17_2026 = 360000;
+const SEC603_ROTH_THRESHOLD_2026 = 150000;
+
+const FMT = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
+const FMT2 = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:2});
+
+function computeContribution(age, salary, contribPct, matchPct, matchCap, bucket) {
+    let catchup = 0;
+    if (age >= 60 && age <= 63) catchup = CATCHUP_6063_2026;
+    else if (age >= 50) catchup = CATCHUP_50_2026;
+    const baseLimit = SEC402G_2026;
+    const totalEmployeeLimit = baseLimit + catchup;
+
+    const nominalEmployee = (contribPct / 100) * salary;
+    const totalEmployee = Math.min(nominalEmployee, totalEmployeeLimit);
+    const baseUsed = Math.min(totalEmployee, baseLimit);
+    const catchupUsed = totalEmployee - baseUsed;
+
+    const forcedRothCatchup = (age >= 50 && salary > SEC603_ROTH_THRESHOLD_2026);
+
+    let empTrad, empRoth;
+    if (bucket === 'traditional') {
+        if (forcedRothCatchup) { empTrad = baseUsed; empRoth = catchupUsed; }
+        else { empTrad = totalEmployee; empRoth = 0; }
+    } else if (bucket === 'roth') {
+        empTrad = 0; empRoth = totalEmployee;
+    } else {
+        if (forcedRothCatchup) { empTrad = baseUsed * 0.5; empRoth = baseUsed * 0.5 + catchupUsed; }
+        else { empTrad = totalEmployee * 0.5; empRoth = totalEmployee * 0.5; }
+    }
+
+    const cappedComp = Math.min(salary, SEC401A17_2026);
+    const matchable = (matchCap / 100) * cappedComp;
+    const nominalMatch = (matchPct / 100) * matchable;
+    const remaining415 = Math.max(0, SEC415C_2026 - totalEmployee);
+    const employer = Math.min(nominalMatch, remaining415);
+
+    return {
+        catchup, catchupEligible: catchup > 0, superCatchupEligible: age >= 60 && age <= 63,
+        forcedRothCatchup, baseLimit, totalEmployeeLimit,
+        nominalEmployee, totalEmployee, cappedByEmployee402g: nominalEmployee > totalEmployeeLimit,
+        baseUsed, catchupUsed, empTrad, empRoth,
+        cappedComp, cappedByComp401a17: salary > SEC401A17_2026,
+        nominalMatch, employer,
+        cappedByEmployer415c: (totalEmployee + nominalMatch) > SEC415C_2026,
+        total: totalEmployee + employer
+    };
+}
+
+function project(current, salary0, contribPct, matchPct, matchCap, bucket, age0, retAge, retPct, salaryIncPct) {
+    const years = Math.max(0, retAge - age0);
+    const r = retPct / 100;
+    let bal = current;
+    let totContrib = 0, cumTrad = 0, cumRoth = 0, cumMatch = 0;
+    let yr1 = null;
+    let anyForcedRoth = false, anyCapByEmp = false, anyCapByComp = false, anyCap415 = false, anySuperCatchup = false;
+    for (let i = 0; i < years; i++) {
+        const salYr = salary0 * Math.pow(1 + salaryIncPct / 100, i);
+        const ageYr = age0 + i;
+        const c = computeContribution(ageYr, salYr, contribPct, matchPct, matchCap, bucket);
+        if (i === 0) yr1 = c;
+        if (c.forcedRothCatchup) anyForcedRoth = true;
+        if (c.cappedByEmployee402g) anyCapByEmp = true;
+        if (c.cappedByComp401a17) anyCapByComp = true;
+        if (c.cappedByEmployer415c) anyCap415 = true;
+        if (c.superCatchupEligible) anySuperCatchup = true;
+        totContrib += c.total; cumTrad += c.empTrad; cumRoth += c.empRoth; cumMatch += c.employer;
+        bal = bal * (1 + r) + c.total;
+    }
+    return { years, finalBalance: bal, totContrib, cumTrad, cumRoth, cumMatch,
+             yr1, anyForcedRoth, anyCapByEmp, anyCapByComp, anyCap415, anySuperCatchup };
+}
+
+function calculate() {
+    const age = parseInt(document.getElementById('age').value) || 35;
+    const retAge = parseInt(document.getElementById('retAge').value) || 65;
+    const salary = parseFloat(document.getElementById('salary').value) || 0;
+    const salaryInc = parseFloat(document.getElementById('salaryInc').value);
+    const salaryIncPct = isNaN(salaryInc) ? 0 : salaryInc;
+    const current = parseFloat(document.getElementById('current').value) || 0;
+    const bucket = document.getElementById('bucket').value;
+    const contribPct = parseFloat(document.getElementById('contribPct').value) || 0;
+    const matchPct = parseFloat(document.getElementById('matchPct').value) || 0;
+    const matchCap = parseFloat(document.getElementById('matchCap').value) || 0;
+    const retRate = parseFloat(document.getElementById('retRate').value);
+    const retRatePct = isNaN(retRate) ? 7 : retRate;
+
+    if (retAge <= age) {
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('result').innerHTML = '<h3>Please set retirement age above current age</h3>';
+        return;
+    }
+
+    const p = project(current, salary, contribPct, matchPct, matchCap, bucket, age, retAge, retRatePct, salaryIncPct);
+    const c = p.yr1;
+    const totalGrowth = p.finalBalance - current - p.totContrib;
+
+    const bucketLabel = bucket === 'traditional' ? 'Traditional (pre-tax)' :
+                       bucket === 'roth' ? 'Roth (after-tax)' : 'Split 50/50';
+
+    let html = '<h3>Year 1 (Age ' + age + ') Contribution</h3>';
+    html += '<div class="result-value">' + FMT2.format(c.total) + '<span style="font-size:1rem;font-weight:500;color:#6e6e73"> / year</span></div>';
+
+    html += '<div class="split-grid">';
+    html += '<div class="split-card"><div class="lbl">Employee &mdash; Traditional</div><div class="val">' + FMT.format(c.empTrad) + '</div></div>';
+    html += '<div class="split-card"><div class="lbl">Employee &mdash; Roth</div><div class="val">' + FMT.format(c.empRoth) + '</div></div>';
+    html += '<div class="split-card"><div class="lbl">Employer Match (pre-tax)</div><div class="val">' + FMT.format(c.employer) + '</div></div>';
+    html += '<div class="split-card"><div class="lbl">Total (Year 1)</div><div class="val">' + FMT.format(c.total) + '</div></div>';
+    html += '</div>';
+
+    html += '<div class="result-detail"><strong>Bucket election:</strong> ' + bucketLabel + '</div>';
+    html += '<div class="result-detail"><strong>Catch-up eligibility:</strong> ';
+    if (c.superCatchupEligible) html += 'Age 60-63 super catch-up ($11,250) unlocked per SECURE 2.0 &sect;109';
+    else if (c.catchupEligible) html += 'Age 50+ standard catch-up ($8,000) unlocked per IRC &sect;414(v)';
+    else html += 'None (under age 50)';
+    html += '</div>';
+
+    if (c.forcedRothCatchup) {
+        html += '<div class="callout"><strong>SECURE 2.0 &sect;603 mandatory Roth catch-up:</strong> Salary ($' + FMT.format(salary).substring(1) + ') exceeds the 2026 $150,000 threshold and you are age 50+. Your catch-up contribution ($' + FMT.format(c.catchupUsed).substring(1) + ') is routed to the Roth bucket regardless of your bucket election. This is required by IRC &sect;414(v)(7) as added by SECURE 2.0 &sect;603.</div>';
+    }
+
+    if (c.cappedByEmployee402g) {
+        html += '<div class="warning"><strong>Employee cap:</strong> Your nominal contribution (' + FMT2.format(c.nominalEmployee) + ') exceeds the 2026 IRC &sect;402(g) limit of $' + c.totalEmployeeLimit.toLocaleString() + '. Capped to that amount.</div>';
+    }
+    if (c.cappedByComp401a17) {
+        html += '<div class="warning"><strong>Compensation cap:</strong> Salary ($' + FMT.format(salary).substring(1) + ') exceeds the 2026 IRC &sect;401(a)(17) compensation cap of $360,000. Employer match is computed on $360,000, not on your full salary.</div>';
+    }
+    if (c.cappedByEmployer415c) {
+        html += '<div class="warning"><strong>&sect;415(c) combined cap:</strong> Nominal employee + employer contribution (' + FMT2.format(c.totalEmployee + c.nominalMatch) + ') exceeds the 2026 IRC &sect;415(c) $72,000 ceiling. Employer match reduced accordingly. Consider a mega backdoor Roth via after-tax voluntary contributions if your plan supports it.</div>';
+    }
+
+    html += '<h3 style="margin-top:1.5rem">Projected Balance at Age ' + retAge + ' (' + p.years + ' years)</h3>';
+    html += '<div class="result-value">' + FMT.format(p.finalBalance) + '</div>';
+    html += '<div class="result-detail"><strong>Starting Balance:</strong> ' + FMT.format(current) + '</div>';
+    html += '<div class="result-detail"><strong>Total Contributions (' + p.years + ' years):</strong> ' + FMT.format(p.totContrib) + '</div>';
+    html += '<div class="split-grid">';
+    html += '<div class="split-card"><div class="lbl">Cumulative Traditional</div><div class="val">' + FMT.format(p.cumTrad) + '</div></div>';
+    html += '<div class="split-card"><div class="lbl">Cumulative Roth</div><div class="val">' + FMT.format(p.cumRoth) + '</div></div>';
+    html += '<div class="split-card"><div class="lbl">Cumulative Employer Match</div><div class="val">' + FMT.format(p.cumMatch) + '</div></div>';
+    html += '<div class="split-card"><div class="lbl">Investment Growth</div><div class="val">' + FMT.format(totalGrowth) + '</div></div>';
+    html += '</div>';
+    html += '<div class="result-detail"><strong>Assumed Return:</strong> ' + retRatePct.toFixed(1) + '% annualized' + (salaryIncPct > 0 ? ' &middot; <strong>Salary escalation:</strong> ' + salaryIncPct.toFixed(1) + '%/year' : '') + '</div>';
+
+    html += '<div class="chart-container">';
+    html += '<div class="bar-chart">';
+    const denom = p.finalBalance > 0 ? p.finalBalance : 1;
+    const h1 = Math.max(5, (p.cumTrad / denom) * 100);
+    const h2 = Math.max(5, (p.cumRoth / denom) * 100);
+    const h3 = Math.max(5, (p.cumMatch / denom) * 100);
+    const h4 = Math.max(5, (totalGrowth / denom) * 100);
+    html += '<div class="bar" style="height:' + h1 + '%">$' + Math.round(p.cumTrad/1000) + 'k</div>';
+    html += '<div class="bar roth" style="height:' + h2 + '%">$' + Math.round(p.cumRoth/1000) + 'k</div>';
+    html += '<div class="bar match" style="height:' + h3 + '%">$' + Math.round(p.cumMatch/1000) + 'k</div>';
+    html += '<div class="bar growth" style="height:' + h4 + '%">$' + Math.round(totalGrowth/1000) + 'k</div>';
+    html += '</div>';
+    html += '<div style="display:flex; gap:0.5rem; margin-top:0.5rem;">';
+    html += '<div class="bar-label">Traditional</div>';
+    html += '<div class="bar-label">Roth</div>';
+    html += '<div class="bar-label">Match</div>';
+    html += '<div class="bar-label">Growth</div>';
+    html += '</div>';
+    html += '</div>';
+
+    if (p.anySuperCatchup && p.years > 1) {
+        html += '<div class="callout"><strong>Super catch-up window:</strong> Your projection crosses through the age 60-63 window where the SECURE 2.0 &sect;109 super catch-up ($11,250 in 2026, up from the standard $8,000) applies. Contributions during those years are higher than in surrounding years.</div>';
+    }
+
+    html += '<p style="margin-top:1.5rem;font-size:.9rem;color:#6e6e73"><em>Projection uses end-of-year contribution timing. Salary grows annually by the escalation rate; employee % contribution scales with salary. Contribution caps (&sect;402(g) $24,500, &sect;415(c) $72,000, &sect;401(a)(17) $360,000, &sect;603 $150,000 threshold) are 2026 IRS Notice 2025-67 values; the calculator uses them as constants for all projection years and does not model out-year COLAs. Employer match modeled as pre-tax Traditional. See &ldquo;How this calculator works&rdquo; for the full methodology and primary sources.</em></p>';
+
+    document.getElementById('result').innerHTML = html;
+    document.getElementById('result').style.display = 'block';
+}
+</script>
 
 <div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
 <p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
