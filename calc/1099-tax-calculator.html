@@ -526,9 +526,13 @@
     </div>
 
     <script>
-        /* AUDIT 2026-06-14: 1099 contractor tax calculator
+        /* AUDIT 2026-06-14 (updated 2026-07-02 evening): 1099 contractor tax calculator
    family: schedule-SE + Form 1040 federal + state estimator for 1099-NEC / 1099-MISC contractors
-   formula: netIncome = max(0, income - expenses); seBase = netIncome * 0.9235; seTax = seBase * 0.153;
+   FIX 2026-07-02 evening (queue item uuu): SS wage-base cap $184,500 added on the 12.4% OASDI leg
+     per SSA Press Release Oct 24 2025. Pre-fix flat 15.3% on unlimited seBase over-taxed high
+     earners by ~$11,476/yr at $300K SE income. Below-cap TCs (TC1/TC2) unchanged; TC3 refreshed.
+   formula: netIncome = max(0, income - expenses); seBase = netIncome * 0.9235;
+            ssTax = min(seBase, 184500) * 0.124; medTax = seBase * 0.029; seTax = ssTax + medTax;
             addlMedicare = max(0, seBase - threshold) * 0.009; seDeduction = seTax/2; agi = netIncome - seDeduction;
             taxableIncome = max(0, agi - stdDeduction - additionalDeductions); fedTax = piecewise(taxableIncome, filing);
             stateTax = netIncome * (stateRate/100); totalTax = seTax + fedTax + stateTax; taxDue = max(0, totalTax - withheld); quarterly = taxDue/4
@@ -611,11 +615,15 @@
             // Net self-employment income
             const netIncome = Math.max(0, income - expenses);
 
-            // Self-employment tax (15.3% on 92.35% of net income)
+            // Self-employment tax with SS wage-base cap (IRC §1401(a)/(b))
+            // FIX 2026-07-02 evening (queue item uuu): SS 12.4% now capped at TY2026 wage base $184,500 per SSA Press Release Oct 24 2025 (was flat 15.3% on unlimited seBase, over-taxing high earners); Medicare 2.9% remains uncapped
+            const SS_WAGE_BASE = 184500;
             const seTaxBase = netIncome * 0.9235;
-            let seTax = seTaxBase * 0.153;
-            
-            // Additional Medicare tax for high earners
+            const socialSecurityTax = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124;
+            const medicareTax = seTaxBase * 0.029;
+            let seTax = socialSecurityTax + medicareTax;
+
+            // Additional Medicare tax for high earners (IRC §3101(b)(2))
             const medicareThreshold = filingStatus === 'married' ? 250000 : 200000;
             if (seTaxBase > medicareThreshold) {
                 seTax += (seTaxBase - medicareThreshold) * 0.009;

@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEP IRA Calculator - Free SEP IRA Tool | CalcLeap</title>
-    <meta name="description" content="Calculate SEP IRA contributions and tax savings for self-employed individuals and small businesses.. Free online calculator with compound growth charts and instant results.">
+    <title>SEP IRA Calculator 2026 — 25% W-2 / 20% Self-Employed, §415(c) $72K Cap, §401(a)(17) Comp Cap | CalcLeap</title>
+    <meta name="description" content="2026 SEP-IRA calculator with the actual IRS Notice 2025-67 numbers — $72,000 §415(c) DC ceiling, $360,000 §401(a)(17) compensation cap, and the IRC §401(c)(2) 25%-to-20% reduced-rate algebra for sole proprietors. Projects your retirement balance from your compensation, contribution rate, and years to retirement.">
     <link rel="canonical" href="https://calcleap.com/sep-ira-calculator.html">
-<meta property="og:title" content="SEP IRA Calculator - Free SEP IRA Tool">
-<meta property="og:description" content="Calculate SEP IRA contributions and tax savings for self-employed individuals and small businesses.. Free online calculator with compound growth charts and instant results.">
+<meta property="og:title" content="SEP IRA Calculator 2026 — 25% W-2 / 20% Self-Employed, §415(c) Cap, Projected Balance">
+<meta property="og:description" content="Models the 2026 IRS Notice 2025-67 SEP-IRA limits, the §401(c)(2) reduced-rate algebra for sole proprietors, and the §415(c) $72K DC ceiling.">
 <meta property="og:url" content="https://calcleap.com/sep-ira-calculator.html">
 <meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Retirement Calculators","item":"https://calcleap.com/index.html#finance"},{"@type":"ListItem","position":3,"name":"SEP IRA Calculator","item":"https://calcleap.com/sep-ira-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the 2026 SEP-IRA contribution limit?","acceptedAnswer":{"@type":"Answer","text":"For 2026, the SEP-IRA contribution is capped at the lesser of 25% of compensation or $72,000 per IRC §415(c)(1)(A) (up from $70,000 in 2025 per IRS Notice 2025-67). Compensation itself is capped at $360,000 for 2026 under IRC §401(a)(17). At exactly $288,000 of W-2 compensation, the 25% rate hits the §415(c) $72,000 ceiling. SEP-IRAs are 100% employer-funded — there is no employee elective deferral and no age-50 catch-up (unlike a 401(k) or SIMPLE IRA)."}},{"@type":"Question","name":"How much can a self-employed sole proprietor contribute to a SEP-IRA in 2026?","acceptedAnswer":{"@type":"Answer","text":"For a Schedule C sole proprietor, the SEP-IRA contribution uses the IRC §401(c)(2) reduced-rate algebra: the nominal 25% rate becomes 25%/(1+25%) = 20% effective, applied to adjusted net earnings from self-employment. Per IRS Publication 560, adjusted net earnings = Schedule C net profit minus one-half of self-employment tax (§164(f)). For a $150,000 net profit: net earnings from SE (§1402(a)) = $150,000 × 0.9235 = $138,525; SE tax = $138,525 × 12.4% (SS up to $184,500 wage base for 2026) + $138,525 × 2.9% (Medicare uncapped) = $21,194.33; half-SE-tax = $10,597.16; adjusted net earnings = $150,000 − $10,597.16 = $139,402.84; SEP contribution = 20% × $139,402.84 = $27,880.57."}},{"@type":"Question","name":"What is the difference between a SEP-IRA and a Solo 401(k)?","acceptedAnswer":{"@type":"Answer","text":"Both share the §415(c) $72,000 total-DC ceiling for 2026, but the paths there differ. A SEP-IRA is 100% employer-nonelective — for a sole prop that's 20% × adjusted net earnings, so you need ~$360,000 of adjusted earnings to hit $72,000. A Solo 401(k) stacks a $24,500 §402(g) elective deferral on top of a 20%/25% employer contribution, hitting $72,000 at ~$185,000 of adjusted earnings and unlocking Roth deferrals, loans, and the §414(v) age-50 catch-up ($8,000 in 2026, $11,250 for ages 60-63 under SECURE 2.0 §109). SEP is administratively simpler (no plan document, no Form 5500-EZ until $250K, no annual nondiscrimination testing) but leaves lower-earners under-funded relative to their Solo 401(k) capacity."}},{"@type":"Question","name":"When must a SEP-IRA be established for 2026?","acceptedAnswer":{"@type":"Answer","text":"A SEP-IRA has the most generous adoption deadline of any qualified plan: it can be established and funded up to the employer's tax filing deadline including extensions (October 15, 2027 for a calendar-year 2026 sole proprietor filing Schedule C on Form 1040). This is materially more flexible than a Solo 401(k) (plan document must exist by December 31 for elective deferrals) or a SIMPLE IRA (must be established by October 1). If you're deciding between plans in November 2026 for the 2026 tax year, SEP is often the only remaining option."}},{"@type":"Question","name":"Can I contribute to both a SEP-IRA and a Roth IRA in the same year?","acceptedAnswer":{"@type":"Answer","text":"Yes. SEP-IRA contributions are employer contributions and do not affect your ability to make personal Traditional or Roth IRA contributions up to the 2026 $7,500 limit (or $8,500 with age-50 catch-up under §219(b)(5)(B)). However, SEP-IRA balances count in the IRC §408(d)(2) pro-rata denominator for a backdoor Roth conversion, so a $200,000 SEP balance can turn what looks like a tax-free $7,500 conversion into a mostly-taxable one. If you plan on running the backdoor Roth strategy, a Solo 401(k) (which does NOT enter the §408(d)(2) denominator) is often the better choice. See our backdoor Roth IRA 2026 guide for the pro-rata trap analysis."}}]}</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
@@ -45,7 +47,7 @@
         .footer { background: #f5f5f7; padding: 2rem 0; text-align: center; border-top: 1px solid #e5e5e7; margin-top: 4rem; }
         .footer a { color: #0071e3; text-decoration: none; }
         @media (max-width: 768px) { .header h1 { font-size: 1.75rem; } .calc-box, .info-section { padding: 1.5rem; } }
-    
+
 
 /* === COMPREHENSIVE COMPONENT STYLES === */
 
@@ -203,8 +205,8 @@
 
     <div class="header">
         <div class="container">
-            <h1 class="page-title">SEP IRA Calculator</h1>
-            <p>Calculate SEP IRA contributions and tax savings for self-employed individuals and small businesses.</p>
+            <h1 class="page-title">SEP IRA Calculator (2026)</h1>
+            <p>Model your 2026 SEP-IRA contribution and projected balance under the actual IRS Notice 2025-67 limits, with the IRC §401(c)(2) 20% effective rate for sole proprietors.</p>
         </div>
     </div>
 
@@ -213,26 +215,40 @@
         
 
         <div class="calc-box">
-            <h2>Calculate Your SEP IRA</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your details below to see projected growth and retirement savings.</p>
+            <h2>Calculate Your 2026 SEP-IRA</h2>
+            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your compensation, employment type, and contribution rate. The calculator applies the 2026 IRS Notice 2025-67 numbers — $72,000 §415(c) DC ceiling, $360,000 §401(a)(17) compensation cap — and the §401(c)(2) reduced-rate algebra that turns the nominal 25% into a 20% effective rate for sole proprietors.</p>
             <div class="input-group">
-                <label for="current">Current Balance ($):</label>
-                <input type="number" id="current" min="0" value="50000" step="1000" aria-label="Current">
+                <label for="empType">Employment Type:</label>
+                <select id="empType" aria-label="Employment type">
+                    <option value="w2" selected>W-2 employee (25% of W-2 wages)</option>
+                    <option value="se">Sole proprietor / Schedule C (20% effective per §401(c)(2))</option>
+                </select>
+                <small>W-2 uses the straight 25% rate on wages. Sole proprietors use the §401(c)(2) 25%/(1+25%) = 20% rate on adjusted net earnings from self-employment (net profit minus half-SE-tax).</small>
             </div>
             <div class="input-group">
-                <label for="monthly">Monthly Contribution ($):</label>
-                <input type="number" id="monthly" min="0" value="500" step="50" aria-label="Monthly">
+                <label for="comp">Annual Compensation ($):</label>
+                <input type="number" id="comp" min="0" value="100000" step="1000" aria-label="Compensation">
+                <small>W-2 employees: your W-2 wages. Sole proprietors: your Schedule C net profit (before the SEP contribution deduction).</small>
             </div>
             <div class="input-group">
-                <label for="rate">Expected Return (% per year):</label>
-                <input type="number" id="rate" min="0" max="20" value="7" step="0.5" aria-label="Rate">
-                <small>Historical stock market average is ~10%, conservative is 6-7%</small>
+                <label for="rate">Contribution Rate (% of compensation, max 25):</label>
+                <input type="number" id="rate" min="0" max="25" value="25" step="0.5" aria-label="Contribution rate">
+                <small>The IRC §404(h) maximum is 25% for W-2 employees. For a sole proprietor the same 25% nominal rate becomes a 20% effective rate on adjusted net earnings. Enter a lower rate if you want to model a partial contribution.</small>
+            </div>
+            <div class="input-group">
+                <label for="current">Current SEP-IRA Balance ($):</label>
+                <input type="number" id="current" min="0" value="30000" step="1000" aria-label="Current">
+            </div>
+            <div class="input-group">
+                <label for="ret">Expected Return (% per year):</label>
+                <input type="number" id="ret" min="0" max="20" value="7" step="0.5" aria-label="Rate">
+                <small>NYU Stern long-run real equity return: ~7% (S&amp;P 500, inflation-adjusted).</small>
             </div>
             <div class="input-group">
                 <label for="years">Years Until Retirement:</label>
                 <input type="number" id="years" min="1" max="50" value="20" aria-label="Years">
             </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Growth</button>
+            <button class="calc-btn" onclick="calculate()">Calculate 2026 Contribution + Projected Balance</button>
             <div class="result-box" id="result">
                 <h3>Results</h3>
             </div>
@@ -242,27 +258,50 @@
         
 
         <div class="info-section">
-            <h3>About SEP IRA Calculator</h3>
-            <p>Calculate SEP IRA contributions and tax savings for self-employed individuals and small businesses.</p>
-            <h3>Understanding SEP IRA</h3>
-            <p>Key factors that impact your retirement savings:</p>
+            <h3>How this SEP-IRA calculator works</h3>
+            <p>A SEP-IRA (Simplified Employee Pension) is authorized by IRC §408(k) and is the lowest-friction retirement plan for small businesses and self-employed individuals. Unlike a 401(k) or SIMPLE IRA, all contributions are employer contributions — there is no employee elective deferral and no age-50 catch-up. For sole proprietors, "employer" and "employee" are the same person, so a Schedule C filer contributes to their own SEP based on their business's net profit.</p>
+            <h3>The 2026 numbers, from IRS Notice 2025-67 and IR-2025-176</h3>
             <ul>
-                <li>Regular contributions compound over time (time is your biggest advantage)</li>
-                <li>Expected returns vary based on asset allocation and risk tolerance</li>
-                <li>Tax advantages can significantly boost long-term growth</li>
-                <li>Employer matches are free money - always contribute enough to get the full match</li>
+                <li><strong>§415(c) DC ceiling:</strong> $72,000 for 2026 (up from $70,000 in 2025). This is the absolute maximum from all sources for a single participant.</li>
+                <li><strong>§401(a)(17) compensation cap:</strong> $360,000 for 2026 (up from $350,000 in 2025). Compensation above this amount is ignored when computing the SEP contribution.</li>
+                <li><strong>Nominal contribution rate:</strong> up to 25% under IRC §404(h)(1)(C).</li>
+                <li><strong>Effective rate for sole proprietors:</strong> 25%/(1+25%) = <strong>20%</strong> per IRC §401(c)(2), applied to adjusted net earnings from self-employment.</li>
+                <li><strong>Practical ceiling for a sole prop:</strong> $72,000/20% = $360,000 of adjusted net earnings. At exactly $360,000, both the §415(c) $72K ceiling and the §401(a)(17) $360K cap bind simultaneously.</li>
+                <li><strong>Practical ceiling for W-2 employees:</strong> $72,000/25% = $288,000 of W-2 wages. Above $288,000, the §415(c) ceiling binds before the §401(a)(17) cap.</li>
             </ul>
-            <h3>Maximizing Your Savings</h3>
+            <h3>Why sole proprietors get 20% instead of 25%</h3>
+            <p>The 25% rate under §404(h)(1)(C) is a percentage of "compensation." For a W-2 employee, compensation is a fixed number on the W-2. For a self-employed person, IRC §401(c)(2) defines compensation as net earnings from self-employment reduced by <em>both</em> one-half of self-employment tax (§164(f)) <em>and</em> the retirement plan contribution itself. Because compensation depends on the contribution, and the contribution depends on compensation, the algebra collapses to:</p>
+            <p style="background:#f5f9ff;border-left:4px solid #0071e3;padding:.85rem 1rem;border-radius:0 6px 6px 0;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;color:#1d1d1f">contribution = adjusted_net_earnings × rate / (1 + rate)</p>
+            <p>For rate = 25%, effective rate = 25%/1.25 = 20%. This is the standard IRS Publication 560 Rate Table result, and it's why every SEP-IRA guide and Solo 401(k) employer-contribution calculation for a sole prop uses 20% rather than 25%.</p>
+            <h3>The exact worksheet the calculator uses for sole proprietors</h3>
             <ul>
-                <li>Start early - compound growth accelerates over decades</li>
-                <li>Increase contributions when you get raises</li>
-                <li>Diversify investments to manage risk</li>
-                <li>Review and rebalance portfolio annually</li>
+                <li><strong>Step 1:</strong> Net earnings from self-employment (§1402(a)) = Schedule C net profit × 0.9235 (this is the 92.35% factor per IRC §1402(a)(12) that excludes the employer-side half of SE tax before computing SE tax).</li>
+                <li><strong>Step 2:</strong> SE tax = min(net_se_earnings, $184,500) × 12.4% (SS wage base 2026) + net_se_earnings × 2.9% (Medicare, uncapped). Additional Medicare Tax (0.9% above $200K/$250K) is not part of the SE tax deduction and is not modeled here — it does not affect the SEP contribution.</li>
+                <li><strong>Step 3:</strong> Half-SE-tax deduction = SE_tax / 2 per §164(f).</li>
+                <li><strong>Step 4:</strong> Adjusted net earnings = Schedule C net profit − half-SE-tax. Per Pub 560, this is the starting point for applying the rate.</li>
+                <li><strong>Step 5:</strong> SEP contribution = min(effective_rate × min(adjusted_net_earnings, $360,000), $72,000) where effective_rate = rate/(1+rate).</li>
             </ul>
-            <h3>More Retirement Calculators</h3>
+            <h3>Related reading and calculators</h3>
             <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
+                <li><a href="/blog/sep-ira-vs-solo-401k-2026.html">SEP-IRA vs Solo 401(k) for freelancers in 2026 — the complete math, setup, and deadline guide</a> — the deep-dive blog piece this calculator was built to pair with. Covers the §401(c)(2) algebra, the §408(d)(2) pro-rata trap, and the SECURE 2.0 §603 mandatory Roth catch-up.</li>
+                <li><a href="/blog/simple-ira-vs-sep-vs-solo-401k-2026.html">SIMPLE IRA vs SEP-IRA vs Solo 401(k) in 2026 — the small-business retirement trio</a> — the three-way comparison across headcount, contribution ceiling, and administrative burden.</li>
+                <li><a href="/blog/backdoor-roth-ira-2026.html">Backdoor Roth IRA in 2026 — the pro-rata trap defusing playbook</a> (SEP balances count as pre-tax IRA under IRC §408(d)(2) for backdoor Roth aggregation — this is the single most important reason a high-earning freelancer might choose Solo 401(k) over SEP).</li>
+                <li><a href="/simple-ira-calculator.html">SIMPLE IRA calculator</a> · <a href="/calc/401k-calculator.html">Solo 401(k) / 401(k) calculator</a> · <a href="/calc/self-employment-tax-calculator.html">Self-employment tax calculator</a> · <a href="/roth-ira-conversion-calculator.html">Roth conversion calculator</a> · <a href="/calc/retirement-calculator.html">General retirement calculator</a></li>
+                <li><a href="index.html">All CalcLeap calculators</a> · <a href="about.html">About CalcLeap Editorial</a></li>
+            </ul>
+            <h3>Primary sources</h3>
+            <ul>
+                <li>IRS Notice 2025-67 (2026 pension plan COLA adjustments, October 2025).</li>
+                <li>IRS News Release IR-2025-176 (2026 retirement contribution limits).</li>
+                <li>IRC §408(k) (SEP-IRA authorization).</li>
+                <li>IRC §404(h) (25% employer contribution deduction limit for SEP-IRAs).</li>
+                <li>IRC §401(c)(2) (earned income definition for self-employed retirement plan participants — the source of the 20% effective rate).</li>
+                <li>IRC §415(c)(1)(A) ($72,000 defined-contribution plan ceiling for 2026).</li>
+                <li>IRC §401(a)(17) ($360,000 compensation cap for 2026).</li>
+                <li>IRC §1402(a) and §1402(a)(12) (net earnings from self-employment and the 92.35% factor).</li>
+                <li>IRC §164(f) (deduction for one-half of self-employment tax).</li>
+                <li>IRC §408(d)(2) (SEP-IRA balances included in backdoor Roth pro-rata denominator).</li>
+                <li>IRS Publication 560 (2025), Rate Table and Rate Worksheet for Self-Employed.</li>
             </ul>
         </div>
 
@@ -279,49 +318,150 @@
     </div>
 
     <script>
+        /*
+          AUDIT 2026-07-07: formula=IRC §408(k) SEP-IRA + IRC §404(h) 25% employer contribution + IRC §401(c)(2) reduced-rate for self-employed + IRS Notice 2025-67 (2026 COLAs).
+          Two branches:
+            (a) W-2 employee: contribution = min(rate × min(compensation, $360,000 §401(a)(17) 2026 cap), $72,000 §415(c) 2026 ceiling)
+                where rate ∈ [0, 25%] per §404(h)(1)(C).
+            (b) Sole proprietor (Schedule C): standard Pub 560 worksheet.
+                net_se_earnings = net_profit × 0.9235 (§1402(a)(12) 92.35% factor).
+                SE_tax = min(net_se_earnings, $184,500 SSA 2026 wage base) × 12.4% + net_se_earnings × 2.9%.
+                half_SE_tax = SE_tax / 2 (§164(f) deduction).
+                adjusted_ne = net_profit − half_SE_tax (Pub 560 Rate Worksheet step).
+                effective_rate = rate / (1 + rate). At rate=25% this collapses to 20%.
+                contribution = min(effective_rate × min(adjusted_ne, $360,000), $72,000).
+          Projection = FV(current, r, n) + FV_annuity_end(contribution, r, n), annual compounding.
+          test_cases=[
+            {in:{empType:'w2', comp:100000, rate:25, current:30000, r:0.07, n:20},
+             out:{contribution:25000.00, fvCurrent:116090.53, fvAnnuity:1024887.31, total:1140977.84}},
+            {in:{empType:'w2', comp:400000, rate:25, current:150000, r:0.07, n:10},
+             out:{contribution:72000.00, cappedBy415:true, cappedByComp:true, fvCurrent:295072.70, fvAnnuity:994784.25, total:1289856.96,
+                  note:'25% × min($400K, $360K §401(a)(17)) = $90K, then §415(c) caps at $72K'}},
+            {in:{empType:'se', comp:150000, rate:25, current:50000, r:0.07, n:15},
+             out:{netSeEarnings:138525.0000, seTax:21194.3250, halfSeTax:10597.1625, adjustedNe:139402.8375, effRate:0.20, contribution:27880.57,
+                  fvCurrent:137951.58, fvAnnuity:700611.39, total:838562.97,
+                  note:'§401(c)(2) 20% effective rate applied to net_profit − half_SE_tax; well below caps'}},
+            {in:{empType:'se', comp:500000, rate:25, current:0, r:0.07, n:5},
+             out:{contribution:72000.00, cappedBy415:false, cappedByComp:true,
+                  note:'adjusted_ne clamped to $360K §401(a)(17) cap; 20% × $360K = $72K meets §415(c) exactly'}}
+          ] verified_by=evening-routine, scratchpad/sep_ira_verify.js exact-cent match on all 4.
+          NOT MODELED (documented caveats):
+            (i) uncommon partnership K-1 self-employment income — treated like Schedule C for §401(c)(2) purposes but with SE tax on partnership share only;
+            (ii) multi-employee employer scenarios where the same-percentage rule under §408(k)(3) forces reduced owner contributions;
+            (iii) Additional Medicare Tax (§3101(b)(2)) above $200K/$250K — not part of §164(f) SE deduction, does not affect SEP calc;
+            (iv) SIMPLE-Roth deferral, backdoor-Roth pro-rata detail (see linked calculator/blog);
+            (v) Roth SEP option under SECURE 2.0 §601 (custodian rollout ongoing 2026, most custodians do not yet support).
+        */
+        const FMT = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
+        const FMT2 = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:2});
+
+        const SEC415_LIMIT_2026 = 72000;
+        const SEC401A17_CAP_2026 = 360000;
+        const SS_WAGE_BASE_2026 = 184500;
+        const SS_RATE = 0.124;
+        const MEDICARE_RATE = 0.029;
+        const SE_FACTOR = 0.9235;
+
+        function computeContribution(empType, comp, ratePct) {
+            const rate = Math.max(0, Math.min(ratePct, 25)) / 100;
+            const out = {empType, comp, ratePct, rate,
+                         netSeEarnings: 0, seTax: 0, halfSeTax: 0,
+                         adjustedNe: 0, effectiveRate: rate, compensationBase: 0,
+                         uncapped: 0, contribution: 0,
+                         cappedByComp: false, cappedBy415: false};
+            if (empType === 'w2') {
+                const cappedComp = Math.min(comp, SEC401A17_CAP_2026);
+                out.cappedByComp = comp > SEC401A17_CAP_2026;
+                out.compensationBase = cappedComp;
+                out.effectiveRate = rate;
+                out.uncapped = rate * cappedComp;
+                out.contribution = Math.min(out.uncapped, SEC415_LIMIT_2026);
+                out.cappedBy415 = out.uncapped > SEC415_LIMIT_2026;
+            } else {
+                out.netSeEarnings = comp * SE_FACTOR;
+                const ssTaxable = Math.min(out.netSeEarnings, SS_WAGE_BASE_2026);
+                out.seTax = ssTaxable * SS_RATE + out.netSeEarnings * MEDICARE_RATE;
+                out.halfSeTax = out.seTax / 2;
+                out.adjustedNe = comp - out.halfSeTax;
+                out.cappedByComp = out.adjustedNe > SEC401A17_CAP_2026;
+                const cappedAdjNe = Math.min(out.adjustedNe, SEC401A17_CAP_2026);
+                out.effectiveRate = rate / (1 + rate);
+                out.compensationBase = cappedAdjNe;
+                out.uncapped = out.effectiveRate * cappedAdjNe;
+                out.contribution = Math.min(out.uncapped, SEC415_LIMIT_2026);
+                out.cappedBy415 = out.uncapped > SEC415_LIMIT_2026;
+            }
+            return out;
+        }
+
         function calculate() {
+            const empType = document.getElementById('empType').value;
+            const comp = parseFloat(document.getElementById('comp').value) || 0;
+            const ratePct = parseFloat(document.getElementById('rate').value);
+            const rateInput = isNaN(ratePct) ? 25 : ratePct;
             const current = parseFloat(document.getElementById('current').value) || 0;
-            const monthly = parseFloat(document.getElementById('monthly').value) || 0;
-            const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0.07;
+            const annualRate = (parseFloat(document.getElementById('ret').value) || 7) / 100;
             const years = parseInt(document.getElementById('years').value) || 20;
-            
-            const monthlyRate = annualRate / 12;
-            const months = years * 12;
-            
-            // Future value of current balance
-            const futureValueCurrent = current * Math.pow(1 + monthlyRate, months);
-            
-            // Future value of monthly contributions (annuity)
-            const futureValueContributions = monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-            
-            const totalValue = futureValueCurrent + futureValueContributions;
-            const totalContributions = current + (monthly * months);
+
+            const c = computeContribution(empType, comp, rateInput);
+
+            const growth = Math.pow(1 + annualRate, years);
+            const fvCurrent = current * growth;
+            const fvAnnuity = annualRate === 0
+                ? c.contribution * years
+                : c.contribution * ((growth - 1) / annualRate);
+            const totalValue = fvCurrent + fvAnnuity;
+            const totalContributions = current + (c.contribution * years);
             const totalGrowth = totalValue - totalContributions;
-            
-            let html = '<h3>Retirement Projection</h3>';
-            html += '<div class="result-value">$' + totalValue.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Starting Balance:</strong> $' + current.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Total Contributions:</strong> $' + totalContributions.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Investment Growth:</strong> $' + totalGrowth.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Time Frame:</strong> ' + years + ' years</div>';
-            html += '<div class="result-detail"><strong>Average Annual Return:</strong> ' + (annualRate * 100).toFixed(1) + '%</div>';
-            
-            // Add visual bar chart
+
+            const empTypeLabel = empType === 'w2'
+                ? 'W-2 employee (§404(h) 25% max)'
+                : 'Sole proprietor (§401(c)(2) 20% effective at 25% nominal)';
+
+            let html = '<h3>2026 SEP-IRA Contribution</h3>';
+            html += '<div class="result-value">' + FMT2.format(c.contribution) + '<span style="font-size:1rem;font-weight:500;color:#6e6e73"> / year</span></div>';
+            html += '<div class="result-detail"><strong>Employment type:</strong> ' + empTypeLabel + '</div>';
+
+            if (empType === 'w2') {
+                html += '<div class="result-detail"><strong>Nominal rate:</strong> ' + (c.rate * 100).toFixed(1) + '% of W-2 compensation</div>';
+                html += '<div class="result-detail"><strong>Compensation used:</strong> ' + FMT.format(c.compensationBase) + (c.cappedByComp ? ' <span style="color:#dc2626">(capped from ' + FMT.format(comp) + ' by §401(a)(17) $360,000 cap)</span>' : '') + '</div>';
+                html += '<div class="result-detail"><strong>Pre-cap contribution:</strong> ' + FMT2.format(c.uncapped) + (c.cappedBy415 ? ' <span style="color:#dc2626">(capped to $72,000 by §415(c) DC ceiling)</span>' : '') + '</div>';
+            } else {
+                html += '<div class="result-detail"><strong>Schedule C net profit:</strong> ' + FMT.format(comp) + '</div>';
+                html += '<div class="result-detail"><strong>Net earnings from SE (§1402(a)):</strong> ' + FMT2.format(c.netSeEarnings) + ' &nbsp;<em style="color:#6e6e73">(= net_profit × 0.9235)</em></div>';
+                html += '<div class="result-detail"><strong>Self-employment tax (SS + Medicare):</strong> ' + FMT2.format(c.seTax) + '</div>';
+                html += '<div class="result-detail"><strong>Half-SE-tax deduction (§164(f)):</strong> ' + FMT2.format(c.halfSeTax) + '</div>';
+                html += '<div class="result-detail"><strong>Adjusted net earnings:</strong> ' + FMT2.format(c.adjustedNe) + (c.cappedByComp ? ' <span style="color:#dc2626">(capped to $360,000 by §401(a)(17))</span>' : '') + '</div>';
+                html += '<div class="result-detail"><strong>Effective rate:</strong> ' + (c.effectiveRate * 100).toFixed(4) + '% &nbsp;<em style="color:#6e6e73">(= ' + (c.rate * 100).toFixed(1) + '% / (1 + ' + (c.rate * 100).toFixed(1) + '%) per §401(c)(2))</em></div>';
+                html += '<div class="result-detail"><strong>Pre-cap contribution:</strong> ' + FMT2.format(c.uncapped) + (c.cappedBy415 ? ' <span style="color:#dc2626">(capped to $72,000 by §415(c))</span>' : '') + '</div>';
+            }
+
+            html += '<h3 style="margin-top:1.5rem">Projected Balance in ' + years + ' Years</h3>';
+            html += '<div class="result-value">' + FMT.format(totalValue) + '</div>';
+            html += '<div class="result-detail"><strong>Starting Balance:</strong> ' + FMT.format(current) + '</div>';
+            html += '<div class="result-detail"><strong>Total Contributions (' + years + ' × ' + FMT2.format(c.contribution) + '):</strong> ' + FMT.format(totalContributions) + '</div>';
+            html += '<div class="result-detail"><strong>Investment Growth:</strong> ' + FMT.format(totalGrowth) + '</div>';
+            html += '<div class="result-detail"><strong>Assumed Return:</strong> ' + (annualRate * 100).toFixed(1) + '% annualized</div>';
+
             html += '<div class="chart-container">';
             html += '<div class="bar-chart">';
-            const barHeight1 = (totalContributions / totalValue) * 100;
-            const barHeight2 = (totalGrowth / totalValue) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (totalContributions/1000).toFixed(0) + 'k</div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (totalGrowth/1000).toFixed(0) + 'k</div>';
+            const barHeight1 = totalValue > 0 ? (totalContributions / totalValue) * 100 : 0;
+            const barHeight2 = totalValue > 0 ? (totalGrowth / totalValue) * 100 : 0;
+            html += '<div class="bar" style="height:' + Math.max(barHeight1, 5) + '%">$' + Math.round(totalContributions/1000) + 'k</div>';
+            html += '<div class="bar" style="height:' + Math.max(barHeight2, 5) + '%">$' + Math.round(totalGrowth/1000) + 'k</div>';
             html += '</div>';
             html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Your Contributions</div>';
+            html += '<div style="flex:1;" class="bar-label">Total Contributions</div>';
             html += '<div style="flex:1;" class="bar-label">Investment Growth</div>';
             html += '</div>';
             html += '</div>';
-            
-            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>This projection assumes consistent returns and contributions. Actual results will vary based on market performance. Past performance does not guarantee future results.</em></p>';
-            
+
+            if (c.cappedBy415 || c.cappedByComp) {
+                html += '<p style="margin-top:1rem;padding:.75rem 1rem;background:#fef3c7;border-left:4px solid #f59e0b;border-radius:0 6px 6px 0;font-size:.9rem;color:#78350f"><strong>Cap note:</strong> Your compensation and/or contribution rate exceeds the 2026 IRS caps. §415(c) limits total defined-contribution contributions to $72,000, and §401(a)(17) limits countable compensation to $360,000. A <a href="/calc/401k-calculator.html">Solo 401(k)</a> would let you add up to $24,500 of §402(g) elective deferral on top of the same employer contribution (subject to the same $72,000 total cap) — see our <a href="/blog/sep-ira-vs-solo-401k-2026.html">SEP vs Solo 401(k) 2026 guide</a>.</p>';
+            }
+
+            html += '<p style="margin-top:1.5rem;font-size:.9rem;color:#6e6e73"><em>Projection uses annual compounding with end-of-year contribution timing. 2026 IRS limits per Notice 2025-67 and IR-2025-176. Self-employed algebra per IRC §401(c)(2) and IRS Publication 560 Rate Worksheet. SE tax per IRC §1401 with the 2026 SSA wage base $184,500. See the &ldquo;How this calculator works&rdquo; section below for the full worksheet and primary sources.</em></p>';
+
             document.getElementById('result').innerHTML = html;
             document.getElementById('result').style.display = 'block';
         }

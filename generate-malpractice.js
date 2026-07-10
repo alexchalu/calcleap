@@ -75,7 +75,7 @@ function generateStatePage(s) {
     <title>${s.name} Medical Malpractice Settlement Calculator 2026 | CalcLeap</title>
     <meta name="description" content="Free ${s.name} medical malpractice settlement calculator. Estimate your case value based on ${s.abbr} damage caps, statute of limitations, medical costs, and lost wages.">
     <link rel="canonical" href="https://calcleap.com/malpractice/${s.slug}.html">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7513498242498681" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"${s.name} Medical Malpractice Calculator","url":"https://calcleap.com/malpractice/${s.slug}.html","applicationCategory":"FinanceApplication","operatingSystem":"Any"}</script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -156,8 +156,6 @@ function generateStatePage(s) {
             <div class="stat"><div class="val">${s.filings.toLocaleString()}</div><div class="lbl">Annual Filings</div></div>
         </div>
 
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7513498242498681" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
 
         <div class="card">
             <h2>⚖️ Calculate Your ${s.name} Case Value</h2>
@@ -232,8 +230,6 @@ function generateStatePage(s) {
             </div>
         </div>
 
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7513498242498681" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
 
         <div class="info-card">
             <h2>📋 ${s.name} Medical Malpractice Law Overview</h2>
@@ -278,8 +274,6 @@ function generateStatePage(s) {
             </div>
         </div>
 
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7513498242498681" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
 
         <div class="info-card">
             <h2>🗺️ Other State Malpractice Calculators</h2>
@@ -411,7 +405,7 @@ function generateIndex() {
     <title>Medical Malpractice Settlement Calculator by State 2026 | CalcLeap</title>
     <meta name="description" content="Free medical malpractice settlement calculators for all 50 US states. Compare damage caps, statute of limitations, and average settlements. Estimate your case value.">
     <link rel="canonical" href="https://calcleap.com/malpractice/">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7513498242498681" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.6}
@@ -452,8 +446,6 @@ function generateIndex() {
         <h1 class="page-title">Medical Malpractice Settlement Calculator by State 2026</h1>
         <p class="subtitle">Free malpractice settlement estimators for all 50 US states. Compare damage caps, statutes of limitations, and average settlements.</p>
 
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7513498242498681" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
 
         <div class="info-card">
             <h2>📊 National Overview</h2>
@@ -472,8 +464,6 @@ function generateIndex() {
             ${cards}
         </div>
 
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7513498242498681" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
 
         <div class="info-card">
             <h2>Understanding Medical Malpractice Settlements</h2>
