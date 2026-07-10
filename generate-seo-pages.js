@@ -106,7 +106,7 @@ function generateConversionPage(from, to, factor, fromUnit, toUnit, customFn) {
 <body>
     <header><div class="header-inner"><a href="index.html" class="logo">⚡ CalcLeap</a><p class="tagline">Free tools. No signup. 100% private.</p><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></div></header>
 
-    <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    <div class="ad-slot ad-banner"></div>
 
     <main style="max-width:800px;margin:0 auto;padding:2rem 1.5rem;">
         <nav style="margin-bottom:1rem"><a href="unit-converter.html" style="color:var(--accent);text-decoration:none;font-weight:600">← Unit Converter</a></nav>
@@ -131,7 +131,7 @@ function generateConversionPage(from, to, factor, fromUnit, toUnit, customFn) {
             </p>
         </div>
 
-        <div class="ad-slot" style="margin:2rem 0"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+        <div class="ad-slot" style="margin:2rem 0"></div>
 
         <h2 style="margin-top:2rem;font-size:1.3rem">${capitalize(from)} to ${capitalize(to)} Conversion Table</h2>
         <div style="overflow-x:auto;margin-top:1rem">
@@ -163,7 +163,7 @@ function generateConversionPage(from, to, factor, fromUnit, toUnit, customFn) {
         </section>
     </main>
 
-    <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    <div class="ad-slot ad-banner"></div>
 
     <footer><p>CalcLeap — All processing happens in your browser.</p></footer>
 

@@ -155,7 +155,7 @@ tr:hover{background:var(--accent-subtle)}
 <p>Calculate your ${state.plan} savings growth, tax benefits, and projected college costs for ${state.abbr} families. Free, instant results.</p>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
 
 <div class="card">
 <h2>🎓 Calculate Your 529 Savings</h2>
@@ -208,7 +208,7 @@ ${hasDeduction ? `<div class="card">
 <div class="result-box"><p style="font-size:.875rem">💡 While ${state.name} doesn't offer a state tax deduction for 529 contributions, your earnings still grow <strong>100% tax-free</strong> federally when used for qualified education expenses. You can also use <strong>any state's 529 plan</strong> — many offer lower fees.</p></div>
 </div>`}
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
 
 <div class="section">
 <h2>📊 ${state.name} College Cost Overview</h2>
@@ -266,7 +266,7 @@ ${hasDeduction ? `<div class="section">
 <div class="faq-item"><div class="faq-q">When should I start saving in a 529 plan?</div><div class="faq-a">The earlier the better! Starting at birth gives you 18 years of compound growth. Even modest monthly contributions of $200-$400 can grow to $80,000-$160,000+ by college age. In ${state.name}, with average annual college costs of $${state.costOfCollege.toLocaleString()}, early and consistent saving is critical.</div></div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
 
 <div class="section">
 <h2>🔗 Related Calculators</h2>
@@ -434,7 +434,7 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
 <div class="stat-card"><div class="value">100%</div><div class="label">Tax-Free Growth</div></div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
 
 <div class="card">
 <h2>🎓 Featured State Plans</h2>
@@ -452,7 +452,7 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
 </div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
 
 <div class="section">
 <h2>❓ Frequently Asked Questions</h2>

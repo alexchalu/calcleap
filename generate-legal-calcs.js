@@ -112,8 +112,8 @@ function generateHTML(calc) {
     </div>
 
     <div class="main container">
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
 
         <div class="calc-box">
             <h2>${calc.category} Estimator</h2>
@@ -147,8 +147,8 @@ function generateHTML(calc) {
             <p><strong>Legal Disclaimer:</strong> This calculator provides estimates for informational purposes only. Actual ${calc.category.toLowerCase()} amounts vary based on many factors including state laws, specific circumstances, and court decisions. Consult with a licensed attorney for advice on your specific situation.</p>
         </div>
 
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
 
         <div class="info-section">
             <h3>About ${calc.title}</h3>
@@ -174,8 +174,8 @@ function generateHTML(calc) {
             </ul>
         </div>
 
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
     </div>
 
     <div class="footer">

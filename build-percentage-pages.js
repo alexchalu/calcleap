@@ -120,10 +120,7 @@ for (const pct of percentages) {
             <div class="formula">${amtStr} × ${pct/100} = ${resultStr}</div>
         </div>
 
-        <div class="ad-slot">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="calculator">
             <h2>🔢 Custom Percentage Calculator</h2>
@@ -162,10 +159,7 @@ for (const pct of percentages) {
             </table>
         </div>
 
-        <div class="ad-slot">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="section">
             <h2>Related Percentage Calculations</h2>
@@ -184,10 +178,7 @@ for (const pct of percentages) {
             <p>Percentage = (Part / Whole) × 100. To find X% of Y, use: Result = Y × (X / 100).</p>
         </div>
 
-        <div class="ad-slot">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="footer">
             <a href="/toolpulse/">CalcLeap</a> · <a href="/toolpulse/percentage-calculator.html">Percentage Calculator</a> · <a href="https://calcleap.com/">SmartCalc Financial Tools</a>
@@ -247,19 +238,13 @@ const indexHtml = `<!DOCTYPE html>
         <h1>📊 Percentage Calculator</h1>
         <p class="subtitle">What is X% of Y? Browse ${count} pre-calculated answers or use any page's calculator.</p>
         
-        <div class="ad-slot">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="grid">
         ${indexLinks}
         </div>
 
-        <div class="ad-slot">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="footer">
             <a href="/toolpulse/">← CalcLeap Home</a> · <a href="https://calcleap.com/">SmartCalc</a>

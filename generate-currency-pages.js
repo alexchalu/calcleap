@@ -92,7 +92,7 @@ function generatePage(from, to) {
 <body>
     <header><div class="header-inner"><a href="index.html" class="logo">⚡ CalcLeap</a><p class="tagline">Free tools. No signup. 100% private.</p><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></div></header>
 
-    <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-slot ad-banner"></div>
 
     <main style="max-width:800px;margin:0 auto;padding:2rem 1.5rem;">
         <nav style="margin-bottom:1rem"><a href="index.html" style="color:var(--accent);text-decoration:none;font-weight:600">← All Tools</a></nav>
@@ -115,7 +115,7 @@ function generatePage(from, to) {
             </div>
         </div>
 
-        <div class="ad-slot" style="margin:2rem 0;padding:0"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+        <div class="ad-slot" style="margin:2rem 0;padding:0"></div>
 
         <h2 style="font-size:1.3rem;margin-top:2rem">${from} to ${to} Conversion Table</h2>
         <div style="overflow-x:auto;margin-top:1rem">
@@ -134,7 +134,7 @@ function generatePage(from, to) {
         </div>
     </main>
 
-    <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-slot ad-banner"></div>
 
     <footer><p>CalcLeap — Approximate rates for reference only. Not financial advice.</p></footer>
 

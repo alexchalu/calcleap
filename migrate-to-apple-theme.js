@@ -331,7 +331,7 @@ ${buildBreadcrumb(category, heroTitle, isSubdir)}
   ${heroDesc ? `<p>${heroDesc}</p>` : ''}
 </div>
 
-<div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="cl-ad"></div>
 
 <div class="cl-calc-card">
 <div class="cl-calc-inner">
@@ -339,7 +339,7 @@ ${calcContent.trim()}
 </div>
 </div>
 
-<div class="cl-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="cl-ad"></div>
 
 ${buildFooter(isSubdir)}
 

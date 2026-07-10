@@ -63,7 +63,7 @@ footer a{color:var(--a);text-decoration:none}
 </head>
 <body>
 <header><div class="hi"><a href="../index.html" class="logo">🔧 CalcLeap</a></div></header>
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="ad"></div>
 <main>
 <h1>${title}</h1>
 <p class="sub">${desc}</p>
@@ -76,13 +76,13 @@ footer a{color:var(--a);text-decoration:none}
 <div class="conv-result" id="result"></div>
 <div class="conv-result-label" id="resultLabel"></div>
 </div>
-<div class="ad" style="padding:0;margin-top:1.5rem"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="ad" style="padding:0;margin-top:1.5rem"></div>
 <div class="info">
 <h2>Conversion Table</h2>
 <table><thead><tr><th>${fromUnit}</th><th>${toUnit}</th></tr></thead><tbody>${tableRows}</tbody></table>
 </div>
 </main>
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="ad"></div>
 <footer><a href="../index.html">CalcLeap</a> · <a href="https://calcleap.com/">SmartCalc</a></footer>
 <script>
 const fromEl=document.getElementById('fromVal'),toEl=document.getElementById('toVal');

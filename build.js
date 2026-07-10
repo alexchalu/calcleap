@@ -100,8 +100,8 @@ function generateToolPage(tool, allTools) {
 
     <!-- Ad: Top -->
     <div class="ad-slot ad-banner">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
     </div>
 
     <main style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;">
@@ -113,8 +113,8 @@ function generateToolPage(tool, allTools) {
 
         <!-- Ad: Mid Content -->
         <div class="ad-slot" style="margin:2rem 0">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
         </div>
 
         <!-- Related Tools -->
@@ -134,8 +134,8 @@ function generateToolPage(tool, allTools) {
 
     <!-- Ad: Bottom -->
     <div class="ad-slot ad-banner">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
     </div>
 
     <footer>
@@ -240,8 +240,8 @@ function generateIndex(allTools) {
     </header>
 
     <div class="ad-slot ad-banner">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
     </div>
 
     <main style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;min-height:calc(100vh - 200px);">
@@ -266,8 +266,8 @@ function generateIndex(allTools) {
     </main>
 
     <div class="ad-slot ad-banner">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
     </div>
 
     <footer>

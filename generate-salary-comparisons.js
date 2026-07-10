@@ -54,10 +54,7 @@ cityPairs.forEach(pair => {
         <h1>💰 ${pair.from} vs ${pair.to} Salary Calculator</h1>
         <p>Compare salaries between ${pair.from} and ${pair.to} adjusted for cost of living. Find out what you need to earn in ${pair.to} to maintain the same lifestyle.</p>
 
-        <div class="ad-container">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="${adsenseId}" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="city-comparison">
             <div class="city-card">
@@ -123,10 +120,7 @@ cityPairs.forEach(pair => {
             </div>
         </div>
 
-        <div class="ad-container">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="${adsenseId}" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="highlight">
             <h3>📊 ${pair.from} vs ${pair.to}: Key Differences</h3>
@@ -146,10 +140,7 @@ cityPairs.forEach(pair => {
             <li><strong>Quality of life:</strong> Weather, culture, schools, commute times</li>
         </ul>
 
-        <div class="ad-container">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="${adsenseId}" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <h2>Related Salary Calculators</h2>
         <ul>

@@ -152,7 +152,7 @@ const NAV = `<nav class="nav"><div class="nav-inner"><a class="logo" href="/">Ca
 
 const FOOTER = `<footer class="footer"><div class="footer-inner"><div class="footer-col"><h4>Calculators</h4><a href="/auto-insurance/">Auto Insurance</a><a href="/life-insurance/">Life Insurance</a><a href="/home-insurance/">Home Insurance</a><a href="/health-insurance/">Health Insurance</a></div><div class="footer-col"><h4>By State</h4><a href="/dui/">DUI Costs</a><a href="/workers-comp/">Workers' Comp</a><a href="/disability-insurance/">Disability Insurance</a><a href="/social-security/">Social Security</a></div><div class="footer-col"><h4>Resources</h4><a href="/529/">529 Plans</a><a href="/childcare/">Childcare Costs</a><a href="/nursing-home/">Nursing Home</a><a href="/medicaid/">Medicaid</a></div><div class="footer-col"><h4>About</h4><a href="/about.html">About CalcLeap</a><a href="/privacy.html">Privacy Policy</a><a href="/contact.html">Contact</a></div></div><div class="footer-bottom">© 2026 CalcLeap. Free financial calculators and tools.</div></footer>`;
 
-const AD = `<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>`;
+const AD = ``;
 
 function slug(name) {
   return name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z-]/g,'');

@@ -185,7 +185,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
 
 <div class="info-card">
 <h3>🌪️ ${s.name} Risk Profile</h3>
@@ -211,7 +211,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </table>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
 
 <div class="info-card">
 <h3>🏠 What Does Home Insurance Cover in ${s.name}?</h3>
@@ -253,7 +253,7 @@ ${s.abbr === 'CA' ? '<p style="margin-top:1rem"><strong>⚠️ California Note:<
 </ul>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
 
 <div class="info-card">
 <h3>🔗 Related Calculators</h3>
@@ -441,7 +441,7 @@ ${states.sort((a,b)=>a.name.localeCompare(b.name)).map(s => {
 </table>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>
+
 
 <div class="info-card">
 <h3>📖 Understanding Home Insurance Costs</h3>

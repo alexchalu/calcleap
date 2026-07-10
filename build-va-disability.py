@@ -207,7 +207,7 @@ table{{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}}th{{t
 <h1 class="page-title">{name} VA Disability Calculator</h1>
 <p class="page-desc">Estimate your VA disability compensation in {name}. Calculate monthly payments based on disability rating, dependents, and combined ratings for {code} veterans.</p>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="card">
 <h2>🎖️ VA Disability Benefits Calculator</h2>
@@ -234,7 +234,7 @@ table{{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}}th{{t
 <div class="result-area" id="result"></div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="info-card">
 <h2>🏛️ {name} Veterans Overview</h2>
@@ -328,7 +328,7 @@ table{{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}}th{{t
 <p style="margin-top:1rem;text-align:center"><a href="/va-disability/" style="color:var(--accent);font-weight:600">View All 50 State VA Disability Calculators →</a></p>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 </div>
 
 <footer class="footer"><div class="footer-inner"><div><h4>CalcLeap</h4><a href="/">Home</a><a href="/va-disability/">VA Disability</a><a href="/calc/bmi-calculator.html">Health</a></div><div><h4>Calculators</h4><a href="/calc/compound-interest.html">Compound Interest</a><a href="/calc/mortgage-calculator.html">Mortgage</a><a href="/calc/retirement-calculator.html">Retirement</a></div><div><h4>Legal</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="/about.html">About</a></div><div><h4>About</h4><p style="font-size:.78rem;color:var(--text-3);line-height:1.6">CalcLeap provides free calculators for education purposes. Not legal or financial advice. Consult a qualified professional.</p></div></div></footer>
@@ -453,7 +453,7 @@ table{{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}}th{{t
 <h1 class="page-title">VA Disability Calculator by State</h1>
 <p class="page-desc">Calculate your VA disability compensation for all 50 states. Estimate monthly payments based on disability rating, dependents, combined ratings, and state-specific veterans benefits.</p>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="stat-grid">
 <div class="stat-card"><div class="val">18M+</div><div class="lbl">US Veterans</div></div>
@@ -473,7 +473,7 @@ table{{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}}th{{t
 </table>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="info-card">
 <h2>🎖️ Understanding VA Disability Compensation</h2>
@@ -488,7 +488,7 @@ table{{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}}th{{t
 </div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 </div>
 
 <footer class="footer"><div class="footer-inner"><div><h4>CalcLeap</h4><a href="/">Home</a><a href="/va-disability/">VA Disability</a><a href="/calc/bmi-calculator.html">Health</a></div><div><h4>Calculators</h4><a href="/calc/compound-interest.html">Compound Interest</a><a href="/calc/mortgage-calculator.html">Mortgage</a><a href="/calc/retirement-calculator.html">Retirement</a></div><div><h4>Legal</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="/about.html">About</a></div><div><h4>About</h4><p style="font-size:.78rem;color:var(--text-3);line-height:1.6">CalcLeap provides free calculators for education purposes. Not legal or financial advice. Consult a qualified professional.</p></div></div></footer>

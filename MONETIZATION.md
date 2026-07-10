@@ -51,9 +51,9 @@
    gated on TIER 0 items M3/M5/M6.
 
 ### Decisions pending from Alex
-- **Delete `malpractice/`, `mesothelioma/`, `tax-refund/`?** (~154 scraped YMYL pages that carried
-  the stranger's ad code; recommended DELETE — biggest single reappeal lever. Recoverable from
-  git history.)
+- ~~**Delete `malpractice/`, `mesothelioma/`, `tax-refund/`?**~~ **DECIDED + EXECUTED 2026-07-10**
+  (Alex approved; 154 scraped YMYL pages + `generate-malpractice.js` deleted, sitemap pruned to
+  2,792 URLs, all generator scripts sanitized of fake ad-unit emission. Recoverable from git history.)
 - **Do you recognize `ca-pub-7513498242498681`?** It was on all 154 of those pages (now purged).
   If it's an old account of yours, say so; otherwise someone else was the beneficiary of any
   impressions those pages ever served.

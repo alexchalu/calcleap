@@ -177,7 +177,7 @@ ins{display:block;margin:20px auto;border-radius:12px;overflow:hidden}
 <h1 class="page-title">${st.name} Capital Gains Tax Calculator 2026</h1>
 <p class="subtitle">Calculate your combined federal + ${st.abbr} state capital gains tax on stocks, crypto, real estate, and other investments. ${isNoTax ? `${st.name} has no state income tax — you only pay federal capital gains tax.` : `${st.name} taxes capital gains at rates up to ${st.topRate}%.`}</p>
 
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
 
 <div class="card">
 <h2>📊 Calculate Your ${st.name} Capital Gains Tax</h2>
@@ -221,7 +221,7 @@ ins{display:block;margin:20px auto;border-radius:12px;overflow:hidden}
 </div>
 </div>
 
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="2345678901" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
 
 <div class="info-card">
 <h2>📋 ${st.name} Capital Gains Tax Overview</h2>
@@ -274,7 +274,7 @@ ${isNoTax ? `
 </div>
 </div>
 
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="3456789012" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
 
 <div class="info-card">
 <h2>🗺️ Compare Capital Gains Tax by State</h2>
@@ -470,7 +470,7 @@ ins{display:block;margin:20px auto;border-radius:12px;overflow:hidden}
 <h1 class="page-title">Capital Gains Tax Calculator by State 2026</h1>
 <p class="subtitle">Compare capital gains tax rates across all 50 states. Find no-tax states, calculate your federal + state tax on stocks, crypto, and real estate gains.</p>
 
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
 
 <div class="highlights">
 <div class="highlight">
@@ -500,7 +500,7 @@ ${sorted.map(s => {
 </div>
 </div>
 
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
 
 <div class="card">
 <h2>📋 Understanding Capital Gains Tax</h2>

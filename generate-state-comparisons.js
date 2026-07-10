@@ -112,8 +112,8 @@ comparisons.forEach(({ from, to, reason }) => {
       <p class="subtitle">Compare income tax, sales tax, and property tax rates between ${from} and ${to}. ${reason}.</p>
 
       <!-- Ad Slot 1 -->
-      <ins class="adsbygoogle" style="display:block; text-align:center; margin: 20px 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="horizontal"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
 
       <div class="calculator-box">
         <h3>Tax Savings Calculator</h3>
@@ -156,8 +156,8 @@ comparisons.forEach(({ from, to, reason }) => {
       </div>
 
       <!-- Ad Slot 2 -->
-      <ins class="adsbygoogle" style="display:block; text-align:center; margin: 20px 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="9876543210" data-ad-format="horizontal"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
 
       <div class="info-section">
         <h3>Tax Rate Comparison Table</h3>
@@ -208,8 +208,8 @@ comparisons.forEach(({ from, to, reason }) => {
       </div>
 
       <!-- Ad Slot 3 -->
-      <ins class="adsbygoogle" style="display:block; text-align:center; margin: 20px 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="5555555555" data-ad-format="horizontal"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
 
       <div class="related-links">
         <h4>Compare Other States:</h4>

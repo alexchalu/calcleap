@@ -149,7 +149,7 @@ def gen_state_page(state, data):
 <div class="stat-card"><div class="val">{data['uninsured_rate']}</div><div class="lbl">Uninsured Rate</div></div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="card">
 <h2>Calculate Your {state} Life Insurance Premium</h2>
@@ -176,7 +176,7 @@ def gen_state_page(state, data):
 </div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="info-card">
 <h3>Life Insurance in {state}: What You Need to Know</h3>
@@ -200,7 +200,7 @@ def gen_state_page(state, data):
 </ul>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="info-card">
 <h3>Factors That Affect Life Insurance Rates in {state}</h3>
@@ -235,7 +235,7 @@ def gen_state_page(state, data):
 </div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="info-card">
 <h3>Related Calculators</h3>
@@ -338,7 +338,7 @@ def gen_index():
 <div class="stat-card"><div class="val">Free</div><div class="lbl">Instant Estimates</div></div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="card">
 <h2>Select Your State</h2>
@@ -347,7 +347,7 @@ def gen_index():
 </div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="info-card">
 <h3>Understanding Life Insurance Costs</h3>

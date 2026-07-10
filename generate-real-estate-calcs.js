@@ -123,8 +123,8 @@ function generateHTML(calc) {
     </div>
 
     <div class="main container">
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
 
         <div class="calc-box">
             <h2>Calculate ${calc.category} Details</h2>
@@ -155,8 +155,8 @@ function generateHTML(calc) {
             </div>
         </div>
 
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
 
         <div class="info-section">
             <h3>About ${calc.title}</h3>
@@ -183,8 +183,8 @@ function generateHTML(calc) {
             </ul>
         </div>
 
-        <ins class="adsbygoogle" style="display:block; border-radius:18px; margin:2rem 0;" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
     </div>
 
     <div class="footer">

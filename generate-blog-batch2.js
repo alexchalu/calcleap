@@ -337,27 +337,11 @@ articles.forEach(article => {
         <a href="/blog/" class="back-link">← Back to Blog</a>
         <h1>${article.title}</h1>
         
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="${adsenseId}"
-                 data-ad-slot="1234567890"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         ${article.content}
 
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="${adsenseId}"
-                 data-ad-slot="1234567890"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="related-tools">
             <h3>🔧 Free Tools</h3>
@@ -368,15 +352,7 @@ articles.forEach(article => {
             </ul>
         </div>
 
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="${adsenseId}"
-                 data-ad-slot="1234567890"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <a href="/blog/" class="back-link">← Back to Blog</a>
     </article>

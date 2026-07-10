@@ -95,7 +95,7 @@ function genPage(c) {
 </head>
 <body>
     <header><div class="header-inner"><a href="index.html" class="logo">⚡ CalcLeap</a><p class="tagline">Free tools. No signup. 100% private.</p><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button></div></header>
-    <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-slot ad-banner"></div>
     <main style="max-width:800px;margin:0 auto;padding:2rem 1.5rem;">
         <nav style="margin-bottom:1rem"><a href="unit-converter.html" style="color:var(--accent);text-decoration:none;font-weight:600">← Unit Converter</a></nav>
         <h1>🍳 ${fromName} to ${toName}</h1>
@@ -108,7 +108,7 @@ function genPage(c) {
                 <div class="field"><label class="label">${toName} (${c.tu})</label><div class="output-area" id="toV" style="font-size:1.5rem;font-weight:700;min-height:auto;padding:.875rem 1rem">${c.factor}</div></div>
             </div>
         </div>
-        <div class="ad-slot" style="margin:2rem 0;padding:0"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+        <div class="ad-slot" style="margin:2rem 0;padding:0"></div>
         <h2 style="font-size:1.3rem;margin-top:2rem">${fromName} to ${toName} Conversion Table</h2>
         <div style="overflow-x:auto;margin-top:1rem"><table><thead><tr><th>${fromName} (${c.fu})</th><th>${toName} (${c.tu})</th></tr></thead><tbody>${rows}</tbody></table></div>
         <div style="margin-top:2rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)">
@@ -116,7 +116,7 @@ function genPage(c) {
             <p style="color:var(--text-muted);font-size:.9rem;line-height:1.7">To convert ${fromName.toLowerCase()} to ${toName.toLowerCase()}, multiply by ${c.factor}. For example, 2 ${c.fu} = ${(2 * c.factor).toFixed(2)} ${c.tu}. This conversion is commonly used in cooking and baking recipes.</p>
         </div>
     </main>
-    <div class="ad-slot ad-banner"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+    <div class="ad-slot ad-banner"></div>
     <footer><p>CalcLeap — All calculations happen in your browser.</p></footer>
     <script>
         (function(){const b=document.getElementById('themeToggle');const s=localStorage.getItem('tp-theme');if(s==='light'){document.documentElement.setAttribute('data-theme','light');b.textContent='☀️'}b.addEventListener('click',()=>{const l=document.documentElement.getAttribute('data-theme')==='light';document.documentElement.setAttribute('data-theme',l?'dark':'light');b.textContent=l?'🌙':'☀️';localStorage.setItem('tp-theme',l?'dark':'light')})})();

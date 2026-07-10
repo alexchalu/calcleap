@@ -62,13 +62,13 @@ footer a{color:var(--a);text-decoration:none}
 </head>
 <body>
 <header><div class="hi"><a href="../index.html" class="logo">🔧 CalcLeap</a><span class="tag">Free Online Calculators & Tools</span></div></header>
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="ad"></div>
 <main>
 <h1>${title}</h1>
 <p class="sub">${desc}</p>
 <div class="calc">${calcHTML}</div>
 </main>
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="ad"></div>
 <footer><a href="../index.html">CalcLeap</a> · <a href="https://calcleap.com/">SmartCalc</a> · Free online calculators</footer>
 <script>
 const $=id=>document.getElementById(id);

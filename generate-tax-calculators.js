@@ -234,10 +234,7 @@ const template = (calc) => `<!DOCTYPE html>
 
     <main class="container">
         <!-- Ad Slot 1 -->
-        <div class="ad-container">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="tool-container">
             <h2>${calc.name}</h2>
@@ -277,10 +274,7 @@ const template = (calc) => `<!DOCTYPE html>
         </div>
 
         <!-- Ad Slot 2 -->
-        <div class="ad-container">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="9876543210" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="info-section">
             <h3>About This Calculator</h3>
@@ -295,10 +289,7 @@ const template = (calc) => `<!DOCTYPE html>
         </div>
 
         <!-- Ad Slot 3 -->
-        <div class="ad-container">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
     </main>
 
     <footer>

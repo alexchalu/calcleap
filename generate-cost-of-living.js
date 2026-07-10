@@ -56,10 +56,7 @@ cities.forEach(city => {
         <h1>💰 ${city.name} Cost of Living Calculator</h1>
         <p>Calculate your monthly expenses in ${city.name}, ${city.state}. Compare rent, groceries, transportation, and utilities to plan your budget.</p>
 
-        <div class="ad-container">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="${adsenseId}" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="stats-grid">
             <div class="stat-card">
@@ -152,10 +149,7 @@ cities.forEach(city => {
             </div>
         </div>
 
-        <div class="ad-container">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="${adsenseId}" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <div class="info-box">
             <h3>About Living in ${city.name}</h3>
@@ -181,10 +175,7 @@ cities.forEach(city => {
             <li>Look for roommates to split housing costs</li>
         </ul>
 
-        <div class="ad-container">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="${adsenseId}" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+
 
         <h2>Related Calculators</h2>
         <ul>

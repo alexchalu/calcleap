@@ -121,7 +121,7 @@ const NAV = `<nav class="nav"><div class="nav-inner"><a href="../index.html" cla
 
 const FOOTER = `<footer class="footer"><div class="footer-inner"><div><h5>CalcLeap</h5><p>Free, professional-grade calculators for every life decision. No signup required.</p></div><div><h5>Calculators</h5><a href="../index.html#finance">Financial</a><a href="../index.html#insurance">Insurance</a><a href="../index.html#tax">Tax</a><a href="index.html">Divorce</a></div><div><h5>Resources</h5><a href="../blog/">Blog</a><a href="../about.html">About</a><a href="../privacy.html">Privacy</a></div><div><h5>Legal</h5><p style="font-size:.75rem;color:var(--text-3);line-height:1.5">This calculator provides estimates only. Not legal advice. Consult a family law attorney in your state.</p></div></div><div class="footer-bottom"><p>&copy; 2026 CalcLeap. All rights reserved.</p></div></footer>`;
 
-const AD_SLOT = `<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div>`;
+const AD_SLOT = ``;
 
 function fmt(n) { return n.toLocaleString('en-US'); }
 function fmtMoney(n) { return '$' + n.toLocaleString('en-US'); }

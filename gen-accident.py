@@ -155,7 +155,7 @@ def gen_state(name, abbr, city):
 <h1 class="page-title">{name} Car Accident Settlement Calculator</h1>
 <p class="page-desc">Estimate your potential car accident settlement in {name} based on medical expenses, lost income, pain & suffering multiplier, and {abbr}'s {fault} laws.</p>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="card">
 <h2>Calculate Your Settlement Estimate</h2>
@@ -201,7 +201,7 @@ def gen_state(name, abbr, city):
 </div>
 </div>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="info-section">
 <h2>{name} Car Accident Settlement Laws</h2>
@@ -324,7 +324,7 @@ def gen_index():
 <h1 class="page-title">Car Accident Settlement Calculator</h1>
 <p class="page-desc">Select your state to estimate your car accident settlement. Each calculator uses your state's specific fault rules, statute of limitations, and typical settlement ranges.</p>
 
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div>
+
 
 <div class="card">
 <h2>Choose Your State</h2>

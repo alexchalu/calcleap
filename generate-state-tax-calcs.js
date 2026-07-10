@@ -82,8 +82,8 @@ function generatePage(state) {
     <div class="main container">
         <!-- Ad Slot 1 -->
         <div class="ad-placeholder">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
         </div>
 
         <div class="calc-box">
@@ -138,8 +138,8 @@ function generatePage(state) {
 
         <!-- Ad Slot 2 -->
         <div class="ad-placeholder">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
         </div>
 
         <div class="info-section">
@@ -169,8 +169,8 @@ function generatePage(state) {
 
         <!-- Ad Slot 3 -->
         <div class="ad-placeholder">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
         </div>
 
         <div class="info-section">

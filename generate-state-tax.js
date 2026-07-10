@@ -127,8 +127,8 @@ footer a{color:var(--accent);text-decoration:none}
 
 <div class="ad-slot">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+
 </div>
 
 <div class="tax-overview">
@@ -183,8 +183,8 @@ ${hasIncomeTax ? `
 
 <div class="ad-slot">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+
 </div>
 
 <div class="card">
@@ -220,8 +220,8 @@ ${hasIncomeTax ? `
 
 <div class="ad-slot">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+
 </div>
 
 <footer>
@@ -350,8 +350,8 @@ footer a{color:var(--accent);text-decoration:none}
 <p class="subtitle">Calculate income tax, sales tax, and property tax for any US state. Click a state for the full calculator.</p>
 <div class="ad-slot">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+
 </div>
 <input type="text" class="search" id="search" placeholder="Search states... (e.g. California, Texas, New York)">
 <div class="grid" id="grid">
@@ -366,8 +366,8 @@ ${states.map(s => `<a class="state-card" href="/toolpulse/${slug(s.name)}-tax.ht
 </div>
 <div class="ad-slot">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3112605892426625" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+
 </div>
 <footer>
 <p><a href="/toolpulse/">← Back to CalcLeap</a> · <a href="/smartcalc/">SmartCalc Financial Calculators</a></p>

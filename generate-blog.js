@@ -75,16 +75,16 @@ th{color:var(--m);font-weight:600;font-size:.8rem;text-transform:uppercase}
 <nav style="margin-bottom:1rem"><a href="../index.html" style="color:var(--a);text-decoration:none;font-size:.85rem">← Back to Tools</a></nav>
 <h1>${title}</h1>
 <div class="meta">Published March 7, 2026 · 8 min read</div>
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="ad"></div>
 <article>${content}</article>
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="ad"></div>
 <div class="tools"><h3>🔧 Free Tools Mentioned in This Article</h3>${related}</div>
 <div class="share"><p>Found this helpful? Share it!</p>
 <a href="https://twitter.com/intent/tweet?url=${BASE}/blog/${slug}.html&text=${encodeURIComponent(title)}" target="_blank">Share on X</a>
 <a href="https://www.linkedin.com/sharing/share-offsite/?url=${BASE}/blog/${slug}.html" target="_blank">Share on LinkedIn</a>
 <a href="https://www.facebook.com/sharer/sharer.php?u=${BASE}/blog/${slug}.html" target="_blank">Share on Facebook</a>
 </div>
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="${AD}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="ad"></div>
 </main>
 <footer><a href="../index.html">CalcLeap</a> · <a href="https://calcleap.com/">SmartCalc</a> · Free online tools & calculators</footer>
 </body>
