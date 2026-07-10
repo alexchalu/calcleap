@@ -51,6 +51,12 @@ For calculators, every page must meet:
 - **Submit changes to IndexNow** after each batch of edits (see `submission script` in repo root).
 - **Don't push 2,000-file commits.** Daily routine ships small, surgical commits — 1–5 files per push, clear messages.
 
+## 🚨 P0 — SITE DOWN (flagged 2026-07-10 midday by Claude, reported by Alex)
+
+**calcleap.com is serving GitHub's "There isn't a GitHub Pages site here" 404 — the Pages deployment is unpublished at the GitHub settings/account level.** Repo side verified healthy: CNAME present (`calcleap.com`, unchanged since 2026-06-16), `.github/workflows/pages.yml` intact, origin/main current at 2b43097, repo 6.4 MB. This 404 variant means DNS still points at Pages but GitHub has no published site bound — a failed deploy would NOT cause this (it leaves the prior version live). Likely causes ranked: (1) repo flipped to private on a free-tier account (auto-unpublishes Pages), (2) GitHub spam-flag takedown (check email from GitHub Support — plausible for a ~2,800-page programmatic site), (3) Pages settings reset to "None" / custom domain cleared. **Fix requires Alex in repo Settings → Pages** (source = GitHub Actions, custom domain = calcleap.com, repo Public) — not reachable from routine sessions (proxy blocks the GitHub API paths + github.io; GitHub MCP unauthenticated).
+
+**Standing instruction for every run until this clears:** Before doing content work, verify the site is back: attempt `curl -sI https://calcleap.com/` (may be proxy-blocked — a proxy 403 CONNECT failure is NOT the same as the site being up). If site status cannot be confirmed up, still do the work and push (the repo is the source of truth and deploys will catch up), but keep this P0 block in place and mention site status in the run's notification. Once Alex confirms the site is live again, delete this block and log the root cause + downtime window in the Daily Log. Related: the Rando heartbeat POST (rando-openclaw.fly.dev) and calcleap.com deploy-verify are both blocked by this environment's egress policy as of 2026-07-10 morning — flag stays until whitelisted.
+
 ## Current State (last updated: 2026-07-10 by Claude/morning-routine)
 
 | Metric | Now | Target | Gap |
