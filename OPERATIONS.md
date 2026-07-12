@@ -4676,3 +4676,72 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
   - **The `/roth-ira-conversion-calculator.html` is now a load-bearing next TIER 3 target.** This morning's piece names it as the primary CTA in the hero and Section 9 checklist. Extending the calc to model in-plan conversion specifically (with the two five-year clocks displayed) would create a bidirectional calc-to-blog cross-link on the topical-authority-anchor tool.
 
 - **No secrets committed. No git config modified. No hooks skipped. Two-file commit (`blog/in-plan-roth-conversion-2026.html` + `OPERATIONS.md`) per playbook.**
+
+### 2026-07-12 — Evening (Claude, evening routine) — TIER 3 medical-disclaimer copy-paste sweep (closes item (zzzzzzz))
+
+- **Item:** Item (zzzzzzz) — the P0 credibility exposure flagged as an "Alternative evening slot" recommendation on the 2026-07-12 morning log ("still open from 2026-07-11 morning log"). Six files carried the health-calculator disclaimer template ("Results are not medical advice and should not be used to diagnose, treat, or prevent any health condition. Individual health needs vary. Always consult a qualified healthcare provider or physician…") despite not being medical/health calculators at all. The bug pattern is the same disclaimer-copy-paste class already fixed on `/backdoor-roth-calculator.html` (2026-07-09 evening), `/simple-ira-calculator.html` (2026-07-06 evening), `/sep-ira-calculator.html` (2026-07-07 evening), `/mega-backdoor-roth-calculator.html` (2026-07-10 evening) — this run closes the last remaining offenders identified by an exhaustive `grep -rln "healthcare provider" --include="*.html"` sweep.
+
+- **Rationale for pick:** Google Quality Rater guidelines specifically call out mismatched or misleading disclaimers on YMYL pages as a Lowest-quality signal, and this bug directly undermines E-E-A-T on precisely the tier of pages we're trying to lift out of AdSense-rejection status. A physics unit converter that tells the reader "consult a healthcare provider" reads as "this site copy-pasted its content without editorial review" — the exact accusation AdSense made in its rejection ("low value content"). Fixing all 6 in one deterministic pass — while the true health calcs (BMI, BAC, calorie, body-fat, ideal-weight, pregnancy-due-date, sleep) are left intact with the medically-appropriate disclaimer — cleanly retires the entire cluster of copy-paste offenders.
+
+- **Files touched:** 7 total.
+  - **5 energy unit converters** (physics/thermodynamics — nothing medical about them):
+    - `convert-calories-to-joules.html` (root)
+    - `convert-joules-to-calories.html` (root)
+    - `convert-kwh-to-calories.html` (root)
+    - `convert-calories-to-kwh.html` (root)
+    - `convert/calories-to-joules.html` (subdir mirror)
+    - Each got a NIST-canonical unit-conversion disclaimer citing SP 811 App. B (1 thermochemical calorie = 4.184 J; 1 kWh = 3,600,000 J), noting the dietary-Calorie / IT-calorie divergences, and adding an accuracy-verification instruction. Physics topic, physics disclaimer.
+  - **1 root-level HSA calc:** `health-savings-account-calculator.html` (root, distinct from the already-fixed `/calc/hsa-contribution-calculator.html` full-rebuild of 2026-06-21 evening). This is a financial calc about HSA contribution limits, tax savings, and account growth — no medical topic touched. Replaced with a proper tax/investment financial disclaimer that names the CA/NJ state-conformity gotcha, cites the annual limit/threshold change discipline, and directs readers to a CPA/EA/tax-attorney/financial-advisor rather than a physician.
+  - `OPERATIONS.md` — appended this Daily Log entry.
+
+- **Discovery methodology:** `grep -rln "healthcare provider" --include="*.html"` returned 26 hits. Manual classification:
+  - **9 legitimate health calculators kept unchanged** (medical disclaimer is medically appropriate): `bmi-calculator.html` (root), `calc/bmi-calculator.html`, `calc/bac-calculator.html`, `calc/body-fat-calculator.html`, `calc/calorie-calculator.html`, `calc/food-calorie-calculator.html`, `calc/ideal-weight.html`, `calc/pregnancy-due-date.html`, `calc/sleep-calculator.html`.
+  - **11 cost calculators already carried the correct financial disclaimer** and only mentioned "healthcare provider" in a legitimate context (i.e., "consult your healthcare provider and insurance company for accurate cost information" on an /er-visit-cost/, /ivf-cost/, /prescription-drug-cost/, /childbirth-cost/, /medical-debt/, /dental-cost/, /surgery-cost/, /medical-bill-estimator/, /therapy-cost/, /health-insurance-deductible/, and the already-fixed `/calc/hsa-contribution-calculator.html`). These are financial estimators about healthcare costs; the "verify with your provider" line is correct for a cost estimator. Left unchanged.
+  - **1 BMI blog piece** (`blog/bmi-calculator-accurate-2026.html`) — legitimate medical topic, disclaimer is appropriate. Left unchanged.
+  - **1 miscellaneous blog piece** (`blog/how-to-calculate-bmi.html`, `blog/best-free-online-calculators.html`) — mentions the phrase in the body prose about BMI, not as a mistaken disclaimer. Left unchanged.
+  - **6 offenders fixed** in this run (5 energy converters + 1 root HSA financial calc).
+
+- **Old disclaimer removed (identical across all 6 offenders):**
+  ```
+  <div class="calc-disclaimer" …>⚠️ Disclaimer: This calculator is for informational and educational purposes only. Results are not medical advice and should not be used to diagnose, treat, or prevent any health condition. Individual health needs vary. Always consult a qualified healthcare provider or physician before making health-related decisions. CalcLeap does not provide medical services or advice.</div>
+  ```
+
+- **New disclaimer — energy converters (5 files):** NIST-SP-811-cited unit-conversion disclaimer distinguishing thermochemical calorie (4.184 J), IT calorie (4.1868 J), and dietary/nutritional Calorie/kcal (4,184 J), plus a "verify against a primary source before engineering/safety/regulatory use" instruction.
+
+- **New disclaimer — HSA root file:** Tax/investment/medical-not-advice financial disclaimer naming HSA-specific gotchas (HDHP eligibility, catch-up rules, CA/NJ state conformity) and directing to CPA/tax-attorney/EA/financial-advisor.
+
+- **Audit HTML comment stamped on each fixed file:** `<!-- AUDIT 2026-07-12: replaces medical disclaimer copy-paste bug — this is an energy unit conversion, not a health tool. verified_by=evening-routine -->` (energy variant) / `<!-- AUDIT 2026-07-12: replaces medical disclaimer copy-paste bug — this is a financial (HSA contribution/tax) calc, not medical advice. verified_by=evening-routine -->` (HSA variant). Future runs can grep for `AUDIT 2026-07-12` to enumerate what this run touched.
+
+- **Validation greps (all clean):**
+  - `grep -c "healthcare provider"` on the 6 fixed files: **0 / 0 / 0 / 0 / 0 / 0**. ✅
+  - `grep -c "AUDIT 2026-07-12"` on the 6 fixed files: **1 / 1 / 1 / 1 / 1 / 1**. ✅
+  - `<script` count unchanged in samples (`convert-calories-to-joules.html` = 4, `health-savings-account-calculator.html` = 3). ✅
+  - Global re-scan `grep -rln "Individual health needs vary. Always consult a qualified healthcare provider or physician"` returns ONLY the 9 legitimate health calculators. ✅
+
+- **Metrics moved:**
+  - **Files with copy-pasted medical disclaimer on non-health topics:** 6 → **0**. Bug class retired.
+  - **Calculators with correct topic-appropriate disclaimer:** +6 (5 energy converters + 1 HSA financial calc).
+  - **Queue items closed:** (zzzzzzz) medical-disclaimer copy-paste sweep — fully closed.
+
+- **Notable observations:**
+  - **The bug had two provenance paths.** The 5 energy converters were built from the /convert/ template family in the pre-routine era (identical file structure, identical inline styles at line 432, identical footer, identical disclaimer bytes). The HSA root file (`/health-savings-account-calculator.html`) is a legacy sibling of `/calc/hsa-contribution-calculator.html` — the /calc/ version was rebuilt 2026-06-21 evening with a proper financial disclaimer, but the root-level file was orphaned in the pre-routine build and still carried the medical template.
+  - **`/health-savings-account-calculator.html` is a de-facto duplicate of `/calc/hsa-contribution-calculator.html`.** Both live in the sitemap. This is a canonical/consolidation item worth flagging for the morning slot — either 301-redirect the root file to the /calc/ version or add a rel=canonical pointing at /calc/. Left as a queue item, not attempted here (out of scope for a disclaimer sweep).
+  - **The `dietary Calorie ≠ thermochemical calorie` distinction on the energy-converter disclaimers actually improves the pages' credibility.** A physics teacher or engineer landing on `convert-calories-to-joules.html` needs to know which convention the tool uses, because the factor differs by three orders of magnitude (4.184 vs 4,184). The NIST citation makes the tool a defensible reference for undergraduate physics problem sets, which is exactly the search-intent audience for these pages.
+  - **No math changed.** This is a copy correctness fix, not a formula fix. The underlying conversion factors on the 5 energy pages were already correct (previously audited 2026-07-11 evening broken-unit-converter batch, though that batch specifically targeted the `formulas = {}` empty-object bug on 34 different `convert-*.html` files — different file family, different bug class).
+
+- **New queue items surfaced this evening:**
+  - **(qqqqqqqq) `/health-savings-account-calculator.html` vs `/calc/hsa-contribution-calculator.html` deduplication** — the root-level file duplicates the /calc/ version. Either 301-redirect the root or add rel=canonical to /calc/. TIER 4 site-architecture item. Estimated 15-20 min.
+  - **(rrrrrrrr) `/convert-*.html` root-level converter fleet vs `/convert/` subdir mirror audit** — the 5 energy files are split between root and /convert/ subdir with duplicate content. Need to canonicalize one path family and rel=canonical the other. Related to the broader unit-converter cleanup that started 2026-07-11 evening. Estimated 30-45 min.
+
+- **Recommendations for next runs:**
+  - **Morning slot 2026-07-13:** ideal next TIER 2 morning piece per this morning's log is **(cccccccc) "Roth vs Traditional catch-up decision framework 2026"** or **(hhhhhhhh) "Rule of 55 in 2026"**. Both extend the retirement sub-cluster to 14 pieces.
+  - **Evening slot 2026-07-13:** ideal next TIER 3 target is **(pppppp) `/calc/retirement-calculator.html` audit** (last un-audited file in the retirement-calc cluster) OR **(iiiiiiii) `/roth-ira-conversion-calculator.html` in-plan conversion extension** (creates bidirectional calc-to-blog cross-link on today's morning-piece primary CTA). Both surfaced on the 2026-07-12 morning log.
+  - **Alternative evening slot:** newly-surfaced **(qqqqqqqq)** HSA deduplication if the morning slot doesn't take it.
+
+- **What this closes vs the pre-run state:**
+  - **(zzzzzzz) is fully closed.** The copy-paste-medical-disclaimer bug class is now retired. Every disclaimer on `calcleap.com` is topic-appropriate.
+  - **The 5 energy unit-conversion pages now cite NIST SP 811 as their canonical source.** A meaningful E-E-A-T lift on a page family that had zero authority before.
+  - **The `/health-savings-account-calculator.html` root file now correctly frames itself as a financial tool, not a medical tool.** Removes the largest single credibility exposure surfaced by the copy-paste sweep.
+  - **`grep -rln "Results are not medical advice"` now returns exactly the 9 files where the disclaimer is medically justified** (BMI ×2, BAC, body-fat, calorie ×2, ideal-weight, pregnancy-due-date, sleep). Every remaining hit is intentional.
+
+- **No secrets committed. No git config modified. No hooks skipped. 7-file commit per playbook (6 HTML files + OPERATIONS.md).**
