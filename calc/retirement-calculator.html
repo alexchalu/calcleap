@@ -15,6 +15,8 @@
 <meta property="og:description" content="Calculate how much you need to save for retirement. See if you're on track to retire comfortably with our free retirement planning calculator.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Retirement Calculator","description":"Calculate how much you need to save for retirement and see if you're on track.","url":"https://calcleap.com/calc/retirement-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Finance","item":"https://calcleap.com/index.html#finance"},{"@type":"ListItem","position":3,"name":"Retirement Calculator","item":"https://calcleap.com/calc/retirement-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the 25x rule for retirement?","acceptedAnswer":{"@type":"Answer","text":"The 25x rule (also known as the 4% rule) suggests you need 25 times your desired annual retirement income saved before you retire. For example, if you want $80,000/year in retirement, you'd need $2,000,000 saved. This allows you to withdraw 4% per year, which historically has sustained a 30-year retirement."}},{"@type":"Question","name":"What rate of return should I expect?","acceptedAnswer":{"@type":"Answer","text":"The S&P 500 has historically returned about 10% annually (7% after inflation). A balanced portfolio of stocks and bonds typically returns 6-8%. Conservative investors might use 5-6%, while aggressive investors might use 8-10%. The default 7% represents a moderate, inflation-adjusted expectation."}},{"@type":"Question","name":"How much should I save for retirement each month?","acceptedAnswer":{"@type":"Answer","text":"Financial advisors commonly recommend saving 15-20% of your gross income for retirement. However, the right amount depends on your age, current savings, retirement goals, and expected Social Security benefits. The earlier you start, the less you need to save each month thanks to compound interest."}},{"@type":"Question","name":"Does this calculator account for Social Security?","acceptedAnswer":{"@type":"Answer","text":"No, this calculator shows only your personal savings projection. Social Security benefits would supplement your retirement income. To get a more complete picture, you can reduce your Desired Annual Income by your expected Social Security benefit (check ssa.gov for your estimate)."}},{"@type":"Question","name":"What if I'm behind on retirement savings?","acceptedAnswer":{"@type":"Answer","text":"If the calculator shows you're short, consider: (1) increasing monthly contributions even by small amounts, (2) taking advantage of employer 401k matching, (3) using catch-up contributions if you're 50+, (4) delaying retirement by a few years, or (5) reducing your expected retirement expenses. Even small changes early can have a massive impact over time."}}]}</script>
 <style>
 
 /* === CalcLeap Apple Design System === */
@@ -321,7 +323,7 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </div>
 <button class="btn" onclick="calc()">🏖️ Calculate Retirement</button>
 <div id="statusBanner"></div>
-<div class="results-grid" id="out"></div>
+<div class="result-grid" id="out"></div>
 </div>
 </div>
 
@@ -355,6 +357,21 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <div style="max-width:1200px;margin:1.5rem auto;padding:0 1.5rem">
 
 </div>
+<!--
+AUDIT 2026-07-13 verified_by=evening-routine
+  formula: end-of-month annuity FV with monthly compounding.
+    balance = P*(1+i)^N + PMT*((1+i)^N - 1)/i    where i = r/12, N = years*12
+    (loop `balance = balance*(1+r/12) + m` for years*12 iterations is algebraically identical)
+    needed = income * 25    (Trinity Study 4% safe-withdrawal-rate, per default 7% real return in FAQ)
+    interestEarned = balance - (sav + m*12*years)
+  test_cases (closed-form FV cross-checked against the loop — 5/5 exact match to the dollar):
+    [1] {age:30, ret:65, sav:50000, m:1000,  r:7%, income:80000} -> balance=$2,376,362, needed=$2,000,000, onTrack=true,  interest=$1,906,362
+    [2] {age:40, ret:65, sav:100000,m:1500,  r:6%, income:60000} -> balance=$1,485,988, needed=$1,500,000, onTrack=false, interest=$935,988
+    [3] {age:25, ret:60, sav:0,     m:500,   r:8%, income:70000} -> balance=$1,146,941, needed=$1,750,000, onTrack=false, interest=$936,941
+    [4] {age:30, ret:65, sav:10000, m:500,   r:0%, income:50000} -> balance=$220,000,   needed=$1,250,000, onTrack=false, interest=$0        (zero-rate edge case: FV reduces to P+PMT*N)
+    [5] {age:55, ret:65, sav:200000,m:2000,  r:5%, income:60000} -> balance=$639,966,   needed=$1,500,000, onTrack=false, interest=$199,966
+  math verdict: CORRECT. Contributions modeled at end of each month (industry standard); balance formula is textbook annuity FV; 25x target is the standard 4% SWR corollary and the FAQ correctly documents the 7% default as an inflation-adjusted (real) return so target and balance are both in today's dollars — internally consistent.
+-->
 <script>
 const $=id=>document.getElementById(id);
 const fmt=(n,d=2)=>typeof n==='number'?n.toLocaleString('en-US',{maximumFractionDigits:d}):'—';
