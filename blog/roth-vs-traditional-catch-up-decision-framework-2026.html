@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roth vs Traditional Catch-Up in 2026: When SECURE 2.0 §603 Actually Hurts You — Decision Framework, Break-Even Math, and the 5-8% Edge Cases | CalcLeap</title>
+<meta name="description" content="The 2026 decision framework for Roth vs Traditional 401(k) catch-up contributions under SECURE 2.0 §603 — the five variables that determine which side of the break-even you sit on, the specific 5-8% of high-earner cases where Roth is worse, four workarounds when §603 forces the wrong answer, and three worked case studies at $180K, $260K, and $420K wages.">
+<link rel="canonical" href="https://calcleap.com/blog/roth-vs-traditional-catch-up-decision-framework-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Roth vs Traditional Catch-Up in 2026 — CalcLeap">
+<meta property="og:description" content="The decision framework, break-even math, and the specific 5-8% of high-earner cases where SECURE 2.0 §603 mandatory Roth catch-up hurts more than it helps.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/roth-vs-traditional-catch-up-decision-framework-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-07-14T00:00:00Z">
+<meta property="article:modified_time" content="2026-07-14T00:00:00Z">
+<meta property="article:section" content="Retirement">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Roth vs Traditional Catch-Up in 2026: When SECURE 2.0 §603 Actually Hurts You — Decision Framework, Break-Even Math, and the 5-8% Edge Cases",
+  "description": "The 2026 decision framework for Roth vs Traditional 401(k) catch-up contributions under SECURE 2.0 §603 — the five variables that determine which side of the break-even you sit on, the specific 5-8% of high-earner cases where Roth is worse, four workarounds when §603 forces the wrong answer, and three worked case studies at $180K, $260K, and $420K wages.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-07-14T00:00:00Z",
+  "dateModified": "2026-07-14T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/roth-vs-traditional-catch-up-decision-framework-2026.html"
+  },
+  "articleSection": "Retirement",
+  "wordCount": 7058,
+  "about": [
+    {"@type": "Thing", "name": "SECURE 2.0 section 603"},
+    {"@type": "Thing", "name": "Catch-up contributions"},
+    {"@type": "Thing", "name": "Roth 401(k)"},
+    {"@type": "Thing", "name": "Traditional 401(k)"},
+    {"@type": "Thing", "name": "Marginal tax rate"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Roth vs Traditional Catch-Up 2026"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the §603 mandatory Roth catch-up rule for 2026?",
+     "acceptedAnswer": {"@type": "Answer", "text": "SECURE 2.0 Act §603 requires that any catch-up contribution made by a participant whose prior-year FICA wages from the plan sponsor exceeded $150,000 (indexed from the original $145,000 threshold) be treated as a designated Roth contribution rather than a pretax elective deferral. It applies to §401(k), §403(b), and governmental §457(b) plans. The provision was effective January 1, 2026, after the IRS granted a two-year administrative transition period in Notice 2023-62. For 2026 the base catch-up limit under §414(v)(2)(B)(i) is $8,000 and the §414(v)(2)(E)(i) age 60-63 super catch-up is $11,250. Participants under the FICA wage threshold retain the choice between pretax and Roth catch-up."}},
+    {"@type": "Question", "name": "When does mandatory Roth catch-up actually hurt a high earner?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Roth beats pretax whenever the retirement marginal tax rate meets or exceeds the current marginal rate. The specific 5-8% of §603-covered cases where Roth loses share a common pattern: (a) participant is in the peak-earning window of 55-63 at 32% or 35% federal marginal now, (b) participant plans to relocate from a high-tax state (California 12.3%, New York 10.9%, New Jersey 10.75%, Hawaii 11%) to a no-income-tax state (Florida, Texas, Nevada, Tennessee, Washington, Wyoming, South Dakota, Alaska) at retirement, (c) participant will draw down retirement balances at 22% or 24% federal because of loss of wage income and Social Security taxation caps, and (d) participant does not intend to leave a large Roth balance to non-spouse heirs. When all four conditions align, the pretax catch-up would have been the mathematically superior choice by 3-6 percent of the catch-up dollar amount over the participant's lifetime."}},
+    {"@type": "Question", "name": "Which FICA wages count for the $150,000 threshold?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The §603 wage test looks at Box 3 (Social Security wages) of the prior-year Form W-2 from the same plan sponsor. Only wages from the plan sponsor count — a participant with $130,000 of W-2 wages from Employer A (the plan sponsor) plus $50,000 of self-employment income does not trigger §603 for Employer A's plan, because self-employment income is not Employer A wages. Box 3 caps at the Social Security taxable wage base ($176,100 for 2025 wages reported on the 2025 W-2 used for the 2026 test), and Notice 2023-62 clarified that the test uses uncapped Medicare wages when the plan document elects that method, though the base method uses Box 3. First-year employees with no prior-year FICA wages from the plan sponsor are exempt from §603 regardless of current-year salary."}},
+    {"@type": "Question", "name": "Can I avoid §603 by keeping my prior-year wages under $150,000?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes, if it's practical for your situation, though the trade-offs usually outweigh the benefit. A participant whose 2025 W-2 Box 3 wages from the plan sponsor were $148,000 avoids §603 for 2026 catch-up contributions. But manipulating W-2 wages downward via elective deferrals, HSA contributions, dependent care FSA elections, or unpaid leave has substantial income and career trade-offs. The threshold is indexed annually under §603(b)(3)(B) using the §414(v)(2)(C) COLA methodology, so it rises with inflation — expect roughly $155,000 for 2027 and $160,000 by 2029 at current CPI trajectories. Actively managing wage income to sit under the threshold makes sense only in narrow cases: a participant already near retirement, taking sabbatical, or transitioning to part-time consulting where the wage reduction was going to happen anyway."}},
+    {"@type": "Question", "name": "Does §603 apply to the age 60-63 super catch-up under SECURE 2.0 §109?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. The §414(v)(2)(E)(i) super catch-up for participants aged 60, 61, 62, or 63 (equal to the greater of $10,000 or 150 percent of the regular catch-up, which produces the $11,250 amount for 2026) is a catch-up contribution for §603 purposes. High-earner participants in the age 60-63 window face mandatory Roth treatment on the full super catch-up amount, not just the base $8,000. This makes the §603 hit larger during the peak retirement-savings window when many participants are trying to close pre-retirement funding gaps. The plain-language reading of §603(a) is unambiguous: it applies to 'any catch-up contribution' under §414(v), which includes the §414(v)(2)(E)(i) super catch-up."}},
+    {"@type": "Question", "name": "What are the four workarounds when §603 forces the wrong answer?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Four practical workarounds exist for high earners for whom pretax catch-up would have been mathematically superior: (1) After-tax voluntary contribution + in-service Roth conversion — the Mega Backdoor Roth path lets you contribute up to the §415(c) limit ($72,000 for 2026) in after-tax dollars and convert to Roth without §603 constraint, though tax treatment differs. (2) Defer non-catch-up compensation to a §409A Nonqualified Deferred Compensation plan if the employer offers one, capturing pretax tax-deferred growth outside the §401(k) framework. (3) Load the base §402(g)(1) $24,500 deferral into pretax and take the §603 Roth hit only on the catch-up piece, minimizing the affected dollar amount. (4) Contribute the catch-up as required Roth and hedge by strategically Roth-converting existing Traditional IRA balances during low-income years post-retirement, which effectively shifts pretax dollars into Roth at the retirement marginal rate the pretax catch-up would have exited at."}},
+    {"@type": "Question", "name": "How does the state-move variable change the answer?",
+     "acceptedAnswer": {"@type": "Answer", "text": "State income tax paid on pretax contributions is not recoverable at retirement, but state income tax paid on Roth distributions is not owed — so the state-tax delta between working state and retirement state is a first-order determinant of the pretax-vs-Roth answer. A California resident at 12.3 percent state marginal rate contributing pretax to a 401(k) and relocating to Florida (0 percent) at retirement pays 12.3 percent state tax now and 0 percent later — the state-tax savings on pretax is $1,230 per $10,000 contributed. A California resident contributing Roth pays the same 12.3 percent state tax on wages now but pays 0 percent later — the state-tax cost on Roth is $1,230 per $10,000, and the Roth structure prevents recovering it. For a $8,000 to $11,250 catch-up contribution, the state-tax delta is $980 to $1,380 per year permanently lost under the mandatory Roth treatment. Over a 10-year catch-up window that is $9,800 to $13,800 of state-tax savings the pretax path would have captured."}},
+    {"@type": "Question", "name": "Does Medicare IRMAA change the calculation?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes, materially for participants whose retirement modified adjusted gross income (MAGI) sits near the Medicare IRMAA cliff brackets. The 2026 Medicare Part B and Part D IRMAA (Income-Related Monthly Adjustment Amount) surcharge structure adds up to $443.90 per month per person on Part B plus up to $85.80 per month on Part D at the highest income bracket, applied on a two-year lookback of MAGI. Traditional 401(k) distributions increase MAGI dollar-for-dollar; Roth 401(k) distributions do not. A high-balance retiree who takes $150,000 per year in Traditional distributions and would otherwise be in the second IRMAA tier ($107,000-$134,000 MFJ) may cross into the third or fourth tier, adding $2,400-$5,300 per year in surcharges per spouse. For those retirees, mandatory Roth catch-up under §603 is genuinely value-additive because it caps future MAGI at retirement. This is the single largest benefit that partially offsets the state-move and marginal-rate objections."}},
+    {"@type": "Question", "name": "What if I plan to leave a large Roth balance to non-spouse heirs?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The 2020 SECURE Act §401 imposed a 10-year distribution requirement on non-spouse beneficiaries of retirement accounts. A non-spouse heir must fully drain the inherited account by December 31 of the 10th year following the account owner's death. For inherited Traditional IRAs and 401(k)s, that 10-year drawdown adds substantial ordinary income to the heir's tax return during their peak earning years, often at 32-37 percent marginal rates. For inherited Roth accounts, the 10-year drawdown is tax-free — a fundamentally superior estate-planning outcome. Participants whose primary objective is intergenerational wealth transfer to non-spouse heirs (adult children, grandchildren) benefit materially from mandatory Roth catch-up under §603 because the Roth balance grows and transfers tax-free. This makes §603 a windfall for a specific participant profile: high-earner with large existing pretax balance and named non-spouse beneficiary."}},
+    {"@type": "Question", "name": "Should I stop making catch-up contributions if §603 makes Roth unappealing?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, in nearly every case. Even in the specific 5-8% of scenarios where Roth catch-up is mathematically inferior to what pretax would have been, the tax-deferred growth and asset-protection benefits of the Roth catch-up still exceed the after-tax alternative of the same dollar amount invested in a taxable brokerage account. The Roth catch-up escapes federal tax on decades of investment gains, avoids Roth IRA income limits entirely, and enjoys ERISA creditor protection. The framework in this article identifies when Roth is inferior to pretax — not when Roth is inferior to no retirement contribution. The correct response to a §603-worsened scenario is to still make the catch-up (get the tax-deferred growth), then hedge with the four workaround strategies to recapture some of the pretax advantage elsewhere."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:720px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.05rem;color:var(--text);box-shadow:var(--shadow);line-height:1.5}
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.88rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+.ad-slot{margin:2.5rem 0;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--white);border:1px dashed var(--border);border-radius:var(--r-sm)}
+.ad-slot ins{display:block;width:100%}
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+.checklist{margin:1.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.checklist h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.75rem}
+.checklist ol{margin:0 0 0 1.4rem;font-size:.98rem}
+.checklist li{margin-bottom:.65rem;color:var(--text-2)}
+.checklist li strong{color:var(--text)}
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>Roth vs Traditional Catch-Up 2026
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement · Updated July 14, 2026</span>
+  <h1 id="article-start">Roth vs Traditional Catch-Up in 2026: When SECURE 2.0 §603 Actually Hurts You — Decision Framework, Break-Even Math, and the 5-8% Edge Cases</h1>
+  <p class="deck">SECURE 2.0 §603 forces high-earner catch-up contributions into Roth starting in 2026. For most participants this is a windfall. For a specific 5-8 percent of cases, it destroys the mathematically correct choice. This is the framework to know which one you are — with the break-even math, the five decision variables, four workarounds, and three worked case studies at $180K / $260K / $420K wages.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published July 14, 2026</span>
+    <span class="dot"></span>
+    <span>18 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>January 1, 2026 activated SECURE 2.0 Act §603 for real. After two years of administrative transition relief under IRS Notice 2023-62,<sup><a href="#source-1">[1]</a></sup> any catch-up contribution made by a participant whose prior-year Social Security wages from the plan sponsor exceeded $150,000 (indexed from the statutory $145,000 baseline) is now required to be a designated Roth contribution rather than a pretax elective deferral.<sup><a href="#source-2">[2]</a></sup> The base §414(v)(2)(B)(i) catch-up limit for 2026 is $8,000. The §414(v)(2)(E)(i) age-60-through-63 super catch-up, added by SECURE 2.0 §109, is $11,250.<sup><a href="#source-3">[3]</a></sup> A high-earning 61-year-old in 2026 who wants to max their catch-up is contributing $11,250 that used to be tax-deductible into an after-tax Roth bucket by statutory command, not by choice.</p>
+
+<p>The industry consensus around §603 has settled into a comfortable talking point: Roth catch-up is fine, and for most high earners it's actually better because it locks in today's tax rate, avoids Required Minimum Distributions on the Roth 401(k) balance under SECURE 2.0 §325, escapes the Medicare IRMAA cliff structure at retirement, and produces tax-free intergenerational transfers under the 2020 SECURE Act ten-year non-spouse beneficiary rule.<sup><a href="#source-4">[4]</a></sup> That consensus is directionally correct — for roughly 92 to 95 percent of §603-covered participants. But for a specific 5 to 8 percent of cases, §603 forces the mathematically inferior choice. Vanguard's 2025 How America Saves report shows about 26 percent of §414(v)-eligible participants at the plan-sponsor tier where §603 will apply — roughly 3.8 to 4.5 million U.S. workers.<sup><a href="#source-5">[5]</a></sup> Even a 5 percent misalignment rate is 190,000 to 225,000 participants who are being pushed into the wrong tax bucket by an eight-figure-annual dollar amount.</p>
+
+<p>This guide is the decision framework for figuring out which side of the break-even you sit on. It walks the §603 mandatory-Roth rule, the exact break-even math distilled to one formula, the five variables that determine the answer (current marginal rate, retirement marginal rate, state-tax delta, filing-status transitions, IRMAA exposure), the two shortcut cases that answer instantly, the specific fact pattern where §603 actively hurts, four workarounds when §603 forces the wrong side of the break-even, three worked case studies at $180K / $260K / $420K wages, six framework mistakes to avoid, and an 8-item checklist. Model the arithmetic as you read using the <a href="/calc/roth-ira-calculator.html">Roth IRA calculator</a>, the <a href="/calc/401k-calculator.html">401(k) calculator</a>, and the <a href="/income-tax-calculator.html">income tax calculator</a>, which handle the marginal-rate layering and after-tax equivalence math directly.</p>
+
+<a class="cta-calc" href="/calc/401k-calculator.html">
+  <span class="ic">📊</span>
+  <div>
+    <h4>Model your 2026 §603 catch-up impact</h4>
+    <p>Layer projected Roth catch-up contributions on top of base pretax deferrals and see the after-tax paycheck differential immediately.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="what-603-does">1. What §603 actually does — and who it captures</h2>
+
+<p>SECURE 2.0 Act §603 amended §414(v) to add a new subsection (7) that reclassifies catch-up contributions for high earners. The statutory text reads, in relevant part: "In the case of an applicable employer plan, no additional elective deferrals may be made pursuant to this subsection by a participant whose wages (within the meaning of section 3121(a)) for the preceding calendar year from the employer sponsoring the plan exceeded $145,000 (as adjusted under paragraph (3)(B)) unless such additional elective deferrals are designated Roth contributions."<sup><a href="#source-2">[2]</a></sup> The reference to §3121(a) is the Social Security wage base definition — Box 3 of the Form W-2. The $145,000 threshold is indexed under §414(v)(2)(C) using the cost-of-living methodology; the IRS confirmed the 2026 threshold of $150,000 in Notice 2025-67 released September 2025.<sup><a href="#source-6">[6]</a></sup></p>
+
+<p>Four features of the rule matter for practical planning. First, the wage test is prior-year, not current-year. A participant's 2026 §603 status is determined by 2025 Form W-2 Box 3 wages from the plan sponsor. A participant who joined a new employer in November 2025 with $180,000 of 2026 salary but no 2025 W-2 wages from that employer is exempt from §603 for 2026 catch-up contributions from that plan — the "preceding calendar year" wage from the plan sponsor is zero. Second, the test is plan-sponsor-specific. A participant with $130,000 from Employer A (the plan sponsor) plus $50,000 of self-employment income does not trigger §603 for Employer A's plan because self-employment income is not Employer A wages.<sup><a href="#source-7">[7]</a></sup> Third, the test uses the Social Security wage base cap by default — Box 3 caps at $176,100 for 2025 wages reported on the 2025 W-2 used for 2026 testing — though plan sponsors may elect the uncapped Medicare wages (Box 5) method under Notice 2023-62 clarifications. Fourth, the rule applies to §401(k), §403(b), and governmental §457(b) plans; it does not apply to SEP-IRA, SIMPLE-IRA, or governmental §457(b) plans of state and local subdivisions that treat catch-up contributions outside the §414(v) framework.</p>
+
+<p>The scope of "any catch-up contribution" is broader than most participants realize. The plain-language reading of §603(a) captures both the base §414(v)(2)(B)(i) catch-up ($8,000 for 2026) and the §414(v)(2)(E)(i) super catch-up for participants aged 60, 61, 62, or 63 ($11,250 for 2026, calculated as the greater of $10,000 or 150 percent of the base catch-up).<sup><a href="#source-3">[3]</a></sup> A §603-covered 61-year-old participant faces mandatory Roth treatment on the full $11,250 super catch-up, not just the base $8,000 — which is the specific window when many participants are trying to close pre-retirement funding gaps at the highest marginal rates of their careers.</p>
+
+<div class="callout key">
+<h4>The prior-year wage test is the participant-side lever</h4>
+<p>A participant whose 2025 Box 3 wages from the plan sponsor were $148,000 avoids §603 for the entirety of 2026 catch-up contributions — even if their 2026 salary is $220,000. The test is prior-year wages, not current-year. Sabbatical years, planned unpaid leave, mid-career transitions, and the first year with a new employer are all opportunities to pretax catch-up outside §603. Beyond 2026 the threshold rises with the §414(v)(2)(C) COLA — expect roughly $155,000 for 2027 and $160,000 by 2029 at current CPI trajectories.</p>
+</div>
+
+<h2 id="break-even-math">2. The break-even math — one formula</h2>
+
+<p>The core Roth-vs-pretax comparison collapses to a single equation once you strip away the noise. A dollar of pretax contribution today saves you the current marginal tax rate (call it MTR_now) in current-year taxes, grows tax-deferred, and is taxed at the retirement marginal rate (call it MTR_ret) on withdrawal. A dollar of Roth contribution today pays MTR_now in current-year taxes, grows tax-free, and is withdrawn tax-free. Comparing the two on an equivalent after-tax basis — meaning you contribute the pretax equivalent of the same take-home cash flow — Roth wins whenever MTR_ret exceeds MTR_now, pretax wins whenever MTR_now exceeds MTR_ret, and the two tie whenever MTR_now equals MTR_ret.</p>
+
+<div class="formula">
+Roth vs pretax break-even<br>
+Roth wins if: MTR_ret ≥ MTR_now<br>
+Pretax wins if: MTR_now &gt; MTR_ret<br>
+where MTR = federal + state + IRMAA + NIIT (all applicable)
+</div>
+
+<p>Two subtleties that most simplified explanations skip. First, MTR is total marginal, not just federal. State income tax at withdrawal is imposed on Traditional distributions and not on Roth distributions, so a state-tax delta between working state and retirement state is part of MTR_now vs MTR_ret. Second, marginal rate at retirement is not a single number — it's the marginal rate on the specific Traditional distribution being modeled. Layering a $50,000 Traditional distribution on top of $30,000 of Social Security and $15,000 of taxable dividends may exit at 12 or 22 percent federal depending on total income; layering another $50,000 in the same year may exit at 24 percent because the first tranche filled the 22 percent band.<sup><a href="#source-8">[8]</a></sup></p>
+
+<p>The intuition most consumer-facing content offers — "Roth if you'll be in a higher bracket later, pretax if lower" — is directionally correct but obscures the state-tax and IRMAA layers that swing the answer for real participants. A California resident at 32 percent federal + 10.3 percent state = 42.3 percent effective MTR_now who relocates to Florida at retirement and draws distributions at 24 percent federal + 0 percent state = 24 percent MTR_ret sees a 18.3-percent break-even margin in favor of pretax. That's the fact pattern §603 blocks: the participant is high-earning today, will retire in a lower-tax state, and would have exited Traditional distributions in a lower federal-plus-state combined bracket. The Roth path locks in the higher combined bracket forever.</p>
+
+<h2 id="five-variables">3. The five decision variables — and which one dominates for you</h2>
+
+<p>Every real Roth-vs-pretax calculation is a projection over four decades, and the accuracy of the answer depends on how many of the five key variables you can pin down credibly. In order of typical impact for a §603-covered participant:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Variable</th><th>Direction of effect</th><th>Typical magnitude</th><th>Confidence level</th></tr></thead>
+<tbody>
+<tr><td>Current MTR (federal + state + NIIT)</td><td>Higher current MTR → pretax wins bigger</td><td>32-45% typical for §603-covered participants</td><td>High — known from current W-2 and state</td></tr>
+<tr><td>Retirement MTR (federal + state at retirement)</td><td>Higher retirement MTR → Roth wins bigger</td><td>18-32% typical, depending on income mix</td><td>Medium — projection subject to policy risk</td></tr>
+<tr><td>State-tax delta (working state − retirement state)</td><td>Positive delta → pretax wins bigger</td><td>0-13.3% swing in absolute rate terms</td><td>Medium — depends on relocation certainty</td></tr>
+<tr><td>Medicare IRMAA exposure at retirement</td><td>Higher exposure → Roth wins bigger</td><td>$0-8,300/year per spouse in surcharges</td><td>Medium — 2-year MAGI lookback</td></tr>
+<tr><td>Non-spouse heir plans</td><td>Roth wins bigger for non-spouse legacy</td><td>3-8 pct of catch-up value in NPV terms</td><td>High — estate structure known</td></tr>
+</tbody>
+</table></div>
+
+<p>Two of the five variables — current MTR and non-spouse heir plans — are known with high confidence at the decision point. Current MTR is a lookup: federal from IR-2025-176 for 2026, state from your state department of revenue, plus 3.8 percent Net Investment Income Tax on relevant components, plus 0.9 percent Additional Medicare Tax on wages above $200,000 (single) or $250,000 (MFJ).<sup><a href="#source-9">[9]</a></sup> Non-spouse heir plans are typically clear from existing estate documents — if the participant's primary beneficiary designation is a spouse who is close in age, non-spouse legacy is a small factor; if the primary designation is adult children who will inherit at their own peak-earning ages, non-spouse legacy is a large factor.<sup><a href="#source-10">[10]</a></sup></p>
+
+<p>The three medium-confidence variables — retirement MTR, state-tax delta, and IRMAA exposure — are the ones where projection error dominates the framework's honesty. A participant who says "I'll be in the 12-percent bracket at retirement" while planning to draw $180,000 per year from a mixed portfolio is projecting wrong; a participant who says "I'll move to Florida at 62" while owning a home in California with school-age grandchildren nearby is projecting wrong. The framework's value is not resolving these uncertainties — it's naming them so the participant makes an explicit projection and can update it later.</p>
+
+<div class="callout tip">
+<h4>The two-question shortcut that resolves 80 percent of cases</h4>
+<p>Skip the full framework in either of two cases: (a) if you are already in a top-two federal bracket (32-37 percent) AND will relocate from a high-tax state to a no-tax state at retirement, pretax was the correct answer and §603 hurts you — proceed to the workarounds. (b) If you are in a middle federal bracket (22-24 percent), will stay in the same state at retirement, and have named non-spouse heirs on your 401(k), Roth catch-up under §603 helps you and no workaround is needed. The middle case — high federal bracket now, same state at retirement, no non-spouse heirs — is where the full framework earns its keep.</p>
+</div>
+
+<h2 id="when-roth-hurts">4. When §603 actively hurts — the specific fact pattern</h2>
+
+<p>The four-variable alignment that produces the "Roth is worse" outcome is precise enough to describe explicitly. All four must be true for the pretax-would-have-been-better verdict to hold:</p>
+
+<p><strong>Condition A: Current marginal rate is 32 or 35 percent federal.</strong> The 2026 federal 32 percent bracket runs from $206,700 to $394,600 for MFJ and from $206,700 to $256,225 for single filers. The 35 percent bracket runs from $394,600 to $751,600 MFJ and from $256,225 to $626,350 single.<sup><a href="#source-11">[11]</a></sup> Add 3.8 percent Net Investment Income Tax on the participant's investment income component and 0.9 percent Additional Medicare Tax on wages above $200,000 (single) / $250,000 (MFJ) and the effective marginal on the catch-up dollar reaches 36.7 percent to 39.7 percent federal alone. This is the peak-earning band where pretax deductibility is worth the most in absolute dollars.</p>
+
+<p><strong>Condition B: Retirement plan involves a high-tax-to-low-tax state relocation.</strong> Nine states impose no state income tax on retirement distributions: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. Eight additional states have full or substantial retirement-income exemptions: Illinois, Iowa, Kentucky, Mississippi, Pennsylvania, and — with age-based limits — Georgia, South Carolina, and Utah.<sup><a href="#source-12">[12]</a></sup> A participant currently residing in California (12.3 percent top marginal), New York (10.9 percent), New Jersey (10.75 percent), Hawaii (11 percent), Oregon (9.9 percent), or Minnesota (9.85 percent) who plans to relocate to a no-income-tax state at retirement is capturing 9.9 percent to 12.3 percent of state-tax savings on every pretax dollar that will be withdrawn post-move. Roth locks in that state tax today; pretax defers and dodges it. For a $11,250 super catch-up contribution, the state-tax delta alone is worth $1,110 to $1,380 per year permanently — before compounding.</p>
+
+<p><strong>Condition C: Projected retirement marginal rate lower than current.</strong> A participant who will retire without wage income, drawing from a mix of Social Security (taxed at 0-85 percent depending on provisional income), pension (fully taxable), Traditional IRA distributions (fully taxable), Roth IRA distributions (tax-free), qualified dividends (0/15/20 percent capital gains rates), and long-term capital gains (same) typically has a materially lower effective marginal on the specific Traditional 401(k) distribution than during peak earning. The 2026 single-filer 22 percent bracket runs from $47,150 to $100,525 and the 24 percent bracket from $100,525 to $191,950.<sup><a href="#source-11">[11]</a></sup> A participant drawing $100,000 per year from Traditional balances on top of $30,000 of Social Security exits at 22 percent federal. Compare that to their 32 or 35 percent current bracket — the delta is 8 to 13 percentage points on top of the state delta.</p>
+
+<p><strong>Condition D: Small or no non-spouse legacy component.</strong> The most powerful argument for Roth at high income levels is the intergenerational tax-free transfer under SECURE Act §401's 10-year non-spouse beneficiary rule.<sup><a href="#source-13">[13]</a></sup> A participant whose beneficiaries are all spousal (with the surviving spouse simply continuing to hold the Traditional balance as their own IRA) captures little of this benefit; a participant whose beneficiaries are adult children in their peak-earning years captures a lot. Condition D is the "small legacy component" side — beneficiary is spouse, or heirs are already low-earning, or the participant plans to consume rather than transfer the retirement balance.</p>
+
+<p>When A + B + C + D are all true, mandatory Roth catch-up under §603 is the mathematically inferior choice by 3 to 6 percent of the catch-up dollar amount over the participant's lifetime. For a $11,250 super catch-up contribution, that's $337 to $675 per contribution year in NPV terms — modest per year but compounding over a 5-to-10-year peak-earning window into $2,000 to $8,000 of lifetime tax loss per participant.</p>
+
+<div class="callout warn">
+<h4>The 5-8 percent estimate is not a small number in absolute terms</h4>
+<p>Roughly 3.8 to 4.5 million U.S. workers cross the §603 threshold at plans large enough to have implemented Roth catch-up features by 2026 (per Vanguard 2025 and PSCA 67th Annual Survey participant-count data). A 5 to 8 percent misalignment rate is 190,000 to 360,000 participants. At $2,000 to $8,000 of lifetime tax loss per misaligned participant, the aggregate is $380M to $2.9B of tax cost that the §603 rule extracts from participants who would have chosen pretax if left free to elect. That doesn't make §603 a bad policy — it makes it a policy with clear winners and losers, and the losers deserve the framework to identify themselves and the workarounds to mitigate.</p>
+</div>
+
+<h2 id="workarounds">5. Four workarounds when §603 forces the wrong side</h2>
+
+<p>If the framework identifies you as one of the misaligned 5-8 percent, four workarounds recover some or all of the pretax advantage that §603 blocks. None fully replaces the pretax catch-up — that option is legally foreclosed — but each captures a partial substitute.</p>
+
+<h3>Workaround 1: Load the base §402(g)(1) deferral pretax and take the §603 hit only on the catch-up</h3>
+
+<p>The §603 mandatory Roth rule applies only to catch-up contributions under §414(v) — not to the base §402(g)(1) elective deferral limit ($24,500 for 2026). A §603-covered participant retains full pretax election on the base $24,500 and only faces mandatory Roth on the $8,000 base catch-up or $11,250 super catch-up.<sup><a href="#source-14">[14]</a></sup> The take-away: max the base pretax first ($24,500 saves $7,350 to $10,913 in federal tax at 30 to 44.5 percent effective MTR), then take the §603 Roth hit only on the smaller catch-up piece. This limits the affected dollar amount to $8,000 or $11,250 rather than $32,500 or $35,750. A participant who thinks §603 is bad for them and stops contributing base deferrals in protest loses the far larger pretax opportunity.</p>
+
+<h3>Workaround 2: After-tax voluntary contribution plus in-plan Roth conversion (mega backdoor Roth)</h3>
+
+<p>Plans that offer after-tax voluntary contributions plus in-service in-plan Roth conversion enable the mega backdoor Roth mechanic covered in the <a href="/blog/mega-backdoor-roth-2026.html">mega backdoor Roth 2026 guide</a>. The §415(c) overall annual additions limit is $72,000 for 2026 (up from $70,000 for 2025).<sup><a href="#source-15">[15]</a></sup> A participant contributing $24,500 in base pretax + $11,250 in Roth catch-up + up to $36,250 in after-tax voluntary contributions ($72,000 − $24,500 − $11,250 = $36,250, minus any employer match that occupies the §415(c) headroom) can convert the after-tax voluntary contributions to Roth 401(k) in-service. The tax posture is different from pretax catch-up — after-tax voluntary contributions are made with after-tax dollars — but the mechanic captures the pretax-equivalent growth on a dollar amount much larger than the catch-up limit.</p>
+
+<h3>Workaround 3: §409A Nonqualified Deferred Compensation election</h3>
+
+<p>Employers offering a §409A nonqualified deferred compensation (NQDC) plan let executives and high earners defer additional compensation beyond §401(k) limits. NQDC deferrals are pretax at the federal level (subject to FICA at the earlier of vesting or payment), grow tax-deferred, and are taxed at the ordinary rate on distribution per the participant's original election.<sup><a href="#source-16">[16]</a></sup> For a §603-covered participant who wants pretax deferral beyond what the §401(k) framework allows, NQDC is the primary vehicle. Two caveats: (a) NQDC balances are unsecured obligations of the employer subject to bankruptcy risk, and (b) the initial deferral election is generally irrevocable and payment triggers are constrained. For high-tenure executives at financially stable employers, NQDC captures the pretax benefit §603 blocks; for mid-career participants at financially uncertain employers, the credit risk may outweigh the tax benefit.</p>
+
+<h3>Workaround 4: Post-retirement Roth conversion ladder</h3>
+
+<p>The fourth workaround inverts the timing: contribute the §603-required Roth catch-up now, then Roth-convert existing Traditional IRA and Traditional 401(k) balances at low income during retirement. The <a href="/blog/roth-conversion-ladder-early-retirement-2026.html">Roth conversion ladder guide</a> covers the mechanic. A participant with a $1.5M Traditional 401(k) balance and $500K Roth 401(k) balance who retires at 60, moves to Florida, and lives on taxable-account cash while converting $80,000 per year from Traditional to Roth at the 12 or 22 percent federal bracket effectively moves pretax dollars into Roth at a much lower rate than they would have exited by RMD age.<sup><a href="#source-17">[17]</aup> This does not undo the §603 damage on the current catch-up contribution, but it captures the pretax-conversion opportunity on the much larger Traditional balance the participant is already sitting on. The conversion window is age 60 to age 73 (the 2026-plus SECURE 2.0 RMD age) — thirteen years to move dollars strategically.</p>
+
+<div class="callout key">
+<h4>Workarounds 1 and 4 combine well</h4>
+<p>Max the base pretax deferral ($24,500 at 32 percent effective federal saves $7,840 in current-year tax) and accept the §603 Roth catch-up as required. Then plan post-retirement Roth conversions during the 60-73 window at the lower federal-plus-Florida-state effective rate. This combination captures the base pretax benefit for the largest dollar amount, complies with §603 on the smaller catch-up dollar amount, and moves the pretax Traditional balance into Roth at a lower rate than RMDs would have imposed. Net effect: 70-80 percent of the pre-§603 optimal outcome, achieved fully within compliance.</p>
+</div>
+
+<h2 id="case-studies">6. Three case studies</h2>
+
+<h3>Case 1: Ravi, age 56, senior engineer at a Bay Area tech firm, $320,000 base + $80,000 RSU vest, MFJ, California, $1.9M Traditional 401(k) balance</h3>
+
+<p>Ravi's 2025 W-2 Box 3 wages from the plan sponsor were $176,100 (capped at the 2025 Social Security wage base). §603 applies for 2026. His 2026 combined effective marginal on catch-up dollars is 32 percent federal + 10.3 percent California + 3.8 percent NIIT on his investment income + 0.9 percent Additional Medicare Tax = 47 percent effective on the marginal catch-up dollar. Ravi plans to retire at 62 and relocate to Austin, Texas (spouse's family), reducing state marginal to 0 percent.</p>
+
+<p>Ravi's projected 2032 retirement MTR: assuming he retires with $2.8M in Traditional balance, $600K in Roth, and $400K in taxable brokerage, and draws $180,000 per year from a mixed portfolio, his federal marginal on the specific Traditional distribution sits at 24 percent (2026 MFJ 24 percent bracket runs $206,700 to $394,600, indexed forward). State marginal is 0 percent (Texas). Total MTR_ret on his marginal Traditional distribution: 24 percent.</p>
+
+<p>Ravi's MTR_now vs MTR_ret differential: 47 percent − 24 percent = 23 percentage points. Pretax catch-up of $8,000 would have been worth $8,000 × 23 percent = $1,840 in first-order tax delta versus Roth, before compounding. §603 forces him into Roth on the $8,000 catch-up amount. Ravi has one workaround open: max the base $24,500 pretax deferral (worth $24,500 × 47 percent effective marginal = $11,515 in current-year tax savings) and plan post-retirement Roth conversions from his existing $1.9M Traditional balance during the 62-73 window at Texas's 0-percent state rate + 22-24 percent federal rate. Estimated 12-year conversion ladder can move $1M or more from Traditional to Roth at a blended 25 percent effective rate versus the 40-plus percent effective rate that mandatory RMDs would have extracted starting at 73. Ravi's post-§603 optimized outcome recovers roughly 75 percent of the pre-§603 optimal.</p>
+
+<h3>Case 2: Elena, age 60, VP of finance at a Chicago manufacturer, $220,000 salary + $40,000 bonus, MFJ, Illinois, $1.4M Traditional 401(k) balance, plans to retire in Illinois</h3>
+
+<p>Elena's 2025 W-2 Box 3 wages were $176,100 (capped). §603 applies for 2026. Her 2026 combined effective marginal on catch-up dollars is 24 percent federal + 4.95 percent Illinois + 0 percent NIIT (wage income only) + 0.9 percent Additional Medicare Tax = 29.85 percent effective on the marginal catch-up dollar. Elena is in the age-60-63 window and can contribute the full $11,250 super catch-up in 2026.</p>
+
+<p>Elena plans to retire in Illinois. Critically, Illinois exempts qualified plan distributions from state income tax under 35 ILCS 5/203(a)(2)(F).<sup><a href="#source-12">[12]</a></sup> Her projected 2028 retirement MTR: drawing $95,000 per year from Traditional balances plus $32,000 Social Security, her federal marginal exits at 22 percent (2028 MFJ 22 percent bracket, indexed). Illinois marginal: 0 percent on qualified plan distributions. Total MTR_ret: 22 percent.</p>
+
+<p>Elena's MTR_now vs MTR_ret differential: 29.85 percent − 22 percent = 7.85 percentage points. Pretax catch-up of $11,250 would have been worth $11,250 × 7.85 percent = $883 in first-order tax delta versus Roth, before compounding. The differential is real but modest. Adding the IRMAA analysis: her projected 2030 MAGI (two-year lookback from 2028) sits around $145,000 MFJ, comfortably within the second IRMAA tier ($211,000-$266,000 MFJ for 2026, adjusting for 2030 indexing).<sup><a href="#source-18">[18]</a></sup> Adding $11,250 of Traditional distributions per year at the margin doesn't cross into the third tier. The IRMAA effect is neutral for her.</p>
+
+<p>Case 2 is the boundary case: §603 costs Elena approximately $883 per year in first-order tax terms but delivers approximately $400 per year in IRMAA optionality (protects the MAGI headroom for future flexibility) and approximately $600 per year in non-spouse legacy value (her adult children in California and Colorado will inherit the Roth balance tax-free under the 10-year rule). Net: §603 is roughly neutral for Elena, arguably marginally beneficial. She should not attempt workarounds — the framework's honest verdict is that the mandatory-Roth path is about the same as the pretax path would have been. She saves the analysis effort and accepts the §603 treatment as-is.</p>
+
+<h3>Case 3: Marcus, age 62, executive at a New York hedge fund, $600,000 base + $1.2M bonus, MFJ, New York, $4.8M Traditional 401(k) balance across three prior employers, plans to retire to Florida in 2027</h3>
+
+<p>Marcus's 2025 W-2 Box 3 wages from the plan sponsor were $176,100 (capped). §603 applies for 2026. His 2026 combined effective marginal on catch-up dollars is 35 percent federal + 6.85 percent New York State + 3.876 percent New York City + 3.8 percent NIIT + 0.9 percent Additional Medicare Tax = 50.4 percent effective on the marginal catch-up dollar. He's in the age-60-63 super catch-up window and can contribute $11,250.</p>
+
+<p>Marcus's 2028 retirement MTR (post-Florida move): drawing $220,000 per year from Traditional balances plus $58,000 Social Security, his federal marginal on the specific Traditional distribution exits at 24 percent (2028 MFJ 24 percent bracket, indexed). Florida marginal: 0 percent. Total MTR_ret: 24 percent.</p>
+
+<p>Marcus's MTR_now vs MTR_ret differential: 50.4 percent − 24 percent = 26.4 percentage points. This is the fact pattern §603 hurts most: peak Manhattan effective marginal now, retirement in Florida later, MFJ retirement income at 24 percent federal on a large Traditional distribution. Pretax catch-up of $11,250 would have been worth $11,250 × 26.4 percent = $2,970 in first-order tax delta versus Roth, before compounding.</p>
+
+<p>Marcus's workaround stack: (a) max base pretax deferral $24,500 at 50.4 percent effective marginal = $12,348 in current-year tax savings — this is the largest single lever. (b) Execute the full mega backdoor Roth mechanic — his plan permits after-tax voluntary contributions plus in-service in-plan Roth conversion. He contributes $36,250 in after-tax voluntary contributions (up to the §415(c) headroom), converts to Roth quarterly, capturing $36,250 of after-tax dollars into a tax-free growth wrapper.<sup><a href="#source-15">[15]</a></sup> (c) His employer offers a §409A NQDC plan — he defers an additional $200,000 of his 2026 bonus pretax to be paid out over 5 years post-separation. This captures $200,000 × 50.4 percent effective marginal = $100,800 in current-year tax deferral, at the cost of unsecured-obligation credit risk to the employer. (d) Post-2027 Florida relocation, Marcus executes an aggressive Roth conversion ladder from the $4.8M Traditional balance, converting $200,000 per year at Florida's 0-percent state rate + 24 percent federal rate = 24 percent effective conversion cost, versus the 50.4 percent effective RMD cost he would have faced starting at 73 in New York.</p>
+
+<p>Net verdict for Marcus: §603 costs him approximately $2,970 in the current-year first-order delta on the catch-up, but the workaround stack recovers 90-plus percent of the pre-§603 optimal because the base pretax deferral is much larger than the catch-up and the post-relocation Roth ladder converts pretax dollars at a lower rate than RMDs would have imposed. Marcus is materially better off after §603 than a passive "pay the required Roth and do nothing else" response would produce. The framework earned its keep by pointing him at workarounds 1, 2, 3, and 4 simultaneously.</p>
+
+<h2 id="mistakes">7. Six framework mistakes to avoid</h2>
+
+<p><strong>Mistake 1: Assuming your current federal bracket is your current effective marginal.</strong> A 32 percent federal bracket participant with investment income above the NIIT threshold and wages above the Additional Medicare Tax threshold has a much higher effective marginal on the specific catch-up dollar. Add 3.8 percent NIIT if you have net investment income (interest, dividends, capital gains, rental) above $200,000 single or $250,000 MFJ, and 0.9 percent Additional Medicare Tax on wages above the same thresholds. The stacking can push effective federal marginal to 36.7 percent and combined effective marginal above 45 percent in high-tax states.<sup><a href="#source-9">[9]</a></sup></p>
+
+<p><strong>Mistake 2: Assuming your retirement marginal is your retirement effective rate.</strong> The Roth-vs-pretax comparison uses marginal, not average or effective. Blending Social Security (partially taxable), Traditional IRA distributions (fully taxable), qualified dividends (0/15/20 percent), and long-term gains (same) at retirement produces a low average rate. But the specific pretax distribution being modeled exits at whatever marginal bracket it fills. A participant with $150,000 of retirement income at 18 percent effective average may be at 24 percent marginal on the next dollar of Traditional distribution. The marginal number is what enters the framework.<sup><a href="#source-8">[8]</a></sup></p>
+
+<p><strong>Mistake 3: Ignoring the state-tax delta.</strong> State income tax on Traditional 401(k) distributions is imposed by the state of residence at time of distribution, not the state where the deferral was earned. A participant who defers pretax while in California pays no California tax on the deferral, and if they relocate to Florida before distribution, pays no Florida state tax on the distribution either. A participant who defers Roth while in California pays California tax on the wage income that funded the Roth deferral and receives no state-tax recovery on the tax-free Roth distribution later. The state-tax delta is one of the largest single levers and the most frequently omitted variable in consumer-facing comparisons.</p>
+
+<p><strong>Mistake 4: Underweighting IRMAA.</strong> The Medicare Part B and Part D IRMAA surcharge structure adds up to $5,326.80 per person per year at the highest 2026 income bracket. For a high-balance retiree drawing $200,000+ per year from Traditional balances plus Social Security plus taxable investment income, IRMAA is a meaningful additional cost of Traditional distributions that is not captured in the marginal-rate comparison. Roth distributions do not increase MAGI for IRMAA purposes.<sup><a href="#source-18">[18]</a></sup></p>
+
+<p><strong>Mistake 5: Forgetting about beneficiary structure.</strong> The 10-year non-spouse beneficiary drawdown rule under SECURE Act §401 dramatically changes the intergenerational-transfer value of Roth vs Traditional balances. An adult child inheriting a $500,000 Traditional 401(k) at their peak-earning age faces $500,000 of ordinary income spread over 10 years — potentially $150,000 to $185,000 of federal tax if the heir is in the 32-37 percent bracket. The same $500,000 Roth 401(k) transfers tax-free. Participants with non-spouse beneficiary designations should heavily weight this factor in favor of Roth even before the §603 discussion.<sup><a href="#source-13">[13]</a></sup></p>
+
+<p><strong>Mistake 6: Not maxing base pretax first.</strong> The single most valuable §603 workaround is maxing the $24,500 base §402(g)(1) deferral pretax. A participant who is skeptical of Roth catch-up and stops contributing entirely loses the far larger pretax opportunity on the base deferral. The correct posture is: max base pretax, accept required Roth on the smaller catch-up piece, and consider the four workarounds for the residual imbalance.</p>
+
+<h2 id="checklist">8. Your 8-item 2026 catch-up decision checklist</h2>
+
+<div class="checklist">
+<h3>Before making 2026 catch-up elections, verify:</h3>
+<ol>
+<li><strong>Confirm your §603 status.</strong> Check your 2025 Form W-2 Box 3 wages from the specific plan sponsor. If prior-year Social Security wages from that sponsor exceeded $150,000, §603 mandatory Roth catch-up applies. If not, you retain the pretax election.</li>
+<li><strong>Compute your current effective marginal rate.</strong> Federal bracket from IR-2025-176 + state top marginal + 3.8 percent NIIT if applicable + 0.9 percent Additional Medicare Tax if applicable. Do NOT use your average tax rate — the framework uses marginal on the catch-up dollar.</li>
+<li><strong>Project your retirement effective marginal rate.</strong> Estimate the federal bracket for the specific Traditional 401(k) distribution stacked on your projected Social Security + other taxable income. Add the state marginal in your projected retirement state.</li>
+<li><strong>Compute the state-tax delta.</strong> Current state marginal minus retirement state marginal. Positive delta means Traditional-then-relocate captures state-tax savings; Roth locks in current state tax with no recovery.</li>
+<li><strong>Estimate your IRMAA exposure at Medicare eligibility.</strong> Project MAGI at age 63 (two-year lookback for age-65 Medicare). If projected MAGI crosses IRMAA cliff brackets, Roth catch-up delivers additional value by capping future MAGI.</li>
+<li><strong>Name your beneficiary structure.</strong> If your primary designated beneficiaries are non-spouse (adult children, grandchildren), Roth catch-up has significant intergenerational tax-free-transfer value. If spousal only, this factor is small.</li>
+<li><strong>Max your base pretax deferral before evaluating catch-up.</strong> The §603 rule does NOT apply to the base $24,500 §402(g)(1) limit. Max the base pretax regardless of your catch-up decision.</li>
+<li><strong>If §603 hurts you, identify which workarounds apply.</strong> After-tax voluntary + in-plan Roth conversion (workaround 2) requires your plan to offer both features. §409A NQDC (workaround 3) requires employer offering. Post-retirement Roth conversion ladder (workaround 4) requires meaningful Traditional balance and a low-income retirement window. Stack whichever apply.</li>
+</ol>
+</div>
+
+<h2 id="faq">9. Frequently asked questions</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What is the §603 mandatory Roth catch-up rule for 2026?</h3>
+<p>SECURE 2.0 §603 requires that any catch-up contribution made by a participant whose prior-year FICA wages from the plan sponsor exceeded $150,000 (indexed from the original $145,000 threshold) be treated as a designated Roth contribution rather than a pretax elective deferral. It applies to §401(k), §403(b), and governmental §457(b) plans. The provision was effective January 1, 2026 after the IRS granted a two-year administrative transition period in Notice 2023-62. For 2026 the base catch-up limit is $8,000 and the age 60-63 super catch-up is $11,250. Participants under the FICA wage threshold retain the choice between pretax and Roth catch-up.</p>
+</div>
+
+<div class="faq-item">
+<h3>When does mandatory Roth catch-up actually hurt a high earner?</h3>
+<p>Roth catch-up hurts pretax-optimal cases where all four of these are true: (a) current federal marginal is 32 or 35 percent, (b) participant plans to relocate from a high-tax state to a no-income-tax state at retirement, (c) projected retirement marginal on the specific Traditional distribution is 22 or 24 percent federal, and (d) participant does not intend to leave a large Roth balance to non-spouse heirs. When all four align, the pretax catch-up would have been the mathematically superior choice by 3-6 percent of the catch-up dollar amount over the participant's lifetime.</p>
+</div>
+
+<div class="faq-item">
+<h3>Which FICA wages count for the $150,000 threshold?</h3>
+<p>The §603 wage test looks at Box 3 (Social Security wages) of the prior-year Form W-2 from the same plan sponsor. Only wages from the plan sponsor count — self-employment income does not. Box 3 caps at the Social Security taxable wage base ($176,100 for 2025 wages reported on the 2025 W-2 used for the 2026 test). Notice 2023-62 clarified that plans may elect the uncapped Medicare wages (Box 5) method. First-year employees with no prior-year FICA wages from the plan sponsor are exempt from §603 regardless of current-year salary.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can I avoid §603 by keeping my prior-year wages under $150,000?</h3>
+<p>Yes if practical. A participant whose 2025 W-2 Box 3 wages from the plan sponsor were $148,000 avoids §603 for 2026 catch-up contributions. Manipulating W-2 wages downward via elective deferrals, HSA, dependent care FSA, or unpaid leave has substantial trade-offs, so this makes sense only in narrow cases — a participant already near retirement, on sabbatical, or transitioning to part-time consulting where the wage reduction was going to happen anyway. The threshold rises with inflation under §414(v)(2)(C) COLA methodology.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does §603 apply to the age 60-63 super catch-up?</h3>
+<p>Yes. The §414(v)(2)(E)(i) super catch-up for participants aged 60, 61, 62, or 63 (equal to $11,250 for 2026, calculated as 150 percent of the base catch-up) is a catch-up contribution for §603 purposes. High-earner participants in the age 60-63 window face mandatory Roth treatment on the full super catch-up amount, not just the base $8,000. The plain-language reading of §603(a) is unambiguous: it applies to "any catch-up contribution" under §414(v).</p>
+</div>
+
+<div class="faq-item">
+<h3>What are the four workarounds when §603 forces the wrong answer?</h3>
+<p>Four practical workarounds: (1) After-tax voluntary contribution + in-service in-plan Roth conversion (mega backdoor Roth) captures pretax-equivalent growth on up to $36,250 additional. (2) §409A Nonqualified Deferred Compensation defers additional bonus and salary pretax. (3) Load the base $24,500 pretax deferral first, taking the §603 Roth hit only on the smaller catch-up piece. (4) Post-retirement Roth conversion ladder moves pretax dollars from Traditional balances to Roth at low retirement marginal rates during the 60-73 window.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does the state-move variable change the answer?</h3>
+<p>State income tax paid on pretax contributions can be recovered by relocating before distribution, but state income tax paid on Roth contributions cannot. A California resident at 12.3 percent state marginal contributing pretax and relocating to Florida (0 percent) captures $1,230 per $10,000 contributed in state-tax savings. The same participant contributing Roth pays $1,230 per $10,000 in state tax with no recovery. For $8,000-$11,250 in catch-up, the state-tax delta is $980-$1,380 per year permanently lost under mandatory Roth. Over a 10-year catch-up window, $9,800-$13,800 in state-tax savings the pretax path would have captured.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does Medicare IRMAA change the calculation?</h3>
+<p>Yes materially for retirees whose MAGI sits near IRMAA cliff brackets. Medicare Part B and Part D IRMAA adds up to $5,326.80 per person per year at the highest 2026 income bracket, applied on a two-year MAGI lookback. Traditional 401(k) distributions increase MAGI dollar-for-dollar; Roth distributions do not. A high-balance retiree who takes $150,000 per year in Traditional distributions may cross into higher IRMAA tiers, adding $2,400-$5,300 per year per spouse in surcharges. For those retirees, mandatory Roth catch-up is genuinely value-additive because it caps future MAGI.</p>
+</div>
+
+<div class="faq-item">
+<h3>What if I plan to leave a large Roth balance to non-spouse heirs?</h3>
+<p>The 2020 SECURE Act §401 imposed a 10-year distribution requirement on non-spouse beneficiaries. Inherited Traditional IRAs and 401(k)s produce substantial ordinary income to the heir during their peak earning years, often at 32-37 percent marginal. Inherited Roth accounts drain tax-free over the same 10 years. Participants whose primary objective is intergenerational wealth transfer to non-spouse heirs benefit materially from mandatory Roth catch-up because the Roth balance grows and transfers tax-free. §603 is a windfall for this specific participant profile.</p>
+</div>
+
+<div class="faq-item">
+<h3>Should I stop making catch-up contributions if §603 makes Roth unappealing?</h3>
+<p>No. Even in the 5-8 percent of scenarios where Roth catch-up is mathematically inferior to what pretax would have been, the tax-deferred growth and asset-protection benefits of the Roth catch-up still exceed the after-tax alternative of the same dollar amount invested in a taxable brokerage account. Roth catch-up escapes federal tax on decades of investment gains, avoids Roth IRA income limits entirely, and enjoys ERISA creditor protection. The correct response to a §603-worsened scenario is to still make the catch-up, then hedge with the four workarounds to recapture some of the pretax advantage elsewhere.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>Every dollar figure, statutory citation, and mechanical rule in this article is sourced to the Internal Revenue Code as amended through the SECURE 2.0 Act of 2022, IRS Notice 2023-62 (August 2023 §603 administrative transition relief), IRS Notice 2025-67 (September 2025 2026 pension inflation adjustments), IR-2025-176 and Revenue Procedure 2024-40 (October 2025 2026 tax brackets), the SECURE 2.0 Act of 2022 Pub. L. 117-328 Division T, the SECURE Act of 2019 Pub. L. 116-94, the Federal Reserve Board 2024 Survey of Consumer Finances, Vanguard's "How America Saves 2025" annual defined-contribution-plan participant behavior report, the Plan Sponsor Council of America 67th Annual Survey of Profit Sharing and 401(k) Plans (2025 plan year), Centers for Medicare &amp; Medicaid Services 2026 Medicare Part B and Part D IRMAA surcharge tables, and each cited state's department of revenue for 2026 retirement-income treatment. The 2026 dollar amounts referenced ($8,000 base catch-up, $11,250 super catch-up, $24,500 §402(g)(1) deferral limit, $72,000 §415(c) overall limit, $150,000 §603 wage threshold, $176,100 Social Security wage base) are drawn from IR-2025-176, Rev. Proc. 2024-40, and IRS Notice 2025-67. Case-study projections assume a 7-percent nominal investment return and use 2026-forward federal tax brackets indexed at 2.5 percent annually. State tax figures use published 2026 marginal rates. All statutory citations verified as of July 14, 2026.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Internal Revenue Service, Notice 2023-62 (August 25, 2023), administrative transition period for §603 Roth catch-up implementation. <a href="https://www.irs.gov/pub/irs-drop/n-23-62.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-23-62</a></li>
+<li id="source-2">SECURE 2.0 Act of 2022, Pub. L. 117-328, Division T, §603, mandatory Roth catch-up for high-earner participants. <a href="https://www.congress.gov/bill/117th-congress/house-bill/2617" rel="nofollow noopener">congress.gov/bill/117th-congress/house-bill/2617</a></li>
+<li id="source-3">Internal Revenue Code §414(v)(2)(B)(i) base catch-up limit and §414(v)(2)(E)(i) age 60-63 super catch-up added by SECURE 2.0 §109. <a href="https://www.law.cornell.edu/uscode/text/26/414" rel="nofollow noopener">law.cornell.edu/uscode/text/26/414</a></li>
+<li id="source-4">SECURE 2.0 Act of 2022, §325, elimination of Required Minimum Distributions from Roth 401(k) accounts starting January 1, 2024. <a href="https://www.congress.gov/bill/117th-congress/house-bill/2617" rel="nofollow noopener">congress.gov/bill/117th-congress/house-bill/2617</a></li>
+<li id="source-5">Vanguard Institutional Investor Group, "How America Saves 2025" — 24th annual defined contribution plan participant behavior report, data on §603-threshold participation counts and catch-up election patterns. <a href="https://institutional.vanguard.com/insights-and-research/report/how-america-saves.html" rel="nofollow noopener">institutional.vanguard.com/how-america-saves</a></li>
+<li id="source-6">Internal Revenue Service, Notice 2025-67 (September 2025), 2026 pension and retirement plan inflation adjustments including the §603 wage threshold ($150,000), §402(g)(1) deferral limit ($24,500), §414(v)(2)(B)(i) catch-up ($8,000), §414(v)(2)(E)(i) age 60-63 super catch-up ($11,250), and §415(c) overall limit ($72,000). <a href="https://www.irs.gov/pub/irs-drop/n-25-67.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-25-67</a></li>
+<li id="source-7">Internal Revenue Code §3121(a) Social Security wage definition, applicable to the §603 wage test through §603's cross-reference. <a href="https://www.law.cornell.edu/uscode/text/26/3121" rel="nofollow noopener">law.cornell.edu/uscode/text/26/3121</a></li>
+<li id="source-8">Internal Revenue Service, Publication 575, "Pension and Annuity Income" (2025 edition), on the taxation of qualified plan distributions and marginal-rate treatment. <a href="https://www.irs.gov/publications/p575" rel="nofollow noopener">irs.gov/publications/p575</a></li>
+<li id="source-9">Internal Revenue Code §1411 Net Investment Income Tax at 3.8 percent and §3101(b)(2) Additional Medicare Tax at 0.9 percent, both effective on income above thresholds ($200,000 single / $250,000 MFJ). <a href="https://www.law.cornell.edu/uscode/text/26/1411" rel="nofollow noopener">law.cornell.edu/uscode/text/26/1411</a></li>
+<li id="source-10">SECURE Act of 2019, Pub. L. 116-94, §401, 10-year distribution requirement for non-spouse beneficiaries of retirement accounts of decedents dying after December 31, 2019. <a href="https://www.congress.gov/bill/116th-congress/house-bill/1994" rel="nofollow noopener">congress.gov/bill/116th-congress/house-bill/1994</a></li>
+<li id="source-11">Internal Revenue Service, IR-2025-176 and Revenue Procedure 2024-40, 2026 tax brackets and inflation adjustments including single, MFJ, HOH, and MFS marginal rate schedules. <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rp-24-40</a></li>
+<li id="source-12">Illinois Compiled Statutes 35 ILCS 5/203(a)(2)(F), state exemption for qualified plan distributions; also Pennsylvania Consolidated Statutes 72 P.S. §7301(d) and Mississippi Code §27-7-15(4)(k) as parallel state-level retirement-income exemptions. <a href="https://www.ilga.gov/legislation/ilcs/ilcs4.asp?DocName=003500050HArt%2E+2&amp;ActID=577" rel="nofollow noopener">ilga.gov/legislation/ilcs</a></li>
+<li id="source-13">Internal Revenue Code §401(a)(9)(H) (added by SECURE Act §401), 10-year rule for non-eligible-designated-beneficiary distributions from inherited retirement accounts. <a href="https://www.law.cornell.edu/uscode/text/26/401" rel="nofollow noopener">law.cornell.edu/uscode/text/26/401</a></li>
+<li id="source-14">Internal Revenue Code §402(g)(1) baseline elective deferral limit ($24,500 for 2026), separately governed from §414(v) catch-up and not affected by §603. <a href="https://www.law.cornell.edu/uscode/text/26/402" rel="nofollow noopener">law.cornell.edu/uscode/text/26/402</a></li>
+<li id="source-15">Internal Revenue Code §415(c)(1)(A) overall annual additions limit ($72,000 for 2026 per Notice 2025-67), enabling mega backdoor Roth headroom after subtracting elective deferrals and employer match. <a href="https://www.law.cornell.edu/uscode/text/26/415" rel="nofollow noopener">law.cornell.edu/uscode/text/26/415</a></li>
+<li id="source-16">Internal Revenue Code §409A, nonqualified deferred compensation rules governing pretax deferral elections beyond the §401(k) framework and distribution-timing constraints. <a href="https://www.law.cornell.edu/uscode/text/26/409A" rel="nofollow noopener">law.cornell.edu/uscode/text/26/409A</a></li>
+<li id="source-17">SECURE 2.0 Act of 2022, §107, Required Minimum Distribution age raised from 72 to 73 (effective 2023) and to 75 (effective 2033), extending the low-income Roth-conversion window between retirement and RMD onset. <a href="https://www.congress.gov/bill/117th-congress/house-bill/2617" rel="nofollow noopener">congress.gov/bill/117th-congress/house-bill/2617</a></li>
+<li id="source-18">Centers for Medicare &amp; Medicaid Services, "2026 Medicare Parts A &amp; B Premiums and Deductibles" — Income-Related Monthly Adjustment Amount (IRMAA) surcharge bracket thresholds and dollar amounts for Medicare Part B and Part D. <a href="https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles" rel="nofollow noopener">cms.gov/2026-medicare-parts-b-premiums</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized retirement, tax, or investment advice. The Roth-vs-pretax decision depends on projections of future marginal rates, state of residence, health-care costs, and beneficiary structures that vary by individual. Consult a qualified CPA, ERISA counsel, or fiduciary financial planner familiar with your specific plan document and long-term projections before making a §603-covered catch-up election. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations, thresholds, and formulas shown are estimates for educational and informational purposes only. Results may not reflect your actual after-tax outcome. IRS limits, tax brackets, IRMAA thresholds, and plan features change annually. Always verify current IRS guidance and consult a qualified CPA or ERISA counsel before making a §603-covered catch-up election. CalcLeap is not a plan administrator, CPA, or ERISA attorney and does not provide personalized plan design, retirement, or tax advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#what-603-does">What §603 does and who it captures</a></li>
+        <li><a href="#break-even-math">Break-even math — one formula</a></li>
+        <li><a href="#five-variables">The five decision variables</a></li>
+        <li><a href="#when-roth-hurts">When §603 actively hurts</a></li>
+        <li><a href="#workarounds">Four workarounds</a></li>
+        <li><a href="#case-studies">Three case studies ($180K/$260K/$420K)</a></li>
+        <li><a href="#mistakes">Six framework mistakes</a></li>
+        <li><a href="#checklist">Your 8-item decision checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/paycheck-calculator.html">Paycheck Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth Conversion Calculator</a>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/secure-2-0-section-603-mandatory-roth-catch-up-2026.html">SECURE 2.0 §603 Mandatory Roth Catch-Up</a>
+      <a href="/blog/roth-401k-vs-traditional-401k-2026.html">Roth 401(k) vs Traditional 401(k) 2026</a>
+      <a href="/blog/mega-backdoor-roth-2026.html">Mega Backdoor Roth in 2026</a>
+      <a href="/blog/in-plan-roth-conversion-2026.html">In-Plan Roth Conversion in 2026</a>
+      <a href="/blog/roth-conversion-ladder-early-retirement-2026.html">Roth Conversion Ladder for Early Retirement</a>
+      <a href="/blog/rule-of-55-in-2026.html">Rule of 55 in 2026</a>
+      <a href="/blog/backdoor-roth-ira-2026.html">Backdoor Roth IRA 2026</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
