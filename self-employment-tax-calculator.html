@@ -1,402 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Self-Employment Tax Calculator - Free Business Tax Tool | CalcLeap</title>
-    <meta name="description" content="Calculate self-employment tax, Social Security, and Medicare taxes for freelancers and contractors.. Free online calculator with instant results and visual breakdowns.">
-    <link rel="canonical" href="https://calcleap.com/self-employment-tax-calculator.html">
-<meta property="og:title" content="Self-Employment Tax Calculator - Free Business Tax Tool">
-<meta property="og:description" content="Calculate self-employment tax, Social Security, and Medicare taxes for freelancers and contractors.. Free online calculator with instant results and visual breakdowns.">
-<meta property="og:url" content="https://calcleap.com/self-employment-tax-calculator.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Employment Tax Calculator — moved to /calc/self-employment-tax-calculator.html | CalcLeap</title>
+<meta name="description" content="This self-employment tax page has moved. Visit the current Self-Employment Tax Calculator for 2026 SE-tax (Social Security + Medicare) computation for 1099 and freelance income and 2026 tax brackets.">
+<link rel="canonical" href="https://calcleap.com/calc/self-employment-tax-calculator.html">
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url=/calc/self-employment-tax-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <meta property="og:type" content="website">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
-        .header { background: white; border-bottom: 1px solid #e5e5e7; padding: 1rem 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(255,255,255,0.8); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        .header h1 { font-size: 2rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem; }
-        .header p { color: #6e6e73; font-size: 1.1rem; }
-        .main { padding: 3rem 0; }
-        .calc-box { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
-        .calc-box h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; color: #1d1d1f; }
-        .input-group { margin-bottom: 1.5rem; }
-        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: #1d1d1f; font-size: 1rem; }
-        .input-group input, .input-group select { width: 100%; padding: 0.875rem 1rem; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 1rem; transition: all 0.2s; background: white; }
-        .input-group input:focus, .input-group select:focus { outline: none; border-color: #0071e3; box-shadow: 0 0 0 4px rgba(0,113,227,0.1); }
-        .input-group small { color: #6e6e73; font-size: 0.9rem; }
-        .calc-btn { background: #0071e3; color: white; border: none; padding: 1rem 2rem; font-size: 1.125rem; font-weight: 500; border-radius: 12px; cursor: pointer; width: 100%; transition: background 0.2s; }
-        .calc-btn:hover { background: #0077ed; }
-        .result-box { background: linear-gradient(135deg, #f5f9ff 0%, #e8f4ff 100%); border: 1px solid #0071e3; padding: 2rem; border-radius: 18px; margin-top: 1.5rem; display: none; }
-        .result-box h3 { color: #0071e3; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 600; }
-        .result-value { font-size: 2.5rem; font-weight: 700; color: #0071e3; margin: 0.75rem 0; }
-        .result-detail { margin: 0.75rem 0; color: #1d1d1f; font-size: 1.05rem; }
-        .result-detail strong { font-weight: 600; }
-        .chart-container { margin: 1.5rem 0; }
-        .bar-chart { display: flex; gap: 0.5rem; align-items: flex-end; height: 200px; }
-        .bar { flex: 1; background: linear-gradient(to top, #0071e3, #00a1ff); border-radius: 8px 8px 0 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0.5rem; color: white; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s; }
-        .bar:hover { transform: translateY(-5px); }
-        .bar-label { margin-top: 0.5rem; font-size: 0.9rem; color: #6e6e73; text-align: center; }
-        .info-section { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
-        .info-section h3 { color: #1d1d1f; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600; }
-        .info-section p { margin-bottom: 1rem; color: #1d1d1f; line-height: 1.7; }
-        .info-section ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-        .info-section li { margin-bottom: 0.5rem; color: #1d1d1f; }
-        .footer { background: #f5f5f7; padding: 2rem 0; text-align: center; border-top: 1px solid #e5e5e7; margin-top: 4rem; }
-        .footer a { color: #0071e3; text-decoration: none; }
-        @media (max-width: 768px) { .header h1 { font-size: 1.75rem; } .calc-box, .info-section { padding: 1.5rem; } }
-    
-
-/* === COMPREHENSIVE COMPONENT STYLES === */
-
-/* Calc card (used by tax, mortgage, insurance pages) */
-.calc-card,.calc-box,.calculator,.tool-container{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.calc-card h2,.calc-box h2{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:1.25rem}
-
-/* Input groups and grids */
-.input-grid,.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1rem}
-.input-group{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
-.input-group.full{grid-column:1/-1}
-.input-group label,.field label,.label{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:.3rem}
-.input-group input,.input-group select,.input-group textarea,.field input,.field select{padding:.7rem .85rem;font-size:.95rem;font-family:var(--font);background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);outline:none;transition:all .2s;width:100%}
-.input-group input:focus,.input-group select:focus,.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.1);background:var(--white)}
-
-/* Field class (converter pages) */
-.field{margin-bottom:1rem}
-.row{display:flex;gap:.75rem;align-items:center}
-
-/* Radio buttons */
-.radio-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-.radio-label{display:flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:500;color:var(--text-2);cursor:pointer;padding:.5rem .85rem;border:1px solid var(--border);border-radius:100px;transition:all .2s;text-transform:none;letter-spacing:normal}
-.radio-label:hover{border-color:var(--accent);color:var(--accent)}
-.radio-label input[type="radio"]{accent-color:var(--accent);width:16px;height:16px;margin:0}
-.radio-label input[type="radio"]:checked + span,.radio-label:has(input:checked){border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
-
-/* Buttons */
-.calc-btn,.btn,.btn-primary,button[type="submit"]{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 2rem;font-size:.95rem;font-weight:600;font-family:var(--font);background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;margin-top:.75rem;letter-spacing:-.01em}
-.calc-btn:hover,.btn:hover,.btn-primary:hover{background:var(--accent-hover);box-shadow:0 4px 12px rgba(0,113,227,.3)}
-
-/* Result boxes */
-.result-box,.result,.results{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem}
-.result-box h3,.result h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--text)}
-
-/* Result grid (tax, insurance calculators) */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem}
-.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.result-card .label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.result-card .value{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
-.result-card .value.green{color:#22c55e}
-
-/* Result rows */
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--border)}
-.result-row:last-child{border-bottom:none}
-.result-detail{font-size:.85rem;color:var(--text-2)}
-.result-value{font-size:.95rem;font-weight:700;color:var(--text)}
-.result-item{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--border)}
-.result-item:last-child{border-bottom:none}
-
-/* Stat cards (state tax pages) */
-.stat-card,.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem;text-align:center}
-.tax-stat{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
-.val{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
-.lbl{font-size:.78rem;color:var(--text-3);margin-top:.25rem}
-
-/* Section */
-.section,.info-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
-.section h3,.info-section h3{font-size:1rem;font-weight:700;letter-spacing:-.015em;margin-bottom:1rem}
-
-/* Container (fallback for old pages) */
-.container,.main-content{max-width:var(--mw);margin:0 auto;padding:0}
-
-/* Tool cards (converter index pages) */
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin:1rem 0}
-.tool-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);transition:all .2s;text-decoration:none;color:var(--text)}
-.tool-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.tool-card .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--bg);border-radius:var(--r-xs);flex-shrink:0}
-.tool-card h3{font-size:.875rem;font-weight:600;margin:0}
-.tool-card p{font-size:.78rem;color:var(--text-3);margin:0}
-.tool-content{flex:1}
-
-/* Output area (dev tools) */
-.output-area{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);padding:1rem;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;min-height:120px;margin-top:1rem;white-space:pre-wrap;word-break:break-all;overflow:auto;max-height:400px}
-
-/* Converter box */
-.converter-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.swap-btn{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .2s;margin:0 auto}
-.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
-.rate-display{text-align:center;font-size:.875rem;color:var(--text-2);padding:.75rem 0}
-.conversion-table{margin-top:1rem}
-
-/* Bar charts */
-.bar{height:8px;border-radius:100px;overflow:hidden;background:rgba(0,0,0,.04);margin-top:.35rem}
-.bar-fill{height:100%;border-radius:100px;transition:width .5s ease}
-.bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-3);margin-bottom:.2rem}
-
-/* Badge */
-.badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-
-/* Table wrapper */
-.table-wrapper{overflow-x:auto;margin:1rem 0;border-radius:var(--r-sm);border:1px solid var(--border)}
-.bracket-table{width:100%;border-collapse:collapse}
-
-/* Rate cards */
-.rate{font-size:.875rem;color:var(--text-2)}
-
-/* Header (old pages fallback) */
-.header{display:none} /* Old header hidden, replaced by .nav */
-
-/* Sub text */
-.sub{font-size:1rem;color:var(--text-2);line-height:1.5;margin-bottom:1.5rem;max-width:600px}
-
-/* Ad placeholder — HIDE */
-.ad-placeholder{display:none !important}
-
-/* Hero override */
-.hero{padding:.5rem 0 1rem}
-.hero h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-.hero p{font-size:1rem;color:var(--text-2);max-width:600px}
-
-/* FAQ items (old class) */
-.faq-item{padding:.85rem 0;border-top:1px solid var(--border)}
-.faq-item:first-child{border-top:none}
-
-/* Toggle/tab buttons */
-.toggle-btn,.tab-btn,.toggle-group button{padding:.5rem 1.25rem;font-size:.8rem;font-weight:600;font-family:var(--font);border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--text-3);cursor:pointer;transition:all .2s}
-.toggle-btn.active,.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.toggle-group{display:flex;gap:.5rem;margin-bottom:1rem}
-
-/* Color helpers */
-.green{color:#22c55e !important}
-.red{color:#ef4444 !important}
-
-/* Responsive */
-@media(max-width:768px){
-  .result-grid{grid-template-columns:1fr 1fr}
-  .radio-group{flex-direction:column}
-  .tool-grid{grid-template-columns:1fr}
-  .row{flex-direction:column}
-}
-@media(max-width:480px){
-  .result-grid{grid-template-columns:1fr}
-}
-
-</style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<meta property="og:url" content="https://calcleap.com/calc/self-employment-tax-calculator.html">
+<meta property="og:title" content="Self-Employment Tax Calculator 2026 — CalcLeap">
+<meta property="og:description" content="Self-employment tax explained: 2026 Social Security + Medicare rates, quarterly estimated payments, and the deductible-employer-half computation for 1099 income.">
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.5;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.card{max-width:560px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:2.25rem;box-shadow:0 2px 12px rgba(0,0,0,.06);text-align:center}
+h1{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem}
+p{font-size:.95rem;color:#424245;margin-bottom:1.25rem}
+a.btn{display:inline-block;padding:.7rem 1.5rem;background:#0071e3;color:#fff;border-radius:12px;font-size:.95rem;font-weight:600;text-decoration:none;transition:background .2s}
+a.btn:hover{background:#0077ED}
+.small{font-size:.78rem;color:#86868b;margin-top:1.25rem}
+</style>
 </head>
 <body>
-<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position=\'fixed\';this.style.left=\'0\';this.style.top=\'0\';this.style.width=\'auto\';this.style.height=\'auto\';this.style.overflow=\'visible\'" onblur="this.style.position=\'absolute\';this.style.left=\'-9999px\';this.style.width=\'1px\';this.style.height=\'1px\';this.style.overflow=\'hidden\'">Skip to content</a>
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Calc<span>Leap</span></a>
-    <div class="nav-links">
-      <a href="index.html#finance">Finance</a>
-      <a href="index.html#insurance">Insurance</a>
-      <a href="index.html#tax">Tax</a>
-      <a href="index.html#health">Health</a>
-      <a href="index.html#converters">Converters</a>
-      <a href="index.html#dev">Dev Tools</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
-</nav>
+<!-- AUDIT 2026-07-16 evening: DEDUP REDIRECT STUB /self-employment-tax-calculator.html
+   Closes batch #2 of queue item (rrrrrrrrrr) "root-path duplicate-calc sweep" flagged as
+   the top TIER 3 evening pick on the 2026-07-15 evening + 2026-07-16 morning logs.
 
-    <div class="header">
-        <div class="container">
-            <h1 class="page-title">Self-Employment Tax Calculator</h1>
-            <p>Calculate self-employment tax, Social Security, and Medicare taxes for freelancers and contractors.</p>
-        </div>
-    </div>
+   Why redirect (not delete): the root file was a first-generation pre-/calc/-convention
+   build with zero JSON-LD schema and a self-canonical to the deprecated URL. The
+   canonical Self-Employment Tax Calculator Calculator is /calc/self-employment-tax-calculator.html,
+   which was rebuilt in the 2026-06 state-income-tax audit sweep with full FAQPage +
+   BreadcrumbList + WebApplication schema and audited math against 3 canonical test cases.
+   Both root and /calc/ versions purport to be the same calculator; leaving both live
+   is exactly the "duplicate content" pattern AdSense's abuse classifier weighs against
+   thin-content sites.
 
-    <div class="main container">
-        
-        
+   Deduplication mechanics (4-signal consolidation stack — same pattern as the 2026-07-14
+   evening HSA-stub dedup and the 2026-07-15 evening batch #1 9-state dedup):
+     - meta http-equiv=refresh 0s -> browser hop to canonical URL
+     - rel=canonical -> search engines consolidate ranking signals to /calc/ target
+     - robots noindex,follow -> drops this URL from search results while preserving link
+       equity to the canonical target
+     - sitemap.xml entry for this URL removed the same commit
 
-        <div class="calc-box">
-            <h2>Business Tax Calculator</h2>
-            <p style="margin-bottom: 1.5rem; color: #6e6e73;">Enter your income and business details to calculate your tax liability.</p>
-            <div class="input-group">
-                <label for="income">Gross Income ($):</label>
-                <input type="number" id="income" min="0" value="75000" step="1000" aria-label="Income">
-                <small>Total business or 1099 income before expenses</small>
-            </div>
-            <div class="input-group">
-                <label for="expenses">Business Expenses ($):</label>
-                <input type="number" id="expenses" min="0" value="15000" step="100" aria-label="Expenses">
-                <small>Deductible business expenses</small>
-            </div>
-            <div class="input-group">
-                <label for="filing">Filing Status:</label>
-                <select id="filing" aria-label="Filing">
-                    <option value="single">Single</option>
-                    <option value="married">Married Filing Jointly</option>
-                    <option value="hoh">Head of Household</option>
-                </select>
-            </div>
-            <button class="calc-btn" onclick="calculate()">Calculate Tax</button>
-            <div class="result-box" id="result">
-                <h3>Results</h3>
-            </div>
-        </div>
-
-        
-        
-
-        <div class="info-section">
-            <h3>About Self-Employment Tax Calculator</h3>
-            <p>Calculate self-employment tax, Social Security, and Medicare taxes for freelancers and contractors.</p>
-            <h3>Understanding Business Tax</h3>
-            <p>When calculating business taxes, it's important to understand:</p>
-            <ul>
-                <li>Self-employment tax (15.3%) covers Social Security and Medicare</li>
-                <li>Income tax is calculated on net profit (income minus expenses)</li>
-                <li>Quarterly estimated tax payments help avoid penalties</li>
-                <li>Proper record-keeping is essential for deductions</li>
-            </ul>
-            <h3>Common Business Deductions</h3>
-            <ul>
-                <li>Home office expenses (simplified or actual method)</li>
-                <li>Vehicle and mileage (standard rate or actual expenses)</li>
-                <li>Equipment and supplies</li>
-                <li>Professional services and software subscriptions</li>
-            </ul>
-            <h3>More Business Calculators</h3>
-            <ul>
-                <li><a href="index.html">CalcLeap Home - All Calculators</a></li>
-                <li><a href="about.html">About CalcLeap</a></li>
-            </ul>
-        </div>
-
-        
-        
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2026 CalcLeap. Free online calculators and tools.</p>
-            <p><a href="index.html">Home</a> • <a href="about.html">About</a> • <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a> • <a href="contact.html">Contact</a></p>
-        </div>
-    </div>
-
-    <script>
-        /* AUDIT 2026-07-04 evening (updated from 2026-07-02): Self-employment tax calculator
-   family: schedule-SE quick-estimate (root-level shared-template variant)
-   formula: netProfit = grossIncome - expenses; seTaxBase = max(0, netProfit) * 0.9235;
-            ssTax = min(seTaxBase, 184500) * 0.124; medicareTax = seTaxBase * 0.029;
-            addlMed = max(0, seTaxBase - threshold) * 0.009 (200K/250K/200K per §3101(b)(2));
-            selfEmploymentTax = ssTax + medicareTax + addlMed; deductibleSE = seTax/2;
-            adjusted = netProfit - deductibleSE; taxable = max(0, adjusted - stdDeduction[filing]);
-            incomeTax = piecewiseTY2025Brackets(taxable, filing) mirroring /calc/1099-tax-calculator.html
-   FIX 2026-07-04 evening (queue item (www)+(xxx)): full TY2025 bracket schedule replacing
-     TY2023-vintage 10/12/22-only brackets; TY2025 std deduction $15000/$30000/$22500;
-     HoH branch added (previously fell through to incomeTax=0); Additional Medicare 0.9%
-     surtax on seBase above §3101(b)(2) thresholds. Mirrors the /calc/1099-tax-calculator.html
-     TY2025-current template per Rev. Proc. 2024-40 §3.01+§3.18. Pre-fix single-filer at
-     $200K adjusted was silently taxed at 22% flat on income above $44725 (undercharging by
-     ~$18K/yr vs progressive schedule); HoH was zero-taxed entirely; std deduction was never
-     subtracted.
-   FIX 2026-07-02 evening: SS wage-base cap $184,500 per SSA Press Release Oct 24 2025
-     (queue item (uuu) — SE tax leg only, unchanged tonight).
-   test_cases (Node-verified via scratchpad/verify_ty2025.js — exact-cent match):
-     TC1 single 50K/10K: netProfit=40000, seBase=36940, ssTax=4580.56, medTax=1071.26,
-         seTax=5651.82 (below cap, addlMed=0), seDed=2825.91, adjusted=37174.09,
-         taxable=22174.09 (after $15K std ded), fedTax=1192.50 + (22174.09-11925)*0.12
-         = 2422.39, totalTax=8074.21, quarterly=2018.55, effRate=16.15%
-     TC2 married 150K/25K: netProfit=125000, seBase=115437.50, seTax=17661.94 (below cap,
-         addlMed=0), seDed=8830.97, adjusted=116169.03, taxable=86169.03 (after $30K std),
-         fedTax=2385 + (86169.03-23850)*0.12 = 9863.28, totalTax=27525.22,
-         quarterly=6881.31, effRate=18.35%
-     TC3 hoh 250K/40K: netProfit=210000, seBase=193935, ssTax=22878 (CAP BINDS),
-         medTax=5624.12, seTax=28502.12 (addlMed=0, seBase<200K), seDed=14251.06,
-         adjusted=195748.94, taxable=173248.94 (after $22.5K HoH std),
-         fedTax=1700+5742+8470+16775.75 = 32687.75 (10/12/22/24 brackets crossed),
-         totalTax=61189.86, quarterly=15297.47, effRate=24.48%
-   verified_by: evening-routine */
-        // TY2025 federal brackets per Rev. Proc. 2024-40 §3.01 (mirrors /calc/1099-tax-calculator.html)
-        const taxBrackets = {
-            single:  [ {limit:11925,rate:0.10}, {limit:48475,rate:0.12}, {limit:103350,rate:0.22}, {limit:197300,rate:0.24}, {limit:250525,rate:0.32}, {limit:626350,rate:0.35}, {limit:Infinity,rate:0.37} ],
-            married: [ {limit:23850,rate:0.10}, {limit:96950,rate:0.12}, {limit:206700,rate:0.22}, {limit:394600,rate:0.24}, {limit:501050,rate:0.32}, {limit:751600,rate:0.35}, {limit:Infinity,rate:0.37} ],
-            hoh:     [ {limit:17000,rate:0.10}, {limit:64850,rate:0.12}, {limit:103350,rate:0.22}, {limit:197300,rate:0.24}, {limit:250500,rate:0.32}, {limit:626350,rate:0.35}, {limit:Infinity,rate:0.37} ]
-        };
-        // TY2025 standard deductions per Rev. Proc. 2024-40 §3.18
-        const standardDeduction = { single: 15000, married: 30000, hoh: 22500 };
-        function calculateFederalTax(taxable, filing) {
-            const brackets = taxBrackets[filing] || taxBrackets.single;
-            let tax = 0, prev = 0;
-            for (const b of brackets) {
-                if (taxable <= prev) break;
-                tax += (Math.min(taxable, b.limit) - prev) * b.rate;
-                prev = b.limit;
-            }
-            return tax;
-        }
-        function calculate() {
-            const grossIncome = parseFloat(document.getElementById('income').value) || 0;
-            const expenses = parseFloat(document.getElementById('expenses').value) || 0;
-            const filing = document.getElementById('filing').value;
-
-            const netProfit = grossIncome - expenses;
-            const seTaxBase = Math.max(0, netProfit) * 0.9235; // §1402(a)(12) - 92.35% of net profit
-            const SS_WAGE_BASE = 184500; // TY2026 SS wage base per SSA Press Release Oct 24 2025
-            const socialSecurityTax = Math.min(seTaxBase, SS_WAGE_BASE) * 0.124; // §1401(a) OASDI (capped)
-            const medicareTax = seTaxBase * 0.029; // §1401(b) Medicare (uncapped)
-            // Additional Medicare 0.9% surtax on high earners per §3101(b)(2)
-            const addlMedThreshold = filing === 'married' ? 250000 : 200000;
-            const additionalMedicare = Math.max(0, seTaxBase - addlMedThreshold) * 0.009;
-            const selfEmploymentTax = socialSecurityTax + medicareTax + additionalMedicare;
-            const deductibleSETax = selfEmploymentTax * 0.5;
-            const adjustedIncome = netProfit - deductibleSETax;
-
-            // Federal income tax on taxable income after TY2025 standard deduction (full 7-bracket schedule)
-            const stdDed = standardDeduction[filing] || standardDeduction.single;
-            const taxableIncome = Math.max(0, adjustedIncome - stdDed);
-            const incomeTax = calculateFederalTax(taxableIncome, filing);
-            
-            const totalTax = selfEmploymentTax + incomeTax;
-            const quarterlyPayment = totalTax / 4;
-            const effectiveRate = (totalTax / grossIncome) * 100;
-            
-            let html = '<h3>Your Tax Breakdown</h3>';
-            html += '<div class="result-value">$' + totalTax.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Gross Income:</strong> $' + grossIncome.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Business Expenses:</strong> $' + expenses.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Net Profit:</strong> $' + netProfit.toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Self-Employment Tax:</strong> $' + selfEmploymentTax.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Income Tax:</strong> $' + incomeTax.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Quarterly Payment:</strong> $' + quarterlyPayment.toFixed(2).toLocaleString() + '</div>';
-            html += '<div class="result-detail"><strong>Effective Tax Rate:</strong> ' + effectiveRate.toFixed(1) + '%</div>';
-            
-            // Add visual bar chart
-            html += '<div class="chart-container">';
-            html += '<div class="bar-chart">';
-            const maxVal = Math.max(netProfit, totalTax);
-            const barHeight1 = (netProfit / grossIncome) * 100;
-            const barHeight2 = (totalTax / grossIncome) * 100;
-            html += '<div class="bar" style="height:' + barHeight1 + '%">$' + (netProfit/1000).toFixed(0) + 'k</div>';
-            html += '<div class="bar" style="height:' + barHeight2 + '%">$' + (totalTax/1000).toFixed(0) + 'k</div>';
-            html += '</div>';
-            html += '<div style="display:flex; gap:0.5rem;">';
-            html += '<div style="flex:1;" class="bar-label">Net Profit</div>';
-            html += '<div style="flex:1;" class="bar-label">Total Tax</div>';
-            html += '</div>';
-            html += '</div>';
-            
-            html += '<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #6e6e73;"><em>This is an estimate for planning purposes. Actual tax liability may vary based on deductions, credits, and state taxes. Consult a tax professional for personalized advice.</em></p>';
-            
-            document.getElementById('result').innerHTML = html;
-            document.getElementById('result').style.display = 'block';
-        }
-    </script>
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational purposes only and is not tax advice. Tax laws are complex and change frequently. Results may not reflect your actual tax liability. Always consult a qualified CPA, tax attorney, or enrolled agent for tax advice specific to your situation. CalcLeap is not a tax preparation service and does not file taxes.</div>
-<footer class="footer" role="contentinfo"><div class="footer-inner"><div class="footer-grid"><div><h4>CalcLeap</h4><p style="font-size:.8rem;color:var(--text-3);line-height:1.5">Free calculators and tools for everyone.</p></div><div><h4>Popular</h4><a href="/bmi-calculator.html">BMI Calculator</a><a href="/calc/mortgage-payment.html">Mortgage Calculator</a><a href="/income-tax-calculator.html">Tax Calculator</a></div><div><h4>Categories</h4><a href="/index.html#finance">Finance</a><a href="/index.html#health">Health</a><a href="/index.html#insurance">Insurance</a></div><div><h4>Company</h4><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div></div><p style="text-align:center;font-size:.75rem;color:var(--text-3);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)">© 2026 CalcLeap. All rights reserved.</p></div></footer>
-<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
-<div style="display:flex;gap:.5rem;flex-shrink:0">
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
-<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
-</div>
-</div>
-<script>if(!localStorage.getItem('clCookieOk')){document.getElementById('clCookieConsent').style.display='flex'}</script>
+   verified_by=evening-routine -->
+<main class="card">
+  <h1>This self-employment tax calculator has moved</h1>
+  <p>Use the current <strong>Self-Employment Tax Calculator Calculator</strong> for 2026 SE-tax (Social Security + Medicare) computation for 1099 and freelance income, plus 2026 brackets, standard deductions, and side-by-side comparison against other states.</p>
+  <a class="btn" href="/calc/self-employment-tax-calculator.html">Open the Self-Employment Tax Calculator Calculator &rarr;</a>
+  <p class="small">If the page does not redirect automatically, click the button above.</p>
+</main>
 </body>
 </html>
