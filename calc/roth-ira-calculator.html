@@ -357,80 +357,53 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
     <script src="../app-calculator.js"></script>
     <script>
+        /* AUDIT 2026-07-18 evening (calcleap-evening-routine): formula=annually-compounded FV with end-of-year contributions.
+             n = retirementAge - currentAge
+             FV_balance = currentBalance * (1 + r)^n
+             FV_contrib = annualContrib * ((1 + r)^n - 1) / r   [r > 0], else annualContrib * n
+             FV_total = FV_balance + FV_contrib
+             Total Contributed = annualContrib * n
+             Tax-Free Growth = FV_total - currentBalance - Total Contributed
+           test_cases (verified against Node execution):
+             (1) age=30, ret=65, cb=$10K, ac=$7K, r=7% => FV=$1,074,423.96, contrib=$245,000.00, growth=$819,423.96
+             (2) age=25, ret=65, cb=$0,   ac=$6K, r=8% => FV=$1,554,339.11, contrib=$240,000.00, growth=$1,314,339.11
+             (3) age=50, ret=67, cb=$150K,ac=$8K, r=6% => FV=$629,618.96,  contrib=$136,000.00, growth=$343,618.96
+           Note: 2026 IRA contribution limit is $7,000 (under 50) / $8,000 (50+) per IRS Notice 2025-67.
+           Prior state: config had NO calculate function — click Calculate threw TypeError. Fixed by adding calculate() and removing duplicate config block.
+           verified_by=evening-routine
+        */
+        const fmtUSD = n => '$' + (isFinite(n) ? n : 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         const calcConfig = {
   "inputs": [
-    {
-      "name": "age",
-      "label": "Current Age",
-      "type": "number",
-      "placeholder": "30"
-    },
-    {
-      "name": "retirementAge",
-      "label": "Retirement Age",
-      "type": "number",
-      "placeholder": "65"
-    },
-    {
-      "name": "currentBalance",
-      "label": "Current Roth IRA Balance ($)",
-      "type": "number",
-      "placeholder": "10000"
-    },
-    {
-      "name": "annualContribution",
-      "label": "Annual Contribution ($)",
-      "type": "number",
-      "placeholder": "7000"
-    },
-    {
-      "name": "returnRate",
-      "label": "Annual Return Rate (%)",
-      "type": "number",
-      "placeholder": "7",
-      "step": 0.1
-    }
+    { "name": "age", "label": "Current Age", "type": "number", "placeholder": "30" },
+    { "name": "retirementAge", "label": "Retirement Age", "type": "number", "placeholder": "65" },
+    { "name": "currentBalance", "label": "Current Roth IRA Balance ($)", "type": "number", "placeholder": "10000" },
+    { "name": "annualContribution", "label": "Annual Contribution ($)", "type": "number", "placeholder": "7000" },
+    { "name": "returnRate", "label": "Annual Return Rate (%)", "type": "number", "placeholder": "7", "step": 0.1 }
   ],
-  "info": "<p>A Roth IRA is a retirement account where contributions are made with after-tax dollars, but all earnings and withdrawals in retirement are tax-free.</p><p><strong>Key Points:</strong></p><ul><li>2026 contribution limit: $7,000 (under 50), $8,000 (50+)</li><li>Income limits apply - phases out at higher incomes</li><li>Contributions can be withdrawn penalty-free anytime</li><li>Earnings can be withdrawn tax-free after age 59½ and 5 years</li><li>No required minimum distributions (RMDs)</li></ul>"
-};
-        initCalculator(calcConfig);
-    </script>
-<script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "age",
-      "label": "Current Age",
-      "type": "number",
-      "placeholder": "30"
-    },
-    {
-      "name": "retirementAge",
-      "label": "Retirement Age",
-      "type": "number",
-      "placeholder": "65"
-    },
-    {
-      "name": "currentBalance",
-      "label": "Current Roth IRA Balance ($)",
-      "type": "number",
-      "placeholder": "10000"
-    },
-    {
-      "name": "annualContribution",
-      "label": "Annual Contribution ($)",
-      "type": "number",
-      "placeholder": "7000"
-    },
-    {
-      "name": "returnRate",
-      "label": "Annual Return Rate (%)",
-      "type": "number",
-      "placeholder": "7",
-      "step": 0.1
-    }
-  ],
-  "info": "<p>A Roth IRA is a retirement account where contributions are made with after-tax dollars, but all earnings and withdrawals in retirement are tax-free.</p><p><strong>Key Points:</strong></p><ul><li>2026 contribution limit: $7,000 (under 50), $8,000 (50+)</li><li>Income limits apply - phases out at higher incomes</li><li>Contributions can be withdrawn penalty-free anytime</li><li>Earnings can be withdrawn tax-free after age 59½ and 5 years</li><li>No required minimum distributions (RMDs)</li></ul>"
+  "info": "<p>A Roth IRA is a retirement account where contributions are made with after-tax dollars, but all earnings and withdrawals in retirement are tax-free.</p><p><strong>Key Points:</strong></p><ul><li>2026 contribution limit: $7,000 (under 50), $8,000 (50+)</li><li>Income limits apply - phases out at higher incomes</li><li>Contributions can be withdrawn penalty-free anytime</li><li>Earnings can be withdrawn tax-free after age 59½ and 5 years</li><li>No required minimum distributions (RMDs)</li></ul>",
+  calculate: function(data) {
+    const age = data.age || 0;
+    const ret = data.retirementAge || 0;
+    const cb = data.currentBalance || 0;
+    const ac = data.annualContribution || 0;
+    const r = (data.returnRate || 0) / 100;
+    const n = ret - age;
+    if (n <= 0) return { "Error": "Retirement age must be greater than current age." };
+    const growth = Math.pow(1 + r, n);
+    const fvCB = cb * growth;
+    const fvAC = r === 0 ? ac * n : ac * (growth - 1) / r;
+    const fv = fvCB + fvAC;
+    const totalContrib = ac * n;
+    const growthAmt = fv - cb - totalContrib;
+    return {
+      "Years to Retirement": n + " years",
+      "Projected Balance at Retirement": fmtUSD(fv),
+      "Total Contributions": fmtUSD(totalContrib),
+      "Tax-Free Growth": fmtUSD(growthAmt),
+      "Estimated Federal Tax Savings vs Taxable": fmtUSD(growthAmt * 0.22) + " (at 22% marginal)"
+    };
+  }
 };
         initCalculator(calcConfig);
     </script>

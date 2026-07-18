@@ -357,58 +357,44 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
     <script src="../app-calculator.js"></script>
     <script>
+        /* AUDIT 2026-07-18 evening (calcleap-evening-routine): formula=
+             Dividend Yield = (AnnualDividend / StockPrice) * 100
+             Annual Income = AnnualDividend * Shares
+             Total Investment = StockPrice * Shares
+             Monthly Income = AnnualIncome / 12
+             Quarterly Income = AnnualIncome / 4
+           test_cases (verified against Node execution):
+             (1) sp=$150, div=$6, sh=100 => Yield=4.000%, Invest=$15,000.00, AnnualInc=$600.00, MonthlyInc=$50.00
+             (2) sp=$45.20, div=$1.80, sh=250 => Yield=3.982%, Invest=$11,300.00, AnnualInc=$450.00, MonthlyInc=$37.50
+             (3) sp=$100, div=$0, sh=50 => Yield=0.000%, Invest=$5,000.00, AnnualInc=$0.00, MonthlyInc=$0.00
+           Prior state: config had NO calculate function — click Calculate threw TypeError. Fixed by adding calculate() and removing duplicate config block.
+           verified_by=evening-routine
+        */
+        const fmtUSD = n => '$' + (isFinite(n) ? n : 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        const fmtPct = n => (isFinite(n) ? n : 0).toFixed(3) + '%';
         const calcConfig = {
   "inputs": [
-    {
-      "name": "stockPrice",
-      "label": "Stock Price ($)",
-      "type": "number",
-      "placeholder": "150",
-      "step": 0.01
-    },
-    {
-      "name": "annualDividend",
-      "label": "Annual Dividend per Share ($)",
-      "type": "number",
-      "placeholder": "6",
-      "step": 0.01
-    },
-    {
-      "name": "shares",
-      "label": "Number of Shares",
-      "type": "number",
-      "placeholder": "100"
-    }
+    { "name": "stockPrice", "label": "Stock Price ($)", "type": "number", "placeholder": "150", "step": 0.01 },
+    { "name": "annualDividend", "label": "Annual Dividend per Share ($)", "type": "number", "placeholder": "6", "step": 0.01 },
+    { "name": "shares", "label": "Number of Shares", "type": "number", "placeholder": "100" }
   ],
-  "info": "<p>Dividend yield measures the annual dividends paid by a stock relative to its price. Higher yields mean more income relative to your investment.</p><p><strong>Key Points:</strong></p><ul><li>Dividend yield = (Annual Dividend / Stock Price) × 100</li><li>Average S&P 500 dividend yield: ~1.5-2%</li><li>High yields (>5%) may indicate undervalued stock or risky dividend</li><li>Qualified dividends taxed at favorable capital gains rates</li><li>Dividends can be reinvested for compound growth</li></ul>"
-};
-        initCalculator(calcConfig);
-    </script>
-<script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "stockPrice",
-      "label": "Stock Price ($)",
-      "type": "number",
-      "placeholder": "150",
-      "step": 0.01
-    },
-    {
-      "name": "annualDividend",
-      "label": "Annual Dividend per Share ($)",
-      "type": "number",
-      "placeholder": "6",
-      "step": 0.01
-    },
-    {
-      "name": "shares",
-      "label": "Number of Shares",
-      "type": "number",
-      "placeholder": "100"
-    }
-  ],
-  "info": "<p>Dividend yield measures the annual dividends paid by a stock relative to its price. Higher yields mean more income relative to your investment.</p><p><strong>Key Points:</strong></p><ul><li>Dividend yield = (Annual Dividend / Stock Price) × 100</li><li>Average S&P 500 dividend yield: ~1.5-2%</li><li>High yields (>5%) may indicate undervalued stock or risky dividend</li><li>Qualified dividends taxed at favorable capital gains rates</li><li>Dividends can be reinvested for compound growth</li></ul>"
+  "info": "<p>Dividend yield measures the annual dividends paid by a stock relative to its price. Higher yields mean more income relative to your investment.</p><p><strong>Key Points:</strong></p><ul><li>Dividend yield = (Annual Dividend / Stock Price) × 100</li><li>Average S&P 500 dividend yield: ~1.5-2%</li><li>High yields (>5%) may indicate undervalued stock or risky dividend</li><li>Qualified dividends taxed at favorable capital gains rates</li><li>Dividends can be reinvested for compound growth</li></ul>",
+  calculate: function(data) {
+    const sp = data.stockPrice || 0;
+    const div = data.annualDividend || 0;
+    const sh = data.shares || 0;
+    if (sp <= 0) return { "Error": "Stock price must be positive." };
+    const yield_ = (div / sp) * 100;
+    const invest = sp * sh;
+    const annualInc = div * sh;
+    return {
+      "Dividend Yield": fmtPct(yield_),
+      "Total Investment": fmtUSD(invest),
+      "Annual Dividend Income": fmtUSD(annualInc),
+      "Quarterly Income": fmtUSD(annualInc / 4),
+      "Monthly Income": fmtUSD(annualInc / 12)
+    };
+  }
 };
         initCalculator(calcConfig);
     </script>

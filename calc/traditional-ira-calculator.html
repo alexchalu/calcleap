@@ -357,94 +357,56 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
     <script src="../app-calculator.js"></script>
     <script>
+        /* AUDIT 2026-07-18 evening (calcleap-evening-routine): formula=annually-compounded FV with end-of-year contributions plus current-year deduction tax savings.
+             n = retirementAge - currentAge
+             Gross FV = currentBalance * (1 + r)^n + annualContrib * ((1 + r)^n - 1) / r
+             Annual Tax Savings from Deduction = annualContrib * taxRate  (assumes full deductibility — see IRC §219(g) MAGI phaseouts)
+             After-Tax Value at Retirement = Gross FV * (1 - taxRate)   (assumes flat tax at ret; real world uses marginal brackets)
+           test_cases (verified against Node execution):
+             (1) age=30, ret=65, cb=$10K, ac=$7K, r=7%, tax=24% => FV=$1,074,423.96, After-Tax=$816,562.21, Total Savings=$58,800
+             (2) age=25, ret=65, cb=$0,   ac=$6K, r=8%, tax=22% => FV=$1,554,339.11, After-Tax=$1,212,384.51, Total Savings=$52,800
+             (3) age=50, ret=73, cb=$200K,ac=$8K, r=6%, tax=32% => FV=$1,139,916.55, After-Tax=$775,143.26, Total Savings=$58,880
+           Note: 2026 IRA contribution limit is $7,000 (under 50) / $8,000 (50+) per IRS Notice 2025-67. RMDs begin at age 73 (SECURE 2.0 §107).
+           Prior state: config had NO calculate function — click Calculate threw TypeError. Fixed by adding calculate() and removing duplicate config block.
+           verified_by=evening-routine
+        */
+        const fmtUSD = n => '$' + (isFinite(n) ? n : 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         const calcConfig = {
   "inputs": [
-    {
-      "name": "age",
-      "label": "Current Age",
-      "type": "number",
-      "placeholder": "30"
-    },
-    {
-      "name": "retirementAge",
-      "label": "Retirement Age",
-      "type": "number",
-      "placeholder": "65"
-    },
-    {
-      "name": "currentBalance",
-      "label": "Current IRA Balance ($)",
-      "type": "number",
-      "placeholder": "10000"
-    },
-    {
-      "name": "annualContribution",
-      "label": "Annual Contribution ($)",
-      "type": "number",
-      "placeholder": "7000"
-    },
-    {
-      "name": "returnRate",
-      "label": "Annual Return Rate (%)",
-      "type": "number",
-      "placeholder": "7",
-      "step": 0.1
-    },
-    {
-      "name": "taxRate",
-      "label": "Current Tax Rate (%)",
-      "type": "number",
-      "placeholder": "24",
-      "step": 0.1
-    }
+    { "name": "age", "label": "Current Age", "type": "number", "placeholder": "30" },
+    { "name": "retirementAge", "label": "Retirement Age", "type": "number", "placeholder": "65" },
+    { "name": "currentBalance", "label": "Current IRA Balance ($)", "type": "number", "placeholder": "10000" },
+    { "name": "annualContribution", "label": "Annual Contribution ($)", "type": "number", "placeholder": "7000" },
+    { "name": "returnRate", "label": "Annual Return Rate (%)", "type": "number", "placeholder": "7", "step": 0.1 },
+    { "name": "taxRate", "label": "Current Tax Rate (%)", "type": "number", "placeholder": "24", "step": 0.1 }
   ],
-  "info": "<p>A Traditional IRA allows tax-deductible contributions that grow tax-deferred until retirement.</p><p><strong>Key Points:</strong></p><ul><li>2026 contribution limit: $7,000 (under 50), $8,000 (50+)</li><li>Contributions may be tax-deductible (income limits apply if covered by employer plan)</li><li>Earnings grow tax-deferred</li><li>Withdrawals taxed as ordinary income in retirement</li><li>Required Minimum Distributions (RMDs) start at age 73</li></ul>"
-};
-        initCalculator(calcConfig);
-    </script>
-<script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "age",
-      "label": "Current Age",
-      "type": "number",
-      "placeholder": "30"
-    },
-    {
-      "name": "retirementAge",
-      "label": "Retirement Age",
-      "type": "number",
-      "placeholder": "65"
-    },
-    {
-      "name": "currentBalance",
-      "label": "Current IRA Balance ($)",
-      "type": "number",
-      "placeholder": "10000"
-    },
-    {
-      "name": "annualContribution",
-      "label": "Annual Contribution ($)",
-      "type": "number",
-      "placeholder": "7000"
-    },
-    {
-      "name": "returnRate",
-      "label": "Annual Return Rate (%)",
-      "type": "number",
-      "placeholder": "7",
-      "step": 0.1
-    },
-    {
-      "name": "taxRate",
-      "label": "Current Tax Rate (%)",
-      "type": "number",
-      "placeholder": "24",
-      "step": 0.1
-    }
-  ],
-  "info": "<p>A Traditional IRA allows tax-deductible contributions that grow tax-deferred until retirement.</p><p><strong>Key Points:</strong></p><ul><li>2026 contribution limit: $7,000 (under 50), $8,000 (50+)</li><li>Contributions may be tax-deductible (income limits apply if covered by employer plan)</li><li>Earnings grow tax-deferred</li><li>Withdrawals taxed as ordinary income in retirement</li><li>Required Minimum Distributions (RMDs) start at age 73</li></ul>"
+  "info": "<p>A Traditional IRA allows tax-deductible contributions that grow tax-deferred until retirement. This estimate assumes a flat tax rate applied at retirement and full deductibility today; both simplifications may not match your actual bracket or IRC §219(g) phaseout status.</p><p><strong>Key Points:</strong></p><ul><li>2026 contribution limit: $7,000 (under 50), $8,000 (50+)</li><li>Contributions may be tax-deductible (income limits apply if covered by employer plan)</li><li>Earnings grow tax-deferred</li><li>Withdrawals taxed as ordinary income in retirement</li><li>Required Minimum Distributions (RMDs) start at age 73</li></ul>",
+  calculate: function(data) {
+    const age = data.age || 0;
+    const ret = data.retirementAge || 0;
+    const cb = data.currentBalance || 0;
+    const ac = data.annualContribution || 0;
+    const r = (data.returnRate || 0) / 100;
+    const t = (data.taxRate || 0) / 100;
+    const n = ret - age;
+    if (n <= 0) return { "Error": "Retirement age must be greater than current age." };
+    const growth = Math.pow(1 + r, n);
+    const fvCB = cb * growth;
+    const fvAC = r === 0 ? ac * n : ac * (growth - 1) / r;
+    const fv = fvCB + fvAC;
+    const contrib = ac * n;
+    const yearlySavings = ac * t;
+    const totalSavings = yearlySavings * n;
+    const afterTaxFV = fv * (1 - t);
+    return {
+      "Years to Retirement": n + " years",
+      "Projected Gross Balance": fmtUSD(fv),
+      "After-Tax Withdrawal Value": fmtUSD(afterTaxFV),
+      "Total Contributions": fmtUSD(contrib),
+      "Annual Tax Savings from Deduction": fmtUSD(yearlySavings),
+      "Total Deduction Tax Savings": fmtUSD(totalSavings)
+    };
+  }
 };
         initCalculator(calcConfig);
     </script>

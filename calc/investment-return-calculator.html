@@ -357,68 +357,44 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
     <script src="../app-calculator.js"></script>
     <script>
+        /* AUDIT 2026-07-18 evening (calcleap-evening-routine): formula=monthly-compounded FV of lump sum + monthly-contribution annuity-due-end.
+           FV_lump = P * (1 + r/12)^(12n); FV_pmt = PMT * ((1 + r/12)^(12n) - 1) / (r/12) [end-of-month]; Total = sum.
+           test_cases (verified against inline JS execution):
+             (1) P=10000, yrs=10, r=8%, PMT=500 => FV=$113,669.42, contributions=$70,000.00, interest=$43,669.42
+             (2) P=0, yrs=30, r=7%, PMT=500 => FV=$609,985.50, contributions=$180,000.00, interest=$429,985.50
+             (3) P=50000, yrs=20, r=6%, PMT=0 => FV=$165,510.22, contributions=$50,000.00, interest=$115,510.22
+           Prior state: config had NO calculate function — click Calculate threw TypeError. Fixed by adding calculate() and removing duplicate config block.
+           verified_by=evening-routine
+        */
+        const fmtUSD = n => '$' + (isFinite(n) ? n : 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         const calcConfig = {
   "inputs": [
-    {
-      "name": "initialInvestment",
-      "label": "Initial Investment ($)",
-      "type": "number",
-      "placeholder": "10000"
-    },
-    {
-      "name": "years",
-      "label": "Investment Period (Years)",
-      "type": "number",
-      "placeholder": "10"
-    },
-    {
-      "name": "returnRate",
-      "label": "Annual Return Rate (%)",
-      "type": "number",
-      "placeholder": "8",
-      "step": 0.1
-    },
-    {
-      "name": "monthlyContribution",
-      "label": "Monthly Contribution ($)",
-      "type": "number",
-      "placeholder": "500"
-    }
+    { "name": "initialInvestment", "label": "Initial Investment ($)", "type": "number", "placeholder": "10000" },
+    { "name": "years", "label": "Investment Period (Years)", "type": "number", "placeholder": "10" },
+    { "name": "returnRate", "label": "Annual Return Rate (%)", "type": "number", "placeholder": "8", "step": 0.1 },
+    { "name": "monthlyContribution", "label": "Monthly Contribution ($)", "type": "number", "placeholder": "500" }
   ],
-  "info": "<p>Calculate the future value of your investment based on initial amount, regular contributions, and expected return rate.</p><p><strong>Key Points:</strong></p><ul><li>Historical S&P 500 average return: ~10% per year</li><li>Past performance doesn't guarantee future results</li><li>Regular contributions (dollar-cost averaging) reduce market timing risk</li><li>Consider inflation when evaluating real returns</li><li>Diversification reduces risk</li></ul>"
-};
-        initCalculator(calcConfig);
-    </script>
-<script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "initialInvestment",
-      "label": "Initial Investment ($)",
-      "type": "number",
-      "placeholder": "10000"
-    },
-    {
-      "name": "years",
-      "label": "Investment Period (Years)",
-      "type": "number",
-      "placeholder": "10"
-    },
-    {
-      "name": "returnRate",
-      "label": "Annual Return Rate (%)",
-      "type": "number",
-      "placeholder": "8",
-      "step": 0.1
-    },
-    {
-      "name": "monthlyContribution",
-      "label": "Monthly Contribution ($)",
-      "type": "number",
-      "placeholder": "500"
-    }
-  ],
-  "info": "<p>Calculate the future value of your investment based on initial amount, regular contributions, and expected return rate.</p><p><strong>Key Points:</strong></p><ul><li>Historical S&P 500 average return: ~10% per year</li><li>Past performance doesn't guarantee future results</li><li>Regular contributions (dollar-cost averaging) reduce market timing risk</li><li>Consider inflation when evaluating real returns</li><li>Diversification reduces risk</li></ul>"
+  "info": "<p>Calculate the future value of your investment based on initial amount, regular monthly contributions, and expected return rate. Uses monthly compounding.</p><p><strong>Key Points:</strong></p><ul><li>Historical S&P 500 average return: ~10% per year</li><li>Past performance doesn't guarantee future results</li><li>Regular contributions (dollar-cost averaging) reduce market timing risk</li><li>Consider inflation when evaluating real returns</li><li>Diversification reduces risk</li></ul>",
+  calculate: function(data) {
+    const P = data.initialInvestment || 0;
+    const yrs = data.years || 0;
+    const r = (data.returnRate || 0) / 100;
+    const PMT = data.monthlyContribution || 0;
+    const n = yrs * 12;
+    const rM = r / 12;
+    const growth = Math.pow(1 + rM, n);
+    const fvLump = P * growth;
+    const fvPmt = rM === 0 ? PMT * n : PMT * (growth - 1) / rM;
+    const fv = fvLump + fvPmt;
+    const contrib = P + PMT * n;
+    const interest = fv - contrib;
+    return {
+      "Future Value": fmtUSD(fv),
+      "Total Contributions": fmtUSD(contrib),
+      "Total Interest Earned": fmtUSD(interest),
+      "Growth Multiple": (contrib > 0 ? (fv / contrib).toFixed(2) : "—") + "x"
+    };
+  }
 };
         initCalculator(calcConfig);
     </script>

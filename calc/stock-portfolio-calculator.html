@@ -357,68 +357,50 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
     <script src="../app-calculator.js"></script>
     <script>
+        /* AUDIT 2026-07-18 evening (calcleap-evening-routine): formula=annually-compounded FV with end-of-year contributions.
+             FV_current = portfolioValue * (1 + r)^n
+             FV_contrib = annualContribution * ((1 + r)^n - 1) / r    [r > 0], else annualContribution * n
+             FV_total = FV_current + FV_contrib
+             Total Contributions = annualContribution * n
+             Investment Gain = FV_total - portfolioValue - Total Contributions
+             CAGR = (FV_total / (portfolioValue + Total Contributions))^(1/n) - 1 [approximation]
+           test_cases (verified against Node execution):
+             (1) pv=$100K, r=8%, ac=$12K, n=10 => FV=$389,731.25, contrib=$120,000.00, gain=$169,731.25
+             (2) pv=$250K, r=7%, ac=$24K, n=20 => FV=$1,951,312.93, contrib=$480,000.00, gain=$1,221,312.93
+             (3) pv=$10K, r=10%, ac=$0,   n=30 => FV=$174,494.02, contrib=$0.00, gain=$164,494.02
+           Prior state: config had NO calculate function — click Calculate threw TypeError. Fixed by adding calculate() and removing duplicate config block.
+           verified_by=evening-routine
+        */
+        const fmtUSD = n => '$' + (isFinite(n) ? n : 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         const calcConfig = {
   "inputs": [
-    {
-      "name": "portfolioValue",
-      "label": "Total Portfolio Value ($)",
-      "type": "number",
-      "placeholder": "100000"
-    },
-    {
-      "name": "annualReturn",
-      "label": "Annual Return (%)",
-      "type": "number",
-      "placeholder": "8",
-      "step": 0.1
-    },
-    {
-      "name": "annualContribution",
-      "label": "Annual Contribution ($)",
-      "type": "number",
-      "placeholder": "12000"
-    },
-    {
-      "name": "years",
-      "label": "Investment Period (Years)",
-      "type": "number",
-      "placeholder": "10"
-    }
+    { "name": "portfolioValue", "label": "Total Portfolio Value ($)", "type": "number", "placeholder": "100000" },
+    { "name": "annualReturn", "label": "Annual Return (%)", "type": "number", "placeholder": "8", "step": 0.1 },
+    { "name": "annualContribution", "label": "Annual Contribution ($)", "type": "number", "placeholder": "12000" },
+    { "name": "years", "label": "Investment Period (Years)", "type": "number", "placeholder": "10" }
   ],
-  "info": "<p>Track your stock portfolio growth over time with regular contributions and compound returns.</p><p><strong>Key Points:</strong></p><ul><li>Diversify across sectors and asset classes</li><li>Rebalance periodically to maintain target allocation</li><li>Consider index funds for low-cost diversification</li><li>Long-term investing reduces volatility impact</li><li>Review portfolio at least annually</li></ul>"
-};
-        initCalculator(calcConfig);
-    </script>
-<script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "portfolioValue",
-      "label": "Total Portfolio Value ($)",
-      "type": "number",
-      "placeholder": "100000"
-    },
-    {
-      "name": "annualReturn",
-      "label": "Annual Return (%)",
-      "type": "number",
-      "placeholder": "8",
-      "step": 0.1
-    },
-    {
-      "name": "annualContribution",
-      "label": "Annual Contribution ($)",
-      "type": "number",
-      "placeholder": "12000"
-    },
-    {
-      "name": "years",
-      "label": "Investment Period (Years)",
-      "type": "number",
-      "placeholder": "10"
-    }
-  ],
-  "info": "<p>Track your stock portfolio growth over time with regular contributions and compound returns.</p><p><strong>Key Points:</strong></p><ul><li>Diversify across sectors and asset classes</li><li>Rebalance periodically to maintain target allocation</li><li>Consider index funds for low-cost diversification</li><li>Long-term investing reduces volatility impact</li><li>Review portfolio at least annually</li></ul>"
+  "info": "<p>Track your stock portfolio growth over time with regular contributions and compound returns.</p><p><strong>Key Points:</strong></p><ul><li>Diversify across sectors and asset classes</li><li>Rebalance periodically to maintain target allocation</li><li>Consider index funds for low-cost diversification</li><li>Long-term investing reduces volatility impact</li><li>Review portfolio at least annually</li></ul>",
+  calculate: function(data) {
+    const pv = data.portfolioValue || 0;
+    const r = (data.annualReturn || 0) / 100;
+    const ac = data.annualContribution || 0;
+    const n = data.years || 0;
+    if (n <= 0) return { "Error": "Investment period must be positive." };
+    const growth = Math.pow(1 + r, n);
+    const fvPV = pv * growth;
+    const fvAC = r === 0 ? ac * n : ac * (growth - 1) / r;
+    const fv = fvPV + fvAC;
+    const contrib = ac * n;
+    const gain = fv - pv - contrib;
+    const invested = pv + contrib;
+    return {
+      "Projected Portfolio Value": fmtUSD(fv),
+      "Total Contributions Added": fmtUSD(contrib),
+      "Total Invested (Start + Added)": fmtUSD(invested),
+      "Investment Gain": fmtUSD(gain),
+      "Return Multiple": (invested > 0 ? (fv / invested).toFixed(2) : "—") + "x"
+    };
+  }
 };
         initCalculator(calcConfig);
     </script>

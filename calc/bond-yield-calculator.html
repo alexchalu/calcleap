@@ -357,68 +357,48 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
     <script src="../app-calculator.js"></script>
     <script>
+        /* AUDIT 2026-07-18 evening (calcleap-evening-routine): formula=
+             Annual Coupon C = FaceValue * CouponRate/100
+             Current Yield = C / PurchasePrice * 100
+             YTM (industry-standard approximation) = ((C + (F - P)/n) / ((F + P)/2)) * 100
+             Total Coupon Income = C * n
+             Capital Gain at Maturity = F - P
+           test_cases (verified against Node execution):
+             (1) F=1000, P=950, cr=5%, n=10 => CY=5.263%, YTM=5.641%, TC=$500.00, CG=$50.00
+             (2) F=1000, P=1050, cr=6%, n=5 => CY=5.714%, YTM=4.878%, TC=$300.00, CG=-$50.00
+             (3) F=1000, P=800,  cr=4%, n=8 => CY=5.000%, YTM=7.222%, TC=$320.00, CG=$200.00
+           Prior state: config had NO calculate function — click Calculate threw TypeError. Fixed by adding calculate() and removing duplicate config block.
+           verified_by=evening-routine
+        */
+        const fmtUSD = n => '$' + (isFinite(n) ? n : 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        const fmtPct = n => (isFinite(n) ? n : 0).toFixed(3) + '%';
         const calcConfig = {
   "inputs": [
-    {
-      "name": "faceValue",
-      "label": "Face Value ($)",
-      "type": "number",
-      "placeholder": "1000"
-    },
-    {
-      "name": "purchasePrice",
-      "label": "Purchase Price ($)",
-      "type": "number",
-      "placeholder": "950"
-    },
-    {
-      "name": "couponRate",
-      "label": "Coupon Rate (%)",
-      "type": "number",
-      "placeholder": "5",
-      "step": 0.1
-    },
-    {
-      "name": "yearsToMaturity",
-      "label": "Years to Maturity",
-      "type": "number",
-      "placeholder": "10"
-    }
+    { "name": "faceValue", "label": "Face Value ($)", "type": "number", "placeholder": "1000" },
+    { "name": "purchasePrice", "label": "Purchase Price ($)", "type": "number", "placeholder": "950" },
+    { "name": "couponRate", "label": "Coupon Rate (%)", "type": "number", "placeholder": "5", "step": 0.1 },
+    { "name": "yearsToMaturity", "label": "Years to Maturity", "type": "number", "placeholder": "10" }
   ],
-  "info": "<p>Calculate bond yields including current yield and yield to maturity (YTM).</p><p><strong>Key Points:</strong></p><ul><li>Current Yield = Annual Coupon / Current Price</li><li>YTM considers both coupon payments and capital gain/loss at maturity</li><li>Bond prices and yields move inversely</li><li>Rising interest rates decrease existing bond prices</li><li>Bonds provide more stability than stocks but lower long-term returns</li></ul>"
-};
-        initCalculator(calcConfig);
-    </script>
-<script>
-        const calcConfig = {
-  "inputs": [
-    {
-      "name": "faceValue",
-      "label": "Face Value ($)",
-      "type": "number",
-      "placeholder": "1000"
-    },
-    {
-      "name": "purchasePrice",
-      "label": "Purchase Price ($)",
-      "type": "number",
-      "placeholder": "950"
-    },
-    {
-      "name": "couponRate",
-      "label": "Coupon Rate (%)",
-      "type": "number",
-      "placeholder": "5",
-      "step": 0.1
-    },
-    {
-      "name": "yearsToMaturity",
-      "label": "Years to Maturity",
-      "type": "number",
-      "placeholder": "10"
-    }
-  ],
-  "info": "<p>Calculate bond yields including current yield and yield to maturity (YTM).</p><p><strong>Key Points:</strong></p><ul><li>Current Yield = Annual Coupon / Current Price</li><li>YTM considers both coupon payments and capital gain/loss at maturity</li><li>Bond prices and yields move inversely</li><li>Rising interest rates decrease existing bond prices</li><li>Bonds provide more stability than stocks but lower long-term returns</li></ul>"
+  "info": "<p>Calculate bond yields including current yield and approximate yield to maturity (YTM). YTM uses the standard approximation formula and is an estimate; iterative IRR yields tighter numbers for large discount/premium bonds.</p><p><strong>Key Points:</strong></p><ul><li>Current Yield = Annual Coupon / Current Price</li><li>YTM considers both coupon payments and capital gain/loss at maturity</li><li>Bond prices and yields move inversely</li><li>Rising interest rates decrease existing bond prices</li><li>Bonds provide more stability than stocks but lower long-term returns</li></ul>",
+  calculate: function(data) {
+    const F = data.faceValue || 0;
+    const P = data.purchasePrice || 0;
+    const cr = (data.couponRate || 0) / 100;
+    const n = data.yearsToMaturity || 0;
+    if (P <= 0 || n <= 0) return { "Error": "Purchase price and years to maturity must be positive." };
+    const C = F * cr;
+    const currentYield = (C / P) * 100;
+    const ytm = ((C + (F - P) / n) / ((F + P) / 2)) * 100;
+    const totalCoupon = C * n;
+    const capGain = F - P;
+    return {
+      "Annual Coupon Payment": fmtUSD(C),
+      "Current Yield": fmtPct(currentYield),
+      "Yield to Maturity (approx)": fmtPct(ytm),
+      "Total Coupon Income": fmtUSD(totalCoupon),
+      "Capital Gain at Maturity": fmtUSD(capGain)
+    };
+  }
 };
         initCalculator(calcConfig);
     </script>
