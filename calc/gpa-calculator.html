@@ -303,10 +303,24 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 <div class="calc"><div id="courses"></div><button class="btn" onclick="addCourse()" style="margin-bottom:1rem;background:var(--s2);border:1px solid var(--b)">+ Add Course</button>
 <button class="btn" onclick="calc()">Calculate GPA</button><div class="result" id="out"></div></div>
 <script>
+/* AUDIT 2026-07-19: P0 fix — file previously threw SyntaxError on load because the
+   grade-select aria-label used the identifier `Course Count` (with a space) instead
+   of the actual variable `courseCount`. `Course` was parsed as an identifier, `Count`
+   as another, and the space between them was invalid JS. addCourse() never got
+   defined, so the initial `for(let i=0;i<4;i++)addCourse()` loop threw ReferenceError
+   and no course rows appeared — the calculator was fully broken.
+   formula: standard credit-weighted GPA = sum(gradePoint_i * credits_i) / sum(credits_i)
+     with 4.0 scale (A=4.0, A-=3.7, B+=3.3, B=3.0, B-=2.7, C+=2.3, C=2.0, C-=1.7,
+     D+=1.3, D=1.0, D-=0.7, F=0.0).
+   test_cases:
+     4 courses A/A/B/B all 3 credits -> (4+4+3+3)*3 / (3+3+3+3) = 42/12 = 3.50
+     4 courses A/B/C/D all 3 credits -> (4+3+2+1)*3 / 12         = 30/12 = 2.50
+     mixed A/A-/B+ credits 4/3/3    -> (4*4)+(3.7*3)+(3.3*3) / 10 = 37.0/10 = 3.70
+   verified_by: evening-routine (Node parse + calc executed against 3 test cases) */
 const $=id=>document.getElementById(id);
 const fmt=(n,d=2)=>typeof n==='number'?n.toLocaleString('en-US',{maximumFractionDigits:d}):'—';
 const grades={A:4,'A-':3.7,'B+':3.3,B:3,'B-':2.7,'C+':2.3,C:2,'C-':1.7,'D+':1.3,D:1,'D-':0.7,F:0};
-let courseCount=0;function addCourse(){courseCount++;const d=document.createElement('div');d.className='row';d.style.marginBottom='.5rem';d.innerHTML='<div class="field"><input type="text" placeholder="Course '+ courseCount+'" style="font-size:.8rem" aria-label="Course '+ courseCount+'"></div><div class="field"><select id="g'+courseCount+'" style="font-size:.8rem" aria-label="G'+Course Count+'">'+Object.keys(grades).map(g=>'<option>'+g+'</option>').join('')+'</select></div><div class="field"><input type="number" id="c'+courseCount+'" value="3" placeholder="Credits" style="font-size:.8rem" aria-label="Credits"></div>';$('courses').appendChild(d)}
+let courseCount=0;function addCourse(){courseCount++;const d=document.createElement('div');d.className='row';d.style.marginBottom='.5rem';d.innerHTML='<div class="field"><input type="text" placeholder="Course '+courseCount+'" style="font-size:.8rem" aria-label="Course '+courseCount+'"></div><div class="field"><select id="g'+courseCount+'" style="font-size:.8rem" aria-label="Grade for course '+courseCount+'">'+Object.keys(grades).map(g=>'<option>'+g+'</option>').join('')+'</select></div><div class="field"><input type="number" id="c'+courseCount+'" value="3" placeholder="Credits" style="font-size:.8rem" aria-label="Credits"></div>';$('courses').appendChild(d)}
 for(let i=0;i<4;i++)addCourse();
 function calc(){let tp=0,tc=0;for(let i=1;i<=courseCount;i++){const g=$('g'+i),c=$('c'+i);if(g&&c){tp+=grades[g.value]*(+c.value);tc+=+c.value}}const gpa=tc>0?(tp/tc):0;$('out').innerHTML='<div class="val">'+gpa.toFixed(2)+'</div><div class="lbl">Cumulative GPA ('+tc+' credits)</div>'}
 if(typeof calc==='function')calc();

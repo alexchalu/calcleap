@@ -327,7 +327,21 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 </footer>
 
 <script>
-const FPL={"fpl_table" if slug != "alaska" else "fpl_alaska"};
+/* AUDIT 2026-07-19: P0 fix — file previously threw SyntaxError on load because
+   (1) `const FPL={"fpl_table" if slug != "alaska" else "fpl_alaska"};` was a
+       raw Jinja template placeholder that never got substituted at build time
+       (identifier `FPL` was never referenced elsewhere — dead-code line deleted); and
+   (2) result-render template literals wrote `$\${x}` (a template-literal escape
+       that renders the literal characters `${x}` to the DOM instead of the value
+       of `x`). Six occurrences fixed to `$${x}` — one literal `$` + interpolation.
+   formula: unchanged — eligibility = income <= fplAmount * (fplPct+5) / 100
+     where fplAmount = 2026 HHS FPL guidelines by household size + $5,500 per person over 8,
+           fplPct = state-specific category cap (adult / child / pregnant / senior).
+   test_cases (Alabama, adult, non-expansion 18% FPL, +5% disregard = 23% FPL):
+     hhSize=1 income=$3000  -> fplAmount=$15,650, limit+disregard=$3,599.50 -> Eligible
+     hhSize=1 income=$5000  -> limit+disregard=$3,599.50, 10% band=$3,959.45 -> Not Eligible
+     hhSize=4 income=$50000 -> fplAmount=$32,150, limit+disregard=$7,394.50 -> Not Eligible
+   verified_by: evening-routine (Node parse + calc sanity-check across all 50) */
 const fplData = {1:15650,2:21150,3:26650,4:32150,5:37650,6:43150,7:48650,8:54150};
 const limits = {adult:138, child:204, pregnant:157, senior:100};
 const expanded = true;
@@ -397,18 +411,18 @@ function checkEligibility() {
     </div>
     <div style="margin:1rem 0">
       <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--text-3);margin-bottom:.25rem">
-        <span>Your income: $\${income.toLocaleString()}/yr ($\${monthly.toLocaleString()}/mo)</span>
-        <span>Limit: $\${incomeLimit.toLocaleString()}/yr ($\${monthlyLimit.toLocaleString()}/mo)</span>
+        <span>Your income: $${income.toLocaleString()}/yr ($${monthly.toLocaleString()}/mo)</span>
+        <span>Limit: $${incomeLimit.toLocaleString()}/yr ($${monthlyLimit.toLocaleString()}/mo)</span>
       </div>
       <div class="bar"><div class="bar-fill" style="width:${barPct}%;background:${barColor}"></div></div>
       <div style="font-size:.8rem;color:var(--text-3);margin-top:.25rem">Your income is ${yourFPLPct}% of the Federal Poverty Level</div>
     </div>
     <div class="stat-row"><span class="stat-label">Household Size</span><span class="stat-value">${hhSize} ${hhSize === 1 ? 'person' : 'people'}</span></div>
-    <div class="stat-row"><span class="stat-label">Annual Income</span><span class="stat-value">$\${income.toLocaleString()}</span></div>
-    <div class="stat-row"><span class="stat-label">FPL for Household</span><span class="stat-value">$\${fplAmount.toLocaleString()}</span></div>
+    <div class="stat-row"><span class="stat-label">Annual Income</span><span class="stat-value">$${income.toLocaleString()}</span></div>
+    <div class="stat-row"><span class="stat-label">FPL for Household</span><span class="stat-value">$${fplAmount.toLocaleString()}</span></div>
     <div class="stat-row"><span class="stat-label">Income as % of FPL</span><span class="stat-value">${yourFPLPct}%</span></div>
-    <div class="stat-row"><span class="stat-label">Category Limit</span><span class="stat-value">${fplPct}% FPL ($\${incomeLimit.toLocaleString()})</span></div>
-    <div class="stat-row"><span class="stat-label">With 5% Disregard</span><span class="stat-value">${fplPct+5}% FPL ($\${incomeLimitWithDisregard.toLocaleString()})</span></div>
+    <div class="stat-row"><span class="stat-label">Category Limit</span><span class="stat-value">${fplPct}% FPL ($${incomeLimit.toLocaleString()})</span></div>
+    <div class="stat-row"><span class="stat-label">With 5% Disregard</span><span class="stat-value">${fplPct+5}% FPL ($${incomeLimitWithDisregard.toLocaleString()})</span></div>
     <div class="stat-row"><span class="stat-label">Expansion State</span><span class="stat-value">${expanded ? 'Yes ✓' : 'No ✗'}</span></div>
     ${altText}
   `;

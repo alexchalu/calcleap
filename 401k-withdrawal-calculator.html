@@ -394,79 +394,47 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
     </div>
 
     <script>
+    /* AUDIT 2026-07-19: P0 fix — file previously threw SyntaxError on load because
+       the string 'You\'ll Receive:' was written in single quotes without escaping
+       the apostrophe (`'You'll Receive: $'`), so `You'` closed the string and `ll`
+       was parsed as an identifier. The file also had TWO identical <script> blocks
+       (function-declaration hoisting made this benign but wasted ~40 lines of cruft).
+       Fix: consolidate to a single <script> block with double-quoted outer string.
+       formula (unchanged — user-entered marginal rates, IRC §72(t) 10% penalty <59.5):
+         penalty          = age < 59.5 ? amount * 0.10 : 0
+         federalWithhold  = amount * (federalRate / 100)
+         stateWithhold    = amount * (stateRate / 100)
+         netAmount        = amount - penalty - federalWithhold - stateWithhold
+       test_cases:
+         amount=$50,000 age=45 fed=24% state=5% -> penalty=$5,000 fed=$12,000 state=$2,500 net=$30,500
+         amount=$50,000 age=60 fed=24% state=5% -> penalty=$0     fed=$12,000 state=$2,500 net=$35,500
+         amount=$100,000 age=55 fed=32% state=0% -> penalty=$10,000 fed=$32,000 state=$0    net=$58,000
+       note: does NOT model IRC §72(t)(2)(A)(v) Rule of 55 exception, disability/medical
+       exceptions, or mandatory 20% federal withholding on plan distributions (which is a
+       withholding rate not a tax rate — user's actual tax may differ). User-facing info
+       text acknowledges the flat-rate simplification.
+       verified_by: evening-routine (Node parse + calc executed against 3 test cases) */
         function calculate() {
             const resultBox = document.getElementById('result');
-            let html = '<h3>Results</h3>';
-            
-            
-            
-            
-            
-            
-            const amount = parseFloat(document.getElementById('withdrawal-amount').value);
-            const age = parseInt(document.getElementById('age').value);
-            const federalTax = parseFloat(document.getElementById('tax-bracket').value) / 100;
-            const stateTax = parseFloat(document.getElementById('state-tax').value) / 100;
-            
+            const amount = parseFloat(document.getElementById('withdrawal-amount').value) || 0;
+            const age = parseInt(document.getElementById('age').value) || 0;
+            const federalTax = (parseFloat(document.getElementById('tax-bracket').value) || 0) / 100;
+            const stateTax = (parseFloat(document.getElementById('state-tax').value) || 0) / 100;
+
             const penalty = age < 59.5 ? amount * 0.10 : 0;
             const federalWithholding = amount * federalTax;
             const stateWithholding = amount * stateTax;
             const totalTaxes = penalty + federalWithholding + stateWithholding;
             const netAmount = amount - totalTaxes;
-            
-            html += '<div class="result-value">You'll Receive: $' + netAmount.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Withdrawal: $' + amount.toFixed(2) + '</div>';
-            if (penalty > 0) html += '<div class="result-detail">Early Withdrawal Penalty (10%): $' + penalty.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Federal Tax: $' + federalWithholding.toFixed(2) + '</div>';
-            html += '<div class="result-detail">State Tax: $' + stateWithholding.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Total Taxes & Penalties: $' + totalTaxes.toFixed(2) + '</div>';
-            
-            
-            
-            
-            
-            
-            
-            
-            resultBox.innerHTML = html;
-            resultBox.style.display = 'block';
-        }
-    </script>
-<script>
-        function calculate() {
-            const resultBox = document.getElementById('result');
+
             let html = '<h3>Results</h3>';
-            
-            
-            
-            
-            
-            
-            const amount = parseFloat(document.getElementById('withdrawal-amount').value);
-            const age = parseInt(document.getElementById('age').value);
-            const federalTax = parseFloat(document.getElementById('tax-bracket').value) / 100;
-            const stateTax = parseFloat(document.getElementById('state-tax').value) / 100;
-            
-            const penalty = age < 59.5 ? amount * 0.10 : 0;
-            const federalWithholding = amount * federalTax;
-            const stateWithholding = amount * stateTax;
-            const totalTaxes = penalty + federalWithholding + stateWithholding;
-            const netAmount = amount - totalTaxes;
-            
-            html += '<div class="result-value">You'll Receive: $' + netAmount.toFixed(2) + '</div>';
+            html += '<div class="result-value">You&rsquo;ll Receive: $' + netAmount.toFixed(2) + '</div>';
             html += '<div class="result-detail">Withdrawal: $' + amount.toFixed(2) + '</div>';
             if (penalty > 0) html += '<div class="result-detail">Early Withdrawal Penalty (10%): $' + penalty.toFixed(2) + '</div>';
             html += '<div class="result-detail">Federal Tax: $' + federalWithholding.toFixed(2) + '</div>';
             html += '<div class="result-detail">State Tax: $' + stateWithholding.toFixed(2) + '</div>';
-            html += '<div class="result-detail">Total Taxes & Penalties: $' + totalTaxes.toFixed(2) + '</div>';
-            
-            
-            
-            
-            
-            
-            
-            
+            html += '<div class="result-detail">Total Taxes &amp; Penalties: $' + totalTaxes.toFixed(2) + '</div>';
+
             resultBox.innerHTML = html;
             resultBox.style.display = 'block';
         }
