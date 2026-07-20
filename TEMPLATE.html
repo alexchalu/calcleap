@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- AUDIT 2026-07-20 (evening-routine): TEMPLATE.html is a generator scaffold with
+     un-substituted {{TOKEN}} placeholders. It was in sitemap.xml and had no robots
+     meta, so search engines could crawl and index a page that reads as "low value
+     content" (raw {{ }} tokens visible to end users) — the exact class of signal
+     that got the site rejected by AdSense in the first place. Fixes applied together:
+       (a) added the noindex,nofollow meta below;
+       (b) removed the <url><loc>.../TEMPLATE.html</loc></url> entry from sitemap.xml;
+       (c) added `Disallow: /TEMPLATE.html` to robots.txt.
+     File is kept in place for generator scripts (build-*.js/.py, generate-*.js) that
+     read it as a source-of-truth scaffold — do NOT delete it. -->
+<meta name="robots" content="noindex,nofollow">
 <title>{{TOOL_NAME}} — Free Online Calculator | CalcLeap</title>
 <meta name="description" content="{{META_DESCRIPTION}}">
 <link rel="canonical" href="https://calcleap.com/{{FILENAME}}">

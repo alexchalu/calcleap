@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+# TEMPLATE.html is a generator scaffold with un-substituted {{TOKEN}} placeholders —
+# blocked so search engines never treat it as indexable "low value content" (per
+# 2026-07-20 evening-routine sitewide generator-audit sweep). See TEMPLATE.html comment.
+Disallow: /TEMPLATE.html
 Sitemap: https://calcleap.com/sitemap.xml
