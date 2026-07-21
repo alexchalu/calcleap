@@ -745,6 +745,8 @@ footer a:hover { color: var(--text); }
     </button>
   </div>
 </nav>
+<span id="main-content" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"></span>
+
 
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mobileNav">
@@ -951,6 +953,11 @@ footer a:hover { color: var(--text); }
 </section>
 
 <!-- Date & Math -->
+<!-- AUDIT 2026-07-21 evening: id="math" alias added (aria-hidden anchor above)
+     so 837 breadcrumb links across /percent/ /calc/ /convert/ etc. that point to
+     "/index.html#math" resolve to the Date, Time & Math section. Detected by
+     verify-html.js broken-anchor sweep. -->
+<a id="math" aria-hidden="true"></a>
 <section class="category" id="date">
   <div class="cat-header">
     <h2>Date, Time & Math</h2>
