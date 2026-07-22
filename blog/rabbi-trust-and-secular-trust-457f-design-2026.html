@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rabbi Trust vs Secular Trust for §457(f) Plan Design in 2026: DOL Rev. Proc. 92-64, the SROF Gate, §409A Coordination, and Every Credit-Risk Trade-Off | CalcLeap</title>
+<meta name="description" content="Rabbi trusts and secular trusts are the two funding vehicles that shape every nonqualified deferred compensation plan — including the §457(f) plans §501(c)(3) executives rely on to defer compensation above the §457(b) $23,500 limit. Rabbi trusts (DOL Rev. Proc. 92-64 safe harbor) preserve tax deferral but leave assets subject to employer general-creditor claims. Secular trusts secure assets from creditors but trigger immediate §83 or §457(f) income inclusion at vesting. The 2026 field guide walks the statute, the Enron / Lehman / SVB precedents, the §409A coordination rules, and the trust-design choices that shape whether a $600K deferral becomes real retirement wealth or an unsecured claim in bankruptcy.">
+<link rel="canonical" href="https://calcleap.com/blog/rabbi-trust-and-secular-trust-457f-design-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Rabbi Trust vs Secular Trust for §457(f) Plan Design in 2026 — CalcLeap">
+<meta property="og:description" content="How the choice between a rabbi trust and a secular trust shapes tax deferral, employer credit-risk exposure, and §409A coordination for every §457(f) SERP, tax-exempt-org top-hat plan, and NQDC arrangement in 2026.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/rabbi-trust-and-secular-trust-457f-design-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-07-22T00:00:00Z">
+<meta property="article:modified_time" content="2026-07-22T00:00:00Z">
+<meta property="article:section" content="Retirement">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Rabbi Trust vs Secular Trust for §457(f) Plan Design in 2026: DOL Rev. Proc. 92-64, the SROF Gate, §409A Coordination, and Every Credit-Risk Trade-Off",
+  "description": "Rabbi trusts (DOL Rev. Proc. 92-64 safe harbor) preserve tax deferral but leave assets subject to employer general-creditor claims. Secular trusts secure assets but trigger immediate §83 or §457(f) income inclusion at vesting. The 2026 field guide to trust design choices in every §457(f) SERP, tax-exempt-org top-hat plan, and NQDC arrangement.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-07-22T00:00:00Z",
+  "dateModified": "2026-07-22T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/rabbi-trust-and-secular-trust-457f-design-2026.html"
+  },
+  "articleSection": "Retirement",
+  "wordCount": 6400,
+  "about": [
+    {"@type": "Thing", "name": "Rabbi trust"},
+    {"@type": "Thing", "name": "Secular trust"},
+    {"@type": "Thing", "name": "Section 457(f) plan"},
+    {"@type": "Thing", "name": "Nonqualified deferred compensation"},
+    {"@type": "Thing", "name": "Section 409A"},
+    {"@type": "Thing", "name": "DOL Rev. Proc. 92-64"},
+    {"@type": "Thing", "name": "Substantial risk of forfeiture"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Rabbi Trust vs Secular Trust for §457(f) 2026"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is a rabbi trust and why is it called that?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A rabbi trust is an irrevocable grantor trust established by an employer to hold nonqualified deferred compensation assets on behalf of a plan participant, drafted so that the trust corpus remains subject to the claims of the employer's general creditors in the event of the employer's bankruptcy or insolvency. That single design feature — general-creditor exposure — preserves the participant's tax deferral under IRC §83 and the constructive-receipt doctrine, because the assets are not considered set aside for the exclusive benefit of the participant. The name derives from IRS Private Letter Ruling 8113107 (December 1980), which addressed a deferred compensation arrangement for a rabbi at a synagogue. The IRS ruled that the arrangement did not cause current income to the rabbi, and the label stuck. The trust structure was formalized in Rev. Proc. 92-64, which published a model rabbi trust document as a safe harbor for employers seeking IRS approval of the structure without requesting a private letter ruling."}},
+    {"@type": "Question", "name": "What is a secular trust and how does it differ from a rabbi trust?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A secular trust is an irrevocable trust established for the benefit of a nonqualified deferred compensation plan participant, drafted so that the trust corpus is NOT subject to the claims of the employer's general creditors. The participant's beneficial interest in a secular trust is fully secured from employer bankruptcy risk. That security comes at a heavy tax cost: because the assets are set aside for the exclusive benefit of the participant, the participant is treated as receiving property under IRC §83 at the moment the interest becomes non-forfeitable, and the fair market value of the vested benefit is included in gross income at that time. For a §457(f) plan participant subject to a substantial risk of forfeiture (SROF), the secular trust structure accelerates income inclusion to the vesting date under §457(f)(1)(A) — often years before the participant actually receives the cash. Secular trusts are therefore rarely used for the primary deferred compensation vehicle, but they appear in split-benefit arrangements and post-vesting security structures."}},
+    {"@type": "Question", "name": "How does Rev. Proc. 92-64 provide safe harbor for rabbi trusts?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Revenue Procedure 92-64, published July 27, 1992 by the IRS Office of Chief Counsel, sets out a model rabbi trust document containing 11 sections and specific mandatory provisions. If an employer adopts a rabbi trust that materially conforms to the model — using either the exact model language or provisions substantially similar to it — the IRS will not issue a private letter ruling on the arrangement, because the model trust is treated as a pre-approved structure that will not cause constructive receipt or current income to the participant. The mandatory provisions include: (a) an explicit statement that the trust assets remain subject to the claims of the employer's general creditors in the event of insolvency; (b) a definition of insolvency triggering suspension of benefit payments; (c) an obligation on the employer's board of directors to notify the trustee of insolvency; (d) trustee duties to independently investigate insolvency claims when notice is given; (e) restrictions on employer amendment or termination powers; (f) a prohibition on participant alienation of trust interests. Deviation from the model beyond minor language changes forfeits the safe harbor and requires a private letter ruling."}},
+    {"@type": "Question", "name": "Why does §457(f) force secular trust participants into immediate income at vesting?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §457(f)(1)(A), which applies to nonqualified deferred compensation of employees of §501(c)(3) organizations and other tax-exempt employers not eligible for §457(b), provides that compensation deferred under an ineligible §457 plan is includible in the participant's gross income for the first taxable year in which there is no substantial risk of forfeiture of the participant's rights to the compensation. When a secular trust holds assets on behalf of the participant, the trust corpus is not subject to employer creditor claims, and the participant's interest in the trust is protected. If the participant's interest is also non-forfeitable — meaning no meaningful SROF remains — the §457(f)(1)(A) inclusion trigger fires immediately at the vesting date, regardless of when cash is actually distributed. The participant recognizes ordinary income equal to the fair market value of the vested benefit in the vesting year, faces FICA at vesting under IRC §3121(v)(2), and then receives future distributions (potentially years later) with basis equal to the amount previously included. Investment growth between vesting and distribution is taxed at ordinary rates as it accrues under the grantor-trust rules."}},
+    {"@type": "Question", "name": "How does §409A coordinate with rabbi trusts?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §409A, enacted by the American Jobs Creation Act of 2004 and effective for amounts deferred after December 31, 2004, applies to any nonqualified deferred compensation arrangement (including §457(f) plans) and imposes strict operational and documentary requirements. A rabbi trust is not itself a §409A violation, but §409A(b)(1) prohibits offshore rabbi trusts (assets located outside the United States), and §409A(b)(2) prohibits trigger provisions that restrict trust assets to participant benefits upon a change in the employer's financial health short of actual insolvency. Notice 2007-62 addresses the coordination of §409A and §457(f) and clarified that plans intended to use short-term deferral treatment under Treas. Reg. §1.409A-1(b)(4) must distribute within 2½ months of the end of the taxable year in which the SROF lapses. The 2016 proposed regulations at REG-147196-07 further clarify §457(f) SROF standards and the treatment of rolling risks of forfeiture. Compliance with §409A is a documentary condition — the plan document must comply, deferral elections must be timely, and distribution events must be one of the six §409A(a)(2)(A) permitted events."}},
+    {"@type": "Question", "name": "What historical trust failures should executives worry about?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Rabbi trust design does not eliminate employer bankruptcy risk — it accepts it in exchange for tax deferral. Enron Corporation filed for Chapter 11 bankruptcy on December 2, 2001, and rabbi trust participants who had deferred compensation into Enron-sponsored NQDC arrangements became unsecured creditors of the estate. Enron rabbi trust claims received cents-on-the-dollar recoveries through the bankruptcy distribution process. Lehman Brothers Holdings Inc. filed for Chapter 11 on September 15, 2008 in the largest bankruptcy in U.S. history; Lehman rabbi trust participants faced similar unsecured-creditor treatment, and even senior executives lost most or all of their deferred compensation balances. Silicon Valley Bank failed on March 10, 2023, and its parent company SVB Financial Group filed for Chapter 11 on March 17, 2023; deferred compensation held in SVB's rabbi trust became a general unsecured claim in the bankruptcy. In every case, the rabbi trust performed exactly as designed — the assets were reachable by general creditors, so the participants' interests were not protected. The trust structure is not a mistake or a design flaw; it is the price of tax deferral, and it must be priced explicitly by any participant deferring meaningful compensation."}},
+    {"@type": "Question", "name": "Can a rabbi trust be combined with a secular trust for split-benefit protection?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes — a split-benefit arrangement is a common design pattern for high-earner NQDC. The primary deferred compensation vehicle is a rabbi trust preserving tax deferral for the bulk of the deferred amount; a secondary secular trust holds a smaller supplemental benefit that is included in income at vesting but is fully secured from employer bankruptcy. The split can be structured so that the participant's total post-tax expected value is optimized subject to a credit-risk tolerance: the secular trust component sets a floor on retirement wealth even if the employer becomes insolvent, and the rabbi trust component provides tax-efficient upside if the employer remains solvent. Split arrangements require careful §409A drafting because the two components are separate NQDC arrangements and separate deferral elections apply. FICA treatment differs — the rabbi trust portion is subject to §3121(v)(2) FICA at vesting; the secular trust portion is subject to FICA at vesting because the §83 event is also the FICA event."}},
+    {"@type": "Question", "name": "What is the difference between a §457(b) top-hat plan and a §457(f) plan?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §457(b) provides an eligible deferred compensation plan structure for governmental employers and tax-exempt organizations with two key participant-favorable features: the $23,500 elective deferral limit for 2026 (indexed) and the special three-year catch-up provision at §457(b)(3) permitting up to double the base limit in each of the three years preceding the plan's normal retirement age. For tax-exempt sponsors, §457(b) plans must be unfunded and available only to a select group of management or highly compensated employees (a top-hat group under Department of Labor Advisory Opinion standards). IRC §457(f) is the residual category — any deferred compensation of a §501(c)(3) organization or other tax-exempt employer that does not qualify under §457(b) is treated under §457(f), which permits unlimited deferral amounts but imposes the SROF-vesting income inclusion trigger at §457(f)(1)(A). A §457(f) plan is the vehicle used when an employer wants to defer more than the §457(b) limit ($23,500) for a senior executive; the trade-off is that the amount is fully includible at SROF lapse, so distributions must generally be structured to occur close to vesting."}},
+    {"@type": "Question", "name": "What is a rolling risk of forfeiture and does it work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A rolling risk of forfeiture is a deferral technique in which an executive agrees to serve a fresh substantial-employment period at the end of an initial SROF period in exchange for a further deferral of a §457(f) benefit — effectively extending the SROF beyond the original vesting date. The 2016 proposed regulations at REG-147196-07 specifically address rolling risks and permit them under narrow conditions: the new SROF must be for a substantial period (typically at least two years), the extension must be agreed to at least 90 days before the original vesting date, and the participant must forfeit at least 25 percent more compensation if the new SROF is not satisfied than would have been forfeited if the extension had not been agreed. The IRS position expressed in the proposed regulations is that rolling risks that do not meet these standards will be disregarded, and income inclusion will occur at the original SROF vesting date. Prior to the 2016 proposed regs, employers frequently used shorter, less substantive rolling-risk arrangements; those are now aggressive positions with high audit risk."}},
+    {"@type": "Question", "name": "How does the SECURE 2.0 §603 mandatory Roth catch-up rule interact with §457(f) plans?",
+     "acceptedAnswer": {"@type": "Answer", "text": "SECURE 2.0 §603, codified at IRC §414(v)(7), requires that catch-up contributions of participants above the $150,000 prior-year FICA wage threshold (indexed for 2026 per IRS Notice 2025-67) to §401(k), §403(b), and governmental §457(b) plans be made on a Roth basis beginning in 2026. §603 does NOT apply to §457(f) plans because §457(f) plans are not §401(k), §403(b), or governmental §457(b) plans, and §457(f) plans do not have a §414(v) catch-up mechanism to which §603 could attach. §457(f) plans and §603 therefore do not directly interact. However, §457(f) is often used as a workaround for §603 — a high-earner subject to §603 in their §401(k) or §403(b) can defer additional compensation into a §457(f) SERP with rabbi trust funding to obtain pretax deferral treatment at the federal level, with the SROF-vesting income inclusion mechanic replacing the qualified-plan distribution mechanic. This makes §457(f) design decisions particularly important for high-earners newly subject to §603 in 2026, and pairs directly with our §457 NQDC field guide."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:720px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.05rem;color:var(--text);box-shadow:var(--shadow);line-height:1.5}
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.88rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+.ad-slot{margin:2.5rem 0;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--white);border:1px dashed var(--border);border-radius:var(--r-sm)}
+.ad-slot ins{display:block;width:100%}
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+.checklist{margin:1.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.checklist h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.75rem}
+.checklist ol{margin:0 0 0 1.4rem;font-size:.98rem}
+.checklist li{margin-bottom:.65rem;color:var(--text-2)}
+.checklist li strong{color:var(--text)}
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>Rabbi Trust vs Secular Trust for §457(f) 2026
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement · Updated July 22, 2026</span>
+  <h1 id="article-start">Rabbi Trust vs Secular Trust for §457(f) Plan Design in 2026: DOL Rev. Proc. 92-64, the SROF Gate, §409A Coordination, and Every Credit-Risk Trade-Off</h1>
+  <p class="deck">Rabbi trusts and secular trusts are the two funding vehicles that shape every nonqualified deferred compensation plan — including the §457(f) plans §501(c)(3) executives rely on to defer compensation beyond the §457(b) $23,500 limit. Rabbi trusts preserve tax deferral but leave assets subject to employer general-creditor claims. Secular trusts secure assets from creditors but trigger immediate §83 or §457(f) income inclusion at vesting. This is the 2026 field guide to trust design choices — the statute, the DOL Rev. Proc. 92-64 safe harbor, the §409A coordination rules, the Enron / Lehman / SVB precedents, and the three case studies that show what the choice is actually worth.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published July 22, 2026</span>
+    <span class="dot"></span>
+    <span>19 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>Our <a href="/blog/section-457-nqdc-for-tax-exempt-executives-2026.html">§457 NQDC for tax-exempt executives</a> field guide from July 18 walked through the three parallel regulatory buckets Congress built for tax-exempt-employer deferred compensation: governmental §457(b) plans held in trust; tax-exempt §457(b) top-hat plans that must be unfunded to preserve tax deferral; and §457(f) ineligible plans that permit unlimited deferral amounts at the cost of the substantial-risk-of-forfeiture (SROF) vesting-date income inclusion trigger at §457(f)(1)(A). That piece flagged the trust-funding choice — rabbi trust vs secular trust vs unfunded — as the load-bearing design decision that shapes both the participant's credit-risk exposure and the tax mechanic at the vesting event. This piece is the deep-dive companion on that trust-funding choice.</p>
+
+<p>The choice matters because the numbers are large. A senior executive of a §501(c)(3) hospital system, a research university, a large national community foundation, or a well-funded museum deferring compensation into a §457(f) SERP might defer $200,000 to $1,500,000 across a five-to-ten-year vesting cycle. Whether that amount is protected from employer bankruptcy is not a marginal-tax question — it is a first-order question about whether the deferred compensation is worth anything at all if the employer becomes insolvent. Enron rabbi trust participants in 2001, Lehman Brothers rabbi trust participants in 2008, and Silicon Valley Bank rabbi trust participants in 2023 all learned this in the same way: the rabbi trust performed exactly as designed, which is to say the trust assets were reachable by general creditors and the deferred compensation was a general unsecured claim in the bankruptcy proceeding.<sup><a href="#source-1">[1]</a></sup> No participant lost anything to a design flaw; they lost to the tax-deferral bargain the trust structure requires.</p>
+
+<p>The alternative — a secular trust — flips every one of those variables. Assets are protected from general creditors. Bankruptcy risk is eliminated. But the tax-deferral bargain is also eliminated: the participant is treated as receiving property under IRC §83 at the moment the interest becomes non-forfeitable, and the §457(f)(1)(A) SROF-vesting income inclusion trigger fires at the vesting date on the full fair market value of the vested benefit — years before the cash is actually distributed. Investment growth between vesting and distribution is taxed at ordinary rates as it accrues under the grantor-trust rules. For a highly compensated executive already at the top federal marginal rate, the tax cost of secular trust structure is severe enough that the pure secular trust is almost never the primary vehicle for meaningful NQDC deferral.</p>
+
+<p>This guide walks the whole picture: the rabbi trust origin story starting with IRS Private Letter Ruling 8113107 (December 1980) and formalized in Rev. Proc. 92-64 (July 27, 1992); the eleven-section model rabbi trust document that provides the safe harbor for employers seeking IRS approval without a private letter ruling request; the §457(b)(6) unfunded requirement that makes rabbi trusts the standard vehicle for tax-exempt §457(b) top-hat plans; the §457(f)(1)(A) SROF-vesting income inclusion trigger and its treatment of both rabbi trust and secular trust arrangements; the §409A(b)(1) offshore-trust prohibition and §409A(b)(2) financial-health-trigger prohibition; the 2016 proposed regulations at REG-147196-07 that clarified the SROF standards and rolling-risk-of-forfeiture treatment; Notice 2007-62 coordinating §409A with §457(f); the historical Enron / Lehman / SVB rabbi trust bankruptcy outcomes; the three case studies at Priya $220K community-hospital CFO / David $340K R1-university dean SERP / Marcus $580K community-foundation ED with $1.2M rabbi-trust-funded SERP; six mistakes to avoid; an 8-item action checklist; and 10 FAQ questions.</p>
+
+<p>Model the underlying §457(f) benefit and tax cost using the <a href="/calc/retirement-calculator.html">retirement calculator</a>, the federal marginal-rate impact using the <a href="/income-tax-calculator.html">income tax calculator</a>, and the workplace-plan interaction using the <a href="/calc/401k-calculator.html">401(k) calculator</a> and <a href="/calc/paycheck-calculator.html">paycheck calculator</a>. For post-vesting cash management, the <a href="/calc/compound-interest.html">compound interest calculator</a> models the after-tax growth of secular-trust assets under grantor-trust taxation, and the <a href="/roth-ira-conversion-calculator.html">Roth conversion calculator</a> models the interaction of post-vesting cash with concurrent Roth conversion opportunities.</p>
+
+<a class="cta-calc" href="/calc/retirement-calculator.html">
+  <span class="ic">🏦</span>
+  <div>
+    <h4>Model your §457(f) SERP after-tax outcome</h4>
+    <p>Compare rabbi trust deferral, secular trust immediate inclusion, and split-benefit hybrids side by side.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="origin-story">1. The origin story — Private Letter Ruling 8113107 and Rev. Proc. 92-64</h2>
+
+<p>The rabbi trust is not a statutory construct. There is no Internal Revenue Code section captioned "rabbi trust," and Congress has never enacted a rabbi trust regime. The rabbi trust is a common-law structure built out of state trust law and validated by a series of IRS pronouncements and private letter rulings beginning in December 1980. The structure earned its name because the first published private letter ruling to bless the arrangement — PLR 8113107 — addressed a deferred compensation arrangement for a rabbi at a synagogue. The IRS concluded that the participant did not have current income because the trust assets remained subject to the claims of the employer's general creditors, and the participant's interest in the trust was therefore not treated as a property right under the constructive-receipt doctrine or under IRC §83.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>Between 1980 and 1992, employers seeking to establish rabbi trusts routinely requested private letter rulings from the IRS to confirm that their specific documents would not cause constructive receipt to the participant. The IRS granted many such rulings but at high administrative cost — each ruling required a full document review, correspondence with the requester, and a formal ruling letter. By the early 1990s, hundreds of rabbi trust rulings had been issued, and the IRS Office of Chief Counsel published Revenue Procedure 92-64 on July 27, 1992 to standardize the review process.<sup><a href="#source-3">[3]</a></sup></p>
+
+<p>Rev. Proc. 92-64 sets out a model rabbi trust document containing eleven sections. If an employer adopts a rabbi trust that materially conforms to the model — using either the exact model language or provisions substantially similar to it — the IRS will not issue a private letter ruling, because the model trust is treated as a pre-approved structure that will not cause constructive receipt or current income to the participant. Deviation from the model beyond minor language changes forfeits the safe harbor and requires a private letter ruling submission. In practice, virtually every rabbi trust established after 1992 uses the Rev. Proc. 92-64 model as its starting point, and departures are limited to (a) provisions permitted by the model but customized to plan facts (successor trustee designation, investment mandate) and (b) provisions explicitly permitted by the model's alternative-provision language for specific fact patterns.</p>
+
+<div class="callout key">
+<h4>The model trust is safe harbor, not statute</h4>
+<p>The IRS position expressed in Rev. Proc. 92-64 is a matter of administrative convenience — the Service commits to a specific ruling posture on documents that conform to the model. It is not a statutory safe harbor and does not preclude litigation over whether a rabbi trust arrangement causes constructive receipt in any specific factual context. Employers occasionally push the model boundaries (rabbi trusts with springing provisions triggered by financial-health events short of insolvency; rabbi trusts with participant-favorable trustee-notification duties) and take a private letter ruling risk in exchange for the customization.</p>
+</div>
+
+<h2 id="rabbi-trust-mechanics">2. Inside the rabbi trust — mandatory Rev. Proc. 92-64 provisions</h2>
+
+<p>The eleven-section Rev. Proc. 92-64 model rabbi trust document contains specific mandatory provisions that give the structure its tax-deferral effect. Employers seeking to preserve the safe harbor must include each of the following features, either verbatim or with substantially similar language.</p>
+
+<p><strong>General-creditor provision.</strong> Section 5 of the model requires an explicit statement that the trust corpus and any income earned thereon shall at all times remain subject to the claims of the employer's general creditors in the event of the employer's insolvency. This is the single load-bearing provision — without it, the trust corpus would be treated as set aside for the exclusive benefit of the participant, causing immediate income inclusion under §83.</p>
+
+<p><strong>Insolvency definition.</strong> Section 3 of the model defines "insolvent" as (a) the employer being unable to pay its debts as they become due, or (b) the employer being subject to a pending proceeding as a debtor under the United States Bankruptcy Code. The definition triggers the suspension of benefit payments and the trustee's obligation to hold the assets available for general creditor claims.</p>
+
+<p><strong>Board notification duty.</strong> Section 3 also requires the employer's board of directors to notify the trustee of insolvency events, and imposes a corresponding trustee duty to independently investigate insolvency claims when notice is given by any person (creditor, employee, participant, other stakeholder). The trustee must suspend payments and hold assets pending determination of insolvency.</p>
+
+<p><strong>Payment suspension mechanic.</strong> Sections 3 and 4 require the trustee, upon reasonable belief of insolvency, to suspend all payments from the trust to participants and hold trust assets available for general creditors. Payments resume only when insolvency is resolved or when a court determines the employer is not insolvent.</p>
+
+<p><strong>Employer amendment / termination limits.</strong> Section 6 restricts the employer's power to amend or terminate the trust in ways that would reduce participant entitlements. The employer may amend the trust to update administrative provisions but cannot revoke the general-creditor provision or use trust assets for purposes other than participant benefits and general-creditor claims.</p>
+
+<p><strong>Participant alienation prohibition.</strong> Section 8 prohibits participants from assigning, pledging, or otherwise transferring their interests in the trust. This is a standard anti-alienation provision and does not affect the tax-deferral analysis directly but is required by many ERISA-analogous state-law provisions for the trust to function as intended.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Rev. Proc. 92-64 Section</th><th>Mandatory Provision</th><th>Tax-Deferral Function</th></tr></thead>
+<tbody>
+<tr><td>Section 3</td><td>Insolvency definition + notification duty</td><td>Triggers general-creditor availability at insolvency</td></tr>
+<tr><td>Section 4</td><td>Payment suspension on insolvency</td><td>Confirms trust assets are creditor-reachable at bankruptcy</td></tr>
+<tr><td>Section 5</td><td>Explicit general-creditor provision</td><td>Prevents §83 property treatment; preserves tax deferral</td></tr>
+<tr><td>Section 6</td><td>Employer amendment/termination limits</td><td>Prevents employer self-dealing; supports the deferral bargain</td></tr>
+<tr><td>Section 8</td><td>Participant alienation prohibition</td><td>Preserves the deferred character of the compensation</td></tr>
+<tr><td>Section 11</td><td>Governing law + tax treatment representations</td><td>Establishes the deferral basis and governing state law</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The trustee is typically an independent institutional trustee (Fidelity, Vanguard Institutional, Northern Trust, State Street, U.S. Bank) selected by the employer. The trustee's investment mandate can be customized within the model's alternative-provision framework — some employers direct the trustee to hold employer securities exclusively (which increases participant credit-risk correlation with the employer, since the trust assets and the general creditor exposure both track employer performance); others direct broadly diversified investments in mutual funds or exchange-traded funds. The Vanguard-published How America Saves 2025 rabbi trust survey reported that approximately 43 percent of surveyed rabbi trusts held employer securities as a meaningful portion of the trust corpus, a fact pattern that magnifies participant credit-risk exposure in an insolvency scenario.</p>
+
+<h2 id="457f-inclusion-trigger">3. §457(f)(1)(A) — the SROF-vesting income inclusion trigger</h2>
+
+<p>IRC §457 was enacted by Section 131 of the Revenue Act of 1978 and materially restructured by §1107 of the Tax Reform Act of 1986. Section 457 governs deferred compensation of state and local governments and, after the 1986 amendments, of §501(c) tax-exempt organizations other than churches. Section 457(b) sets out an "eligible plan" structure with a modest deferral limit ($23,500 for 2026 per IRS Notice 2025-67, indexed) that permits tax deferral analogous to a §401(k) plan. Section 457(f) is the residual "ineligible plan" category: any deferred compensation arrangement of a governmental or tax-exempt employer that is not eligible under §457(b) is treated as an ineligible §457(f) plan.<sup><a href="#source-4">[4]</a></sup></p>
+
+<p>The load-bearing feature of §457(f) is the income inclusion trigger at §457(f)(1)(A): compensation deferred under an ineligible §457 plan is includible in the participant's gross income for the first taxable year in which there is no substantial risk of forfeiture of the participant's rights to the compensation. This is fundamentally different from the qualified-plan mechanic at §401(k) or §403(b), where income inclusion occurs at distribution, and from the ordinary NQDC mechanic at IRC §83 or Treas. Reg. §1.409A, where a properly-structured rabbi trust preserves tax deferral until distribution.</p>
+
+<p>The SROF standard is defined at §457(f)(3)(B) by cross-reference to §83, but §457(f) applies a stricter interpretation than §83 in the private-employer NQDC context. The 2016 proposed regulations at REG-147196-07 published in the Federal Register on June 22, 2016 clarify the §457(f) SROF standards.<sup><a href="#source-5">[5]</a></sup> Under the proposed regulations, a substantial risk of forfeiture requires (a) that the deferred amount be conditioned on the future performance of substantial services by the participant, or the occurrence of a condition related to the purpose of the compensation (a substantive purpose condition), and (b) that the possibility of forfeiture be substantial. Retirement-based service conditions (participant must continue employment through a specified date) typically qualify; general performance conditions (participant must achieve specified performance metrics) qualify if the metrics are substantive and the forfeiture is real.</p>
+
+<p>Once the SROF lapses, the full fair market value of the vested benefit is includible in gross income under §457(f)(1)(A) — regardless of whether the participant has received any cash distribution. If the employer has funded the deferred compensation through a rabbi trust, the participant recognizes ordinary income at vesting on the vested benefit; the trust corpus is not distributed to the participant, but the participant has a fixed claim against the trust for the vested amount, and the vested amount is taxable at that vesting event. Payment of federal income tax on the vested amount comes from other resources — the participant may have to fund the tax liability from personal cash flow, from an early trust distribution structured to cover the tax, or from a compensating cash bonus paid by the employer.</p>
+
+<div class="callout warn">
+<h4>The vesting-inclusion problem is why §457(f) plans are usually short-duration</h4>
+<p>Because §457(f) forces income inclusion at SROF lapse, most §457(f) plans are structured with vesting periods matched closely to distribution. A typical §457(f) SERP might vest at the participant's specified retirement date and distribute the vested balance within a few weeks thereafter — the vesting event and the cash-receipt event are essentially concurrent. §457(f) plans structured with vesting years before distribution are rare because they force the participant to pay tax on cash they have not received. The exception is a §457(f) plan structured to fall within the §409A short-term-deferral exception at Treas. Reg. §1.409A-1(b)(4), which requires distribution within 2½ months of the end of the taxable year in which the SROF lapses.</p>
+</div>
+
+<h2 id="secular-trust">4. Secular trust — full protection at full tax cost</h2>
+
+<p>A secular trust is an irrevocable trust holding assets on behalf of a NQDC plan participant with the trust corpus NOT subject to the claims of the employer's general creditors. The participant's beneficial interest in the trust is fully secured from employer bankruptcy risk. The label is not a defined term in the Code or regulations; "secular" simply distinguishes the structure from the rabbi trust that adopts the general-creditor provision. In practice, a secular trust is an ordinary irrevocable trust drafted under state trust law, with the participant (or a group of participants) as the beneficiaries and the trust corpus dedicated to their benefit.</p>
+
+<p>The tax treatment is the mirror image of the rabbi trust. Because the assets are set aside for the exclusive benefit of the participant, the participant is treated as receiving property under IRC §83 at the moment the interest becomes substantially vested (non-forfeitable). For a §457(f) plan participant, the §83 event is also the §457(f)(1)(A) event — the SROF lapse triggers immediate income inclusion at the fair market value of the vested benefit. The participant's basis in the trust interest equals the amount included in income.<sup><a href="#source-6">[6]</a></sup></p>
+
+<p>Post-vesting, the trust is typically treated as a grantor trust with respect to the participant under IRC §§671-679, meaning that all trust income, gains, losses, deductions, and credits are attributed to the participant on the participant's individual return, regardless of whether the trust distributes cash. Investment growth between vesting and distribution is taxed at ordinary rates as it accrues (interest, ordinary dividends, short-term gains) or at capital rates (qualified dividends, long-term gains) as it accrues. Trust distributions to the participant are not additional taxable events — the participant has already recognized income on all trust earnings under the grantor-trust rules.</p>
+
+<p>FICA treatment differs from the rabbi trust as well. Under IRC §3121(v)(2), NQDC subject to a substantial risk of forfeiture is subject to FICA at the later of the date the services are performed or the date the amount is no longer subject to a substantial risk of forfeiture. For a rabbi trust arrangement with a genuine SROF, FICA is imposed on the vested amount at the vesting date at the special-timing rate of 1.45 percent Medicare plus 0.9 percent Additional Medicare Tax above threshold (Social Security portion typically not applicable because the participant is usually above the SS wage base). For a secular trust, FICA is imposed at the vesting date on the same basis — but the vested amount is also included in federal income tax at vesting, so the FICA and federal income tax events are concurrent. The FICA benefit of §3121(v)(2) (compound growth without FICA drag) is preserved in both structures.</p>
+
+<div class="callout warn">
+<h4>Why pure secular trusts are rare for §457(f) plans</h4>
+<p>The immediate income inclusion at SROF lapse is a tax cost of typically 37 percent federal (top marginal for a high-earner) plus 5-13.3 percent state marginal plus 3.8 percent NIIT plus 2.35 percent FICA = a combined marginal cost of 48-56 percent of the vested amount, payable in the vesting year. Because the cash is not yet distributed, the participant must fund the tax liability from personal resources. For a §1 million vested §457(f) benefit, the current-year tax liability might be $500,000 that the participant does not have. Split-benefit designs (partial secular trust + majority rabbi trust) or full rabbi trusts with distribution shortly after vesting are the practical alternatives. Pure secular trusts appear mostly in dispute settlements, split-benefit arrangements, and situations where the employer's credit risk is unusually severe.</p>
+</div>
+
+<h2 id="409a-coordination">5. §409A coordination — Notice 2007-62 and the 2016 proposed regs</h2>
+
+<p>IRC §409A, enacted by §885 of the American Jobs Creation Act of 2004 in response to the Enron rabbi trust abuses that surfaced in the 2001 bankruptcy, applies to any nonqualified deferred compensation arrangement — including every §457(f) plan and every rabbi trust holding deferred compensation. Section 409A imposes strict operational and documentary requirements: deferral elections must be made timely, distributions must be triggered by one of the six §409A(a)(2)(A) permitted events (separation from service with a 6-month delay for specified employees of public companies, death, disability, fixed date/schedule, change in control, unforeseeable emergency), and the plan document must comply.<sup><a href="#source-7">[7]</a></sup></p>
+
+<p>Section 409A does not itself prohibit rabbi trusts, but §409A(b)(1) prohibits offshore rabbi trusts — a rabbi trust with assets held outside the United States triggers immediate income inclusion of the trust corpus in the participant's income, plus a 20 percent additional tax and premium interest. This prohibition was aimed at pre-Enron abuses in which employers moved trust assets to offshore jurisdictions to protect them from U.S. bankruptcy proceedings while preserving the tax-deferral fiction. Section 409A(b)(2) also prohibits rabbi trust trigger provisions that restrict trust assets to participant benefits upon a change in the employer's financial health short of actual insolvency — the so-called "springing rabbi trust" or "financial-triggered rabbi trust" that would flip the trust from rabbi to secular based on a credit rating downgrade or covenant violation. That provision was aimed at the pre-Enron practice of setting up rabbi trusts that would spring to secular status precisely when the participants needed the protection most.</p>
+
+<p>Notice 2007-62, published by the IRS on July 30, 2007, addresses the coordination of §409A and §457(f) and provides guidance on the treatment of §457(f) plans under the §409A framework.<sup><a href="#source-8">[8]</a></sup> Key points: (a) §457(f) plans are subject to both §457(f) and §409A, and must comply with both; (b) the §457(f)(1)(A) SROF-vesting inclusion mechanic applies as its own tax event, in addition to §409A operational requirements; (c) plans intended to use the §409A short-term-deferral exception at Treas. Reg. §1.409A-1(b)(4) must distribute within 2½ months of the end of the taxable year in which the SROF lapses; (d) rolling risks of forfeiture are subject to the substantive-service standards discussed in the 2016 proposed regulations.</p>
+
+<p>The 2016 proposed regulations at REG-147196-07, published in the Federal Register on June 22, 2016, provide the current authoritative guidance on §457(f) SROF standards. Under the proposed regulations, a rolling risk of forfeiture — an arrangement in which an executive agrees to serve a fresh substantial-employment period at the end of an initial SROF period in exchange for a further deferral — is permitted only if (a) the new SROF is for a substantial period (at least two years is the safe harbor); (b) the extension is agreed to at least 90 days before the original vesting date; and (c) the participant must forfeit at least 25 percent more compensation if the new SROF is not satisfied than would have been forfeited if the extension had not been agreed. Prior to the 2016 proposed regulations, employers frequently used shorter, less substantive rolling-risk arrangements; those are now aggressive positions with high audit risk.</p>
+
+<h2 id="enron-lehman-svb">6. The historical precedents — Enron, Lehman, and SVB rabbi trust outcomes</h2>
+
+<p>The tax-deferral bargain of the rabbi trust is not free. In exchange for the deferral, participants accept general-creditor exposure to their employer. In healthy employers with stable credit profiles, that exposure is close to costless — the probability of insolvency is remote, and the deferred compensation is delivered in the ordinary course of business. In distressed or failing employers, the exposure materializes: the rabbi trust performs exactly as designed, which is to say the trust assets are reachable by general creditors and the deferred compensation becomes a general unsecured claim in the bankruptcy proceeding.</p>
+
+<p><strong>Enron Corporation.</strong> Enron filed for Chapter 11 bankruptcy on December 2, 2001, in what was at the time one of the largest bankruptcies in U.S. history. Enron had established multiple rabbi trusts holding deferred compensation for executives and other participants. On the bankruptcy filing, the rabbi trust assets became part of the bankruptcy estate and were subject to general creditor claims. Enron rabbi trust participants received distributions from the bankruptcy that were, in most cases, materially less than the deferred amounts — final distribution percentages varied by claim class but rabbi trust NQDC claims received unsecured recoveries. The Enron rabbi trust outcome was the primary policy motivation for §409A, which was enacted by §885 of the American Jobs Creation Act of 2004 specifically to address the pre-Enron abuses in NQDC arrangements.</p>
+
+<p><strong>Lehman Brothers Holdings Inc.</strong> Lehman filed for Chapter 11 on September 15, 2008 in what remains the largest bankruptcy in U.S. history by asset size ($639 billion). Lehman had established rabbi trusts holding deferred compensation for its executives, traders, and other participants at every level of the organization. On the bankruptcy filing, Lehman rabbi trust participants faced the same fate as Enron participants: the trust assets were reachable by general creditors, and the deferred compensation became unsecured claims in the bankruptcy proceeding. Even senior executives and highly compensated traders lost most or all of their deferred compensation balances. The Lehman rabbi trust outcome reinforced the Enron lesson and prompted a partial re-examination of rabbi trust design in the immediate post-2008 period, though the fundamental structure remained unchanged.</p>
+
+<p><strong>Silicon Valley Bank.</strong> Silicon Valley Bank failed on March 10, 2023 in the second-largest bank failure in U.S. history by asset size at the time. Its parent company SVB Financial Group filed for Chapter 11 on March 17, 2023. SVB had established rabbi trusts holding deferred compensation for its executives and other participants. On the bankruptcy filing, the rabbi trust deferred compensation became general unsecured claims in the parent company's bankruptcy. The SVB rabbi trust outcome is the most recent large-scale demonstration of the rabbi trust design in action, and it reinforces the lesson that the credit-risk exposure inherent in the rabbi trust structure is real and material even for organizations that appear well-capitalized shortly before insolvency.</p>
+
+<div class="callout warn">
+<h4>The rabbi trust performed as designed in every case</h4>
+<p>In none of these bankruptcies did the participants lose to a design flaw or a novel legal argument. The rabbi trust general-creditor provision required by Rev. Proc. 92-64 § 5 said the trust assets were subject to general creditor claims, and the bankruptcy courts enforced that provision. The tax-deferral bargain worked as written. Participants who priced the credit risk correctly and diversified across employers received good after-tax outcomes. Participants who concentrated most or all of their deferred compensation with a single employer that eventually failed lost most of it. The design lesson is not that rabbi trusts are unsafe; it is that they must be priced explicitly for the credit-risk exposure they contain.</p>
+</div>
+
+<h2 id="split-benefit">7. Split-benefit designs — combining rabbi and secular trust structures</h2>
+
+<p>A common design pattern for high-earner NQDC combines a rabbi trust primary vehicle with a smaller secular trust secondary vehicle. The primary rabbi trust holds the bulk of the deferred compensation and preserves tax deferral for that amount; the secondary secular trust holds a supplemental benefit that is included in income at vesting but is fully secured from employer bankruptcy. The two components are separate NQDC arrangements — separate deferral elections apply, separate §409A distribution triggers apply, and separate tax mechanics apply — but they can be designed to work together economically.</p>
+
+<p>The economic case for the split is that it sets a floor on the participant's retirement wealth. Even if the employer becomes insolvent and the rabbi trust component is lost to general creditors, the secular trust component provides a secured baseline. The participant pays the tax cost of secular trust structure on that baseline (immediate inclusion at SROF lapse) but preserves the tax-deferral upside of the rabbi trust component on the larger portion of the deferred amount. The optimal split depends on (a) the participant's credit-risk assessment of the employer, (b) the participant's marginal tax rate at vesting versus at distribution, and (c) the participant's other retirement assets.</p>
+
+<p>Split-benefit designs require careful §409A drafting. Each component is a separate NQDC arrangement subject to §409A operational and documentary requirements. Deferral elections for each component must be made timely (typically by December 31 of the year preceding the deferral year, subject to the exceptions at Treas. Reg. §1.409A-2(a)(3)-(9)). Distribution triggers must be selected for each component from the six §409A(a)(2)(A) permitted events. Substitution of one component for the other after establishment is generally not permitted under §409A(a)(4)(C).</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Component</th><th>Rabbi Trust</th><th>Secular Trust</th></tr></thead>
+<tbody>
+<tr><td>Employer Credit Risk</td><td>Full (general-creditor exposure)</td><td>None (assets protected from creditors)</td></tr>
+<tr><td>Tax Deferral</td><td>Preserved until distribution</td><td>Lost at SROF vesting</td></tr>
+<tr><td>Income Inclusion Timing</td><td>Distribution date</td><td>Vesting date (§457(f)(1)(A))</td></tr>
+<tr><td>Investment Growth Taxation</td><td>Deferred until distribution</td><td>Taxed as accrued (grantor trust)</td></tr>
+<tr><td>Cash to Pay Tax at Vesting</td><td>None required</td><td>Required from other resources</td></tr>
+<tr><td>§409A Requirements</td><td>Full (documentary + operational)</td><td>Full (documentary + operational)</td></tr>
+<tr><td>Typical Design Use</td><td>Primary vehicle for the bulk of the deferral</td><td>Supplemental floor / split-benefit secondary</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="case-studies">8. Three worked case studies at $220K / $340K / $580K</h2>
+
+<h3>Case 1 — Priya, community-hospital CFO, $220K salary, $180K SERP</h3>
+
+<p>Priya is 58 and the CFO of a mid-sized 501(c)(3) community hospital in Ohio. Her cash compensation is $220,000, and the hospital offers a §457(f) SERP with a 5-year cliff vesting schedule. The SERP funds $30,000 per year of deferred compensation ($180,000 total nominal over 5 years, with modest interest credits), and vests fully at Priya's age 63 (her contractual retirement date). The hospital funds the SERP through a rabbi trust that adopts Rev. Proc. 92-64 model language and invests the corpus in a diversified equity/bond index portfolio managed by Fidelity Institutional.</p>
+
+<p>The rabbi trust design is appropriate for Priya's fact pattern. The hospital is well-capitalized with an A- Moody's rating and a stable balance sheet. The credit-risk exposure is real but modest — probability of insolvency over the 5-year vesting horizon is low. The tax-deferral value is significant: without the rabbi trust, the annual $30,000 SERP credits would be immediately taxable at Priya's 32 percent federal + 3.99 percent Ohio marginal rate, for an annual tax cost of about $10,800. With the rabbi trust, Priya defers the tax until vesting at age 63, at which point she is expected to be at a lower marginal rate (32 percent federal but 3.99 percent Ohio if she remains in Ohio; potentially 24 percent federal if she is in a lower bracket).</p>
+
+<p>The vesting-date mechanic under §457(f)(1)(A): the full $180,000-plus-earnings vested balance (assume $215,000 at vesting including 3.5% annual interest credits) is includible in Priya's gross income in the vesting year. Priya's cash compensation in that year is $250,000 (final salary), so the SERP inclusion pushes taxable income to about $465,000 and pushes Priya into the 35 percent federal marginal rate on the incremental $215,000. Federal tax: about $75,250 (35% × $215K). Ohio tax: about $8,600 (3.99% × $215K). Total: $83,850 payable in the vesting year on the $215,000 vested balance.</p>
+
+<p>The SERP distributes to Priya within 2½ months of the vesting-year end (falling within the §409A short-term-deferral exception at Treas. Reg. §1.409A-1(b)(4)), so the cash to pay the tax comes from the SERP itself. Net-of-tax to Priya: $131,150 on the $215K vested balance. Compare to the pre-rabbi-trust alternative of $30K per year taxed at 35.99% combined marginal at receipt: after-tax annual = $19,205, cumulative over 5 years = $96,025 without any earnings on the taxed-and-received cash (assuming immediate consumption). Rabbi trust delta: about $35,000 of after-tax value over 5 years, driven primarily by the pretax-earnings compound and the modest bracket arbitrage.</p>
+
+<h3>Case 2 — David, R1-university dean, $340K salary, $600K SERP with rolling risk</h3>
+
+<p>David is 62 and dean of the business school at a large R1 research university (§501(c)(3)). His cash compensation is $340,000. The university offers a §457(f) SERP with a rolling substantial-risk-of-forfeiture designed to defer $100,000 per year of compensation for 6 years, with the initial SROF at year 3 rolled forward to year 6 upon David's agreement to a second 3-year service extension. Total nominal deferred amount at final vesting: $600,000. The university funds the SERP through a rabbi trust holding the assets in a mix of employer bonds and diversified investments.</p>
+
+<p>The rolling-risk-of-forfeiture structure must satisfy the 2016 proposed regulation standards at REG-147196-07. The extension must be agreed to at least 90 days before the initial vesting date (year 3), and the new SROF must be for at least 2 years (a 3-year extension satisfies this), and the compensation subject to forfeiture on the extension must be at least 125 percent of the initial forfeitable amount. If the rolling risk is respected, the §457(f)(1)(A) inclusion event occurs at the year-6 final vesting date rather than the year-3 initial vesting date, deferring the tax by 3 years.</p>
+
+<p>The vesting-year tax mechanic: the $600,000 vested balance (plus earnings) is includible in David's gross income at final vesting. David is in the 37 percent top federal marginal rate, plus 4.5 percent state marginal at his university's location, plus 3.8 percent NIIT on investment growth included in the vested balance, plus 0.9 percent Additional Medicare Tax on the wage portion. Combined marginal: about 46.2 percent. Federal + state + NIIT + Add-Med tax on $700K vested (including 3% annual interest credits): about $323,000. Net to David: $377,000.</p>
+
+<p>The 3-year deferral from rolling risk delivers approximately $110,000 of after-tax value versus a hypothetical no-rolling structure where the year-3 vested amount would have been included at that point and the year-4 through year-6 amounts would have been separately deferred and included. The rolling risk works only if David's employer preserves the substantive-service condition — if David were to be terminated for cause, or leave voluntarily before year 6, he would forfeit the still-unvested portion. David priced this substantive-forfeiture risk and concluded the deferral value exceeded the forfeiture-risk cost.</p>
+
+<h3>Case 3 — Marcus, community-foundation ED, $580K salary, $1.2M rabbi-trust SERP + $300K secular trust floor</h3>
+
+<p>Marcus is 60 and the executive director of a large community foundation ($2.8 billion AUM). His cash compensation is $580,000. The foundation offers a $1,500,000 SERP with a 4-year cliff vesting schedule and a hybrid trust structure: $1,200,000 of the SERP is funded through a rabbi trust; $300,000 is funded through a secular trust that provides a secured floor even if the foundation becomes insolvent.</p>
+
+<p>Marcus's fact pattern justifies the split-benefit design. The community foundation is well-endowed and financially stable, but community foundations depend on donor-directed grants and can face liquidity pressure during economic downturns; the SVB rabbi trust outcome is fresh in Marcus's mind. He wants a hard floor on his retirement wealth from this deferral even in the worst case.</p>
+
+<p>The secular trust component: $300,000 is set aside in a secular trust at execution of the SERP, with a 4-year SROF matching the rabbi trust vesting schedule. The secular trust invests in a diversified mutual fund portfolio. Investment growth over the 4-year vesting period totals about $57,000 (assuming 4.5% annual). At vesting: the $357,000 vested balance is includible in Marcus's gross income under §457(f)(1)(A). Marcus's cash compensation in the vesting year is $650,000, so the SERP inclusion pushes taxable income to $1,007,000 and puts him in the 37 percent federal marginal, plus 6.9 percent state marginal, plus 3.8 percent NIIT on the investment-growth portion, plus 0.9 percent Add-Med. Combined marginal on the vested amount: about 48.6 percent. Tax cost on the $357,000 secular trust vested balance: about $173,500.</p>
+
+<p>The rabbi trust component: $1,200,000 vests at the same 4-year point, with about $228,000 of earnings on top for a $1,428,000 vested balance. The rabbi trust distributes within the §409A short-term-deferral window, so the vested balance is includible in Marcus's income in the vesting year at the same 48.6 percent combined marginal. Tax cost on the $1,428,000 rabbi trust vested balance: about $694,000.</p>
+
+<p>Total vesting-year income inclusion: $1,785,000. Total vesting-year tax cost: $867,500. Cash flow: the $173,500 secular trust tax cost must be funded from Marcus's other resources (or from a partial secular trust distribution at vesting); the $694,000 rabbi trust tax cost is funded from the rabbi trust distribution itself. Net after-tax retirement wealth from the SERP: $917,500 combined ($183,500 secular + $734,000 rabbi).</p>
+
+<p>The credit-risk hedge: if the foundation had become insolvent during the vesting period, Marcus would have lost the $1,200,000 rabbi trust nominal amount to general creditors but would have preserved the $300,000 secular trust amount (net after-tax about $155,000). The secular trust floor cost him about $80,000 of after-tax value (the difference between the split and a pure rabbi trust) in exchange for the $155,000 hard floor. Marcus assessed this as a favorable insurance trade given the community-foundation liquidity risk profile.</p>
+
+<h2 id="mistakes">9. Six mistakes to avoid in rabbi/secular trust design</h2>
+
+<p><strong>Concentrating deferred compensation with a single employer.</strong> Rabbi trust participants take on employer general-creditor exposure. Executives who defer 40-60 percent of their compensation into a single employer's rabbi trust are running concentrated credit risk. Diversification across employers (across careers, or across simultaneous deferred-compensation arrangements at multiple employers where legally permitted) reduces this exposure.</p>
+
+<p><strong>Holding employer securities in the rabbi trust.</strong> Correlated credit risk. If the employer becomes insolvent, both the general-creditor claim (which is worth pennies on the dollar) and the trust corpus (which is invested in employer stock, now worthless) fail together. Broadly diversified trust investments limit the correlated exposure.</p>
+
+<p><strong>Missing the December 31 deferral election deadline for the following year.</strong> §409A(a)(4)(B) requires that deferral elections be made before the beginning of the taxable year in which the services are performed. For calendar-year participants, the initial deferral election must be executed by December 31 of the year preceding the deferral year. There is no cure — a missed deadline means no deferral for that year, no rabbi trust funding, and immediate current income on the compensation that would otherwise have been deferred.</p>
+
+<p><strong>Attempting to accelerate a rabbi trust distribution outside the six §409A(a)(2)(A) events.</strong> §409A(a)(1) imposes immediate income inclusion of the entire deferred amount plus a 20 percent additional tax plus premium interest at §6621(a)(2)+1% on any impermissible acceleration. The prohibition applies whether the acceleration is at the employer's discretion or at the participant's request. Documented distribution events at plan establishment cannot be changed except through a §409A(a)(4)(C) subsequent-election meeting the 12-12-5 rule (change agreed at least 12 months before original payment date; new payment date at least 5 years after original date; election in effect for at least 12 months before it can take effect).</p>
+
+<p><strong>Structuring a rolling risk of forfeiture that fails the 2016 proposed reg standards.</strong> Rolling risks that do not extend the SROF by at least 2 years, are not agreed at least 90 days before the initial vesting date, or do not increase the forfeitable amount by at least 25 percent are likely to be disregarded by the IRS. The consequence is that income inclusion occurs at the original vesting date, not the extended date — plus interest and penalties for the intervening years of misreporting.</p>
+
+<p><strong>Ignoring FICA at vesting.</strong> Even with a properly-structured rabbi trust that defers federal income tax until distribution, FICA under IRC §3121(v)(2) is imposed at vesting on the full vested amount. For a high-earner already above the Social Security wage base, the FICA cost is 1.45 percent Medicare + 0.9 percent Additional Medicare Tax = 2.35 percent. On a $1 million vested amount, that is $23,500 payable in the vesting year, even though the cash is not distributed until a later year. The participant must have a cash-flow plan for this FICA obligation.</p>
+
+<h2 id="checklist">10. Your 8-item rabbi/secular trust decision checklist</h2>
+
+<div class="checklist">
+<h3>Before executing a §457(f) SERP or NQDC deferral election</h3>
+<ol>
+<li><strong>Read the plan document, not the SPD.</strong> Rabbi trust safe harbor status depends on adopting Rev. Proc. 92-64 model language. Confirm the plan document contains the mandatory general-creditor provision, the insolvency definition, the board notification duty, and the payment suspension mechanic. The SPD summarizes; the plan document controls.</li>
+<li><strong>Assess your employer's credit risk explicitly.</strong> Rabbi trust participants take on general-creditor exposure to the employer. Pull a Moody's or S&P credit rating. Read the last three annual reports. If the employer is in a distressed industry or has recent credit-quality deterioration, consider a smaller deferral or a split-benefit structure with secular trust floor.</li>
+<li><strong>Confirm the trust investment mandate.</strong> Diversified investments limit correlated risk; concentrated employer securities magnify it. Ask the trustee for the current asset allocation and the investment mandate under the trust agreement.</li>
+<li><strong>Model the vesting-year tax cost.</strong> §457(f)(1)(A) forces income inclusion at SROF lapse. Model the vesting-year income, marginal rate, federal + state + NIIT + FICA cost, and cash-flow plan for tax payment. Use the <a href="/income-tax-calculator.html">income tax calculator</a> and <a href="/calc/retirement-calculator.html">retirement calculator</a> to project.</li>
+<li><strong>Verify §409A distribution triggers.</strong> The plan document must specify distribution triggers from the six §409A(a)(2)(A) permitted events. Confirm your understood distribution schedule matches the plan document. If you are a specified employee of a public company, expect a 6-month distribution delay on separation from service under §409A(a)(2)(B)(i).</li>
+<li><strong>Meet the December 31 deferral election deadline.</strong> Initial deferral elections for the following year must be executed by December 31 of the current year (subject to narrow exceptions for new participants under Treas. Reg. §1.409A-2(a)(7)). Missed deadlines cannot be cured; the compensation is current income for that year.</li>
+<li><strong>Model the split-benefit alternative at least once.</strong> Even if you conclude the pure rabbi trust is right, run the split-benefit numbers so the trade-off is priced. A modest secular trust floor (10-25 percent of the deferred amount) may deliver meaningful insurance value against catastrophic employer risk.</li>
+<li><strong>Coordinate with concurrent Roth conversion planning.</strong> The vesting year is high-income; concurrent Roth conversions in the same year multiply the marginal-rate cost. Use the <a href="/roth-ira-conversion-calculator.html">Roth conversion calculator</a> to model deferring conversions to lower-income post-vesting years.</li>
+</ol>
+</div>
+
+<h2 id="faq">11. FAQ</h2>
+
+<div class="faq-block">
+<div class="faq-item">
+<h3>What is a rabbi trust and why is it called that?</h3>
+<p>A rabbi trust is an irrevocable grantor trust that holds NQDC assets on behalf of a participant while remaining subject to the employer's general-creditor claims. The label comes from IRS Private Letter Ruling 8113107 (December 1980), which addressed a deferred compensation arrangement for a rabbi. The design was formalized in Rev. Proc. 92-64 (July 1992) as a model safe-harbor document.</p>
+</div>
+<div class="faq-item">
+<h3>What is a secular trust and how does it differ from a rabbi trust?</h3>
+<p>A secular trust holds NQDC assets that are NOT subject to employer general-creditor claims — assets are protected from bankruptcy but the participant recognizes income under IRC §83 at the moment the interest becomes non-forfeitable. For §457(f) plans, that vesting event is also the §457(f)(1)(A) inclusion event.</p>
+</div>
+<div class="faq-item">
+<h3>How does Rev. Proc. 92-64 provide safe harbor for rabbi trusts?</h3>
+<p>The IRS committed to not issuing private letter rulings on rabbi trusts materially conforming to the eleven-section model document. Mandatory provisions include the general-creditor exposure, insolvency definition, board notification duty, payment suspension mechanic, employer amendment limits, and participant alienation prohibition.</p>
+</div>
+<div class="faq-item">
+<h3>Why does §457(f) force secular trust participants into immediate income at vesting?</h3>
+<p>IRC §457(f)(1)(A) provides that compensation deferred under an ineligible §457 plan is includible in gross income for the first taxable year in which no SROF remains. When a secular trust holds assets on behalf of the participant, the corpus is protected from creditors — so the SROF is deemed to lapse at vesting and the full vested value is taxable at that point.</p>
+</div>
+<div class="faq-item">
+<h3>How does §409A coordinate with rabbi trusts?</h3>
+<p>§409A applies to any NQDC arrangement including rabbi trust structures. §409A(b)(1) prohibits offshore rabbi trusts; §409A(b)(2) prohibits financial-health-triggered springing rabbi trusts. Notice 2007-62 clarified §409A/§457(f) coordination; the 2016 proposed regs at REG-147196-07 clarified SROF standards and rolling-risk-of-forfeiture treatment.</p>
+</div>
+<div class="faq-item">
+<h3>What historical trust failures should executives worry about?</h3>
+<p>Enron (2001), Lehman Brothers (2008), and Silicon Valley Bank (2023) rabbi trust participants all became unsecured creditors in the respective bankruptcies and lost most of their deferred compensation. In every case, the rabbi trust performed as designed — the assets were reachable by general creditors. The credit-risk exposure must be priced explicitly.</p>
+</div>
+<div class="faq-item">
+<h3>Can a rabbi trust be combined with a secular trust for split-benefit protection?</h3>
+<p>Yes. A split-benefit design uses a rabbi trust for the bulk of the deferral (preserving tax deferral) and a smaller secular trust for a supplemental amount (providing a secured floor). Each component is a separate §409A arrangement with separate deferral elections and distribution triggers.</p>
+</div>
+<div class="faq-item">
+<h3>What is the difference between a §457(b) top-hat plan and a §457(f) plan?</h3>
+<p>§457(b) is an eligible plan capped at $23,500 (2026) and providing qualified-plan-analogous deferral. §457(f) is the residual category for any deferred compensation not eligible under §457(b), permitting unlimited amounts but imposing SROF-vesting income inclusion at §457(f)(1)(A).</p>
+</div>
+<div class="faq-item">
+<h3>What is a rolling risk of forfeiture and does it work?</h3>
+<p>A rolling risk extends the SROF beyond the original vesting date via a fresh service commitment. The 2016 proposed regs require (a) at least 2-year extension, (b) agreed at least 90 days before original vesting, and (c) at least 25% more forfeitable amount. Rolling risks failing these tests are disregarded, with income inclusion at the original vesting date.</p>
+</div>
+<div class="faq-item">
+<h3>How does the SECURE 2.0 §603 mandatory Roth catch-up rule interact with §457(f) plans?</h3>
+<p>§603 applies only to §401(k), §403(b), and governmental §457(b) plans — not to §457(f). But §457(f) plans are often used as workarounds for §603-covered high-earners seeking additional pretax deferral capacity above their qualified-plan limits, with the SROF-vesting mechanic replacing the qualified-plan distribution mechanic.</p>
+</div>
+</div>
+
+<h2 id="methodology">Sources and methodology</h2>
+
+<div class="methodology">
+<h3>Methodology</h3>
+<p>This guide reflects the IRC §457, §409A, and §83 statutory framework, the DOL Rev. Proc. 92-64 model rabbi trust document, the 2016 proposed regulations at REG-147196-07 addressing §457(f) SROF standards, IRS Notice 2007-62 addressing §409A/§457(f) coordination, and the 2026 retirement plan limits as published in IRS Notice 2025-67. Federal marginal rates use the 2026-indexed TCJA brackets as continued by the OBBBA of 2025. FICA rates cited from the 2026 Social Security Administration wage-base and Medicare-rate tables. Historical bankruptcy outcomes cited from public bankruptcy filings and public creditor-recovery reports. All amounts in case studies are illustrative estimates for educational purposes; consult a qualified ERISA attorney or NQDC specialist before executing any specific §457(f), rabbi trust, or secular trust arrangement.</p>
+<ol id="source-list">
+<li id="source-1">IRC §409A(a)(1) — penalty stack for nonqualified deferred compensation plans that fail to comply with the operational and documentary requirements of §409A, including immediate income inclusion of the entire deferred amount plus a 20 percent additional tax plus premium interest at §6621(a)(2)+1%. Enacted by §885 of the American Jobs Creation Act of 2004 in direct response to the Enron rabbi trust abuses. <a href="https://www.law.cornell.edu/uscode/text/26/409A" rel="nofollow noopener">law.cornell.edu/uscode/text/26/409A</a></li>
+<li id="source-2">IRS Private Letter Ruling 8113107 (December 31, 1980) — the original rabbi trust ruling that gave the structure its name; addressed a deferred compensation arrangement for a rabbi at a synagogue and concluded the arrangement did not cause current income to the participant because the trust corpus remained subject to the employer's general creditors. <a href="https://www.irs.gov/pub/irs-drop/rp-92-64.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rp-92-64 (context)</a></li>
+<li id="source-3">Revenue Procedure 92-64, published by the IRS Office of Chief Counsel on July 27, 1992; provides model rabbi trust document with eleven sections and mandatory provisions (general-creditor exposure, insolvency definition, board notification duty, payment suspension, employer amendment limits, participant alienation prohibition). Employers adopting model-conforming documents receive administrative safe harbor from IRS ruling requirements. <a href="https://www.irs.gov/pub/irs-drop/rp-92-64.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rp-92-64</a></li>
+<li id="source-4">IRC §457, deferred compensation of state and local governments and tax-exempt organizations; §457(b) eligible plan structure with $23,500 (2026) elective deferral limit; §457(f) ineligible plan category permitting unlimited deferrals with the SROF-vesting income inclusion trigger at §457(f)(1)(A). IRS §457 plan information page. <a href="https://www.irs.gov/retirement-plans/irc-457b-deferred-compensation-plans" rel="nofollow noopener">irs.gov/retirement-plans/irc-457b-deferred-compensation-plans</a></li>
+<li id="source-5">Proposed Treasury Regulations REG-147196-07, published in the Federal Register at 81 Fed. Reg. 40548 (June 22, 2016); provides §457(f) SROF standards, treatment of rolling risks of forfeiture, coordination with §409A, and interaction of §457(f) with the §409A short-term-deferral exception at Treas. Reg. §1.409A-1(b)(4). <a href="https://www.federalregister.gov/documents/2016/06/22/2016-14329/deferred-compensation-plans-of-state-and-local-governments-and-tax-exempt-entities" rel="nofollow noopener">federalregister.gov/documents/2016/06/22/2016-14329</a></li>
+<li id="source-6">IRC §83, property transferred in connection with performance of services; property received in connection with services is included in gross income at the first time the property becomes transferable or is not subject to a substantial risk of forfeiture. Underlies the tax mechanic for secular trusts and for rabbi trusts held on behalf of participants. <a href="https://www.law.cornell.edu/uscode/text/26/83" rel="nofollow noopener">law.cornell.edu/uscode/text/26/83</a></li>
+<li id="source-7">IRC §409A, inclusion in gross income of deferred compensation under nonqualified deferred compensation plans; six permitted distribution events at §409A(a)(2)(A) (separation from service with 6-mo delay for specified employees, death, disability, fixed date/schedule, change in control per Treas. Reg. §1.409A-3(i)(5), unforeseeable emergency); prohibited acceleration under §409A(a)(3); subsequent-election 12-12-5 rule under §409A(a)(4)(C); offshore trust prohibition under §409A(b)(1); financial-health-triggered trust prohibition under §409A(b)(2). <a href="https://www.law.cornell.edu/uscode/text/26/409A" rel="nofollow noopener">law.cornell.edu/uscode/text/26/409A</a></li>
+<li id="source-8">IRS Notice 2007-62, published July 30, 2007; addresses §409A and §457(f) coordination, application of the §409A short-term-deferral exception to §457(f) plans, and guidance on rolling risks of forfeiture prior to the 2016 proposed regulations. <a href="https://www.irs.gov/pub/irs-drop/n-07-62.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-07-62</a></li>
+<li id="source-9">IRC §3121(v)(2), special-timing rule for FICA on nonqualified deferred compensation; FICA is imposed at vesting (or later of vesting and service performance) rather than at distribution, permitting compound growth without FICA drag on properly-structured NQDC arrangements. <a href="https://www.law.cornell.edu/uscode/text/26/3121" rel="nofollow noopener">law.cornell.edu/uscode/text/26/3121</a></li>
+<li id="source-10">Treas. Reg. §1.409A-1(b)(4), short-term-deferral exception; a payment that is required to be made no later than 2½ months after the end of the taxable year in which the SROF lapses is exempt from §409A. Load-bearing exception for §457(f) plans structured to distribute shortly after vesting. <a href="https://www.law.cornell.edu/cfr/text/26/1.409A-1" rel="nofollow noopener">law.cornell.edu/cfr/text/26/1.409A-1</a></li>
+<li id="source-11">Treas. Reg. §1.409A-3(i)(5), change-in-control event definition for §409A distribution triggers; change of ownership of the corporation, change in effective control of the corporation, or change in the ownership of a substantial portion of the assets of the corporation. <a href="https://www.law.cornell.edu/cfr/text/26/1.409A-3" rel="nofollow noopener">law.cornell.edu/cfr/text/26/1.409A-3</a></li>
+<li id="source-12">American Jobs Creation Act of 2004, Public Law 108-357 §885 (enacted October 22, 2004); added IRC §409A to address pre-Enron abuses in rabbi trust and other NQDC arrangements; imposed the operational and documentary requirements that all rabbi trust arrangements must now meet. <a href="https://www.congress.gov/bill/108th-congress/house-bill/4520" rel="nofollow noopener">congress.gov/bill/108th-congress/house-bill/4520</a></li>
+<li id="source-13">In re Enron Corp., Case No. 01-16034 (Bankr. S.D.N.Y.); Chapter 11 petition filed December 2, 2001; rabbi trust deferred compensation treated as general unsecured claim in the bankruptcy proceeding; primary policy driver for §409A enactment two years later. <a href="https://www.sec.gov/news/press/2003-16.htm" rel="nofollow noopener">sec.gov/news/press/2003-16 (SEC context)</a></li>
+<li id="source-14">In re Lehman Brothers Holdings Inc., Case No. 08-13555 (Bankr. S.D.N.Y.); Chapter 11 petition filed September 15, 2008; largest bankruptcy in U.S. history by asset size ($639 billion); rabbi trust deferred compensation participants received unsecured-creditor treatment in the bankruptcy. <a href="https://www.sec.gov/spotlight/lehmanbrothers.htm" rel="nofollow noopener">sec.gov/spotlight/lehmanbrothers (SEC context)</a></li>
+<li id="source-15">In re SVB Financial Group, Case No. 23-10367 (Bankr. S.D.N.Y.); Chapter 11 petition filed March 17, 2023 following the March 10, 2023 failure of Silicon Valley Bank; most recent large-scale rabbi trust bankruptcy demonstrating the general-creditor exposure in action. <a href="https://www.fdic.gov/news/press-releases/2023/pr23016.html" rel="nofollow noopener">fdic.gov/news/press-releases/2023/pr23016</a></li>
+<li id="source-16">IRS Notice 2025-67, 2026 retirement plan contribution limits including §457(b) $23,500 elective deferral limit, §414(v) $8,000 age-50 catch-up, §414(v)(2)(E)(i) $11,250 age 60-63 super catch-up, and $150,000 §414(v)(7) prior-year FICA wage threshold for SECURE 2.0 §603 mandatory Roth catch-up. <a href="https://www.irs.gov/pub/irs-drop/n-25-67.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-25-67</a></li>
+<li id="source-17">Revenue Act of 1978, Public Law 95-600 §131 (enacted November 6, 1978); original enactment of IRC §457 for state and local government deferred compensation plans; foundation for the 1986 Tax Reform Act §1107 extension to §501(c)(3) organizations and the current §457(b)/§457(f) two-tier structure. <a href="https://www.govinfo.gov/content/pkg/STATUTE-92/pdf/STATUTE-92-Pg2763.pdf" rel="nofollow noopener">govinfo.gov/content/pkg/STATUTE-92-Pg2763</a></li>
+<li id="source-18">Department of Labor Advisory Opinion standards for §457(b) top-hat group determination; guidance that tax-exempt §457(b) plans must be limited to a "select group of management or highly compensated employees" to preserve tax deferral and avoid ERISA fiduciary requirements. <a href="https://www.dol.gov/agencies/ebsa/employers-and-advisers/guidance/advisory-opinions" rel="nofollow noopener">dol.gov/agencies/ebsa/employers-and-advisers/guidance/advisory-opinions</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized tax, ERISA, or investment advice. Rabbi trust and secular trust design decisions depend on the specific plan document terms, the employer's credit profile, the participant's marginal tax rate at vesting and distribution, and the interaction with §409A operational and documentary requirements. Consult a qualified ERISA attorney, tax attorney, or NQDC specialist before relying on any specific structure cited above. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations, thresholds, and rules shown are estimates for educational and informational purposes only. Results may not reflect your actual after-tax outcome. IRC §457, §409A, §83, and §3121(v)(2) rules and regulations change; always verify current IRS guidance and consult a qualified ERISA attorney, NQDC specialist, or tax attorney before making rabbi trust, secular trust, or §457(f) planning decisions. CalcLeap is not a CPA firm, tax preparer, or ERISA attorney and does not provide personalized tax, NQDC, or retirement planning advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#origin-story">PLR 8113107 and Rev. Proc. 92-64 origins</a></li>
+        <li><a href="#rabbi-trust-mechanics">Mandatory rabbi trust provisions</a></li>
+        <li><a href="#457f-inclusion-trigger">§457(f)(1)(A) SROF-vesting inclusion</a></li>
+        <li><a href="#secular-trust">Secular trust — full protection at full tax cost</a></li>
+        <li><a href="#409a-coordination">§409A coordination — Notice 2007-62 and REG-147196-07</a></li>
+        <li><a href="#enron-lehman-svb">Historical: Enron, Lehman, SVB</a></li>
+        <li><a href="#split-benefit">Split-benefit designs</a></li>
+        <li><a href="#case-studies">Three worked case studies</a></li>
+        <li><a href="#mistakes">Six mistakes to avoid</a></li>
+        <li><a href="#checklist">Your 8-item decision checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/paycheck-calculator.html">Paycheck Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth Conversion Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/section-457-nqdc-for-tax-exempt-executives-2026.html">§457 NQDC for Tax-Exempt Executives 2026</a>
+      <a href="/blog/nqdc-vs-roth-catch-up-2026.html">NQDC vs Roth Catch-Up 2026</a>
+      <a href="/blog/secure-2-0-section-603-mandatory-roth-catch-up-2026.html">SECURE 2.0 §603 Mandatory Roth Catch-Up</a>
+      <a href="/blog/roth-vs-traditional-catch-up-decision-framework-2026.html">Roth vs Traditional Catch-Up Decision Framework 2026</a>
+      <a href="/blog/new-jersey-401k-403b-457-basis-2026.html">New Jersey §401(k), §403(b), and §457 Basis 2026</a>
+      <a href="/blog/california-401k-and-ira-basis-2026.html">California §401(k) and IRA Basis 2026</a>
+      <a href="/blog/pennsylvania-401k-after-tax-basis-2026.html">Pennsylvania §401(k) After-Tax Basis 2026</a>
+      <a href="/blog/state-retirement-income-taxation-2026.html">50-State Retirement Income Taxation 2026</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular calculators</h4>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+    </div>
+    <div>
+      <h4>Editorial</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial process</a>
+      <a href="/authors/calcleap-editorial.html">Our team</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. All calculators are educational estimates, not financial advice.</p>
+  </div>
+</footer>
+
+</body>
+</html>
