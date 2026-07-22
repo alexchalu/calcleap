@@ -811,6 +811,13 @@ footer a:hover { color: var(--text); }
 
 <div class="section-divider"><hr></div>
 
+<!-- AUDIT 2026-07-22 evening: id="calc"/"home" aliases (aria-hidden anchors)
+     so ~7 breadcrumb links across calc/ pages that point to "/index.html#calc"
+     or "#home" land on the calculators landing (finance section). Detected by
+     verify-html.js broken-anchor sweep. Same pattern as the 2026-07-21 #math alias. -->
+<a id="calc" aria-hidden="true"></a>
+<a id="calculators" aria-hidden="true"></a>
+<a id="home" aria-hidden="true"></a>
 <!-- Financial Calculators -->
 <section class="category" id="finance">
   <div class="cat-header">
@@ -920,6 +927,12 @@ footer a:hover { color: var(--text); }
 </section>
 
 <!-- Developer Tools -->
+<!-- AUDIT 2026-07-22 evening: id="tools"/"text" aliases (aria-hidden anchors)
+     so 227 breadcrumb links (#tools ×222 + #text ×5) across converter,
+     unit-tool, and text-utility pages land on the dev/utility-tools section.
+     Same pattern as the 2026-07-21 #math alias. -->
+<a id="tools" aria-hidden="true"></a>
+<a id="text" aria-hidden="true"></a>
 <section class="category" id="dev">
   <div class="cat-header">
     <h2>Developer Tools</h2>
@@ -935,6 +948,10 @@ footer a:hover { color: var(--text); }
 </section>
 
 <!-- Converters -->
+<!-- AUDIT 2026-07-22 evening: id="convert" alias (aria-hidden anchor) so 9
+     breadcrumb links pointing to "/index.html#convert" land on the converters
+     section. Same pattern as the 2026-07-21 #math alias. -->
+<a id="convert" aria-hidden="true"></a>
 <section class="category" id="converters">
   <div class="cat-header">
     <h2>Unit Converters</h2>
