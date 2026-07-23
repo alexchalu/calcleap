@@ -61,7 +61,7 @@ For calculators, every page must meet:
 
 **Standing instruction for every run until reinstated:** content work may continue and push as usual (git pushes still work while flagged; the repo is the source of truth). Deploy workflows will keep failing until reinstatement — expected, ignore, do not debug them. The `generate-*` / `build-*` / `gen-*` scripts were sanitized 2026-07-10 (fake `data-ad-slot` units + push() emission removed, loaders kept) — still, do not run them: they would overwrite routine content improvements. Once Alex confirms reinstatement: push any commit (or re-run the newest "Deploy to GitHub Pages" run), verify `curl -sI https://calcleap.com/` returns 200, delete this block, and log the root cause + downtime window in the Daily Log (Actions failures suggest the flag landed ~2026-06-27; Search Console crawl errors will bracket it exactly). Related: the Rando heartbeat POST (rando-openclaw.fly.dev) and calcleap.com deploy-verify are both blocked by the routine environment's egress policy as of 2026-07-10 morning — that flag stays until whitelisted.
 
-## Current State (last updated: 2026-07-22 by Claude/evening-routine)
+## Current State (last updated: 2026-07-23 by Claude/evening-routine)
 
 | Metric | Now | Target | Gap |
 |---|---|---|---|
@@ -6173,3 +6173,70 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 
 - **Metric moved:** Blog gold-standard count 64 → 65 (this piece). Retirement sub-cluster 22 → 23 pieces on a 19-day streak (was 18-day streak after 2026-07-22 morning's rabbi-trust piece). §457 NQDC sub-cluster trio now COMPLETE (participant-level foundational + trust-funding plan-design + head-to-head comparison).
 - **No secrets committed. No git config modified. No hooks skipped. Three-file commit (`blog/457f-serp-vs-457b-top-hat-comparison-2026.html` + `sitemap.xml` + `OPERATIONS.md`) per playbook.**
+
+
+### 2026-07-23 — Evening (Claude, evening routine) — TIER 3 (ttttttttttt): `/calc/estate-tax-calculator.html` NEW BUILD — federal $15M OBBBA exemption + IRC §2001(c) graduated schedule + 12-state overlay + NY 5% cliff + DSUE portability, 5 canonical test cases documented + all pass
+
+- **Item picked:** morning-log-carried-over top TIER 3/4 recommendation — **(ttttttttttt) `/calc/estate-tax-calculator.html`** — the paired-CTA gap flagged by the 2026-07-19 state-estate-tax field guide and deferred four evenings running (2026-07-19 evening, 2026-07-20 evening, 2026-07-21 evening, 2026-07-22 evening all picked competing higher-leverage broken-link/architecture work instead). Tonight was the right slot: the §457 sub-cluster trio closed this morning, no broken-link P0s outstanding, and the field guide has been running unpaired for four days.
+
+- **What shipped (calc/estate-tax-calculator.html, ~285 lines):**
+  - **Federal engine (exact):** IRC §2001(c) graduated tentative-tax schedule (12 brackets from 18% on first $10k up through 40% on excess above $1M), applicable exclusion = $15,000,000 base + DSUE (capped at $15M inherited from deceased spouse under §2010(c)(4)), unified credit = tentativeFederalTax(applicableExclusion). Formula: federalTaxDue = max(0, tentativeFederalTax(taxableEstate + adjustedTaxableGifts) − unifiedCredit). For 2026 with $15M exemption, unified credit = $345,800 + 0.40 × $14M = **$5,945,800** (matches Treasury figure).
+  - **State overlay (top-marginal approximation with clear disclosure):** 12 states + DC + "none" option. Each state carries its 2026 exemption + top marginal rate. Formula: `stateTaxDue = topRate × max(0, taxableEstate − stateExemption)`. This is an upper bound (actual state bills use graduated schedules starting at 0.8%-3%) — disclosed both in the UI callout and in the caveats block.
+  - **NY 5% cliff (exact):** implemented three-zone under NY Tax Law §952(c). Below $7.35M → $0. Between $7.35M and $7,717,500 (105% × exemption) → 16% × excess over exemption. Above $7,717,500 → 16% × FULL taxable estate (entire exemption lost). This is the mechanic that punishes NY estates just above the cliff by hundreds of thousands relative to estates just under.
+  - **Result box:** total transfer tax + effective rate headline, federal breakdown (gross → deductions → taxable → tentative → credit → due), state breakdown (exemption + top rate + due + state-specific note), combined (federal + state + net to heirs), context-aware callout (good if $0, warning for state-only-owed / cliff-triggered / federal-owed cases).
+  - **Two JSON-LD blocks:** BreadcrumbList (Home → Tax Calculators → Estate Tax Calculator) + FAQPage (6 Q&A: federal exemption / DSUE / states / NY cliff / inheritance-tax scope / deductions).
+  - **AUDIT 2026-07-23 comment block** at top of `<script>` documenting formula, sources (11 primary refs including Pub. L. 119-21 / IRC §2001(c) / IRC §2010(c) / IRC §2010(c)(4) / IRC §2001(b) / IRC §2053 / IRC §2055 / IRC §2056 / NY Tax Law §952(c) / MA Ch. 50 Acts 2023 / the field guide), 5 canonical test cases with expected values, and 11 caveats-not-modeled.
+  - **Related tools + reading section:** 8 internal links including the state-estate-tax field guide, state-retirement-taxation field guide, Form 8606 blog, backdoor Roth calc, retirement calc, income tax calc, net worth calc (correctly resolved to `/invest/net-worth-calculator.html`), and capital gains calc.
+  - **Disclaimer footer** with all substantive statutory citations + explicit note that state tax uses top-marginal-on-excess approximation.
+
+- **5 canonical test cases documented + verified independently:**
+  - **TC1 (under federal, no state):** $5M gross, $0 deductions, no DSUE, no gifts, state=none. Expected: taxable $5M, tentative $1,945,800, credit $5,945,800, federal $0, state $0, total $0. **PASS ✓**
+  - **TC2 (above federal, no state):** $20M gross, no state. Expected: tentative $7,945,800, credit $5,945,800, federal **$2,000,000** (= 40% × ($20M − $15M)), state $0, total $2M, effective 10.00%. **PASS ✓**
+  - **TC3 (MFJ portability, above federal, no state):** $50M gross, DSUE $15M, no state. Expected: applicable exclusion $30M, credit $11,945,800, tentative $19,945,800, federal **$8,000,000** (= 40% × ($50M − $30M)), state $0, total $8M, effective 16.00%. **PASS ✓**
+  - **TC4 (NY 5% cliff triggered):** $8M gross, no DSUE, state=ny. Expected: federal $0 (under $15M), NY cliff: $8M > $7,717,500 → tax on FULL $8M at 16% = **$1,280,000**, effective 16.00%. **PASS ✓**
+  - **TC5 (MA low-exemption trap):** $5M gross, no DSUE, state=ma. Expected: federal $0, MA 16% × ($5M − $2M) = **$480,000** [upper bound; actual MA graduated schedule ≈ $391,600]. **PASS ✓**
+  - **Verification method:** extracted the engine (`tentativeFederalTax`, `STATE_ESTATE_TAX`, `compute`) to `/tmp/estate-verify.js`, ran with `node`, all 5 tests PASS with |actual − expected| < $0.01 tolerance. Federal math is EXACT to the statute. State math is EXACT within the top-marginal approximation.
+
+- **Files touched (3):**
+  - `calc/estate-tax-calculator.html` (new, ~285 lines) — the calculator itself.
+  - `sitemap.xml` — added one URL entry alphabetically inserted between `/calc/er-visit-cost.html` and `/calc/estimated-quarterly-tax-calculator.html` ("estate" < "estimated" in strict ASCII: 'a' (97) < 'i' (105) at position 4). Sitemap validity re-checked via `python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml')"` → valid, URL count 2,773 → 2,774.
+  - `OPERATIONS.md` — this daily log entry.
+
+- **Validation results:**
+  - JSON-LD blocks: **2** (BreadcrumbList + FAQPage) ✓ — both parse as valid JSON via `json.loads` in Python
+  - `grep -c '<script type="application/ld+json">'`: **2** ✓
+  - `grep -c 'AUDIT 2026-07-23'`: **1** ✓ (the calc-engine audit block at top of `<script>`)
+  - All 5 canonical test cases pass via extracted-engine `node` run ✓
+  - sitemap.xml XML validity ✓ (2,774 URLs, +1 from 2,773)
+  - `verify-html.js` post-add: 216 → 215 broken links (after fixing the initial `/calc/net-worth.html` reference to `/invest/net-worth-calculator.html`) — the residual net delta of +2 vs the 2026-07-22 evening baseline of 213 is 100% attributable to this morning's `blog/457f-serp-vs-457b-top-hat-comparison-2026.html` which contributed 2 `/how-we-calculate.html` + `/disclaimer.html` broken subdirectory-relative references. **Zero broken links attributable to the new estate calc.** ✓
+  - All 13 internal + external hrefs from the calc resolve to existing files (about, backdoor-roth, blog/how-to-file-form-8606-2026, blog/state-estate-tax-field-guide-2026, blog/state-retirement-income-taxation-2026, calc/capital-gains-tax-calculator, calc/retirement-calculator, contact, income-tax-calculator, index, invest/net-worth-calculator, privacy, terms). ✓
+
+- **What this closes vs the pre-run state:**
+  - **Queue item (ttttttttttt) CLOSED** — `/calc/estate-tax-calculator.html` shipped after four evenings of deferral. The 2026-07-19 state-estate-tax field guide now has its paired-CTA calculator, closing the content-loop that was flagged by the 2026-07-19 morning + 2026-07-19 evening + 2026-07-20 evening + 2026-07-21 evening + 2026-07-22 evening + 2026-07-23 morning logs.
+  - **Tax-calculator family extended by 1** — the /calc/ tax sub-cluster now covers income tax (federal + state), payroll taxes (FICA/FUTA/SUTA), self-employment tax, quarterly estimated taxes, 1099 taxes, capital gains, and estate tax. Estate tax was the last major federal transfer-tax lever missing from the calculator surface.
+  - **Federal transfer-tax coverage now COMPLETE at the calculator level** for taxable estates through $50M+ modeled by the calc's brackets and DSUE mechanic. Gift tax (§2501) and GST tax (Ch. 13) remain gap items but they are separate calcs with different mechanics.
+
+- **Notable observations:**
+  - **The federal side is EXACT to statute.** Every dollar of federal tax computed by the calc traces to IRC §2001(c) + IRC §2010(c) + IRC §2010(c)(4). Test cases TC1-TC3 verify the full range (below exemption → $0, above exemption single → 40% marginal, above exemption MFJ w/ portability → 40% marginal on excess above $30M combined). No shortcuts, no simplification, no rounding of the graduated bracket boundaries.
+  - **The state side is an UPPER BOUND.** Every state estate tax jurisdiction uses a graduated schedule that starts at 0.8%-3% and only reaches the top marginal at estates $5M-$10M+ above exemption. The calc's flat top-marginal-on-excess approximation over-estimates for estates just above exemption (worst case MA at $5M estate: $480k vs actual ~$391.6k, +23%). Disclosed clearly in the state-note under each result and in the disclaimer footer. Implementing the full pre-2001 §2011 credit table (MA, MN, ME, RI, VT all use variants) is a fair future evening's work — queued below as (uuuuuuuuuuuu).
+  - **The NY 5% cliff is the calculator's most economically dramatic scenario.** TC4 at $8M NY estate: $8M is 8.8% over the $7.35M exemption, past the 5% cliff. Result: NY taxes the FULL $8M at 16% = $1,280,000. Compare to $7.7M estate (just under cliff): NY tax = 16% × ($7.7M − $7.35M) = $56,000. The cliff difference between $7.7M and $8M is ~$1.2M in NY estate tax — the most punishing state-level mechanic in the U.S. tax code. Calculator surfaces this via context-aware callout when triggered.
+  - **DSUE mechanic is load-bearing for MFJ estate planning.** TC3 demonstrates: without portability, a $50M estate above the deceased spouse's un-used exemption would leave $15M-of-first-spouse-exemption on the table. Portability (Form 706 within 9 months or 5 years for non-required filers under Rev. Proc. 2022-32) preserves the full $30M combined exclusion. The calc lets you enter DSUE amount directly and the applicable exclusion + unified credit update automatically.
+  - **State inheritance tax (PA/NJ/KY/MD/NE) NOT modeled** — that's a separate beneficiary-level tax with relationship-based rate tables. Field guide covers it fully. Adding it to this calc would require a per-beneficiary interface (relationship + inheritance amount per beneficiary) that inflates the input surface substantially — better as a separate `/calc/inheritance-tax-calculator.html` if surfaced by traffic.
+  - **OBBBA made $15M PERMANENT under Pub. L. 119-21.** The pre-2026 sunset-back-to-$7M schedule is gone. Calc hardcodes 2026 numbers with a caveat noting the refresh will be needed when IRS Notice 2026-XX ships the 2027 inflation adjustments (statutory exemption is now indexed).
+
+- **New queue items surfaced this evening:**
+  - **(uuuuuuuuuuuu) Implement pre-2001 IRC §2011 state death tax credit table in the calc engine** — MA, MN, ME, RI, VT all use variants of this schedule. Implementing it once and applying to the four states would replace the top-marginal upper-bound approximation with the exact statutory rate for those five jurisdictions. Estimated 45 min. Would tighten state estimates by 15-25% for estates in the $2M-$8M range. TIER 3.
+  - **(vvvvvvvvvvvv) Build `/calc/inheritance-tax-calculator.html`** — beneficiary-level tax for the 5 active inheritance-tax states (KY, MD, NE, NJ, PA). Per-beneficiary interface: relationship dropdown (spouse / lineal descendant / sibling / other) + amount received. Pennsylvania rates 0/4.5/12/15%. Would complete the state transfer-tax coverage started tonight. Estimated 60-90 min. TIER 3.
+  - **(wwwwwwwwwwww) Build `/calc/gst-tax-calculator.html`** — Chapter 13 generation-skipping transfer tax with its own $15M GST exemption under IRC §2631. Separate mechanic from estate tax. Estimated 60-90 min. TIER 3.
+  - **(xxxxxxxxxxxx) Refresh `/blog/state-estate-tax-field-guide-2026.html` with a "Model your exposure" callout** to the newly-built calc. The field guide currently pairs with retirement calc + income tax calc + net worth calc — should now prominently link to the estate tax calc as the primary paired CTA. Estimated 10 min. TIER 4.
+
+- **Recommendations for next runs:**
+  - **Morning slot 2026-07-24:** carry-forward from 2026-07-23 morning's recommendation — **(sssssssssssss) `/blog/illinois-401k-and-retirement-taxation-2026.html`** (fourth-pole state-taxation piece extending PA-CA-NJ framework to Category B full-retirement-exemption state) OR **(qqqqqqqqqqqqq) `/blog/dol-top-hat-safe-harbor-employer-notification-requirement-2026.html`** (ERISA-compliance-layer companion to this morning's §457 head-to-head).
+  - **Evening slot 2026-07-24:** ideal TIER 3/4 target is **(xxxxxxxxxxxx) refresh the state-estate-tax field guide's paired-CTA to point at the new calc** (10-min pick that closes the content-loop tonight's build opened) OR **(uuuuuuuuuuuu) implement pre-2001 IRC §2011 state death tax credit table** in the estate calc (45-min pick that upgrades state estimates from upper-bound approximation to exact for 5 jurisdictions) OR **(oooooooooooo) long-tail broken-link surgical pass** (still open from 2026-07-22 evening, 215 residual across 103 files) OR **(mmmmmmmmmmmmm) `<section id="renovation">` addition to `/index.html`** (still open from 2026-07-22 evening, 10 broken `#renovation` anchor references remaining).
+
+- **Metrics moved:**
+  - Total pages: ~2,800 → ~2,801 (this calc).
+  - Calc-family tax sub-cluster: +1 (estate tax now covered).
+  - Calculators with verified math + AUDIT comment: +1 (this calc ships with 5 canonical test cases documented AND independently verified via extracted-engine `node` run).
+  - sitemap.xml URL count: 2,773 → 2,774.
+- **No secrets committed. No git config modified. No hooks skipped. Three-file commit (`calc/estate-tax-calculator.html` + `sitemap.xml` + `OPERATIONS.md`) per playbook.**

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estate Tax Calculator 2026 — Federal OBBBA $15M Exemption, State Overlay, DSUE Portability, NY 5% Cliff | CalcLeap</title>
+    <meta name="description" content="Estimate federal + state estate tax for 2026 under the OBBBA $15M per-person exemption. Models the IRC §2001(c) graduated rate schedule, unified credit, DSUE portability under §2010(c)(4), and the 12 estate-tax states + DC — including the New York 5% cliff and Massachusetts/Oregon low-exemption traps.">
+    <link rel="canonical" href="https://calcleap.com/calc/estate-tax-calculator.html">
+<meta property="og:title" content="Estate Tax Calculator 2026 — Federal $15M Exemption + 12-State Overlay + NY Cliff">
+<meta property="og:description" content="Estimate 2026 federal + state estate tax under the OBBBA $15M exemption. Models §2001(c), unified credit, DSUE portability, and the NY 5% cliff.">
+<meta property="og:url" content="https://calcleap.com/calc/estate-tax-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Tax Calculators", "item": "https://calcleap.com/index.html#tax"},
+    {"@type": "ListItem", "position": 3, "name": "Estate Tax Calculator", "item": "https://calcleap.com/calc/estate-tax-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the 2026 federal estate tax exemption?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The One Big Beautiful Bill Act of 2025 (Pub. L. 119-21) made a $15 million per-person federal estate tax exemption permanent effective January 1, 2026. A married couple can shelter up to $30 million using portability under IRC §2010(c)(4). Above the exemption, the marginal rate is 40% under IRC §2001(c). The calculator computes tentative tax on the full taxable estate using the graduated §2001(c) schedule and subtracts the unified credit (which equals the tentative tax on the exemption) to arrive at federal estate tax due."}},
+    {"@type": "Question", "name": "How does DSUE (portability) work in the calculator?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The Deceased Spousal Unused Exclusion (DSUE) under IRC §2010(c)(4) lets a surviving spouse add the first spouse's unused federal exemption to their own. Enter the DSUE amount inherited from the first spouse (0 if no portability, up to $15,000,000 if the first spouse used none of their exemption). The calculator adds DSUE to the standard $15M exemption to compute the combined applicable exclusion, then recomputes the unified credit. Portability must be elected on Form 706 within 9 months of the first spouse's death (or up to 5 years for smaller estates under Rev. Proc. 2022-32)."}},
+    {"@type": "Question", "name": "Which states impose an estate tax in 2026?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Twelve states plus the District of Columbia impose a separate state estate tax in 2026: Connecticut, Hawaii, Illinois, Maine, Maryland, Massachusetts, Minnesota, New York, Oregon, Rhode Island, Vermont, and Washington. Exemption thresholds range from $1 million (Oregon) and $2 million (Massachusetts) to $15 million (Connecticut, which matches the federal exemption). Top marginal rates range from 12% (Illinois, Rhode Island low ends) to 20% (Washington, Hawaii top brackets). The calculator uses a top-marginal-on-excess approximation for state estate tax with the exemption threshold — this is an upper-bound estimate because actual state bills use graduated schedules that start at lower rates."}},
+    {"@type": "Question", "name": "How does the New York 5% cliff work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Under New York Tax Law §952(c), if the taxable estate exceeds the exemption by more than 5% (roughly $7,717,500 for 2026 = $7,350,000 × 1.05), the estate loses the entire exemption and pays New York estate tax on the full taxable estate at rates up to 16%. Estates at or below the $7.35M exemption pay zero NY estate tax. Estates in the cliff zone ($7.35M–$7.7175M) pay tax only on the excess above exemption. The calculator implements this three-zone behavior automatically when New York is selected."}},
+    {"@type": "Question", "name": "Does this calculator model inheritance tax?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. This calculator models estate tax (levied on the estate before distribution). Inheritance tax is a separate levy imposed on the beneficiary based on their relationship to the decedent, and it operates in five states — Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania. Pennsylvania rates run 0% for spouses, 4.5% for lineal descendants, 12% for siblings, and 15% for other beneficiaries. Maryland is the only state that imposes BOTH an estate tax and an inheritance tax on the same dollars. For inheritance-tax modeling see the State Estate Tax Field Guide 2026."}},
+    {"@type": "Question", "name": "What deductions reduce the taxable estate?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The gross estate under IRC §2031 is reduced by deductions to arrive at the taxable estate: the unlimited marital deduction under IRC §2056 for property passing to a surviving spouse who is a U.S. citizen, the unlimited charitable deduction under IRC §2055 for bequests to qualified charities, mortgages and other debts under IRC §2053(a)(4), funeral expenses under IRC §2053(a)(1), and administration expenses under IRC §2053(a)(2). The calculator accepts a single combined 'total deductions' input for simplicity — sum all of these before entering."}}
+  ]
+}
+</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
+        .header { background: white; border-bottom: 1px solid #e5e5e7; padding: 1rem 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 2rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem; }
+        .header p { color: #6e6e73; font-size: 1.1rem; }
+        .main { padding: 3rem 0; }
+        .calc-box { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
+        .calc-box h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; color: #1d1d1f; }
+        .input-group { margin-bottom: 1.25rem; }
+        .input-group label { display: block; margin-bottom: 0.4rem; font-weight: 500; color: #1d1d1f; font-size: 0.95rem; }
+        .input-group input, .input-group select { width: 100%; padding: 0.75rem 0.9rem; border: 1px solid #d2d2d7; border-radius: 10px; font-size: 1rem; transition: all 0.2s; background: white; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #0071e3; box-shadow: 0 0 0 4px rgba(0,113,227,0.1); }
+        .input-group small { color: #6e6e73; font-size: 0.85rem; display: block; margin-top: 0.25rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+        .form-grid .full { grid-column: 1 / -1; }
+        .calc-btn { background: #0071e3; color: white; border: none; padding: 1rem 2rem; font-size: 1.125rem; font-weight: 600; border-radius: 12px; cursor: pointer; width: 100%; transition: background 0.2s; margin-top: 0.5rem; }
+        .calc-btn:hover { background: #0077ed; }
+        .result-box { background: linear-gradient(135deg, #f5f9ff 0%, #e8f4ff 100%); border: 1px solid #0071e3; padding: 2rem; border-radius: 18px; margin-top: 1.5rem; display: none; }
+        .result-box h3 { color: #0071e3; margin-bottom: 1rem; font-size: 1.35rem; font-weight: 600; }
+        .result-headline { font-size: 2rem; font-weight: 700; color: #0071e3; margin: 0.5rem 0 1rem; letter-spacing: -0.02em; }
+        .result-row { display: flex; justify-content: space-between; padding: 0.55rem 0; border-bottom: 1px solid rgba(0,113,227,0.15); font-size: 0.95rem; }
+        .result-row:last-child { border-bottom: none; }
+        .result-row .lbl { color: #1d1d1f; }
+        .result-row .val { font-weight: 600; color: #1d1d1f; }
+        .callout { background: #fff8e1; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.9rem; color: #92400e; line-height: 1.55; }
+        .callout.good { background: #f0fdf4; border-color: #22c55e; color: #15803d; }
+        .callout.bad { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+        .info-section { background: white; border-radius: 18px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; border: 1px solid #e5e5e7; }
+        .info-section h3 { color: #1d1d1f; margin-bottom: 0.75rem; font-size: 1.35rem; font-weight: 600; margin-top: 1.25rem; }
+        .info-section h3:first-child { margin-top: 0; }
+        .info-section p { margin-bottom: 0.9rem; color: #1d1d1f; line-height: 1.7; }
+        .info-section ul, .info-section ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .info-section li { margin-bottom: 0.4rem; color: #1d1d1f; }
+        .info-section a { color: #0071e3; text-decoration: none; }
+        .info-section a:hover { text-decoration: underline; }
+        .footer { background: #f5f5f7; padding: 2rem 0; text-align: center; border-top: 1px solid #e5e5e7; margin-top: 4rem; }
+        .footer a { color: #0071e3; text-decoration: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.75rem; } .calc-box, .info-section { padding: 1.5rem; } .form-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position='fixed';this.style.left='0';this.style.top='0';this.style.width='auto';this.style.height='auto';this.style.overflow='visible'" onblur="this.style.position='absolute';this.style.left='-9999px';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden'">Skip to content</a>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/index.html" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#converters">Converters</a>
+      <a href="/index.html#dev">Dev Tools</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+    <div class="header">
+        <div class="container">
+            <h1 class="page-title">Estate Tax Calculator (2026)</h1>
+            <p>Federal $15M OBBBA exemption + state overlay (12 states + DC) + NY 5% cliff + DSUE portability.</p>
+        </div>
+    </div>
+
+    <div class="main container" id="main-content">
+        <div class="calc-box">
+            <h2>Estimate Federal + State Estate Tax</h2>
+            <p style="margin-bottom: 1.25rem; color: #6e6e73;">Enter the gross estate, deductions, DSUE from a deceased spouse (if any), and the state of domicile. The calculator computes taxable estate, tentative tax under IRC §2001(c), unified credit, federal estate tax due, and state estate tax under the state's 2026 exemption and top-marginal-rate schedule.</p>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label for="gross">Gross estate ($)</label>
+                    <input type="number" id="gross" min="0" value="20000000" step="10000" aria-label="Gross estate">
+                    <small>Total fair market value of all property owned or controlled at death (IRC §2031).</small>
+                </div>
+                <div class="input-group">
+                    <label for="deductions">Total deductions ($)</label>
+                    <input type="number" id="deductions" min="0" value="0" step="10000" aria-label="Deductions">
+                    <small>Marital (§2056) + charitable (§2055) + debts + funeral + admin (§2053). Sum before entering.</small>
+                </div>
+                <div class="input-group">
+                    <label for="dsue">DSUE from deceased spouse ($)</label>
+                    <input type="number" id="dsue" min="0" max="15000000" value="0" step="10000" aria-label="DSUE">
+                    <small>Portability under IRC §2010(c)(4). 0 if no election. Up to $15,000,000.</small>
+                </div>
+                <div class="input-group">
+                    <label for="giftsPost1976">Adjusted taxable gifts post-1976 ($)</label>
+                    <input type="number" id="giftsPost1976" min="0" value="0" step="10000" aria-label="Adjusted taxable gifts">
+                    <small>Prior taxable gifts. Added to taxable estate for tentative-tax computation under §2001(b).</small>
+                </div>
+                <div class="input-group full">
+                    <label for="state">State of domicile</label>
+                    <select id="state" aria-label="State of domicile">
+                        <option value="none" selected>None (no state estate tax) — FL, TX, CA, and 37 other states</option>
+                        <option value="ct">Connecticut ($15M exemption, 12% top)</option>
+                        <option value="dc">District of Columbia ($4.71M exemption, 16% top)</option>
+                        <option value="hi">Hawaii ($5.49M exemption, 20% top)</option>
+                        <option value="il">Illinois ($4M exemption, 16% top)</option>
+                        <option value="me">Maine ($7M exemption, 12% top)</option>
+                        <option value="md">Maryland ($5M exemption, 16% top)</option>
+                        <option value="ma">Massachusetts ($2M exemption, 16% top)</option>
+                        <option value="mn">Minnesota ($3M exemption, 16% top)</option>
+                        <option value="ny">New York ($7.35M exemption + 5% CLIFF, 16% top)</option>
+                        <option value="or">Oregon ($1M exemption, 16% top)</option>
+                        <option value="ri">Rhode Island ($1.8M exemption, 16% top)</option>
+                        <option value="vt">Vermont ($5M exemption, 16% top)</option>
+                        <option value="wa">Washington ($2.193M exemption, 20% top)</option>
+                    </select>
+                    <small>The 12 estate-tax states + DC. Selecting anything else assumes no state estate tax (37 states impose none). State tax uses top-marginal-on-excess approximation (upper bound; actual bills use graduated schedules).</small>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calculate()">Calculate Estate Tax</button>
+            <div class="result-box" id="result">
+                <h3>Results</h3>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>What this calculator models</h3>
+            <p>Federal estate tax under Chapter 11 of the Internal Revenue Code, with the OBBBA-permanent $15 million per-person exemption effective January 1, 2026 (Pub. L. 119-21). Above the exemption the marginal rate is 40% under IRC §2001(c). The calculator computes tentative tax on the full taxable estate (plus adjusted taxable gifts post-1976 under §2001(b)) using the graduated §2001(c) schedule, then subtracts the unified credit equal to the tentative tax on the combined applicable exclusion (baseline $15M plus DSUE). The remainder — if positive — is the federal estate tax due.</p>
+            <p>State estate tax for the 12 states + DC that decoupled from the federal system. State tax uses the state's 2026 exemption threshold and a top-marginal-rate approximation on the excess. For estates significantly above the state exemption this is close to the actual bill; for estates just above the exemption it is an upper bound because the actual state schedules are graduated starting at lower rates. New York's 5% cliff is implemented exactly: below exemption → $0, in cliff zone ($7.35M–$7.7175M) → tax on excess only, above cliff → tax on the entire taxable estate.</p>
+
+            <h3>Federal exemption and IRC §2001(c) rate schedule</h3>
+            <ul>
+                <li><strong>2026 basic exclusion:</strong> $15,000,000 per person under OBBBA (Pub. L. 119-21, made permanent effective 2026-01-01).</li>
+                <li><strong>Portability under §2010(c)(4):</strong> a surviving spouse may add the first spouse's unused exemption (DSUE) to their own — up to $30M combined for a couple.</li>
+                <li><strong>Top marginal rate:</strong> 40% on any taxable estate above $1M (which is well below the exemption, so every taxable estate that owes federal tax is at 40% marginal).</li>
+                <li><strong>Unified credit for 2026:</strong> tentative tax on $15M = $345,800 + 40% × ($15,000,000 − $1,000,000) = <strong>$5,945,800</strong>.</li>
+                <li><strong>Filing deadline:</strong> Form 706 due 9 months after death; automatic 6-month extension under §6081. Portability election deadline may be extended up to 5 years under Rev. Proc. 2022-32 for non-required filers.</li>
+            </ul>
+
+            <h3>The 12 estate-tax states + DC (2026 exemptions and top rates)</h3>
+            <ul>
+                <li><strong>Massachusetts</strong> — $2M exemption, 16% top. Post-2023 reform (Ch. 50 of Acts of 2023) eliminated the cliff; tax now applies only to the excess above $2M.</li>
+                <li><strong>Oregon</strong> — $1M exemption (unchanged since 2006), 10–16% graduated. The lowest exemption in the country.</li>
+                <li><strong>Rhode Island</strong> — $1,802,431 exemption (2025, indexed), 16% top.</li>
+                <li><strong>Washington</strong> — $2,193,000 exemption, 20% top (the highest state marginal rate).</li>
+                <li><strong>Minnesota</strong> — $3M exemption, 16% top.</li>
+                <li><strong>Illinois</strong> — $4M exemption, 16% top. Historically had a full-value cliff; check current statute.</li>
+                <li><strong>District of Columbia</strong> — $4.71M exemption, 16% top.</li>
+                <li><strong>Maryland</strong> — $5M exemption, 16% top. Only state with BOTH estate tax AND inheritance tax.</li>
+                <li><strong>Vermont</strong> — $5M exemption, 16% top.</li>
+                <li><strong>Hawaii</strong> — $5.49M exemption, 20% top.</li>
+                <li><strong>Maine</strong> — $7M exemption (approx, indexed), 12% top.</li>
+                <li><strong>New York</strong> — $7.35M exemption, 16% top, <strong>with a 5% cliff</strong> under NY Tax Law §952(c). Above $7,717,500 the estate loses the entire exemption.</li>
+                <li><strong>Connecticut</strong> — $15M exemption, 12% top. Fully matches the federal exemption in 2026 — a non-issue for anyone under $15M.</li>
+            </ul>
+
+            <h3>Related tools and reading</h3>
+            <ul>
+                <li><a href="/blog/state-estate-tax-field-guide-2026.html">State Estate Tax Field Guide 2026</a> — the full 12-state + DC + 5-inheritance-state walkthrough with the Massachusetts and New York cliff mechanics, Maryland double-tax, and three worked case studies at $3M / $8M / $22M net estates.</li>
+                <li><a href="/blog/state-retirement-income-taxation-2026.html">State Retirement Income Taxation 2026</a> — companion 50-state field guide for income tax on retirement distributions.</li>
+                <li><a href="/blog/how-to-file-form-8606-2026.html">How to File Form 8606 in 2026</a> — nondeductible IRA basis tracking that flows into the gross estate.</li>
+                <li><a href="/backdoor-roth-calculator.html">Backdoor Roth IRA Calculator</a> — pro-rata rule modeler for post-tax IRA conversions.</li>
+                <li><a href="/calc/retirement-calculator.html">Retirement Calculator</a> — projected balance at death for federal exemption planning.</li>
+                <li><a href="/income-tax-calculator.html">Income Tax Calculator</a> — federal + state income tax overlay.</li>
+                <li><a href="/invest/net-worth-calculator.html">Net Worth Calculator</a> — quick gross-estate estimate.</li>
+                <li><a href="/calc/capital-gains-tax-calculator.html">Capital Gains Tax Calculator</a> — step-up-in-basis under IRC §1014 changes the capital gains calculus at death.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 CalcLeap. Free online calculators and tools.</p>
+            <p><a href="/index.html">Home</a> • <a href="/about.html">About</a> • <a href="/privacy.html">Privacy</a> • <a href="/terms.html">Terms</a> • <a href="/contact.html">Contact</a></p>
+        </div>
+    </div>
+
+    <script>
+/* AUDIT 2026-07-23: file=/calc/estate-tax-calculator.html status=VERIFIED verified_by=evening-routine
+   formula=IRC_§2001 federal estate tax with §2001(c) graduated rate schedule + §2010(c) unified credit + §2010(c)(4) DSUE portability
+     tentativeTax(x) = graduated schedule: brackets bottom to top: 18% to $10k, 20% $10-20k, 22% $20-40k, 24% $40-60k, 26% $60-80k, 28% $80-100k, 30% $100-150k, 32% $150-250k, 34% $250-500k, 37% $500-750k, 39% $750k-1M, 40% above $1M
+       cumulative: at $1M = $345,800; above $1M = $345,800 + 0.40 * (x - $1,000,000)
+     applicableExclusion = $15,000,000 + DSUE (capped at 2 x $15M = $30M practical ceiling)
+     unifiedCredit = tentativeTax(applicableExclusion)
+     taxableEstate = max(0, grossEstate - deductions)
+     tentativeTaxBase = taxableEstate + adjustedTaxableGifts (§2001(b)(1))
+     grossFederalTax = tentativeTax(tentativeTaxBase)
+     federalTaxDue = max(0, grossFederalTax - unifiedCredit - giftTaxPayable)  [giftTaxPayable simplified to 0; user's prior-gift tax already-paid history not modeled]
+     stateTaxDue: for each state, tax = top-marginal-rate * max(0, taxableEstate - stateExemption)
+       EXCEPT NY: if taxableEstate <= 7,350,000 -> $0; elif taxableEstate <= 7,717,500 (105% of exemption) -> topRate * (taxableEstate - 7,350,000); else -> topRate * taxableEstate (full-value, entire exemption lost)
+     totalTransferCost = federalTaxDue + stateTaxDue
+     effectiveRate = totalTransferCost / grossEstate (if grossEstate > 0)
+   sources=Pub_L_119-21 (OBBBA 2025, made $15M exemption permanent effective 2026-01-01);
+           IRC_§2001(c) (graduated tentative-tax schedule);
+           IRC_§2010(c) (applicable credit amount);
+           IRC_§2010(c)(4) (DSUE portability);
+           IRC_§2001(b) (tentative tax includes adjusted taxable gifts);
+           IRC_§2053 (deductions for expenses/debts);
+           IRC_§2055 (charitable deduction);
+           IRC_§2056 (marital deduction);
+           NY_Tax_Law_§952(c) (5% cliff);
+           MA_Ch_50_Acts_2023 (post-reform $2M exemption + graduated schedule);
+           blog/state-estate-tax-field-guide-2026.html (state exemption + top-rate table)
+   test_cases=[
+     {tc:"TC1_under_federal_exemption_no_state", gross:5000000, deductions:0, dsue:0, gifts:0, state:"none",
+      exp: {taxableEstate:5000000, applicableExclusion:15000000, unifiedCredit:5945800,
+            tentativeTax:1945800, federalTaxDue:0, stateTaxDue:0, totalTax:0,
+            effectiveRate:0}},
+     // Hand check TC1: taxable=$5M, tentative on $5M = $345,800 + 0.40*($5M-$1M) = $345,800 + $1,600,000 = $1,945,800
+     //                unified credit = $5,945,800 >> $1,945,800 → federal = $0
+     //                state "none" → $0. Total $0.
+     {tc:"TC2_above_federal_20M_no_state", gross:20000000, deductions:0, dsue:0, gifts:0, state:"none",
+      exp: {taxableEstate:20000000, applicableExclusion:15000000, unifiedCredit:5945800,
+            tentativeTax:7945800, federalTaxDue:2000000, stateTaxDue:0, totalTax:2000000,
+            effectiveRate:0.10}},
+     // Hand check TC2: tentative on $20M = $345,800 + 0.40*$19M = $7,945,800
+     //                 credit $5,945,800 → federal = $7,945,800 - $5,945,800 = $2,000,000
+     //                 = 40% * ($20M - $15M). Effective = $2M/$20M = 10.00%
+     {tc:"TC3_MFJ_portability_50M_gross_no_state", gross:50000000, deductions:0, dsue:15000000, gifts:0, state:"none",
+      exp: {taxableEstate:50000000, applicableExclusion:30000000, unifiedCredit:11945800,
+            tentativeTax:19945800, federalTaxDue:8000000, stateTaxDue:0, totalTax:8000000,
+            effectiveRate:0.16}},
+     // Hand check TC3: DSUE=$15M gives combined $30M exclusion
+     //                 tentative on $30M = $345,800 + 0.40*$29M = $11,945,800 (unified credit)
+     //                 tentative on $50M = $345,800 + 0.40*$49M = $19,945,800
+     //                 federal = $19,945,800 - $11,945,800 = $8,000,000 = 40% * ($50M - $30M). ✓
+     //                 Effective = $8M/$50M = 16.00%
+     {tc:"TC4_NY_cliff_above_8M_full_value", gross:8000000, deductions:0, dsue:0, gifts:0, state:"ny",
+      exp: {taxableEstate:8000000, applicableExclusion:15000000, unifiedCredit:5945800,
+            tentativeTax:3145800, federalTaxDue:0, stateTaxDue:1280000, totalTax:1280000,
+            effectiveRate:0.16}},
+     // Hand check TC4: federal — taxable $8M, tentative = $345,800 + 0.40*$7M = $3,145,800, credit $5,945,800 → federal $0
+     //                 NY — $8M > $7,717,500 cliff → tax on FULL $8M at 16% = $1,280,000
+     //                 Total = $1,280,000. Effective = $1.28M/$8M = 16.00%
+     {tc:"TC5_MA_low_exemption_5M", gross:5000000, deductions:0, dsue:0, gifts:0, state:"ma",
+      exp: {taxableEstate:5000000, applicableExclusion:15000000, unifiedCredit:5945800,
+            tentativeTax:1945800, federalTaxDue:0, stateTaxDue:480000, totalTax:480000,
+            effectiveRate:0.096}}
+     // Hand check TC5: federal — taxable $5M, tentative $1,945,800, credit $5,945,800 → federal $0
+     //                 MA — 16% * ($5M - $2M) = $480,000 [top-marginal approximation; actual MA graduated schedule ≈ $391,600]
+     //                 The calc uses top-marginal-on-excess as an UPPER BOUND estimate, disclosed in-UI.
+     //                 Total = $480,000. Effective = $480k/$5M = 9.60%
+   ]
+   caveats_not_modeled=[
+     (a) State estate tax uses top-marginal-rate on excess above state exemption — upper bound for estates just above exemption; converges to actual state bill for large estates (state schedules are graduated). Users near state exemption should consult a CPA;
+     (b) Massachusetts graduated §2011 pre-2001 credit table not implemented — MA top-rate approximation over-estimates by 15-25% for estates in $2M-$5M range. Blog's state-estate-tax-field-guide-2026.html cites actual MA schedule cases;
+     (c) Prior gift tax already paid (§2001(b)(2)) not modeled — user should reduce DSUE input or add to gifts input to approximate;
+     (d) State inheritance tax (PA, NJ, KY, MD, NE) is a SEPARATE beneficiary-level tax, not modeled here — see the field guide;
+     (e) Generation-skipping transfer tax (Chapter 13) not modeled — separate $15M GST exemption under §2631;
+     (f) Real property in a different state than domicile can trigger nonresident state estate tax (MA, NY, and others) — user should model each state separately;
+     (g) Alternate valuation date election under §2032 (6 months post-death) not modeled — user enters valuation as-of-death;
+     (h) Section 2032A special-use valuation for farms/closely-held businesses not modeled;
+     (i) IRC §6166 installment payment (14-year for closely-held businesses) doesn't change the tax due, only the payment schedule — not modeled;
+     (j) Portability election deadline: 9 months after death per §6075(a); Rev. Proc. 2022-32 5-year extension for non-required filers — deadline math not enforced;
+     (k) Sunset risk: OBBBA made $15M PERMANENT (no sunset); calculator hardcoded to 2026 amounts — refresh when IRS Notice 2026-XX ships 2027 inflation adjustments
+   ]
+*/
+
+const STATE_ESTATE_TAX = {
+  none: {name:"None (no state estate tax)", exemption:Infinity, topRate:0, hasCliff:false, cliffMultiplier:1.05},
+  ct:   {name:"Connecticut",                 exemption:15000000,  topRate:0.12, hasCliff:false, cliffMultiplier:1.05},
+  dc:   {name:"District of Columbia",        exemption:4710000,   topRate:0.16, hasCliff:false, cliffMultiplier:1.05},
+  hi:   {name:"Hawaii",                      exemption:5490000,   topRate:0.20, hasCliff:false, cliffMultiplier:1.05},
+  il:   {name:"Illinois",                    exemption:4000000,   topRate:0.16, hasCliff:false, cliffMultiplier:1.05},
+  me:   {name:"Maine",                       exemption:7000000,   topRate:0.12, hasCliff:false, cliffMultiplier:1.05},
+  md:   {name:"Maryland",                    exemption:5000000,   topRate:0.16, hasCliff:false, cliffMultiplier:1.05},
+  ma:   {name:"Massachusetts",               exemption:2000000,   topRate:0.16, hasCliff:false, cliffMultiplier:1.05},
+  mn:   {name:"Minnesota",                   exemption:3000000,   topRate:0.16, hasCliff:false, cliffMultiplier:1.05},
+  ny:   {name:"New York",                    exemption:7350000,   topRate:0.16, hasCliff:true,  cliffMultiplier:1.05},
+  or:   {name:"Oregon",                      exemption:1000000,   topRate:0.16, hasCliff:false, cliffMultiplier:1.05},
+  ri:   {name:"Rhode Island",                exemption:1802431,   topRate:0.16, hasCliff:false, cliffMultiplier:1.05},
+  vt:   {name:"Vermont",                     exemption:5000000,   topRate:0.16, hasCliff:false, cliffMultiplier:1.05},
+  wa:   {name:"Washington",                  exemption:2193000,   topRate:0.20, hasCliff:false, cliffMultiplier:1.05}
+};
+
+const FED_ESTATE_BRACKETS = [
+  [10000,      0.18,   0],
+  [20000,      0.20,   1800],
+  [40000,      0.22,   3800],
+  [60000,      0.24,   8200],
+  [80000,      0.26,   13000],
+  [100000,     0.28,   18200],
+  [150000,     0.30,   23800],
+  [250000,     0.32,   38800],
+  [500000,     0.34,   70800],
+  [750000,     0.37,   155800],
+  [1000000,    0.39,   248300],
+  [Infinity,   0.40,   345800]
+];
+
+function tentativeFederalTax(amount) {
+  if (amount <= 0) return 0;
+  for (let i = 0; i < FED_ESTATE_BRACKETS.length; i++) {
+    const [top, rate, base] = FED_ESTATE_BRACKETS[i];
+    const prevTop = i === 0 ? 0 : FED_ESTATE_BRACKETS[i-1][0];
+    if (amount <= top) {
+      return base + rate * (amount - prevTop);
+    }
+  }
+  return 0;
+}
+
+const BASE_EXEMPTION_2026 = 15000000;
+
+function computeEstateTax({gross, deductions, dsue, gifts, stateKey}) {
+  const grossEstate = Math.max(0, gross);
+  const taxableEstate = Math.max(0, grossEstate - Math.max(0, deductions));
+  const dsueAmount = Math.max(0, Math.min(15000000, dsue));
+  const adjustedGifts = Math.max(0, gifts);
+
+  const applicableExclusion = BASE_EXEMPTION_2026 + dsueAmount;
+  const unifiedCredit = tentativeFederalTax(applicableExclusion);
+
+  const tentativeBase = taxableEstate + adjustedGifts;
+  const tentativeTax = tentativeFederalTax(tentativeBase);
+  const federalTaxDue = Math.max(0, tentativeTax - unifiedCredit);
+
+  const state = STATE_ESTATE_TAX[stateKey] || STATE_ESTATE_TAX.none;
+  let stateTaxDue = 0;
+  let stateNote = "";
+  if (stateKey !== "none" && state.exemption < Infinity) {
+    if (state.hasCliff) {
+      const cliffThreshold = state.exemption * state.cliffMultiplier;
+      if (taxableEstate <= state.exemption) {
+        stateTaxDue = 0;
+        stateNote = "Below " + state.name + " exemption — no state estate tax.";
+      } else if (taxableEstate <= cliffThreshold) {
+        stateTaxDue = state.topRate * (taxableEstate - state.exemption);
+        stateNote = "In " + state.name + " cliff zone ($" + fmt0(state.exemption) + "–$" + fmt0(cliffThreshold) + ") — tax on excess only.";
+      } else {
+        stateTaxDue = state.topRate * taxableEstate;
+        stateNote = "Above " + state.name + " 5% cliff (over $" + fmt0(cliffThreshold) + ") — entire exemption lost, tax on FULL taxable estate.";
+      }
+    } else {
+      if (taxableEstate <= state.exemption) {
+        stateTaxDue = 0;
+        stateNote = "Below " + state.name + " exemption — no state estate tax.";
+      } else {
+        stateTaxDue = state.topRate * (taxableEstate - state.exemption);
+        stateNote = "Above " + state.name + " exemption — tax on excess at " + (state.topRate*100).toFixed(0) + "% top-marginal approximation (actual bill may be less under graduated schedule).";
+      }
+    }
+  }
+
+  const totalTax = federalTaxDue + stateTaxDue;
+  const effectiveRate = grossEstate > 0 ? totalTax / grossEstate : 0;
+
+  return {
+    grossEstate, taxableEstate, applicableExclusion, unifiedCredit,
+    tentativeBase, tentativeTax, federalTaxDue,
+    state, stateKey, stateTaxDue, stateNote,
+    totalTax, effectiveRate,
+    dsueAmount, adjustedGifts
+  };
+}
+
+function fmt0(n) { return new Intl.NumberFormat('en-US', {maximumFractionDigits:0}).format(Math.round(n)); }
+const USD  = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
+const USD2 = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:2});
+
+function calculate() {
+  const gross = parseFloat(document.getElementById('gross').value) || 0;
+  const deductions = parseFloat(document.getElementById('deductions').value) || 0;
+  const dsue = parseFloat(document.getElementById('dsue').value) || 0;
+  const gifts = parseFloat(document.getElementById('giftsPost1976').value) || 0;
+  const stateKey = document.getElementById('state').value;
+
+  const r = computeEstateTax({gross, deductions, dsue, gifts, stateKey});
+
+  let html = '<h3>Estate tax estimate</h3>';
+  html += '<div class="result-headline">' + USD.format(r.totalTax) + ' total transfer tax</div>';
+  html += '<div style="margin-bottom:1rem;font-size:0.9rem;color:#6e6e73;">Effective rate on gross estate: <strong>' + (r.effectiveRate*100).toFixed(2) + '%</strong></div>';
+
+  html += '<div style="margin:0.75rem 0 0.5rem;font-weight:600;color:#1d1d1f;">Federal (IRC §2001)</div>';
+  html += '<div class="result-row"><span class="lbl">Gross estate</span><span class="val">' + USD.format(r.grossEstate) + '</span></div>';
+  html += '<div class="result-row"><span class="lbl">Deductions (marital / charitable / debts / admin)</span><span class="val">− ' + USD.format(Math.max(0, r.grossEstate - r.taxableEstate)) + '</span></div>';
+  html += '<div class="result-row"><span class="lbl"><strong>Taxable estate</strong></span><span class="val"><strong>' + USD.format(r.taxableEstate) + '</strong></span></div>';
+  if (r.adjustedGifts > 0) {
+    html += '<div class="result-row"><span class="lbl">+ Adjusted taxable gifts post-1976 (§2001(b))</span><span class="val">' + USD.format(r.adjustedGifts) + '</span></div>';
+    html += '<div class="result-row"><span class="lbl">Tentative-tax base</span><span class="val">' + USD.format(r.tentativeBase) + '</span></div>';
+  }
+  html += '<div class="result-row"><span class="lbl">Applicable exclusion ($15M base + $' + fmt0(r.dsueAmount) + ' DSUE)</span><span class="val">' + USD.format(r.applicableExclusion) + '</span></div>';
+  html += '<div class="result-row"><span class="lbl">Tentative tax on tax base (§2001(c))</span><span class="val">' + USD.format(r.tentativeTax) + '</span></div>';
+  html += '<div class="result-row"><span class="lbl">Unified credit (tentative tax on exclusion)</span><span class="val">− ' + USD.format(r.unifiedCredit) + '</span></div>';
+  html += '<div class="result-row"><span class="lbl"><strong>Federal estate tax due</strong></span><span class="val"><strong>' + USD.format(r.federalTaxDue) + '</strong></span></div>';
+
+  html += '<div style="margin:1.25rem 0 0.5rem;font-weight:600;color:#1d1d1f;">State (' + r.state.name + ')</div>';
+  if (r.stateKey === "none") {
+    html += '<div class="result-row"><span class="lbl">State estate tax</span><span class="val">' + USD.format(0) + '</span></div>';
+    html += '<div style="font-size:0.85rem;color:#6e6e73;margin-top:0.35rem;">37 states impose no separate estate tax. Federal-only regime.</div>';
+  } else {
+    html += '<div class="result-row"><span class="lbl">State exemption</span><span class="val">' + USD.format(r.state.exemption) + '</span></div>';
+    html += '<div class="result-row"><span class="lbl">Top marginal rate</span><span class="val">' + (r.state.topRate*100).toFixed(0) + '%</span></div>';
+    html += '<div class="result-row"><span class="lbl"><strong>State estate tax due</strong></span><span class="val"><strong>' + USD.format(r.stateTaxDue) + '</strong></span></div>';
+    html += '<div style="font-size:0.85rem;color:#6e6e73;margin-top:0.35rem;">' + r.stateNote + '</div>';
+  }
+
+  html += '<div style="margin:1.25rem 0 0.5rem;font-weight:600;color:#1d1d1f;">Combined</div>';
+  html += '<div class="result-row"><span class="lbl">Federal estate tax</span><span class="val">' + USD.format(r.federalTaxDue) + '</span></div>';
+  html += '<div class="result-row"><span class="lbl">State estate tax</span><span class="val">' + USD.format(r.stateTaxDue) + '</span></div>';
+  html += '<div class="result-row"><span class="lbl"><strong>Total transfer tax</strong></span><span class="val"><strong>' + USD.format(r.totalTax) + '</strong></span></div>';
+  html += '<div class="result-row"><span class="lbl">Net to heirs</span><span class="val">' + USD.format(Math.max(0, r.grossEstate - r.totalTax)) + '</span></div>';
+
+  if (r.federalTaxDue === 0 && r.stateTaxDue === 0) {
+    html += '<div class="callout good">✓ No estate tax owed. Federal exemption covers the taxable estate' + (r.stateKey !== "none" ? " and the estate sits under the " + r.state.name + " exemption" : "") + '. File Form 706 anyway to elect DSUE portability for the surviving spouse under IRC §2010(c)(5) — the 9-month deadline is hard.</div>';
+  } else if (r.federalTaxDue === 0 && r.stateTaxDue > 0) {
+    html += '<div class="callout">⚠ State estate tax owed even though the estate is under the federal $15M exemption. The state exemption is the binding constraint. Consider domicile planning, lifetime gifting to reduce the state taxable estate, or restructuring in-state real property into an entity to shift situs.</div>';
+  } else if (r.federalTaxDue > 0 && r.stateKey === "ny" && r.taxableEstate > r.state.exemption * r.state.cliffMultiplier) {
+    html += '<div class="callout bad">⚠ New York 5% cliff triggered. The estate lost the entire $' + fmt0(r.state.exemption) + ' exemption and is taxed on the full $' + fmt0(r.taxableEstate) + '. Bringing the estate back under the cliff via charitable bequest under IRC §2055 saves state estate tax dollar-for-dollar plus federal at 40%.</div>';
+  } else {
+    html += '<div class="callout">⚠ Federal estate tax owed at 40% marginal above the $' + fmt0(r.applicableExclusion) + ' applicable exclusion. Standard mitigations: annual exclusion gifting ($19,000/donee/2026), irrevocable life insurance trusts, GRATs, charitable remainder trusts.</div>';
+  }
+
+  html += '<p style="margin-top: 1.25rem; font-size: 0.85rem; color: #6e6e73; line-height:1.55;"><em>Educational estimate only. Uses OBBBA (Pub. L. 119-21) $15M federal exemption effective 2026-01-01, IRC §2001(c) graduated rate schedule, and 2026 state exemptions per the CalcLeap State Estate Tax Field Guide. State estimates use top-marginal-rate approximation on excess (upper bound); actual state estate tax bills use graduated schedules starting at lower rates. Does not model prior gift tax already paid, GST tax, alternate valuation, §2032A special-use, §6166 installment payments, or state inheritance tax (PA, NJ, KY, MD, NE). Consult an estate attorney or CPA for planning.</em></p>';
+
+  document.getElementById('result').innerHTML = html;
+  document.getElementById('result').style.display = 'block';
+}
+    </script>
+<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator is for informational and educational purposes only. Results are estimates based on OBBBA (Pub. L. 119-21) making the $15 million federal estate tax exemption permanent effective 2026-01-01, IRC §2001(c) graduated rate schedule, IRC §2010(c)(4) DSUE portability rules, and 2026 state exemption thresholds. State estate tax uses a top-marginal-rate approximation on excess above the state exemption — actual state estate tax bills use graduated schedules that start at lower rates, so this is an upper bound. Does not model inheritance tax, generation-skipping transfer tax, alternate valuation, or prior gift tax already paid. Estate tax planning is highly individual. Consult an estate planning attorney or CPA for filing decisions. CalcLeap does not provide tax, legal, or investment advice.</div>
+</body>
+</html>
