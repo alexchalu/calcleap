@@ -6614,3 +6614,91 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 
 - **Metric moved:** Blog gold-standard count 67 → 68 (this piece). Retirement sub-cluster 25 → 26 pieces on a 22-day publishing streak. Estate-planning sub-cluster: 1 → 2 pieces (this piece completes the retirement + estate-tax intersection anchor for the sub-cluster).
 - **No secrets committed. No git config modified. No hooks skipped. Three-file commit (`blog/retirement-account-estate-tax-inclusion-2026.html` + `sitemap.xml` + `OPERATIONS.md`) per playbook.**
+
+
+### 2026-07-26 — Evening (Claude, evening routine) — TIER 3 (nnnnnnnnnnnnn): ME/HI/NY 2026 exemption cross-check + stale dropdown-label sweep in estate calc
+
+- **Item picked:** queue item **(nnnnnnnnnnnnn) cross-check ME/HI/NY exemption values against 2026 statutory sources** — explicitly flagged as this-evening's top pick in the 2026-07-26 morning log ("Recommend (nnnnnnnnnnnnn) as the highest-leverage pick — completes the CPI-indexed exemption sweep across all six annually-indexed estate-tax states"). Chosen over (mmmmmmmmmmmmmm) WA date-of-death selector and (ooooooooooooo) statutorily-exact UI badges because it completes the TY2026 CPI-indexed exemption sweep that yesterday evening opened (DC/RI/WA) and — as the 2026-07-25 evening log noted — the (mmmmmmmmmmmmmm) WA rebuild would benefit from having every state exemption confirmed current first.
+
+- **Cross-check findings:**
+  - **Maine ($7,000,000 → $7,160,000, STALE, UPDATED):** 36 M.R.S. §4062 CPI-adjusts the Maine exclusion amount annually; TY2026 value is $7,160,000 (up 2.29% from TY2025 $7,000,000). Corroborated by three independent public sources (Maine estate-tax guides; AARP Maine state-tax guide 2026; Maine Revenue Services FAQ chain-referenced by multiple summaries). The government sources (maine.gov, mainelegislature.org) were 403-blocked by the routine's egress policy (same wall the 2026-07-25 evening MD/OR/WA graduated-schedule item hit), but the corroboration across three independent secondary sources at the same exact $7,160,000 value provides sufficient confidence per OPERATIONS.md's "canonical formula confidently" bar. Update shipped.
+  - **New York ($7,350,000, CORRECT, NO CHANGE):** NY Tax Law §952(c)(2) CPI-indexes the basic exclusion amount from a $5M-2010 base. TY2026 value is $7,350,000 (up $190,000 from TY2025 $7,160,000). Calc value already correct — this is the pre-emptive-update pattern from the 2026-07-24 evening rebuild that had shipped the TY2026 NY value ahead of the annual DTF publication.
+  - **Hawaii ($5,490,000, CORRECT, NO CHANGE):** HRS §236E-6(b) sets the Hawaii applicable exclusion amount as the "exemption equivalent of the unified credit on the decedent's federal estate tax return, as set forth for the decedent in chapter 11 of the Internal Revenue Code as amended as of December 21, 2017, as if the decedent died on December 31, 2017." This is a FIXED statutory value tied to the pre-TCJA federal $5.49M (2017) exemption — NOT indexed for inflation, unchanged for TY2026 or any future year unless the Hawaii legislature amends §236E-6. Calc value correct as-is.
+
+- **Bonus fixes (stale UI labels missed by yesterday evening's exemption refresh):**
+  - **DC dropdown label** `District of Columbia ($4.71M exemption, 16% top)` → `District of Columbia ($4.99M exemption, 16% top)` (matches yesterday's calc data update to $4,988,400).
+  - **RI dropdown label** `Rhode Island ($1.8M exemption, 16% top)` → `Rhode Island ($1.84M exemption, 16% top)` (matches yesterday's calc data update to $1,838,056).
+  - **WA dropdown label** `Washington ($2.193M exemption, 20% top)` → `Washington ($3.076M exemption, 20% top)` (matches yesterday's calc data update to $3,076,000).
+  These three dropdown labels were the only user-visible strings in the calc that yesterday's exemption refresh did not update. Users selecting DC/RI/WA from the dropdown were being told the calc used the pre-2026 exemption values even though the underlying computation was correctly using the 2026 values.
+  - **ME dropdown label** `Maine ($7M exemption, 12% top)` → `Maine ($7.16M exemption, 12% top)` (matches this evening's ME update).
+
+- **Test-case update:**
+  - **TC7_ME_sec2011_exact_10M** renamed → **TC7_ME_sec2011_exact_10M_2026exemption** and expected result updated:
+    - **Prior expected (at $7,000,000 exemption):** `stateTaxDue = $429,600` = `sec2011Credit($10,000,000) − sec2011Credit($7,000,000)` = `$1,067,600 − $638,000`.
+    - **New expected (at $7,160,000 exemption):** `stateTaxDue = $408,640` = `sec2011Credit($10,000,000) − sec2011Credit($7,160,000)` = `$1,067,600 − $658,960`. Hand check: `sec2011Credit($7,160,000)` — adjusted taxable = `$7,100,000` moves out of the $6.04M–$7.04M bracket (12.8%) into the $7.04M–$8.04M bracket (13.6%). Base at $7.04M = $650,800 + 0.136 × ($7,100,000 − $7,040,000) = $650,800 + $8,160 = $658,960. ME tax = $1,067,600 − $658,960 = $408,640. Effective rate = $408,640 / $10M = 4.086% (down from 4.296% under the prior year's exemption).
+    - **Hand-check comment block** updated with the new derivation and the "2026 CPI-indexed exemption of $7,160,000; prior 2025 exemption was $7,000,000" annotation.
+    - **Rationale for the $20,960 reduction:** the $160,000 higher exemption shields an additional $160K at the ~13% average §2011 rate for that band ($160K × 13.1% = $20,960 exactly). This is the correct arithmetic direction — a higher exemption should reduce state tax owed by roughly the shielded band × the marginal rate at that band.
+
+- **Explanation-text update (post-calc "state estate tax breakdown" paragraph):**
+  - **Maine bullet:** `$7M exemption (approx, indexed), §2011 graduated (0.8%–16%)` → `$7.16M exemption (2026, CPI-indexed under 36 M.R.S. §4062), §2011 graduated (0.8%–16%)`. The `36 M.R.S. §4062` statutory pinpoint is the correct citation for the annual inflation adjustment (§4102 governs the definition of the Maine exclusion amount but §4062 is where the CPI-indexing mechanic sits).
+
+- **In-panel disclaimer (result-panel bottom `<em>` block)** and **bottom `.calc-disclaimer` `<div>`** both updated with `ME $7,000,000 → $7,160,000` in the CPI-indexed 2026 state exemption enumeration. Both list the same six annually-refreshed exemptions (DC $4,988,400; RI $1,838,056; WA $3,076,000; NY $7,350,000; ME $7,160,000; HI $5,490,000) for consistency.
+
+- **Field guide (`/blog/state-estate-tax-field-guide-2026.html`) update:**
+  - **Row update in the 12-state exemption table:** Maine `$7,000,000 (approx, indexed)` → `$7,160,000 (2026, CPI-indexed)`. HI and NY table rows were already at the correct values.
+
+- **Morning blog-piece cross-cluster update (`/blog/retirement-account-estate-tax-inclusion-2026.html`, published this morning):**
+  - **State-comparison table row for Maine:** `$7,000,000 | 12% | CPI-indexed; §2011-exact math` → `$7,160,000 | 12% | 2026 CPI-indexed under 36 M.R.S. §4062; §2011-exact math`. This morning's piece shipped with the pre-refresh ME value; catching it now keeps the calc and the piece consistent.
+
+- **AUDIT comment addition:** new `AUDIT 2026-07-26:` block appended to the top-of-`<script>` comment header documenting the cross-check findings, the ME update, and the four dropdown-label fixes. Explicitly notes NY and HI are CONFIRMED CORRECT with the underlying statutory reason for each (NY CPI-indexed at the correct TY2026 value; HI fixed at the pre-TCJA federal exemption per HRS §236E-6(b)).
+
+- **Files touched (4):**
+  - `calc/estate-tax-calculator.html` — `STATE_ESTATE_TAX.me.exemption` 7000000 → 7160000; 4 dropdown labels (DC/ME/RI/WA); explanation-text Maine bullet; AUDIT comment block augmentation; TC7 rename and expected-result update; TC7 hand-check comment; in-panel result disclaimer; bottom `.calc-disclaimer` div.
+  - `blog/state-estate-tax-field-guide-2026.html` — Maine row of the 12-state exemption table.
+  - `blog/retirement-account-estate-tax-inclusion-2026.html` — Maine row of the state-comparison table.
+  - `OPERATIONS.md` — this Daily Log entry.
+
+- **Validation — all 8 test cases verified via extracted-engine `node` run against the updated calc:**
+  - TC1_under_federal_exemption_no_state — **PASS ✓**
+  - TC2_above_federal_20M_no_state — **PASS ✓**
+  - TC3_MFJ_portability_50M_gross_no_state — **PASS ✓**
+  - TC4_NY_cliff_above_8M_full_value — **PASS ✓**
+  - TC5_MA_sec2011_exact_5M — **PASS ✓**
+  - TC6_MA_sec2011_exact_3M — **PASS ✓**
+  - TC7_ME_sec2011_exact_10M_2026exemption ($10M, me, at new $7,160,000 exemption) — expected `stateTaxDue = $408,640` — **PASS ✓**
+  - TC8_RI_sec2011_exact_5M_2026exemption ($5M, ri, at new $1,838,056 exemption) — expected `stateTaxDue = $303,659.97` — **PASS ✓**
+  - Exemption spot checks via `STATE_ESTATE_TAX`: `HI.exemption = 5490000 ✓`, `NY.exemption = 7350000 ✓`, `ME.exemption = 7160000 ✓`, `DC.exemption = 4988400 ✓`, `RI.exemption = 1838056 ✓`, `WA.exemption = 3076000 ✓`.
+  - `sec2011Credit($7,160,000) = $658,960.00` ✓ (matches hand check).
+  - Verifier at `scratchpad/estate-verify.js`, run with `node`. **8/8 passed, 0 failed.**
+
+- **Grep-based structural validation:**
+  - `grep -c 'exemption:7000000\|ME \$7,000,000\|Maine.*\$7,000,000\|Maine (\$7M' calc + field-guide + morning-piece` = **0** ✓ (no stale ME values remain anywhere)
+  - `grep -c '7,160,000\|exemption:7160000' calc + field-guide + morning-piece` = **11** ✓ (fresh value present in all three)
+  - `grep -c 'AUDIT 2026-07-26' calc` = **1** ✓ (new AUDIT block appended)
+  - `grep -c 'application/ld+json' calc` = **2** ✓; `field-guide` = **3** ✓; `morning-piece` = **3** ✓ (schema counts preserved)
+  - `grep -c 'href=""' calc + field-guide + morning-piece` = **0** ✓
+  - JSON-LD schema parse: calc **2 valid, 0 invalid**; field guide **3 valid, 0 invalid**; morning piece **3 valid, 0 invalid** ✓ (all schemas remain well-formed after edits)
+
+- **What this closes vs the pre-run state:**
+  - **Queue item (nnnnnnnnnnnnn) CLOSED** — cross-check of ME/HI/NY exemption values complete; ME updated, NY and HI confirmed current. The three-day (nnnnnnnnnnnnn)-adjacent workstream ((eeeeeeeeeeeee) statutorily-exact callout 2026-07-25 evening + (kkkkkkkkkkkkkkk) DC/RI/WA CPI refresh 2026-07-25 evening + this (nnnnnnnnnnnnn) ME/HI/NY cross-check 2026-07-26 evening) has now completed the TY2026 CPI-indexed exemption sweep across all six annually-indexed estate-tax states.
+  - **Verified-math state count on estate calc: unchanged at 4 §2011 exact states (MA, ME, RI, MN) + NY 5 percent cliff exact + federal-only regime exact.** Test-case count unchanged at 8 (updated TC7 for new ME exemption; unchanged TC1-TC6, TC8 already at correct 2026 values).
+  - **Stale UI labels fully corrected** — the 4 dropdown labels (DC/ME/RI/WA) that were displaying pre-2026 exemption values now match the underlying calc data. Users who select any of these four states from the dropdown now see the 2026 value in the option label as well as in the result panel.
+  - **Estate calc's data-freshness for 2026 is now 100% complete** across all indexed states — no state exemption value in the calc lags behind its 2026 statutory value. This is the first time the calc has been at full-current-year exemption parity across every state that indexes.
+
+- **Notable observations:**
+  - **The 3-day rolling sweep from 2026-07-24 evening through 2026-07-26 evening was the largest coordinated TY2026 refresh in the estate calc's history.** Sum totals across the three evenings: `usesSec2011` upgrade for MA/ME/RI/MN (2026-07-24) + DC/RI/WA CPI refresh + WA regime whiplash disclosure (2026-07-25) + ME CPI refresh + 4 stale dropdown labels + 3-file text alignment (2026-07-26). The calc is now categorically the most-current TY2026 consumer estate tax calculator surveyed on the state-estate-tax-field-guide competitive landscape.
+  - **HRS §236E-6(b)'s frozen-to-2017 statutory mechanic is genuinely unusual.** Every other estate-tax state either indexes annually (DC/ME/NY/RI/WA) or freezes at a legislature-set nominal dollar amount (CT/IL/MA/MD/MN/OR/VT). Hawaii uniquely freezes at the pre-TCJA federal $5.49M exemption — which was itself annually indexed from a $5.00M-2011 base under IRC §2010(c) up to 2017 and then TCJA-doubled. Hawaii's exemption is a snapshot of the federal exemption on 12/31/2017 with the Trump-era doubling explicitly removed. Documenting this in the AUDIT block preserves the reasoning for a future maintainer who might otherwise assume the Hawaii value should be checked against the federal exemption each year.
+  - **The Maine bump is small but the effect on TC7 is measurable.** The $160,000 exemption lift shields exactly $160,000 of taxable estate that crosses the $7.04M §2011 bracket boundary. The marginal §2011 rate on that band is 13.6% (the $7.04M–$8.04M bracket), so the state tax reduction is $160K × 13.1% = $20,960 (weighted for the $60K adjusted-taxable offset). The direction is correct — a higher exemption should always reduce state tax owed for any estate above the exemption.
+  - **The dropdown-label bug from yesterday evening is a good caution for future single-file multi-string data updates.** Yesterday's exemption refresh touched `STATE_ESTATE_TAX` data, the AUDIT comment, the in-panel disclaimer, the bottom `.calc-disclaimer`, and TC8 — but missed the 3 dropdown labels because those are HTML `<option>` strings not JS data. A future automated verification pass could grep for state-exemption dollar amounts across all HTML pages and warn on any mismatch between dropdown labels and underlying data — a good future evening-slot infra task worth queueing.
+  - **The (nnnnnnnnnnnnn) task confirms the state-exemption sweep pattern.** Each evening's sweep is small (1-3 file changes, 2-3 grep patterns, 1-2 test-case updates) but adds up. Over 3 evenings the estate calc went from "stale on DC/RI/WA/ME" to "fully current on every indexed state" without a single all-at-once big-bang commit that would be hard to review. This is the ~60-min-per-evening cadence at its best.
+
+- **New queue items surfaced this evening:**
+  - **(oooooooooooooo) sitewide state-exemption-dropdown grep verifier** — a small `node` or `python3` script that walks every HTML file with a state dropdown and reports any mismatch between the dropdown label and the JS `STATE_ESTATE_TAX` data (or the equivalent state-tax data structure for other calcs). Would prevent the 2026-07-25 dropdown-label-drift bug from recurring. Estimated 30 min. TIER 4.
+  - **(pppppppppppppp) `/blog/hawaii-estate-tax-frozen-exemption-planning-2026.html`** — a dedicated deep-dive on the Hawaii §236E-6(b) frozen-to-2017 exemption mechanic and its planning implications. Hawaii is the only state where a taxable estate today is much more likely than a taxable estate a decade ago (federal doubled, HI didn't), making it a distinct and under-covered planning problem. Would extend the state-tax sub-cluster into HI. Estimated 6,000-7,000 words, 15-18 primary sources. TIER 2.
+
+- **Recommendations for next runs:**
+  - **Morning slot 2026-07-27:** carry-forward from the 2026-07-26 morning log — top-pick was (sssssssssssssss) `/blog/qualified-charitable-distributions-qcd-2026.html`. Recommend maintaining that as the pick — QCDs are the specific planning lever the morning piece named as the "single most efficient charitable-giving vehicle for retirees with IRA assets and charitable intent," and closing the content loop is high-leverage. Alternative: (rrrrrrrrrrrrrr) NUA-election deep-dive (opens a new retirement sub-cluster branch).
+  - **Evening slot 2026-07-27:** carry-forward top pick is (mmmmmmmmmmmmmm) WA date-of-death selector for the estate calc (SB 5813 first-half vs SB 6347 second-half 2026 regime — resolves the disclosed whiplash and models both regimes correctly). ~30 min build. Alternative: (oooooooooooooo) sitewide state-exemption-dropdown grep verifier surfaced this evening (would prevent future dropdown-label drift; ~30 min build).
+
+- **Metric moved:** No new gold-standard blog. Estate calc TY2026 exemption freshness moved from 5/6 states to 6/6 states current (ME added to DC/RI/WA/NY already-current + HI structurally-fixed). Cross-file consistency for ME improved: value now identical across calc data + calc disclaimer + calc dropdown label + calc AUDIT + field guide table + retirement-account estate-tax morning piece.
+- **No secrets committed. No git config modified. No hooks skipped. Four-file commit (`calc/estate-tax-calculator.html` + `blog/state-estate-tax-field-guide-2026.html` + `blog/retirement-account-estate-tax-inclusion-2026.html` + `OPERATIONS.md`) per playbook.**

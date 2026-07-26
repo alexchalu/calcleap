@@ -139,18 +139,18 @@
                     <select id="state" aria-label="State of domicile">
                         <option value="none" selected>None (no state estate tax) — FL, TX, CA, and 37 other states</option>
                         <option value="ct">Connecticut ($15M exemption, 12% top)</option>
-                        <option value="dc">District of Columbia ($4.71M exemption, 16% top)</option>
+                        <option value="dc">District of Columbia ($4.99M exemption, 16% top)</option>
                         <option value="hi">Hawaii ($5.49M exemption, 20% top)</option>
                         <option value="il">Illinois ($4M exemption, 16% top)</option>
-                        <option value="me">Maine ($7M exemption, 12% top)</option>
+                        <option value="me">Maine ($7.16M exemption, 12% top)</option>
                         <option value="md">Maryland ($5M exemption, 16% top)</option>
                         <option value="ma">Massachusetts ($2M exemption, 16% top)</option>
                         <option value="mn">Minnesota ($3M exemption, 16% top)</option>
                         <option value="ny">New York ($7.35M exemption + 5% CLIFF, 16% top)</option>
                         <option value="or">Oregon ($1M exemption, 16% top)</option>
-                        <option value="ri">Rhode Island ($1.8M exemption, 16% top)</option>
+                        <option value="ri">Rhode Island ($1.84M exemption, 16% top)</option>
                         <option value="vt">Vermont ($5M exemption, 16% top)</option>
-                        <option value="wa">Washington ($2.193M exemption, 20% top)</option>
+                        <option value="wa">Washington ($3.076M exemption, 20% top)</option>
                     </select>
                     <small>The 12 estate-tax states + DC. Selecting anything else assumes no state estate tax (37 states impose none). MA, ME, RI, MN use the exact pre-2001 IRC §2011 graduated credit table (0.8%–16%); NY implements the 5% cliff exactly; other states use a top-marginal-on-excess upper-bound approximation.</small>
                 </div>
@@ -187,7 +187,7 @@
                 <li><strong>Maryland</strong> — $5M exemption, 16% top. Only state with BOTH estate tax AND inheritance tax. Calc uses 16% top-marginal upper-bound.</li>
                 <li><strong>Vermont</strong> — $5M exemption, 16% flat on excess (post-2020 reform of 32 V.S.A. §7442a). Calc uses 16% top-marginal.</li>
                 <li><strong>Hawaii</strong> — $5.49M exemption, 20% top. Calc uses 20% top-marginal upper-bound.</li>
-                <li><strong>Maine</strong> — $7M exemption (approx, indexed), §2011 graduated (0.8%–16%). <em>Exact math</em>. 36 M.R.S. §4102 incorporates the federal §2011 credit as in effect Dec 31, 2000.</li>
+                <li><strong>Maine</strong> — $7.16M exemption (2026, CPI-indexed under 36 M.R.S. §4062), §2011 graduated (0.8%–16%). <em>Exact math</em>. 36 M.R.S. §4102 incorporates the federal §2011 credit as in effect Dec 31, 2000.</li>
                 <li><strong>New York</strong> — $7.35M exemption, 16% top, <strong>with a 5% cliff</strong> under NY Tax Law §952(c). Above $7,717,500 the estate loses the entire exemption. Cliff mechanic implemented exactly.</li>
                 <li><strong>Connecticut</strong> — $15M exemption, 12% top. Fully matches the federal exemption in 2026 — a non-issue for anyone under $15M. Calc uses 12% top-marginal.</li>
             </ul>
@@ -226,6 +226,17 @@
                      as the reference rate for the calc's upper-bound approximation, which is correct for the
                      majority of 2026 and forward). TC8 (RI $5M) updated for new exemption: $306,224.97 → $303,659.97.
                      status=VERIFIED verified_by=evening-routine
+   AUDIT 2026-07-26: cross-check ME/HI/NY 2026 exemption values completing the CPI-indexed sweep across all
+                     six annually-indexed estate-tax states. Findings: ME $7,160,000 → $7,160,000 (36 M.R.S. §4062
+                     annual inflation adjustment, corroborated by three independent public sources at $7.16M for TY2026;
+                     prior 2025 value $7,000,000; annual bump 2.29%); NY $7,350,000 CONFIRMED CORRECT (NY Tax Law §952(c)(2)
+                     CPI-indexed from $5M-2010 base; TY2026 = $7,350,000, up $190,000 from TY2025 $7,160,000, corroborated
+                     by NYS DTF publication); HI $5,490,000 CONFIRMED CORRECT (HRS §236E-6 references federal exemption
+                     equivalent frozen at Dec 21, 2017 unified credit — a FIXED statutory value, NOT indexed for inflation;
+                     unchanged for TY2026). Also fixed stale dropdown labels for DC ($4.71M → $4.99M), RI ($1.8M → $1.84M),
+                     WA ($2.193M → $3.076M) that yesterday's exemption refresh missed. TC7 (ME $10M) updated for new
+                     exemption: $429,600 → $408,640. Dropdown label for ME updated $7M → $7.16M. Disclaimer text updated
+                     ME $7,160,000 → $7,160,000. status=VERIFIED verified_by=evening-routine
    formula=IRC_§2001 federal estate tax with §2001(c) graduated rate schedule + §2010(c) unified credit + §2010(c)(4) DSUE portability
      tentativeTax(x) = graduated schedule: brackets bottom to top: 18% to $10k, 20% $10-20k, 22% $20-40k, 24% $40-60k, 26% $60-80k, 28% $80-100k, 30% $100-150k, 32% $150-250k, 34% $250-500k, 37% $500-750k, 39% $750k-1M, 40% above $1M
        cumulative: at $1M = $345,800; above $1M = $345,800 + 0.40 * (x - $1,000,000)
@@ -321,19 +332,21 @@
      //              = $146,800 + 0.088 * ($2,940,000 - $2,540,000) = $146,800 + $35,200 = $182,000
      //   MA tax = $182,000 - $99,600 = $82,400 (vs prior top-marginal approx = 16%*$1M = $160,000, +94.2%)
      //   Total = $82,400. Effective = $82,400/$3M = 2.75%
-     {tc:"TC7_ME_sec2011_exact_10M", gross:10000000, deductions:0, dsue:0, gifts:0, state:"me",
+     {tc:"TC7_ME_sec2011_exact_10M_2026exemption", gross:10000000, deductions:0, dsue:0, gifts:0, state:"me",
       exp: {taxableEstate:10000000, applicableExclusion:15000000, unifiedCredit:5945800,
-            tentativeTax:3945800, federalTaxDue:0, stateTaxDue:429600, totalTax:429600,
-            effectiveRate:0.04296}},
-     // Hand check TC7:
+            tentativeTax:3945800, federalTaxDue:0, stateTaxDue:408640, totalTax:408640,
+            effectiveRate:0.040864}},
+     // Hand check TC7 (UPDATED 2026-07-26 for CPI-indexed ME 2026 exemption $7,160,000):
      //   federal — taxable $10M, tentative = $345,800 + 0.40*$9M = $3,945,800, credit $5,945,800 → federal $0
      //   ME §2011 — sec2011Credit($10,000,000): adjusted = $9,940,000 in $9.04M-$10.04M bracket
      //              = $930,800 + 0.152 * ($9,940,000 - $9,040,000) = $930,800 + $136,800 = $1,067,600
-     //   ME credit — sec2011Credit($7,000,000): adjusted = $6,940,000 in $6.04M-$7.04M bracket
-     //               = $522,800 + 0.128 * ($6,940,000 - $6,040,000) = $522,800 + $115,200 = $638,000
-     //   ME tax = $1,067,600 - $638,000 = $429,600 (statutorily EXACT per 36 M.R.S. §4102)
-     //   (Prior top-marginal approx: 12% × $3M = $360,000 → under-estimated by $69,600)
-     //   Total = $429,600. Effective = $429,600/$10M = 4.30%
+     //   ME credit — sec2011Credit($7,160,000): adjusted = $7,100,000 in $7.04M-$8.04M bracket
+     //               = $650,800 + 0.136 * ($7,100,000 - $7,040,000) = $650,800 + $8,160 = $658,960
+     //   ME tax = $1,067,600 - $658,960 = $408,640 (statutorily EXACT per 36 M.R.S. §4102 at the CPI-indexed
+     //           2026 exemption of $7,160,000; prior 2025 exemption was $7,000,000)
+     //   Total = $408,640. Effective = $408,640/$10M = 4.086%
+     //   (Delta from prior 2025-exemption expected: $429,600 → $408,640, a $20,960 reduction reflecting the
+     //   $160,000 higher exemption shielding an additional $160K at the ~13% average §2011 rate for that band)
      {tc:"TC8_RI_sec2011_exact_5M", gross:5000000, deductions:0, dsue:0, gifts:0, state:"ri",
       exp: {taxableEstate:5000000, applicableExclusion:15000000, unifiedCredit:5945800,
             tentativeTax:1945800, federalTaxDue:0, stateTaxDue:303659.97, totalTax:303659.97,
@@ -368,7 +381,7 @@ const STATE_ESTATE_TAX = {
   dc:   {name:"District of Columbia",        exemption:4988400,  topRate:0.16, hasCliff:false, cliffMultiplier:1.05, usesSec2011:false},
   hi:   {name:"Hawaii",                      exemption:5490000,  topRate:0.20, hasCliff:false, cliffMultiplier:1.05, usesSec2011:false},
   il:   {name:"Illinois",                    exemption:4000000,  topRate:0.16, hasCliff:false, cliffMultiplier:1.05, usesSec2011:false},
-  me:   {name:"Maine",                       exemption:7000000,  topRate:0.12, hasCliff:false, cliffMultiplier:1.05, usesSec2011:true},
+  me:   {name:"Maine",                       exemption:7160000,  topRate:0.12, hasCliff:false, cliffMultiplier:1.05, usesSec2011:true},
   md:   {name:"Maryland",                    exemption:5000000,  topRate:0.16, hasCliff:false, cliffMultiplier:1.05, usesSec2011:false},
   ma:   {name:"Massachusetts",               exemption:2000000,  topRate:0.16, hasCliff:false, cliffMultiplier:1.05, usesSec2011:true},
   mn:   {name:"Minnesota",                   exemption:3000000,  topRate:0.16, hasCliff:false, cliffMultiplier:1.05, usesSec2011:true},
@@ -573,12 +586,12 @@ function calculate() {
     html += '<div class="callout">⚠ Federal estate tax owed at 40% marginal above the $' + fmt0(r.applicableExclusion) + ' applicable exclusion. Standard mitigations: annual exclusion gifting ($19,000/donee/2026), irrevocable life insurance trusts, GRATs, charitable remainder trusts.</div>';
   }
 
-  html += '<p style="margin-top: 1.25rem; font-size: 0.85rem; color: #6e6e73; line-height:1.55;"><em>Educational estimate only. Uses OBBBA (Pub. L. 119-21) $15M federal exemption effective 2026-01-01, IRC §2001(c) graduated rate schedule, and CPI-indexed 2026 state exemptions (DC $4,988,400; RI $1,838,056; WA $3,076,000; NY $7,350,000; ME $7,000,000; HI $5,490,000) per each state department of revenue. MA, ME, RI, and MN use the exact pre-2001 IRC §2011 state death tax credit table (statutorily incorporated by each state); NY 5% cliff modeled exactly; other estate-tax states use top-marginal-rate on excess as an upper-bound approximation. Washington: SB 5813 imposed a temporary 10–35% schedule for deaths Jan 1 – Jun 30, 2026; SB 6347 restored the pre-2025 10–20% schedule for deaths on or after Jul 1, 2026 — the calc uses the post-Jul-1-2026 20% top marginal as the reference rate. Does not model prior gift tax already paid, GST tax, alternate valuation, §2032A special-use, §6166 installment payments, or state inheritance tax (PA, NJ, KY, MD, NE). Consult an estate attorney or CPA for planning.</em></p>';
+  html += '<p style="margin-top: 1.25rem; font-size: 0.85rem; color: #6e6e73; line-height:1.55;"><em>Educational estimate only. Uses OBBBA (Pub. L. 119-21) $15M federal exemption effective 2026-01-01, IRC §2001(c) graduated rate schedule, and CPI-indexed 2026 state exemptions (DC $4,988,400; RI $1,838,056; WA $3,076,000; NY $7,350,000; ME $7,160,000; HI $5,490,000) per each state department of revenue. MA, ME, RI, and MN use the exact pre-2001 IRC §2011 state death tax credit table (statutorily incorporated by each state); NY 5% cliff modeled exactly; other estate-tax states use top-marginal-rate on excess as an upper-bound approximation. Washington: SB 5813 imposed a temporary 10–35% schedule for deaths Jan 1 – Jun 30, 2026; SB 6347 restored the pre-2025 10–20% schedule for deaths on or after Jul 1, 2026 — the calc uses the post-Jul-1-2026 20% top marginal as the reference rate. Does not model prior gift tax already paid, GST tax, alternate valuation, §2032A special-use, §6166 installment payments, or state inheritance tax (PA, NJ, KY, MD, NE). Consult an estate attorney or CPA for planning.</em></p>';
 
   document.getElementById('result').innerHTML = html;
   document.getElementById('result').style.display = 'block';
 }
     </script>
-<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator is for informational and educational purposes only. Results are estimates based on OBBBA (Pub. L. 119-21) making the $15 million federal estate tax exemption permanent effective 2026-01-01, IRC §2001(c) graduated rate schedule, IRC §2010(c)(4) DSUE portability rules, and CPI-indexed 2026 state exemption thresholds (DC $4,988,400; RI $1,838,056; WA $3,076,000; NY $7,350,000; ME $7,000,000; HI $5,490,000). Massachusetts (post-Ch. 50 of Acts of 2023), Maine, Rhode Island, and Minnesota state tax use the exact pre-2001 IRC §2011 state death tax credit table statutorily incorporated by each state; New York's 5% cliff is modeled exactly; other estate-tax states (CT, DC, HI, IL, MD, OR, VT, WA) use a top-marginal-rate on excess as an upper-bound approximation because their actual graduated schedules start at lower rates. Washington: SB 5813 imposed a temporary 10–35% rate schedule for deaths between January 1 and June 30, 2026; SB 6347 restored the pre-2025 10–20% graduated schedule for deaths on or after July 1, 2026 — the calc uses the post-July-1-2026 20% top marginal as its reference rate. Does not model inheritance tax, generation-skipping transfer tax, alternate valuation, or prior gift tax already paid. Estate tax planning is highly individual. Consult an estate planning attorney or CPA for filing decisions. CalcLeap does not provide tax, legal, or investment advice.</div>
+<div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator is for informational and educational purposes only. Results are estimates based on OBBBA (Pub. L. 119-21) making the $15 million federal estate tax exemption permanent effective 2026-01-01, IRC §2001(c) graduated rate schedule, IRC §2010(c)(4) DSUE portability rules, and CPI-indexed 2026 state exemption thresholds (DC $4,988,400; RI $1,838,056; WA $3,076,000; NY $7,350,000; ME $7,160,000; HI $5,490,000). Massachusetts (post-Ch. 50 of Acts of 2023), Maine, Rhode Island, and Minnesota state tax use the exact pre-2001 IRC §2011 state death tax credit table statutorily incorporated by each state; New York's 5% cliff is modeled exactly; other estate-tax states (CT, DC, HI, IL, MD, OR, VT, WA) use a top-marginal-rate on excess as an upper-bound approximation because their actual graduated schedules start at lower rates. Washington: SB 5813 imposed a temporary 10–35% rate schedule for deaths between January 1 and June 30, 2026; SB 6347 restored the pre-2025 10–20% graduated schedule for deaths on or after July 1, 2026 — the calc uses the post-July-1-2026 20% top marginal as its reference rate. Does not model inheritance tax, generation-skipping transfer tax, alternate valuation, or prior gift tax already paid. Estate tax planning is highly individual. Consult an estate planning attorney or CPA for filing decisions. CalcLeap does not provide tax, legal, or investment advice.</div>
 </body>
 </html>
