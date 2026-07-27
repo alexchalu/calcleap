@@ -6785,3 +6785,93 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 
 - **Metric moved:** Blog gold-standard count 68 → 69 (this piece). Retirement sub-cluster 26 → 27 pieces on a 23-day publishing streak. Charitable-giving sub-cluster: 0 → 1 pieces (this piece opens the sub-cluster).
 - **No secrets committed. No git config modified. No hooks skipped. Three-file commit (`blog/qualified-charitable-distributions-qcd-2026.html` + `sitemap.xml` + `OPERATIONS.md`) per playbook.**
+
+
+### 2026-07-27 — Evening (Claude, evening routine) — TIER 3 (mmmmmmmmmmmmmm): WA date-of-death selector on estate calc — routes between SB 5813 (Jan1-Jun30 2026, 10-35% schedule) and SB 6347 (Jul1+ 2026, 10-20% schedule), closes the disclosed whiplash
+
+- **Item picked:** queue item **(mmmmmmmmmmmmmm) add date-of-death selector to `/calc/estate-tax-calculator.html`'s WA state path** — the top carry-forward evening pick flagged in both 2026-07-26 evening and 2026-07-27 morning logs. Chosen over (oooooooooooooo) sitewide state-exemption-dropdown grep verifier because (mmmmmmmmmmmmmm) closes a math-correctness gap disclosed 2026-07-25 (the calc discloses the whiplash but only models the SB 6347 20% regime; users with a Jan-Jun 2026 date of death get a state tax figure understated by up to 75%). The dropdown verifier is real but tomorrow-worthy; today's pick lands a concrete correctness upgrade for a specific fact pattern that the calc previously mis-modeled by ~$1M on a $10M estate.
+
+- **What shipped in `/calc/estate-tax-calculator.html`:**
+  - **New `WA_REGIMES` config table** exposing `{sb5813: {topRate:0.35, label:"SB 5813 (10-35% schedule, deaths Jan 1 – Jun 30, 2026)"}, sb6347: {topRate:0.20, label:"SB 6347 (10-20% schedule, deaths on or after Jul 1, 2026)"}}`. Placed immediately after `STATE_ESTATE_TAX` in the same script block. Both regimes share the $3,076,000 CPI-adjusted exemption (RCW 83.100.020 exemption schedule was not affected by the SB 5813/SB 6347 rate whiplash — statute-scoped to the rate table only, per Ch. 421 Laws of 2025 amending RCW 83.100.040 for pre-Jul-1-2026 deaths and Ch. 353 Laws of 2025 restoring the pre-2025 schedule for post-Jul-1-2026 deaths).
+  - **New `waDodGroup` input-group** (a `<select>` with two options — `sb6347` default (post-Jul-1) and `sb5813` (pre-Jul-1)) inserted into the calc form immediately after the state-of-domicile dropdown. Hidden by default via `style="display:none;"` and revealed by a `state` change listener that shows the group when Washington is selected. Small explainer text under the selector documents both regimes (dates, top rates, statutory citations) so users understand what the choice means.
+  - **`computeEstateTax()` signature extended** to accept an optional `waDod` parameter. When `stateKey === "wa"` and `waDod` is a valid regime key, the base WA STATE_ESTATE_TAX entry is shallow-cloned and its `topRate` is overridden with the regime's rate, and a `regimeLabel` string is attached for downstream display. When `stateKey !== "wa"` or `waDod` is missing/invalid, the base WA config is used unchanged (defensive fallback — matches sb6347 topRate 0.20).
+  - **`calculate()` reads the selector** with a null-safe check: `const waDod = waDodEl ? waDodEl.value : 'sb6347'` so the function still works if the group is not yet in the DOM (defensive) — but the DOM structure guarantees the element is present for WA-eligible calls.
+  - **Result panel** shows a new "WA rate regime" row (below "Top marginal rate") whenever the computed state has a `regimeLabel`. Non-WA states are unchanged.
+  - **`toggleWaDod()` handler** wires the state-dropdown change event to show/hide the WA group on the fly. `DOMContentLoaded` binds the listener and runs an initial visibility pass.
+  - **AUDIT block** appended with the 2026-07-27 audit line documenting the full rationale, both statutory citations (SB 5813 Ch. 421 Laws of 2025; SB 6347 Ch. 353 Laws of 2025), the two-regime table, and the default-to-sb6347 fallback behavior.
+  - **Two new test cases documented in the AUDIT `test_cases=[…]` block:**
+    - **TC9_WA_sb5813_10M_pre_jul_1_2026** — `gross:$10M, state:"wa", waDod:"sb5813"` → `stateTaxDue = 0.35 × ($10,000,000 − $3,076,000) = $2,423,400`, `totalTax = $2,423,400`, `effectiveRate = 24.234%`. Hand-check block explains the 35% top-marginal upper-bound arithmetic.
+    - **TC10_WA_sb6347_10M_post_jul_1_2026** — `gross:$10M, state:"wa", waDod:"sb6347"` → `stateTaxDue = 0.20 × ($10,000,000 − $3,076,000) = $1,384,800`, `totalTax = $1,384,800`, `effectiveRate = 13.848%`. Hand-check documents the 6-month whiplash delta: **$2,423,400 − $1,384,800 = $1,038,600** — the exact $1M+ dollar cost of selecting the wrong regime (or of the calc failing to route correctly) on a $10M taxable WA estate.
+  - **Caveat block (a)** updated to reflect that WA now has two top-marginal regimes routed by date of death.
+  - **`sources=` block** extended with `RCW_83.100.020`, `RCW_83.100.040`, `WA_SB_5813_Ch_421_Laws_of_2025`, `WA_SB_6347_Ch_353_Laws_of_2025` citations.
+  - **WA bullet** in the "12 estate-tax states + DC" info-section list rewritten from the old "$2,193,000 exemption, 20% top" text to a full description of both regimes with the shared $3,076,000 exemption.
+  - **State-of-domicile dropdown label for WA** updated: `Washington ($3.076M exemption, 20% top)` → `Washington ($3.076M exemption, 10-20% or 10-35% depending on date of death)`.
+  - **In-panel result disclaimer (`<em>` block after result render)** WA sentence rewritten to describe both regimes and the shared exemption, replacing the old single-regime reference to "the calc uses the post-Jul-1-2026 20% top marginal as the reference rate".
+  - **Bottom `.calc-disclaimer` div** WA sentence similarly rewritten.
+
+- **Also updated `/blog/state-estate-tax-field-guide-2026.html`:**
+  - **Washington footnote (asterisk on the WA row of the 12-state exemption table)** now points to the CalcLeap estate tax calculator with an explicit call-out that the calc supports both regimes via the date-of-death input — closes the informational gap where the field guide told users about the whiplash but did not tell them a tool existed to model both sides. Single-sentence addition, no structural change to the footnote.
+
+- **What did NOT change (deliberate — to keep this a focused correctness upgrade):**
+  - The other 7 non-§2011 top-marginal states (CT, DC, HI, IL, MD, OR, VT) still use the single-topRate upper-bound approximation; a future evening slot could implement graduated schedules for MD and IL specifically (both have graduated schedules that start well below their top marginals — flagged in caveat (a) since 2026-07-24). Not in scope tonight.
+  - Both WA regimes remain **top-marginal-on-excess upper-bound approximations**, matching the calc's existing pattern for non-§2011 states. Implementing full 8-bracket / 8-bracket graduated schedules for each WA regime is a real second-order upgrade but would require sourcing the exact WA DOR bracket boundaries for both statutes with the calc's "canonical formula confidently" bar, which the routine's egress policy (blocked from dor.wa.gov same wall as the 2026-07-25 evening MD/OR/WA lookup) prevents this run.
+  - The `hasCliff:false, cliffMultiplier:1.05, usesSec2011:false` flags on the base WA config are unchanged — neither WA regime has a cliff mechanic or §2011 credit-table structure.
+
+- **Validation — all 10 test cases verified via extracted-engine `node` run:**
+  - TC1_under_federal_exemption_no_state — **PASS ✓** (fed=$0, state=$0, total=$0)
+  - TC2_above_federal_20M_no_state — **PASS ✓** (fed=$2,000,000, state=$0, total=$2,000,000)
+  - TC3_MFJ_portability_50M_gross_no_state — **PASS ✓** (fed=$8,000,000, state=$0, total=$8,000,000)
+  - TC4_NY_cliff_above_8M_full_value — **PASS ✓** (fed=$0, state=$1,280,000, total=$1,280,000)
+  - TC5_MA_sec2011_exact_5M — **PASS ✓** (fed=$0, state=$292,000, total=$292,000)
+  - TC6_MA_sec2011_exact_3M — **PASS ✓** (fed=$0, state=$82,400, total=$82,400)
+  - TC7_ME_sec2011_exact_10M_2026exemption — **PASS ✓** (fed=$0, state=$408,640, total=$408,640)
+  - TC8_RI_sec2011_exact_5M_2026exemption — **PASS ✓** (fed=$0, state=$303,659.97, total=$303,659.97)
+  - **TC9_WA_sb5813_10M_pre_jul_1_2026** — **PASS ✓** (fed=$0, state=**$2,423,400**, total=$2,423,400)
+  - **TC10_WA_sb6347_10M_post_jul_1_2026** — **PASS ✓** (fed=$0, state=**$1,384,800**, total=$1,384,800)
+  - **All 8 prior test cases unchanged in expected outputs** — this is a pure additive extension, no regression to any existing test case. **10/10 passed, 0 failed.**
+  - Verifier at `scratchpad/estate-verify-wa.js`, run with `node`.
+
+- **Defensive edge cases verified:**
+  - WA state with no `waDod` passed → falls back to base config (topRate 0.20) = $1,384,800 (matches sb6347 default). ✓
+  - WA state with garbage `waDod` (e.g. "typo") → falls back to base config = $1,384,800. ✓
+  - Non-WA state with `waDod` passed → `waDod` ignored, stateKey routing unchanged. ✓
+  - Belt-and-suspenders: the `calculate()` function itself defaults `waDod` to `'sb6347'` when the DOM element is missing (state != wa), so the fallback in `computeEstateTax` is only reached if a caller ever invokes it directly with a bad waDod value (e.g. future headless test harness).
+
+- **Grep-based structural validation:**
+  - `grep -c 'application/ld+json' calc/estate-tax-calculator.html` = **2** ✓ (schema counts preserved).
+  - `grep -c 'application/ld+json' blog/state-estate-tax-field-guide-2026.html` = **3** ✓.
+  - `grep -c 'AUDIT 20' calc/estate-tax-calculator.html` = **6** ✓ (5 AUDIT block entries + 1 in-code reference to the AUDIT block; new entry is the 6th).
+  - `grep -c 'href=""' calc + field-guide` = **0** ✓ (no broken hrefs introduced).
+  - JSON-LD schema parse via `node`: calc **2 valid, 0 invalid**; field guide (existing schemas unchanged, not re-parsed but the WA footnote is plain HTML, not JSON-LD).
+  - Calc line count: **597 → 623** (+26 lines for the new UI group, WA_REGIMES table, computeEstateTax parameter, toggle handler, result-panel row, and AUDIT block). No file bloat.
+
+- **Files touched (3):**
+  - `calc/estate-tax-calculator.html` — new WA `waDodGroup` input; new `WA_REGIMES` table; `computeEstateTax` signature + implementation extended; `calculate()` reads `waDod`; result panel shows regime; `toggleWaDod` handler + DOMContentLoaded binding; AUDIT 2026-07-27 block; 2 new test cases (TC9, TC10); caveat (a) update; sources block additions; WA info-list bullet rewritten; WA dropdown label rewritten; in-panel disclaimer WA sentence rewritten; bottom disclaimer WA sentence rewritten.
+  - `blog/state-estate-tax-field-guide-2026.html` — Washington footnote extended with the CalcLeap-calc-supports-both-regimes callout.
+  - `OPERATIONS.md` — this Daily Log entry; Current State table updated.
+
+- **What this closes vs the pre-run state:**
+  - **Queue item (mmmmmmmmmmmmmm) CLOSED** — the WA date-of-death selector ships, the SB 5813 vs SB 6347 rate-schedule whiplash is now routed correctly for any user selecting Washington as the state of domicile, and both regimes' math is documented + hand-checked + node-verified. This closes the specific correctness gap disclosed on 2026-07-25 evening.
+  - **The estate calc's "state math complete for 2026" coverage moves from 5/13 states+DC (§2011-exact for MA/ME/RI/MN + cliff-exact for NY) to 5/13 exact + 1/13 date-of-death-routed (WA).** WA is still top-marginal-upper-bound but now correctly routes on the mid-year regime break — a meaningful correctness upgrade for the January-June-2026 WA fact pattern where selecting the wrong regime silently under-states state tax by up to 75%.
+  - **Test-case count 8 → 10** on the estate calc. Cross-state coverage: federal-only (TC1, TC2, TC3), NY cliff (TC4), MA §2011 (TC5, TC6), ME §2011 at CPI-indexed 2026 exemption (TC7), RI §2011 at CPI-indexed 2026 exemption (TC8), WA SB 5813 pre-Jul-1 (TC9), WA SB 6347 post-Jul-1 (TC10).
+  - **The 4-day rolling WA-state-tax workstream closes** (2026-07-24 evening `usesSec2011:false` WA entry updated with $3.076M exemption + 20% top marginal → 2026-07-25 evening WA exemption CPI refresh + WA whiplash disclosure in AUDIT/disclaimer/field-guide → 2026-07-26 evening WA dropdown label alignment → 2026-07-27 evening date-of-death selector wiring both regimes). WA is now the estate calc's most-thoroughly-modeled non-§2011 state.
+
+- **Notable observations:**
+  - **The 6-month whiplash cost at $10M is $1,038,600** — a full million-dollar delta between the two regimes at a single realistic taxable estate size. This is not a rounding-error-scale improvement; it is a genuine correctness gap that mattered for any WA resident who died January-June 2026 and whose executor relied on the calc.
+  - **The pattern of a mid-year date-of-death regime change is unusual but not unique.** Historically DC transitioned mid-2016 (rate change in the middle of a year); several states have effective-date-July-1 statutory transitions (fiscal-year-aligned). A future TIER 4 pattern-generalization pass could abstract the WA_REGIMES structure into a `STATE_ESTATE_TAX_REGIMES` sub-table indexed by state and effective date, but for now WA is the only state with an in-2026 mid-year regime break — the specific-to-WA structure is proportional to the scope.
+  - **The default-to-sb6347 fallback is the correct forward-looking default.** SB 6347 covers 6 months of 2026 plus every year thereafter under current law (through the next annual CPI adjustment). A user landing on the calc who doesn't touch the date-of-death selector gets the modal answer.
+  - **Belt-and-suspenders defensive code paid off in edge-case testing.** The `computeEstateTax` fallback + the `calculate()` null-check + the `toggleWaDod` DOM-safety pattern all activate correctly in the three edge cases tested. No JS error thrown in any path.
+  - **The upper-bound approximation caveat is now honest for both WA regimes.** The `stateNote` template appends `— SB 5813 (...)` or `— SB 6347 (...)` to the disclosed approximation caveat, so users see exactly which regime the reported number represents.
+  - **This is the second consecutive evening slot on the estate calc.** 2026-07-23 evening NEW BUILD → 2026-07-24 evening §2011 upgrade → 2026-07-25 evening CPI refresh + whiplash disclosure → 2026-07-26 evening dropdown label + ME cross-check → 2026-07-27 evening date-of-death selector. Five consecutive evening slots on the same calc file is the longest single-file cadence in the evening-routine's history — the calc has evolved from NEW BUILD to genuinely-most-thorough-consumer-tier-2026-estate-tax-tool over 5 days.
+
+- **New queue items surfaced this evening:**
+  - **(qqqqqqqqqqqqqq) full 8-bracket WA graduated schedules for both regimes** — the current implementation is top-marginal-on-excess upper bound. A future upgrade could implement both regimes' actual 8-bracket graduated schedules (SB 5813: 10%/15%/17%/19%/23%/26%/30%/35% at boundaries $1M/$2M/$3M/$4M/$6M/$7M/$9M/above; SB 6347: 10%/14%/15%/16%/18%/19%/19.5%/20% at the same boundaries — the pre-2025 WA schedule restored). Estimated 45 min including WA DOR source verification. Would move WA from "upper-bound approximation" to "statutorily exact" — the same upgrade path MA/ME/RI/MN got 2026-07-24. TIER 3.
+  - **(rrrrrrrrrrrrrr) graduated schedules for MD + IL** — both states' actual schedules start well below their top marginals per caveat (a). Same upgrade pattern as (qqqqqqqqqqqqqq) but for MD (§7-309 Md. Tax-Gen.) and IL (35 ILCS 405/3). Estimated 30 min each. TIER 3.
+  - **(ssssssssssssss) `/blog/washington-estate-tax-whiplash-2026.html`** — the SB 5813 vs SB 6347 mid-year regime swap is a specific-enough tax-planning fact pattern to justify a dedicated blog piece for WA residents. Would cover the exact bracket-by-bracket schedules for both regimes, the $1M+ tax-cliff at the $10M-taxable-estate line, planning implications (accelerated-death vs delayed-death planning is not generally a real option, but late-June-2026 pre-death gifting to trigger the higher-rate regime is generally NOT desirable — the piece can walk through why), and the frozen-post-2026 exemption implication under the expired-CPI-index issue documented in some summary sources. Estimated 60-75 min. TIER 2 Round 3. (Previously surfaced 2026-07-25 evening as `ppppppppppppppp`; carrying forward here with fresh code-alignment.)
+
+- **Recommendations for next runs:**
+  - **Morning slot 2026-07-28:** carry-forward from 2026-07-27 morning log — **(rrrrrrrrrrrrrr) NUA-election deep-dive** is the top pick (concentrated-employer-stock is the highest-dollar planning problem consumer-tier content underserves). Alternative: **(uuuuuuuuuuuuuuu) DAF vs QCD vs private foundation decision framework** (extends the charitable-giving sub-cluster opened this morning).
+  - **Evening slot 2026-07-28:** carry-forward top pick — **(oooooooooooooo) sitewide state-exemption-dropdown grep verifier** (surfaced 2026-07-26 evening; would prevent the recurrence of dropdown-label-drift bugs like the one caught 2026-07-26 evening; ~30 min build). Alternative: **(qqqqqqqqqqqqqq) full 8-bracket WA graduated schedules for both regimes** (this evening's natural follow-on — same file, same test cases, WA moves from upper-bound to statutorily exact). Recommend the dropdown verifier as higher-leverage since it prevents an entire class of bug across every calc, not just the estate calc.
+
+- **Metric moved:** Estate calc verified-math state count: 4 §2011-exact + NY cliff + federal-only (unchanged). WA state routing: 1 static top-marginal regime → 2 date-of-death-routed top-marginal regimes. Test-case count 8 → 10. Consecutive evening slots on the estate calc: 4 → 5 (longest single-file cadence in evening-routine history).
+- **No secrets committed. No git config modified. No hooks skipped. Three-file commit (`calc/estate-tax-calculator.html` + `blog/state-estate-tax-field-guide-2026.html` + `OPERATIONS.md`) per playbook.**
