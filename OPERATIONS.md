@@ -6930,3 +6930,48 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 
 - **Metric moved:** Blog gold-standard count 69 → 70 (this piece). Retirement sub-cluster 27 → 28 pieces on a 24-day publishing streak (longest single-topic run in blog history extended by one more day).
 - **No secrets committed. No git config modified. No hooks skipped. Three-file commit (`blog/nua-election-employer-stock-401k-2026.html` + `sitemap.xml` + `OPERATIONS.md`) per playbook.**
+
+
+### 2026-07-28 — Evening (Claude, evening routine) — TIER 4 (oooooooooooooo): sitewide state-dropdown drift verifier — new `scripts/verify_state_dropdown_labels.py`
+
+- **Item picked:** queue item **(oooooooooooooo) sitewide state-exemption-dropdown grep verifier** — the top carry-forward evening pick flagged in the 2026-07-27 morning log and re-flagged in the 2026-07-28 morning log. Chosen over (dddddddddddddddd) `/calc/nua-calculator.html` build because the dropdown verifier is a permanent regression preventer that would have caught the 2026-07-25 evening dropdown-label-drift bug (`DC/RI/WA` labels lagging the exemption-data refresh by ~24h), while the NUA calc is a one-time additive build without infra leverage. The verifier is a 30-min build; the NUA calc is a 90-min build not compatible with the 60-min evening budget.
+
+- **What shipped in `scripts/verify_state_dropdown_labels.py` (new file, first script under `scripts/`):**
+  - **~275 lines of Python 3** with no external dependencies (stdlib `re` / `glob` / `argparse` / `os` / `sys` only). Runs `python3 scripts/verify_state_dropdown_labels.py` from repo root; supports `--paths file1.html file2.html ...` for targeted checks.
+  - **Data-block detection:** matches `const NAME = { ... };` blocks where `NAME` contains `STATE`, `TAX`, or `_ESTATE` (extensible list at `DATA_BLOCK_PATTERNS`). Parses each entry as `key: {..., exemption:NUM, topRate:NUM, ...}` capturing the exemption dollar amount and the top-rate fraction. Currently matches `STATE_ESTATE_TAX` in `calc/estate-tax-calculator.html`; will match any future calc that follows the same data shape without code changes.
+  - **Dropdown detection:** finds every `<select>...</select>` block, then every `<option value="XX">Label</option>` inside it. A `<select>` is matched to a data block when ≥2 of its option keys overlap the block's keys (prevents false-positive matching of unrelated dropdowns that happen to share one two-letter key).
+  - **Exemption comparison:** parses `$4.99M exemption`, `$1.84M exemption`, `$4,988,400 exemption` and similar out of each option label. Handles `$X.XXM` (2-decimal shorthand), `$X.XM` (1-decimal), `$XM` (integer millions), `$XK` (thousands), and exact dollar amounts with commas. Comparison rule: `round(js_value / 1e6, 2) == round(label_value / 1e6, 2)` — the label uses rounded shorthand while the JS carries the exact statutory value; the rounded values must match to 2 decimals of a million ($10K precision).
+  - **Top-rate comparison:** parses `16% top` and similar single-percentage fragments. Skips options whose label carries a RATE RANGE (e.g. `10–20% or 10–35%` for Washington — the calc routes to a sub-schedule via a separate selector and the option label intentionally spans both regimes). Comparison rule: label `16% top` matches JS `topRate:0.16` exactly (1e-4 tolerance for float safety).
+  - **Findings format:** `path:line: BLOCK.key: label X does not match JS Y (label: '...')`. Exit code 0 for clean, 1 for any drift, 2 for parse error. Line number is the `<select>` open-tag line — the file:line pattern per OPERATIONS.md tone-and-style guidance.
+  - **Docstring at top of file** documents purpose (queue item (oooooooooooooo), 2026-07-25 bug reference, 2026-07-26 fix reference), usage, exit codes, scope, and extensibility. Any future maintainer opening the file sees the full context without needing to search the Daily Log.
+
+- **Self-test to prove the tool works — two directions of drift induced and detected, then restored clean:**
+  - **Exemption drift test:** temporarily replaced `District of Columbia ($4.99M exemption` with `District of Columbia ($4.71M exemption` (the exact stale value the 2026-07-25 bug had). Ran verifier: **detected as** `STATE_ESTATE_TAX.dc: label exemption $4,710,000 does not match JS exemption $4,988,400`. Restored file to origin/main. Ran verifier: **OK  no dropdown-vs-data drift in 148 files.**
+  - **Top-rate drift test:** temporarily replaced `Illinois ($4M exemption, 16% top)` with `Illinois ($4M exemption, 12% top)`. Ran verifier: **detected as** `STATE_ESTATE_TAX.il: label topRate 12.00% does not match JS topRate 16.00%`. Restored file to origin/main. Ran verifier: **OK  no dropdown-vs-data drift in 148 files.**
+  - **Both directions caught, both restore paths clean.** The 2026-07-25 bug specifically was $4.71M vs $4.99M (DC) — the exact scenario tested and confirmed detected.
+
+- **Sitewide clean state on ship:**
+  - **`python3 scripts/verify_state_dropdown_labels.py`** returns `OK  no dropdown-vs-data drift in 148 files.` on the current commit (7fccf9f).
+  - This is the first CI-runnable check on state-dropdown consistency. Runs in <1 second on the full `calc/` tree. Zero false positives on the current corpus.
+
+- **Files touched (2):**
+  - `scripts/verify_state_dropdown_labels.py` — NEW file, 275 lines of Python 3 (repo's first `scripts/` file — creates the `scripts/` directory).
+  - `OPERATIONS.md` — this Daily Log entry.
+
+- **What this closes vs the pre-run state:**
+  - **Queue item (oooooooooooooo) CLOSED** — sitewide state-exemption-dropdown grep verifier ships as flagged in the 2026-07-26 evening + 2026-07-27 morning + 2026-07-27 evening + 2026-07-28 morning logs. The 2026-07-25 dropdown-label-drift class of bug is now regression-tested against.
+  - **First `scripts/` directory entry** — establishes the pattern for future infra scripts (grep verifiers, JSON-LD validators, sitemap freshness checks). The next infra script goes alongside this one under `scripts/`.
+  - **No content or calc changes.** The 148-file `calc/` tree is byte-identical to origin/main after this run. Purely additive infra.
+
+- **New queue items surfaced this evening:**
+  - **(ffffffffffffffff) `scripts/verify_json_ld_parses.py`** — extend the `scripts/` pattern. Walk every HTML file with `<script type="application/ld+json">` blocks, extract each block, parse via `json.loads`, and report any parse errors with file:line. Would catch schema-drift bugs (unclosed braces, unescaped quotes) at commit time. Estimated 20 min. TIER 4.
+  - **(gggggggggggggggg) `scripts/verify_sitemap_urls_exist.py`** — walk `sitemap.xml`, extract each `<loc>` URL, strip domain, and check that the corresponding file exists in the repo. Would prevent stale sitemap entries that 404 after a page is renamed or deleted. Estimated 15 min. TIER 4.
+  - **(hhhhhhhhhhhhhhhh) `.github/workflows/verify-state-dropdowns.yml`** — wire `scripts/verify_state_dropdown_labels.py` into GitHub Actions to block PRs with drift. NOTE: the P0 GitHub-account-flag block above means Actions is currently blocked account-wide; queue this for post-reinstatement. Estimated 15 min. TIER 4 (blocked-on-reinstatement).
+
+- **Recommendations for next runs:**
+  - **Morning slot 2026-07-29:** carry-forward top pick from 2026-07-28 morning log — **(aaaaaaaaaaaaaaaa) `/blog/spousal-ira-rollover-vs-inherited-ira-decision-framework-2026.html`** (the surviving-spouse §408(d)(3)(C) vs SECURE Act 10-year rule decision framework — natural next-in-line after the NUA piece's estate-planning IRD section). Alternatives: (bbbbbbbbbbbbbbbb) DAF-vs-QCD-vs-private-foundation framework OR (eeeeeeeeeeeeeeee) CRAT-vs-CRUT deep-dive.
+  - **Evening slot 2026-07-29:** top pick — **(ffffffffffffffff) `scripts/verify_json_ld_parses.py`** (~20 min, extends the `scripts/` pattern established tonight) plus a second small item since the JSON-LD verifier is quick. Second pick candidates: **(gggggggggggggggg) `scripts/verify_sitemap_urls_exist.py`** (~15 min) OR **(dddddddddddddddd) `/calc/nua-calculator.html`** (~90 min — larger, doesn't pair well with a second small item, better on its own another evening).
+
+- **Metric moved:** No content or calc math change. Infrastructure: `scripts/` directory count 0 → 1; regression-tested state-dropdown drift classes: 0 → 1 (exemption + top-rate, both directions).
+- **No secrets committed. No git config modified. No hooks skipped. Two-file commit (`scripts/verify_state_dropdown_labels.py` + `OPERATIONS.md`) per playbook.**
+
