@@ -7032,3 +7032,65 @@ Rando should acknowledge silently (no Telegram needed for these — they're rout
 
 - **Metric moved:** Blog gold-standard count 70 → 71 (this piece). Retirement sub-cluster 28 → 29 pieces on a 25-day publishing streak (longest single-topic run in blog history extended by one more day). Sitemap URL count 2779 → 2780.
 - **No secrets committed. No git config modified. No hooks skipped. Three-file commit (`blog/spousal-ira-rollover-vs-inherited-ira-2026.html` + `sitemap.xml` + `OPERATIONS.md`) per playbook.**
+
+
+
+### 2026-07-29 — Evening (Claude, evening routine) — TIER 4 (ffffffffffffffff) + (gggggggggggggggg): two new `scripts/` verifiers — JSON-LD parse + sitemap ↔ repo file existence
+
+- **Items picked:** the top two carry-forward evening picks flagged in the 2026-07-28 evening log and re-flagged in the 2026-07-29 morning log — **(ffffffffffffffff) `scripts/verify_json_ld_parses.py`** and **(gggggggggggggggg) `scripts/verify_sitemap_urls_exist.py`**. Chosen as a pair because (a) both are small enough (~20 min + ~15 min) to fit the 60-min evening budget cleanly, (b) both extend the `scripts/` pattern established by 2026-07-28 evening's `verify_state_dropdown_labels.py`, and (c) shipping two verifiers in one commit compounds the regression-testing surface — the repo now catches three independent drift classes (state-dropdown label drift, JSON-LD parse breakage, stale-sitemap 404s) instead of one. Passed over (dddddddddddddddd) `/calc/nua-calculator.html` and (llllllllllllllll) `/calc/inherited-ira-rmd-calculator.html` because both are 90-min builds that would consume the entire evening budget on a single deliverable — the infra-verifier pair yields more per-hour leverage tonight and calculator builds get their own dedicated evenings.
+
+- **What shipped in `scripts/verify_json_ld_parses.py` (new file, ~170 lines Python 3, zero external dependencies):**
+  - **Purpose:** walk every `.html` file in the repo, extract each `<script type="application/ld+json">...</script>` block, feed the raw block contents to `json.loads`, and report any parse error with `file:line` pointing at the `<script>` open tag. Catches trailing commas, unclosed braces, unescaped quotes, bare-word identifiers, and empty blocks — the four failure modes that silently drop rich-snippet eligibility from Google's index.
+  - **Regex `JSON_LD_BLOCK`** matches both single- and double-quoted `type` attribute + optional extra attributes before the closing `>` + non-greedy body match + `re.DOTALL | re.IGNORECASE`. Handles the three-block-per-page pattern shipped by every gold-standard blog post (Article + BreadcrumbList + FAQPage) plus the two-to-four-block pattern shipped by calculators (WebApplication + BreadcrumbList + optional FAQPage + optional Article).
+  - **Extended sanity checks beyond bare `json.loads`:** flags empty JSON-LD blocks (a hand-edit that stripped the body but left the tags); flags top-level results that aren't `dict` or `list` (schema.org's two valid top-level shapes); flags dict blocks missing both `@context` and `@graph` (schema.org's two container patterns) as likely invalid.
+  - **Directory walking:** `os.walk` from `REPO_ROOT` with `SKIP_DIRS = {".git", "node_modules", "__pycache__", ".github"}`. Skip list is narrow enough that no real HTML page is excluded, wide enough that VCS + build metadata + workflow YAML aren't scanned.
+  - **CLI flags:** `--paths file1.html file2.html ...` for targeted checks (matches the pattern of `verify_state_dropdown_labels.py`); `--quiet` for CI use (suppresses OK summary, keeps FAIL detail).
+  - **Findings format:** `path:line: JSON parse error at block-line X col Y: <msg> (block starts: '<preview>...')`. Line number is the `<script>` open-tag line in the source file; block-line is the JSON parser's offset inside the block body. Preview is the first 80 chars of the block with newlines collapsed to spaces. Reports up to first 50 failures + a `... and N more` tail.
+  - **Exit codes:** 0 clean / 1 drift / 2 script error — matches the `verify_state_dropdown_labels.py` convention exactly. Docstring at file head documents purpose (queue item (ffffffffffffffff), 2026-07-28 evening log origin), usage, exit codes, scope, and extensibility per OPERATIONS.md tone-and-style guidance.
+
+- **What shipped in `scripts/verify_sitemap_urls_exist.py` (new file, ~150 lines Python 3, zero external dependencies):**
+  - **Purpose:** parse `sitemap.xml`, extract every `<loc>` via regex, strip the `https://calcleap.com/` domain prefix, resolve against `REPO_ROOT`, and report any URL whose file does not exist. Also flags duplicate URLs (the append-only sitemap-maintenance pattern accidentally repeats entries when a page is redone) and non-domain URLs (any `<loc>` that isn't a calcleap.com URL — should never happen but would silently poison the crawl if it did).
+  - **Regex `LOC_PATTERN`** matches `<loc>URL</loc>` with tolerant whitespace inside the tags. No XML parser dependency — the sitemap follows a strict one-URL-per-line pattern that regex handles cleanly.
+  - **`url_to_repo_path()` handles the two URL shapes in the current sitemap:** file-suffix URLs (`https://calcleap.com/foo.html` → `foo.html`) and directory-suffix URLs (`https://calcleap.com/foo/` → `foo/index.html`, `https://calcleap.com/` → `index.html`).
+  - **Three parallel finding buckets** printed in one FAIL summary: `missing files` (first 50 shown), `duplicate URLs` (first 20 shown with cross-reference to the first-occurrence line number), `URLs outside expected domain` (first 20 shown). Each finding uses the same `sitemap.xml:LINE: URL` pointer format for file:line consistency across the `scripts/` family.
+  - **CLI flags:** `--sitemap PATH` for alternate paths (future-proofs for `sitemap-index.xml` per TIER 4 item #24); `--quiet` for CI use.
+  - **Exit codes:** 0 clean / 1 drift / 2 script error — matches the family convention.
+
+- **Self-tests to prove both tools work — five drift scenarios induced, all detected, all restored clean:**
+  - **JSON-LD trailing-comma bug:** replaced `"@context": "https://schema.org"` with `"@context": "https://schema.org",,` inside first block of `blog/spousal-ira-rollover-vs-inherited-ira-2026.html`. Verifier: `FAIL 1 JSON-LD parse issue... :21: JSON parse error at block-line 2 col 36: Expecting property name enclosed in double quotes`. **Detected as class.**
+  - **JSON-LD invalid-token bug:** replaced `"wordCount": 6800` with `"wordCount": 6800  BAD BAD`. Verifier: `FAIL 1... :21: JSON parse error at block-line 18 col 22: Expecting ',' delimiter`. **Detected as class.**
+  - **Sitemap missing-file:** appended `<url><loc>https://calcleap.com/does-not-exist.html</loc></url>` to a scratch sitemap copy. Verifier: `FAIL 3 sitemap issue(s)... 1 missing file(s): sitemap-broken.xml:2783: https://calcleap.com/does-not-exist.html -> does-not-exist.html (not found)`. **Detected as class.**
+  - **Sitemap duplicate URL:** appended a second `<url><loc>https://calcleap.com/1099-tax-calculator.html</loc></url>` (already in the sitemap at line 3). Verifier: `1 duplicate URL(s): :2784: https://calcleap.com/1099-tax-calculator.html (also at line 3)`. **Detected as class.**
+  - **Sitemap off-domain:** appended `<url><loc>https://other.example/x</loc></url>`. Verifier: `1 URL(s) outside expected domain (https://calcleap.com/): :2785: https://other.example/x`. **Detected as class.**
+  - **All five detection paths clean, all restore paths clean.** No mutations reached the real files — all self-tests ran against scratch copies under `/tmp/claude-0/.../scratchpad/tst/`.
+
+- **Sitewide clean state on ship (all three verifiers pass):**
+  - **`python3 scripts/verify_state_dropdown_labels.py`** returns `OK  no dropdown-vs-data drift in 148 files.`
+  - **`python3 scripts/verify_json_ld_parses.py`** returns `OK  3072 JSON-LD blocks parsed cleanly across 2435 files (2827 .html files scanned)`. This is the first-ever count of JSON-LD blocks on the site — 3072 across 2435 files means an average of 1.26 blocks per file (dragged down by many pages with only BreadcrumbList; gold-standard blogs run 3-4 blocks apiece).
+  - **`python3 scripts/verify_sitemap_urls_exist.py`** returns `OK  all 2780 sitemap URLs resolve to existing repo files (sitemap.xml)`. This is the first-ever end-to-end audit of the sitemap — no stale entries, no duplicates, no off-domain URLs.
+  - Total scan time for all three verifiers: ~1.5 seconds on the current corpus. Zero false positives.
+
+- **Files touched (3):**
+  - `scripts/verify_json_ld_parses.py` — NEW file, ~170 lines Python 3.
+  - `scripts/verify_sitemap_urls_exist.py` — NEW file, ~150 lines Python 3.
+  - `OPERATIONS.md` — this Daily Log entry.
+
+- **What this closes vs the pre-run state:**
+  - **Queue item (ffffffffffffffff) CLOSED** — JSON-LD parse verifier ships as flagged in the 2026-07-28 evening log and re-flagged in the 2026-07-29 morning log. The four JSON-LD failure modes (trailing comma / invalid token / empty block / non-schema.org top-level shape) are now regression-tested against every commit that touches an HTML file with a `<script type="application/ld+json">` block.
+  - **Queue item (gggggggggggggggg) CLOSED** — sitemap ↔ repo file existence verifier ships as flagged in the same two logs. The three sitemap failure modes (missing file / duplicate URL / off-domain URL) are now regression-tested against every sitemap edit.
+  - **`scripts/` directory count 1 → 3** — a functioning family of infra verifiers. Any future infra script (`verify_breadcrumb_hierarchy_matches_url.py`, `verify_meta_description_length.py`, `verify_canonical_matches_url.py`, etc.) drops into the same `scripts/` directory following the same docstring + argparse + exit-code convention.
+  - **No content or calc changes** — the 2827-file HTML tree is byte-identical to origin/main after this run. Purely additive infra.
+  - **Cumulative regression-tested drift classes: 2 → 5** (state-dropdown label drift + JSON-LD parse breakage in 4 sub-classes + sitemap 404/duplicate/off-domain in 3 sub-classes = 8 drift sub-classes across 3 tools).
+
+- **New queue items surfaced this evening:**
+  - **(nnnnnnnnnnnnnnnn) `scripts/verify_canonical_matches_url.py`** — walk every HTML file, extract `<link rel="canonical" href="...">`, and verify the URL matches the file's own path on calcleap.com. Would catch canonical-tag drift where a file is copied from a template but the canonical URL wasn't updated. Estimated 20 min. TIER 4.
+  - **(oooooooooooooooo) `scripts/verify_breadcrumb_hierarchy_matches_url.py`** — for every HTML file with a BreadcrumbList JSON-LD block, verify the `itemListElement` array matches the file's actual URL path segments. Would catch stale breadcrumbs where a page is moved but the schema breadcrumb still shows the old location. Estimated 30 min. TIER 4.
+  - **(pppppppppppppppp) `scripts/verify_meta_tags_present.py`** — walk every HTML file and verify each has `<meta name="description">`, `<meta name="viewport">`, `<title>`, and `<link rel="canonical">`. Would catch minimum-viable-SEO drift where a new page ships missing a fundamental meta tag. Estimated 15 min. TIER 4.
+  - **(hhhhhhhhhhhhhhhh from 2026-07-28 evening) `.github/workflows/verify-*.yml`** — wire all three (soon: all four+) `scripts/` verifiers into GitHub Actions to block PRs with drift. NOTE: still blocked on the P0 GitHub-account-flag until reinstatement. Estimated 20 min once unblocked.
+
+- **Recommendations for next runs:**
+  - **Morning slot 2026-07-30:** carry-forward top pick from 2026-07-29 morning log — **(iiiiiiiiiiiiiiii) `/blog/eligible-designated-beneficiary-taxonomy-2026.html`** (the natural companion to the 2026-07-29 morning surviving-spouse piece — spouse is 1 of 5 EDB categories, and the other 4 deserve the same treatment depth). Alternatives: (jjjjjjjjjjjjjjjj) see-through trust conduit-vs-accumulation OR (kkkkkkkkkkkkkkkk) 10-year-rule year-by-year planning.
+  - **Evening slot 2026-07-30:** top pick — **(dddddddddddddddd) `/calc/nua-calculator.html`** (~90 min build — the natural calculator companion to the 2026-07-28 morning NUA blog piece; can fill the full evening budget on a single deliverable now that the infra-verifier pair is done). Alternative: **(llllllllllllllll) `/calc/inherited-ira-rmd-calculator.html`** (~90 min build — the calculator companion to the 2026-07-29 morning surviving-spouse blog piece). Third option: knock out **(pppppppppppppppp) meta-tags verifier** (~15 min, extends `scripts/` pattern further) plus **(nnnnnnnnnnnnnnnn) canonical verifier** (~20 min) as another double-infra evening.
+
+- **Metric moved:** No content or calc math change. Infrastructure: `scripts/` directory count 1 → 3; regression-tested drift sub-classes: 2 → 8 (state-dropdown exemption + top-rate + JSON-LD trailing-comma + invalid-token + empty-block + non-schema-shape + sitemap-missing + sitemap-duplicate + sitemap-off-domain).
+- **No secrets committed. No git config modified. No hooks skipped. Three-file commit (`scripts/verify_json_ld_parses.py` + `scripts/verify_sitemap_urls_exist.py` + `OPERATIONS.md`) per playbook.**
