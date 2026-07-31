@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>See-Through Trust as IRA Beneficiary in 2026: Treas. Reg. §1.401(a)(9)-4(f), the Conduit-vs-Accumulation Split, and Every Drafting Choice | CalcLeap</title>
+<meta name="description" content="A complete 2026 field guide to see-through trusts as retirement-account beneficiaries — the four qualification requirements at Treas. Reg. §1.401(a)(9)-4(f), the conduit-vs-accumulation split under TD 10001, the compressed-trust-bracket cost of the accumulation choice, three worked case studies, and every drafting mistake that turns a stretch into a 10-year burn.">
+<link rel="canonical" href="https://calcleap.com/blog/see-through-trust-conduit-vs-accumulation-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="See-Through Trust as IRA Beneficiary in 2026: Conduit vs Accumulation, Explained">
+<meta property="og:description" content="The four §1.401(a)(9)-4(f) requirements, the conduit-vs-accumulation split, compressed-trust-bracket math, and three case studies — the complete 2026 drafting field guide.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/see-through-trust-conduit-vs-accumulation-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-07-31T10:00:00Z">
+<meta property="article:modified_time" content="2026-07-31T10:00:00Z">
+<meta property="article:section" content="Retirement Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "See-Through Trust as IRA Beneficiary in 2026: Treas. Reg. §1.401(a)(9)-4(f), the Conduit-vs-Accumulation Split, and Every Drafting Choice",
+  "description": "A complete 2026 field guide to see-through trusts as retirement-account beneficiaries — the four qualification requirements at Treas. Reg. §1.401(a)(9)-4(f), the conduit-vs-accumulation split under TD 10001, the compressed-trust-bracket cost of the accumulation choice, three worked case studies, and every drafting mistake that turns a stretch into a 10-year burn.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-07-31T10:00:00Z",
+  "dateModified": "2026-07-31T10:00:00Z",
+  "author": {"@type": "Organization", "name": "CalcLeap Editorial", "url": "https://calcleap.com/authors/calcleap-editorial.html"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {"@type": "ImageObject", "url": "https://calcleap.com/og-default.png"}
+  },
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://calcleap.com/blog/see-through-trust-conduit-vs-accumulation-2026.html"},
+  "articleSection": "Retirement Planning",
+  "wordCount": 6800,
+  "about": [
+    {"@type": "Thing", "name": "See-through trust"},
+    {"@type": "Thing", "name": "Conduit trust"},
+    {"@type": "Thing", "name": "Accumulation trust"},
+    {"@type": "Thing", "name": "Inherited IRA"},
+    {"@type": "Thing", "name": "SECURE Act 10-year rule"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "See-Through Trust as IRA Beneficiary in 2026"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is a see-through trust for retirement-account purposes?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A see-through trust is a trust named as the beneficiary of a qualified retirement account (IRA, 401(k), 403(b), governmental §457(b)) that satisfies the four requirements of Treas. Reg. §1.401(a)(9)-4(f)(2). When those requirements are met, the plan administrator ignores the trust entity for RMD-computation purposes and 'sees through' to the individual beneficiaries of the trust, using their ages and their designated-beneficiary or eligible-designated-beneficiary status to compute the distribution schedule. Without see-through status, the trust is treated as a non-individual beneficiary and the account must be fully distributed under the shortest of the 5-year rule (pre-RBD death) or the deceased owner's remaining life expectancy (post-RBD death) — neither of which offers meaningful deferral."}},
+    {"@type": "Question", "name": "What are the four requirements for see-through status under Treas. Reg. §1.401(a)(9)-4(f)?",
+     "acceptedAnswer": {"@type": "Answer", "text": "First, the trust must be valid under state law. Second, the trust must be irrevocable, or must become irrevocable upon the death of the account owner. Third, the beneficiaries of the trust who are beneficiaries with respect to the trust's interest in the employee's benefit must be identifiable from the trust instrument. Fourth, the documentation described in §1.401(a)(9)-4(h) — either a copy of the trust or a list of all trust beneficiaries with a description of the conditions on their entitlement — must be provided to the plan administrator by October 31 of the calendar year following the year of the employee's death. Miss any of the four and the trust is a non-individual beneficiary."}},
+    {"@type": "Question", "name": "What is the difference between a conduit trust and an accumulation trust?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A conduit trust is drafted so that every distribution the trustee receives from the inherited retirement account must be immediately paid out to the primary beneficiary — no trustee discretion, no accumulation inside the trust. An accumulation trust is any see-through trust that is not a conduit trust. The trustee has discretion to retain distributions inside the trust, invest them, or distribute them to permitted trust beneficiaries. The two structures produce identical retirement-account distribution schedules if the primary beneficiary is a Designated Beneficiary or Eligible Designated Beneficiary, but they diverge sharply on tax cost, creditor protection, and Medicaid-planning behavior after the money leaves the retirement account."}},
+    {"@type": "Question", "name": "Why do accumulation trusts hit the top 37% tax bracket so fast in 2026?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Trusts and estates are taxed under IRC §1(e) on a highly compressed rate schedule. For tax year 2026, the top 37% federal ordinary-income bracket kicks in at approximately $16,000 of retained taxable income for a trust — versus roughly $640,000 for a single filer. The 3.8% Net Investment Income Tax under IRC §1411 attaches to trust NII above the highest income-tax bracket threshold, so retained investment income above about $16,000 faces a combined 40.8% federal marginal rate. This is why sophisticated drafters use a conduit trust when full distribution to the primary beneficiary is acceptable, and use an accumulation trust only when non-tax objectives (creditor protection, spendthrift protection, Medicaid-planning, minor children, blended-family control) outweigh the tax cost."}},
+    {"@type": "Question", "name": "Does the SECURE Act 10-year rule still apply to see-through trusts?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. The see-through mechanism determines which individuals are treated as beneficiaries for RMD purposes; it does not override the beneficiary category rules under IRC §401(a)(9)(H). If the see-through beneficiary is a Designated Beneficiary who is not an Eligible Designated Beneficiary, the 10-year rule applies to the trust just as it would to the individual named directly. If the see-through beneficiary is an EDB, the trust gets lifetime stretch based on that beneficiary's Single Life Table divisor. The one exception: an Applicable Multi-Beneficiary Trust under SECURE 2.0 §337 — an accumulation trust whose primary beneficiary is a disabled or chronically ill EDB — can preserve that EDB's lifetime stretch even when the remainder beneficiaries would otherwise force 10-year treatment."}},
+    {"@type": "Question", "name": "Do all conduit trusts still work after the SECURE Act?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Legally yes, but the drafting intent behind most pre-SECURE conduit trusts is now defeated. A conduit trust with a non-EDB adult child as primary beneficiary now flushes the entire inherited account out to that beneficiary by December 31 of the tenth year following the account owner's death — usually in one lump-sum year-10 forced distribution if the trustee waited. The pre-SECURE conduit was designed to trickle out modest annual RMDs over the beneficiary's lifetime; the same drafting language in 2026 forces the opposite. Any conduit trust drafted before 2020 for a non-EDB should be reviewed and, if possible, decanted or reformed into an accumulation trust before the account owner dies."}},
+    {"@type": "Question", "name": "What is an Applicable Multi-Beneficiary Trust (AMBT) under SECURE 2.0 §337?",
+     "acceptedAnswer": {"@type": "Answer", "text": "SECURE 2.0 §337, codified at IRC §401(a)(9)(H)(v), fixes a drafting gap in the original SECURE Act that penalized accumulation trusts benefiting a disabled or chronically ill EDB alongside other beneficiaries. Under the original SECURE Act, adding a non-EDB remainder beneficiary to an accumulation trust for a disabled EDB collapsed the trust to the 10-year rule. Under §337, an AMBT is a see-through trust whose primary beneficiary is a disabled or chronically ill EDB and that either (Type I) requires the trust to be divided into separate accounts by September 30 of the year following death, or (Type II) prohibits any distribution to any non-disabled or non-chronically-ill beneficiary until the EDB dies. Properly structured, an AMBT preserves the disabled or chronically ill EDB's lifetime stretch."}},
+    {"@type": "Question", "name": "Can a charity be a beneficiary of a see-through trust?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, if you want to preserve see-through status. The identifiable-beneficiaries requirement under Treas. Reg. §1.401(a)(9)-4(f)(2)(iii) requires every trust beneficiary who could receive the retirement-account interest — including remainder beneficiaries — to be an individual. A charity or other non-natural entity in any position that could receive retirement-account distributions destroys see-through status and collapses the trust to non-individual beneficiary treatment. This is one of the two most common drafting failures. Fix: split the retirement-account beneficiary designation into two shares — one payable directly to the charity, one payable to a see-through trust with only individual beneficiaries — using a beneficiary-designation form and a coordinated trust instrument."}},
+    {"@type": "Question", "name": "What is the October 31 documentation deadline and what happens if you miss it?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Under Treas. Reg. §1.401(a)(9)-4(h), the trustee must provide the plan administrator with either (a) a copy of the trust instrument, or (b) a final list of all trust beneficiaries as of September 30 of the calendar year following the year of the account owner's death, including any conditions on their entitlement — by October 31 of that same calendar year. Missing the deadline collapses the trust to non-individual beneficiary status: the trust must distribute the account under the shortest of the 5-year rule (pre-RBD death) or the deceased owner's remaining life expectancy (post-RBD death). This is the single most common way a properly-drafted see-through trust loses see-through treatment. The trustee should calendar the deadline immediately upon notice of the account owner's death."}},
+    {"@type": "Question", "name": "How do the July 2024 final regulations (TD 10001) change conduit-vs-accumulation planning?",
+     "acceptedAnswer": {"@type": "Answer", "text": "TD 10001, published July 19, 2024 and effective for distribution calendar years beginning on or after January 1, 2025, made three changes that matter for see-through-trust drafting. First, it confirmed that both conduit and accumulation trusts are subject to the annual-RMD-during-years-1-through-9 requirement under the 10-year rule when the account owner died on or after their required beginning date — the trustee cannot back-load all 10 years' distributions into year 10. Second, it clarified the see-through eligibility rules for separate-account trust arrangements: a trust that is required by its terms to be divided into separate trusts immediately upon the account owner's death qualifies for beneficiary-by-beneficiary RMD treatment. Third, it locked in the July 2024 final regulation §1.401(a)(9)-4(e) EDB documentation standards for disabled and chronically ill beneficiaries — including the physician certification and the one-year documentation-currency requirement for chronic illness."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:720px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.05rem;color:var(--text);box-shadow:var(--shadow)}
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a class="logo" href="/">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>See-Through Trust as IRA Beneficiary in 2026
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement Planning · Updated July 31, 2026</span>
+  <h1 id="article-start">See-Through Trust as IRA Beneficiary in 2026: Treas. Reg. §1.401(a)(9)-4(f), the Conduit-vs-Accumulation Split, and Every Drafting Choice</h1>
+  <p class="deck">A trust named as the beneficiary of a retirement account only qualifies for stretch or 10-year treatment if it satisfies four specific requirements at Treas. Reg. §1.401(a)(9)-4(f). Once it does, the drafter faces a fork — conduit or accumulation — with materially different tax cost, creditor protection, and Medicaid-planning behavior. This is the complete 2026 field guide after TD 10001 and SECURE 2.0 §337.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published July 31, 2026</span>
+    <span class="dot"></span>
+    <span>24 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>The most consequential drafting decision in retirement-account estate planning is not which beneficiary form you sign at the custodian — it is what happens when the beneficiary is a trust. A trust named as the beneficiary of an IRA, 401(k), 403(b), or governmental §457(b) account can preserve the same distribution schedule that a natural person would receive — but only if the trust satisfies the four requirements of Treasury Regulation §1.401(a)(9)-4(f)(2).<sup><a href="#source-1">[1]</a></sup> Miss any one of them and the trust becomes a non-individual beneficiary, forcing distribution under the shortest of the 5-year rule (pre-required-beginning-date death) or the deceased owner's remaining life expectancy (post-RBD death). Neither offers meaningful deferral.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>Once the four see-through requirements are met, the drafter still faces a fork. A <strong>conduit trust</strong> forces every dollar the trustee receives from the inherited account out to the primary beneficiary immediately. An <strong>accumulation trust</strong> lets the trustee retain distributions inside the trust — but only at the cost of the compressed trust bracket schedule that hits the top 37% federal ordinary-income rate at roughly <strong>$16,000</strong> of retained taxable income in 2026, plus a 3.8% Net Investment Income Tax on the same threshold under IRC §1411 — a combined 40.8% federal marginal rate versus the individual rate of 22-24% most middle-income beneficiaries face.<sup><a href="#source-3">[3]</a></sup></p>
+
+<p>The SECURE Act of 2019 collapsed most inherited-account beneficiaries into a 10-year distribution window under IRC §401(a)(9)(H), and the July 2024 final regulations at Treasury Decision 10001 finally locked in the operating rules — including the year-1-through-9 annual RMD requirement when the deceased died on or after their required beginning date.<sup><a href="#source-4">[4]</a></sup> Every conduit trust drafted before 2020 for an adult non-Eligible-Designated-Beneficiary child now flushes the entire inherited account out to that child by December 31 of the tenth year following death — usually in one lump-sum forced distribution that destroys everything the conduit was originally designed to do.<sup><a href="#source-5">[5]</a></sup> Any pre-SECURE conduit trust in your estate plan should be reviewed and, where possible, decanted or reformed before the account owner dies.</p>
+
+<p>This article is the complete 2026 field guide: the four see-through requirements walked through line by line, the conduit-vs-accumulation split with hand-computed tax math, the compressed-trust-bracket cost of retention, SECURE 2.0 §337 Applicable Multi-Beneficiary Trust mechanics for disabled and chronically ill beneficiaries, three worked case studies at realistic account sizes, and every drafting mistake we have seen turn a lifetime stretch into a 5-year fire sale. When you are ready to project the numbers on any specific inheritance under either structure, the <a href="/calc/retirement-calculator.html">CalcLeap retirement calculator</a>, the <a href="/calc/traditional-ira-calculator.html">Traditional IRA calculator</a>, the <a href="/calc/roth-ira-calculator.html">Roth IRA calculator</a>, and the <a href="/calc/401k-withdrawal-calculator.html">401(k) withdrawal calculator</a> handle the arithmetic under both regimes.</p>
+
+<a class="cta-calc" href="/calc/retirement-calculator.html">
+  <span class="ic">📊</span>
+  <div>
+    <h4>Model an inherited-trust distribution schedule</h4>
+    <p>Free, instant, no signup — compare stretch-through-conduit vs. 10-year-rule vs. accumulation-with-retention across a full beneficiary timeline.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="why-a-trust">Why anyone names a trust as retirement-account beneficiary in the first place</h2>
+
+<p>The default answer for most account owners is <em>don't</em>. Naming individual beneficiaries directly on the custodian's beneficiary designation form gives them the widest set of post-death options, the simplest paperwork, and the cheapest ongoing administration. But there are five fact patterns where a trust is either preferable or required, and each one changes the drafting priority:</p>
+
+<ol>
+  <li><strong>Minor beneficiaries.</strong> A minor cannot own an inherited IRA outright. Left unprotected, the account passes to a court-appointed guardian who administers under state guardianship rules — expensive, public, and terminating at age 18 or 21 with a full lump sum handed to a teenager. A trust with an adult trustee and staged distribution schedule replaces court supervision with private administration.</li>
+  <li><strong>Spendthrift, addiction, or creditor-exposure risk.</strong> An inherited IRA owned outright is reachable by the beneficiary's judgment creditors in most states after <em>Clark v. Rameker</em>, 573 U.S. 122 (2014).<sup><a href="#source-6">[6]</a></sup> A properly-drafted spendthrift trust with an independent trustee blocks direct creditor reach against the trust corpus and provides a legitimate defensive layer.</li>
+  <li><strong>Disabled or chronically ill beneficiaries.</strong> Direct ownership of even a modest inherited IRA disqualifies a beneficiary from means-tested government benefits including Supplemental Security Income and Medicaid. A third-party Special Needs Trust preserves benefits eligibility while receiving the inherited-account distributions and using them for supplemental care — but only if drafted as an AMBT under SECURE 2.0 §337.</li>
+  <li><strong>Blended-family control.</strong> A second-spouse remainder issue — where the account owner wants income for the second spouse during their life but the corpus preserved for children from a prior marriage — is impossible to achieve with outright beneficiary designation. A conduit or accumulation trust with a qualified terminable interest structure solves the problem.</li>
+  <li><strong>Estate-tax planning above the state exemption.</strong> In an Illinois, Massachusetts, Oregon, or New York estate above the state exemption, direct designation of the surviving spouse defers federal but not always state estate tax; a bypass trust structure using retirement-account beneficiary designation as the funding source can capture state-level exemption that would otherwise be lost.<sup><a href="#source-7">[7]</a></sup> See our companion guides on <a href="/blog/illinois-estate-tax-planning-for-retirees-2026.html">Illinois estate tax planning</a> and <a href="/blog/state-estate-tax-field-guide-2026.html">state estate tax field guide</a> for the state-by-state calculus.</li>
+</ol>
+
+<p>Every one of these five patterns pushes the account owner toward a trust — but only if the trust is drafted to preserve see-through status. A trust that fails the four §1.401(a)(9)-4(f) requirements does not merely lose the stretch: it collapses to non-individual-beneficiary treatment, forcing distribution over the shorter of the 5-year rule (if the account owner died before their required beginning date) or the deceased's remaining life expectancy under the Single Life Table (if the death was on or after the RBD).<sup><a href="#source-2">[2]</a></sup> On a $1.5M inherited IRA with a beneficiary who could have used the 10-year rule, collapsing to the 5-year rule alone typically costs $80,000-$150,000 in accelerated federal income tax depending on the beneficiary's bracket.</p>
+
+<h2 id="the-four-requirements">The four §1.401(a)(9)-4(f) see-through requirements, line by line</h2>
+
+<p>Treasury Regulation §1.401(a)(9)-4(f)(2), as amended by the July 2024 final regulations at TD 10001, sets four requirements that must all be satisfied for a trust to qualify as a see-through:<sup><a href="#source-1">[1]</a></sup></p>
+
+<h3>Requirement 1 — Valid under state law</h3>
+
+<p>The trust must be a valid trust under the law of the state whose law governs it. This is almost always satisfied for any professionally-drafted trust. Two failure modes: (a) a self-drafted trust that lacks the state-law formalities (in some states, a written trust naming beneficiaries must be signed by the settlor with two witnesses; in others, a notary signature is required); and (b) an oral trust or an unsigned trust draft that a settlor intended to execute but never did. If the trust is not valid under state law when the account owner dies, it is not a see-through — no cure is available after death.</p>
+
+<h3>Requirement 2 — Irrevocable at death</h3>
+
+<p>The trust must be irrevocable, or must become irrevocable upon the death of the account owner. Revocable living trusts satisfy this automatically because they become irrevocable at the settlor's death. A trust that remains revocable after the account owner's death — for example, a trust drafted by a third party where the account owner is only the beneficiary and someone else retains a lifetime power to revoke — fails the requirement.</p>
+
+<h3>Requirement 3 — Identifiable beneficiaries</h3>
+
+<p>The beneficiaries of the trust who are beneficiaries with respect to the trust's interest in the account owner's benefit must be identifiable from the trust instrument.<sup><a href="#source-1">[1]</a></sup> The regulation reaches every trust beneficiary who could receive any part of the retirement-account distribution, including remainder beneficiaries who might inherit through the primary beneficiary's estate.</p>
+
+<p>This is the single most common drafting failure. Two classic patterns break the requirement:</p>
+
+<ul>
+  <li><strong>Charity as remainder beneficiary.</strong> A trust that names a natural person as primary beneficiary and a charity as contingent or remainder beneficiary destroys see-through status — the charity is a non-individual and it can theoretically receive retirement-account distributions. Fix: split the beneficiary designation into two shares at the custodian level (one directly to charity, one to a see-through trust) rather than layering both inside one trust.</li>
+  <li><strong>Powers of appointment over remainder.</strong> A trust that gives the primary beneficiary a general power to appoint the remainder to "any person or entity" including charities or the beneficiary's estate destroys see-through — the pool of possible remainder beneficiaries is not identifiable and includes non-individuals. Fix: limit the power of appointment to a class of identifiable natural persons.</li>
+</ul>
+
+<h3>Requirement 4 — Documentation to plan administrator by October 31</h3>
+
+<p>The trustee must provide the plan administrator with either (a) a copy of the trust instrument, or (b) a final list of all trust beneficiaries as of September 30 of the calendar year following the year of the account owner's death, including any conditions on their entitlement — by <strong>October 31</strong> of that same calendar year.<sup><a href="#source-1">[1]</a></sup></p>
+
+<p>Missing this deadline collapses the trust to non-individual-beneficiary status — full stop, no cure. It is the single most common way a properly-drafted see-through trust loses see-through treatment. The trustee should calendar the October 31 deadline immediately upon notice of the account owner's death and treat it as the single hardest deadline in the entire post-death administration sequence. Even a well-drafted trust with the right beneficiaries and the right conduit or accumulation structure fails if the paperwork is late.</p>
+
+<div class="callout warn">
+  <h4>The October 31 deadline is not a soft deadline</h4>
+  <p>The IRS has been enforcing the §1.401(a)(9)-4(h) documentation deadline strictly. Custodians will typically not send a reminder. The trustee is responsible for identifying every retirement-account custodian where the deceased held a balance, submitting the documentation to each, and confirming receipt. Every custodian has its own submission process — some accept email attachments, some require a signed medallion-guaranteed submission form. Start on day 1.</p>
+</div>
+
+<h2 id="conduit-mechanics">Conduit trust mechanics — no retention, no bracket problem</h2>
+
+<p>A conduit trust is drafted so that every dollar the trustee receives from the inherited retirement account must be paid out to the primary beneficiary immediately — no trustee discretion to accumulate, no ability to retain for the benefit of remainder beneficiaries. Because the money passes through the trust to the individual beneficiary in the same tax year it is distributed from the account, the trust reports the distribution as distributable net income (DNI) on Form 1041 Schedule K-1, the individual beneficiary picks it up on their Form 1040, and it is taxed at the individual's rate schedule rather than the compressed trust schedule.<sup><a href="#source-8">[8]</a></sup></p>
+
+<p>For RMD-computation purposes, the primary beneficiary of a conduit trust is the sole see-through beneficiary — remainder beneficiaries are ignored because they cannot receive any distribution from the retirement account while the primary beneficiary is alive.<sup><a href="#source-1">[1]</a></sup> This is the load-bearing feature of the conduit design: it lets an accumulation-trust-style spendthrift structure look through to a single individual for RMD purposes, so the RMD schedule tracks that individual's Single Life Table divisor if they are an Eligible Designated Beneficiary, or the 10-year rule if they are a plain Designated Beneficiary.</p>
+
+<h3>How the SECURE Act broke most pre-2020 conduit trusts</h3>
+
+<p>Before the SECURE Act, a conduit trust for an adult child of the account owner functioned as a lifetime spendthrift wrapper: the child was an EDB by default (any designated beneficiary was), the annual RMD started small (roughly 2% of the account balance for a 30-year-old primary beneficiary under the Single Life divisor of 55.3 at age 30), and the conduit language forced that small annual amount out to the child under the trust's spendthrift and creditor-protection framework. The remainder — anything left in the account when the primary beneficiary died — went to contingent beneficiaries, typically the primary beneficiary's own children.</p>
+
+<p>The SECURE Act eliminated the adult-child EDB category. As of 2020, any adult child of a deceased account owner who is not disabled, chronically ill, or within 10 years of the decedent's age is a plain Designated Beneficiary subject to the 10-year rule. The conduit trust language now forces the trustee to distribute the entire account balance to the primary beneficiary by December 31 of the tenth calendar year following death — often as one enormous lump-sum year-10 distribution if the trustee waited. On a $1M account, a 45-year-old primary beneficiary who was already earning $200K/year gets pushed into the 37% federal bracket for that one year, paying $370,000 in federal tax alone on the year-10 lump sum plus 3.8% NIIT plus state income tax — the opposite of what the conduit was designed to do.<sup><a href="#source-9">[9]</a></sup></p>
+
+<p>Any conduit trust drafted before 2020 for an adult, non-EDB child of the settlor should be reviewed under the account owner's current state's decanting statute or reformation procedure and, where possible, restructured before the account owner dies. Trust decanting into an accumulation trust with the same identifiable-beneficiary framework preserves the spendthrift and creditor-protection intent while allowing the trustee discretion to spread the 10-year window's distributions across all 10 years rather than accepting a forced year-10 flush.</p>
+
+<h2 id="accumulation-mechanics">Accumulation trust mechanics — the compressed bracket problem</h2>
+
+<p>An accumulation trust is any see-through trust that is not a conduit trust — meaning the trustee has discretion to retain distributions inside the trust rather than immediately pass them through. This is the correct choice for four fact patterns: minor beneficiaries who should not receive lump sums at age 21, spendthrift-exposed beneficiaries with judgment or creditor risk, disabled or chronically ill beneficiaries whose direct receipt would defeat means-tested benefits eligibility, and blended-family structures where the trustee needs discretion over timing.</p>
+
+<p>The cost of the accumulation choice is the compressed trust rate schedule under IRC §1(e).<sup><a href="#source-3">[3]</a></sup> For tax year 2026, the trust ordinary-income brackets are approximately:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Trust taxable income</th><th>Federal marginal rate 2026</th><th>Individual single filer comparison</th></tr>
+</thead>
+<tbody>
+<tr><td>$0 – $3,300</td><td>10%</td><td>$0 – $12,000 at 10%</td></tr>
+<tr><td>$3,300 – $12,000</td><td>24%</td><td>$12,000 – $49,000 at 12%</td></tr>
+<tr><td>$12,000 – $16,000</td><td>35%</td><td>$49,000 – $105,000 at 22%</td></tr>
+<tr><td>$16,000+</td><td>37%</td><td>$640,000+ at 37% (approx.)</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The 3.8% Net Investment Income Tax under IRC §1411 applies to trust net investment income above the top-of-bracket threshold — effectively at the $16,000 level for trusts, versus $200,000 (single) or $250,000 (MFJ) for individuals.<sup><a href="#source-10">[10]</a></sup> Combined federal marginal rate on retained investment income above the trust top bracket: <strong>40.8%</strong>.</p>
+
+<p>The interaction with the SECURE Act 10-year rule is where the compressed schedule bites hardest. A $1M inherited IRA in an accumulation trust for a non-EDB primary beneficiary must be fully distributed to the trust within 10 years. If the trustee retains the distributions inside the trust rather than passing them to the primary beneficiary, the trust pays federal tax at 37% on every dollar above $16,000 of retained taxable income — meaning a $100,000 year-5 distribution retained inside the trust generates roughly $37,000 of federal tax before any state tax, versus $22,000-$24,000 if the same $100,000 had passed through as DNI to a middle-income individual beneficiary.</p>
+
+<h3>The DNI escape valve</h3>
+
+<p>The trustee of an accumulation trust can distribute some or all of the retirement-account distributions received in a given tax year to trust beneficiaries and elect DNI treatment under IRC §661-663. Distributions of DNI are deductible by the trust and taxable to the beneficiary who receives them, at the beneficiary's individual rate schedule.<sup><a href="#source-8">[8]</a></sup> The trustee can also use the <strong>65-day rule</strong> under IRC §663(b): distributions made within 65 days after the end of the trust's tax year can be treated as made in the prior year, letting the trustee defer the DNI/retention decision until after the tax year's income is known and after the beneficiaries' individual tax pictures are visible.</p>
+
+<p>The practical effect: a well-administered accumulation trust with a competent trustee looks a lot like a conduit trust for federal-income-tax purposes — the trustee passes most of the retirement-account distributions through as DNI to the primary beneficiary annually, avoids the compressed bracket, and retains inside the trust only what is needed to satisfy the non-tax objectives (creditor protection for that portion, spendthrift protection for that portion, or supplemental-needs preservation for a disabled beneficiary). The accumulation structure gives the trustee optionality that the conduit does not — but only if the trustee actually exercises it, and only if the trust instrument does not prohibit it.</p>
+
+<div class="callout key">
+  <h4>Drafting rule: accumulation trusts should always permit DNI-election flexibility</h4>
+  <p>A trust that requires the trustee to retain all distributions — with no discretion to pass income through — is the worst of both worlds. It combines accumulation-trust compressed brackets with conduit-trust rigidity. Every accumulation trust for a retirement-account beneficiary should give the trustee discretion to distribute income, distribute principal, or retain, based on the beneficiary's needs and the tax situation of the moment.</p>
+</div>
+
+<h2 id="conduit-vs-accumulation-decision">The conduit-vs-accumulation decision framework</h2>
+
+<p>The choice is not binary. It depends on the primary beneficiary's category (EDB or DB), the non-tax objectives, and the account size. The framework below captures the dominant patterns:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Primary beneficiary situation</th><th>Preferred structure</th><th>Why</th></tr>
+</thead>
+<tbody>
+<tr><td>Surviving spouse who plans to roll to their own IRA</td><td>Neither — name spouse directly</td><td>Direct ownership rollover gives the widest set of options; a trust adds cost and complexity with no benefit unless there is a blended-family remainder concern.</td></tr>
+<tr><td>Adult child, no spendthrift risk, no creditor exposure</td><td>Neither — name child directly</td><td>10-year rule applies either way; direct designation avoids trust admin cost.</td></tr>
+<tr><td>Minor child of the settlor</td><td>Conduit if minor-child EDB status preserves stretch until age 21; accumulation with distribution schedule if the parent wants trustee control past age 21</td><td>Conduit gives simplest treatment through age 21; accumulation lets trustee delay lump-sum access until age 25/30/35 under the trust's staged distribution.</td></tr>
+<tr><td>Adult child with spendthrift, addiction, or creditor exposure</td><td>Accumulation trust with trustee DNI-election discretion</td><td>Trust protects corpus from creditors; DNI election controls bracket cost year by year.</td></tr>
+<tr><td>Disabled or chronically ill beneficiary receiving means-tested benefits</td><td>Third-party Special Needs Trust structured as AMBT under SECURE 2.0 §337</td><td>Direct receipt destroys SSI/Medicaid eligibility. AMBT preserves lifetime stretch and preserves benefits.</td></tr>
+<tr><td>Blended family — second spouse + children from prior marriage</td><td>Conduit for second spouse (if spouse is an EDB) with trust remainder to children; or accumulation with QTIP-style income-only distribution</td><td>Structure balances income for surviving spouse with corpus preservation for prior-marriage children.</td></tr>
+<tr><td>Charitable component in estate plan</td><td>Neither — split beneficiary designation between charity (direct) and see-through trust for individual beneficiaries</td><td>Direct charitable designation preserves see-through status of the trust portion; mixing them inside one trust destroys see-through.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="ambt-deep-dive">SECURE 2.0 §337 Applicable Multi-Beneficiary Trust deep dive</h2>
+
+<p>The single most important post-SECURE-Act fix for trust drafting arrived with SECURE 2.0 §337, codified at IRC §401(a)(9)(H)(v).<sup><a href="#source-11">[11]</a></sup> Under the original SECURE Act, an accumulation trust benefiting a disabled or chronically ill EDB alongside any non-EDB remainder beneficiary collapsed to the 10-year rule — because the trust had at least one non-EDB in the pool of see-through beneficiaries. That gutted every third-party Special Needs Trust structure that had been drafted before 2020.</p>
+
+<p>§337 fixed the gap by creating a new sub-type of see-through: the Applicable Multi-Beneficiary Trust. An AMBT is a see-through trust whose primary beneficiary is a disabled or chronically ill EDB and that satisfies one of two structural rules:</p>
+
+<ul>
+  <li><strong>Type I AMBT — September 30 separate-account subdivision.</strong> The trust must be required by its terms to divide, immediately upon the account owner's death, into separate share trusts for each beneficiary, so that the disabled or chronically ill EDB's separate share can use their own single-life stretch and the other beneficiaries' shares fall under the 10-year rule. The subdivision must be completed by September 30 of the year following the account owner's death (the same "beneficiary finalization" deadline as regular see-through trusts).</li>
+  <li><strong>Type II AMBT — drafted-priority accumulation.</strong> The trust must be drafted so that no distribution can be made from the retirement-account portion to any non-disabled or non-chronically-ill beneficiary until the disabled or chronically ill EDB dies. This preserves the disabled EDB's lifetime stretch for the full duration of their life, regardless of the other beneficiaries.</li>
+</ul>
+
+<p>Both types preserve the disabled or chronically ill EDB's lifetime stretch. Type I is more flexible for the non-EDB remainder beneficiaries because their shares can be distributed under the 10-year rule during the EDB's lifetime. Type II is more protective of the EDB because it locks in the full lifetime stretch and treats the non-EDB beneficiaries as pure remainder interests.</p>
+
+<div class="callout tip">
+  <h4>Every Special Needs Trust for a retirement-account beneficiary should be an AMBT</h4>
+  <p>A third-party Special Needs Trust that is not an AMBT loses the disabled beneficiary's lifetime stretch. On a $1M inherited IRA for a disabled 40-year-old with a 45.7-year Single Life divisor, the lifetime-stretch preserved balance vs. the 10-year rule is roughly $1.4M-$1.9M depending on growth and tax assumptions. The AMBT is not optional if the drafter wants that preservation.</p>
+</div>
+
+<h2 id="post-td-10001">What TD 10001 changed for see-through trust operation</h2>
+
+<p>The July 2024 final regulations (Treasury Decision 10001), published July 19, 2024 and effective for distribution calendar years beginning on or after January 1, 2025, made three changes that matter for see-through trust drafting and operation:<sup><a href="#source-4">[4]</a></sup></p>
+
+<ol>
+  <li><strong>Confirmed annual RMDs during years 1-9 of the 10-year window when the deceased died on or after RBD.</strong> This ended a three-year period of ambiguity — the IRS had waived enforcement of the annual-RMD requirement for tax years 2021-2024 under a series of transition notices. As of 2025, the trustee of an accumulation trust subject to the 10-year rule must take at least the minimum annual distribution in each of years 1-9, computed under the Single Life divisor for the deceased owner's age at death (reduced by one for each subsequent year), plus the full remaining balance in year 10.<sup><a href="#source-12">[12]</a></sup></li>
+  <li><strong>Clarified separate-account trust treatment.</strong> A trust that is required by its own terms to divide into separate trusts immediately at the account owner's death qualifies for beneficiary-by-beneficiary RMD treatment, meaning each separate trust's beneficiary category (EDB or DB) determines the distribution schedule for that separate share independently. This was the doctrinal basis for the Type I AMBT structure.</li>
+  <li><strong>Locked in EDB documentation standards.</strong> The final regulations at §1.401(a)(9)-4(e) codify the July 2024 physician-certification requirements for disability under IRC §72(m)(7), the one-year documentation-currency requirement for chronic illness under IRC §7702B(c)(2), the uniform-age-21 rule for minor-child EDB status, and the date-of-birth-to-date-of-birth comparison for the not-more-than-10-years-younger category.<sup><a href="#source-13">[13]</a></sup></li>
+</ol>
+
+<p>Together, these three changes mean that pre-2025 conduit and accumulation trusts drafted under the pre-final-regulation uncertainty should be reviewed for two specific issues: (a) whether the trustee's authority to make annual distributions during years 1-9 of the 10-year window is clearly established (many pre-final trusts assumed year-10-only lump-sum distributions), and (b) whether the trust's separate-account subdivision provisions actually satisfy the Type I AMBT technical requirements or need to be reformed. For a broader inheritance-planning context — including the interaction with the surviving-spouse categories — see our companion pieces on the <a href="/blog/eligible-designated-beneficiary-taxonomy-2026.html">EDB taxonomy</a> and the <a href="/blog/spousal-ira-rollover-vs-inherited-ira-2026.html">spousal IRA rollover decision framework</a>.</p>
+
+<h2 id="case-studies">Three worked case studies</h2>
+
+<h3>Case 1 — Priya, adult daughter with active credit-card judgment risk</h3>
+
+<p><strong>Facts:</strong> Meera dies at age 71 in early 2026 with a $1.2M Traditional IRA. Her sole beneficiary is her daughter Priya, age 44, married, two children ages 12 and 14. Meera's concern before death: Priya's husband has a $180K credit-card judgment against him from a failed business, and Meera does not want the inherited IRA balance reachable by that judgment creditor. Meera's original plan named Priya directly as beneficiary; her estate attorney amended the beneficiary designation two years before death to name a see-through accumulation trust with Priya as primary beneficiary and Priya's two children as contingent remainder beneficiaries.</p>
+
+<p><strong>Analysis:</strong> Priya is a plain Designated Beneficiary — not an EDB because she is more than 10 years younger than Meera and does not fit any of the disabled, chronically ill, or minor-child categories. The 10-year rule applies. Meera died at age 71, which is before her required beginning date under SECURE 2.0 §107 (RBD is April 1 following age 73 for accounts held by taxpayers reaching age 73 in 2024 or later); therefore the accumulation trust is not required to take annual RMDs during years 1-9 — but it must fully distribute the account by December 31, 2036 (year 10).</p>
+
+<p><strong>Structure execution:</strong> Priya's attorney-trustee elects a middle path: withdraw $150,000 per year from the inherited IRA to the trust, distribute $130,000 of that to Priya as DNI (taxed at Priya's marginal rate of 24% federal on her middle-income household), retain $20,000 inside the trust for creditor-protected buffer growth. Over the 10-year window, the trust distributes approximately $1.3M to Priya (which she uses to fund her children's college and her own retirement), pays approximately $2,700 per year in retained-income federal tax (24-35% bracket on the retained $20K), and preserves roughly $200K inside the trust as of year 10 for a final DNI distribution.</p>
+
+<p><strong>Result:</strong> Priya's total federal tax on the inherited-account distributions across all 10 years: approximately $286,000 (24% on $1.19M passed through as DNI + 22% blend on retained-then-final-distributed). Total that would have been paid if Priya had been named directly (with worse creditor exposure): approximately $274,000 — nearly identical. Difference: the trust structure preserved $1.2M of inherited-account balance from Priya's husband's judgment creditor throughout the 10-year window, at a total cost premium of roughly $12,000 in extra tax across 10 years. Trust admin cost: approximately $3,500/year in trustee and CPA fees. Net cost of creditor protection for a $1.2M account: approximately $47,000. The <a href="/calc/traditional-ira-calculator.html">Traditional IRA calculator</a> confirms the annual-distribution schedule.</p>
+
+<h3>Case 2 — Diana, disabled adult son on SSI</h3>
+
+<p><strong>Facts:</strong> Marcus dies at age 68 in early 2026 with a $850K Roth IRA. His son Diana (age 35) has muscular dystrophy, receives SSI plus Medicaid, and lives independently with a home health aide. Marcus's estate plan names a Third-Party Special Needs Trust as the beneficiary of the Roth IRA. The trust is structured as a Type II AMBT under SECURE 2.0 §337: no distribution may be made to any non-disabled beneficiary until Diana dies. Diana is the sole lifetime beneficiary; on Diana's death, the remainder passes to a charitable foundation and Diana's cousin.</p>
+
+<p><strong>Analysis:</strong> Diana qualifies as an EDB under IRC §401(a)(9)(E)(ii)(III) via the disability standard at §72(m)(7). Because the trust is a Type II AMBT, Diana's disability status controls the RMD schedule for the entire trust — remainder beneficiaries are ignored. Diana's Single Life divisor at age 35 in 2026 is 50.5 under Treas. Reg. §1.401(a)(9)-9. First-year RMD: $850,000 / 50.5 = $16,832. Because the account is a Roth, the distribution is federal-tax-free.</p>
+
+<p><strong>Structure execution:</strong> The trustee retains the annual RMD inside the trust and uses it exclusively for Diana's supplemental care under the third-party SNT provisions — hiring additional aide hours, providing therapy not covered by Medicaid, funding accessible transportation. Diana's SSI eligibility is preserved because the trust corpus is not counted as Diana's resource and the distributions are not counted as Diana's income for SSI purposes when spent on supplemental care items rather than food or shelter under Program Operations Manual System (POMS) SI 01120.200.</p>
+
+<p><strong>Result:</strong> Diana's 45-year lifetime stretch across the Single Life divisor sequence preserves approximately $1.4M-$1.9M more after-tax balance versus a 10-year rule distribution (depending on growth assumptions), while preserving SSI and Medicaid eligibility throughout Diana's life. If Marcus had used a non-AMBT accumulation trust with the same charitable remainder, the trust would have collapsed to the 10-year rule under the pre-§337 SECURE Act framework, costing Diana $1.4M+ of stretch and potentially destroying SSI eligibility during the 10-year window. Cost of AMBT structuring: approximately $8,500 in one-time estate-planning legal fees plus $4,500/year in ongoing trustee fees. The <a href="/calc/roth-ira-calculator.html">Roth IRA calculator</a> illustrates the compounding benefit.</p>
+
+<h3>Case 3 — Elena, second-spouse with children from prior marriage</h3>
+
+<p><strong>Facts:</strong> Marcus dies at age 74 in early 2026 with a $2.4M Traditional IRA. His second wife Elena is 62; his two adult children from his first marriage (Sofia age 42, David age 38) are the intended remainder beneficiaries. Marcus wants Elena to have income from the IRA during her lifetime but wants the remainder preserved for Sofia and David. He does not trust Elena to preserve the balance if she inherits directly; he does not want the remainder subject to Elena's own estate plan (which favors her son from her first marriage).</p>
+
+<p><strong>Structure:</strong> Marcus's attorney drafts a conduit trust with Elena as primary beneficiary (spouse EDB under IRC §401(a)(9)(E)(ii)(I)) and Sofia and David as remainder beneficiaries. All distributions from the inherited IRA must be passed to Elena during her lifetime; on Elena's death, whatever remains in the account passes to Sofia and David.</p>
+
+<p><strong>Analysis:</strong> Elena is an EDB. As a spouse-EDB in a conduit trust, Elena's Single Life divisor determines the annual distribution. Elena's age in the year after Marcus's death is 63; her Single Life divisor is 24.5 (from Treas. Reg. §1.401(a)(9)-9 amended by TD 10001). First-year RMD from the trust: $2,400,000 / 24.5 = $97,959. Because the trust is a conduit, all $97,959 passes to Elena as DNI and is taxed at Elena's marginal rate (24% federal in 2026 assuming she has $185K taxable income including this distribution). Elena's federal tax on the first-year distribution: approximately $23,510.</p>
+
+<p><strong>Result:</strong> Over Elena's projected 24-year post-death life expectancy, the conduit distributes an aggregate of roughly $2.9M to Elena (assuming 6% pre-tax account growth), of which Elena pays approximately $700K in federal tax at her sustained middle-bracket rate. The balance remaining in the account on Elena's death — projected at roughly $1.6M in an inflation-adjusted midpoint scenario — passes to Sofia and David, who take it subject to the 10-year rule from the date of Elena's death (not Marcus's — successor beneficiaries reset the clock under the SECURE Act). Sofia and David then have 10 additional years to distribute the balance, taxed at their marginal rates. Marcus's intent — income for Elena during her lifetime with corpus preservation for his prior-marriage children — is achieved through the conduit structure with no accumulation-trust compressed-bracket cost, at approximately $4,500/year of ongoing trust administration expense.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Case</th><th>Structure</th><th>Primary beneficiary category</th><th>Distribution regime</th><th>Approximate lifetime tax on inherited-account distributions</th></tr>
+</thead>
+<tbody>
+<tr><td>Priya (creditor-exposed daughter)</td><td>Accumulation w/ DNI election</td><td>Designated Beneficiary (non-EDB)</td><td>10-year rule, most passed as DNI</td><td>~$286K federal on $1.2M account</td></tr>
+<tr><td>Diana (disabled son on SSI)</td><td>Type II AMBT third-party SNT</td><td>EDB (disabled)</td><td>Lifetime stretch, all retained in trust</td><td>$0 federal (Roth); $50-70K state depending on residence</td></tr>
+<tr><td>Elena (second-spouse conduit)</td><td>Conduit, spouse primary</td><td>EDB (surviving spouse)</td><td>Lifetime stretch, passed as DNI</td><td>~$700K federal on $2.4M account over 24 years</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="mistakes">Six drafting mistakes that destroy see-through status</h2>
+
+<ol>
+  <li><strong>Charity as remainder beneficiary of a see-through trust.</strong> Any non-individual in the pool of possible retirement-account beneficiaries collapses see-through under §1.401(a)(9)-4(f)(2)(iii). Fix: split the beneficiary designation at the custodian into a direct-to-charity share and a direct-to-see-through-trust share for individuals.</li>
+  <li><strong>Missing the October 31 documentation deadline.</strong> The trustee must submit either the trust instrument or the qualified beneficiary summary to every retirement-account custodian by October 31 of the calendar year following the account owner's death. Missing the deadline for even one custodian collapses that account to non-individual treatment. Calendar the deadline day 1.</li>
+  <li><strong>Pre-2020 conduit trust for an adult non-EDB child left unreformed.</strong> The conduit language forces one enormous lump-sum year-10 distribution at the primary beneficiary's peak-earning bracket. Decant into an accumulation trust before the account owner dies, if state law permits.</li>
+  <li><strong>Special Needs Trust that fails the SECURE 2.0 §337 AMBT structural requirements.</strong> A third-party SNT that does not satisfy either the Type I September-30-subdivision or the Type II drafted-priority requirement loses the disabled EDB's lifetime stretch and destroys the load-bearing preservation benefit. All new SNTs should be drafted as AMBTs; existing SNTs drafted pre-2023 should be reviewed for §337 conformity.</li>
+  <li><strong>General power of appointment over trust remainder that reaches non-individuals.</strong> A power giving the primary beneficiary the ability to appoint remainder "to any person or entity" including charities or the beneficiary's estate destroys the identifiable-beneficiaries requirement. Fix: limit the appointment class to identifiable natural persons.</li>
+  <li><strong>Accumulation trust that prohibits trustee DNI-election flexibility.</strong> A trust that requires the trustee to retain all distributions inside the trust — with no discretion to pass income through as DNI — locks the trust into paying the compressed 37% bracket on every dollar above $16,000 of retained income. Every accumulation trust for a retirement-account beneficiary should give the trustee full DNI-election discretion.</li>
+</ol>
+
+<h2 id="state-tax">State-tax overlay</h2>
+
+<p>State income tax treatment of trust distributions layers on top of the federal analysis and can materially change the conduit-vs-accumulation decision:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>State cohort</th><th>Trust-level income tax</th><th>Conduit-vs-accumulation implication</th></tr>
+</thead>
+<tbody>
+<tr><td>No income tax (FL, TX, NV, WY, SD, TN, WA, AK, NH)</td><td>None</td><td>State neutral. Federal-only analysis controls.</td></tr>
+<tr><td>Full retirement exemption at beneficiary level (IL, MS, PA)</td><td>Trust income taxed at flat state rate</td><td>Conduit is preferred — passing income through as DNI eliminates state tax at the trust level and captures the beneficiary-level state exemption on retirement-account distributions.</td></tr>
+<tr><td>Full retirement inclusion at both trust and beneficiary level (CA, NJ, NY, VT, MN)</td><td>Trust income taxed at high state rate</td><td>The compressed-bracket cost of accumulation is amplified. Conduit is strongly preferred unless creditor or benefits considerations dominate.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Two states deserve special attention. <strong>Pennsylvania</strong> exempts most retirement-account distributions at the individual-beneficiary level but taxes trust income at the flat 3.07% state rate — so a conduit trust distributing to a PA-resident beneficiary produces zero PA state tax on the inherited-account distributions, while an accumulation trust retaining the same distributions produces roughly $300 of PA state tax per $10K retained. See our <a href="/blog/pennsylvania-401k-after-tax-basis-2026.html">Pennsylvania §401(k) after-tax basis</a> analysis for the broader PA treatment framework. <strong>California</strong> imposes state income tax on both trust and beneficiary levels at high rates (up to 13.3%), making conduit trusts even more strongly preferred over accumulation trusts. See our <a href="/blog/california-401k-and-ira-basis-2026.html">California §401(k) and IRA basis</a> piece for the CA-specific analysis.</p>
+
+<h2 id="checklist">Pre-execution action checklist</h2>
+
+<ol>
+  <li>Confirm the trust satisfies all four §1.401(a)(9)-4(f) requirements: valid under state law, irrevocable at death, identifiable beneficiaries (no charities, no non-individual entities in the beneficiary pool including remainder), and documentation-provision authority.</li>
+  <li>Decide conduit vs accumulation based on the primary beneficiary's category, non-tax objectives, and account size. Default to conduit unless spendthrift, creditor, disability-benefit-preservation, minor-beneficiary, or blended-family objectives require accumulation.</li>
+  <li>If disability is a factor, draft as a SECURE 2.0 §337 AMBT — either Type I (September 30 subdivision) or Type II (drafted-priority). Verify the disability documentation is current per the §1.401(a)(9)-4(e) standards.</li>
+  <li>Review any pre-2020 conduit trust for adult non-EDB beneficiaries and decant or reform where possible before the account owner dies.</li>
+  <li>Split retirement-account beneficiary designations at the custodian between direct-to-individual, direct-to-charity, and direct-to-see-through-trust shares rather than layering multiple beneficiary types inside a single trust.</li>
+  <li>Confirm the accumulation trust instrument gives the trustee full DNI-election discretion under IRC §661-663 and the 65-day rule under §663(b).</li>
+  <li>Calendar the October 31 documentation deadline the moment notice of the account owner's death is received. Submit to every retirement-account custodian and confirm receipt.</li>
+  <li>Retain a CPA, Enrolled Agent, or Elder Law attorney with SECURE Act and TD 10001 experience to review the trust structure, the beneficiary designation, and the annual distribution schedule for the full 10-year (or lifetime-stretch) window.</li>
+</ol>
+
+<div class="faq-block" id="faq">
+<h2 style="margin-bottom:1.5rem">Frequently asked questions</h2>
+
+<div class="faq-item">
+<h3>What is a see-through trust for retirement-account purposes?</h3>
+<p>A see-through trust is a trust named as the beneficiary of a qualified retirement account (IRA, 401(k), 403(b), governmental §457(b)) that satisfies the four requirements of Treas. Reg. §1.401(a)(9)-4(f)(2). When those requirements are met, the plan administrator ignores the trust entity for RMD-computation purposes and "sees through" to the individual beneficiaries of the trust, using their ages and their designated-beneficiary or eligible-designated-beneficiary status to compute the distribution schedule. Without see-through status, the trust is treated as a non-individual beneficiary and the account must be fully distributed under the shortest of the 5-year rule (pre-RBD death) or the deceased owner's remaining life expectancy (post-RBD death) — neither of which offers meaningful deferral.</p>
+</div>
+
+<div class="faq-item">
+<h3>What are the four requirements for see-through status under Treas. Reg. §1.401(a)(9)-4(f)?</h3>
+<p>First, the trust must be valid under state law. Second, the trust must be irrevocable, or must become irrevocable upon the death of the account owner. Third, the beneficiaries of the trust who are beneficiaries with respect to the trust's interest in the employee's benefit must be identifiable from the trust instrument. Fourth, the documentation described in §1.401(a)(9)-4(h) — either a copy of the trust or a list of all trust beneficiaries with a description of the conditions on their entitlement — must be provided to the plan administrator by October 31 of the calendar year following the year of the employee's death. Miss any of the four and the trust is a non-individual beneficiary.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the difference between a conduit trust and an accumulation trust?</h3>
+<p>A conduit trust is drafted so that every distribution the trustee receives from the inherited retirement account must be immediately paid out to the primary beneficiary — no trustee discretion, no accumulation inside the trust. An accumulation trust is any see-through trust that is not a conduit trust. The trustee has discretion to retain distributions inside the trust, invest them, or distribute them to permitted trust beneficiaries. The two structures produce identical retirement-account distribution schedules if the primary beneficiary is a Designated Beneficiary or Eligible Designated Beneficiary, but they diverge sharply on tax cost, creditor protection, and Medicaid-planning behavior after the money leaves the retirement account.</p>
+</div>
+
+<div class="faq-item">
+<h3>Why do accumulation trusts hit the top 37% tax bracket so fast in 2026?</h3>
+<p>Trusts and estates are taxed under IRC §1(e) on a highly compressed rate schedule. For tax year 2026, the top 37% federal ordinary-income bracket kicks in at approximately $16,000 of retained taxable income for a trust — versus roughly $640,000 for a single filer. The 3.8% Net Investment Income Tax under IRC §1411 attaches to trust NII above the highest income-tax bracket threshold, so retained investment income above about $16,000 faces a combined 40.8% federal marginal rate. This is why sophisticated drafters use a conduit trust when full distribution to the primary beneficiary is acceptable, and use an accumulation trust only when non-tax objectives (creditor protection, spendthrift protection, Medicaid-planning, minor children, blended-family control) outweigh the tax cost.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does the SECURE Act 10-year rule still apply to see-through trusts?</h3>
+<p>Yes. The see-through mechanism determines which individuals are treated as beneficiaries for RMD purposes; it does not override the beneficiary category rules under IRC §401(a)(9)(H). If the see-through beneficiary is a Designated Beneficiary who is not an Eligible Designated Beneficiary, the 10-year rule applies to the trust just as it would to the individual named directly. If the see-through beneficiary is an EDB, the trust gets lifetime stretch based on that beneficiary's Single Life Table divisor. The one exception: an Applicable Multi-Beneficiary Trust under SECURE 2.0 §337 — an accumulation trust whose primary beneficiary is a disabled or chronically ill EDB — can preserve that EDB's lifetime stretch even when the remainder beneficiaries would otherwise force 10-year treatment.</p>
+</div>
+
+<div class="faq-item">
+<h3>Do all conduit trusts still work after the SECURE Act?</h3>
+<p>Legally yes, but the drafting intent behind most pre-SECURE conduit trusts is now defeated. A conduit trust with a non-EDB adult child as primary beneficiary now flushes the entire inherited account out to that beneficiary by December 31 of the tenth year following the account owner's death — usually in one lump-sum year-10 forced distribution if the trustee waited. The pre-SECURE conduit was designed to trickle out modest annual RMDs over the beneficiary's lifetime; the same drafting language in 2026 forces the opposite. Any conduit trust drafted before 2020 for a non-EDB should be reviewed and, if possible, decanted or reformed into an accumulation trust before the account owner dies.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is an Applicable Multi-Beneficiary Trust (AMBT) under SECURE 2.0 §337?</h3>
+<p>SECURE 2.0 §337, codified at IRC §401(a)(9)(H)(v), fixes a drafting gap in the original SECURE Act that penalized accumulation trusts benefiting a disabled or chronically ill EDB alongside other beneficiaries. Under the original SECURE Act, adding a non-EDB remainder beneficiary to an accumulation trust for a disabled EDB collapsed the trust to the 10-year rule. Under §337, an AMBT is a see-through trust whose primary beneficiary is a disabled or chronically ill EDB and that either (Type I) requires the trust to be divided into separate accounts by September 30 of the year following death, or (Type II) prohibits any distribution to any non-disabled or non-chronically-ill beneficiary until the EDB dies. Properly structured, an AMBT preserves the disabled or chronically ill EDB's lifetime stretch.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can a charity be a beneficiary of a see-through trust?</h3>
+<p>No, if you want to preserve see-through status. The identifiable-beneficiaries requirement under Treas. Reg. §1.401(a)(9)-4(f)(2)(iii) requires every trust beneficiary who could receive the retirement-account interest — including remainder beneficiaries — to be an individual. A charity or other non-natural entity in any position that could receive retirement-account distributions destroys see-through status and collapses the trust to non-individual beneficiary treatment. This is one of the two most common drafting failures. Fix: split the retirement-account beneficiary designation into two shares — one payable directly to the charity, one payable to a see-through trust with only individual beneficiaries — using a beneficiary-designation form and a coordinated trust instrument.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the October 31 documentation deadline and what happens if you miss it?</h3>
+<p>Under Treas. Reg. §1.401(a)(9)-4(h), the trustee must provide the plan administrator with either (a) a copy of the trust instrument, or (b) a final list of all trust beneficiaries as of September 30 of the calendar year following the year of the account owner's death, including any conditions on their entitlement — by October 31 of that same calendar year. Missing the deadline collapses the trust to non-individual beneficiary status: the trust must distribute the account under the shortest of the 5-year rule (pre-RBD death) or the deceased owner's remaining life expectancy (post-RBD death). This is the single most common way a properly-drafted see-through trust loses see-through treatment. The trustee should calendar the deadline immediately upon notice of the account owner's death.</p>
+</div>
+
+<div class="faq-item">
+<h3>How do the July 2024 final regulations (TD 10001) change conduit-vs-accumulation planning?</h3>
+<p>TD 10001, published July 19, 2024 and effective for distribution calendar years beginning on or after January 1, 2025, made three changes that matter for see-through-trust drafting. First, it confirmed that both conduit and accumulation trusts are subject to the annual-RMD-during-years-1-through-9 requirement under the 10-year rule when the account owner died on or after their required beginning date — the trustee cannot back-load all 10 years' distributions into year 10. Second, it clarified the see-through eligibility rules for separate-account trust arrangements: a trust that is required by its terms to be divided into separate trusts immediately upon the account owner's death qualifies for beneficiary-by-beneficiary RMD treatment. Third, it locked in the July 2024 final regulation §1.401(a)(9)-4(e) EDB documentation standards for disabled and chronically ill beneficiaries — including the physician certification and the one-year documentation-currency requirement for chronic illness.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All RMD divisors in this article are the IRS-published 2026 Single Life Table figures under the November 2020 final regulations amended by the July 2024 final regulations (Treasury Decision 10001). The four see-through requirements are quoted from Treas. Reg. §1.401(a)(9)-4(f)(2). Trust and estate bracket figures for tax year 2026 are the CPI-indexed estimates carried forward from Rev. Proc. 2024-40 with the OBBBA §70201 permanent rate structure retained under IRS Notice 2025-67 and the November 2025 inflation adjustment. Case-study numbers are hand-computed using 2026 MFJ / single brackets, the Single Life divisor tables, and standard 6% pre-tax growth assumptions. Individual results depend on personal fact patterns — this article is educational; do not rely on it as tax or legal advice for a specific transaction. A CPA, Enrolled Agent, or Elder Law attorney with SECURE Act, TD 10001, and SECURE 2.0 §337 experience should review any trust designation before it is signed and any post-death trust administration before the October 31 documentation deadline.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Treasury Regulations §1.401(a)(9)-4(f) — see-through trust qualification requirements; §1.401(a)(9)-4(h) — documentation submission deadline. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6dc75dfc25aaf2c/section-1.401(a)(9)-4" rel="nofollow noopener">ecfr.gov</a></li>
+<li id="source-2">Treasury Regulations §1.401(a)(9)-3 — distribution rules when the account owner dies before or on/after the required beginning date; non-individual beneficiary consequences. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6dc75dfc25aaf2c/section-1.401(a)(9)-3" rel="nofollow noopener">ecfr.gov</a></li>
+<li id="source-3">Internal Revenue Code §1(e) — trust and estate income tax rate schedule; §1411 — Net Investment Income Tax. <a href="https://www.law.cornell.edu/uscode/text/26/1" rel="nofollow noopener">law.cornell.edu/uscode/text/26/1</a></li>
+<li id="source-4">Treasury Decision 10001, "Required Minimum Distributions" — final regulations amending Treas. Reg. §1.401(a)(9)-1 through -9, published July 19, 2024, effective for distribution calendar years beginning on or after January 1, 2025. <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" rel="nofollow noopener">federalregister.gov</a></li>
+<li id="source-5">Internal Revenue Code §401(a)(9)(H) — 10-year rule for non-Eligible Designated Beneficiaries under the SECURE Act. <a href="https://www.law.cornell.edu/uscode/text/26/401" rel="nofollow noopener">law.cornell.edu/uscode/text/26/401</a></li>
+<li id="source-6">Clark v. Rameker, 573 U.S. 122 (2014) — inherited IRAs are not "retirement funds" exempt from bankruptcy estate under §522(b)(3)(C). <a href="https://www.supremecourt.gov/opinions/13pdf/13-299_2ap5.pdf" rel="nofollow noopener">supremecourt.gov</a></li>
+<li id="source-7">Federation of Tax Administrators, State Individual Income Taxes — state treatment of retirement-plan distributions, trust income, and inherited-IRA amounts. <a href="https://taxadmin.org/state-tax-forms/" rel="nofollow noopener">taxadmin.org</a></li>
+<li id="source-8">Internal Revenue Code §661-663 — distributable net income rules for complex trusts and estates; §663(b) — 65-day rule for post-year-end distribution elections. <a href="https://www.law.cornell.edu/uscode/text/26/661" rel="nofollow noopener">law.cornell.edu/uscode/text/26/661</a></li>
+<li id="source-9">Internal Revenue Service, Publication 590-B, "Distributions from Individual Retirement Arrangements" — inherited IRA rules, beneficiary categories, and RMD mechanics. <a href="https://www.irs.gov/publications/p590b" rel="nofollow noopener">irs.gov/publications/p590b</a></li>
+<li id="source-10">Internal Revenue Code §1411 — Net Investment Income Tax; application to trusts and estates under §1411(a)(2). <a href="https://www.law.cornell.edu/uscode/text/26/1411" rel="nofollow noopener">law.cornell.edu/uscode/text/26/1411</a></li>
+<li id="source-11">SECURE 2.0 Act §337 (Pub. L. 117-328, Division T, Title III) — Applicable Multi-Beneficiary Trust fix, codified at IRC §401(a)(9)(H)(v). <a href="https://www.congress.gov/bill/117th-congress/house-bill/2617" rel="nofollow noopener">congress.gov/bill/117th-congress/house-bill/2617</a></li>
+<li id="source-12">Treasury Regulations §1.401(a)(9)-5 — annual required minimum distribution mechanics; year-1-through-9 requirement under 10-year rule when death occurs on or after required beginning date. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6dc75dfc25aaf2c/section-1.401(a)(9)-5" rel="nofollow noopener">ecfr.gov</a></li>
+<li id="source-13">Treasury Regulations §1.401(a)(9)-4(e) — Eligible Designated Beneficiary documentation standards including disability certification under IRC §72(m)(7), chronic illness certification under §7702B(c)(2), and the uniform-age-21 rule for minor-child EDB status. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6dc75dfc25aaf2c/section-1.401(a)(9)-4" rel="nofollow noopener">ecfr.gov</a></li>
+<li id="source-14">Internal Revenue Code §72(m)(7) — statutory definition of "disabled" for retirement-plan purposes. <a href="https://www.law.cornell.edu/uscode/text/26/72" rel="nofollow noopener">law.cornell.edu/uscode/text/26/72</a></li>
+<li id="source-15">Internal Revenue Code §7702B(c)(2) — chronically ill individual definition (long-term care insurance), as modified for EDB purposes by IRC §401(a)(9)(E)(ii)(IV). <a href="https://www.law.cornell.edu/uscode/text/26/7702B" rel="nofollow noopener">law.cornell.edu/uscode/text/26/7702B</a></li>
+<li id="source-16">Internal Revenue Service, Notice 2025-67 — 2026 retirement-plan cost-of-living adjustments, RBD confirmation under SECURE 2.0 §107, and the CPI-indexed trust bracket framework. <a href="https://www.irs.gov/pub/irs-drop/n-25-67.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-25-67.pdf</a></li>
+<li id="source-17">Setting Every Community Up for Retirement Enhancement Act of 2019 (SECURE Act), Pub. L. 116-94, Division O, §401 — the elimination of stretch for non-EDB designated beneficiaries. <a href="https://www.congress.gov/bill/116th-congress/house-bill/1865" rel="nofollow noopener">congress.gov/bill/116th-congress/house-bill/1865</a></li>
+<li id="source-18">Setting Every Community Up for Retirement Enhancement 2.0 Act (SECURE 2.0), Pub. L. 117-328, Division T — Title I §107 (RBD age changes), §204 (spousal §401(a)(9)(B)(iv) election), §337 (AMBT fix), §302 (excise tax reduction). <a href="https://www.congress.gov/bill/117th-congress/house-bill/2617" rel="nofollow noopener">congress.gov/bill/117th-congress/house-bill/2617</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized tax or legal advice. See-through trust drafting choices are consequential, often irrevocable at the account owner's death, and interact with plan documents, trust instruments, state law, existing estate plans, government-benefits eligibility, and multi-decade income projections in ways this article cannot fully model for any specific reader. Consult a CPA, an Enrolled Agent, an Elder Law attorney, or a Certified Financial Planner familiar with §1.401(a)(9)-4(f), the July 2024 final regs, and SECURE 2.0 §337 AMBT structures before signing any beneficiary designation naming a trust. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Results depend on individual facts including plan documents, custodian procedures, state of residence, existing estate plan, government-benefits eligibility for disabled or chronically ill beneficiaries, and total-income mix. Always verify current rules with a qualified tax professional and the plan administrator before executing any trust-based beneficiary designation. CalcLeap is not a financial advisor and does not provide personalized investment, tax, or legal advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#why-a-trust">Why name a trust at all</a></li>
+        <li><a href="#the-four-requirements">The four §1.401(a)(9)-4(f) requirements</a></li>
+        <li><a href="#conduit-mechanics">Conduit trust mechanics</a></li>
+        <li><a href="#accumulation-mechanics">Accumulation trust mechanics</a></li>
+        <li><a href="#conduit-vs-accumulation-decision">Conduit vs accumulation decision framework</a></li>
+        <li><a href="#ambt-deep-dive">SECURE 2.0 §337 AMBT deep dive</a></li>
+        <li><a href="#post-td-10001">What TD 10001 changed</a></li>
+        <li><a href="#case-studies">Three worked case studies</a></li>
+        <li><a href="#mistakes">Six drafting mistakes</a></li>
+        <li><a href="#state-tax">State-tax overlay</a></li>
+        <li><a href="#checklist">Action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/traditional-ira-calculator.html">Traditional IRA Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth Conversion Calculator</a>
+      <a href="/calc/estate-tax-calculator.html">Estate Tax Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/eligible-designated-beneficiary-taxonomy-2026.html">EDB taxonomy: the four non-spouse categories</a>
+      <a href="/blog/spousal-ira-rollover-vs-inherited-ira-2026.html">Spousal IRA rollover vs inherited IRA</a>
+      <a href="/blog/qualified-charitable-distributions-qcd-2026.html">Qualified Charitable Distributions</a>
+      <a href="/blog/illinois-estate-tax-planning-for-retirees-2026.html">Illinois estate tax planning for retirees</a>
+      <a href="/blog/pennsylvania-401k-after-tax-basis-2026.html">Pennsylvania §401(k) after-tax basis</a>
+      <a href="/blog/california-401k-and-ira-basis-2026.html">California §401(k) and IRA basis</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
