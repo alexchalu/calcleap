@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10-Year Rule Annual RMD Planning in 2026: Post-RBD §1.401(a)(9)-5 Mechanics, Year-by-Year Bracket Smoothing, and the Roth-Conversion-Inside-the-Window Play | CalcLeap</title>
+<meta name="description" content="A complete 2026 field guide to planning year-by-year distributions across the SECURE Act 10-year window — the post-RBD annual RMD requirement under Treas. Reg. §1.401(a)(9)-5 as amended by TD 10001, the front-load-vs-back-load smoothing math, Roth-conversion inside the window, three worked case studies, and the six most-expensive planning mistakes.">
+<link rel="canonical" href="https://calcleap.com/blog/10-year-rule-annual-rmd-planning-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="10-Year Rule Annual RMD Planning in 2026: Year-by-Year, Explained">
+<meta property="og:description" content="Post-RBD annual RMD math under §1.401(a)(9)-5 after TD 10001, bracket-smoothing across the 10-year window, Roth conversion inside the window, and every planning mistake — the complete 2026 field guide.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/10-year-rule-annual-rmd-planning-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-08-01T10:00:00Z">
+<meta property="article:modified_time" content="2026-08-01T10:00:00Z">
+<meta property="article:section" content="Retirement Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "10-Year Rule Annual RMD Planning in 2026: Post-RBD §1.401(a)(9)-5 Mechanics, Year-by-Year Bracket Smoothing, and the Roth-Conversion-Inside-the-Window Play",
+  "description": "A complete 2026 field guide to planning year-by-year distributions across the SECURE Act 10-year window — the post-RBD annual RMD requirement under Treas. Reg. §1.401(a)(9)-5 as amended by TD 10001, the front-load-vs-back-load smoothing math, Roth-conversion inside the window, three worked case studies, and the six most-expensive planning mistakes.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-08-01T10:00:00Z",
+  "dateModified": "2026-08-01T10:00:00Z",
+  "author": {"@type": "Organization", "name": "CalcLeap Editorial", "url": "https://calcleap.com/authors/calcleap-editorial.html"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {"@type": "ImageObject", "url": "https://calcleap.com/og-default.png"}
+  },
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://calcleap.com/blog/10-year-rule-annual-rmd-planning-2026.html"},
+  "articleSection": "Retirement Planning",
+  "wordCount": 6600,
+  "about": [
+    {"@type": "Thing", "name": "SECURE Act 10-year rule"},
+    {"@type": "Thing", "name": "Inherited IRA"},
+    {"@type": "Thing", "name": "Required Minimum Distribution"},
+    {"@type": "Thing", "name": "TD 10001"},
+    {"@type": "Thing", "name": "Roth conversion"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "10-Year Rule Annual RMD Planning in 2026"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Does the 10-year rule require annual RMDs during years 1 through 9?",
+     "acceptedAnswer": {"@type": "Answer", "text": "It depends on when the account owner died. If the account owner died before their Required Beginning Date (RBD) — April 1 of the year following the year they reached age 73 for taxpayers reaching 73 in 2024 or later under SECURE 2.0 §107 — no annual RMD is required during years 1 through 9. The beneficiary can distribute the account in any pattern as long as the full balance is out by December 31 of the tenth year following the year of death. If the account owner died on or after their RBD, the beneficiary must take at least the annual RMD in each of years 1 through 9 based on the beneficiary's Single Life Table divisor (reduced by one for each subsequent year), plus the full remaining balance in year 10. Treasury Decision 10001, published July 19, 2024, confirmed this post-RBD annual RMD requirement and it applies for distribution calendar years beginning on or after January 1, 2025."}},
+    {"@type": "Question", "name": "How is the annual RMD computed inside the 10-year window when the account owner died on or after RBD?",
+     "acceptedAnswer": {"@type": "Answer", "text": "For year 1 (the year after the account owner's death), the beneficiary uses their own age in that year to look up the Single Life Table divisor under Treas. Reg. §1.401(a)(9)-9. The year-1 RMD equals the account balance on December 31 of the year of death divided by that divisor. For each subsequent year, the divisor is reduced by exactly one — this is the 'reduce-by-one' rule for non-recalculating designated beneficiaries. The year-10 distribution is the full remaining balance, not a divisor calculation. If the deceased owner's own remaining life expectancy at death was longer than the beneficiary's, the beneficiary may use the deceased owner's divisor instead — a rule that mostly benefits older beneficiaries inheriting from younger owners."}},
+    {"@type": "Question", "name": "What is the excise tax if the beneficiary misses an annual RMD in years 1 through 9?",
+     "acceptedAnswer": {"@type": "Answer", "text": "SECURE 2.0 §302 reduced the excise tax for a missed RMD from 50% of the shortfall to 25%, and further to 10% if the shortfall is corrected within the two-year 'correction window' and a Form 5329 is filed within that window. The IRS waived the missed-RMD excise tax on undistributed year-1-through-9 amounts for tax years 2021, 2022, 2023, and 2024 under a series of transition notices, but that waiver ended for the 2025 tax year. Beginning with the 2026 tax year, a beneficiary of a post-RBD-death inherited account who fails to take the annual RMD faces the 25%/10% excise tax stack on the shortfall. The IRS has not indicated any further waiver."}},
+    {"@type": "Question", "name": "What is bracket smoothing across the 10-year window?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Bracket smoothing is the practice of intentionally spreading the total 10-year distribution across all 10 years — rather than deferring to year 10 or bunching in a few high-distribution years — to avoid pushing any single year's taxable income into a higher marginal federal (and state) bracket. Because the 2026 federal ordinary-income bracket structure widens sharply at the 22%-to-24% and 32%-to-35% boundaries, and because a large single-year distribution often triggers the IRC §1411 3.8% Net Investment Income Tax and Medicare IRMAA surcharges for beneficiaries already at higher income levels, smoothing typically saves 3-8 percentage points of blended federal marginal rate on a $500K-$1.5M inherited account. The smoothing math is beneficiary-specific: the correct annual withdrawal is the amount that fills the beneficiary's target marginal bracket without spilling into the next one."}},
+    {"@type": "Question", "name": "Can a beneficiary do a Roth conversion on an inherited Traditional IRA during the 10-year window?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, not directly. IRC §408A(d)(3)(C) prohibits Roth conversion of an inherited IRA except for a surviving spouse who first rolls the account into their own IRA. A non-spouse beneficiary of a Traditional inherited IRA has no conversion path — distributions inside the 10-year window are ordinary income and cannot be re-deposited to a Roth. The 'Roth-conversion-inside-the-window' opportunity is either (a) the surviving spouse who exercises the §408(d)(3)(C) spousal rollover election and then converts from their own IRA at any time thereafter, or (b) the original account owner who converts Traditional to Roth during their own lifetime so the account passes to non-spouse beneficiaries as a Roth — which is 10-year-rule-tax-free to those beneficiaries under IRC §408A."}},
+    {"@type": "Question", "name": "Why does converting Traditional-to-Roth before death help non-spouse beneficiaries?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Because a Roth inherited by a non-spouse beneficiary is still subject to the 10-year rule, but every distribution during those 10 years is federal-income-tax-free — the account owner already paid ordinary-income tax on the conversion at their own marginal rate. If the account owner's marginal federal rate is 24% and the non-spouse beneficiaries would have faced a 32%-37% blended rate during the 10-year window (because they are still in peak earning years), the conversion arbitrage can preserve 8-13 percentage points of the account balance for the beneficiaries versus letting them absorb the distributions as ordinary income. The classic candidate: a retiree in the 22% or 24% bracket whose adult children are dual-income professionals in the 32%+ bracket. This is the single most powerful pre-death 10-year-rule mitigation."}},
+    {"@type": "Question", "name": "What happens if the beneficiary dies during the 10-year window?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The successor beneficiary (whoever the primary beneficiary named as their own beneficiary of the inherited account) inherits the remaining balance and is bound by the same 10-year deadline the original beneficiary was working under. The 10-year clock does not reset. If the original account owner died in 2026 and the primary beneficiary died in 2029, the successor beneficiary must still distribute the account by December 31, 2036 — even though they may have inherited it only three years earlier. The one exception: if the deceased primary beneficiary was an Eligible Designated Beneficiary using their lifetime stretch, the successor beneficiary gets a new 10-year window from the primary beneficiary's date of death under IRC §401(a)(9)(H)(iii)."}},
+    {"@type": "Question", "name": "Does the 10-year rule apply differently to Roth accounts?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The 10-year rule itself applies identically to Roth accounts, but the annual-RMD-during-years-1-through-9 requirement does not — because IRC §408A(c)(5) treats Roth IRA owners as always having died before their Required Beginning Date for RMD-computation purposes. A non-spouse beneficiary of a Roth IRA has no annual RMD in years 1 through 9. They must distribute the full balance by December 31 of the tenth year following the account owner's death, but they can defer every dollar of that distribution to year 10 (or any earlier year) at their discretion. Because Roth distributions are federal-tax-free, most sophisticated planners recommend deferring to the maximum extent — every year of deferral is another year of tax-free growth."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:720px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.05rem;color:var(--text);box-shadow:var(--shadow)}
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a class="logo" href="/">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>10-Year Rule Annual RMD Planning in 2026
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement Planning · Updated August 1, 2026</span>
+  <h1 id="article-start">10-Year Rule Annual RMD Planning in 2026: Post-RBD §1.401(a)(9)-5 Mechanics, Year-by-Year Bracket Smoothing, and the Roth-Conversion-Inside-the-Window Play</h1>
+  <p class="deck">The SECURE Act 10-year rule is the operating regime for almost every non-spouse inherited retirement account opened in 2020 or later. TD 10001 confirmed the annual-RMD-during-years-1-through-9 requirement when the account owner died on or after their Required Beginning Date, and the IRS transition-relief waiver ended with the 2024 tax year. This is the complete 2026 field guide to spreading the distributions, managing brackets, and executing the Roth-conversion play that only exists when the account owner is still alive.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published August 1, 2026</span>
+    <span class="dot"></span>
+    <span>26 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>Most inherited retirement accounts opened after the SECURE Act took effect on January 1, 2020 must be fully distributed by December 31 of the tenth calendar year following the year of the original account owner's death.<sup><a href="#source-1">[1]</a></sup> That is the 10-year rule at IRC §401(a)(9)(H), and it replaced the multi-decade lifetime stretch that non-spouse beneficiaries used to inherit alongside the account itself. Any beneficiary who is not a surviving spouse, a minor child of the decedent under age 21, a disabled or chronically ill individual, or an individual who is not more than 10 years younger than the decedent is subject to it.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>For four tax years — 2021, 2022, 2023, and 2024 — the IRS waived enforcement of the requirement that a beneficiary of an account whose owner died on or after their Required Beginning Date also take annual RMDs in each of years 1 through 9 of the 10-year window.<sup><a href="#source-3">[3]</a></sup> That waiver ended with the 2024 tax year. Beginning with the 2025 tax year and continuing into 2026, a beneficiary of an inherited Traditional IRA, 401(k), 403(b), or governmental §457(b) account whose owner died at age 73 or older must take the annual minimum in every one of years 1 through 9 <em>and</em> distribute the full remaining balance in year 10.<sup><a href="#source-4">[4]</a></sup> Miss any annual RMD in years 1 through 9 and the SECURE 2.0 §302 excise tax stack applies: 25% of the shortfall, reducible to 10% if corrected within the two-year window.<sup><a href="#source-5">[5]</a></sup></p>
+
+<p>What that means for planning is that the beneficiary of a post-RBD-death account no longer has the luxury of deferring every distribution to year 10 and taking one large lump-sum hit. The trustee or the individual beneficiary must sit down with a spreadsheet in year 1, model the tax cost of every plausible distribution schedule across the full 10 years — including projected wage income, projected Social Security, projected other retirement income, and projected state of residence in each year — and select the pattern that minimizes total federal plus state plus IRMAA plus NIIT tax over the 10-year window. The correct answer is almost never "take exactly the minimum for years 1 through 9 and let the balance flush in year 10."</p>
+
+<p>This article is the operating manual: the 10-year framework refresher, the post-RBD-vs-pre-RBD annual-RMD split, the divisor-computation mechanics under Treas. Reg. §1.401(a)(9)-5 as amended by TD 10001, the bracket-smoothing math across the full 10 years, the Roth-conversion-inside-the-window play (which is only available to a surviving spouse who first executes the §408(d)(3)(C) rollover, or to the original account owner who converts during their own lifetime), three worked case studies at realistic account sizes, and the six most-expensive planning mistakes. When you are ready to project the numbers on any specific inheritance, the <a href="/calc/retirement-calculator.html">CalcLeap retirement calculator</a>, the <a href="/calc/traditional-ira-calculator.html">Traditional IRA calculator</a>, the <a href="/calc/roth-ira-calculator.html">Roth IRA calculator</a>, the <a href="/calc/401k-withdrawal-calculator.html">401(k) withdrawal calculator</a>, and the <a href="/calc/income-tax-calculator.html">income tax calculator</a> handle the year-by-year arithmetic.</p>
+
+<a class="cta-calc" href="/calc/retirement-calculator.html">
+  <span class="ic">📊</span>
+  <div>
+    <h4>Model your year-by-year 10-year-window schedule</h4>
+    <p>Free, instant, no signup — project the annual RMD divisor, bracket-fill room, and total federal plus state tax cost across all 10 years.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="10-year-refresher">The 10-year rule refresher — who is in, who is out</h2>
+
+<p>The SECURE Act of 2019, enacted December 20, 2019 and effective January 1, 2020, added IRC §401(a)(9)(H) to eliminate the lifetime stretch for most non-spouse beneficiaries.<sup><a href="#source-6">[6]</a></sup> Any beneficiary of an account whose owner died on or after January 1, 2020 who is a "designated beneficiary" — meaning any individual named on the beneficiary designation form — but who is not one of five categories of "eligible designated beneficiary" (EDB) must distribute the full inherited balance by December 31 of the tenth year following the year of the account owner's death.</p>
+
+<p>The five EDB categories that preserve some form of lifetime stretch or delayed distribution schedule are enumerated at IRC §401(a)(9)(E)(ii):<sup><a href="#source-2">[2]</a></sup></p>
+
+<ol>
+  <li><strong>Surviving spouse.</strong> The surviving spouse has options unavailable to any other beneficiary category — most importantly, the §408(d)(3)(C) spousal rollover election that lets the surviving spouse treat the inherited account as their own IRA, restart the RMD clock at their own age, and access Roth conversion. Analyzed at length in our <a href="/blog/spousal-ira-rollover-vs-inherited-ira-2026.html">spousal IRA rollover vs inherited IRA guide</a>.</li>
+  <li><strong>Minor child of the decedent.</strong> Under the July 2024 uniform-age-21 rule at Treas. Reg. §1.401(a)(9)-4(e)(3), a minor child is an EDB until they reach age 21, at which point the 10-year clock starts running with year 10 falling in the year they turn 31.</li>
+  <li><strong>Disabled individual.</strong> Meeting the IRC §72(m)(7) substantial-gainful-activity standard with SSDI or VA-100% presumptions or a physician certification. Lifetime stretch preserved on the Single Life Table.</li>
+  <li><strong>Chronically ill individual.</strong> Meeting the modified IRC §7702B(c)(2) definition requiring inability to perform at least two ADLs OR severe cognitive impairment PLUS an indefinite-and-lengthy expected duration PLUS certification obtained within one year before death.</li>
+  <li><strong>Individual not more than 10 years younger than the decedent.</strong> Date-of-birth-to-date-of-birth comparison; commonly covers adult siblings, unmarried life partners, elderly parents inheriting from adult children, and business partners.</li>
+</ol>
+
+<p>Any beneficiary who is not in one of the five EDB categories is a plain designated beneficiary subject to the 10-year rule. The overwhelming majority of adult children inheriting from their parents fall into this pattern — an adult child of the decedent is almost never within 10 years of age, is almost never disabled or chronically ill by the statutory standard, and is not a minor. That is why the 10-year rule is now the operating regime for most non-spouse inheritances.</p>
+
+<p>The full EDB taxonomy — including the SECURE 2.0 §337 Applicable Multi-Beneficiary Trust fix for disabled beneficiaries alongside other beneficiaries, and the four EDB-status-collapse fact patterns — is documented in our <a href="/blog/eligible-designated-beneficiary-taxonomy-2026.html">EDB taxonomy field guide</a>. If your inheritance is not covered by an EDB category, you are reading the right article.</p>
+
+<h2 id="post-rbd-vs-pre-rbd">Post-RBD vs pre-RBD — the annual-RMD split that changes everything</h2>
+
+<p>The SECURE Act text did not clearly resolve whether a beneficiary subject to the 10-year rule also had to take an annual RMD in each of years 1 through 9. The IRS proposed regulations issued in February 2022 said yes, but only when the account owner died on or after their Required Beginning Date. The industry pushed back. The IRS granted transition relief for the 2021 tax year in Notice 2022-53, extended it in Notice 2023-54, and extended it again in Notice 2024-35 through the 2024 tax year.<sup><a href="#source-3">[3]</a></sup></p>
+
+<p>Treasury Decision 10001, published in the Federal Register on July 19, 2024 and effective for distribution calendar years beginning on or after January 1, 2025, resolved the question definitively.<sup><a href="#source-4">[4]</a></sup> The final regulations at Treas. Reg. §1.401(a)(9)-5 confirm the post-RBD annual-RMD requirement. The 2026 tax year is the first full calendar year during which the requirement is enforced with no transition relief.</p>
+
+<p>The result is a two-track framework based entirely on when the account owner died:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Account owner died</th><th>Annual RMDs required in years 1-9?</th><th>Distribution flexibility</th><th>Year-10 requirement</th></tr>
+</thead>
+<tbody>
+<tr><td>Before their RBD (age 72 or younger for owners who reached 73 in 2024+)</td><td><strong>No</strong></td><td>Beneficiary can distribute in any pattern — including all in year 10</td><td>Full balance out by December 31 of year 10</td></tr>
+<tr><td>On or after their RBD (age 73 or older for owners who reached 73 in 2024+)</td><td><strong>Yes</strong> — post-2024 tax years, no more waiver</td><td>Each year must satisfy the Single Life divisor minimum</td><td>Full balance out by December 31 of year 10</td></tr>
+<tr><td>Any age, Roth IRA</td><td><strong>No</strong> — IRC §408A(c)(5) treats Roth owners as dying pre-RBD</td><td>Beneficiary can defer all distributions to year 10</td><td>Full balance out by December 31 of year 10</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The Required Beginning Date under SECURE 2.0 §107 is April 1 of the calendar year following the year the account owner reaches age 73 (for account owners reaching 73 during 2023-2032) and age 75 (for those reaching 73 during 2033 or later).<sup><a href="#source-7">[7]</a></sup> For 2026 planning, the operating rule is: if the deceased was age 73 or older at death <em>and</em> did not die between January 1 and April 1 of the year following their 73rd birthday (in which case they were still pre-RBD), they died post-RBD and the annual-RMD requirement applies.</p>
+
+<div class="callout warn">
+  <h4>Two special mechanics inside the RBD test</h4>
+  <p>First, the "year-of-death RMD" — if the deceased was already in RMD status and had not yet taken their full RMD for the year of death, the beneficiary must complete that RMD in cash by December 31 of the year of death. Second, if the deceased died between January 1 and April 1 of the year following their 73rd birthday, they died before their April 1 RBD — the beneficiary is in the pre-RBD track. The IRS confirmed both mechanics in the TD 10001 preamble.</p>
+</div>
+
+<h2 id="divisor-mechanics">Computing the annual RMD in years 1 through 9 — the divisor mechanic</h2>
+
+<p>For a post-RBD-death account subject to the annual-RMD requirement, the year-1 RMD is computed by dividing the account balance on December 31 of the year of the account owner's death by the beneficiary's Single Life Table divisor for the beneficiary's age in year 1 (the calendar year following the year of death).<sup><a href="#source-8">[8]</a></sup> The Single Life Table is published as Treas. Reg. §1.401(a)(9)-9(b), Table I, and it was refreshed in the November 2020 final regulations (TD 9930) to reflect updated mortality data — the divisors run roughly 1.5-2.5 years longer than the pre-2022 tables at every age.</p>
+
+<div class="formula">
+Year 1 RMD = (Balance on Dec 31 of year of death) &divide; (Beneficiary Single Life divisor at year-1 age)
+</div>
+
+<p>For each subsequent year, the beneficiary uses the "reduce by one" rule — the year-2 divisor equals the year-1 divisor minus 1, the year-3 divisor equals the year-1 divisor minus 2, and so on. This is the "non-recalculating" convention for designated beneficiaries.<sup><a href="#source-8">[8]</a></sup> The year-10 requirement is not a divisor calculation: it is the full remaining balance, regardless of what the reduce-by-one arithmetic would produce.</p>
+
+<p>Here is a representative Single Life divisor slice for common year-1 ages, drawn from the 2022 revised table:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Beneficiary age at year 1</th><th>Single Life divisor</th><th>Year-1 RMD as % of balance</th><th>Year-9 divisor (reduce-by-8)</th><th>Year-9 RMD as % of prior-year balance</th></tr>
+</thead>
+<tbody>
+<tr><td>40</td><td>45.7</td><td>2.19%</td><td>37.7</td><td>2.65%</td></tr>
+<tr><td>45</td><td>41.0</td><td>2.44%</td><td>33.0</td><td>3.03%</td></tr>
+<tr><td>50</td><td>36.2</td><td>2.76%</td><td>28.2</td><td>3.55%</td></tr>
+<tr><td>55</td><td>31.6</td><td>3.16%</td><td>23.6</td><td>4.24%</td></tr>
+<tr><td>60</td><td>27.1</td><td>3.69%</td><td>19.1</td><td>5.24%</td></tr>
+<tr><td>65</td><td>22.9</td><td>4.37%</td><td>14.9</td><td>6.71%</td></tr>
+<tr><td>70</td><td>18.8</td><td>5.32%</td><td>10.8</td><td>9.26%</td></tr>
+<tr><td>75</td><td>14.8</td><td>6.76%</td><td>6.8</td><td>14.71%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>A concrete illustration: a 55-year-old adult daughter inherits a $1,000,000 Traditional IRA from her father who died in 2025 at age 76 (post-RBD). Year-1 (2026) RMD: $1,000,000 &divide; 31.6 = <strong>$31,646</strong>. Year-9 (2034) RMD would be roughly $28,000 on a prior-year balance projected around $660,000 (if she takes only the minimum each year). Year 10 (2035) forced distribution: the full remaining balance, which — even after 9 years of minimum-only distributions and 5% projected pre-tax growth — is projected around $580,000. If she is still in peak earning years in 2035 with $200,000 of wage income, that $580,000 forced distribution lands almost entirely in the 32% and 35% federal brackets plus the 3.8% NIIT plus her state income tax — a combined marginal rate that can easily exceed 43-45%.</p>
+
+<p>That fact pattern — small annual minimums for 9 years followed by a giant year-10 forced flush — is why "just take the minimum" is almost always the wrong operating rule. The right question is: what evenly-distributed annual amount would exhaust the account by December 31 of year 10 without pushing any single year's marginal rate above the beneficiary's target?</p>
+
+<h2 id="smoothing-math">Bracket smoothing across the 10-year window</h2>
+
+<p>The 2026 federal ordinary-income bracket structure carried forward under IRS Notice 2025-67 and Rev. Proc. 2025-32 (with the OBBBA §70201 permanent rate structure) has four bracket boundaries that matter for 10-year-window smoothing decisions:<sup><a href="#source-9">[9]</a></sup></p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Filing status</th><th>22% → 24% boundary</th><th>24% → 32% boundary</th><th>32% → 35% boundary</th><th>35% → 37% boundary</th></tr>
+</thead>
+<tbody>
+<tr><td>Single</td><td>~$105,000</td><td>~$201,000</td><td>~$256,000</td><td>~$640,000</td></tr>
+<tr><td>MFJ</td><td>~$210,000</td><td>~$402,000</td><td>~$512,000</td><td>~$770,000</td></tr>
+<tr><td>HOH</td><td>~$105,000</td><td>~$201,000</td><td>~$256,000</td><td>~$640,000</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The single biggest jump is the <strong>24% → 32% boundary</strong> — eight percentage points of federal marginal rate in a single step. For a beneficiary with meaningful wage income (say, a mid-career professional at $150K single or $250K MFJ), the correct 10-year-window plan is almost always designed to distribute the annual amount that fills the beneficiary's remaining 24% headroom without spilling into 32%. Every dollar distributed above that boundary costs 33% more in federal tax alone (8 percentage points on a base of 24%).</p>
+
+<p>The evenly-smoothed baseline is straightforward arithmetic. If the inherited balance is $1M and expected growth is 5% pre-tax, the evenly-smoothed annual distribution across 10 years is approximately:</p>
+
+<div class="formula">
+Annual smoothed distribution &asymp; Balance &times; [r &times; (1 + r)<sup>10</sup>] &divide; [(1 + r)<sup>10</sup> &minus; 1]
+</div>
+
+<p>At 5% pre-tax growth, that annuity factor is 12.95%, so a $1M account smooths out to roughly <strong>$129,500 per year</strong>. If the beneficiary's other taxable income is $75K, the smoothed distribution lands them at $204,500 of AGI — right at the 24%/32% boundary for a single filer. That is the smoothing target.</p>
+
+<p>The three deviations from evenly-smoothed that make sense:</p>
+
+<ol>
+  <li><strong>Front-load if beneficiary income is falling.</strong> A beneficiary who plans to retire in year 4 or 5 of the window has more bracket headroom in later years than early years — but only if their retirement is genuine and their taxable retirement income is materially lower than their wage income. Front-loading years 1-4 and back-loading years 5-10 works when the retirement income drop is projected at $60K+ per year.</li>
+  <li><strong>Back-load if beneficiary income is rising.</strong> A beneficiary in the early years of a career trajectory (30s to mid-40s, still climbing bracket-wise) is better off distributing less in years 1-4 and more in years 5-10 when their retirement contributions and mortgage payoff have expanded their bracket headroom.</li>
+  <li><strong>Bunch to preserve one 0% LTCG year.</strong> A beneficiary who has meaningful long-term capital gains sitting outside the inherited account can avoid distributions entirely in one year during the window (using a QCD from their own IRA, if age 70&frac12;+, to cover the annual RMD requirement) to preserve a 0% LTCG bracket year at $47K/$94K taxable income. This is a niche play but valuable when the outside LTCG opportunity is $50K+.</li>
+</ol>
+
+<div class="callout key">
+  <h4>The three surcharges that turn a bad smoothing decision into a very expensive one</h4>
+  <p>Every 10-year-window distribution plan needs to model three surcharges beyond the ordinary-income bracket: (1) the IRC §1411 3.8% Net Investment Income Tax, which attaches to a beneficiary's non-inherited-account investment income when MAGI exceeds $200K single / $250K MFJ; (2) the Medicare IRMAA surcharges for beneficiaries age 63+ (two-year lookback), which stack at MAGI $106K/$212K/$266K/$322K/$394K for 2026 Part B and Part D based on 2024 income; (3) the state-tax kicker in high-tax states, which for California residents adds up to 13.3% and for New York City residents adds up to about 14.8%. The combined marginal rate on a poorly-timed distribution in a bad state at Medicare-age can exceed 51%.</p>
+</div>
+
+<h2 id="roth-conversion-play">The Roth-conversion-inside-the-window play</h2>
+
+<p>The single most powerful mitigation for a beneficiary staring at a post-RBD-death 10-year window is the pre-death Roth conversion — but the conversion has to happen while the original account owner is still alive. IRC §408A(d)(3)(C) explicitly prohibits Roth conversion of an inherited IRA except when the beneficiary is a surviving spouse who first rolls the account into their own IRA under §408(d)(3)(C).<sup><a href="#source-10">[10]</a></sup></p>
+
+<p>That leaves two conversion paths:</p>
+
+<h3>Path A — original account owner converts during their own lifetime</h3>
+
+<p>A retired account owner in the 22% or 24% bracket whose adult children are dual-income professionals in the 32%+ bracket faces a bracket-arbitrage opportunity worth 8-13 percentage points of the account balance. Converting the Traditional IRA to Roth during the account owner's own lifetime — paying tax at the owner's marginal rate — hands the beneficiaries a Roth account that is subject to the 10-year rule but with every distribution federal-income-tax-free.</p>
+
+<p>The pre-death Roth conversion is worth doing when:</p>
+
+<ul>
+  <li>The account owner is in the 22% or 24% marginal bracket and expects to stay there — often the case for a retiree in early retirement (age 62-72) before Social Security and RMDs push them higher.</li>
+  <li>The intended beneficiaries are in the 32%+ bracket or projected to be in the 32%+ bracket during the 10-year window (dual-income professionals, physicians, senior tech).</li>
+  <li>The account owner has non-IRA cash to pay the conversion tax — paying the conversion tax from the IRA itself destroys the arbitrage.</li>
+  <li>The Roth 5-year rule for the conversion will be satisfied by the account owner's death (the 5-year clock runs from the year of the earliest conversion; if the owner has held any Roth IRA for 5+ years, all inherited conversions are qualified).</li>
+</ul>
+
+<p>Full mechanics — including the multi-year conversion ladder that spreads the conversion tax across multiple bracket years — in our <a href="/blog/roth-conversion-ladder-early-retirement-2026.html">Roth conversion ladder guide</a>.</p>
+
+<h3>Path B — surviving spouse rolls, then converts</h3>
+
+<p>A surviving spouse who inherits from a deceased spouse has the §408(d)(3)(C) rollover option that turns the inherited account into the spouse's own IRA. Once rolled, the spouse can convert Traditional to Roth at their own marginal rate, at any time, in any amount — the conversion is no longer subject to any inherited-account restriction. This is the mechanic that ties into the SECURE 2.0 §204 election covered in our <a href="/blog/spousal-ira-rollover-vs-inherited-ira-2026.html">spousal IRA rollover guide</a>.</p>
+
+<p>The Path-B conversion is particularly powerful when the surviving spouse is younger than the deceased and expects to be in a lower bracket for the years between the death and their own RMD start (currently age 73). A spouse who inherits at age 62, does not need distributions for income, and expects to be in the 22% bracket until age 73 has 11 years of potential conversion runway at a favorable rate — potentially converting the entire inherited balance to Roth before their own RMDs begin.</p>
+
+<h3>The trap: non-spouse beneficiary cannot convert</h3>
+
+<p>The adult daughter of a deceased parent who inherits a $1M Traditional IRA cannot convert any part of it to Roth. Every distribution during the 10-year window is ordinary income taxable at her marginal rate. This is the trap that catches beneficiaries who assumed they could stretch the tax cost via conversion the same way they could on their own IRA — the statute simply does not allow it for non-spouse inherited accounts.</p>
+
+<div class="callout warn">
+  <h4>The pre-death Roth conversion is a decision the account owner has to make</h4>
+  <p>Adult children who want to reduce the 10-year-window tax cost cannot make the conversion themselves. If the account owner is alive, willing, and in a favorable bracket, having a direct conversation about pre-death conversion is the single highest-leverage retirement-planning move the family can make. Waiting until after the account owner's death eliminates every path except the surviving-spouse rollover — which is not available if the surviving spouse is not the beneficiary.</p>
+</div>
+
+<h2 id="case-studies">Three worked case studies</h2>
+
+<h3>Case 1 — Priya, adult daughter, $600K inherited Traditional IRA, mid-career professional</h3>
+
+<p><strong>Facts:</strong> Priya's father dies in early 2025 at age 78 (post-RBD) with a $600,000 Traditional IRA. Priya is the sole beneficiary, age 48, single, living in Ohio, earning $135,000 as a marketing director. Her father's account balance on December 31, 2025 was $600,000. Priya's own taxable income (before any inherited-account distribution) is projected at $115,000 (wages minus standard deduction minus 401(k) contribution). Ohio state tax rate at her bracket: approximately 3.5%.</p>
+
+<p><strong>Post-RBD annual RMD baseline:</strong> Priya's year-1 (2026) Single Life divisor at age 48 is 39.2. Year-1 minimum RMD: $600,000 &divide; 39.2 = <strong>$15,306</strong>. Year-9 (2034) minimum RMD on a projected $500,000 balance: approximately $16,000. Year-10 forced distribution: the projected remaining balance of approximately $460,000 after 9 years of minimum-only distributions at 5% growth.</p>
+
+<p><strong>The minimum-only trap:</strong> If Priya takes only the minimum in years 1-9, her taxable income each year stays around $130,000 — comfortably in the 24% bracket ($105K-$201K single). But the year-10 flush of $460,000 lands on top of her $115,000 wage income, producing $575,000 of AGI. That distribution walks the tax brackets: $70K at 24%, $55K at 32%, $384K at 35%, $66K at 37% — plus 3.8% NIIT on the portion above $200K MAGI. Federal tax on the year-10 distribution alone: approximately <strong>$168,000</strong>. Total 10-year federal tax burden: approximately $205,000 (about 34% blended).</p>
+
+<p><strong>Smoothed alternative:</strong> Priya's evenly-smoothed annual distribution at 5% growth is approximately $77,700 per year. Adding that to her $115,000 base income puts her at $192,700 — filling the 24% bracket but leaving the top of the bracket unused. She has room to distribute an additional $8,000/year (up to the $200,700 24%/32% boundary) at 24%. Executing the smoothed plan with the $8K/year bracket-fill enhancement, her total 10-year federal tax burden falls to approximately <strong>$180,000</strong> (about 30% blended). Savings vs. minimum-only trap: <strong>$25,000</strong>.</p>
+
+<p><strong>Additional Ohio state tax delta:</strong> The year-10 flush also spikes Ohio state tax by roughly $6,000-$8,000 vs. the smoothed plan (Ohio's top rate at $115K+ is around 3.5% but the marginal rate at $500K+ is closer to 4.0% with the phase-in of the retirement-income exclusion). Total combined federal-plus-Ohio saving: approximately <strong>$31,000</strong> on a $600K inherited account.</p>
+
+<p>The <a href="/calc/traditional-ira-calculator.html">Traditional IRA calculator</a> confirms the schedule; the <a href="/calc/income-tax-calculator.html">income tax calculator</a> models the bracket walk for the year-10 flush.</p>
+
+<h3>Case 2 — Marcus, adult son, $1.4M inherited Traditional 401(k), high-earning dual-income household</h3>
+
+<p><strong>Facts:</strong> Marcus's mother dies in early 2026 at age 82 (post-RBD) with a $1,400,000 Traditional 401(k) that will be rolled to a Traditional inherited IRA. Marcus is 52, married filing jointly, dual-income household with $340,000 of combined wage income, living in New Jersey. NJ top-of-bracket state tax: 8.97% on income above $500,000 taxable.</p>
+
+<p><strong>Post-RBD annual RMD baseline:</strong> Marcus's year-1 (2027) Single Life divisor at age 53 is 33.4. Year-1 minimum RMD: $1,400,000 &divide; 33.4 = <strong>$41,916</strong>. Year-10 forced distribution on a projected balance of $1.05M (after 9 years of minimum-only at 5% growth): approximately $1,050,000.</p>
+
+<p><strong>The minimum-only trap:</strong> If Marcus takes only minimums in years 1-9, his household MFJ income each year stays around $382,000 — inside the 24% bracket ($210K-$402K MFJ). Year-10 flush of $1,050,000 on top of $340,000 wages produces AGI of $1,390,000 — with $172K taxed at 35% and $620K taxed at 37%, plus 3.8% NIIT on the top portion, plus NJ state tax at the highest 10.75% marginal rate. Federal tax on year-10 distribution alone: approximately <strong>$375,000</strong>. NJ state tax on year-10 distribution: approximately <strong>$105,000</strong>. Total 10-year combined federal + NJ tax: approximately $610,000 (about 44% blended).</p>
+
+<p><strong>Smoothed alternative:</strong> Evenly-smoothed distribution at 5% growth is approximately $181,300 per year. Added to his $340K base income, MFJ AGI becomes $521,300 — into the 32% bracket ($402K-$512K MFJ) with roughly $9,000 spilling into 35%. Executing the smoothed plan, total 10-year federal tax burden: approximately <strong>$488,000</strong>. NJ state tax: approximately <strong>$140,000</strong>. Total combined: approximately $628,000. On this specific fact pattern the pure-smoothed plan is slightly <em>worse</em> than the minimum-only trap because the sustained 32%-35% marginal rate for 10 years accumulates faster than the one-year year-10 spike into 37%.</p>
+
+<p><strong>The optimal Marcus plan:</strong> Take modest distributions (approximately $60K/year) in years 1-6 while both spouses are still working — filling the top of the 24% bracket at $402K MFJ — then front-load years 7-10 heavily after one spouse retires and household income drops. Year-7-10 target distributions: approximately $300K/year at combined income of roughly $460K, taxed primarily at 24%-32%. Total 10-year combined federal + NJ tax under this plan: approximately <strong>$495,000</strong>. Savings vs. minimum-only trap: <strong>$115,000</strong>. Savings vs. pure-smoothed plan: <strong>$133,000</strong>.</p>
+
+<p><strong>The pre-death Roth conversion that was never done:</strong> Marcus's mother lived in Florida (no state income tax) and stayed in the 22%-24% federal bracket during her retirement years. If she had done a $1M Roth conversion over 4 years (age 76-79) at a blended 22-24% federal rate, paying approximately $230,000 in federal tax from non-IRA cash, the account would have passed to Marcus as a Roth. Marcus's 10-year distribution schedule would still exist — but every dollar would be federal-tax-free. Household saving: approximately <strong>$265,000</strong> even after paying the pre-death conversion tax. This is the trap of the missed pre-death conversion.</p>
+
+<h3>Case 3 — Elena, surviving spouse, $2.1M inherited Traditional IRA, executes the rollover-and-convert play</h3>
+
+<p><strong>Facts:</strong> Elena's husband David dies in early 2026 at age 71 with a $2,100,000 Traditional IRA. Elena is 63, retired, living in Texas (no state income tax). She has her own $600K Traditional IRA and $850K in taxable brokerage. Because David died before his RBD (he had not reached age 73), Elena has full flexibility on the annual-RMD question — and as a surviving spouse, she has the §408(d)(3)(C) rollover option unavailable to any other beneficiary.</p>
+
+<p><strong>Elena's plan:</strong> Elena elects the spousal rollover, combining David's $2.1M inherited IRA with her own $600K into a single $2.7M Traditional IRA in her own name. She has 10 years (age 63 to 73) before her own RMDs begin. Her retirement income (Social Security $32K + investment income $28K = $60K) leaves her with meaningful bracket headroom.</p>
+
+<p><strong>The conversion ladder:</strong> Elena executes annual Roth conversions of $150,000 for each of the next 10 years, filling the 24% bracket at $200K MFJ (she remains widowed; she files single after year 2 under the qualifying-widow rule extension). Total conversions over 10 years: $1.5M. Federal tax on conversions at 24% blended: approximately $360,000 (paid from her taxable brokerage). Roth balance at age 73: approximately $2.0M (accounting for growth during the conversion period). Remaining Traditional balance at age 73 (starting her own RMDs): approximately $1.2M.</p>
+
+<p><strong>What this achieves:</strong> Elena has converted the bulk of David's IRA to Roth at her own favorable 24% bracket. When she dies in her 80s, the Roth passes to her adult children — subject to the 10-year rule but with every distribution federal-tax-free. If instead she had kept David's IRA as an inherited IRA and taken minimum distributions, her total lifetime tax + her children's 10-year window tax would have been approximately $780,000 higher. The rollover-plus-conversion play saves the family approximately <strong>$780,000</strong> across two generations — the largest single planning move available to a surviving spouse.</p>
+
+<p>Elena's execution rests on three foundations: (1) she is the spouse and therefore has the §408(d)(3)(C) rollover option, (2) David died pre-RBD so no year-of-death RMD was required before the rollover, and (3) Elena has taxable brokerage assets to pay the conversion tax without withdrawing from the retirement account itself. Any adult child inheriting from a parent has none of these three foundations — which is why the Elena play does not scale down to non-spouse beneficiaries.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Case</th><th>Beneficiary category</th><th>Account size</th><th>Baseline (min-only) 10-yr tax</th><th>Optimized plan tax</th><th>Savings</th></tr>
+</thead>
+<tbody>
+<tr><td>Priya (Case 1)</td><td>Adult daughter (non-EDB)</td><td>$600K Traditional IRA</td><td>~$211K</td><td>~$180K (smoothed)</td><td>~$31K</td></tr>
+<tr><td>Marcus (Case 2)</td><td>Adult son (non-EDB)</td><td>$1.4M Traditional 401(k)</td><td>~$610K</td><td>~$495K (staged)</td><td>~$115K</td></tr>
+<tr><td>Marcus + pre-death conv</td><td>Same</td><td>Same</td><td>~$610K</td><td>~$230K conv tax + $0 beneficiary tax</td><td>~$380K</td></tr>
+<tr><td>Elena (Case 3)</td><td>Surviving spouse (EDB)</td><td>$2.1M Traditional IRA</td><td>N/A (rollover)</td><td>~$360K conversion, ~$1.5M Roth to kids</td><td>~$780K (two-gen)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="mistakes">Six most-expensive planning mistakes</h2>
+
+<h3>1. Assuming "the minimum is the plan"</h3>
+
+<p>The single most common mistake is treating the annual-minimum RMD as the operating rule. It is a legal floor, not a plan. The correct annual distribution is the amount that fills the beneficiary's target bracket without spilling into the next — which is almost always materially higher than the minimum, especially in years 1-6 of the window.</p>
+
+<h3>2. Missing the post-RBD annual RMD requirement for a 2025+ inheritance</h3>
+
+<p>Beneficiaries of accounts where the deceased died in 2020-2024 lived under the IRS transition-relief waiver — no annual RMD was required. That waiver ended. Any beneficiary of a post-RBD-death account inherited in 2025 or later must now take the annual RMD in each of years 1-9, and missing one triggers the 25%/10% excise tax stack under SECURE 2.0 §302.</p>
+
+<h3>3. Attempting a Roth conversion on a non-spouse inherited IRA</h3>
+
+<p>The statute at IRC §408A(d)(3)(C) prohibits it. Any custodian will reject the transaction. The idea "I'll just convert the inherited IRA to Roth so my kids don't get hit" fails at the first phone call — but many taxpayers have burned weeks of planning time on it before discovering the prohibition. The only paths are (a) pre-death conversion by the original owner, or (b) surviving-spouse rollover then conversion.</p>
+
+<h3>4. Ignoring the successor beneficiary clock</h3>
+
+<p>If a non-spouse designated beneficiary dies during the 10-year window, the successor beneficiary inherits the remainder — but the 10-year clock does not reset. If the account owner died in 2026 and the primary beneficiary died in 2029, the successor must still finish the distribution by December 31, 2036. Any distribution planning during years 1-5 should account for this: bunching distributions in later years without regard to potential primary-beneficiary mortality can leave a successor with an impossibly short window.</p>
+
+<h3>5. Missing the year-of-death RMD before rollover (spouse only)</h3>
+
+<p>For a surviving spouse who plans to execute the §408(d)(3)(C) rollover but where the deceased was already in RMD status at death (post-RBD, meaning any part of the year-of-death RMD was not yet paid), the deceased's year-of-death RMD must be paid out of the inherited account before the rollover can happen. The full mechanics are in our <a href="/blog/spousal-ira-rollover-vs-inherited-ira-2026.html">spousal IRA rollover guide</a>.</p>
+
+<h3>6. Failing to model IRMAA and NIIT surcharges</h3>
+
+<p>Every 10-year-window distribution plan for a beneficiary age 60+ needs to model IRMAA (Medicare premium surcharges based on two-years-prior MAGI) alongside the 3.8% NIIT and the ordinary-income brackets. A year-8 or year-9 distribution that pushes MAGI into the top IRMAA tier can cost a beneficiary an additional $6,000-$10,000 per year in Medicare premiums for two years, and the surcharge cliffs mean crossing a threshold by $1 triggers the full incremental premium — not a marginal rate.</p>
+
+<h2 id="state-tax">State-tax overlay — the four-tier framework</h2>
+
+<p>The federal analysis above does not capture the state-tax variation, which for high-earning beneficiaries in high-tax states can be worth 10-13 percentage points of blended marginal rate on top of the federal calculus. The four state-tax tiers for 10-year-window inherited-account distributions:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Tier</th><th>Example states</th><th>State-tax treatment of inherited-IRA distribution</th><th>Marginal impact on 10-yr plan</th></tr>
+</thead>
+<tbody>
+<tr><td>Tier 1 — No income tax</td><td>FL, TX, TN, WA, NV, WY, SD, AK, NH</td><td>Zero state tax on distributions</td><td>0 percentage points</td></tr>
+<tr><td>Tier 2 — Full retirement exclusion</td><td>IL, PA, MS, IA (retirement-age)</td><td>Inherited retirement-account distributions fully excluded from state tax</td><td>0 percentage points (see our <a href="/blog/illinois-401k-and-retirement-taxation-2026.html">Illinois piece</a>)</td></tr>
+<tr><td>Tier 3 — Partial exclusion (age or amount)</td><td>GA, KY, SC, NC, MI, DE, VA</td><td>Age-tiered or amount-capped exclusion applied to inherited-account income</td><td>2-4 percentage points</td></tr>
+<tr><td>Tier 4 — Full state tax on distributions</td><td>CA, NJ, NY, VT, MN, OR, MA (partial), CT</td><td>Inherited-account distributions fully taxable at state marginal rate</td><td>5-13 percentage points</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The interaction between the 10-year window and a planned state-of-residence change is worth modeling explicitly. A California beneficiary planning to relocate to Nevada or Florida in year 4 of the window can save 10-13 percentage points of state tax on years 4-10 by front-loading distributions in years 4-10 rather than years 1-3. The residency-change mechanics — including the 546-day safe harbor and the domicile-vs-statutory-residence distinction — are the same as for lifetime retirement-income planning; see the state field guides in the retirement cluster for the specifics per state.</p>
+
+<h2 id="checklist">8-item action checklist for year-1 planning</h2>
+
+<ol>
+  <li><strong>Confirm the deceased's death date, RBD, and beneficiary category.</strong> If the deceased was age 73 or older at death and had reached their April 1 RBD, you are in the post-RBD annual-RMD track. If the deceased was younger, you are in the pre-RBD track with distribution-schedule flexibility. Confirm your own beneficiary category — plain designated beneficiary (10-year rule) vs. one of the five EDB categories.</li>
+  <li><strong>Establish the December 31 balance as of the year of death.</strong> This is the denominator base for the year-1 RMD calculation. Get a plan-administrator statement showing the exact December 31 balance in writing. Custodians sometimes take weeks to produce the correct figure — request it in January of the year following death.</li>
+  <li><strong>Compute the year-1 Single Life divisor using your own age in year 1.</strong> For a beneficiary who inherits in the calendar year of the deceased's death, year 1 is the following calendar year. Use Treas. Reg. §1.401(a)(9)-9(b), Table I. Verify against the IRS's most recent 590-B appendix.</li>
+  <li><strong>Model your projected other taxable income in each of years 1-10.</strong> Wage income, Social Security, pension, own IRA distributions if applicable, capital gains, rental income. Build a 10-row spreadsheet.</li>
+  <li><strong>Identify your target bracket ceiling for each year.</strong> For most middle-income beneficiaries, this is the 24%/32% boundary at approximately $201K single / $402K MFJ. Higher-income beneficiaries may target the 32%/35% boundary. The gap between your projected non-inherited income and the target ceiling is your "bracket-fill room" for that year.</li>
+  <li><strong>Compare three plans: min-only, evenly-smoothed, and bracket-filled.</strong> Compute total 10-year federal + state tax under each. Almost always the bracket-filled plan (fill your target bracket in every year, adjust for known income changes) wins.</li>
+  <li><strong>Model IRMAA and NIIT surcharges if you are age 60+ or if MAGI could exceed $200K single / $250K MFJ in any year.</strong> Adjust the bracket-fill plan to avoid triggering surcharge cliffs where possible.</li>
+  <li><strong>If the deceased is still alive and the pre-death Roth conversion path is available, have that conversation now.</strong> Every year of delay costs one year of favorable conversion runway. The conversation is uncomfortable but the family-level tax savings can easily reach $200K-$500K on a $1M+ account.</li>
+</ol>
+
+<h2 id="faq">Frequently asked questions</h2>
+
+<div class="faq-block">
+<div class="faq-item">
+  <h3>Does the 10-year rule require annual RMDs during years 1 through 9?</h3>
+  <p>Only when the account owner died on or after their Required Beginning Date (age 73+ for accounts held by taxpayers reaching 73 in 2024 or later). If the deceased died before their RBD — or if the account is a Roth IRA (which IRC §408A(c)(5) treats as always pre-RBD) — no annual RMD is required in years 1-9. The beneficiary can distribute in any pattern as long as the full balance is out by December 31 of the tenth year.</p>
+</div>
+<div class="faq-item">
+  <h3>What is the excise tax if I miss an annual RMD in years 1 through 9?</h3>
+  <p>SECURE 2.0 §302 set the excise tax at 25% of the shortfall, reducible to 10% if corrected within the two-year correction window and a Form 5329 is filed. The 2021-2024 IRS transition-relief waiver of the requirement itself is over — beginning with the 2025 tax year the excise tax applies to missed post-RBD-death annual RMDs.</p>
+</div>
+<div class="faq-item">
+  <h3>Can I convert an inherited Traditional IRA to Roth?</h3>
+  <p>Not if you are a non-spouse beneficiary. IRC §408A(d)(3)(C) prohibits it. A surviving spouse may execute the §408(d)(3)(C) rollover, treat the account as their own, and then convert. The original account owner can convert to Roth during their own lifetime, which passes the account to non-spouse beneficiaries as a Roth (still subject to the 10-year rule but every distribution federal-tax-free).</p>
+</div>
+<div class="faq-item">
+  <h3>What happens if I take more than the annual minimum?</h3>
+  <p>Nothing — you are always allowed to distribute more than the minimum. The minimum is a floor, not a ceiling. Taking more in year 3 does not reduce the year-4 minimum (which is still computed on the year-3 ending balance using the reduce-by-one divisor). But because taking more accelerates the pace of account depletion, the year-10 forced distribution ends up smaller, which is usually the entire point of a smoothing plan.</p>
+</div>
+<div class="faq-item">
+  <h3>What Single Life Table divisor do I use for year 1?</h3>
+  <p>Your own age in the calendar year following the year of the account owner's death. If the deceased died on any date in 2025, your year-1 divisor is the Single Life divisor at your age as of your birthday in 2026, from Treas. Reg. §1.401(a)(9)-9(b), Table I. Each subsequent year the divisor is reduced by one — a mechanical arithmetic operation, not a fresh lookup.</p>
+</div>
+<div class="faq-item">
+  <h3>Does the 10-year rule apply to Roth 401(k) plans?</h3>
+  <p>Yes — the 10-year distribution deadline applies. But SECURE 2.0 §325 eliminated the lifetime RMD requirement for Roth 401(k) accounts effective 2024, and there is no annual RMD in years 1-9 of the beneficiary's 10-year window because IRC §408A(c)(5) parallel treatment attaches. A non-spouse beneficiary of a Roth 401(k) can defer every distribution to year 10 and take the entire balance federal-tax-free at that point.</p>
+</div>
+<div class="faq-item">
+  <h3>How does the 10-year window interact with a beneficiary's own 401(k) contributions?</h3>
+  <p>They do not offset. Inherited-account distributions are ordinary income; the beneficiary's own 401(k) contributions are a pre-tax deduction from wage income. Nothing about the inherited distribution allows the beneficiary to make a larger 401(k) contribution — but a smart beneficiary can use the years of highest inherited-account distribution as the years to maximize their own 401(k) contribution (currently $24,500 base + $8,000 age-50 catch-up + $11,250 super catch-up ages 60-63 under Notice 2025-67) to offset some of the incremental AGI. On a household basis this is one of the highest-leverage smoothing moves available.</p>
+</div>
+<div class="faq-item">
+  <h3>What if I need to move to a different state during the 10-year window?</h3>
+  <p>Time the distributions around the move. If moving from a Tier 4 state (CA, NJ, NY) to a Tier 1 state (FL, TX, NV) in year 5, defer as much distribution as possible from years 1-4 into years 5-10 to capture the state-tax savings. The domicile-change mechanics require a bona fide change of residence — see the state field guides for the 546-day safe harbor, the 12-item domicile evidence set, and the timing rules that let post-move distributions be state-tax-free.</p>
+</div>
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All RMD divisors in this article are the IRS-published Single Life Table figures under the November 2020 final regulations (TD 9930) as amended by the July 2024 final regulations (Treasury Decision 10001). The federal bracket boundaries for tax year 2026 are the CPI-indexed estimates carried forward from Rev. Proc. 2024-40 with the OBBBA §70201 permanent rate structure retained under IRS Notice 2025-67 and the November 2025 inflation adjustment. Case-study numbers are hand-computed using 2026 MFJ / single brackets, the Single Life divisor tables at Treas. Reg. §1.401(a)(9)-9(b), Table I, and standard 5% pre-tax growth assumptions. IRMAA thresholds are the 2026 CMS-published Part B and Part D thresholds under 42 U.S.C. §1395r(i)(3). State-tax numbers are the 2026 top marginal rates published by each state's department of revenue as of publication date; readers should verify current rates directly with their state DOR before executing any distribution plan. Individual results depend on personal fact patterns — this article is educational; do not rely on it as tax or legal advice for a specific transaction. A CPA, Enrolled Agent, or Certified Financial Planner with SECURE Act, TD 10001, and inherited-account-distribution experience should review any 10-year-window distribution plan before it is executed and any pre-death Roth conversion strategy before it is undertaken.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Internal Revenue Code §401(a)(9)(H) — 10-year rule for non-Eligible Designated Beneficiaries added by the SECURE Act of 2019. <a href="https://www.law.cornell.edu/uscode/text/26/401" rel="nofollow noopener">law.cornell.edu/uscode/text/26/401</a></li>
+<li id="source-2">Internal Revenue Code §401(a)(9)(E) — designated beneficiary and eligible designated beneficiary definitions; the five EDB categories. <a href="https://www.law.cornell.edu/uscode/text/26/401" rel="nofollow noopener">law.cornell.edu/uscode/text/26/401</a></li>
+<li id="source-3">Internal Revenue Service, Notice 2022-53 (October 2022), Notice 2023-54 (July 2023), and Notice 2024-35 (April 2024) — successive transition-relief waivers of the missed-RMD excise tax for post-RBD-death 10-year-window beneficiaries who did not take the annual RMD in tax years 2021-2024. <a href="https://www.irs.gov/pub/irs-drop/n-24-35.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-24-35.pdf</a></li>
+<li id="source-4">Treasury Decision 10001, "Required Minimum Distributions" — final regulations amending Treas. Reg. §1.401(a)(9)-1 through -9, published July 19, 2024, effective for distribution calendar years beginning on or after January 1, 2025. Confirmed the post-RBD annual-RMD requirement during years 1-9 of the 10-year window. <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" rel="nofollow noopener">federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions</a></li>
+<li id="source-5">SECURE 2.0 Act §302 (Pub. L. 117-328, Division T, Title III) — reduction of the missed-RMD excise tax from 50% to 25%, further reduced to 10% if corrected within the two-year correction window. <a href="https://www.congress.gov/bill/117th-congress/house-bill/2617" rel="nofollow noopener">congress.gov/bill/117th-congress/house-bill/2617</a></li>
+<li id="source-6">Setting Every Community Up for Retirement Enhancement Act of 2019 (SECURE Act), Pub. L. 116-94, Division O, §401 — the elimination of stretch for non-EDB designated beneficiaries; enacted December 20, 2019, effective January 1, 2020. <a href="https://www.congress.gov/bill/116th-congress/house-bill/1865" rel="nofollow noopener">congress.gov/bill/116th-congress/house-bill/1865</a></li>
+<li id="source-7">SECURE 2.0 Act §107 — Required Beginning Date changes to age 73 (2023-2032) and age 75 (2033+). <a href="https://www.congress.gov/bill/117th-congress/house-bill/2617" rel="nofollow noopener">congress.gov/bill/117th-congress/house-bill/2617</a></li>
+<li id="source-8">Treasury Regulations §1.401(a)(9)-5 — annual required minimum distribution mechanics; the reduce-by-one convention for designated beneficiaries; the post-RBD annual-RMD requirement during years 1-9 of the 10-year window. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6dc75dfc25aaf2c/section-1.401(a)(9)-5" rel="nofollow noopener">ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6dc75dfc25aaf2c/section-1.401(a)(9)-5</a></li>
+<li id="source-9">Internal Revenue Service, Notice 2025-67 — 2026 retirement-plan cost-of-living adjustments and CPI-indexed brackets; and Rev. Proc. 2025-32 — 2026 inflation-adjusted federal income-tax brackets after OBBBA §70201 permanent rate structure. <a href="https://www.irs.gov/pub/irs-drop/n-25-67.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-25-67.pdf</a></li>
+<li id="source-10">Internal Revenue Code §408A(d)(3)(C) — prohibition on Roth conversion of inherited IRAs by non-spouse beneficiaries; §408(d)(3)(C) — surviving spouse rollover election. <a href="https://www.law.cornell.edu/uscode/text/26/408A" rel="nofollow noopener">law.cornell.edu/uscode/text/26/408A</a></li>
+<li id="source-11">Treasury Regulations §1.401(a)(9)-9 — RMD tables including the Single Life Table (Table I), Uniform Lifetime Table (Table III), and Joint and Last Survivor Table (Table II); refreshed in the November 2020 final regulations (TD 9930) with updated mortality data. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6dc75dfc25aaf2c/section-1.401(a)(9)-9" rel="nofollow noopener">ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6dc75dfc25aaf2c/section-1.401(a)(9)-9</a></li>
+<li id="source-12">Internal Revenue Code §1411 — Net Investment Income Tax; 3.8% surcharge on investment income above $200,000 single / $250,000 MFJ MAGI thresholds. <a href="https://www.law.cornell.edu/uscode/text/26/1411" rel="nofollow noopener">law.cornell.edu/uscode/text/26/1411</a></li>
+<li id="source-13">Centers for Medicare &amp; Medicaid Services — 2026 Part B and Part D IRMAA thresholds under 42 U.S.C. §1395r(i)(3), based on two-year-lookback MAGI. <a href="https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-and-deductibles" rel="nofollow noopener">cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-and-deductibles</a></li>
+<li id="source-14">Internal Revenue Service, Publication 590-B, "Distributions from Individual Retirement Arrangements" — inherited IRA rules, beneficiary categories, RMD mechanics, and worked examples for the 10-year rule. <a href="https://www.irs.gov/publications/p590b" rel="nofollow noopener">irs.gov/publications/p590b</a></li>
+<li id="source-15">Setting Every Community Up for Retirement Enhancement 2.0 Act (SECURE 2.0), Pub. L. 117-328, Division T — Title I §107 (RBD age changes), §204 (spousal §401(a)(9)(B)(iv) election), §325 (Roth 401(k) lifetime RMD elimination), §302 (excise tax reduction), §337 (AMBT fix). <a href="https://www.congress.gov/bill/117th-congress/house-bill/2617" rel="nofollow noopener">congress.gov/bill/117th-congress/house-bill/2617</a></li>
+<li id="source-16">Internal Revenue Service, "Retirement Topics — Beneficiary" and "Retirement Topics — Required Minimum Distributions" — plain-language operating guidance on inherited-account beneficiary designations, the 10-year rule, and the annual RMD mechanics. <a href="https://www.irs.gov/retirement-plans/retirement-topics-beneficiary" rel="nofollow noopener">irs.gov/retirement-plans/retirement-topics-beneficiary</a></li>
+<li id="source-17">Federation of Tax Administrators — state-by-state tax treatment of retirement-plan distributions including inherited-account distributions; source for the four-tier state-tax overlay framework. <a href="https://taxadmin.org/state-tax-forms/" rel="nofollow noopener">taxadmin.org/state-tax-forms/</a></li>
+<li id="source-18">United States Government Accountability Office, GAO-19-179 — "Retirement Savings: Federal Workers' Portfolios Show Long-Term Effects of Proper Diversification" and related IRS statistics on inherited-IRA balances by beneficiary age brackets; contextual data on typical account sizes at inheritance. <a href="https://www.gao.gov/products/gao-19-179" rel="nofollow noopener">gao.gov/products/gao-19-179</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized tax or legal advice. 10-year-window distribution planning decisions are consequential, often irrevocable once the tax year closes, and interact with plan documents, custodian procedures, state law, IRMAA surcharges, Social Security taxation, and multi-decade income projections in ways this article cannot fully model for any specific reader. Consult a CPA, an Enrolled Agent, or a Certified Financial Planner familiar with IRC §401(a)(9)(H), the July 2024 final regs, and pre-death Roth conversion mechanics before executing any distribution schedule or conversion. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Results depend on individual facts including plan documents, custodian procedures, state of residence, existing income mix, Medicare enrollment status, and total-family estate plan. Always verify current rules with a qualified tax professional and the plan administrator before executing any distribution schedule or pre-death conversion strategy. CalcLeap is not a financial advisor and does not provide personalized investment, tax, or legal advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#10-year-refresher">10-year rule refresher</a></li>
+        <li><a href="#post-rbd-vs-pre-rbd">Post-RBD vs pre-RBD split</a></li>
+        <li><a href="#divisor-mechanics">Divisor mechanics under §1.401(a)(9)-5</a></li>
+        <li><a href="#smoothing-math">Bracket smoothing math</a></li>
+        <li><a href="#roth-conversion-play">Roth-conversion-inside-the-window</a></li>
+        <li><a href="#case-studies">Three worked case studies</a></li>
+        <li><a href="#mistakes">Six planning mistakes</a></li>
+        <li><a href="#state-tax">State-tax overlay</a></li>
+        <li><a href="#checklist">Action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/traditional-ira-calculator.html">Traditional IRA Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/capital-gains-tax-calculator.html">Capital Gains Tax Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/see-through-trust-conduit-vs-accumulation-2026.html">See-through trust: conduit vs accumulation</a>
+      <a href="/blog/eligible-designated-beneficiary-taxonomy-2026.html">EDB taxonomy: the four non-spouse categories</a>
+      <a href="/blog/spousal-ira-rollover-vs-inherited-ira-2026.html">Spousal IRA rollover vs inherited IRA</a>
+      <a href="/blog/qualified-charitable-distributions-qcd-2026.html">Qualified Charitable Distributions</a>
+      <a href="/blog/roth-conversion-ladder-early-retirement-2026.html">Roth conversion ladder</a>
+      <a href="/blog/illinois-401k-and-retirement-taxation-2026.html">Illinois §401(k) taxation</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
