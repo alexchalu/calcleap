@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trust Protector Deep-Dive in 2026: UTC §808, the Directed-Trust Statutes, and Every Power the Office Can Hold for an Inherited-IRA Trust | CalcLeap</title>
+<meta name="description" content="A field guide to the trust protector office in 2026 — the UTC §808 baseline, the seven statutory states (Alaska, Delaware, Nevada, South Dakota, Tennessee, Wyoming, Michigan), the powers a protector should and should not hold, the IRC §2036/§2038 estate-inclusion traps, and the drafting decisions that decide whether a see-through trust holding an inherited IRA can adapt across the 10-year window or freezes in place.">
+<link rel="canonical" href="https://calcleap.com/blog/trust-protector-deep-dive-inherited-ira-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="Trust Protector Deep-Dive 2026 — CalcLeap">
+<meta property="og:description" content="UTC §808 baseline, seven statutory trust-protector states, the powers a protector should hold, the estate-inclusion traps, and drafting decisions for see-through trusts holding inherited IRAs.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/trust-protector-deep-dive-inherited-ira-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-08-12T00:00:00Z">
+<meta property="article:modified_time" content="2026-08-12T00:00:00Z">
+<meta property="article:section" content="Retirement Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Trust Protector Deep-Dive in 2026: UTC §808, the Directed-Trust Statutes, and Every Power the Office Can Hold for an Inherited-IRA Trust",
+  "description": "A field guide to the trust protector office in 2026 — the UTC §808 baseline, the seven statutory trust-protector states, the powers the office should hold, the IRC §2036/§2038 traps, and the drafting decisions that let a see-through trust holding an inherited IRA adapt across the 10-year window.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-08-12T00:00:00Z",
+  "dateModified": "2026-08-12T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/trust-protector-deep-dive-inherited-ira-2026.html"
+  },
+  "articleSection": "Retirement Planning",
+  "wordCount": 7100,
+  "about": [
+    {"@type": "Thing", "name": "Trust protector"},
+    {"@type": "Thing", "name": "Uniform Trust Code"},
+    {"@type": "Thing", "name": "Inherited IRA"},
+    {"@type": "Thing", "name": "Directed trust"},
+    {"@type": "Thing", "name": "SECURE Act 10-year rule"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Trust Protector Deep-Dive for Inherited IRAs"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is a trust protector and how is it different from a trustee?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A trust protector is a third party — not the settlor, not the trustee, not a beneficiary — who is given specific powers by the trust instrument to oversee, direct, or veto trustee actions. Where the trustee actually holds title to the trust assets and executes administration, the protector sits above the trustee and holds targeted powers such as removing and replacing the trustee, changing the trust's governing law or situs, amending administrative provisions to reflect tax-law changes, and (in some drafting) adding or removing beneficiaries within a specified class. UTC §808(b) codifies the general authority for a settlor to grant such powers to a person other than the trustee, and seven states — Alaska, Delaware, Nevada, South Dakota, Tennessee, Wyoming, and Michigan — have specific trust-protector or directed-trust statutes that provide more detailed structure than UTC §808 alone."}},
+    {"@type": "Question", "name": "Is a trust protector a fiduciary?",
+     "acceptedAnswer": {"@type": "Answer", "text": "It depends on the governing state law and the trust instrument. UTC §808(d) creates a default rule that a person other than a beneficiary who holds a power to direct the trustee is a fiduciary. Delaware 12 Del. C. §3313(a) applies the same default to an 'adviser.' Alaska AS 13.36.370(a), South Dakota SDCL 55-1B-6, Nevada NRS 163.5549, Tennessee TCA 35-15-1201, and Wyoming W.S. 4-10-710 all permit the trust instrument to designate the protector as non-fiduciary and thereby shield the protector from beneficiary lawsuits. That non-fiduciary designation is the load-bearing reason most large-trust practitioners situs protector-heavy trusts in one of those seven states rather than in a pure-UTC jurisdiction."}},
+    {"@type": "Question", "name": "Does a trust protector cause estate-tax inclusion for the grantor?",
+     "acceptedAnswer": {"@type": "Answer", "text": "It can if the powers are drafted wrong. IRC §2036(a)(2) pulls trust assets back into the grantor's gross estate if the grantor retained the right, alone or with any other person, to designate who possesses or enjoys the trust property. IRC §2038(a)(1) does the same for a retained power to alter, amend, revoke, or terminate. Naming yourself as trust protector while your own trust is running is the fastest way to create §2036 inclusion. The safe pattern is to name an independent protector — a licensed attorney, a corporate trustee, or a family friend who is not a beneficiary and not related or subordinate within the meaning of IRC §672(c) — and to write the protector's powers so they cannot be exercised in favor of the grantor. Rev. Rul. 95-58 confirmed that a grantor's retained power to remove and replace a trustee, standing alone, does not cause §2036 or §2038 inclusion as long as the successor trustee cannot be related or subordinate to the grantor within the meaning of §672(c)."}},
+    {"@type": "Question", "name": "Do I need a trust protector on a see-through trust holding an inherited IRA?",
+     "acceptedAnswer": {"@type": "Answer", "text": "For most retiree households under $2M in retirement assets, no — the drafting cost, the ongoing administrative burden, and the risk of introducing a protector whose acts fail state-law fiduciary standards outweigh the benefit. For households with $5M+ in retirement assets, minor or disabled beneficiaries, blended-family fact patterns, or an expected multi-decade planning horizon, a trust protector is close to standard practice. The reason is the SECURE Act 10-year rule under IRC §401(a)(9)(H): a trust drafted in 2020 for adult child beneficiaries who were single at the time may need to be adapted in 2027 for beneficiaries who have since married, divorced, had children, or moved to a different state. A protector with the power to modify administrative provisions and switch governing law is the mechanism that lets the trust adapt without a court proceeding."}},
+    {"@type": "Question", "name": "Can a trust protector convert a conduit trust to an accumulation trust after the account owner dies?",
+     "acceptedAnswer": {"@type": "Answer", "text": "In many carefully drafted trusts, yes — through a combination of the protector's power to modify administrative provisions and the trustee's decanting authority under the governing state's statute. The conversion has to preserve the see-through qualification under Treas. Reg. §1.401(a)(9)-4(f) as amended by TD 10001, which means the new trust cannot add beneficiaries who would fail the identifiable-individuals test or extend the outer distribution deadline past year 10. Whether the conversion is treated as a taxable distribution from the IRA is a separate federal question and generally turns on whether the modification is made under state-law authority that existed at the time of the original beneficiary designation and whether the new trust remains a see-through trust for RMD purposes."}},
+    {"@type": "Question", "name": "Who should serve as trust protector?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The most common choices are a licensed trust-and-estates attorney (independent, ideally not the drafting attorney), a corporate protector such as a Delaware, South Dakota, or Nevada trust company acting in a protector rather than trustee capacity, or a specific individual named for their independent judgment — a family friend, an accountant, or a professional advisor. The person or entity should not be a beneficiary, should not be related or subordinate to the settlor within the meaning of IRC §672(c), and should ideally not be the settlor's own investment adviser (to avoid conflict of interest questions). Successive protectors and a mechanism for appointing successors are essential — a protector office that goes vacant loses its function entirely."}},
+    {"@type": "Question", "name": "What is the difference between a trust protector and a directed trust adviser?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A directed trust adviser typically holds ongoing operational powers over investment or distribution decisions, and the administrative trustee follows the adviser's directions on a day-to-day basis. A trust protector typically holds oversight and adaptation powers exercised only on specific triggers — trustee removal, situs change, administrative amendment. The two roles often coexist. Delaware 12 Del. C. §3313 uses the term 'trust adviser' broadly to cover both. Alaska, Nevada, South Dakota, Tennessee, Wyoming, and Michigan use the term 'trust protector' as a distinct role with more focused, less frequent exercise. For an inherited-IRA trust, the practical choice is usually a protector-only structure — the trustee handles annual RMD administration, and the protector is a backstop for state-law and beneficiary-circumstance changes."}},
+    {"@type": "Question", "name": "Does UTC §808 apply to my trust if my state adopted the UTC?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Usually yes. UTC §808 provides that (1) the terms of a trust may confer on the trustee a power to direct the modification or termination of the trust; (2) the terms of a trust may confer on a person other than the trustee a power to direct certain actions of the trustee; (3) a trustee that acts in accordance with such a direction is not liable, except for willful misconduct; and (4) a person other than a beneficiary who holds a power to direct is presumptively acting in a fiduciary capacity. The 36 states plus DC that have adopted the UTC generally include §808 in some form, though states vary in how they treat the fiduciary presumption in §808(d) and whether the trust instrument can waive it."}},
+    {"@type": "Question", "name": "Can the settlor be the trust protector of their own trust?",
+     "acceptedAnswer": {"@type": "Answer", "text": "For a revocable trust, yes, but the analysis rarely matters because the settlor already has full modification power over a revocable trust. For an irrevocable trust intended for estate-tax planning, the settlor should not serve as protector. Any protector power that includes the ability to direct distributions, alter beneficial interests, or remove and replace the trustee with a related or subordinate person will cause estate inclusion under IRC §2036(a)(2), §2038(a)(1), or both. Rev. Rul. 95-58 provides a narrow safe harbor for a retained power to remove and replace an independent trustee, but the safe harbor requires the successor trustee to be not related or subordinate within the meaning of §672(c). Grantor-served protector powers over an irrevocable trust are almost always a drafting error."}},
+    {"@type": "Question", "name": "What happens if the trust protector fails to act or refuses to serve?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The trust operates as if there were no protector — the trustee proceeds under the general terms of the instrument and the default state trust code. The powers held by the protector do not automatically vest in the trustee or a beneficiary. This is why the trust instrument should always name at least one successor protector, provide a mechanism for appointing further successors (typically by majority vote of adult beneficiaries or by a designated committee), and set a default rule for what happens if the protector office is vacant for more than a specified period. Some drafters also include a court-appointment fallback — the trustee or a beneficiary may petition the appropriate state court to appoint a protector if the office is vacant. Uniform Directed Trust Act §9 addresses vacancy in the ten states that have adopted it, but most trust-protector regimes rely entirely on instrument-drafted succession provisions."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:680px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.05rem;color:var(--text);box-shadow:var(--shadow)}
+
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>Trust Protector Deep-Dive for Inherited IRAs
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement Planning · Updated August 12, 2026</span>
+  <h1 id="article-start">Trust Protector Deep-Dive in 2026: UTC §808, the Directed-Trust Statutes, and Every Power the Office Can Hold for an Inherited-IRA Trust</h1>
+  <p class="deck">The trustee holds the money and executes distributions. The protector sits above the trustee and holds the levers that decide whether a see-through trust holding an inherited IRA can adapt across the SECURE Act's 10-year window — or freezes in whatever shape it took on the day the account owner died. Here is the UTC §808 baseline, the seven-state statutory map, the powers the office should hold, the estate-inclusion traps that follow a mis-drafted protector, and the drafting checklist a family with retirement assets over $2M should walk through before 2027.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published August 12, 2026</span>
+    <span class="dot"></span>
+    <span>28 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>The Uniform Trust Code adoption piece we published on August 9, 2026 covered the state-level trust-code map that governs whether a see-through trust holding an inherited IRA is worth naming as beneficiary at all.<sup><a href="#source-15">[15]</a></sup> The load-bearing observation in that piece was that UTC Article 8, the article that governs trustee duties, contains a single section — UTC §808 — that opens the door to an entire second office: the trust protector. That door is where the trust-protector office lives in every UTC state, and it is the doctrinal ancestor of the seven state-specific statutory regimes that have grown up alongside the UTC to give the protector office its own detailed statutory infrastructure.<sup><a href="#source-1">[1]</a></sup></p>
+
+<p>For a trust that will hold an inherited IRA under IRC §401(a)(9)(H)'s 10-year rule, the trust-protector question is not academic.<sup><a href="#source-2">[2]</a></sup> The trust the account owner drafts today has to work across a 10-year distribution window that begins on an unknowable date, with beneficiaries whose life circumstances, tax situations, and states of residence will change over the intervening years. Federal tax law under Treas. Reg. §1.401(a)(9)-4(f), as amended by TD 10001 in July 2024, sets the see-through qualification rules that let the trust be treated as the individual beneficiary for RMD purposes.<sup><a href="#source-3">[3]</a></sup> But federal tax law does not decide who has the power to change the trustee, shift the governing law, or restructure the trust when a beneficiary marries into creditor risk or when a state raises its trust income tax. Those are state-law protector questions.</p>
+
+<p>This piece is the doctrinal deep-dive on the trust-protector office. It covers the historical origin of the office in offshore trust jurisdictions, the UTC §808 baseline, the seven state statutes that have codified the office in more detail (Alaska, Delaware, Nevada, South Dakota, Tennessee, Wyoming, and Michigan), the specific powers a protector can hold and the ones a protector should never hold, the fiduciary-vs-non-fiduciary designation question, the IRC §2036/§2038 estate-inclusion traps for a grantor-appointed protector, the interaction with the SECURE Act 10-year rule for inherited IRAs, three worked case studies at $2M / $6M / $18M in retirement assets, the six most common drafting mistakes, and the eight-item pre-drafting checklist. When you want to run the after-tax math on any inherited-IRA distribution schedule the protector's decisions would drive, the <a href="/calc/retirement-calculator.html">CalcLeap retirement calculator</a>, the <a href="/calc/401k-withdrawal-calculator.html">401(k) withdrawal calculator</a>, and the <a href="/roth-ira-conversion-calculator.html">Roth conversion calculator</a> handle the year-by-year drawdown arithmetic.</p>
+
+<a class="cta-calc" href="/calc/retirement-calculator.html">
+  <span class="ic">📊</span>
+  <div>
+    <h4>Model your inherited-IRA 10-year drawdown</h4>
+    <p>Free, instant, no signup — see how a protector-adjusted distribution schedule changes the tax outcome across the SECURE Act window.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="what-is-protector">What a trust protector actually is — and what it is not</h2>
+
+<p>A trust protector is a third party — not the settlor, not the trustee, not a beneficiary — who is given specific powers by the trust instrument to oversee, direct, or veto trustee actions. The office is a role, not a title of dignity: a protector holds only the powers the instrument grants and has no default authority beyond what the instrument specifies.<sup><a href="#source-4">[4]</a></sup></p>
+
+<p>The distinction from a trustee is structural. The trustee holds legal title to the trust assets, executes distributions and investments, files fiduciary tax returns, and answers to beneficiaries under the state's trust-administration statute. The protector holds title to nothing, executes nothing, and files nothing. The protector's job is oversight — a set of latent powers that get exercised only on specific triggers such as the trustee's misconduct, a change in the beneficiary's circumstances, a change in state or federal law, or a decision to move the trust's situs. Between those triggers, a well-drafted protector office does no work at all.</p>
+
+<p>The distinction from a directed-trust adviser is more subtle. A directed-trust adviser typically holds ongoing operational powers — often investment discretion or distribution discretion — and the trustee follows the adviser's directions on a day-to-day basis under Delaware's 12 Del. C. §3313 or the parallel Alaska, Nevada, South Dakota, and Tennessee statutes.<sup><a href="#source-5">[5]</a></sup> A trust protector, by contrast, holds oversight-and-adaptation powers exercised only on specific occasions. In practice the two roles often coexist in the same document: a corporate trustee handles administration, a family-office adviser directs investments under a §3313-style split, and an independent protector holds trustee-removal, governing-law-change, and administrative-amendment powers exercised once a decade or less.</p>
+
+<p>The office has a specific history. It grew from the offshore trust jurisdictions of the 1980s — most notably the Bahamas, the Cook Islands, and the Cayman Islands — where U.S. settlors wanted a mechanism to reassure themselves that a trustee thousands of miles away would remain accountable. The onshore U.S. adoption came in stages: Alaska enacted the first modern domestic asset-protection-trust statute in 1997 and gave the protector office statutory grounding at AS 13.36.370; Delaware, Nevada, and South Dakota followed with directed-trust and trust-protector statutes across the late 1990s and 2000s; the Uniform Law Commission then codified the doctrinal core in UTC §808 as part of the 2000 Uniform Trust Code.<sup><a href="#source-6">[6]</a></sup> The Restatement (Third) of Trusts §64 and §75 codified the common-law fiduciary framework the protector operates under.<sup><a href="#source-7">[7]</a></sup></p>
+
+<div class="callout key">
+<h4>Why the office exists at all</h4>
+<p>The trust protector solves a specific problem: an irrevocable trust drafted today must operate for decades under state-law, federal-tax, and beneficiary-circumstance conditions that no drafter can predict. The alternatives to a protector are court modification (slow, expensive, public) and statutory decanting (fast in enacting states, unavailable elsewhere). A protector office is the middle ground — a private, non-judicial mechanism for adaptation that keeps the trustee focused on administration and puts oversight in the hands of a designated third party.</p>
+</div>
+
+<h2 id="utc-808">The UTC §808 baseline — what every UTC state gives you for free</h2>
+
+<p>UTC §808 is a four-subsection statute that appears in Article 8 of the model act, titled "Duties and Powers of Trustee." It reads, in substance, that (a) while a trust is revocable, the trustee may follow a direction of the settlor that is contrary to the terms of the trust; (b) if the terms of a trust confer upon a person other than the settlor of a revocable trust a power to direct certain actions of the trustee, the trustee shall act in accordance with an exercise of the power unless the attempted exercise is manifestly contrary to the terms of the trust or the trustee knows the attempted exercise would constitute a serious breach of a fiduciary duty that the person holding the power owes to the beneficiaries of the trust; (c) the terms of a trust may confer upon a trustee or other person a power to direct the modification or termination of the trust; and (d) a person, other than a beneficiary, who holds a power to direct is presumptively a fiduciary who, as such, is required to act in good faith with regard to the purposes of the trust and the interests of the beneficiaries.<sup><a href="#source-1">[1]</a></sup></p>
+
+<p>Four practical implications flow from §808 for every state that has adopted it in substantially unmodified form:</p>
+
+<ul>
+  <li><strong>The instrument controls.</strong> §808 does not create protector powers by default. It only validates protector powers that the trust instrument specifically grants. A trust that is silent on the protector office has no protector, and §808 does not fill the gap.</li>
+  <li><strong>The trustee's default duty is to follow the protector's directions.</strong> Under §808(b), when the instrument gives a third party power to direct, the trustee shall act in accordance with that direction unless the attempted exercise is manifestly contrary to the trust terms or would constitute a serious breach of a fiduciary duty the protector owes to the beneficiaries.</li>
+  <li><strong>The trustee has a duty to review only in narrow cases.</strong> The "manifestly contrary" and "serious breach" standards are high — significantly higher than the ordinary trustee's own fiduciary standard of care. A protector's borderline decision, absent bad faith, generally does not trigger trustee liability if the trustee follows it.</li>
+  <li><strong>The protector is a fiduciary by default.</strong> §808(d) creates a presumption that a non-beneficiary who holds a power to direct is a fiduciary. The presumption is rebuttable in some UTC states and non-rebuttable in others; the seven statutory trust-protector states discussed below all permit the trust instrument to make the protector non-fiduciary by express designation.</li>
+</ul>
+
+<p>The 36 states plus the District of Columbia that have adopted the UTC generally include §808 in some form. Some states — most notably Florida (Fla. Stat. §736.0808) and Pennsylvania (20 Pa. C.S. §7778) — modified the fiduciary presumption to give the trust instrument more freedom to designate a protector as non-fiduciary. Illinois and Ohio kept the §808(d) presumption but layered separate decanting statutes on top that expand what a protector-plus-trustee combination can do. New Hampshire (RSA 564-B:8-808) modified §808 to specifically add "trust adviser" and "trust protector" as recognized categories with statutory authority beyond the general power-to-direct framework. The seven states with the deepest statutory protector regimes — Alaska, Delaware, Nevada, South Dakota, Tennessee, Wyoming, and Michigan — go materially further than the UTC §808 baseline.<sup><a href="#source-8">[8]</a></sup></p>
+
+<h2 id="seven-state-map">The seven-state statutory trust-protector map</h2>
+
+<p>Seven states have codified the trust-protector office in specific detail, either as a standalone protector statute or as part of a broader directed-trust statute. Each of the seven is regularly chosen as the governing-law jurisdiction for trusts holding significant retirement-account assets specifically because its statute is more detailed and more protector-friendly than UTC §808 alone.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>State</th><th>Statute</th><th>Key features</th></tr></thead>
+<tbody>
+<tr><td>Alaska</td><td>AS 13.36.370-.380 (protector); AS 13.36.375 (advisor); AS 13.36.335-.365 (DAPT)</td><td>Explicit statutory protector office; permits non-fiduciary designation; permits protector to appoint successor; interacts with 1997-era domestic asset protection trust regime</td></tr>
+<tr><td>Delaware</td><td>12 Del. C. §3313 (advisers); §3325 (implicit protector via powers-to-direct); §3570-§3576 (Qualified Dispositions/DAPT)</td><td>Uses "trust adviser" as umbrella term covering both directed-trust advisers and protectors; §3313(a) makes advisers fiduciaries by default but permits express non-fiduciary designation; §3313(f) shields the excluded fiduciary from any duty to monitor</td></tr>
+<tr><td>Nevada</td><td>NRS 163.5547 (trust protector); NRS 163.5548-.5549 (fiduciary status); NRS 163.556 (trust adviser)</td><td>Standalone protector statute; explicit statutory list of typical protector powers; §163.5549 permits express non-fiduciary designation; §163.5548 preserves protector's power to appoint own successor</td></tr>
+<tr><td>South Dakota</td><td>SDCL 55-1B-1 through 55-1B-6 (trust advisor and protector)</td><td>Broadest statutory power menu; §55-1B-6 makes advisor/protector fiduciary only if trust so provides — flips the UTC §808(d) presumption; regularly chosen as situs for very large trusts</td></tr>
+<tr><td>Tennessee</td><td>TCA 35-15-808 (UTC §808 parallel); TCA 35-15-1201-1207 (trust adviser and protector)</td><td>Combines UTC baseline with detailed directed-trust statute; §35-15-1201 defines protector as non-fiduciary unless trust states otherwise; §35-15-1206 shields excluded trustee from duty to monitor</td></tr>
+<tr><td>Wyoming</td><td>W.S. 4-10-710 through 4-10-718 (trust protector and trust advisor)</td><td>Explicit protector office; §4-10-710(g) permits non-fiduciary designation; §4-10-712 permits protector to remove and replace trustee even for reasons unrelated to breach of trust</td></tr>
+<tr><td>Michigan</td><td>MCL 700.7809 (trust director and protector); Michigan Trust Code §7101 et seq.</td><td>Adopted Uniform Directed Trust Act framework in 2019; MCL 700.7809 uses "trust director" terminology from UDTA; explicit fiduciary default but permits waiver</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:.82rem;color:var(--text-3);margin-top:-.5rem">Statutory citations verified against each state's official code compilation as of August 2026. Delaware uses "trust adviser" as the umbrella term rather than "trust protector," but the practical function is identical under 12 Del. C. §3313.</p>
+
+<p>Three additional states — Ohio (ORC §5808.08), Illinois (760 ILCS 3/808), and New Hampshire (RSA 564-B:8-808A) — have expanded UTC §808 to include specific trust-protector provisions that fall short of a standalone statutory office. And ten states — Arkansas, Colorado, Connecticut, Georgia, Indiana, Maine, Michigan, Nebraska, New Mexico, and Utah — have adopted some version of the 2017 Uniform Directed Trust Act (UDTA), which gives protector-like directions the same statutory grounding UTC §808 gives them but with more detailed structure around trust director fiduciary duties, information sharing, and default rules for vacancy.<sup><a href="#source-9">[9]</a></sup></p>
+
+<h2 id="powers-menu">Every power a protector can hold — and which ones matter for inherited IRAs</h2>
+
+<p>The trust-protector office is a menu, not a fixed office. The instrument grants each power specifically, and the protector holds only what the instrument grants. Nine categories of protector powers appear in practically every modern drafted trust; four of them are load-bearing for an inherited-IRA trust operating under the SECURE Act 10-year rule.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Power</th><th>Frequency</th><th>IRA relevance</th></tr></thead>
+<tbody>
+<tr><td>Remove and replace the trustee</td><td>~95% of drafted trust-protector offices</td><td>Load-bearing. A corporate trustee that mishandles annual RMD timing across the 10-year window can predictably cost the family six figures. Beneficiary-driven removal via UTC §706 is available but slow.</td></tr>
+<tr><td>Change governing law and/or situs</td><td>~85%</td><td>Load-bearing. A trust drafted under a state that later raises its trust income tax, weakens its spendthrift regime, or fails to adopt SECURE Act clarifications benefits from a protector-driven situs move.</td></tr>
+<tr><td>Amend administrative provisions to reflect law changes</td><td>~80%</td><td>Load-bearing. Federal tax rules governing inherited IRAs have changed materially three times in seven years (SECURE Act 2019, SECURE 2.0 Act 2022, TD 10001 final regs 2024). A protector amendment power keeps the trust conformed without a court proceeding.</td></tr>
+<tr><td>Add or remove beneficiaries within a defined class</td><td>~30%</td><td>Powerful but dangerous. Under IRC §2036(a)(2) and §2038(a)(1), a grantor-held power to add or remove beneficiaries causes estate-tax inclusion. Even an independent protector's exercise can shift beneficial interests in ways that lose see-through-trust qualification.</td></tr>
+<tr><td>Direct investment decisions</td><td>~40% (usually via directed-trust adviser rather than protector)</td><td>Low direct relevance for an inherited-IRA trust — the IRA itself holds the investments; the trust only receives distributions.</td></tr>
+<tr><td>Convert conduit trust to accumulation, or vice versa</td><td>~35%</td><td>Load-bearing. The single most consequential in-window drafting decision under the 10-year rule. A protector power to convert lets the family react to changing beneficiary tax situations without redoing the whole trust.</td></tr>
+<tr><td>Terminate the trust and distribute to beneficiaries</td><td>~50%</td><td>Moderate. Termination inside the 10-year window may accelerate distributions and lose the trust wrapper's creditor protection — usually not desirable.</td></tr>
+<tr><td>Interpret ambiguous instrument language</td><td>~55%</td><td>Moderate. Avoids court petitions but does not change substantive rights.</td></tr>
+<tr><td>Appoint own successor protector</td><td>~90%</td><td>Essential infrastructure. A protector office that goes vacant loses its function entirely.</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:.82rem;color:var(--text-3);margin-top:-.5rem">Frequency estimates are illustrative, drawn from ACTEC (American College of Trust and Estate Counsel) practice literature and observed patterns in modern drafted trust instruments. Actual frequencies vary by drafting practice, state, and trust size.</p>
+
+<h3>The four load-bearing powers for an inherited-IRA trust</h3>
+
+<p>Distilled from the menu, four protector powers matter most for a see-through trust holding an inherited IRA:</p>
+
+<ol>
+  <li><strong>Trustee removal and replacement without cause.</strong> The federal see-through rules under Treas. Reg. §1.401(a)(9)-4(f) do not require a specific trustee — they require a valid state-law trust with identifiable individual beneficiaries. Removing an underperforming corporate trustee is not a federal-tax event as long as the replacement is another state-law-valid trustee. The protector power to remove without cause is the mechanism that skips the UTC §706(b) court petition entirely.</li>
+  <li><strong>Change of governing law and situs.</strong> A retiree in New York drafts a see-through trust in 2020 governed by New York law. In 2027 the retiree's adult child beneficiaries have all moved to no-income-tax states; the New York situs is now a friction. A protector power to switch governing law to Delaware, South Dakota, or Nevada — subject to conflict-of-laws rules and the destination state's willingness to accept the trust — can save materially on state income tax on retained IRA distributions inside an accumulation trust.</li>
+  <li><strong>Administrative-provision amendment.</strong> Congress has changed inherited-IRA rules three times in seven years. The IRS has issued at least a dozen material notices and regulations. A protector power to amend administrative provisions to conform the trust to current federal tax law is the mechanism that keeps the trust operationally current without a court proceeding under UTC §412 or §414.</li>
+  <li><strong>Conduit-to-accumulation conversion.</strong> The single most consequential drafting decision inside the 10-year window. A conduit trust distributes every dollar of RMD to the individual beneficiary in the year received, exposing the distribution to the beneficiary's individual bracket; an accumulation trust may retain distributions and pay the compressed IRC §1(e) trust bracket on the retained income.<sup><a href="#source-10">[10]</a></sup> Between an adult child beneficiary earning $60K in one year and $600K the next (deal exit, inheritance received, promotion), the correct answer changes. A protector power to convert lets the trust follow the beneficiary rather than the beneficiary follow the trust.</li>
+</ol>
+
+<h2 id="fiduciary-question">Fiduciary vs non-fiduciary — the load-bearing designation question</h2>
+
+<p>Whether the trust protector is a fiduciary is the single most important structural question in modern trust-protector drafting. The answer determines the standard of care the protector owes, the extent to which the protector can be sued by beneficiaries, and the practical willingness of professionals to serve.</p>
+
+<p>UTC §808(d) creates a default rule that a person other than a beneficiary who holds a power to direct is presumptively a fiduciary. This means, in the absence of instrument language to the contrary, the protector is held to fiduciary standards — a duty of loyalty to the beneficiaries, a duty of care, a duty to act in good faith, and a duty to keep beneficiaries reasonably informed under UTC §813.<sup><a href="#source-1">[1]</a></sup> The Restatement (Third) of Trusts §75 and Restatement §90 apply the same fiduciary framework to non-trustee holders of powers over trusts.<sup><a href="#source-7">[7]</a></sup></p>
+
+<p>The seven statutory trust-protector states permit the instrument to designate the protector as non-fiduciary and thereby shield the protector from beneficiary lawsuits alleging breach of the fiduciary standard of care:</p>
+
+<ul>
+  <li><strong>Alaska:</strong> AS 13.36.370(a) permits non-fiduciary designation "if the trust instrument so provides."</li>
+  <li><strong>Delaware:</strong> 12 Del. C. §3313(a) presumes fiduciary status but permits express non-fiduciary designation. §3313(f) additionally shields the excluded trustee from any duty to monitor the adviser.</li>
+  <li><strong>Nevada:</strong> NRS 163.5549 permits express non-fiduciary designation and defines the protector's default powers as personal-power powers rather than fiduciary powers.</li>
+  <li><strong>South Dakota:</strong> SDCL 55-1B-6 flips the UTC §808(d) default and provides that a protector is fiduciary only if the trust instrument so provides. This is the most protector-friendly baseline in the country.</li>
+  <li><strong>Tennessee:</strong> TCA 35-15-1201(a)(3) provides that a protector is presumed non-fiduciary unless the trust states otherwise.</li>
+  <li><strong>Wyoming:</strong> W.S. 4-10-710(g) permits express non-fiduciary designation of the protector.</li>
+  <li><strong>Michigan:</strong> MCL 700.7809 follows the Uniform Directed Trust Act framework, which uses a fiduciary default but permits contractual waiver in specific categories.</li>
+</ul>
+
+<div class="callout warn">
+<h4>The fiduciary-designation trade-off</h4>
+<p>A non-fiduciary protector is easier to recruit, cheaper to insure, and less likely to be sued. But a non-fiduciary protector also owes no enforceable duty to the beneficiaries — the beneficiaries have essentially no legal recourse if the protector refuses to act, acts in bad faith, or acts in a way that damages the beneficial interest. For most families the right structure is a fiduciary protector with a reasonable exculpation clause carving out simple negligence but preserving liability for bad faith, reckless conduct, and gross negligence.</p>
+</div>
+
+<h2 id="tax-traps">The IRC §2036/§2038 estate-inclusion traps</h2>
+
+<p>The single most common trust-protector drafting error is naming the grantor as protector of the grantor's own irrevocable trust. That error causes the entire trust — including any inherited-IRA assets it may later hold — to be included in the grantor's gross estate under IRC §2036(a)(2) or §2038(a)(1) or both.</p>
+
+<p>IRC §2036(a)(2) provides that the gross estate includes the value of property the decedent transferred if the decedent retained "the right, either alone or in conjunction with any person, to designate the persons who shall possess or enjoy the property or the income therefrom."<sup><a href="#source-11">[11]</a></sup> IRC §2038(a)(1) provides that the gross estate includes the value of property the decedent transferred if the decedent retained "the power, either alone or in conjunction with any other person, to alter, amend, revoke, or terminate."<sup><a href="#source-12">[12]</a></sup> Any protector power that includes the ability to direct distributions, alter beneficial interests, or remove and replace the trustee with a related or subordinate person will cause inclusion under §2036 or §2038.</p>
+
+<p>Two IRS positions matter. First, Rev. Rul. 95-58 confirmed that a grantor's retained power to remove and replace a trustee, standing alone, does not cause §2036 or §2038 inclusion — provided the successor trustee cannot be related or subordinate to the grantor within the meaning of IRC §672(c).<sup><a href="#source-13">[13]</a></sup> This is a narrow safe harbor: it applies only to trustee removal/replacement, only if the successor is not related or subordinate. Second, IRC §672(c) defines "related or subordinate" broadly — the grantor's spouse, parents, children, siblings, and employees are all related or subordinate. A grantor-retained power to replace the trustee with the grantor's child is not within the Rev. Rul. 95-58 safe harbor.<sup><a href="#source-14">[14]</a></sup></p>
+
+<p>The IRC §674 grantor trust rules add a further layer. A grantor-held power to add or remove beneficiaries, or a grantor-held power to direct distributions to himself or his spouse, causes the trust to be treated as a grantor trust for income tax purposes — meaning all the trust's income is taxed to the grantor personally.<sup><a href="#source-16">[16]</a></sup> For a see-through trust holding an inherited IRA, grantor-trust treatment can produce unexpected tax consequences after the account owner dies if the "grantor" is the account owner's estate.</p>
+
+<h3>The safe pattern</h3>
+
+<p>Name an independent protector — a licensed attorney, a corporate trustee, or a family friend who is not a beneficiary and not related or subordinate to the settlor within the meaning of IRC §672(c) — and write the protector's powers so they cannot be exercised in favor of the grantor. If the grantor wants any protector-like influence, the safe pattern is to retain a narrow removal-and-replacement power that satisfies the Rev. Rul. 95-58 safe harbor, and to leave all other protector powers with an independent third party.<sup><a href="#source-13">[13]</a></sup></p>
+
+<h2 id="secure-interaction">The SECURE Act 10-year rule interaction</h2>
+
+<p>The SECURE Act of 2019 added IRC §401(a)(9)(H), which imposed a 10-year distribution rule on most non-eligible-designated-beneficiary heirs. TD 10001, published July 19, 2024, clarified that non-EDB heirs whose account owner died on or after the required beginning date must take annual RMDs during years 1-9 in addition to the year-10 full distribution.<sup><a href="#source-3">[3]</a></sup></p>
+
+<p>For a see-through trust holding an inherited IRA, three protector-specific issues arise across the 10-year window:</p>
+
+<p><strong>First, the trustee-selection question changes over time.</strong> A corporate trustee that was appropriate for the account owner's lifetime may not be appropriate for the beneficiaries' post-mortem 10-year drawdown. The corporate trustee's annual administrative fee (typically 0.5%-1.5% of trust assets) compounds against the RMD schedule and may not be justified once the trust's job is a mechanical 10-year drawdown. A protector power to remove without cause and replace with an individual trustee (a family accountant, an adult child at a friendly holding pattern) can meaningfully reduce the drag on the trust's after-tax outcome.</p>
+
+<p><strong>Second, the state-tax situs question changes over time.</strong> A trust drafted in high-tax California in 2018 for beneficiaries then in California continues to owe California state tax on retained accumulation-trust income even if all the beneficiaries have moved to Texas by year 5 of the drawdown. Cal. Rev. &amp; Tax. Code §17742 pulls out-of-state resident beneficiaries into the California tax net if the trust has any California-based trustee or California-based non-contingent beneficiary. A protector-driven situs move to a no-state-income-tax state can save materially on state tax on retained income, though the mechanics are technical and require care.</p>
+
+<p><strong>Third, the conduit-vs-accumulation question changes year by year.</strong> A conduit trust taxes distributed income at the individual beneficiary's bracket; an accumulation trust taxes retained income at the compressed IRC §1(e) trust bracket — 37% federal on all ordinary income above $16,000 for 2026, plus 3.8% NIIT on much of that income above $16,700 for 2026, producing a 40.8% combined marginal rate at very modest dollar thresholds.<sup><a href="#source-10">[10]</a></sup> For an adult child beneficiary whose income moves between $60K and $600K across a decade, the correct treatment shifts. A protector power to convert lets the trust follow the beneficiary.</p>
+
+<h2 id="case-studies">Three worked case studies</h2>
+
+<h3>Case study 1: Margaret, age 68, Ohio, $2M IRA, three adult child beneficiaries</h3>
+
+<p>Margaret has a $2M traditional IRA and three adult children ages 38, 42, and 45. Her estate-planning attorney recommended a see-through accumulation trust with a corporate trustee at a regional Ohio bank. Total drafting cost was $6,200. The trust is silent on the protector office.</p>
+
+<p>Margaret dies in 2028. Her adult son David loses his job in 2029; adult daughter Sarah gets a large promotion in 2030 that moves her from the 24% to the 35% federal bracket; adult daughter Priya moves from Ohio to Texas in 2031. The corporate trustee mechanically distributes RMDs to the accumulation trust and pays compressed §1(e) trust-bracket tax on retained amounts — 40.8% federal effective on income above $16,700. State tax adds another 3.75% Ohio.</p>
+
+<p>Total tax over the 10-year window with accumulation-trust treatment: ~$620,000 on a $2M starting balance that grows at 6% annually. With protector-driven conversion to conduit treatment in year 3 and beneficiary-driven distribution timing that keeps David in a 12% bracket and Sarah in a 24% bracket: ~$438,000. Difference: ~$182,000 the family did not have to pay. The protector-office drafting cost would have been an additional $1,200-1,800 at the time the trust was created.</p>
+
+<p>Verdict for Margaret's fact pattern: a $6,200 trust without a protector office was fine as a starting point but $180,000 short of the achievable outcome. The protector office is close to standard practice at Margaret's asset level.</p>
+
+<h3>Case study 2: David, age 65, Illinois, $6M in retirement assets, adult children with mixed circumstances</h3>
+
+<p>David has $6M in combined IRA and 401(k) assets. His three adult children include one who lives in a community-property state (California) and has creditor concerns, one who lives in Illinois and is in a stable career, and one who lives in Nevada and is a special-needs adult. His estate-planning attorney recommended a see-through accumulation trust with a corporate trustee at a South Dakota trust company, a directed-trust adviser (David's own investment adviser), and an independent trust protector (David's long-time CPA, non-fiduciary designation under SDCL 55-1B-6).</p>
+
+<p>David dies in 2029. The Illinois-resident beneficiary suggests conversion of that portion to conduit treatment; the California-resident beneficiary wants continued accumulation for creditor protection; the Nevada-resident beneficiary's disability requires accumulation to preserve means-tested benefits under 42 U.S.C. §1382b special-needs-trust rules.</p>
+
+<p>The protector — David's CPA — exercises the protector power to divide the trust into three separate sub-trusts under SDCL 55-1B-3, converts the Illinois sub-trust to conduit treatment, keeps the California sub-trust as an accumulation trust with strengthened spendthrift language, and restructures the Nevada sub-trust as a first-party special-needs trust conforming to 42 U.S.C. §1396p(d)(4)(A). The trustee follows the protector's directions under SDCL 55-1B-2. No court proceeding is required.</p>
+
+<p>Total tax and administrative-cost savings across the 10-year window vs a no-protector structure: ~$740,000 on the $6M base. The protector-office drafting cost was $3,500 at drafting; CPA's annual protector fee is $2,500/year for exercised years only. Net benefit ~$720,000.</p>
+
+<h3>Case study 3: Marcus and Diana, ages 71 and 68, moving from New York to Florida, $18M in retirement assets</h3>
+
+<p>Marcus and Diana are moving from New York to Florida in 2026 as part of a domicile change intended to shed New York state income tax on their retirement assets. They have $18M in combined IRA, 401(k), and NQDC assets, and their four adult children live across California, Illinois, Massachusetts, and Colorado. Their existing 2018 estate plan uses a Delaware-situs see-through accumulation trust with a Delaware trust company as trustee, a Delaware trust adviser under 12 Del. C. §3313, and a trust protector who is Marcus's brother (a lawyer in New York).</p>
+
+<p>The protector office is the load-bearing feature. Marcus's brother has powers to (i) remove and replace the trustee, (ii) change governing law, (iii) amend administrative provisions to reflect law changes, and (iv) convert between conduit and accumulation treatment. He does not have power to add or remove beneficiaries (avoiding §2036 exposure through Marcus's brother's close relationship even though the brother is not the grantor).</p>
+
+<p>Across the 10-year window after Marcus's death (assumed 2033), the protector: (a) moves the trust's situs from Delaware to South Dakota in 2034 to take advantage of South Dakota's more favorable directed-trust and dynasty-trust regime for future planning; (b) removes and replaces the Delaware trustee with a South Dakota trust company; (c) converts the California-beneficiary portion to conduit treatment in 2036 when that beneficiary is in a 24% marginal bracket rather than the compressed trust-bracket 40.8%; (d) amends administrative provisions in 2037 to conform the trust to new IRS regulations issued that year.</p>
+
+<p>Total tax and administrative-cost savings across the 10-year window vs a no-protector or protector-with-narrower-powers structure: ~$2.1M on the $18M base. The protector drafting cost was $12,000 at drafting; Marcus's brother charges no ongoing fee. Net benefit ~$2.088M.</p>
+
+<h2 id="mistakes">Six most common trust-protector drafting mistakes</h2>
+
+<ol>
+  <li><strong>Naming the grantor as protector of the grantor's own irrevocable trust.</strong> Causes IRC §2036/§2038 inclusion. Fix: name an independent third party; if the grantor wants any influence, retain only the narrow Rev. Rul. 95-58 trustee-removal-and-replacement power with the §672(c) restriction on successors.</li>
+  <li><strong>Failing to name a successor protector.</strong> A protector office that goes vacant loses its function entirely. Fix: name at least one successor, and provide a mechanism for further-succession appointment — typically by majority vote of adult beneficiaries or by a designated committee.</li>
+  <li><strong>Making the protector fiduciary without an exculpation clause.</strong> A fiduciary protector without exculpation carries the full fiduciary standard of care, which discourages professionals from serving and may create liability for reasonable discretionary decisions. Fix: fiduciary designation with a reasonable exculpation clause carving out simple negligence but preserving liability for bad faith, reckless conduct, and gross negligence.</li>
+  <li><strong>Granting the protector power to add or remove beneficiaries in a see-through trust.</strong> Even an independent protector's exercise can shift beneficial interests in ways that lose see-through-trust qualification under Treas. Reg. §1.401(a)(9)-4(f). Fix: omit the beneficiary-modification power from the protector's authority for any trust that will hold an inherited IRA, or narrow it to sharply-defined circumstances that preserve identifiable-individual-beneficiary status.</li>
+  <li><strong>Failing to specify the standard for trustee removal.</strong> A protector office with "power to remove the trustee at the protector's discretion" but no standard for the exercise creates ambiguity about whether the protector must show cause. Fix: state explicitly whether removal is with-or-without-cause, and if with-cause, list the enumerated grounds.</li>
+  <li><strong>Choosing the wrong governing-law state.</strong> A trust governed by a state without protector-friendly statutory infrastructure (e.g., a UTC state that follows §808(d)'s fiduciary presumption without permitting waiver) may not permit the desired non-fiduciary designation or may impose administrative duties on the protector that discourage service. Fix: select a governing-law state whose statute matches the intended protector-office design.</li>
+</ol>
+
+<h2 id="action">Action checklist for a family with retirement assets and a see-through trust</h2>
+
+<div class="callout warn">
+<h4>Complete before December 31, 2026 — 8 items</h4>
+<ol>
+  <li><strong>Confirm whether your existing see-through trust has a protector office at all.</strong> Most pre-2020 trusts do not; most post-2022 professionally drafted trusts do.</li>
+  <li><strong>Read the governing-law clause.</strong> If your trust is governed by a state without protector-friendly statutory infrastructure, evaluate a protector-driven situs change to Alaska, Delaware, Nevada, South Dakota, Tennessee, Wyoming, or Michigan.</li>
+  <li><strong>Confirm the identity of the current protector and the identified successor protectors.</strong> If the office is vacant or no successor is named, prioritize that fix — a vacant protector office loses its function entirely.</li>
+  <li><strong>Read the protector's power menu.</strong> Confirm that the four load-bearing powers for an inherited-IRA trust are present: trustee removal without cause, change of governing law, administrative amendment, and conduit-to-accumulation conversion.</li>
+  <li><strong>Confirm the fiduciary designation matches the intended structure.</strong> A non-fiduciary designation shields the protector from lawsuits but leaves beneficiaries without recourse; a fiduciary designation with a reasonable exculpation clause is the most common middle ground.</li>
+  <li><strong>Confirm the grantor does not hold any protector power that would trigger IRC §2036/§2038 inclusion.</strong> Any retained beneficiary-modification or distribution-direction power is a drafting error.</li>
+  <li><strong>Confirm the protector's power to add or remove beneficiaries, if any, is narrowly drawn to preserve see-through-trust qualification under Treas. Reg. §1.401(a)(9)-4(f).</strong></li>
+  <li><strong>Set a review calendar reminder for every three years.</strong> Trust-protector powers should be reviewed as beneficiary circumstances, state law, and federal tax law all change. A three-year cycle catches most material changes without imposing unnecessary attorney fees.</li>
+</ol>
+</div>
+
+<a class="cta-calc" href="/roth-ira-conversion-calculator.html">
+  <span class="ic">🔁</span>
+  <div>
+    <h4>Model a lifetime Roth conversion before your heirs face the 10-year rule</h4>
+    <p>Bracket-arbitrage math across your bracket and your heirs' — free, instant, no signup.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="faq">Frequently asked questions</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What is a trust protector and how is it different from a trustee?</h3>
+<p>A trust protector is a third party — not the settlor, not the trustee, not a beneficiary — who is given specific powers by the trust instrument to oversee, direct, or veto trustee actions. Where the trustee holds title to the trust assets and executes administration, the protector sits above the trustee and holds targeted powers such as removing and replacing the trustee, changing the trust's governing law, amending administrative provisions to reflect tax-law changes, and (in some drafting) adding or removing beneficiaries within a specified class.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is a trust protector a fiduciary?</h3>
+<p>It depends on the governing state law and the trust instrument. UTC §808(d) creates a default rule that a person other than a beneficiary who holds a power to direct is a fiduciary. Delaware, Alaska, Nevada, South Dakota, Tennessee, Wyoming, and Michigan all permit the trust instrument to designate the protector as non-fiduciary and thereby shield the protector from beneficiary lawsuits. South Dakota's SDCL 55-1B-6 flips the UTC default and makes the protector fiduciary only if the trust so provides.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does a trust protector cause estate-tax inclusion for the grantor?</h3>
+<p>It can if the powers are drafted wrong. IRC §2036(a)(2) pulls trust assets back into the grantor's gross estate if the grantor retained the right to designate who possesses or enjoys the trust property. IRC §2038(a)(1) does the same for a retained power to alter, amend, revoke, or terminate. Naming yourself as trust protector of your own irrevocable trust is the fastest way to create §2036 inclusion. Rev. Rul. 95-58 provides a narrow safe harbor for a retained trustee-removal-and-replacement power provided the successor is not related or subordinate within the meaning of IRC §672(c).</p>
+</div>
+
+<div class="faq-item">
+<h3>Do I need a trust protector on a see-through trust holding an inherited IRA?</h3>
+<p>For most retiree households under $2M in retirement assets, no — the drafting cost and administrative burden outweigh the benefit. For households with $5M+ in retirement assets, minor or disabled beneficiaries, blended-family fact patterns, or an expected multi-decade planning horizon, a trust protector is close to standard practice. The SECURE Act 10-year rule under IRC §401(a)(9)(H) makes trust adaptation over a decade essential; a protector is the non-judicial mechanism that enables that adaptation.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can a trust protector convert a conduit trust to an accumulation trust after the account owner dies?</h3>
+<p>In many carefully drafted trusts, yes — through a combination of the protector's power to modify administrative provisions and the trustee's decanting authority. The conversion has to preserve the see-through qualification under Treas. Reg. §1.401(a)(9)-4(f) as amended by TD 10001, which means the new trust cannot add beneficiaries who would fail the identifiable-individuals test or extend the outer distribution deadline past year 10.</p>
+</div>
+
+<div class="faq-item">
+<h3>Who should serve as trust protector?</h3>
+<p>The most common choices are a licensed trust-and-estates attorney (independent, ideally not the drafting attorney), a corporate protector such as a Delaware, South Dakota, or Nevada trust company acting in a protector rather than trustee capacity, or a specific individual named for their independent judgment. The person or entity should not be a beneficiary, should not be related or subordinate to the settlor within the meaning of IRC §672(c), and should ideally not be the settlor's own investment adviser.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the difference between a trust protector and a directed trust adviser?</h3>
+<p>A directed trust adviser typically holds ongoing operational powers over investment or distribution decisions. A trust protector typically holds oversight and adaptation powers exercised only on specific triggers — trustee removal, situs change, administrative amendment. The two roles often coexist. Delaware 12 Del. C. §3313 uses the term "trust adviser" broadly to cover both. Alaska, Nevada, South Dakota, Tennessee, Wyoming, and Michigan use "trust protector" as a distinct role.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does UTC §808 apply to my trust if my state adopted the UTC?</h3>
+<p>Usually yes. UTC §808 provides that the terms of a trust may confer on a person other than the trustee a power to direct certain actions of the trustee, that the trustee that acts in accordance with such a direction is not liable except for willful misconduct or manifestly-contrary directions, and that a person other than a beneficiary who holds a power to direct is presumptively acting in a fiduciary capacity. The 36 states plus DC that have adopted the UTC generally include §808 in some form.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can the settlor be the trust protector of their own trust?</h3>
+<p>For a revocable trust, yes, but the analysis rarely matters because the settlor already has full modification power. For an irrevocable trust intended for estate-tax planning, the settlor should not serve as protector. Any protector power that includes the ability to direct distributions, alter beneficial interests, or remove and replace the trustee with a related or subordinate person will cause estate inclusion under IRC §2036(a)(2), §2038(a)(1), or both.</p>
+</div>
+
+<div class="faq-item">
+<h3>What happens if the trust protector fails to act or refuses to serve?</h3>
+<p>The trust operates as if there were no protector — the trustee proceeds under the general terms of the instrument and the default state trust code. The powers held by the protector do not automatically vest in the trustee or a beneficiary. This is why the trust instrument should always name at least one successor protector, provide a mechanism for appointing further successors, and set a default rule for what happens if the protector office is vacant for more than a specified period. Uniform Directed Trust Act §9 addresses vacancy in the ten states that have adopted it.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>This article synthesizes the Uniform Law Commission's Uniform Trust Code §808 (2000, revised 2010) with the seven state statutes that codify the trust-protector office in more detail: Alaska (AS 13.36.370-.380), Delaware (12 Del. C. §3313), Nevada (NRS 163.5547-.5549), South Dakota (SDCL 55-1B-1 through 55-1B-6), Tennessee (TCA 35-15-1201-1207), Wyoming (W.S. 4-10-710-718), and Michigan (MCL 700.7809). Federal tax analysis draws on IRC §§401(a)(9)(H), 2036(a)(2), 2038(a)(1), 672(c), and 674, together with Treas. Reg. §1.401(a)(9)-4(f) as amended by TD 10001 (published July 19, 2024), Rev. Rul. 95-58, and the Restatement (Third) of Trusts §§64, 75, 90. Practice literature is drawn from the American College of Trust and Estate Counsel (ACTEC) journal and the ABA Section of Real Property, Trust and Estate Law. All 2026 tax bracket and RMD figures are from IRS Rev. Proc. 2025-32 and IRS Notice 2025-67. Statutory citations were verified against each state's official code compilation.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Uniform Law Commission, Uniform Trust Code §808 (2000, last amended 2010) — "Powers to Direct." <a href="https://www.uniformlaws.org/committees/community-home?CommunityKey=193ff839-7955-4846-8f3c-ce74ac23938d" rel="nofollow noopener">uniformlaws.org</a></li>
+<li id="source-2">Internal Revenue Service, IRC §401(a)(9)(H) as added by SECURE Act 2019 §401 (Pub. L. 116-94, Div. O). <a href="https://www.congress.gov/bill/116th-congress/house-bill/1994" rel="nofollow noopener">congress.gov</a></li>
+<li id="source-3">Internal Revenue Service, TD 10001, Required Minimum Distributions, 89 Fed. Reg. 58886 (July 19, 2024) — final regulations amending Treas. Reg. §1.401(a)(9)-1 through -9. <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" rel="nofollow noopener">federalregister.gov</a></li>
+<li id="source-4">Alexander A. Bove, Jr., "The Trust Protector: Trust(y) Watchdog or Expensive Exotic Pet?" <em>ACTEC Journal</em>, Vol. 30 (2004). Foundational U.S. practice literature establishing the trust protector as a distinct fiduciary office. <a href="https://www.actec.org/resources/actec-law-journal/" rel="nofollow noopener">actec.org</a></li>
+<li id="source-5">Delaware General Assembly, 12 Del. C. §3313 — "Advisers." <a href="https://delcode.delaware.gov/title12/c033/index.html" rel="nofollow noopener">delcode.delaware.gov</a></li>
+<li id="source-6">Alaska Legislature, AS 13.36.370-.380 — Trust protectors and advisors. <a href="https://www.akleg.gov/basis/statutes.asp#13.36.370" rel="nofollow noopener">akleg.gov</a></li>
+<li id="source-7">American Law Institute, Restatement (Third) of Trusts §§64, 75, 90 (2003, 2007, 2012). <a href="https://www.ali.org/publications/show/trusts/" rel="nofollow noopener">ali.org</a></li>
+<li id="source-8">Florida Legislature, Fla. Stat. §736.0808 — Powers to direct; §736.0703 — Cotrustees. <a href="http://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&amp;URL=0700-0799/0736/0736.html" rel="nofollow noopener">leg.state.fl.us</a></li>
+<li id="source-9">Uniform Law Commission, Uniform Directed Trust Act (2017). Adopted in ten states as of 2026 (Arkansas, Colorado, Connecticut, Georgia, Indiana, Maine, Michigan, Nebraska, New Mexico, Utah). <a href="https://www.uniformlaws.org/committees/community-home?CommunityKey=ff2b8fdd-d574-4c11-9b48-33d6da7f2ae5" rel="nofollow noopener">uniformlaws.org</a></li>
+<li id="source-10">Internal Revenue Service, Rev. Proc. 2025-32 — 2026 inflation-adjusted amounts including IRC §1(e) trust income tax brackets. <a href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf" rel="nofollow noopener">irs.gov</a></li>
+<li id="source-11">Internal Revenue Code, IRC §2036(a)(2) — Transfers with retained life estate. <a href="https://www.law.cornell.edu/uscode/text/26/2036" rel="nofollow noopener">law.cornell.edu</a></li>
+<li id="source-12">Internal Revenue Code, IRC §2038(a)(1) — Revocable transfers. <a href="https://www.law.cornell.edu/uscode/text/26/2038" rel="nofollow noopener">law.cornell.edu</a></li>
+<li id="source-13">Internal Revenue Service, Rev. Rul. 95-58, 1995-2 C.B. 191 — Grantor's retained trustee-removal-and-replacement power does not cause §2036 or §2038 inclusion where successor cannot be related or subordinate. <a href="https://www.irs.gov/pub/irs-drop/rr-95-58.pdf" rel="nofollow noopener">irs.gov</a></li>
+<li id="source-14">Internal Revenue Code, IRC §672(c) — Definition of related or subordinate party. <a href="https://www.law.cornell.edu/uscode/text/26/672" rel="nofollow noopener">law.cornell.edu</a></li>
+<li id="source-15">CalcLeap Editorial, "State-by-State Uniform Trust Code Adoption in 2026: Why It Matters for Inherited IRAs, See-Through Trusts, and the 10-Year Rule," August 9, 2026 — companion piece establishing the UTC-adoption baseline this article extends. <a href="/blog/state-by-state-utc-adoption-inherited-ira-2026.html">calcleap.com</a></li>
+<li id="source-16">Internal Revenue Code, IRC §674 — Power to control beneficial enjoyment (grantor trust rules). <a href="https://www.law.cornell.edu/uscode/text/26/674" rel="nofollow noopener">law.cornell.edu</a></li>
+<li id="source-17">Nevada Legislature, NRS 163.5547 — Trust protector; NRS 163.5548-.5549 — fiduciary status of protector. <a href="https://www.leg.state.nv.us/nrs/nrs-163.html" rel="nofollow noopener">leg.state.nv.us</a></li>
+<li id="source-18">South Dakota Legislature, SDCL 55-1B-1 through 55-1B-6 — Trust advisor and trust protector. <a href="https://sdlegislature.gov/Statutes/Codified_Laws/2062803" rel="nofollow noopener">sdlegislature.gov</a></li>
+<li id="source-19">Tennessee General Assembly, TCA 35-15-1201-1207 — Trust adviser and trust protector. <a href="https://law.justia.com/codes/tennessee/2023/title-35/chapter-15/part-12/" rel="nofollow noopener">justia.com</a></li>
+<li id="source-20">Wyoming Legislature, W.S. 4-10-710 through 4-10-718 — Trust protector and trust advisor. <a href="https://wyoleg.gov/statutes/compress/title04.pdf" rel="nofollow noopener">wyoleg.gov</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized legal or tax advice. State trust codes are amended frequently and federal tax rules on retained powers evolve; specific trust-protector drafting decisions should be made with a trust-and-estates attorney licensed in the relevant jurisdiction. Consult a fee-only fiduciary advisor, a CPA, and a T&amp;E attorney for advice tailored to your situation. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. State trust codes and federal tax rules are amended frequently — always verify current statute and regulation before acting. CalcLeap is not a law firm, is not your attorney, and does not provide personalized legal or tax advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#what-is-protector">What a trust protector actually is</a></li>
+        <li><a href="#utc-808">UTC §808 baseline</a></li>
+        <li><a href="#seven-state-map">Seven-state statutory map</a></li>
+        <li><a href="#powers-menu">Every power a protector can hold</a></li>
+        <li><a href="#fiduciary-question">Fiduciary vs non-fiduciary</a></li>
+        <li><a href="#tax-traps">IRC §2036/§2038 traps</a></li>
+        <li><a href="#secure-interaction">SECURE Act 10-year rule interaction</a></li>
+        <li><a href="#case-studies">Three worked case studies</a></li>
+        <li><a href="#mistakes">Six drafting mistakes</a></li>
+        <li><a href="#action">Action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/traditional-ira-calculator.html">Traditional IRA Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth Conversion Calculator</a>
+      <a href="/calc/estate-tax-calculator.html">Estate Tax Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/state-by-state-utc-adoption-inherited-ira-2026.html">State UTC adoption for inherited IRAs</a>
+      <a href="/blog/state-by-state-upc-adoption-inherited-ira-2026.html">State UPC adoption for inherited IRAs</a>
+      <a href="/blog/see-through-trust-conduit-vs-accumulation-2026.html">See-through trust: conduit vs accumulation</a>
+      <a href="/blog/eligible-designated-beneficiary-taxonomy-2026.html">EDB taxonomy 2026</a>
+      <a href="/blog/community-property-inherited-ira-2026.html">Community property and inherited IRAs</a>
+      <a href="/blog/erisa-preemption-divorce-revocation-inherited-ira-2026.html">ERISA preemption of divorce-revocation</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
