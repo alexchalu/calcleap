@@ -1,0 +1,10 @@
+# Session-scratchpad for daily routines — kept out of the repo per the
+# operational pattern in OPERATIONS.md (audit scripts, injection scripts,
+# per-run Rando payloads, one-off CSV audits). Container is ephemeral;
+# scratchpad contents do not persist across sessions and should never
+# reach origin.
+scratchpad/
+
+# Python bytecode cache
+__pycache__/
+*.pyc
