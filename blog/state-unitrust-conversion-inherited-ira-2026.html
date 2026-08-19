@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>State Unitrust Conversion in 2026: The Non-UFIPA §106 Field Guide for Trust-Held Inherited IRAs (NY 4% Mandatory, TX 3-5% Discretionary, IL 4% Default, and the Treas. Reg. §20.2056(b)-5(f) QTIP Safe Harbor) | CalcLeap</title>
+<meta name="description" content="State unitrust conversion under 1997 UPIA §106-style statutes permanently reallocates the trust's income-vs-principal characterization to a fixed percentage of the trust's net fair market value — 4 percent mandatory in New York EPTL §11-2.4, 3-5 percent discretionary in Texas Property Code §116.006, 4 percent default in Illinois 760 ILCS 3/106, and specific state-by-state percentages across ten non-UFIPA jurisdictions. Here is the full mechanic, the Treas. Reg. §20.2056(b)-5(f) QTIP marital-deduction safe harbor, the SECURE Act 10-year rule interaction, the notice-content requirements, the reconversion procedure, and a worked $2M inherited-IRA case study.">
+<link rel="canonical" href="https://calcleap.com/blog/state-unitrust-conversion-inherited-ira-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="State Unitrust Conversion in 2026 — CalcLeap">
+<meta property="og:description" content="The state unitrust conversion field guide for trust-held inherited IRAs — NY 4% mandatory, TX 3-5% discretionary, IL 4% default, the Treas. Reg. §20.2056(b)-5(f) QTIP safe harbor, the SECURE Act 10-year rule interaction, the notice-content requirements, and a worked $2M NY QTIP case study.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/state-unitrust-conversion-inherited-ira-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-08-19T00:00:00Z">
+<meta property="article:modified_time" content="2026-08-19T00:00:00Z">
+<meta property="article:section" content="Retirement Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "State Unitrust Conversion in 2026: The Non-UFIPA §106 Field Guide for Trust-Held Inherited IRAs",
+  "description": "A deep-dive on the 1997 UPIA §106-style state unitrust conversion mechanic as the load-bearing state-law smoothing tool for trustees of see-through trusts holding inherited IRAs in the 42 non-UFIPA U.S. jurisdictions — the state-by-state percentage variation (NY 4% mandatory, TX 3-5% discretionary, IL 4% default), the Treas. Reg. §20.2056(b)-5(f) QTIP marital-deduction safe harbor, the notice-content requirements, the reconversion procedure, and a worked New York QTIP case study.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-08-19T00:00:00Z",
+  "dateModified": "2026-08-19T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/state-unitrust-conversion-inherited-ira-2026.html"
+  },
+  "articleSection": "Retirement Planning",
+  "wordCount": 6200,
+  "about": [
+    {"@type": "Thing", "name": "State unitrust conversion"},
+    {"@type": "Thing", "name": "1997 Uniform Principal and Income Act"},
+    {"@type": "Thing", "name": "Trust accounting income"},
+    {"@type": "Thing", "name": "Inherited IRA"},
+    {"@type": "Thing", "name": "SECURE Act 10-year rule"},
+    {"@type": "Thing", "name": "QTIP marital deduction"},
+    {"@type": "Thing", "name": "Treasury Regulation 20.2056(b)-5(f)"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "State Unitrust Conversion for Inherited IRAs"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is state unitrust conversion and why does it matter for a trust holding an inherited IRA?",
+     "acceptedAnswer": {"@type": "Answer", "text": "State unitrust conversion is a statutory procedure — modeled on 1997 UPIA §106 and adopted with state-specific variations in the 42 non-UFIPA jurisdictions — that permanently converts a trust from an income-only accounting regime into a percentage-of-value distribution regime. Once converted, the trust distributes to the income beneficiary a fixed percentage (typically 3-5 percent, most commonly 4 percent) of the trust's net fair market value each year, regardless of the underlying income-versus-principal split. For a trust holding an inherited IRA subject to the SECURE Act 10-year rule, unitrust conversion is the primary state-law tool for delivering predictable annual cash flow to the income beneficiary while satisfying the impartiality standard between the income beneficiary and the remainder beneficiary. It is the permanent-conversion alternative to a per-year §104 power-to-adjust reallocation, and — critically — its 3-5 percent range aligns with the Rev. Rul. 2006-26 reasonable-apportionment threshold that must be satisfied for a QTIP trust to preserve the IRC §2056(b)(7) marital deduction."}},
+    {"@type": "Question", "name": "What percentage does each state use for its unitrust conversion default?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The state variation is meaningful and drives the choice of forum for trusts with situs flexibility. New York EPTL §11-2.4 fixes the unitrust amount at 4 percent of the smoothed fair market value with no trustee discretion to select a different rate. Illinois 760 ILCS 3/106 also uses a 4 percent default. Texas Property Code §116.006 provides a 3-5 percent discretionary range with the trustee selecting the specific rate. Pennsylvania 20 Pa.C.S. §8106 uses a 4 percent default with trustee discretion to depart within a reasonable range with justification. Ohio Revised Code §5812.05 uses a 4 percent default with trustee discretion within 3-5 percent. Massachusetts G.L. c. 203D §5 uses a 4 percent default. Michigan MCL 555.506 uses a 4 percent default. New Jersey N.J.S.A. 3B:19B-6 uses a 4 percent default. Georgia O.C.G.A. §53-12-346 uses a 4 percent default. North Carolina §37A-1-106 uses a 4 percent default. Trusts drafted with situs-selection language should consider whether the specific state's percentage rule is optimal for the specific inherited-IRA fact pattern before locking situs."}},
+    {"@type": "Question", "name": "How does the unitrust conversion interact with the SECURE Act 10-year rule for an inherited IRA?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The SECURE Act 10-year rule compresses the trust's IRA drawdown into a 10-year window ending December 31 of the year containing the 10th anniversary of the account owner's death. Annual required minimum distributions under Treas. Reg. §1.401(a)(9)-4(f), as amended by TD 10001 (Final Regs, July 19, 2024), typically run 4-8 percent of the balance in years 1-9 for a non-EDB designated beneficiary of a decedent who died past the applicable required beginning date, and then the full residual balance in year 10. A 4 percent unitrust conversion produces an annual distribution to the income beneficiary that closely tracks the annual RMD in early years and materially differs only in year 10 when the residual acceleration exceeds the 4 percent smoothed amount. The mismatch between the unitrust's steady 4 percent and the RMD's back-loaded acceleration creates a Year 10 problem the trustee must plan for at conversion time — either by using the unitrust smoothing formula's multi-year moving average (which cushions the Year 10 spike), by having the trustee retain the year 10 acceleration in principal for a subsequent distribution, or by combining the unitrust conversion with a supplemental §104 power-to-adjust adjustment in year 10 specifically."}},
+    {"@type": "Question", "name": "What is the Treas. Reg. §20.2056(b)-5(f) QTIP safe harbor and how does it work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Treasury Regulation §20.2056(b)-5(f)(1) establishes that a state-law unitrust conversion satisfying certain conditions qualifies as producing a stream of \"income\" for QTIP marital deduction purposes under IRC §2056(b)(7), notwithstanding that the unitrust's fixed-percentage distribution is not \"income\" in the classical trust-accounting sense. The safe harbor requires (i) the unitrust rate must fall between 3 percent and 5 percent of the fair market value of the trust assets, (ii) the fair market value must be determined at least annually using a reasonable valuation method, (iii) the unitrust must be authorized under applicable state law, and (iv) the state law's requirements must be met (including any notice, procedure, or documentation requirements). All ten non-UFIPA state unitrust conversion statutes surveyed in this guide fall within the safe harbor's 3-5 percent range. A trustee converting to unitrust in a non-UFIPA state can therefore preserve the QTIP election in the deceased spouse's estate without a Rev. Rul. 2006-26 reasonable-apportionment analysis — the safe harbor is available directly."}},
+    {"@type": "Question", "name": "Does the trustee need to give the beneficiaries notice before converting the trust to a unitrust?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes in most states. The notice-content requirements are statutory and specific. New York EPTL §11-2.4(e)(5) requires the trustee to give at least 60 days advance written notice to all current and remainder beneficiaries stating the intended conversion, the effective date, the reasons for the conversion, and each beneficiary's right to object. Texas Property Code §116.006(b) requires 60 days advance written notice with similar content. Illinois 760 ILCS 3/106 requires notice with 60-day objection window. Pennsylvania 20 Pa.C.S. §8106 requires 30 days advance notice. Most other non-UFIPA states parallel the 30-60 day advance-notice requirement with a beneficiary objection window. If a beneficiary objects within the notice period, the conversion cannot proceed without either (i) the trustee obtaining judicial approval through a court proceeding, or (ii) all beneficiaries entering into a written consent overriding the objection. The notice-content requirement is the mechanic's most important procedural constraint and the point at which it most differs from a §104 power-to-adjust election, which requires no beneficiary notice."}},
+    {"@type": "Question", "name": "Can a trustee reconvert the trust back to income-only after a unitrust conversion?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every state unitrust conversion statute contains a §106(d)-style reconversion procedure that mirrors the initial conversion mechanic — 30-60 days advance notice to all current and remainder beneficiaries stating the intended reconversion, the effective date, the reasons for the reconversion, and each beneficiary's right to object. The reconversion procedure exists because circumstances change: the initial reasons that justified the unitrust conversion may no longer apply if the trust's asset composition changes, if the income beneficiary's cash-flow needs change, or if the tax landscape shifts. A trustee who reconverts should document the reasons for the reconversion in the same contemporaneous-memorandum style used for the initial conversion. Reconversion is not undoable retroactively; distributions made during the unitrust years remain characterized under the unitrust regime, and only prospective distributions revert to the classical income-versus-principal accounting."}},
+    {"@type": "Question", "name": "How does the 3-year smoothed valuation formula work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Most state unitrust statutes apply the fixed percentage not to the current year's fair market value alone but to a smoothed multi-year average, typically the average of the trust's net fair market values on the first business day of each of the three preceding calendar years. New York EPTL §11-2.4(b)(2) uses the three-year average. Texas Property Code §116.006(f) uses a three-year average. The three-year smoothing serves two purposes. First, it cushions the beneficiary from year-to-year swings in market value that would otherwise translate directly into cash-flow volatility. Second, for an inherited-IRA trust drawing down under the SECURE Act 10-year rule, the three-year smoothing partially cushions the year 10 acceleration by including the pre-drawdown balances in the year-10 denominator (though the smoothing only partially closes the year-10 gap; the acceleration is large enough that even a smoothed formula leaves substantial residual principal at year-end unless the trustee also uses §104 relief that year)."}},
+    {"@type": "Question", "name": "What happens if the trust instrument prohibits unitrust conversion?",
+     "acceptedAnswer": {"@type": "Answer", "text": "If the trust instrument expressly prohibits unitrust conversion or unitrust distributions, the trustee cannot convert regardless of state law. Most 1997 UPIA §106-style statutes contain an override provision (typically at §106(a) or the state-analog subsection) stating that the statute applies except to the extent the trust instrument expressly provides otherwise. A settlor who wanted to preserve classical income-versus-principal accounting can do so with a single sentence in the trust instrument: \"The trustee shall not exercise the state's power to convert this trust to a unitrust and shall not make distributions on a percentage-of-value basis.\" Trusts drafted before the state unitrust statute existed (pre-2001 for New York, pre-2003 for most other states) generally do not contain such a prohibition and are therefore eligible for conversion; trusts drafted after should be checked. If the trust instrument is silent on unitrust conversion, the state statute applies and the trustee may convert following the statutory procedure."}},
+    {"@type": "Question", "name": "How does unitrust conversion compare with §104 power-to-adjust for an inherited IRA?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Six practical differences distinguish the two mechanics. First, permanence: unitrust conversion is a permanent change to the trust's accounting regime; §104 is a per-year discretionary decision the trustee remakes each year. Second, predictability: unitrust conversion delivers a known percentage of value each year; §104 delivers a per-year specific dollar amount that varies with the trustee's factor analysis. Third, notice: unitrust conversion requires 30-60 days advance written notice to beneficiaries with a right to object; §104 requires no notice. Fourth, factor analysis: unitrust conversion typically requires no per-year nine-factor documentation once the initial conversion decision is made; §104 requires a factor-by-factor memorandum every year. Fifth, QTIP: unitrust conversion falls directly within the Treas. Reg. §20.2056(b)-5(f) safe harbor at 3-5 percent; §104 requires Rev. Rul. 2006-26 reasonable-apportionment analysis each year. Sixth, reversibility: unitrust conversion can be reconverted back to income-only via §106(d); §104 requires no reconversion because it is annual. The choice depends on the trust's specific facts — a trust seeking maximum predictability and QTIP simplicity favors unitrust conversion; a trust seeking maximum flexibility and no notice burden favors §104."}},
+    {"@type": "Question", "name": "What are the most common state unitrust conversion mistakes on inherited-IRA trusts?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Six recurring mistakes appear in the fiduciary-litigation record. First, converting without checking the trust instrument for an express prohibition on unitrust conversion or percentage-of-value distributions. Second, converting without giving the statutory advance notice to all beneficiaries — a defect that can render the conversion voidable at a beneficiary's option. Third, converting in a QTIP trust to a rate outside the 3-5 percent Treas. Reg. §20.2056(b)-5(f) safe harbor range, risking loss of the QTIP marital deduction on the deceased spouse's estate. Fourth, converting without a plan for the SECURE Act year-10 acceleration, which typically produces a large residual principal balance at year-end 10 that the smoothed unitrust formula does not fully distribute. Fifth, failing to update the trust's valuation methodology to the annual reasonable-valuation standard required by the safe harbor (most trustees use custodian statements; the trustee should confirm the custodian's valuation methodology satisfies the reasonable-valuation requirement). Sixth, converting a grantor trust for federal income tax purposes without recognizing that the conversion has no federal-tax effect during the grantor period because all income and gain are taxed to the grantor regardless of the trust's accounting regime."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:680px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.15rem;color:var(--text);box-shadow:var(--shadow)}
+
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>State Unitrust Conversion for Inherited IRAs
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement Planning · Updated August 19, 2026</span>
+  <h1 id="article-start">State Unitrust Conversion in 2026: The Non-UFIPA §106 Field Guide for Trust-Held Inherited IRAs</h1>
+  <p class="deck">In the 42 non-UFIPA U.S. jurisdictions, the state unitrust conversion statute is the permanent-conversion alternative to the annual §104 power-to-adjust. It delivers a fixed 3-5 percent of net fair market value each year, falls squarely inside the Treas. Reg. §20.2056(b)-5(f) QTIP marital-deduction safe harbor, and — for a trust holding an inherited IRA subject to the SECURE Act 10-year rule — provides the smoothest cash-flow profile the state-law toolkit offers. Here is the full mechanic, the state-by-state percentage variation, the notice-content requirements, the reconversion procedure, and a worked $2M New York QTIP case study.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published August 19, 2026</span>
+    <span class="dot"></span>
+    <span>25 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>The August 18, 2026 §104 power-to-adjust deep-dive walked the load-bearing annual-discretion mechanic that lets a trustee reallocate between trust accounting income and principal in a non-UFIPA state.<sup><a href="#source-1">[1]</a></sup> That piece named the alternative that a substantial minority of inherited-IRA trustees ultimately choose: the state unitrust conversion statute — modeled on 1997 Uniform Principal and Income Act §106 and enacted with state-specific variations in the 42 non-UFIPA jurisdictions — which converts the trust's income accounting regime from a classical income-versus-principal split into a fixed percentage of the trust's net fair market value distributed to the income beneficiary each year.<sup><a href="#source-2">[2]</a></sup> This is the deep-dive on that mechanic.</p>
+
+<p>The unitrust conversion is the trustee's tool of first resort when three conditions coincide. First, the trust holds a large enough IRA that the §409 default characterization — 10 percent of the required minimum distribution to income, 90 percent to principal — produces a material impartiality problem year over year. Second, the trust's beneficiary constellation includes an income beneficiary who values cash-flow predictability more than year-by-year flexibility (a surviving spouse in a QTIP trust is the paradigm case). Third, the trustee prefers a one-time procedural burden — a notice-and-objection cycle at conversion — over the recurring per-year burden of a §104 factor-by-factor memorandum. All three conditions describe the modal trust-held inherited IRA in a non-UFIPA state under the SECURE Act 10-year rule.<sup><a href="#source-3">[3]</a></sup></p>
+
+<a class="cta-calc" href="/calc/retirement-calculator.html">
+  <span class="ic">📈</span>
+  <div>
+    <h4>Model the unitrust conversion across the full 10-year drawdown before you notice beneficiaries</h4>
+    <p>Compare default §409 characterization vs 4 percent state unitrust conversion vs annual §104 reallocation outcomes across a full 10-year inherited-IRA drawdown, with the 3-year smoothing formula and 2026 IRC §1(e) trust bracket math baked in.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="section-106-text">§106 at the uniform-text level</h2>
+
+<p>1997 UPIA §106 is the sibling provision to §104 — where §104 grants annual discretion to reallocate, §106 grants the authority to make a permanent conversion. The uniform text is longer than §104's compact five-subsection structure because §106 must also specify the conversion procedure, the ongoing operational rules, the reconversion procedure, and the interaction with the trust instrument. The state adaptations retain most of §106's structure but modify the specific percentage (fixed 4 percent versus 3-5 percent discretionary range), the notice period (30 versus 60 days), and the objection procedure.<sup><a href="#source-4">[4]</a></sup></p>
+
+<p>The §106(a) grant is procedural: subject to the trust instrument and the state's specific rules, a trustee may convert an income trust to a total return unitrust as provided in the statute. The trust instrument controls if it expressly prohibits conversion or expressly authorizes only a specified different distribution regime; absent such language, the statute applies.</p>
+
+<p>The §106(b) percentage rule is where the state variation is most pronounced. The uniform text at §106(b) states a 4 percent default, with an optional trustee discretion in a 3-5 percent range in states that adopted the "power to select" variant. New York locked in the mandatory 4 percent with no trustee discretion; Texas adopted the 3-5 percent range with express trustee discretion; Illinois adopted the 4 percent default with a modified discretion mechanic; most other states track the uniform text closely.</p>
+
+<p>The §106(c) valuation rule requires the trustee to determine the trust's net fair market value at least annually using a reasonable valuation method, and specifies that the fixed percentage is applied to a smoothed average — typically the three-year rolling average of the trust's net fair market value on the first business day of each of the three preceding calendar years. The three-year smoothing serves two purposes: it dampens year-to-year cash-flow volatility that the raw value would produce, and it partially cushions the SECURE Act year-10 acceleration by including pre-drawdown balances in the year-10 denominator.<sup><a href="#source-5">[5]</a></sup></p>
+
+<p>The §106(d) reconversion procedure mirrors the initial conversion mechanic — 30 to 60 days advance notice to all current and remainder beneficiaries stating the intended reconversion, the effective date, the reasons, and each beneficiary's right to object. The reconversion procedure exists because circumstances change: the initial reasons that justified the unitrust conversion may no longer apply if the trust's asset composition changes, if the income beneficiary's cash-flow needs change, or if the tax landscape shifts.</p>
+
+<p>The §106(e) beneficiary-objection procedure is the mechanic's most important procedural constraint. If any beneficiary — including a remainder beneficiary or a contingent beneficiary — objects within the notice period, the conversion cannot proceed without either (i) the trustee obtaining judicial approval through a court proceeding, or (ii) all beneficiaries entering into a written consent overriding the objection. This is the point at which unitrust conversion most differs from a §104 power-to-adjust election, which requires no notice and no beneficiary participation.</p>
+
+<h2 id="notice-requirements">The notice-content requirements and the 30-60 day objection window</h2>
+
+<p>Every state unitrust conversion statute contains a notice-content requirement that is legally load-bearing. A conversion effected without compliant notice is voidable at a beneficiary's option, and a trustee who converts without proper notice risks personal liability for lost income or lost investment opportunity to a beneficiary who successfully challenges the conversion. The notice-content specifications are statutory and specific; the trustee cannot substitute a general "I'm converting this trust" letter.</p>
+
+<p>The notice must state, at minimum: (1) the trustee's identity and address; (2) the identity of the trust being converted (name, date, and any trust identification number); (3) the intended effective date of the conversion; (4) the specific percentage that will apply after conversion (4 percent, 3-5 percent, or the state-specific rate); (5) the valuation methodology that will be used, including whether the state's three-year smoothing formula applies; (6) the trustee's reasons for the conversion, tied to the trust's specific facts; (7) each beneficiary's right to object within the notice period; and (8) the address at which objections must be delivered. Some states — New York, Texas, Illinois — require additional specific content; the trustee must consult the specific state statute.</p>
+
+<p>The notice must go to all current beneficiaries and all remainder beneficiaries, including contingent remainder beneficiaries whose interests are not yet vested. This is a wider notice list than the trustee might initially assume; a trust with a life-tenant surviving spouse and a class of remainder beneficiaries "to my then-living descendants per stirpes" requires notice to every currently-living descendant identified with reasonable diligence. Notice to the trustee's own file is not notice. Notice to a lawyer for a beneficiary is not notice unless the lawyer has authority to receive notice; the safer default is to serve the beneficiary directly and copy the lawyer.</p>
+
+<div class="callout warn">
+<h4>The notice-content trap</h4>
+<p>A frequent conversion error is a notice that recites the state's specific-percentage rule but does not attempt to explain the trustee's reasons for converting on the specific trust. A generic "the trustee proposes to convert this trust to a state unitrust with a 4 percent annual distribution rate" fails the notice-content requirement in every non-UFIPA state that requires the notice to state the reasons for the conversion (which is most of them). The reasons must be trust-specific: the trust's income beneficiary has cash-flow needs that the §409 default does not meet, the trust holds a growing inherited IRA whose fair market value has increased substantially since the account owner's death, the trustee wishes to preserve the QTIP marital deduction under Rev. Rul. 2006-26 and Treas. Reg. §20.2056(b)-5(f), and so on. A notice reciting these trust-specific reasons materially reduces the risk of a beneficiary objection and provides the trustee's record for judicial review if an objection nonetheless occurs.</p>
+</div>
+
+<h2 id="state-variation">State-by-state percentage variation across the 10 highest-population non-UFIPA jurisdictions</h2>
+
+<p>The state variation in the unitrust percentage and the notice procedure is meaningful. A trust with situs-selection flexibility should compare the state-specific rules before locking situs; even a trust without formal situs flexibility should understand which state's rule the trustee is operating under before beginning the conversion process. Below is the state-by-state map for the ten highest-population non-UFIPA jurisdictions.<sup><a href="#source-6">[6]</a></sup></p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>State</th><th>Statute</th><th>Percentage rule</th><th>Notice period</th><th>Smoothing</th></tr></thead>
+<tbody>
+<tr><td>New York</td><td>EPTL §11-2.4</td><td>4% mandatory; no trustee discretion</td><td>60 days advance</td><td>3-year rolling average</td></tr>
+<tr><td>Texas</td><td>Property Code §116.006</td><td>3-5% discretionary range; trustee selects</td><td>60 days advance</td><td>3-year rolling average</td></tr>
+<tr><td>Illinois</td><td>760 ILCS 3/106</td><td>4% default; trustee discretion to select different rate with justification</td><td>60 days advance</td><td>3-year rolling average</td></tr>
+<tr><td>Massachusetts</td><td>G.L. c. 203D §5</td><td>4% default</td><td>60 days advance</td><td>3-year rolling average</td></tr>
+<tr><td>New Jersey</td><td>N.J.S.A. 3B:19B-6</td><td>4% default</td><td>60 days advance</td><td>3-year rolling average</td></tr>
+<tr><td>Georgia</td><td>O.C.G.A. §53-12-346</td><td>4% default</td><td>60 days advance</td><td>3-year rolling average</td></tr>
+<tr><td>Ohio</td><td>Rev. Code §5812.05</td><td>4% default; trustee discretion in 3-5% range</td><td>60 days advance</td><td>3-year rolling average</td></tr>
+<tr><td>Pennsylvania</td><td>20 Pa.C.S. §8106</td><td>4% default; trustee discretion within reasonable range with justification</td><td>30 days advance</td><td>3-year rolling average</td></tr>
+<tr><td>Michigan</td><td>MCL 555.506</td><td>4% default</td><td>60 days advance</td><td>3-year rolling average</td></tr>
+<tr><td>North Carolina</td><td>§37A-1-106</td><td>4% default</td><td>60 days advance</td><td>3-year rolling average</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Three patterns stand out. First, 4 percent is the near-universal default. Only Texas departs from a 4 percent baseline in favor of an explicit 3-5 percent range with trustee discretion, and even in Texas the 4 percent midpoint is the most commonly selected rate in practice. Second, 60 days is the near-universal notice period; Pennsylvania's shorter 30-day period is the outlier, and even in Pennsylvania many trustees voluntarily extend the notice period to 60 days to align with the national norm and reduce the risk of a hurried beneficiary challenge. Third, the three-year rolling average is the universal smoothing formula across all ten jurisdictions.</p>
+
+<h3 id="new-york">New York EPTL §11-2.4 — the mandatory 4 percent</h3>
+
+<p>New York adopted the unitrust conversion mechanic in 2001 as EPTL §11-2.4, effective January 1, 2002.<sup><a href="#source-7">[7]</a></sup> The New York rule fixes the unitrust amount at 4 percent of the smoothed fair market value with no trustee discretion to select a different rate. The trade-off the New York legislature made was clarity over flexibility: the 4 percent rate provides beneficiaries with a certain expectation and eliminates the trustee's exposure to a "wrong rate" claim, at the cost of preventing the trustee from responding to trust-specific facts that might argue for a different rate.</p>
+
+<p>For an inherited-IRA trust in New York, the 4 percent rate produces an annual distribution that typically matches the required minimum distribution under Treas. Reg. §1.401(a)(9)-4(f) reasonably well in years 1-9 of the 10-year window. In year 10, the residual acceleration exceeds the 4 percent smoothed amount substantially; the trustee's typical response is to combine the unitrust conversion with a supplemental §104 power-to-adjust adjustment in year 10 specifically, capturing the acceleration as an income distribution rather than sending the residual to principal at year-end.</p>
+
+<h3 id="texas">Texas Property Code §116.006 — the 3-5 percent discretionary range</h3>
+
+<p>Texas adopted the unitrust conversion mechanic in 2003 as Property Code §116.006, part of the Texas Uniform Principal and Income Act (Chapter 116).<sup><a href="#source-8">[8]</a></sup> The Texas rule provides a 3-5 percent discretionary range, with the trustee selecting the specific rate at the time of conversion. The trustee's rate selection is documented in the conversion notice to beneficiaries and is a permanent aspect of the trust's ongoing accounting regime — changing the rate after conversion requires a reconversion under §116.006(d) followed by a new conversion at the new rate.</p>
+
+<p>The Texas discretion is valuable for inherited-IRA trusts in specific fact patterns. A trust with a high-net-worth income beneficiary already in the top individual federal bracket may benefit from a lower rate (say 3 percent) that reduces the income-tax drag on the beneficiary's after-tax cash flow. A trust with a modest-net-worth income beneficiary in a lower federal bracket may benefit from a higher rate (say 5 percent) that captures more of the trust's compressed-bracket arbitrage. The trustee's rate selection should be documented with the same rigor as a §104 factor analysis — the trustee's reasons for the specific rate become part of the record on judicial review.</p>
+
+<h3 id="illinois">Illinois 760 ILCS 3/106 — the 4 percent default with modified discretion</h3>
+
+<p>Illinois adopted the Illinois Trust Code in 2019, effective January 1, 2020, with 760 ILCS 3/106 as the unitrust conversion provision.<sup><a href="#source-9">[9]</a></sup> The Illinois rule uses a 4 percent default but permits the trustee to select a different rate with a specific justification tied to the trust's facts. Illinois's twist is procedural: the trustee's justification for a non-default rate must be delivered to beneficiaries in the notice, giving beneficiaries the specific information they need to evaluate whether to object.</p>
+
+<p>The Illinois modification is well-suited to inherited-IRA trusts because it lets the trustee tie the rate selection to the specific SECURE Act 10-year rule fact pattern the trust faces. A trust with a decedent who died in 2020 and is in year 6 of the drawdown may reasonably select a rate above 4 percent for the remaining years of the drawdown; a trust in year 1 with 10 full years ahead may reasonably select a rate at or below 4 percent to preserve principal for the year-10 acceleration.</p>
+
+<h3 id="ohio-pennsylvania">Ohio §5812.05 and Pennsylvania 20 Pa.C.S. §8106 — the 3-5 percent variants</h3>
+
+<p>Ohio's unitrust conversion statute at Rev. Code §5812.05 also uses a 4 percent default with trustee discretion in the 3-5 percent range, mirroring the Texas approach with the 4 percent starting point as the default.<sup><a href="#source-10">[10]</a></sup> Ohio's ancillary §5808.18 decanting statute — as flagged in the August 18 §104 piece — provides a natural alternative path for trustees who conclude the unitrust mechanic is not the right long-term solution: decanting to a new trust with an express distribution formula eliminates the annual valuation-plus-percentage exercise.</p>
+
+<p>Pennsylvania's unitrust conversion statute at 20 Pa.C.S. §8106 uses a 4 percent default with trustee discretion to depart within a "reasonable" range with justification.<sup><a href="#source-11">[11]</a></sup> Pennsylvania is unique among the surveyed states in using a 30-day notice period rather than the 60-day norm; trustees should confirm the shorter period at the specific state's current statute before publishing the notice. Pennsylvania's PIT retirement-distribution exclusion continues to create a state-income-tax quirk: unitrust distributions from an inherited IRA to a Pennsylvania resident retain the retirement-distribution character for PIT purposes, so the state-tax analysis differs from the classical income-tax analysis in most other jurisdictions.</p>
+
+<h3 id="ma-nj-ga-mi-nc">Massachusetts, New Jersey, Georgia, Michigan, and North Carolina — the 4 percent defaults</h3>
+
+<p>Five of the ten surveyed states use a straightforward 4 percent default with no trustee discretion to depart. Massachusetts G.L. c. 203D §5 (effective 2003), New Jersey N.J.S.A. 3B:19B-6 (effective 2002), Georgia O.C.G.A. §53-12-346 (effective 2018 as part of Georgia's UPIA modernization), Michigan MCL 555.506 (effective September 2004), and North Carolina §37A-1-106 (effective January 2004) all track the 1997 UPIA §106 uniform text at the 4 percent default with 60-day advance notice.<sup><a href="#source-12">[12]</a></sup></p>
+
+<p>For inherited-IRA trusts in these jurisdictions, the operational mechanic is nearly identical to the New York model: the trustee gives 60 days advance notice, waits out the objection period, converts on the effective date, and thereafter distributes 4 percent of the three-year smoothed fair market value to the income beneficiary each year. The absence of trustee rate-selection discretion simplifies the procedural burden but also constrains the trustee's ability to calibrate to specific trust facts; in practice, most trustees in these states use the 4 percent default without incident because the rate falls squarely within the Treas. Reg. §20.2056(b)-5(f) safe harbor.</p>
+
+<h2 id="qtip-safe-harbor">The Treas. Reg. §20.2056(b)-5(f) QTIP marital-deduction safe harbor</h2>
+
+<p>The single most important federal-tax reason a trustee chooses unitrust conversion over §104 power-to-adjust is the Treasury Regulation §20.2056(b)-5(f)(1) safe harbor for state-law unitrust distributions in QTIP trusts. Under IRC §2056(b)(7), a QTIP trust must distribute "all the income" to the surviving spouse annually to qualify for the marital deduction on the deceased spouse's estate. The classical trust-accounting definition of "income" is a fixed dollar amount driven by the income-versus-principal characterization rules; a unitrust's percentage-of-value distribution is not "income" in that classical sense. Absent regulatory guidance, a unitrust distribution to a QTIP surviving spouse would arguably disqualify the QTIP election.<sup><a href="#source-13">[13]</a></sup></p>
+
+<p>Treas. Reg. §20.2056(b)-5(f)(1) resolves the tension. The regulation establishes that a state-law unitrust conversion satisfying certain conditions qualifies as producing a stream of "income" for QTIP purposes, notwithstanding the classical accounting mismatch. The safe harbor requires four conditions:</p>
+
+<ol>
+<li><strong>The unitrust rate must fall between 3 percent and 5 percent of the fair market value of the trust assets.</strong> All ten non-UFIPA state unitrust conversion statutes surveyed in this guide fall within this range at their default rates (4 percent) and — for the states that allow trustee rate selection — the discretionary range (3-5 percent) is coextensive with the safe harbor's range.</li>
+<li><strong>The fair market value must be determined at least annually using a reasonable valuation method.</strong> The three-year rolling average smoothing formula used by every surveyed state satisfies this requirement, so long as the underlying single-year valuations use a reasonable methodology.</li>
+<li><strong>The unitrust must be authorized under applicable state law.</strong> All ten surveyed states expressly authorize unitrust conversion under their §106-style statute.</li>
+<li><strong>The state law's requirements must be met.</strong> This condition brings the safe harbor into direct alignment with state-law compliance: the notice-content requirements, the objection procedure, and the trustee's factor analysis must all be satisfied under the specific state's statute for the safe harbor to apply.</li>
+</ol>
+
+<p>The practical consequence is significant. A trustee converting to unitrust in a non-UFIPA state can preserve the QTIP marital deduction without a per-year Rev. Rul. 2006-26 reasonable-apportionment analysis of whether the trust's income distribution meets the "all the income" standard. The safe harbor eliminates the annual reasonable-apportionment question and replaces it with a one-time procedural check at conversion. That is a substantial reduction in ongoing administrative burden and audit risk over the trust's remaining life.</p>
+
+<div class="callout tip">
+<h4>The safe harbor's four conditions are conjunctive</h4>
+<p>The safe harbor requires all four conditions to be met. Missing any one condition — a rate outside 3-5 percent, a valuation methodology that fails the reasonable-valuation standard, an unauthorized conversion under state law, or a state-law procedural defect — takes the trust out of the safe harbor and back into the Rev. Rul. 2006-26 reasonable-apportionment analysis. Trustees converting a QTIP trust to unitrust should confirm all four conditions in the conversion memorandum and re-confirm the state-law compliance annually as part of the trust's fiduciary income-tax return preparation.</p>
+</div>
+
+<h2 id="secure-act">The SECURE Act 10-year rule interaction and the year-10 acceleration</h2>
+
+<p>The SECURE Act 10-year rule creates a specific fact pattern that the classical unitrust mechanic was not originally designed to handle. Under Treas. Reg. §1.401(a)(9)-4(f), as amended by TD 10001 (Final Regulations, July 19, 2024), a non-EDB designated beneficiary of a decedent who died after the applicable required beginning date must take annual RMDs in years 1-9 of the 10-year window and must fully distribute the residual balance by December 31 of year 10.<sup><a href="#source-14">[14]</a></sup> The annual RMDs in years 1-9 typically run 4-8 percent of the balance; the year-10 residual can be 25-40 percent of the balance depending on market performance and the trustee's year-10 planning.</p>
+
+<p>A 4 percent unitrust conversion produces an annual distribution to the income beneficiary that closely tracks the annual RMD in years 1-9. The mismatch appears in year 10. The 4 percent unitrust distribution based on the smoothed three-year average may be $80,000 while the year-10 required residual distribution from the IRA is $500,000. The trustee has three options for handling the mismatch.</p>
+
+<p>First, the trustee can rely on the three-year smoothing formula to partially cushion the year-10 acceleration. The three-year average denominator for year 10's unitrust distribution includes the substantial pre-drawdown balances from years 8 and 9, which pulls the denominator up and thus pulls the numerator up. This partially closes the gap but does not close it entirely; even with maximum smoothing effect, the year-10 unitrust distribution typically covers only 40-60 percent of the year-10 residual.</p>
+
+<p>Second, the trustee can retain the year-10 residual in principal at year-end 10 and pay it out in subsequent years under the ongoing unitrust regime. This approach preserves the unitrust mechanic's smoothness but delays the beneficiary's receipt of the full year-10 acceleration by several years — not a beneficiary-friendly outcome unless the beneficiary specifically prefers the smoothed stream over the acceleration.</p>
+
+<p>Third, the trustee can combine the unitrust conversion with a supplemental §104 power-to-adjust adjustment in year 10 specifically, capturing the acceleration as an income distribution rather than sending the residual to principal at year-end. This is the option most inherited-IRA trustees choose because it preserves the smoothness of the unitrust mechanic in years 1-9 while addressing the year-10 acceleration cleanly. The §104 adjustment in year 10 requires the standard contemporaneous-memorandum documentation described in the August 18 piece.<sup><a href="#source-15">[15]</a></sup></p>
+
+<h2 id="reconversion">The §106(d) reconversion procedure</h2>
+
+<p>Every state unitrust conversion statute contains a §106(d)-style reconversion procedure that mirrors the initial conversion mechanic. The reconversion procedure exists because circumstances change: the initial reasons that justified the unitrust conversion may no longer apply if the trust's asset composition changes materially, if the income beneficiary's cash-flow needs change, or if the tax landscape shifts.</p>
+
+<p>The reconversion procedure requires 30 to 60 days advance written notice to all current and remainder beneficiaries stating the intended reconversion, the effective date, the reasons for the reconversion, and each beneficiary's right to object. The notice period matches the state's initial conversion notice period — 30 days in Pennsylvania, 60 days in every other surveyed state. The objection procedure also mirrors the initial conversion: if any beneficiary objects, the reconversion cannot proceed without judicial approval or unanimous beneficiary consent.</p>
+
+<p>Reconversion is not undoable retroactively. Distributions made during the unitrust years remain characterized under the unitrust regime, and only prospective distributions revert to the classical income-versus-principal accounting. This means a trustee who reconverts must plan for a transition period in which the trust's accounting shifts from percentage-of-value to income-versus-principal; the trust's tax return preparer must be alerted to the shift and the trust's investment strategy may need to be revisited to align with the new distribution regime.</p>
+
+<h2 id="unitrust-vs-104">Unitrust conversion versus §104 power-to-adjust — the choice framework</h2>
+
+<p>Six practical differences distinguish the two mechanics, and the choice between them depends on which differences matter most for the specific trust's facts.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Dimension</th><th>Unitrust conversion (§106)</th><th>Power to adjust (§104)</th></tr></thead>
+<tbody>
+<tr><td>Permanence</td><td>Permanent change to accounting regime; reversible only via §106(d) reconversion</td><td>Per-year discretionary decision remade annually</td></tr>
+<tr><td>Predictability</td><td>Known percentage of value (typically 4%) delivered annually</td><td>Per-year specific dollar amount varies with trustee's factor analysis</td></tr>
+<tr><td>Notice</td><td>30-60 days advance written notice with statutory content requirements</td><td>No beneficiary notice required</td></tr>
+<tr><td>Annual documentation</td><td>Once initial conversion decision is made, no per-year factor memorandum needed</td><td>Nine-factor contemporaneous memorandum required every year</td></tr>
+<tr><td>QTIP safe harbor</td><td>Falls directly within Treas. Reg. §20.2056(b)-5(f) at 3-5% rates</td><td>Requires per-year Rev. Rul. 2006-26 reasonable-apportionment analysis</td></tr>
+<tr><td>Beneficiary objection risk</td><td>Beneficiary can block conversion by objection during notice period</td><td>Beneficiary has no advance-objection right</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The choice framework can be reduced to three questions the trustee asks at the outset of the analysis.</p>
+
+<p>First, is the trust a QTIP trust for a surviving spouse? If yes, unitrust conversion is usually the better tool because the Treas. Reg. §20.2056(b)-5(f) safe harbor eliminates the per-year Rev. Rul. 2006-26 analysis burden. If the trust is a non-QTIP trust — a discretionary trust for adult children, a bypass trust, a charitable-remainder trust — the QTIP safe harbor advantage is not available and the analysis reduces to the other five dimensions.</p>
+
+<p>Second, does the trust need year-over-year flexibility? If the trust's beneficiary constellation, asset composition, or tax situation is likely to change over the drawdown window, §104 is usually the better tool because it lets the trustee recalibrate each year. If the trust is stable — a single surviving spouse income beneficiary, an inherited IRA as the dominant asset, a predictable state of affairs — unitrust conversion is usually the better tool because it eliminates the annual re-analysis burden.</p>
+
+<p>Third, is beneficiary opposition to unitrust conversion likely? If a remainder beneficiary is likely to object to the notice — because the unitrust reduces the remainder beneficiary's expected share by increasing the income beneficiary's share — §104 avoids the objection cycle entirely. If beneficiary opposition is unlikely (all beneficiaries share the settlor's expressed preference for income-beneficiary primacy, or the trust involves a single dominant beneficiary), the notice cycle is a manageable one-time cost.</p>
+
+<h2 id="case-study">Worked case study: $2M inherited IRA in a New York QTIP trust</h2>
+
+<p>A concrete case study illustrates the mechanic. Consider a New York QTIP trust holding a $2,000,000 inherited IRA. Robert died December 15, 2025 at age 74, past his required beginning date. The IRA is titled to his revocable trust which contained a QTIP marital-deduction subtrust for his surviving spouse Elena (age 72). The QTIP trust names Elena as the income beneficiary and Robert's children from his first marriage — David (age 45) and Jennifer (age 43) — as remainder beneficiaries. The 10-year window ends December 31, 2035. Elena's other income sources are Social Security ($40,000/year), Robert's pension ($30,000/year), and a modest bank account.</p>
+
+<p>Under §409 default characterization, the year-1 annual RMD of approximately $85,000 (4.25 percent of the balance under the life-expectancy table) is characterized 10 percent as income ($8,500) and 90 percent as principal ($76,500). Elena receives $8,500. That amount is patently below the Rev. Rul. 2006-26 reasonable-apportionment threshold and puts the QTIP election at risk on Robert's estate.</p>
+
+<p>The trustee has three primary remedies: an express drafting amendment (requires reformation and court order), a §104 power-to-adjust reallocation (per-year memorandum plus factor analysis), or a state unitrust conversion under EPTL §11-2.4 (60-day notice, 4 percent mandatory rate, three-year smoothing). Assume the trustee elects the unitrust conversion.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Column</th><th>Default §409</th><th>§104 reallocation</th><th>Unitrust §11-2.4</th><th>Aggressive 100% income</th></tr></thead>
+<tbody>
+<tr><td>Elena income distribution (year 1)</td><td>$8,500</td><td>$85,000</td><td>$80,000 (4% × $2M)</td><td>$85,000</td></tr>
+<tr><td>Elena income tax (24% bracket)</td><td>$2,040</td><td>$20,400</td><td>$19,200</td><td>$20,400</td></tr>
+<tr><td>Elena after-tax cash flow</td><td>$6,460</td><td>$64,600</td><td>$60,800</td><td>$64,600</td></tr>
+<tr><td>Trust retained principal (year 1)</td><td>$76,500</td><td>$0</td><td>$5,000</td><td>$0</td></tr>
+<tr><td>Trust income tax on retained (37% > $16K)</td><td>$22,265</td><td>$0</td><td>$0</td><td>$0</td></tr>
+<tr><td>Family after-tax total (year 1)</td><td>$60,695</td><td>$64,600</td><td>$60,800</td><td>$64,600</td></tr>
+<tr><td>QTIP marital deduction preserved?</td><td>Doubtful</td><td>Yes if documented</td><td>Yes (safe harbor)</td><td>Yes but §104(c)(1) risk</td></tr>
+<tr><td>Per-year administration burden</td><td>Low</td><td>High (annual memo)</td><td>Low (one-time notice)</td><td>High (annual memo)</td></tr>
+<tr><td>Elena predictability of cash flow</td><td>Poor</td><td>Poor</td><td>Excellent</td><td>Poor</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The unitrust conversion delivers a family after-tax total ($60,800) approximately at parity with the §104 reallocation ($64,600), but wins on three other dimensions the tax number does not capture. First, QTIP marital-deduction preservation via the Treas. Reg. §20.2056(b)-5(f) safe harbor eliminates the per-year Rev. Rul. 2006-26 analysis burden and reduces the estate-tax audit risk on Robert's estate. Second, the per-year administration burden is materially lower — a one-time notice cycle at conversion instead of an annual nine-factor memorandum for the next ten years. Third, Elena receives an excellent predictability of cash flow — the 4 percent of net fair market value under the three-year smoothing formula produces distributions in the $75,000-$85,000 range each year with only modest year-over-year variation. Elena can plan her personal finances around a known cash flow rather than waiting each year to see what the trustee's §104 analysis produces.</p>
+
+<p>The unitrust conversion's principal disadvantage — the year-10 acceleration mismatch — appears in this fact pattern as an estimated $400,000-$500,000 residual balance at year-end 2035 that the smoothed 4 percent formula would distribute over the following several years rather than in year 2035 itself. The trustee's typical response is to plan for a supplemental §104 power-to-adjust adjustment in year 2035 specifically, capturing the acceleration as a year-2035 income distribution rather than deferring it. That supplemental §104 adjustment in year 10 requires the standard nine-factor contemporaneous memorandum, but it is a single-year exercise rather than a ten-year exercise — the administrative-burden savings from the unitrust conversion in years 1-9 remain intact.</p>
+
+<h2 id="mistakes">Six recurring state unitrust conversion mistakes</h2>
+
+<p>The fiduciary-litigation record surfaces six recurring mistakes on state unitrust conversion for inherited-IRA trusts. Each is avoidable with straightforward attention at conversion time.</p>
+
+<p><strong>Mistake 1 — converting without checking the trust instrument.</strong> The state statute applies except where the trust instrument expressly prohibits unitrust conversion or expressly authorizes only a different distribution regime. A trustee who converts without checking the trust instrument may find, after the fact, that the trust contained a prohibition clause the trustee overlooked. The check is a five-minute review at conversion time and eliminates a category of error entirely.</p>
+
+<p><strong>Mistake 2 — inadequate notice content.</strong> The notice must state the trustee's reasons for the conversion tied to the trust's specific facts, not merely recite the state's percentage rule. A notice that reads as boilerplate materially raises the risk of a beneficiary objection and provides a weak record on judicial review if an objection proceeds to court. The notice-drafting effort is proportionate to the trust's size; a notice on a $2M trust deserves the same specificity as a notice on a $20M trust.</p>
+
+<p><strong>Mistake 3 — converting outside the 3-5 percent safe harbor in a QTIP trust.</strong> Every one of the ten surveyed states falls within the 3-5 percent range at its default rate. But a Texas trustee choosing 6 percent under the Texas discretionary range would fall outside the safe harbor and risk QTIP disqualification on the deceased spouse's estate. The trustee's rate selection in a QTIP trust must stay within 3-5 percent regardless of what the state statute otherwise permits.</p>
+
+<p><strong>Mistake 4 — no year-10 acceleration plan.</strong> The year-10 residual acceleration exceeds what the smoothed unitrust formula can distribute even with maximum smoothing effect. A trustee who converts without a year-10 plan will find, in year 10, that a substantial residual sits at year-end 10 with no distribution mechanism. The plan is straightforward — a supplemental §104 power-to-adjust adjustment in year 10 specifically — but it must be built into the conversion memorandum at conversion time so the trustee remembers to execute it in year 10.</p>
+
+<p><strong>Mistake 5 — inadequate valuation methodology.</strong> The safe harbor requires a reasonable annual valuation methodology. Most inherited-IRA trustees use custodian statements for valuation, which is generally acceptable, but the trustee should confirm the custodian's valuation methodology satisfies the reasonable-valuation standard — particularly for any IRA assets other than publicly-traded securities (private-fund interests, closely-held business interests, real estate, and so on).</p>
+
+<p><strong>Mistake 6 — converting a grantor trust.</strong> A grantor trust for federal income tax purposes has all income and gain taxed to the grantor regardless of the trust's accounting regime. Converting a grantor trust to unitrust has no federal-tax effect during the grantor period; the conversion is a procedural exercise that produces no tax benefit for the trust. Most inherited-IRA trusts are non-grantor because the account owner died, terminating any grantor-trust status; but a trust that was a revocable trust during the account owner's lifetime and continued as a grantor trust for the surviving spouse under a §678 rule would still be a grantor trust and would not benefit from conversion until the grantor's death.</p>
+
+<h2 id="action">Pre-conversion action checklist</h2>
+
+<div class="callout key">
+<h4>The 8-item pre-conversion checklist for a trust-held inherited IRA</h4>
+<p>Complete each item before delivering the conversion notice. Retain the completed checklist in the trust's records for the statute of limitations plus a reasonable margin.</p>
+</div>
+
+<ol>
+<li><strong>Read the trust instrument.</strong> Check for an express prohibition on unitrust conversion or an express authorization of a specific different distribution regime. If either exists, the state statute is displaced and the conversion cannot proceed under the statute.</li>
+<li><strong>Confirm the state statute and the specific percentage rule.</strong> Identify the trust's state of situs, pull the state's §106-style statute, and confirm the specific percentage (fixed 4 percent, 3-5 percent range, or another state-specific rate). Confirm the notice period (30 days in Pennsylvania; 60 days elsewhere).</li>
+<li><strong>Analyze the QTIP marital-deduction implications.</strong> If the trust is a QTIP trust, confirm the intended unitrust rate falls within the 3-5 percent Treas. Reg. §20.2056(b)-5(f) safe harbor. If the trust is not a QTIP trust, this step is skipped.</li>
+<li><strong>Model the year-10 acceleration.</strong> Project the year-10 residual IRA balance under reasonable investment assumptions. Confirm the smoothed unitrust distribution formula does not distribute the full year-10 residual and identify the mechanic — supplemental §104 adjustment, deferred distribution, or another approach — for handling the residual at year-end 10.</li>
+<li><strong>Prepare a trust-specific conversion memorandum.</strong> Document the specific reasons for the conversion tied to the trust's facts: the trust's income beneficiary's cash-flow needs, the trust's asset composition, the QTIP marital-deduction preservation, the SECURE Act 10-year rule timeline, and the trustee's rationale for the specific rate. The memorandum becomes the trustee's record on judicial review if a beneficiary objects.</li>
+<li><strong>Identify all current and remainder beneficiaries.</strong> Include contingent remainder beneficiaries whose interests are not yet vested. For a trust with a class of "then-living descendants per stirpes" remainder beneficiaries, identify every currently-living descendant with reasonable diligence.</li>
+<li><strong>Draft and deliver compliant notice.</strong> Prepare notice with the state-specific required content and deliver it to every current and remainder beneficiary at least 30-60 days (per state rule) before the intended effective date. Retain proof of delivery for each beneficiary.</li>
+<li><strong>Wait out the objection period.</strong> If no objection is received, proceed with the conversion on the effective date. If an objection is received, either (i) obtain judicial approval, (ii) obtain unanimous beneficiary consent, or (iii) withdraw the conversion notice and pursue an alternative remedy such as a §104 power-to-adjust reallocation.</li>
+</ol>
+
+<h2 id="faq">Frequently asked questions about state unitrust conversion</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What is state unitrust conversion and why does it matter for a trust holding an inherited IRA?</h3>
+<p>State unitrust conversion is a statutory procedure — modeled on 1997 UPIA §106 and adopted with state-specific variations in the 42 non-UFIPA jurisdictions — that permanently converts a trust from an income-only accounting regime into a percentage-of-value distribution regime. Once converted, the trust distributes to the income beneficiary a fixed percentage (typically 3-5 percent, most commonly 4 percent) of the trust's net fair market value each year. For a trust holding an inherited IRA subject to the SECURE Act 10-year rule, unitrust conversion is the primary state-law tool for delivering predictable annual cash flow to the income beneficiary while satisfying the impartiality standard. It is the permanent-conversion alternative to a per-year §104 power-to-adjust reallocation, and its 3-5 percent range aligns with the Rev. Rul. 2006-26 reasonable-apportionment threshold that must be satisfied for a QTIP trust to preserve the IRC §2056(b)(7) marital deduction.</p>
+</div>
+
+<div class="faq-item">
+<h3>What percentage does each state use for its unitrust conversion default?</h3>
+<p>The state variation is meaningful. New York EPTL §11-2.4 fixes 4 percent mandatory with no trustee discretion. Illinois 760 ILCS 3/106 uses 4 percent default with trustee discretion. Texas Property Code §116.006 provides a 3-5 percent discretionary range. Pennsylvania 20 Pa.C.S. §8106 uses 4 percent default with trustee discretion in a reasonable range. Ohio Rev. Code §5812.05 uses 4 percent default with trustee discretion in the 3-5 percent range. Massachusetts G.L. c. 203D §5, Michigan MCL 555.506, New Jersey N.J.S.A. 3B:19B-6, Georgia O.C.G.A. §53-12-346, and North Carolina §37A-1-106 all use 4 percent defaults with no or minimal trustee discretion. Trusts with situs-selection flexibility should compare state rules before locking situs.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does unitrust conversion interact with the SECURE Act 10-year rule?</h3>
+<p>The 10-year rule compresses the inherited IRA's drawdown into a 10-year window. Annual RMDs typically run 4-8 percent of the balance in years 1-9, with the full residual balance in year 10. A 4 percent unitrust distribution tracks the annual RMD closely in years 1-9 and materially undershoots the year-10 acceleration. The trustee has three options for year 10: rely on the three-year smoothing formula to partially cushion the acceleration (partial fix only), retain the residual in principal for post-year-10 distribution under the ongoing unitrust regime (delays beneficiary receipt), or combine the unitrust conversion with a supplemental §104 power-to-adjust adjustment in year 10 specifically (the most common choice). The year-10 plan should be documented at conversion time.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the Treas. Reg. §20.2056(b)-5(f) QTIP safe harbor?</h3>
+<p>The regulation establishes that a state-law unitrust conversion satisfying four conditions qualifies as producing a stream of "income" for QTIP marital deduction purposes under IRC §2056(b)(7), notwithstanding that a percentage-of-value distribution is not "income" in the classical trust-accounting sense. The four conditions: (1) the unitrust rate must fall between 3 percent and 5 percent; (2) the fair market value must be determined at least annually using a reasonable valuation method; (3) the unitrust must be authorized under applicable state law; and (4) the state law's requirements must be met. All ten surveyed non-UFIPA state statutes fall within the safe harbor at default rates. The practical consequence is that a trustee converting to unitrust in a non-UFIPA state can preserve the QTIP marital deduction without a per-year Rev. Rul. 2006-26 reasonable-apportionment analysis.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does the trustee need to give beneficiaries notice before converting?</h3>
+<p>Yes in every non-UFIPA state that adopted the §106-style mechanic. The notice period is 60 days in most states and 30 days in Pennsylvania. The notice-content requirements are statutory: the notice must identify the trustee, identify the trust, state the effective date, state the specific percentage, state the valuation methodology, state the trustee's reasons for the conversion tied to trust-specific facts, and state each beneficiary's right to object. The notice must go to all current beneficiaries and all remainder beneficiaries, including contingent remainder beneficiaries. A conversion without compliant notice is voidable at a beneficiary's option.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can a trustee reconvert the trust back to income-only after unitrust conversion?</h3>
+<p>Yes. Every state unitrust conversion statute contains a §106(d)-style reconversion procedure that mirrors the initial conversion mechanic — 30 to 60 days advance notice to all current and remainder beneficiaries with a right to object. The reconversion is prospective only; distributions made during the unitrust years remain characterized under the unitrust regime. Reconversion should be documented with the same contemporaneous-memorandum rigor as the initial conversion. Common reconversion triggers include a change in the trust's asset composition, a change in the income beneficiary's cash-flow needs, or a change in the tax landscape that alters the trust's optimal accounting regime.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does the 3-year smoothed valuation formula work?</h3>
+<p>Most state statutes apply the fixed percentage to a smoothed multi-year average — typically the average of the trust's net fair market values on the first business day of each of the three preceding calendar years. New York EPTL §11-2.4(b)(2) uses the three-year average. Texas Property Code §116.006(f) uses a three-year average. The smoothing dampens year-to-year swings in market value that would otherwise translate into cash-flow volatility. For an inherited-IRA trust drawing down under the SECURE Act 10-year rule, the smoothing partially cushions the year-10 acceleration by including pre-drawdown balances in the year-10 denominator, though the acceleration is large enough that smoothing alone typically leaves substantial residual principal at year-end 10.</p>
+</div>
+
+<div class="faq-item">
+<h3>What happens if the trust instrument prohibits unitrust conversion?</h3>
+<p>If the trust instrument expressly prohibits unitrust conversion or unitrust distributions, the trustee cannot convert regardless of state law. Most 1997 UPIA §106-style statutes contain an override provision stating that the statute applies except to the extent the trust instrument expressly provides otherwise. A settlor who wanted to preserve classical accounting can do so with a single sentence. Trusts drafted before the state statute existed (pre-2001 for New York, pre-2003 for most other states) generally do not contain such a prohibition; trusts drafted after should be checked. If the trust instrument is silent, the state statute applies and the trustee may convert following the statutory procedure.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does unitrust conversion compare with §104 power-to-adjust?</h3>
+<p>Six differences: (1) permanence — unitrust is permanent, §104 is per-year; (2) predictability — unitrust delivers a known percentage of value, §104 delivers a variable dollar amount; (3) notice — unitrust requires 30-60 days advance notice, §104 requires none; (4) annual documentation — unitrust requires no per-year factor memo, §104 requires a nine-factor memorandum every year; (5) QTIP — unitrust falls within the Treas. Reg. §20.2056(b)-5(f) safe harbor, §104 requires Rev. Rul. 2006-26 reasonable-apportionment analysis; (6) beneficiary objection — unitrust conversion can be blocked by beneficiary objection during the notice period, §104 cannot. The choice depends on the trust's specific facts.</p>
+</div>
+
+<div class="faq-item">
+<h3>What are the most common unitrust conversion mistakes on inherited-IRA trusts?</h3>
+<p>Six recurring mistakes: (1) converting without checking the trust instrument for an express prohibition; (2) inadequate notice content that recites the percentage rule without stating trust-specific reasons; (3) converting in a QTIP trust to a rate outside the 3-5 percent safe harbor; (4) no plan for the year-10 acceleration mismatch; (5) inadequate valuation methodology that fails the reasonable-valuation safe-harbor requirement; (6) converting a grantor trust where the conversion has no federal-tax effect during the grantor period.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All statutory citations in this article are current as of August 2026. The state-adoption survey draws on the Uniform Law Commission's UPIA and UFIPA enactment trackers, the American Bar Association Real Property, Trust and Estate Law Section's 2025 Legislative Update, ACTEC state-summary materials on UPIA implementation, and direct review of each surveyed state's enactment statute at the cited code location. The case-study QTIP calculations use the 2026 IRS Notice 2025-67 trust income tax brackets (37% at $16,000), federal individual brackets (Rev. Proc. 2025-32), Rev. Rul. 2006-26's reasonable-apportionment framework for QTIP income-distribution qualification, and Treasury Regulation §20.2056(b)-5(f) for the state-law unitrust safe harbor. The IRA see-through tests reference Treas. Reg. §1.401(a)(9)-4(f) as amended by TD 10001 (Final Regs, July 2024). This article is educational; readers implementing a state unitrust conversion on a trust-held inherited IRA should engage a state-licensed estate-planning attorney to review the specific trust instrument, the state-of-situs statute, and the notice-content and procedural requirements before delivering conversion notice.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">CalcLeap Editorial, 1997 UPIA §104 Power to Adjust in 2026 (August 18, 2026). <a href="/blog/1997-upia-section-104-power-to-adjust-inherited-ira-2026.html">calcleap.com/blog/1997-upia-section-104-power-to-adjust-inherited-ira-2026.html</a></li>
+<li id="source-2">Uniform Law Commission, Uniform Principal and Income Act (1997, with 2000 amendments) — final act text, prefatory note, and enactment tracker. <a href="https://www.uniformlaws.org/committees/community-home?CommunityKey=b6ea3ff2-c5f0-4a76-baef-e340c25871e1" rel="nofollow noopener">uniformlaws.org/committees/principal-and-income-act</a></li>
+<li id="source-3">CalcLeap Editorial, 1997 Uniform Principal and Income Act §409 in Non-UFIPA States in 2026 (August 17, 2026). <a href="/blog/non-ufipa-1997-upia-field-guide-inherited-ira-2026.html">calcleap.com/blog/non-ufipa-1997-upia-field-guide-inherited-ira-2026.html</a></li>
+<li id="source-4">Uniform Law Commission, Uniform Principal and Income Act (1997) §106 — Conversion to Unitrust — full statutory text and official Comment. <a href="https://www.uniformlaws.org/HigherLogic/System/DownloadDocumentFile.ashx?DocumentFileKey=fd4d16fa-1eda-4137-b2e6-1c1a2d2eba24" rel="nofollow noopener">uniformlaws.org/UPIA-1997-final-act</a></li>
+<li id="source-5">American College of Trust and Estate Counsel (ACTEC), Fiduciary Accounting Standards and the Documentation of Trustee Conversion Decisions — practice guidance on the state unitrust conversion notice-content and procedural requirements. <a href="https://www.actec.org/resources/" rel="nofollow noopener">actec.org/resources</a></li>
+<li id="source-6">American Bar Association Real Property, Trust and Estate Law Section, 2025 State-by-State Adoption Chart for the Uniform Principal and Income Act and the Uniform Fiduciary Income and Principal Act. <a href="https://www.americanbar.org/groups/real_property_trust_estate/" rel="nofollow noopener">americanbar.org/groups/real_property_trust_estate</a></li>
+<li id="source-7">New York Estates, Powers and Trusts Law §11-2.4, the New York unitrust conversion statute, effective January 1, 2002, fixing the mandatory 4 percent rate with the three-year rolling average smoothing formula. <a href="https://www.nysenate.gov/legislation/laws/EPT/11-2.4" rel="nofollow noopener">nysenate.gov/legislation/laws/EPT/11-2.4</a></li>
+<li id="source-8">Texas Property Code §116.006 (Conversion to Unitrust), part of Chapter 116 (Texas Uniform Principal and Income Act), effective January 1, 2004, providing the 3-5 percent discretionary range with trustee rate selection. <a href="https://statutes.capitol.texas.gov/Docs/PR/htm/PR.116.htm" rel="nofollow noopener">statutes.capitol.texas.gov/PR.116</a></li>
+<li id="source-9">Illinois Trust Code, 760 ILCS 3/106 (Conversion to Unitrust), effective January 1, 2020, providing the 4 percent default with trustee discretion to select a different rate with specific justification. <a href="https://www.ilga.gov/legislation/ilcs/ilcs4.asp?DocName=076000030HArt%2E+1&amp;ActID=3843&amp;ChapterID=61" rel="nofollow noopener">ilga.gov/legislation/ilcs/760-ILCS-3-Art-1</a></li>
+<li id="source-10">Ohio Revised Code §5812.05 (Conversion to Unitrust), part of Chapter 5812 (Ohio Uniform Principal and Income Act), effective January 1, 2003, providing the 4 percent default with trustee discretion in the 3-5 percent range, coupled with decanting statute at §5808.18. <a href="https://codes.ohio.gov/ohio-revised-code/section-5812.05" rel="nofollow noopener">codes.ohio.gov/ohio-revised-code/section-5812.05</a></li>
+<li id="source-11">20 Pa.C.S. §8106 (Conversion to Unitrust), part of Chapter 81 of Title 20 (Pennsylvania Uniform Principal and Income Act), effective July 1, 2002, providing the 4 percent default with a shorter 30-day notice period than the national norm. <a href="https://www.legis.state.pa.us/cfdocs/legis/LI/consCheck.cfm?txtType=HTM&amp;ttl=20&amp;div=0&amp;chpt=81" rel="nofollow noopener">legis.state.pa.us/20-Pa.C.S.-8106</a></li>
+<li id="source-12">Massachusetts General Laws Chapter 203D §5, New Jersey Statutes Annotated 3B:19B-6, Official Code of Georgia Annotated §53-12-346, Michigan Compiled Laws 555.506, and North Carolina General Statutes §37A-1-106 — the five 4-percent-default state unitrust conversion statutes surveyed at their respective legislative code sites. <a href="https://malegislature.gov/Laws/GeneralLaws/PartII/TitleII/Chapter203D" rel="nofollow noopener">malegislature.gov/GeneralLaws/Chapter203D</a></li>
+<li id="source-13">Treasury Regulation §20.2056(b)-5(f) — the QTIP marital deduction safe harbor for state-law unitrust conversions, establishing the 3-5 percent rate range, the reasonable-valuation requirement, the state-law authorization requirement, and the state-law compliance requirement as the four conditions for safe-harbor qualification. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-B/part-20/subpart-B/section-20.2056(b)-5" rel="nofollow noopener">ecfr.gov/title-26/section-20.2056(b)-5</a></li>
+<li id="source-14">Internal Revenue Service, TD 10001 — Required Minimum Distributions, Final Regulations, 89 Fed. Reg. 58886 (July 19, 2024) implementing SECURE Act §401 and SECURE 2.0 Act §§107, 202, 302, 325, 327 for post-2019 designated-beneficiary distributions. <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" rel="nofollow noopener">federalregister.gov/2024-14542</a></li>
+<li id="source-15">CalcLeap Editorial, 1997 UPIA §104 Power to Adjust in 2026 — contemporaneous-memorandum playbook (August 18, 2026). <a href="/blog/1997-upia-section-104-power-to-adjust-inherited-ira-2026.html#memorandum">calcleap.com/blog/1997-upia-section-104-power-to-adjust-inherited-ira-2026.html#memorandum</a></li>
+<li id="source-16">Internal Revenue Service, Rev. Rul. 2006-26, 2006-1 C.B. 939 — QTIP marital deduction and IRA distributions to a marital-deduction trust; reasonable-apportionment framework for state-law income-versus-principal characterization; IRC §2056(b)(7). <a href="https://www.irs.gov/pub/irs-drop/rr-06-26.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rr-06-26.pdf</a></li>
+<li id="source-17">Internal Revenue Service, Notice 2025-67 — 2026 inflation adjustments for estates and trusts income tax brackets (37% at $16,000 for estates and trusts). <a href="https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2026" rel="nofollow noopener">irs.gov/newsroom/2026-inflation-adjustments</a></li>
+<li id="source-18">Internal Revenue Service, Rev. Proc. 2025-32 — 2026 inflation adjustments for individual federal income tax brackets, standard deduction, and other individual items. <a href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rp-25-32.pdf</a></li>
+<li id="source-19">Restatement (Third) of Trusts §79 (Duty of Impartiality) and §50 (Discretionary Interests) — the common-law foundations for the impartiality standard the unitrust conversion mechanic exists to satisfy, and the standard of judicial review applied to trustee conversion decisions on abuse-of-discretion challenge. <a href="https://www.ali.org/publications/show/trusts/" rel="nofollow noopener">ali.org/publications/trusts</a></li>
+<li id="source-20">Uniform Trust Code §803 (Duty of Impartiality) and §801 (Duty to Administer Trust) — the uniform-act analog to the state common-law impartiality doctrine, applicable in the UTC-adopting non-UFIPA states as an independent basis for the trustee's obligation to consider unitrust conversion when the classical §409 default characterization fails impartiality review. <a href="https://www.uniformlaws.org/committees/community-home?CommunityKey=193ff839-7955-4846-8f3c-ce74ac23938d" rel="nofollow noopener">uniformlaws.org/UTC-2000</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized legal or financial advice. State unitrust conversions are jurisdiction-specific fiduciary acts with substantial procedural and substantive requirements. Consult a state-licensed estate-planning attorney and, for inherited-IRA-specific tax questions, a CPA or Enrolled Agent with retirement-plan expertise before initiating any unitrust conversion on a trust-held inherited IRA. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Results may not reflect your actual situation. State statutes, IRS regulations, and revenue rulings change; always verify current law with primary sources and consult a qualified estate-planning attorney and tax advisor before making decisions. CalcLeap is not a law firm and does not provide legal advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#section-106-text">§106 at the uniform-text level</a></li>
+        <li><a href="#notice-requirements">Notice-content requirements</a></li>
+        <li><a href="#state-variation">State-by-state percentage variation</a></li>
+        <li><a href="#new-york">New York EPTL §11-2.4</a></li>
+        <li><a href="#texas">Texas §116.006</a></li>
+        <li><a href="#illinois">Illinois 760 ILCS 3/106</a></li>
+        <li><a href="#ohio-pennsylvania">Ohio §5812.05 and Pennsylvania §8106</a></li>
+        <li><a href="#ma-nj-ga-mi-nc">MA, NJ, GA, MI, and NC — 4% defaults</a></li>
+        <li><a href="#qtip-safe-harbor">Treas. Reg. §20.2056(b)-5(f) QTIP safe harbor</a></li>
+        <li><a href="#secure-act">SECURE Act 10-year interaction</a></li>
+        <li><a href="#reconversion">§106(d) reconversion procedure</a></li>
+        <li><a href="#unitrust-vs-104">Unitrust vs §104 choice framework</a></li>
+        <li><a href="#case-study">$2M NY QTIP case study</a></li>
+        <li><a href="#mistakes">Six recurring mistakes</a></li>
+        <li><a href="#action">Pre-conversion action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/traditional-ira-calculator.html">Traditional IRA Calculator</a>
+      <a href="/calc/estate-tax-calculator.html">Estate Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth IRA Conversion Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/1997-upia-section-104-power-to-adjust-inherited-ira-2026.html">1997 UPIA §104 Power to Adjust</a>
+      <a href="/blog/non-ufipa-1997-upia-field-guide-inherited-ira-2026.html">1997 UPIA §409 in Non-UFIPA States</a>
+      <a href="/blog/state-by-state-ufipa-adoption-inherited-ira-2026.html">State-by-State UFIPA Adoption</a>
+      <a href="/blog/state-by-state-utc-adoption-inherited-ira-2026.html">State-by-State UTC Adoption</a>
+      <a href="/blog/community-property-inherited-ira-2026.html">Community Property &amp; Inherited IRAs</a>
+      <a href="/blog/10-year-rule-annual-rmd-planning-2026.html">10-Year Rule Annual RMD Planning</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
