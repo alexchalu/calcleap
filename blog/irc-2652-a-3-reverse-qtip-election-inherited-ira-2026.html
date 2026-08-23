@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRC §2652(a)(3) Reverse-QTIP Election for GST-Exemption Utilization on QTIP-Held Inherited IRAs in 2026: The Default-Transferor Trap, the Schedule R-1 Mechanic, and the Doubled-Exemption Playbook | CalcLeap</title>
+<meta name="description" content="IRC §2652(a)(3) lets a deceased spouse's executor elect on Form 706 to treat the deceased spouse — not the surviving spouse — as the GST transferor of QTIP-treated property. Without the election, the surviving spouse becomes transferor on her later death or gift, the deceased spouse's $15M GST exemption is permanently wasted, and every grandchild-remainderman distribution from the QTIP-held inherited IRA is a taxable §2601 direct skip. This piece walks the §2652(a)(1) default rule, the §2652(a)(3) reverse-QTIP election, the Schedule R and R-1 mechanic, the all-or-nothing rule, the multi-trust workaround, the DSUE portability interaction, and a worked $12M inherited-IRA case study.">
+<link rel="canonical" href="https://calcleap.com/blog/irc-2652-a-3-reverse-qtip-election-inherited-ira-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="IRC §2652(a)(3) Reverse-QTIP Election for GST-Exemption Utilization on QTIP-Held Inherited IRAs in 2026 — CalcLeap">
+<meta property="og:description" content="The federal-tax deep-dive on the IRC §2652(a)(3) reverse-QTIP election as applied to QTIP-elected property that includes an inherited IRA — the default-transferor trap of §2652(a)(1), the Schedule R-1 mechanic, the all-or-nothing rule, the multi-trust workaround, the DSUE portability interaction, and a worked $12M inherited-IRA case study.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/irc-2652-a-3-reverse-qtip-election-inherited-ira-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-08-23T00:00:00Z">
+<meta property="article:modified_time" content="2026-08-23T00:00:00Z">
+<meta property="article:section" content="Retirement Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IRC §2652(a)(3) Reverse-QTIP Election for GST-Exemption Utilization on QTIP-Held Inherited IRAs in 2026",
+  "description": "A deep-dive on the IRC §2652(a)(3) reverse-QTIP election as applied to QTIP-elected property that includes an inherited IRA — the §2652(a)(1) default-transferor rule, the reverse-QTIP election mechanic on Form 706 Schedule R-1, the all-or-nothing rule, the multi-trust workaround, the coordination with the DSUE portability election, the interaction with the SECURE Act 10-year rule, and a worked $12M inherited-IRA case study.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-08-23T00:00:00Z",
+  "dateModified": "2026-08-23T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/irc-2652-a-3-reverse-qtip-election-inherited-ira-2026.html"
+  },
+  "articleSection": "Retirement Planning",
+  "wordCount": 7800,
+  "about": [
+    {"@type": "Thing", "name": "IRC Section 2652"},
+    {"@type": "Thing", "name": "Reverse QTIP election"},
+    {"@type": "Thing", "name": "Generation-skipping transfer tax"},
+    {"@type": "Thing", "name": "GST exemption"},
+    {"@type": "Thing", "name": "QTIP marital deduction"},
+    {"@type": "Thing", "name": "Inherited IRA"},
+    {"@type": "Thing", "name": "Form 706 Schedule R"},
+    {"@type": "Thing", "name": "DSUE portability"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "IRC §2652(a)(3) Reverse-QTIP Election for GST-Exemption Utilization on QTIP-Held Inherited IRAs"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is IRC §2652(a)(3) and why does it matter for a QTIP-held inherited IRA?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2652(a)(3) is a one-time election on the deceased spouse's Form 706 that treats the deceased spouse — not the surviving spouse — as the transferor of QTIP-elected property for federal generation-skipping transfer (GST) tax purposes. Without the election, IRC §2652(a)(1) makes the surviving spouse the GST transferor because the QTIP property is included in her gross estate under IRC §2044 at her later death. The default rule wastes the deceased spouse's $15,000,000 GST exemption entirely (Notice 2025-67 sets both the estate and the GST exemption at $15M for 2026 decedents). The reverse-QTIP election preserves the deceased spouse's GST exemption to shelter grandchild-remainderman distributions from the QTIP trust — which for a QTIP-held inherited IRA under Rev. Rul. 2000-2 is often the entire remainder passing to grandchildren under the SECURE Act 10-year rule."}},
+    {"@type": "Question", "name": "How does IRC §2652(a)(1) create the default-transferor trap?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2652(a)(1) defines the transferor of property for GST purposes as the individual most recently subject to estate or gift tax on the property. For QTIP property, the deceased spouse's Form 706 QTIP election under IRC §2056(b)(7) claimed a marital deduction — meaning no estate tax was imposed on the deceased spouse for that property. When the QTIP property is later included in the surviving spouse's gross estate under IRC §2044, she is the individual most recently taxed on it. Under the default rule, she becomes the GST transferor and only her own $15M GST exemption applies. The deceased spouse's $15M GST exemption is permanently wasted on the QTIP property. On the surviving spouse's death, a distribution or termination in favor of grandchildren is a taxable transfer under IRC §2601 subject to 40% GST tax on the amount above her remaining GST exemption."}},
+    {"@type": "Question", "name": "When and how is the reverse-QTIP election made?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The reverse-QTIP election is made on the deceased spouse's Form 706, filed nine months after death (or fifteen months with an extension under IRC §6081). The election is signaled by filing Schedule R-1 of Form 706 and by allocating the deceased spouse's GST exemption to the QTIP-elected property in the manner described in Treas. Reg. §26.2652-2. In practice, the executor identifies the specific QTIP trust or property to which the election applies, and allocates GST exemption to that property on Schedule R (Part 2 for the deceased-spouse-treated-as-transferor allocation). The election is irrevocable once made and cannot be revoked, modified, or partially undone on any subsequent return. Late elections require a private letter ruling under §9100 relief."}},
+    {"@type": "Question", "name": "What is the all-or-nothing rule under Treas. Reg. §26.2652-2(a)?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Treas. Reg. §26.2652-2(a) requires that a reverse-QTIP election apply to ALL of the property in a single QTIP trust — the executor cannot elect reverse-QTIP treatment for part of a QTIP trust's property and default treatment for the balance. If the deceased spouse's Form 706 makes the §2056(b)(7) QTIP election on a $10 million QTIP trust and the deceased spouse's remaining GST exemption is only $6 million, the executor faces a choice: (a) make the reverse-QTIP election on the full $10 million trust and accept that only $6M of GST exemption shelters it (leaving $4M as an unsheltered inclusion ratio calculation), or (b) do not make the reverse-QTIP election on this trust at all. The all-or-nothing rule is the specific reason multi-trust drafting is the standard planning move for high-net-worth couples — separate QTIP trusts allow the executor to make the reverse-QTIP election on one trust (sheltered by GST exemption) and default treatment on another (with the surviving spouse as later GST transferor)."}},
+    {"@type": "Question", "name": "What is the multi-trust drafting workaround for the all-or-nothing rule?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The multi-trust workaround splits the deceased spouse's QTIP property into two (or more) separate QTIP trusts at the drafting stage — typically one funded exactly to the amount of the deceased spouse's remaining GST exemption (currently $15M in 2026 for a decedent who made no lifetime gifts) and one funded with the balance. The executor makes the reverse-QTIP election on the smaller, GST-exempt trust and the default-transferor treatment on the larger, GST-non-exempt trust. Grandchild-remainderman distributions from the reverse-QTIP trust flow through the deceased spouse's exemption at a 0% inclusion ratio and pay zero GST tax. Grandchild-remainderman distributions from the default trust are the surviving spouse's transfers subject to her remaining GST exemption at her later death. Multi-trust drafting is the standard high-net-worth response to Treas. Reg. §26.2652-2(a) and appears in essentially every well-drafted couple estate plan above the $15M-per-person threshold."}},
+    {"@type": "Question", "name": "How does the reverse-QTIP election interact with the DSUE portability election?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The DSUE portability election under IRC §2010(c)(5) transfers the deceased spouse's unused estate and gift tax exemption to the surviving spouse. But DSUE does NOT transfer the deceased spouse's unused GST exemption — the GST exemption is not portable under IRC §2631. The DSUE fills a different gap than the reverse-QTIP election: DSUE preserves the deceased spouse's ESTATE tax exemption for the surviving spouse's later use on non-QTIP property; the reverse-QTIP election preserves the deceased spouse's GST exemption for QTIP property. A high-net-worth couple frequently uses both: DSUE portability captures unused estate exemption for later use by the surviving spouse; reverse-QTIP election captures unused GST exemption for the QTIP trust. Failing to make the reverse-QTIP election on QTIP property with grandchild remaindermen is one of the most common Form 706 preparation errors identified in surviving-spouse post-mortem review."}},
+    {"@type": "Question", "name": "How does the reverse-QTIP election apply to a QTIP-held inherited IRA?",
+     "acceptedAnswer": {"@type": "Answer", "text": "When the deceased spouse's inherited IRA passes to a QTIP trust that names grandchildren as ultimate remainder beneficiaries, the reverse-QTIP election is the workhorse for sheltering the IRA remainder from GST tax. Under Rev. Rul. 2000-2, the QTIP trust distributes annually to the surviving spouse the greater of trust-accounting income or the actual IRA receipt. Under the SECURE Act 10-year rule (IRC §401(a)(9)(H)), the entire IRA must be distributed from the QTIP trust within ten years of the account owner's death — during the surviving spouse's lifetime in most fact patterns. If the surviving spouse dies with any residual IRA balance in the QTIP trust, and the remainder passes to grandchildren, that remainder is a taxable transfer under IRC §2601 at 40% GST rate to the extent it exceeds the applicable GST exemption. With the reverse-QTIP election, the deceased spouse's $15M GST exemption applies to shelter the transfer. Without the election, only the surviving spouse's exemption is available — and if her exemption is exhausted by other planning, the grandchild-remainderman distribution can trigger seven-figure GST liability."}},
+    {"@type": "Question", "name": "Can the reverse-QTIP election be made after the Form 706 due date?",
+     "acceptedAnswer": {"@type": "Answer", "text": "In limited circumstances, yes — through a private letter ruling under §9100 relief. Treas. Reg. §301.9100-1 through §301.9100-3 provide a framework for granting an extension of time to make an election that was inadvertently omitted from a timely-filed return. To qualify for §9100 relief, the taxpayer must demonstrate that (i) the taxpayer acted reasonably and in good faith, (ii) granting relief will not prejudice the interests of the government, and (iii) the taxpayer promptly requested relief after discovering the failure. The IRS has granted §9100 relief for late reverse-QTIP elections in numerous PLRs (see PLR 200529025, PLR 201123005, PLR 201335006, and many others). The PLR fee is substantial (currently $38,000 for user-fee-category rulings under Rev. Proc. 2025-1) and the process typically takes six to nine months. The prudent practice is to catch the omission and file promptly rather than rely on §9100 relief."}},
+    {"@type": "Question", "name": "How does the reverse-QTIP election interact with state GST tax?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Only a small number of jurisdictions impose a separate state-level GST tax as of 2026 — Connecticut has a state GST tax with a $13.99M exemption tracked to the federal exemption, and a few other states have generation-skipping tax pieces that piggyback on the federal GST. Most decoupled-estate-tax states (Illinois, Massachusetts, New York, Oregon, Washington, Maryland, and others) impose state estate tax but do not impose a separate state GST tax. For a QTIP-held inherited IRA with grandchild remaindermen, the reverse-QTIP election generally aligns the state-level GST tax posture with the federal-level posture — the deceased spouse becomes the transferor for both federal and state purposes, and both jurisdictions' GST exemptions apply to shelter grandchild-remainderman distributions. In Connecticut specifically, the state GST tax mechanic follows the federal reverse-QTIP election under Conn. Gen. Stat. §12-644 and related provisions; the executor filing a Connecticut estate tax return should mirror the federal Form 706 reverse-QTIP election."}},
+    {"@type": "Question", "name": "What are the most common reverse-QTIP election mistakes?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The most common mistakes are: (1) failing to make the election at all when the QTIP trust has grandchild remaindermen — an unforced error that wastes the deceased spouse's $15M GST exemption forever; (2) making the election on a single mixed QTIP trust when multi-trust drafting would have allowed partial reverse-QTIP treatment — the all-or-nothing rule of Treas. Reg. §26.2652-2(a) leaves excess property unsheltered; (3) failing to coordinate the reverse-QTIP election with the surviving spouse's own GST exemption planning, resulting in duplicative allocation; (4) missing the Form 706 deadline (nine months + six-month §6081 extension), forcing the PLR §9100 route; (5) treating the reverse-QTIP election as a technical checkbox rather than a strategic drafting decision at the front end of the estate plan; and (6) for a QTIP-held inherited IRA, failing to model the SECURE Act 10-year rule acceleration against the deceased spouse's GST exemption capacity, resulting in over- or under-allocation of the exemption to the wrong trust."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:680px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.15rem;color:var(--text);box-shadow:var(--shadow)}
+
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>IRC §2652(a)(3) Reverse-QTIP Election for QTIP-Held Inherited IRAs
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement Planning · Updated August 23, 2026</span>
+  <h1 id="article-start">IRC §2652(a)(3) Reverse-QTIP Election for GST-Exemption Utilization on QTIP-Held Inherited IRAs in 2026: The Default-Transferor Trap, the Schedule R-1 Mechanic, and the Doubled-Exemption Playbook</h1>
+  <p class="deck">The August 20 IRC §2056(b)(7) piece flagged the failure to make a reverse-QTIP election under IRC §2652(a)(3) as the highest-value planning error identified in surviving-spouse Form 706 preparation. That single missed election wastes the deceased spouse's entire $15 million GST exemption on the QTIP property and pushes every grandchild-remainderman distribution from the QTIP-held inherited IRA into 40% GST tax under IRC §2601. Today's piece walks §2652(a)(3) end to end: the §2652(a)(1) default-transferor trap, the Form 706 Schedule R-1 mechanic, the all-or-nothing rule of Treas. Reg. §26.2652-2(a), the multi-trust drafting workaround, coordination with the DSUE portability election, interaction with the SECURE Act 10-year rule for inherited IRAs, six recurring failure modes, and a worked $12M inherited-IRA case study.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published August 23, 2026</span>
+    <span class="dot"></span>
+    <span>26 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>The federal generation-skipping transfer (GST) tax was Congress's 1986 answer to a specific planning pattern used by wealthy families for most of the twentieth century: transfer property to a trust for the benefit of your children, then have the trust remainder pass to your grandchildren, and pay estate tax only once in three generations rather than twice. The GST tax, codified at IRC §§2601-2664, imposes a flat 40 percent tax on every transfer that skips a generation, so a grandparent-to-grandchild transfer no longer bypasses the middle-generation estate tax without a matching GST tax at the same effective rate.<sup><a href="#source-1">[1]</a></sup> To keep the GST tax from crushing modest multi-generation planning, Congress paired the tax with a lifetime exemption at IRC §2631 — currently $15,000,000 per person for 2026 per IRS Notice 2025-67, tracked to the estate-tax exemption post-OBBBA — that shelters up to $15M of skip-transfers per grandparent from GST tax entirely.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>For a couple planning to leave property to grandchildren, the natural question is: can both spouses use their $15M GST exemptions, or does the marital-deduction machinery of IRC §2056 waste one of them? The answer is Congress-authored: the reverse-QTIP election under IRC §2652(a)(3) preserves the deceased spouse's GST exemption for QTIP-elected property that would otherwise fall under the default transferor rule of §2652(a)(1). Get the election right on the deceased spouse's Form 706, and both spouses' GST exemptions apply to the couple's multi-generation planning — doubling effective GST capacity from $15M to $30M for the 2026 baseline. Miss the election, and the deceased spouse's $15M is wasted forever.<sup><a href="#source-3">[3]</a></sup></p>
+
+<p>This piece walks IRC §2652(a)(3) end to end as applied to a QTIP trust holding an inherited IRA. It sits as the seventh piece in the retirement-inheritance sub-cluster's practitioner-toolkit arc: 2026-08-17 non-UFIPA §409 field guide, 2026-08-18 §104 power to adjust, 2026-08-19 §106 unitrust conversion, 2026-08-20 IRC §2056(b)(7) QTIP election, 2026-08-21 IRC §2519 gift-treatment mechanics, 2026-08-22 IRC §2518 qualified disclaimer, and today's IRC §2652(a)(3) reverse-QTIP election.<sup><a href="#source-4">[4]</a></sup> A practitioner who understands all seven pieces can walk the full inherited-IRA-plus-QTIP-plus-grandchild-remainderman mechanic from the deceased spouse's Form 706 through the SECURE Act 10-year rule, the surviving spouse's own death, and the ultimate grandchild-remainderman distribution — without a wasted GST exemption at the front, a §2518 disclaimer defect during the nine-month window, a §2519 recharacterization in the middle, a §2056(b)(7) qualification defect at any point, or a §2601 GST liability at the back.</p>
+
+<a class="cta-calc" href="/calc/estate-tax-calculator.html">
+  <span class="ic">📜</span>
+  <div>
+    <h4>Model a reverse-QTIP election under the $15M OBBBA GST exemption</h4>
+    <p>Compare (a) default §2652(a)(1) with the surviving spouse as transferor, (b) §2652(a)(3) reverse-QTIP on the full QTIP trust, and (c) multi-trust drafting with partial reverse-QTIP.</p>
+  </div>
+  <span class="go">Open →</span>
+</a>
+
+<h2 id="statutory-framework">The IRC §2652 statutory framework</h2>
+
+<p>The GST tax under IRC §2601 imposes a flat tax at the highest estate-tax rate (currently 40 percent per IRC §2001(c)) on every generation-skipping transfer. Three types of transfers fall within the GST: a direct skip (a transfer of property to a "skip person," typically a grandchild) under IRC §2612(c), a taxable distribution from a trust to a skip person under §2612(b), and a taxable termination of a trust in favor of skip persons under §2612(a). The tax is imposed on the "transferor" of the property — the individual who most recently was taxed on the property for federal estate or gift tax purposes.<sup><a href="#source-5">[5]</a></sup></p>
+
+<p>IRC §2652(a) defines the transferor for GST purposes:</p>
+
+<ol>
+<li><strong>§2652(a)(1) — General rule.</strong> The transferor of property for GST purposes is the individual most recently subject to estate or gift tax on the property. For property included in the decedent's gross estate under IRC §§2033, 2038, 2039, 2041, 2042, 2043, or 2044, that individual is the decedent. For property transferred by lifetime gift under IRC §2501, that individual is the donor.</li>
+<li><strong>§2652(a)(2) — Gift-splitting rule.</strong> When spouses elect gift-splitting under IRC §2513, each spouse is treated as the transferor of one-half of the split gift for GST purposes.</li>
+<li><strong>§2652(a)(3) — Reverse-QTIP election.</strong> In the case of any qualified terminable interest property (QTIP) to which an election under §2523(f) or §2056(b)(7) applies, the executor of the deceased spouse's estate may elect to treat the deceased spouse as the transferor for GST purposes, notwithstanding the general rule of §2652(a)(1).</li>
+</ol>
+
+<p>Treas. Reg. §26.2652-1 elaborates the general rule and Treas. Reg. §26.2652-2 walks the reverse-QTIP election mechanic. The election is made on the deceased spouse's Form 706 and is irrevocable once made.<sup><a href="#source-6">[6]</a></sup></p>
+
+<h3>The default-transferor trap</h3>
+
+<p>The default rule of §2652(a)(1) creates a specific trap for QTIP-elected property. When the deceased spouse's Form 706 makes a §2056(b)(7) QTIP election, the marital deduction is claimed and no estate tax is imposed on the deceased spouse for that property. Under IRC §2044, the QTIP property is included in the surviving spouse's gross estate at her later death — that inclusion is the price the surviving spouse pays for the deceased spouse's marital deduction. The surviving spouse is the individual most recently subject to estate tax on the QTIP property at her death. Under §2652(a)(1), she is therefore the GST transferor of the QTIP property.<sup><a href="#source-3">[3]</a></sup></p>
+
+<p>The consequences of the default rule for a couple's GST planning are severe. Only the surviving spouse's $15M GST exemption applies to shelter distributions or terminations of the QTIP trust in favor of grandchildren. The deceased spouse's $15M GST exemption on the QTIP property is permanently wasted — it cannot be transferred to the surviving spouse under any portability mechanism (the GST exemption is not portable, unlike the estate-tax exemption under IRC §2010(c)(5)). For a couple with a $10M QTIP trust and grandchild remaindermen, the default rule means the surviving spouse's remaining GST exemption (after any lifetime skip gifts she has made) is the only shield against §2601 tax on the eventual grandchild-remainderman distribution.</p>
+
+<h3>Why §2652(a)(3) exists</h3>
+
+<p>Congress enacted the modern GST tax and the accompanying §2652(a)(3) reverse-QTIP election in the Tax Reform Act of 1986 as part of a package that transformed the earlier 1976 GST tax (which had a $250,000 exemption per grandchild and complex rate mechanics) into the current uniform regime.<sup><a href="#source-7">[7]</a></sup> The drafters recognized that the §2652(a)(1) default rule created a specific asymmetry between QTIP property (where the marital deduction pushed the GST transferor to the surviving spouse) and non-QTIP property (where the GST transferor was the decedent whose exemption could shelter the property). Without a corrective election, wealthy couples would face a choice between (a) using the marital deduction to defer estate tax but losing the deceased spouse's GST exemption on the deferred property, or (b) not electing marital-deduction treatment and losing the estate-tax deferral to preserve the GST exemption. The reverse-QTIP election lets the executor choose both benefits — marital-deduction estate-tax deferral AND deceased-spouse GST-exemption preservation — for the QTIP-elected property.</p>
+
+<h2 id="election-mechanic">The election mechanic on Form 706</h2>
+
+<p>The reverse-QTIP election is made on the deceased spouse's Form 706, filed nine months after death (or fifteen months with an automatic six-month extension under IRC §6081 requested on Form 4768 before the original due date).<sup><a href="#source-8">[8]</a></sup> The mechanic involves three coordinated Form 706 entries:</p>
+
+<ol>
+<li><strong>Schedule M — the QTIP election under §2056(b)(7).</strong> The executor identifies the QTIP-eligible property (the QTIP trust into which the inherited IRA or other property passes), computes the marital-deduction value, and elects QTIP treatment. This is the gateway election — without a valid §2056(b)(7) QTIP election, there is no property for the reverse-QTIP election under §2652(a)(3) to apply to.</li>
+<li><strong>Schedule R — allocation of the deceased spouse's GST exemption.</strong> Schedule R (Generation-Skipping Transfer Tax) is used to allocate the deceased spouse's GST exemption to specific transfers. For property to which the reverse-QTIP election under §2652(a)(3) applies, the deceased spouse's GST exemption is allocated to that property on Schedule R Part 2 (allocation of GST exemption to trusts of which the decedent is not the transferor absent the election).</li>
+<li><strong>Schedule R-1 — the reverse-QTIP election itself.</strong> Schedule R-1 of Form 706 is a specific-purpose schedule used to document the reverse-QTIP election. The executor identifies the QTIP trust or property to which the election applies, and the election is complete when the schedule is signed and filed with the Form 706. The instructions to Form 706 (currently at Instructions for Form 706 (Rev. September 2024) as updated for 2026 filings) walk the Schedule R-1 mechanic in detail.<sup><a href="#source-9">[9]</a></sup></li>
+</ol>
+
+<p>The election is irrevocable once made. Treas. Reg. §26.2652-2(b) is explicit: the election cannot be revoked, modified, or partially undone on any subsequent return. If the executor makes the election on the full QTIP trust and later concludes that a partial election would have been optimal, no remedy is available — the choice at the Form 706 filing is final.<sup><a href="#source-6">[6]</a></sup></p>
+
+<h3>The reciprocal effect on the surviving spouse's Form 706</h3>
+
+<p>When the deceased spouse's executor makes a valid reverse-QTIP election, the effect on the surviving spouse's later Form 706 is corresponding. The QTIP property is still included in the surviving spouse's gross estate under IRC §2044 (the reverse-QTIP election does not change the estate-tax inclusion). But because the deceased spouse is the GST transferor under §2652(a)(3), the surviving spouse's death does not create a new GST transferor with respect to the QTIP property. The inclusion ratio of the QTIP property for GST purposes is determined by reference to the deceased spouse's GST exemption allocated on the Form 706 that made the reverse-QTIP election.<sup><a href="#source-6">[6]</a></sup></p>
+
+<p>This is the mechanism by which the reverse-QTIP election works: at the surviving spouse's later death, when the QTIP property is distributed (or the trust terminates) in favor of the couple's grandchildren, the GST calculation looks back to the deceased spouse's Form 706 for the transferor identity and the applicable inclusion ratio. If the deceased spouse's executor allocated GST exemption sufficient to produce a 0% inclusion ratio, no GST tax is imposed on the distribution. If the allocation was insufficient, a partial inclusion ratio applies and GST tax is imposed on the excess.</p>
+
+<div class="callout key">
+<h4>The inclusion ratio formula</h4>
+<p>The inclusion ratio under IRC §2642(a) determines what fraction of a transfer from a trust is subject to GST tax. The formula is: <em>Inclusion ratio = 1 − (GST exemption allocated ÷ Value of property transferred)</em>. If the deceased spouse's executor allocates $10M of GST exemption to a $10M QTIP trust to which the reverse-QTIP election applies, the inclusion ratio is 1 − ($10M ÷ $10M) = 0. Every subsequent distribution or termination from that trust to a skip person is sheltered from GST tax. If the executor allocates only $6M of GST exemption to a $10M QTIP trust, the inclusion ratio is 1 − ($6M ÷ $10M) = 0.4. Each subsequent skip-transfer from the trust is taxed at 0.4 × 40% = 16% effective GST rate.</p>
+</div>
+
+<h2 id="all-or-nothing">The all-or-nothing rule under Treas. Reg. §26.2652-2(a)</h2>
+
+<p>Treas. Reg. §26.2652-2(a) contains a specific procedural rule that shapes essentially every high-net-worth couple's QTIP drafting: the reverse-QTIP election must apply to all of the property in a single QTIP trust, or to none of it. Partial elections within a single trust are not permitted.<sup><a href="#source-6">[6]</a></sup></p>
+
+<p>The regulation's text is unambiguous. If the executor makes a §2056(b)(7) QTIP election on a $12 million QTIP trust and wishes to make a reverse-QTIP election under §2652(a)(3) on that trust, the reverse-QTIP election applies to the entire $12 million. The executor cannot elect reverse-QTIP treatment for the first $8 million (matching the deceased spouse's remaining GST exemption after prior gifts) and leave the remaining $4 million under the default §2652(a)(1) rule. The choice is binary: all $12 million under reverse-QTIP (with a partial inclusion ratio if GST exemption is insufficient) or all $12 million under the default rule (with the surviving spouse as later GST transferor).</p>
+
+<h3>Why the all-or-nothing rule exists</h3>
+
+<p>The Treasury's stated rationale for the all-or-nothing rule is administrative simplicity: allowing partial elections within a single trust would require the trustee to track two separate inclusion ratios for the same trust and to allocate every distribution proportionally between the reverse-QTIP portion and the default portion. That accounting burden would fall on the trustee for the trust's entire life, potentially decades after the executor's Form 706 election. The regulation forces the accounting complexity to be resolved at the drafting stage — before the deceased spouse's death — by requiring separate QTIP trusts if the executor wants partial reverse-QTIP treatment on the couple's aggregate QTIP property.<sup><a href="#source-6">[6]</a></sup></p>
+
+<h3>The single-trust suboptimal outcome</h3>
+
+<p>For an estate plan that funds a single QTIP trust with property exceeding the deceased spouse's remaining GST exemption, the all-or-nothing rule produces a suboptimal outcome. Consider a $20 million QTIP trust and a deceased spouse with $15 million of remaining GST exemption (no prior lifetime skip gifts). The executor has two choices:</p>
+
+<ul>
+<li><strong>Option A — Reverse-QTIP on the full $20M trust.</strong> The deceased spouse is the GST transferor for the full $20M. The $15M GST exemption produces an inclusion ratio of 1 − ($15M ÷ $20M) = 0.25. Every subsequent skip-transfer is taxed at 0.25 × 40% = 10% effective GST rate. Grandchild distributions later face a 10% GST tax on the taxable portion.</li>
+<li><strong>Option B — Default §2652(a)(1) on the full $20M trust.</strong> The surviving spouse is the GST transferor at her later death. Her own $15M GST exemption applies at her death. If she has made no lifetime skip gifts, the entire $20M trust may fall within her exemption at her death (though the exemption at her death may be less than $15M if the OBBBA-2025 exemption sunsets or is reduced by 2035+ legislative action). The deceased spouse's $15M GST exemption is wasted.</li>
+</ul>
+
+<p>Neither option is optimal. Option A wastes $5M of GST-exempt trust value that would have been sheltered by the surviving spouse's own exemption. Option B wastes the entire $15M of the deceased spouse's exemption. The optimal outcome — sheltering the full $20M with a mix of both spouses' exemptions — requires multi-trust drafting.</p>
+
+<h2 id="multi-trust">The multi-trust drafting workaround</h2>
+
+<p>The multi-trust workaround splits the deceased spouse's QTIP property into two (or more) separate QTIP trusts at the drafting stage — typically funded at the moment of the deceased spouse's death by pecuniary or fractional formula clauses in the will or revocable trust. The executor makes the reverse-QTIP election on one trust (matched to the deceased spouse's remaining GST exemption) and the default treatment on the other (matched to the surviving spouse's later GST exemption).<sup><a href="#source-10">[10]</a></sup></p>
+
+<div class="callout tip">
+<h4>The two-QTIP-trust drafting pattern</h4>
+<p>A well-drafted estate plan for a high-net-worth couple with grandchild remaindermen typically includes:</p>
+<ol>
+<li><strong>Marital QTIP Trust A (the "GST-exempt QTIP trust")</strong> — funded at the deceased spouse's death with a pecuniary amount equal to the deceased spouse's remaining GST exemption ($15M for 2026 decedents with no lifetime skip gifts). The executor makes both the §2056(b)(7) QTIP election and the §2652(a)(3) reverse-QTIP election on this trust. GST exemption is allocated to produce a 0% inclusion ratio.</li>
+<li><strong>Marital QTIP Trust B (the "GST-non-exempt QTIP trust")</strong> — funded at the deceased spouse's death with the balance of the QTIP-eligible property. The executor makes the §2056(b)(7) QTIP election but not the §2652(a)(3) reverse-QTIP election. The surviving spouse becomes the GST transferor at her later death.</li>
+</ol>
+<p>Both trusts have identical dispositive provisions during the surviving spouse's lifetime (both distribute annually to her the greater of trust-accounting income or actual receipts, per Rev. Rul. 2000-2). At her death, both trusts distribute the remainder to the couple's grandchildren. The only difference is the identity of the GST transferor and the applicable GST exemption. The two-trust structure preserves both spouses' $15M exemptions and doubles the GST-exempt capacity from $15M to $30M for the 2026 baseline.</p>
+</div>
+
+<h3>Formula clause drafting</h3>
+
+<p>The typical drafting mechanic uses a pecuniary or fractional formula clause that funds Trust A with an amount matched to the deceased spouse's remaining GST exemption at death. Two common formulations:</p>
+
+<ol>
+<li><strong>Pecuniary formula.</strong> "The Marital QTIP Trust A shall be funded with a pecuniary amount equal to the maximum amount of the deceased spouse's remaining GST exemption at his death, computed after taking into account any lifetime skip gifts and any GST exemption allocated to lifetime transfers to non-QTIP trusts. The Marital QTIP Trust B shall be funded with the balance of the QTIP-eligible property." This formulation guarantees that Trust A is exactly matched to the remaining GST exemption at death and is the most common approach.</li>
+<li><strong>Fractional formula.</strong> "The Marital QTIP Trust A shall be funded with a fractional share of the QTIP-eligible property equal to the ratio of the deceased spouse's remaining GST exemption at his death to the total QTIP-eligible property." This formulation shares gain and loss between the trusts pro rata during the funding period, which can be preferable in a volatile-market environment.</li>
+</ol>
+
+<p>Either formulation must be paired with tax-apportionment provisions that direct how any estate tax attributable to the QTIP property is paid (typically from Trust B rather than Trust A, to preserve Trust A's 0% inclusion ratio). Practitioners should also consider funding-mechanic provisions that address which assets fund Trust A versus Trust B — for a QTIP-held inherited IRA fact pattern, the IRA should typically fund the GST-exempt Trust A if the grandchild-remainderman distribution is expected during the 10-year post-death window, or fund the non-GST-exempt Trust B if other liquid assets are available to fund Trust A more cost-effectively.</p>
+
+<h2 id="dsue-interaction">Coordination with the DSUE portability election</h2>
+
+<p>The DSUE portability election under IRC §2010(c)(5) is a separate election that transfers the deceased spouse's unused estate and gift tax exemption to the surviving spouse for use during her lifetime or at her death.<sup><a href="#source-11">[11]</a></sup> The DSUE election is made on the deceased spouse's Form 706 by checking a box on the return and filing timely. Once made, the surviving spouse's "applicable exclusion amount" for estate and gift tax purposes is increased by the DSUE amount (the deceased spouse's remaining exemption at death).</p>
+
+<p>The DSUE election does NOT extend to the GST exemption. IRC §2631 governs the GST exemption and does not contain a portability provision. The deceased spouse's unused GST exemption at death cannot be transferred to the surviving spouse under any statutory or regulatory mechanism. This asymmetry — estate exemption is portable, GST exemption is not — is the specific reason the reverse-QTIP election under §2652(a)(3) is not redundant with the DSUE election. The two elections fill different gaps in the marital-deduction mechanic:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Feature</th><th>DSUE portability (IRC §2010(c)(5))</th><th>Reverse-QTIP (IRC §2652(a)(3))</th></tr></thead>
+<tbody>
+<tr><td>What is preserved</td><td>Deceased spouse's unused ESTATE and gift tax exemption</td><td>Deceased spouse's identity as GST transferor for QTIP property</td></tr>
+<tr><td>Election vehicle</td><td>Form 706, check DSUE box</td><td>Form 706, Schedule R-1</td></tr>
+<tr><td>Effect on estate tax</td><td>Increases surviving spouse's applicable exclusion amount</td><td>None (estate-tax inclusion of QTIP property under §2044 unchanged)</td></tr>
+<tr><td>Effect on GST tax</td><td>None (GST exemption is not portable)</td><td>Deceased spouse is GST transferor for QTIP property</td></tr>
+<tr><td>Applies to</td><td>Non-QTIP property + surviving spouse's future transfers</td><td>QTIP property specifically</td></tr>
+<tr><td>Filing requirement</td><td>Timely Form 706 (even if no estate tax due)</td><td>Timely Form 706 + Schedule R-1</td></tr>
+<tr><td>Revocable?</td><td>No (once elected and Form 706 filed)</td><td>No (Treas. Reg. §26.2652-2(b))</td></tr>
+<tr><td>Late-election relief</td><td>Rev. Proc. 2022-32 5-year window OR §9100 relief</td><td>§9100 relief only</td></tr>
+</tbody>
+</table></div>
+
+<p>For a high-net-worth couple with grandchild remaindermen, the standard planning move is to make BOTH elections on the deceased spouse's Form 706: DSUE portability to preserve the deceased spouse's estate exemption for the surviving spouse's later use, AND the reverse-QTIP election on the GST-exempt QTIP trust to preserve the deceased spouse's GST exemption for the eventual grandchild-remainderman distributions. Failing to make either election is the most common Form 706 preparation error identified in surviving-spouse post-mortem review.<sup><a href="#source-12">[12]</a></sup></p>
+
+<h3>Rev. Proc. 2022-32 five-year DSUE relief</h3>
+
+<p>The IRS has provided a specific extended-relief window for late DSUE elections in Rev. Proc. 2022-32, which grants automatic extensions for up to five years after the deceased spouse's death to file a Form 706 solely to elect DSUE portability (provided no estate tax was due on the deceased spouse's estate). Rev. Proc. 2022-32 does NOT extend to the reverse-QTIP election — a late reverse-QTIP election still requires a private letter ruling under §9100 relief.<sup><a href="#source-13">[13]</a></sup> This asymmetry is another reason to distinguish the two elections at the front-end drafting stage and to plan the Form 706 filing to capture both.</p>
+
+<h2 id="ira-application">Application to a QTIP-held inherited IRA</h2>
+
+<p>The reverse-QTIP election is particularly consequential for a QTIP trust holding an inherited IRA. Three specific interactions matter.</p>
+
+<h3>The SECURE Act 10-year rule accelerates the timeline</h3>
+
+<p>Under IRC §401(a)(9)(H) as enacted in the SECURE Act (Pub. L. 116-94 §401, December 20, 2019) and interpreted in the final regulations at TD 10001 (89 Fed. Reg. 58886, July 19, 2024), a QTIP trust holding an inherited IRA is a see-through trust subject to the 10-year rule.<sup><a href="#source-14">[14]</a></sup> The entire IRA must be distributed from the QTIP trust within ten years of the account owner's death. If the account owner died before the required beginning date (RBD) for RMDs (generally age 73 under SECURE 2.0 §107), the 10-year rule can operate without any interim annual RMD obligation. If the account owner died after the RBD, annual RMDs are required during the 10-year window under the "at least as rapidly" rule of §1.401(a)(9)-5.</p>
+
+<p>The practical implication is that the IRA is fully distributed from the QTIP trust within ten years of the deceased spouse's death — often during the surviving spouse's lifetime. Distributions to the surviving spouse pass through the QTIP trust under Rev. Rul. 2000-2 mechanics (greater of trust-accounting income or actual IRA receipt).<sup><a href="#source-15">[15]</a></sup> If the surviving spouse outlives the 10-year window, all of the IRA proceeds have been distributed to her before her death, and the remaining trust corpus at her death consists of reinvested non-IRA assets. If the surviving spouse dies within the 10-year window, some or all of the IRA proceeds remain in the QTIP trust at her death, and the residual balance passes to the grandchild remaindermen under the trust's dispositive provisions.</p>
+
+<h3>The grandchild-remainderman GST exposure</h3>
+
+<p>Whether the remaining trust corpus at the surviving spouse's death consists of undistributed IRA proceeds or reinvested non-IRA assets, the transfer to grandchild remaindermen is a taxable termination under IRC §2612(a) subject to GST tax at 40% on the amount exceeding the applicable GST exemption. Without a reverse-QTIP election, the surviving spouse is the GST transferor and only her remaining exemption applies. With a reverse-QTIP election, the deceased spouse's exemption applies (or the pre-computed inclusion ratio from his Form 706 election, if the exemption was insufficient).</p>
+
+<p>For a couple with a $10 million inherited IRA passing to a QTIP trust with grandchild remaindermen, the reverse-QTIP election can save $4 million in GST tax (the difference between 40% GST on the full $10M without exemption sheltering versus 0% GST with the deceased spouse's $15M exemption fully sheltering the transfer). This is not a hypothetical: it is the specific quantitative reason the August 20 §2056(b)(7) piece flagged the reverse-QTIP omission as the highest-value Form 706 preparation error in surviving-spouse review.</p>
+
+<h3>Coordination with the QTIP see-through trust requirements</h3>
+
+<p>For the QTIP trust to be a see-through trust under Treas. Reg. §1.401(a)(9)-4 (and to be subject to the 10-year rule rather than the shorter 5-year non-designated-beneficiary rule), the trust must satisfy four requirements: (a) valid under state law, (b) irrevocable at the account owner's death, (c) identifiable beneficiaries from the trust instrument, and (d) proper documentation delivery to the plan administrator by October 31 of the year following death.<sup><a href="#source-16">[16]</a></sup></p>
+
+<p>The multi-trust drafting workaround (two QTIP trusts — GST-exempt Trust A and GST-non-exempt Trust B) does not affect the see-through analysis: each trust is separately analyzed for see-through compliance, and each trust must independently satisfy the four requirements. Practitioners should ensure that both trusts include identical-form beneficiary designations, that both trusts are irrevocable at death, and that the trustee delivers the required documentation for both trusts to the IRA custodian by the October 31 deadline. The IRA custodian's administration typically accommodates a split beneficiary designation naming both trusts by percentage, though some custodians impose paperwork friction and the funding formula clauses in the will or revocable trust must dovetail with the custodian's beneficiary-designation form.</p>
+
+<h2 id="state-gst">State-law GST tax considerations</h2>
+
+<p>As of 2026, only a small number of jurisdictions impose a separate state-level GST tax. Connecticut is the primary state with a distinct state-level GST tax, with an exemption tracked to the federal exemption ($13.99M as of 2025, increased to $15M for 2026 under coupled inflation adjustments per Conn. Gen. Stat. §12-644).<sup><a href="#source-17">[17]</a></sup> Most decoupled-estate-tax states (Illinois, Massachusetts, New York, Oregon, Washington, Maryland, Vermont, Rhode Island, Minnesota, Maine, Hawaii, District of Columbia) impose state estate tax but do not impose a separate state GST tax on generation-skipping transfers.</p>
+
+<p>For a decedent domiciled in a state without a separate GST tax, the reverse-QTIP analysis is purely federal — the deceased spouse's federal Form 706 election governs, and no parallel state-level election is required. For a decedent domiciled in Connecticut (the only state with a substantive independent state GST tax as of 2026), the Connecticut estate tax return should mirror the federal reverse-QTIP election, and the deceased spouse's state GST exemption should be allocated in parallel with the federal allocation. Practitioners representing Connecticut decedents should confirm the state-return mechanics against the Connecticut Department of Revenue Services' current CT-706 instructions and the Connecticut Uniform Trust Code overlay.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Jurisdiction</th><th>State estate tax</th><th>Separate state GST tax</th><th>Interaction with federal reverse-QTIP</th></tr></thead>
+<tbody>
+<tr><td>Connecticut</td><td>Yes (2026 exemption $15M coupled to federal)</td><td>Yes (Conn. Gen. Stat. §12-644)</td><td>State-return mirror election required</td></tr>
+<tr><td>New York</td><td>Yes (2026 exemption $6.94M with cliff)</td><td>No</td><td>Federal-only; no state parallel</td></tr>
+<tr><td>Illinois</td><td>Yes (2026 exemption $4M with cliff)</td><td>No</td><td>Federal-only; no state parallel</td></tr>
+<tr><td>Massachusetts</td><td>Yes (2026 exemption $2M)</td><td>No</td><td>Federal-only; no state parallel</td></tr>
+<tr><td>Oregon</td><td>Yes (2026 exemption $1M)</td><td>No</td><td>Federal-only; no state parallel</td></tr>
+<tr><td>Washington</td><td>Yes (2026 exemption $3M)</td><td>No</td><td>Federal-only; no state parallel</td></tr>
+<tr><td>District of Columbia</td><td>Yes (2026 exemption approx. $4.99M)</td><td>No</td><td>Federal-only; no state parallel</td></tr>
+<tr><td>Maryland</td><td>Yes (2026 exemption $5M) + inheritance tax</td><td>No</td><td>Federal-only; no state parallel</td></tr>
+<tr><td>All other states</td><td>No state estate tax</td><td>No</td><td>Federal-only; no state parallel</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="six-mistakes">Six recurring reverse-QTIP election mistakes</h2>
+
+<p>The following mistakes account for the vast majority of reverse-QTIP election failures that reach practitioner attention.</p>
+
+<p><strong>Mistake 1 — Failing to make the reverse-QTIP election on a QTIP trust with grandchild remaindermen.</strong> This is an unforced error that wastes the deceased spouse's $15 million GST exemption forever. It typically occurs when the Form 706 preparer treats the return as a routine estate-tax filing without a GST-planning review. Prevention: every Form 706 for a decedent whose QTIP-eligible property is destined for grandchild remaindermen should include a specific GST-planning memorandum documenting the reverse-QTIP analysis and either the election or the specific reasons the election was declined. The memorandum becomes the record if the surviving spouse's later Form 706 shows a wasted exemption.</p>
+
+<p><strong>Mistake 2 — Making the election on a single mixed QTIP trust when multi-trust drafting would have allowed partial reverse-QTIP treatment.</strong> The all-or-nothing rule of Treas. Reg. §26.2652-2(a) forces the executor into a binary choice for a single trust. Prevention: at the front-end drafting stage, split the QTIP-eligible property into two (or more) separate QTIP trusts matched to the deceased spouse's remaining GST exemption. This is standard practice for high-net-worth couples above the $15M-per-person threshold.</p>
+
+<p><strong>Mistake 3 — Failing to coordinate the reverse-QTIP election with the surviving spouse's own GST exemption planning.</strong> When the deceased spouse's executor makes the reverse-QTIP election, the surviving spouse retains her own $15M GST exemption for use on her own lifetime skip gifts and her own residual trust remainders. Poor coordination can result in duplicative allocation (the surviving spouse allocates exemption to a trust already sheltered by the reverse-QTIP election) or under-allocation (the surviving spouse fails to shelter her own trust remainders because she believes the deceased spouse's election already covered them). Prevention: maintain a couple-level GST exemption tracking spreadsheet updated at each Form 709 and Form 706 filing, and cross-reference every allocation against both spouses' remaining exemption balances.</p>
+
+<p><strong>Mistake 4 — Missing the Form 706 deadline for the reverse-QTIP election.</strong> The election must be made on the deceased spouse's Form 706, filed nine months after death or fifteen months with a §6081 extension. Missing the deadline forces reliance on §9100 relief through a private letter ruling, which is expensive ($38,000 user fee plus attorney time) and time-consuming (six to nine months typical processing). Prevention: calendar the Form 706 deadline immediately upon the deceased spouse's death; file the extension request (Form 4768) as a matter of course to preserve the 15-month window; identify all QTIP-eligible property and its remainder beneficiaries within the first sixty days after death.</p>
+
+<p><strong>Mistake 5 — Treating the reverse-QTIP election as a technical checkbox rather than a strategic drafting decision at the front end of the estate plan.</strong> The executor's ability to make an optimal reverse-QTIP election depends on the front-end drafting: whether the QTIP trust exists at all, whether multi-trust drafting was used, whether the funding formulas match the exemption thresholds, and whether the grandchild-remainderman provisions are properly drafted. Prevention: every estate plan for a couple with net worth above $10 million should include a specific GST-planning module addressing the reverse-QTIP mechanic and the multi-trust structure. Waiting until the deceased spouse's Form 706 filing to think about GST planning is generally too late.</p>
+
+<p><strong>Mistake 6 — For a QTIP-held inherited IRA, failing to model the SECURE Act 10-year rule acceleration against the deceased spouse's GST exemption capacity.</strong> The 10-year rule forces distribution of the entire IRA within ten years, meaning the grandchild-remainderman exposure crystallizes on an accelerated timeline. The reverse-QTIP allocation should be sized against the expected trust corpus at the surviving spouse's death (which may be considerably less than the IRA face value if the surviving spouse consumes most of the distributions during her lifetime) rather than against the face value of the IRA at the deceased spouse's death. Prevention: engage a retirement-plan-experienced Form 706 preparer for any QTIP-plus-IRA fact pattern, and model the expected trust corpus at multiple age scenarios for the surviving spouse before making the reverse-QTIP allocation.</p>
+
+<h2 id="worked-example">Worked case study: $12 million inherited IRA</h2>
+
+<p>Consider David and Elena, a first-marriage couple in their late 60s with three adult children (Jordan, Priya, and Kai) and eight grandchildren aged 4 to 18. David (age 71) dies in March 2026, survived by Elena (age 68). David's largest asset is a $12,000,000 traditional IRA held at Vanguard. David's estate plan includes a well-drafted revocable trust that funds two separate QTIP trusts at his death using pecuniary formula clauses:</p>
+
+<ul>
+<li><strong>Marital QTIP Trust A ("the GST-exempt QTIP")</strong> — funded with a pecuniary amount equal to David's remaining GST exemption at death ($15 million per Notice 2025-67). Given David's other assets ($3M house, $2M taxable brokerage, $500K cash) totaling $5.5M outside the IRA, the QTIP-eligible IRA property is $12M, all of which falls within David's $15M exemption. Trust A is funded with the full $12M IRA.</li>
+<li><strong>Marital QTIP Trust B ("the GST-non-exempt QTIP")</strong> — funded with the balance of the QTIP-eligible property. In this fact pattern, Trust B is funded with the $2M taxable brokerage (not the residence, which is disposed of separately outside the QTIP structure).</li>
+</ul>
+
+<p>Elena is the life-income beneficiary of both trusts and receives annually the greater of trust-accounting income or actual IRA receipts (Rev. Rul. 2000-2). The eight grandchildren are the ultimate remainder beneficiaries of both trusts, per stirpes through the three children.</p>
+
+<h3>David's Form 706 election choices</h3>
+
+<p>David's executor faces three concurrent elections on David's Form 706:</p>
+
+<ol>
+<li><strong>§2056(b)(7) QTIP election.</strong> Elect QTIP treatment on both Trust A and Trust B. Marital deduction of $14M ($12M + $2M) claimed. Zero estate tax due (well below the $15M exemption after the $5.5M non-QTIP-eligible net estate at market value).</li>
+<li><strong>§2652(a)(3) reverse-QTIP election on Trust A only.</strong> Elect reverse-QTIP on Trust A. Allocate David's $15M GST exemption to Trust A: $12M produces a 0% inclusion ratio on Trust A. The remaining $3M of David's GST exemption is allocated to lifetime skip gifts or forfeited at his death (as David made no lifetime skip gifts, the $3M is effectively wasted). Do not make the reverse-QTIP election on Trust B — Elena will be the GST transferor for Trust B at her later death.</li>
+<li><strong>IRC §2010(c)(5) DSUE portability election.</strong> Elect portability to preserve David's unused estate exemption for Elena's later use. David used $0 of estate exemption at his death (marital deduction fully offset the QTIP-elected property). DSUE amount transferred to Elena is $15M − $5.5M (non-QTIP property offsetting his own exemption if not covered by marital deduction... actually the $5.5M non-QTIP passed under the will to Elena directly qualifying for marital deduction too). Effective DSUE = $15M.</li>
+</ol>
+
+<h3>The GST-planning outcome across scenarios</h3>
+
+<p>The value of the reverse-QTIP election on Trust A becomes visible at Elena's later death. Consider three scenarios based on how much of the IRA remains in Trust A at that point:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Scenario at Elena's later death</th><th>Trust A residual value</th><th>Trust B residual value</th><th>GST tax with reverse-QTIP on Trust A</th><th>GST tax without reverse-QTIP on Trust A</th></tr></thead>
+<tbody>
+<tr><td>Elena dies in year 3 post-David (2029)</td><td>~$10M (2 years of distributions)</td><td>$2.2M (reinvested)</td><td>$0 (Trust A inclusion ratio = 0)</td><td>$4.0M (40% × $10M − Elena's $15M exemption sheltering only Trust B + partial of A)</td></tr>
+<tr><td>Elena dies in year 8 post-David (2034)</td><td>~$3M (partial distributions + reinvestment)</td><td>$3M (compounded)</td><td>$0 (Trust A sheltered; Trust B within Elena's exemption)</td><td>$0-$1.2M (Elena's exemption may cover both if no other skip gifts)</td></tr>
+<tr><td>Elena dies in year 12 post-David (2038)</td><td>$0 IRA distributed; ~$5M reinvested proceeds</td><td>$3.5M</td><td>$0 (Trust A sheltered by pre-computed 0% inclusion ratio on the reinvested corpus)</td><td>$1.4M-$3.4M depending on Elena's lifetime skip-gift history</td></tr>
+</tbody>
+</table></div>
+
+<p>In every plausible scenario, the reverse-QTIP election on Trust A is worth material dollars. In the year-3 scenario (Elena's early death while much of the IRA is still in Trust A), the election is worth $4.0M. In the year-8 scenario, the election is worth $0-$1.2M (depending on Elena's own skip-gift history). In the year-12 scenario, the election is worth $1.4M-$3.4M.</p>
+
+<h3>Recommended alternative for this fact pattern</h3>
+
+<p>For David and Elena's fact pattern, the executor should:</p>
+
+<ol>
+<li>Make the §2056(b)(7) QTIP election on both Trust A and Trust B.</li>
+<li>Make the §2652(a)(3) reverse-QTIP election on Trust A only, allocating $12M of David's $15M GST exemption to Trust A (producing a 0% inclusion ratio).</li>
+<li>Make the DSUE portability election to preserve the $15M of David's unused estate exemption for Elena's later use.</li>
+<li>Coordinate with Vanguard as IRA custodian to ensure the IRA beneficiary designation names Trust A specifically (not Elena directly), that Trust A satisfies see-through requirements under Treas. Reg. §1.401(a)(9)-4, and that the trustee delivers the required documentation to Vanguard by October 31, 2027 (October 31 of the year following David's death).</li>
+<li>Set up a couple-level GST exemption tracking spreadsheet showing David's $15M initial exemption, $12M allocated to Trust A (leaving $3M unused at death, which is forfeited under §2632(e)), Elena's $15M exemption still fully available, and the DSUE $15M available to Elena for estate/gift purposes only.</li>
+</ol>
+
+<h2 id="checklist">Pre-election action checklist</h2>
+
+<div class="callout key">
+<h4>The 8-item pre-reverse-QTIP-election checklist for a decedent-QTIP-plus-inherited-IRA fact pattern</h4>
+<p>Complete each item before filing the deceased spouse's Form 706 for any fact pattern involving QTIP-eligible property with skip-person remaindermen. Retain the completed checklist and the estate-planning attorney's contemporaneous work notes for the statute of limitations plus a reasonable margin.</p>
+</div>
+
+<ol>
+<li><strong>Identify all QTIP-eligible property and its ultimate remainder beneficiaries.</strong> Review the deceased spouse's will, revocable trust, IRA beneficiary designations, life insurance beneficiary designations, and any other governing instruments to determine what property may be the subject of a §2056(b)(7) QTIP election and who takes the property when the surviving spouse dies. Flag any property with grandchild, great-grandchild, or unrelated-younger-person (below the surviving spouse's own generation) remaindermen — that is the property for which the reverse-QTIP election matters.</li>
+<li><strong>Compute the deceased spouse's remaining GST exemption at death.</strong> Start with the applicable $15M exemption for 2026 decedents (Notice 2025-67). Subtract all GST exemption allocated to lifetime skip gifts on prior Form 709 filings. Subtract any GST exemption allocated to non-QTIP trusts on the current Form 706. The residual is the amount available for allocation to the reverse-QTIP trust.</li>
+<li><strong>Confirm the multi-trust structure at the drafting level.</strong> If the estate plan uses a single QTIP trust for all QTIP-eligible property, note that the all-or-nothing rule of Treas. Reg. §26.2652-2(a) will force a binary choice on the reverse-QTIP election. If the plan uses two or more separate QTIP trusts (typically Trust A funded to the exemption amount and Trust B funded with the balance), the executor has flexibility to make the election on some trusts and not others. If the plan uses a single trust and the trust's value exceeds the deceased spouse's remaining exemption, consider whether pre-filing division of the trust is available under state law (some UTC states permit trustee-directed division without court approval; others require a court order).</li>
+<li><strong>Coordinate with the DSUE portability election.</strong> DSUE portability preserves the deceased spouse's estate exemption for the surviving spouse's use; reverse-QTIP preserves the deceased spouse's GST exemption for QTIP property. Both elections should be made on the same Form 706. Confirm that the Form 706 preparer has budgeted for the additional Schedule R-1 and Schedule R Part 2 work required for the reverse-QTIP election.</li>
+<li><strong>Confirm see-through trust compliance for any QTIP trust holding an IRA.</strong> The QTIP trust must satisfy the four requirements of Treas. Reg. §1.401(a)(9)-4 to be a see-through trust. The trustee must deliver the trust instrument or a certified summary to the IRA custodian by October 31 of the year following death. Failure to comply forces the IRA into the 5-year non-designated-beneficiary rule, accelerating the GST-planning timeline dramatically.</li>
+<li><strong>Model the expected trust corpus at multiple surviving-spouse-death scenarios.</strong> For a QTIP-held inherited IRA subject to the 10-year rule, the trust corpus at the surviving spouse's later death depends heavily on when she dies and how much she consumes. Model at least three scenarios: (a) surviving spouse dies within the 10-year window (much of the IRA still in trust), (b) surviving spouse dies shortly after the 10-year window (IRA fully distributed but reinvested proceeds still substantial), and (c) surviving spouse dies decades after the 10-year window (much of the reinvested proceeds consumed by lifetime expenses).</li>
+<li><strong>Execute the reverse-QTIP election on Schedule R-1 of the Form 706.</strong> The election is signaled by filing Schedule R-1 identifying the specific QTIP trust or property to which the election applies. Allocate the deceased spouse's GST exemption on Schedule R Part 2 in the amount computed to produce the desired inclusion ratio (typically 0%). File Form 706 within the nine-month deadline (or fifteen months with a §6081 extension).</li>
+<li><strong>Document the election decision in a GST-planning memorandum.</strong> Prepare a written memorandum documenting: (a) the identification of QTIP-eligible property and its remainder beneficiaries, (b) the deceased spouse's remaining GST exemption computation, (c) the choice to make (or decline) the reverse-QTIP election on each trust, (d) the allocation of GST exemption across trusts, (e) the resulting inclusion ratio for each trust, and (f) the coordination with the DSUE portability election. The memorandum becomes the practitioner's file record if the election is later challenged or if a surviving-spouse Form 706 review discovers a wasted exemption.</li>
+</ol>
+
+<h2 id="faq">Frequently asked questions about IRC §2652(a)(3) and inherited IRAs</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What is IRC §2652(a)(3) and why does it matter for a QTIP-held inherited IRA?</h3>
+<p>IRC §2652(a)(3) is a one-time election on the deceased spouse's Form 706 that treats the deceased spouse — not the surviving spouse — as the transferor of QTIP-elected property for federal GST tax purposes. Without the election, IRC §2652(a)(1) makes the surviving spouse the GST transferor because the QTIP property is included in her gross estate under IRC §2044 at her later death. The default rule wastes the deceased spouse's $15 million GST exemption entirely. For a QTIP-held inherited IRA with grandchild remaindermen, the reverse-QTIP election is often the difference between $0 and multiple millions of dollars in GST tax at the ultimate distribution.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does IRC §2652(a)(1) create the default-transferor trap?</h3>
+<p>IRC §2652(a)(1) defines the transferor for GST purposes as the individual most recently subject to estate or gift tax on the property. For QTIP property, the deceased spouse claimed a marital deduction under §2056(b)(7), so no estate tax was imposed on him. When the property is later included in the surviving spouse's gross estate under IRC §2044, she becomes the most-recently-taxed individual and therefore the default GST transferor. Only her $15M GST exemption applies — the deceased spouse's is wasted.</p>
+</div>
+
+<div class="faq-item">
+<h3>When and how is the reverse-QTIP election made?</h3>
+<p>The election is made on the deceased spouse's Form 706, filed nine months after death (or fifteen months with a §6081 extension). The mechanic uses Schedule R-1 to signal the election, Schedule R Part 2 to allocate the deceased spouse's GST exemption, and coordination with the §2056(b)(7) QTIP election on Schedule M. The election is irrevocable once made and cannot be revoked, modified, or partially undone on any subsequent return.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the all-or-nothing rule under Treas. Reg. §26.2652-2(a)?</h3>
+<p>The reverse-QTIP election must apply to ALL of the property in a single QTIP trust — the executor cannot elect reverse-QTIP treatment for part of a trust's property and default treatment for the balance. For a $12M trust and $10M of remaining GST exemption, the choice is binary: full reverse-QTIP with a partial inclusion ratio (0.17), or full default treatment with the surviving spouse as later transferor. The rule is administrative-simplicity motivated and forces multi-trust drafting for high-net-worth planning.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the multi-trust drafting workaround?</h3>
+<p>Split the QTIP-eligible property into two (or more) separate QTIP trusts at drafting — typically Trust A funded to the deceased spouse's remaining GST exemption and Trust B funded with the balance. The executor makes the reverse-QTIP election on Trust A (producing a 0% inclusion ratio) and default treatment on Trust B (surviving spouse becomes later GST transferor). Both spouses' $15M exemptions apply — doubling effective GST capacity from $15M to $30M for the 2026 baseline. Multi-trust drafting is standard for high-net-worth couples above $15M-per-person.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does the reverse-QTIP election interact with the DSUE portability election?</h3>
+<p>DSUE portability under §2010(c)(5) preserves the deceased spouse's ESTATE tax exemption for the surviving spouse's later use on non-QTIP property. Reverse-QTIP under §2652(a)(3) preserves the deceased spouse's GST exemption for QTIP property. The two elections fill different gaps — the GST exemption is NOT portable under §2631. Make BOTH elections on the deceased spouse's Form 706 for a couple with grandchild remaindermen.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does the reverse-QTIP election apply to a QTIP-held inherited IRA?</h3>
+<p>Under the SECURE Act 10-year rule (IRC §401(a)(9)(H)), the entire inherited IRA must be distributed from the QTIP trust within ten years of the account owner's death. If the surviving spouse dies with residual IRA proceeds in the trust — either undistributed IRA balance or reinvested proceeds — the transfer to grandchild remaindermen is a taxable termination under §2612(a) at 40% GST rate. With the reverse-QTIP election, the deceased spouse's $15M GST exemption applies. Without it, only the surviving spouse's remaining exemption is available.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can the reverse-QTIP election be made after the Form 706 due date?</h3>
+<p>Only through §9100 relief under a private letter ruling. Treas. Reg. §§301.9100-1 through 301.9100-3 provide a framework for granting extended time to make an inadvertently omitted election, but the process is expensive ($38,000 user fee per Rev. Proc. 2025-1) and slow (six to nine months). Rev. Proc. 2022-32's five-year automatic-relief window for DSUE portability does NOT extend to the reverse-QTIP election. File on time.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does the reverse-QTIP election interact with state GST tax?</h3>
+<p>Connecticut is the primary state with a separate state-level GST tax (Conn. Gen. Stat. §12-644), and the Connecticut estate tax return should mirror the federal reverse-QTIP election. Most decoupled-estate-tax states (NY, IL, MA, OR, WA, MD, DC, VT, RI, MN, ME, HI) impose state estate tax but do not impose a separate state GST tax, so no state parallel election is required. Practitioners representing Connecticut decedents should confirm the CT-706 mechanics against the DRS's current instructions.</p>
+</div>
+
+<div class="faq-item">
+<h3>What are the most common reverse-QTIP election mistakes?</h3>
+<p>The most common: (1) failing to make the election at all when grandchild remaindermen are named — an unforced error wasting $15M in GST exemption; (2) making the election on a single mixed QTIP trust rather than using multi-trust drafting; (3) failing to coordinate with the surviving spouse's own GST planning; (4) missing the Form 706 deadline; (5) treating the election as a technical checkbox rather than a strategic drafting decision; and (6) for a QTIP-held IRA, failing to model the SECURE Act 10-year rule acceleration against the exemption capacity.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All statutory citations in this article are current as of August 2026. The IRC §2652 analysis draws on the Internal Revenue Code as amended through the One Big Beautiful Bill Act (Public Law 119-21, July 4, 2025), Treasury Regulations §§26.2652-1 and 26.2652-2 as amended through August 2026, and the controlling authorities on the reverse-QTIP election (Tax Reform Act of 1986 Pub. L. 99-514, Instructions for Form 706, and the substantial body of private letter rulings granting §9100 relief for late reverse-QTIP elections). The 2026 GST exemption figure ($15,000,000 unified with the estate-tax exemption) is drawn from IRS Notice 2025-67 and Rev. Proc. 2025-32. The SECURE Act 10-year rule analysis references IRC §401(a)(9)(H) as enacted in Pub. L. 116-94 §401 (SECURE Act, December 20, 2019) and the Final Regulations at TD 10001 (89 Fed. Reg. 58886, July 19, 2024). The QTIP-plus-IRA mechanic references Rev. Rul. 2000-2 and IRC §2056(b)(7) as walked in the companion 2026-08-20 CalcLeap piece. The §2519 gift-treatment interaction references the 2026-08-21 CalcLeap §2519 piece. The §2518 qualified-disclaimer interaction references the 2026-08-22 CalcLeap §2518 piece. The Connecticut state-GST analysis references Conn. Gen. Stat. §12-644 and the Connecticut Department of Revenue Services' current CT-706 instructions. The case-study calculations use conservative 5-percent nominal returns, 2026 IRS Uniform Lifetime Table factors, and mid-range inflation assumptions for the OBBBA-2025 exemption trajectory. This article is educational; readers implementing any reverse-QTIP election with material GST-planning exposure should engage a state-licensed estate-planning attorney experienced in §2652(a)(3) mechanics and a Form 706 preparer with substantial GST-schedule experience.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Internal Revenue Code §§2601-2664 — Chapter 13 Generation-Skipping Transfer Tax — full statutory text as amended through the One Big Beautiful Bill Act (Public Law 119-21, July 4, 2025). <a href="https://www.law.cornell.edu/uscode/text/26/subtitle-B/chapter-13" rel="nofollow noopener">law.cornell.edu/uscode/text/26/subtitle-B/chapter-13</a></li>
+<li id="source-2">Internal Revenue Service, Notice 2025-67 — 2026 inflation adjustments for estate, gift, and generation-skipping transfer tax purposes, including the $15,000,000 unified exemption for 2026 decedents, donors, and GST transferors. <a href="https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2026" rel="nofollow noopener">irs.gov/newsroom/2026-inflation-adjustments</a></li>
+<li id="source-3">Internal Revenue Code §2652 — Other definitions — including §2652(a)(1) general transferor rule, §2652(a)(2) gift-splitting rule, and §2652(a)(3) reverse-QTIP election. <a href="https://www.law.cornell.edu/uscode/text/26/2652" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2652</a></li>
+<li id="source-4">CalcLeap Editorial, IRC §2056(b)(7) QTIP Marital Deduction and Inherited IRAs in 2026 (August 20, 2026). <a href="/blog/irc-2056-b-7-qtip-inherited-ira-2026.html">calcleap.com/blog/irc-2056-b-7-qtip-inherited-ira-2026.html</a></li>
+<li id="source-5">Internal Revenue Code §2612 — Taxable termination; taxable distribution; direct skip — the three types of transfers subject to GST tax under §2601. <a href="https://www.law.cornell.edu/uscode/text/26/2612" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2612</a></li>
+<li id="source-6">Treasury Regulation §26.2652-2 — Special election for qualified terminable interest property — the regulatory implementation of the §2652(a)(3) reverse-QTIP election, including the all-or-nothing rule, the irrevocability rule, and the coordinating rules with the §2056(b)(7) QTIP election. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-B/part-26/section-26.2652-2" rel="nofollow noopener">ecfr.gov/title-26/section-26.2652-2</a></li>
+<li id="source-7">Tax Reform Act of 1986, Public Law 99-514, §1431, 100 Stat. 2085, 2717 (1986) — enacted the modern IRC Chapter 13 GST tax including §2652(a)(3) reverse-QTIP election. Legislative history at H.R. Rep. No. 99-841 (Conf. Rep.) (1986). <a href="https://www.congress.gov/bill/99th-congress/house-bill/3838" rel="nofollow noopener">congress.gov/bill/99th-congress/house-bill/3838</a></li>
+<li id="source-8">Internal Revenue Code §6081 — Extension of time for filing returns — the six-month automatic extension available for Form 706 filings via timely-filed Form 4768, extending the Form 706 deadline from nine months to fifteen months after the decedent's death. <a href="https://www.law.cornell.edu/uscode/text/26/6081" rel="nofollow noopener">law.cornell.edu/uscode/text/26/6081</a></li>
+<li id="source-9">Internal Revenue Service, Instructions for Form 706 (Rev. September 2024) — updated instructions for 2026 filings including Schedule R (Generation-Skipping Transfer Tax) and Schedule R-1 (Direct Skips From a Trust Payment Voucher) mechanics for the reverse-QTIP election. <a href="https://www.irs.gov/pub/irs-pdf/i706.pdf" rel="nofollow noopener">irs.gov/pub/irs-pdf/i706.pdf</a></li>
+<li id="source-10">Treasury Regulation §26.2654-1 — Certain trusts treated as separate trusts — the regulatory framework under which a single funding trust may be divided into two or more separate trusts for GST purposes, supporting the multi-trust drafting workaround to the all-or-nothing rule of §26.2652-2(a). <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-B/part-26/section-26.2654-1" rel="nofollow noopener">ecfr.gov/title-26/section-26.2654-1</a></li>
+<li id="source-11">Internal Revenue Code §2010(c) — Applicable credit amount; deceased spousal unused exclusion — the DSUE portability election that preserves the deceased spouse's unused estate and gift tax exemption for the surviving spouse. <a href="https://www.law.cornell.edu/uscode/text/26/2010" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2010</a></li>
+<li id="source-12">Internal Revenue Code §2631 — GST exemption — provides the $15,000,000 (2026) lifetime GST exemption per transferor; note the absence of a portability provision comparable to §2010(c)(5) for the estate-tax exemption. <a href="https://www.law.cornell.edu/uscode/text/26/2631" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2631</a></li>
+<li id="source-13">Internal Revenue Service, Revenue Procedure 2022-32 — automatic extension for DSUE portability elections up to five years after decedent's death; explicitly limited to §2010(c)(5)(A) portability and does not extend to §2652(a)(3) reverse-QTIP or other Form 706 elections. <a href="https://www.irs.gov/pub/irs-drop/rp-22-32.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rp-22-32.pdf</a></li>
+<li id="source-14">Internal Revenue Service, TD 10001 — Required Minimum Distributions, Final Regulations, 89 Fed. Reg. 58886 (July 19, 2024) — implements the SECURE Act §401 10-year rule and SECURE 2.0 Act §§107, 202, 302, 325, 327 for post-2019 designated-beneficiary distributions, including QTIP-trust-held IRAs. <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" rel="nofollow noopener">federalregister.gov/2024-14542</a></li>
+<li id="source-15">Internal Revenue Service, Rev. Rul. 2000-2, 2000-1 C.B. 305 — the controlling ruling on the IRA-plus-QTIP mechanic, including the "greater of" rule requiring the trustee to distribute annually to the surviving spouse the greater of trust-accounting income from the IRA or the actual IRA receipt. <a href="https://www.irs.gov/pub/irs-drop/rr-00-2.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rr-00-2.pdf</a></li>
+<li id="source-16">Treasury Regulation §1.401(a)(9)-4 — Determination of the designated beneficiary — the see-through-trust requirements a QTIP trust must satisfy to be treated as a designated beneficiary of a retirement account under the SECURE Act 10-year rule. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFRe1c15b7c8b6b7d0/section-1.401(a)(9)-4" rel="nofollow noopener">ecfr.gov/title-26/section-1.401(a)(9)-4</a></li>
+<li id="source-17">Connecticut General Statutes §12-644 — Connecticut generation-skipping transfer tax — imposes a state-level GST tax parallel to the federal GST tax with an exemption tracked to the federal exemption. <a href="https://www.cga.ct.gov/current/pub/chap_228c.htm" rel="nofollow noopener">cga.ct.gov/current/pub/chap_228c.htm</a></li>
+<li id="source-18">Internal Revenue Code §2642 — Inclusion ratio — the formula for computing the fraction of a transfer subject to GST tax based on the ratio of GST exemption allocated to the value of the property transferred. <a href="https://www.law.cornell.edu/uscode/text/26/2642" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2642</a></li>
+<li id="source-19">CalcLeap Editorial, IRC §2519 Year-10 Gift-Treatment Mechanics for QTIP-Held Inherited IRAs in 2026 (August 21, 2026). <a href="/blog/irc-2519-year-10-gift-treatment-inherited-ira-2026.html">calcleap.com/blog/irc-2519-year-10-gift-treatment-inherited-ira-2026.html</a></li>
+<li id="source-20">CalcLeap Editorial, IRC §2518 Qualified Disclaimer for QTIP-Held Inherited IRAs in 2026 (August 22, 2026). <a href="/blog/irc-2518-qualified-disclaimer-inherited-ira-2026.html">calcleap.com/blog/irc-2518-qualified-disclaimer-inherited-ira-2026.html</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized legal or financial advice. The IRC §2652(a)(3) reverse-QTIP election is a jurisdiction-specific federal-tax act with substantial procedural and strategic complexity. The all-or-nothing rule and the irrevocability rule of Treas. Reg. §26.2652-2 make the front-end drafting decision (single QTIP trust vs multi-trust structure) as important as the Form 706 election itself. Consult a state-licensed estate-planning attorney experienced in GST-tax mechanics and a Form 706 preparer with substantial Schedule R and Schedule R-1 experience before making any election. Any QTIP trust with grandchild remaindermen and material trust value ($5M+) warrants explicit reverse-QTIP analysis; over $20M warrants consideration of multi-trust restructuring before the deceased spouse's death. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Results may not reflect your actual situation. State statutes, IRC provisions, Treasury Regulations, and revenue rulings change; always verify current law with primary sources and consult a qualified estate-planning attorney and tax advisor before making decisions. CalcLeap is not a law firm and does not provide legal advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#statutory-framework">IRC §2652 statutory framework</a></li>
+        <li><a href="#election-mechanic">Election mechanic on Form 706</a></li>
+        <li><a href="#all-or-nothing">The all-or-nothing rule</a></li>
+        <li><a href="#multi-trust">The multi-trust drafting workaround</a></li>
+        <li><a href="#dsue-interaction">Coordination with DSUE portability</a></li>
+        <li><a href="#ira-application">Application to a QTIP-held inherited IRA</a></li>
+        <li><a href="#state-gst">State-law GST considerations</a></li>
+        <li><a href="#six-mistakes">Six recurring mistakes</a></li>
+        <li><a href="#worked-example">$12M inherited-IRA case study</a></li>
+        <li><a href="#checklist">Pre-election action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/estate-tax-calculator.html">Estate Tax Calculator</a>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/traditional-ira-calculator.html">Traditional IRA Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth IRA Conversion Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/irc-2518-qualified-disclaimer-inherited-ira-2026.html">IRC §2518 Qualified Disclaimer for QTIP Inherited IRAs</a>
+      <a href="/blog/irc-2519-year-10-gift-treatment-inherited-ira-2026.html">IRC §2519 Year-10 Gift Treatment for QTIP Inherited IRAs</a>
+      <a href="/blog/irc-2056-b-7-qtip-inherited-ira-2026.html">IRC §2056(b)(7) QTIP Marital Deduction</a>
+      <a href="/blog/state-unitrust-conversion-inherited-ira-2026.html">State Unitrust Conversion (§106)</a>
+      <a href="/blog/1997-upia-section-104-power-to-adjust-inherited-ira-2026.html">1997 UPIA §104 Power to Adjust</a>
+      <a href="/blog/spousal-ira-rollover-vs-inherited-ira-2026.html">Spousal IRA Rollover vs Inherited IRA</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
