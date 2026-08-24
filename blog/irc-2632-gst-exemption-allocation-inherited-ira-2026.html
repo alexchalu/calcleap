@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRC §2632 GST Exemption Allocation for QTIP-Held Inherited IRAs in 2026: Automatic Allocation, the §2632(c) Indirect-Skip Trap, Late Allocation, and Formula-Allocation Drafting | CalcLeap</title>
+<meta name="description" content="IRC §2632 governs how a transferor's $15,000,000 lifetime GST exemption is allocated to actual transfers — automatically for direct skips under §2632(b), automatically for indirect skips to GST trusts under §2632(c), late-allocated by Form 709 under §2642(b)(3), and formula-allocated by defined-value clauses at drafting. Get the allocation right, and grandchild-remainderman distributions from a QTIP-held inherited IRA are 100% sheltered from the 40% GST tax. Miss the §2632(c) indirect-skip automatic allocation, and years of trust growth end up in a 0.5-inclusion-ratio trust that pays 20% effective GST on every distribution. This piece walks the §2632(a)-(e) statutory structure, the Form 709 Schedule D-1 mechanic, the §2632(c)(3) GST-trust definition, the §2632(c)(5) election-out and opt-in framework, the §2632(d) retroactive allocation for unnatural order of deaths, late allocation under §9100 relief, formula-allocation drafting, and a worked $8M inherited-IRA case study.">
+<link rel="canonical" href="https://calcleap.com/blog/irc-2632-gst-exemption-allocation-inherited-ira-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="IRC §2632 GST Exemption Allocation for QTIP-Held Inherited IRAs in 2026 — CalcLeap">
+<meta property="og:description" content="The federal-tax deep-dive on IRC §2632 GST exemption allocation as applied to QTIP-elected property that includes an inherited IRA — automatic allocation rules under §2632(b) and §2632(c), the indirect-skip trap, late allocation under §2642(b)(3), formula-allocation drafting, and a worked $8M inherited-IRA case study.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/irc-2632-gst-exemption-allocation-inherited-ira-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-08-24T00:00:00Z">
+<meta property="article:modified_time" content="2026-08-24T00:00:00Z">
+<meta property="article:section" content="Retirement Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IRC §2632 GST Exemption Allocation for QTIP-Held Inherited IRAs in 2026",
+  "description": "A deep-dive on IRC §2632 GST exemption allocation as applied to QTIP-elected property that includes an inherited IRA — automatic allocation for direct skips under §2632(b), automatic allocation for indirect skips to GST trusts under §2632(c), the election-out and opt-in framework of §2632(c)(5), the §2632(d) retroactive-allocation rule for unnatural order of deaths, late allocation under §2642(b)(3), formula-allocation drafting via defined-value clauses, coordination with the reverse-QTIP election under §2652(a)(3), and a worked $8M inherited-IRA case study.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-08-24T00:00:00Z",
+  "dateModified": "2026-08-24T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/irc-2632-gst-exemption-allocation-inherited-ira-2026.html"
+  },
+  "articleSection": "Retirement Planning",
+  "wordCount": 7400,
+  "about": [
+    {"@type": "Thing", "name": "IRC Section 2632"},
+    {"@type": "Thing", "name": "GST exemption allocation"},
+    {"@type": "Thing", "name": "Automatic allocation"},
+    {"@type": "Thing", "name": "Indirect skip"},
+    {"@type": "Thing", "name": "GST trust"},
+    {"@type": "Thing", "name": "Late allocation"},
+    {"@type": "Thing", "name": "Formula allocation"},
+    {"@type": "Thing", "name": "Inherited IRA"},
+    {"@type": "Thing", "name": "Form 709 Schedule D-1"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "IRC §2632 GST Exemption Allocation for QTIP-Held Inherited IRAs"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is IRC §2632 and why does it matter for a QTIP-held inherited IRA?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2632 governs how a transferor's lifetime GST exemption — $15,000,000 per person for 2026 under IRS Notice 2025-67 — is allocated to actual transfers. §2632(b) automatically allocates exemption to lifetime direct skips (transfers to grandchildren) up to the transfer's value. §2632(c) automatically allocates exemption to indirect skips to GST trusts unless the transferor elects out. §2632(e) allocates any exemption unused at death first to direct skips at death and then pro rata to trusts of which the decedent is the transferor. For a QTIP-held inherited IRA whose remainder passes to grandchildren, the §2632 allocation mechanics determine whether the deceased spouse's $15M exemption produces a 0% inclusion ratio (grandchildren receive the trust remainder GST-free) or a partial or full inclusion ratio (grandchildren pay up to 40% GST on the remainder). The §2632(c) automatic allocation to indirect skips is the specific mechanic most estates rely on without a Form 709 late-allocation filing."}},
+    {"@type": "Question", "name": "How does automatic allocation under §2632(c) work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2632(c), enacted in the Economic Growth and Tax Relief Reconciliation Act of 2001 (EGTRRA) §561, extends automatic GST exemption allocation from direct skips to 'indirect skips' — transfers to a 'GST trust' as defined in §2632(c)(3). When a transferor makes a lifetime gift to a trust that meets the §2632(c)(3) GST-trust definition, the exemption is automatically allocated to the transfer up to the transfer value, producing a 0% inclusion ratio. The transferor may elect out under §2632(c)(5)(A)(i) by attaching a statement to Form 709, or elect INTO automatic allocation for a trust that does not qualify as a GST trust under §2632(c)(5)(A)(ii). The election-out or opt-in is trust-by-trust and (with limited exceptions) is irrevocable. The 2001 statute solved the pre-EGTRRA trap where transferors routinely failed to file Form 709 to allocate exemption to gifts to complex trusts, resulting in unsheltered trusts subject to full GST tax at later grandchild distributions."}},
+    {"@type": "Question", "name": "What is a 'GST trust' under §2632(c)(3)?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2632(c)(3)(B) defines a 'GST trust' as any trust that could have a generation-skipping transfer with respect to the transferor unless the trust fits one of six specific exclusions: (i) more than 25% of trust corpus must be distributed to non-skip persons before age 46 or die by age 46, (ii) more than 25% must be distributed within 10 years of death of a non-skip person, (iii) if any non-skip person dies immediately after the transfer their probate estate would include more than 25% of corpus, (iv) the trust is a charitable lead annuity trust or charitable remainder trust with a non-skip income beneficiary, (v) it is a charitable lead unitrust with a non-skip income beneficiary, or (vi) it is described in §2642(f)(2). The definition is broad — most modern discretionary dynasty trusts, QTIP trusts, credit-shelter trusts, and see-through IRA trusts with grandchild remaindermen qualify as GST trusts unless a specific §2632(c)(3)(B) exclusion applies. The exclusion analysis is fact-specific; practitioners should never assume a trust does or does not qualify without a written §2632(c)(3) memorandum."}},
+    {"@type": "Question", "name": "How does the §2632(c)(5) election-out framework work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2632(c)(5)(A)(i) permits the transferor to elect out of automatic allocation for a specific indirect-skip transfer or for all future transfers to a specified GST trust. The election is made by attaching a statement to Form 709 filed for the year of transfer, identifying the trust and the transfer or all-future-transfers scope. §2632(c)(5)(A)(ii) permits the transferor to elect INTO automatic allocation for a trust that does not otherwise qualify as a GST trust, which is common practice for backup or contingent GST trusts and for trusts whose GST-trust status is uncertain under §2632(c)(3)(B). The election is generally irrevocable, though Treas. Reg. §26.2632-1(b)(4)(iii) permits revocation of a §2632(c)(5)(A)(ii) opt-in in limited circumstances. The election-out on Form 709 is required whenever the transferor wants to preserve GST exemption for later use rather than have it automatically consumed by a current indirect-skip transfer."}},
+    {"@type": "Question", "name": "What is late allocation of GST exemption under §2642(b)(3)?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2642(b)(3) permits a transferor to allocate GST exemption to a prior transfer at a later date, typically by filing a Form 709 for a later gift-tax year with an accompanying statement. Late allocation is measured at the value of the trust corpus at the time of the late allocation — not at the time of the original transfer. This is generally unfavorable when the trust has appreciated (more exemption is consumed to produce a 0% inclusion ratio) and neutral or favorable when the trust has depreciated. Late allocation is essential when the transferor forgot to allocate exemption at the time of transfer and the §2632(c) automatic allocation did not apply (either because the trust was not a GST trust, or because the transferor elected out). Late allocation under §2642(b)(3) is a filing right — not a §9100 relief request — and does not require IRS approval. Late allocation past the transferor's death is handled under §2632(e) (allocation at death of remaining exemption)."}},
+    {"@type": "Question", "name": "What is formula allocation and when is it used?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Formula allocation is a defined-value drafting technique that allocates a specific dollar amount, a specific fraction, or a specific inclusion-ratio target of GST exemption to a transfer without naming a fixed dollar amount. Common formulations include (a) 'allocate GST exemption in the amount necessary to produce a 0% inclusion ratio on the trust', (b) 'allocate GST exemption equal to the transferor's remaining GST exemption at the time of transfer', or (c) 'allocate GST exemption sufficient to produce an inclusion ratio of X% and no more'. Formula allocation is used when the transferor wants a specific GST outcome regardless of how the transferred property is later valued for gift-tax purposes — a Wandry-style protection against IRS audit revaluation. The Tax Court has generally accepted formula allocations as valid, though the leading cases (Wandry v. Commissioner T.C. Memo. 2012-88, McCord v. Commissioner 461 F.3d 614) were gift-tax defined-value cases whose GST-application has been confirmed in subsequent PLRs but not in a direct Tax Court GST case."}},
+    {"@type": "Question", "name": "How does §2632(d) handle unnatural order of deaths?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2632(d), enacted in EGTRRA §561, permits a transferor to retroactively allocate GST exemption to a prior transfer if a non-skip person (typically the transferor's child) dies before the transferor. The retroactive allocation is measured at the value of the property at the time of the original transfer, not at the value at the child's death — a significant advantage when the trust has appreciated. The mechanic is: within 90 days after the non-skip person's death, the transferor files a Form 709 with a statement identifying the trust, the deceased non-skip person, and the retroactive allocation. §2632(d) is a narrow but valuable relief provision for the specific case where a transferor set up a trust for a child's benefit assuming the child would survive to consume the trust, but the child dies prematurely leaving grandchildren as remainder beneficiaries and creating GST exposure the transferor did not anticipate at drafting."}},
+    {"@type": "Question", "name": "How does §2632 interact with the reverse-QTIP election under §2652(a)(3)?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The reverse-QTIP election under §2652(a)(3) treats the deceased spouse as the transferor of QTIP-elected property for GST purposes. Once the reverse-QTIP election is made on the deceased spouse's Form 706, the deceased spouse's GST exemption is allocated to the QTIP trust under §2632 mechanics on the same Form 706 (specifically Schedule R Part 2). The §2632(c) automatic allocation mechanism does not typically apply at the Form 706 stage — the executor makes affirmative allocation decisions on Schedule R. However, §2632(e) automatic allocation applies to any GST exemption remaining unused at the deceased spouse's death: the exemption is allocated first to direct skips at death (typically a §2612(c) direct skip via a specific bequest to grandchildren), then pro rata to trusts of which the decedent is the transferor including QTIP trusts subject to a valid reverse-QTIP election. A well-drafted Form 706 makes both the reverse-QTIP election and an affirmative §2632 exemption allocation on Schedule R to avoid the §2632(e) pro-rata default."}},
+    {"@type": "Question", "name": "Can I use §9100 relief to fix a missed §2632 allocation?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes for certain §2632 elections, and there is also a specific §2642(g)(1) relief statute enacted in the Pension Protection Act of 2006. §2642(g)(1) directs Treasury to prescribe regulations granting extensions of time to make GST exemption allocations, GST-trust elections, election-outs, and other GST-related elections when the taxpayer's failure was due to reasonable cause. Rev. Proc. 2004-46 provides a simplified relief procedure for late GST exemption allocations when the value of the trust at the time of transfer plus subsequent additions did not exceed the transferor's remaining GST exemption. Rev. Proc. 2004-47 provides simplified relief for late allocation to certain lifetime transfers where the transferor made no other transfers requiring GST allocation. For missed elections not covered by the simplified procedures, §9100 relief through a private letter ruling is available at a substantial user fee ($38,000 for user-fee category rulings under Rev. Proc. 2025-1) and typical six-to-nine-month processing. The prudent practice is to catch allocation omissions on the next Form 709 and use late allocation under §2642(b)(3) rather than relying on §9100 relief."}},
+    {"@type": "Question", "name": "What are the most common §2632 allocation mistakes?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The most common: (1) failing to allocate exemption at the time of a lifetime transfer to a trust that does not qualify as a §2632(c)(3) GST trust — the exemption is not automatically allocated and the trust ends up unsheltered; (2) failing to elect out of automatic allocation under §2632(c)(5)(A)(i) when the transferor wants to preserve exemption for later use, resulting in exemption being consumed at low current value; (3) making the §2632(c)(5)(A)(ii) opt-in election on a trust with mixed skip and non-skip beneficiaries without modeling the inclusion-ratio consequences; (4) missing the §2632(d) 90-day retroactive-allocation window after unnatural order of deaths; (5) late-allocating exemption under §2642(b)(3) at an unfavorable appreciation valuation date rather than allocating at the time of the original transfer; (6) failing to coordinate the §2632 allocation with the §2652(a)(3) reverse-QTIP election on the deceased spouse's Form 706; and (7) for a QTIP-held inherited IRA, failing to allocate exemption to the QTIP trust in an amount matched to the modeled trust corpus at the surviving spouse's expected death rather than to the IRA face value at the deceased spouse's death."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:680px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.15rem;color:var(--text);box-shadow:var(--shadow)}
+
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>IRC §2632 GST Exemption Allocation for QTIP-Held Inherited IRAs
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement Planning · Updated August 24, 2026</span>
+  <h1 id="article-start">IRC §2632 GST Exemption Allocation for QTIP-Held Inherited IRAs in 2026: Automatic Allocation, the §2632(c) Indirect-Skip Trap, Late Allocation, and Formula-Allocation Drafting</h1>
+  <p class="deck">Yesterday's IRC §2652(a)(3) reverse-QTIP election piece established the transferor-identity mechanic that lets a deceased spouse's $15 million GST exemption shelter QTIP-elected property. Today's piece walks the second half of the mechanic — the allocation itself. IRC §2632 governs how a transferor's lifetime GST exemption is allocated to actual transfers: automatically for direct skips under §2632(b), automatically for indirect skips to §2632(c)(3) "GST trusts", by election-out or opt-in under §2632(c)(5), late-allocated under §2642(b)(3), retroactively allocated under §2632(d) for unnatural order of deaths, and defaulted at death under §2632(e). Get the allocation right and grandchild-remainderman distributions from a QTIP-held inherited IRA are 100% sheltered from the 40% GST tax. Get it wrong — miss a §2632(c) automatic-allocation election-out, late-allocate at an inflated appreciation date, or fail to allocate on Schedule R of the deceased spouse's Form 706 — and years of trust growth end up in a partial-inclusion-ratio trust that pays a permanent GST toll on every distribution. This piece walks §2632(a)-(e) end to end, the Form 709 Schedule D-1 mechanic, late allocation, formula-allocation drafting, coordination with §2652(a)(3), the specific application to a QTIP-held inherited IRA under the SECURE Act 10-year rule, six recurring failure modes, and a worked $8M inherited-IRA case study.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published August 24, 2026</span>
+    <span class="dot"></span>
+    <span>27 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>Every generation-skipping transfer under IRC §2601 is taxed at the flat 40 percent estate-tax rate (per IRC §2001(c)) multiplied by the trust's "inclusion ratio" — a fraction between 0 and 1 that represents the portion of the trust that has not been sheltered by the transferor's GST exemption.<sup><a href="#source-1">[1]</a></sup> The inclusion ratio is fixed the moment GST exemption is allocated to the trust, and (with narrow exceptions for late allocation and retroactive allocation) is not adjustable afterward. Get the allocation right and every grandchild distribution from the trust flows out at a 0 percent inclusion ratio — zero GST tax, forever. Get it wrong and every distribution flows out at a partial-inclusion-ratio toll of up to 40 percent, forever.</p>
+
+<p>The stakes for a QTIP-held inherited IRA are large. A $10 million QTIP trust with a 0.25 inclusion ratio (allocation insufficient by 25 percent) pays a 10 percent effective GST rate on every skip-transfer for the rest of the trust's life — potentially 50+ years of distributions to grandchildren and great-grandchildren. On $10 million of ultimate remainder, that is $1 million of avoidable GST tax. The math is worse in the reverse direction: a transferor who fails to elect out of §2632(c) automatic allocation on an unwanted indirect-skip transfer consumes GST exemption at the current low value and has less exemption available for later, more valuable transfers.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>IRC §2632 is the statute that ties every actual dollar of GST exemption to every actual dollar of transferred property. This piece walks §2632 end to end as applied to a QTIP-held inherited IRA — the eighth piece in the retirement-inheritance sub-cluster's practitioner-toolkit arc closing the QTIP-lifecycle loop opened by the August 20 §2056(b)(7) piece, extended by the August 21 §2519, August 22 §2518, and August 23 §2652(a)(3) pieces.<sup><a href="#source-3">[3]</a></sup></p>
+
+<a class="cta-calc" href="/calc/estate-tax-calculator.html">
+  <span class="ic">📜</span>
+  <div>
+    <h4>Model GST exemption allocation under the $15M OBBBA baseline</h4>
+    <p>Compare (a) §2632(c) automatic allocation to a GST trust, (b) affirmative Form 709 allocation, and (c) late allocation under §2642(b)(3) at an appreciated valuation date.</p>
+  </div>
+  <span class="go">Open →</span>
+</a>
+
+<h2 id="statutory-framework">The IRC §2632 statutory framework</h2>
+
+<p>IRC §2632 was enacted as part of the modern GST tax in the Tax Reform Act of 1986 (Pub. L. 99-514 §1431) and substantially amended by the Economic Growth and Tax Relief Reconciliation Act of 2001 (Pub. L. 107-16 §561) and again by the Pension Protection Act of 2006 (Pub. L. 109-280 §1408).<sup><a href="#source-4">[4]</a></sup> The statute has five operative subsections, each addressing a different allocation situation:</p>
+
+<ol>
+<li><strong>§2632(a) — Time and manner of allocation.</strong> A transferor may allocate GST exemption to any property with respect to which the transferor is the transferor. Allocation is made on Form 709 (for lifetime transfers) or Form 706 (for transfers at death). Once made, allocation is irrevocable except as provided in §2642(b) for late allocation and §2632(d) for retroactive allocation.</li>
+<li><strong>§2632(b) — Deemed allocation to certain lifetime direct skips.</strong> If a transferor makes a lifetime direct skip (a transfer to a skip person — a grandchild or a trust exclusively for the benefit of skip persons) during the transferor's lifetime, GST exemption is automatically allocated to the transfer up to the transfer's value unless the transferor elects out on Form 709.</li>
+<li><strong>§2632(c) — Deemed allocation to certain lifetime transfers to GST trusts.</strong> Enacted in 2001, this subsection extends automatic allocation to "indirect skips" — lifetime transfers to a "GST trust" as defined in §2632(c)(3). The exemption is automatically allocated to the transfer up to the transfer's value unless the transferor elects out under §2632(c)(5)(A)(i). §2632(c)(5)(A)(ii) permits election INTO automatic allocation for a trust that does not qualify as a §2632(c)(3) GST trust.</li>
+<li><strong>§2632(d) — Retroactive allocation to allocated GST-transfer property.</strong> Enacted in 2001, this subsection permits a transferor to retroactively allocate exemption to a prior transfer if a non-skip person dies before the transferor. The retroactive allocation is measured at the value of the property at the time of the original transfer, not at the time of the non-skip person's death.</li>
+<li><strong>§2632(e) — Allocation of unused GST exemption.</strong> Any GST exemption unused at the transferor's death is automatically allocated first to lifetime direct skips at death (typically bequests to skip persons in the will) and then pro rata to trusts of which the decedent is the transferor.</li>
+</ol>
+
+<p>Treasury Regulation §26.2632-1 is the primary regulatory guidance interpreting these five subsections. The regulation walks the timing rules, the election-out and opt-in mechanics, the fiscal-year-adjustment rules for calendar-year transferors, and the coordination rules with the §2642(b) late-allocation mechanic.<sup><a href="#source-5">[5]</a></sup></p>
+
+<h3>The inclusion ratio formula that ties allocation to tax</h3>
+
+<p>Every GST allocation decision reduces to a single formula from IRC §2642(a):</p>
+
+<div class="formula">Inclusion ratio = 1 − (GST exemption allocated ÷ Value of property transferred)</div>
+
+<p>An allocation of exemption equal to the full transfer value produces an inclusion ratio of 0 — the trust is 100 percent GST-sheltered. An allocation of half the transfer value produces an inclusion ratio of 0.5 — every skip-transfer from the trust is taxed at 0.5 × 40% = 20% effective GST rate. An allocation of zero produces an inclusion ratio of 1 — every skip-transfer from the trust is taxed at the full 40% rate.<sup><a href="#source-6">[6]</a></sup></p>
+
+<p>The inclusion ratio is a permanent characteristic of the trust once fixed. Trust appreciation after the allocation date does not increase the inclusion ratio — a $5M trust sheltered by $5M of exemption to a 0 inclusion ratio at the time of transfer stays at 0 inclusion ratio even if it grows to $50M over the trust's life. Conversely, trust depreciation after the allocation date does not decrease the inclusion ratio — a $5M trust that was allocated only $2.5M of exemption to produce a 0.5 inclusion ratio stays at 0.5 even if it depreciates to $1M. This permanence is the specific reason correct allocation at the front end matters so much: the transferor cannot re-optimize the allocation later without a specific late-allocation mechanic.</p>
+
+<h2 id="direct-skips">§2632(b) automatic allocation to lifetime direct skips</h2>
+
+<p>The simplest §2632 mechanic is automatic allocation to lifetime direct skips under §2632(b). A "direct skip" is defined in IRC §2612(c) as a transfer of property to a "skip person" — a person two or more generations below the transferor (a grandchild, a great-grandchild, or an unrelated person more than 37.5 years younger than the transferor per §2651(d)), or a trust of which every interest is held by skip persons.<sup><a href="#source-7">[7]</a></sup></p>
+
+<p>When a transferor makes a lifetime direct skip, §2632(b) automatically allocates GST exemption to the transfer in an amount equal to the transfer's value (up to the transferor's remaining exemption balance), producing a 0 inclusion ratio. No affirmative action is required — the exemption is deemed allocated by operation of statute. The transferor's remaining exemption balance is reduced by the deemed allocation.</p>
+
+<p>The transferor may elect OUT of §2632(b) automatic allocation by attaching a statement to Form 709 filed for the year of the direct skip. The election-out preserves exemption for later use. This election-out is used sparingly — the primary use case is a direct skip to a skip person whose own GST exemption is available to shelter the transfer (typically an adult grandchild with a taxable estate approaching the exemption threshold, where the grandchild would rather use his or her own exemption on the received property than force the grandparent's exemption to be consumed).</p>
+
+<h3>The predecessor-deceased-parent exception</h3>
+
+<p>IRC §2651(e) — enacted in the 1986 Act and expanded in EGTRRA 2001 — provides that a person whose parent (who is a lineal descendant of the transferor) is deceased at the time of the transfer is not a skip person for GST purposes. A grandchild whose parent (the transferor's child) has predeceased the transferor is treated as if the grandchild were the transferor's child rather than grandchild. A transfer to that grandchild is not a direct skip and does not trigger §2632(b) automatic allocation.<sup><a href="#source-7">[7]</a></sup></p>
+
+<p>This is a materially important carve-out for planning around the transferor's child's death. When a transferor's child dies leaving grandchildren, direct transfers to those grandchildren from the transferor after the child's death are not GST-taxed at all — no exemption is consumed, no inclusion ratio needs to be tracked. The mechanic can convert what would have been GST-tax-costly planning into GST-tax-free planning without any allocation action.</p>
+
+<h2 id="indirect-skips">§2632(c) automatic allocation to indirect skips</h2>
+
+<p>The §2632(c) automatic-allocation rule for indirect skips is the most consequential addition to the modern GST regime since 1986 and the specific mechanic that drives most inherited-IRA planning. EGTRRA §561 (Pub. L. 107-16, 2001) added §2632(c) to solve a specific problem: pre-EGTRRA, transferors routinely failed to file Form 709 to allocate exemption to gifts to complex trusts (credit-shelter trusts, discretionary dynasty trusts, ILITs, GRATs, IDGTs), resulting in unsheltered trusts subject to full GST tax at later grandchild distributions. The Treasury Inspector General's report cited by the EGTRRA legislative history estimated that hundreds of thousands of trusts were unnecessarily exposed to full-rate GST tax because the transferors did not know they needed to file Form 709 to allocate exemption.<sup><a href="#source-8">[8]</a></sup></p>
+
+<p>Under §2632(c), a lifetime transfer to a "GST trust" (as defined in §2632(c)(3)) is automatically allocated GST exemption up to the transfer's value unless the transferor elects out. The default is now correct-for-most-transferors allocation rather than no-allocation. The transferor's role is to opt out of allocation on transfers where allocation is undesirable, rather than to opt in on transfers where allocation is desirable.</p>
+
+<h3>The §2632(c)(3) "GST trust" definition</h3>
+
+<p>IRC §2632(c)(3)(B) defines a "GST trust" as any trust that could have a generation-skipping transfer with respect to the transferor, subject to six specific exclusions. The exclusions are:</p>
+
+<ol>
+<li><strong>The 25% distribution-before-46 exclusion.</strong> The trust instrument provides that more than 25% of the trust corpus must be distributed to (or may be withdrawn by) one or more non-skip persons who are living on the date of transfer and are more than 10 years younger than the transferor before those individuals reach age 46 or on some earlier date.</li>
+<li><strong>The 25% distribution-within-10-years-of-death exclusion.</strong> The trust instrument provides that more than 25% of the trust corpus must be distributed to (or may be withdrawn by) non-skip persons living on the date of transfer if one or more of them dies within 10 years after the transfer.</li>
+<li><strong>The probate-inclusion exclusion.</strong> The trust instrument provides that if one or more non-skip persons living on the date of transfer die on that date, more than 25% of the corpus would be includible in the gross estates of those individuals.</li>
+<li><strong>The charitable-lead exclusion.</strong> The trust is a charitable lead annuity trust as described in §170(f)(2)(B), a charitable remainder annuity trust as described in §664(d)(1), or a charitable remainder unitrust as described in §664(d)(2).</li>
+<li><strong>The charitable-lead unitrust exclusion.</strong> The trust is a trust described in §170(f)(2)(B) other than an annuity trust — i.e., a charitable lead unitrust.</li>
+<li><strong>The §2642(f)(2) ETIP exclusion.</strong> The trust is described in §2642(f)(2) — subject to an estate tax inclusion period (ETIP) at the time of transfer.</li>
+</ol>
+
+<p>The definition is broad by design. Most modern discretionary dynasty trusts, credit-shelter trusts, QTIP trusts, and see-through IRA trusts with grandchild remaindermen qualify as GST trusts because none of the six exclusions applies to them. The exclusions are targeted at specific fact patterns (Crummey-power trusts with age-46 distribution requirements, ILITs with 10-year distribution requirements, CRATs and CRUTs) where the transferor would ordinarily NOT want automatic allocation because the trust is more likely to be consumed by non-skip persons before reaching skip persons.<sup><a href="#source-9">[9]</a></sup></p>
+
+<div class="callout warn">
+<h4>The §2632(c)(3) GST-trust status is fact-specific — never assume</h4>
+<p>Every practitioner working on a lifetime gift to a trust must analyze the six §2632(c)(3)(B) exclusions before assuming automatic allocation applies (or does not apply). The most common mistake is assuming a trust with a Crummey withdrawal power over annual exclusion gifts is not a GST trust — but the Crummey power is only a withdrawal RIGHT, not a distribution REQUIREMENT, so most Crummey ILITs still qualify as GST trusts unless another exclusion applies. Always run the §2632(c)(3) analysis on paper and document the conclusion in the Form 709 workpapers.</p>
+</div>
+
+<h3>The §2632(c)(5) election-out and opt-in framework</h3>
+
+<p>IRC §2632(c)(5) provides two election mechanics:</p>
+
+<ol>
+<li><strong>§2632(c)(5)(A)(i) — election OUT of automatic allocation.</strong> The transferor may elect out of §2632(c) automatic allocation for a specific transfer or for all future transfers to a specified GST trust. The election is made by attaching a statement to Form 709 filed for the year of transfer. The statement identifies the trust and specifies whether the election applies to a single transfer, all transfers in the current year, or all future transfers to the specified trust.</li>
+<li><strong>§2632(c)(5)(A)(ii) — election INTO automatic allocation.</strong> The transferor may elect to treat a trust that does not otherwise qualify as a GST trust under §2632(c)(3) as if it were a GST trust. This is common practice for backup or contingent GST trusts (a trust that would receive skip-person distributions only if certain non-skip persons predecease the transferor) and for trusts whose GST-trust status is uncertain under the six-exclusion analysis. The election is made by attaching a statement to Form 709 for the year of transfer.</li>
+</ol>
+
+<p>The election-out and opt-in are generally irrevocable, though Treas. Reg. §26.2632-1(b)(4)(iii) permits revocation of a §2632(c)(5)(A)(ii) opt-in in limited circumstances (specifically, when the opt-in was for future transfers to a trust and the transferor wishes to make a specific future transfer without automatic allocation). The election-out under §2632(c)(5)(A)(i) is not revocable — once made, the specified transfer or future transfers to the specified trust are not automatically allocated exemption.<sup><a href="#source-5">[5]</a></sup></p>
+
+<h3>When to elect out</h3>
+
+<p>The §2632(c)(5)(A)(i) election-out is used strategically when the transferor wants to preserve GST exemption for later, higher-value transfers rather than consume it at the current low transfer value. Typical fact patterns:</p>
+
+<ul>
+<li><strong>Grantor-retained annuity trusts (GRATs).</strong> A GRAT is a §2642(f)(2) ETIP-subject trust and thus is excluded from the §2632(c)(3) GST-trust definition — no election-out is needed. But some estate plans use non-GRAT vehicles that would otherwise qualify as GST trusts to hold rapidly appreciating assets; the transferor typically elects out to preserve exemption for allocation later when the trust value is higher and the exemption produces more shelter per dollar allocated.</li>
+<li><strong>Small annual-exclusion gifts to ILITs or dynasty trusts.</strong> If the trust receives $19,000 annual-exclusion gifts (per Rev. Proc. 2025-32 for 2026), the transferor typically wants to elect out to preserve exemption for the eventual §2503(b)-taxable transfers.</li>
+<li><strong>Trusts with primarily non-skip beneficiaries.</strong> If the trust's primary purpose is to benefit non-skip persons (children) and skip-person distributions are only a backup possibility, the transferor may elect out to avoid consuming exemption on transfers unlikely to reach skip persons.</li>
+</ul>
+
+<h2 id="late-allocation">§2642(b) late allocation and the appreciation trap</h2>
+
+<p>IRC §2642(b)(3) permits a transferor to allocate GST exemption to a prior transfer at a later date, typically by filing a Form 709 for a later gift-tax year with an accompanying statement. Late allocation is essential when the transferor forgot to allocate exemption at the time of transfer and §2632(c) automatic allocation did not apply (either because the trust was not a GST trust, or because the transferor elected out).<sup><a href="#source-10">[10]</a></sup></p>
+
+<p>The specific rule that shapes every late allocation is the valuation date. IRC §2642(b)(3)(A) provides that a late allocation is measured at the value of the trust corpus at the time of the late allocation — not at the time of the original transfer. This is generally unfavorable when the trust has appreciated: more exemption is consumed per dollar of eventual protection.</p>
+
+<h3>The appreciation-trap arithmetic</h3>
+
+<p>Consider a transferor who transferred $2 million to a GST trust in 2020, elected out of §2632(c) automatic allocation on the Form 709 for that year, and only realized the mistake in 2026 when the trust has grown to $5 million. If the transferor allocates exemption on the 2026 Form 709 as a late allocation to the 2020 transfer:</p>
+
+<ul>
+<li><strong>Late allocation valuation is the 2026 date-of-late-allocation value.</strong> Under §2642(b)(3)(A), the late allocation is measured at the $5M current value, not the $2M original transfer value.</li>
+<li><strong>To produce a 0% inclusion ratio, the transferor must allocate $5M of exemption in 2026.</strong> The $5M consumption of exemption is $3M more than the timely 2020 allocation would have consumed.</li>
+<li><strong>Alternatively, allocation of only $2M of exemption in 2026 produces an inclusion ratio of 1 − ($2M ÷ $5M) = 0.6 rather than 0.</strong> The trust pays a 24% effective GST rate on every skip-transfer for the trust's life.</li>
+</ul>
+
+<p>The appreciation trap is the specific reason failing to make (or failing to affirmatively confirm) allocation at the time of the original transfer is so costly. A timely allocation on the 2020 Form 709 would have consumed $2M of exemption for a 0 inclusion ratio. The late allocation on the 2026 Form 709 consumes either $5M of exemption (for the same 0 inclusion ratio) or produces a 0.6 inclusion ratio and pays a lifetime GST toll on the trust.</p>
+
+<h3>Simplified late-allocation relief under Rev. Proc. 2004-46 and 2004-47</h3>
+
+<p>The IRS has provided two simplified relief procedures for specific late-allocation situations:</p>
+
+<ol>
+<li><strong>Rev. Proc. 2004-46.</strong> Provides simplified relief for late GST exemption allocations when the value of the trust at the time of transfer plus subsequent additions did not exceed the transferor's remaining GST exemption. The procedure permits the transferor to file a Form 709 with a specific attached statement to allocate exemption effective as of the original transfer date, avoiding the appreciation trap.<sup><a href="#source-11">[11]</a></sup></li>
+<li><strong>Rev. Proc. 2004-47.</strong> Provides simplified relief for late allocation to certain lifetime transfers where the transferor made no other transfers requiring GST allocation. The relief is available without a private letter ruling but requires specific representations and documentation.</li>
+</ol>
+
+<p>Both simplified procedures are narrow — they cover only specific fact patterns and are not available for many practical situations (transfers with subsequent additions exceeding the initial exemption, transfers to trusts with mixed skip and non-skip beneficiaries, transfers where the transferor made other transfers requiring GST allocation). For fact patterns outside these procedures, §9100 relief through a private letter ruling under Treas. Reg. §§301.9100-1 through 301.9100-3 is available at substantial cost ($38,000 user fee under Rev. Proc. 2025-1) and six-to-nine-month typical processing.</p>
+
+<h2 id="retroactive-allocation">§2632(d) retroactive allocation for unnatural order of deaths</h2>
+
+<p>IRC §2632(d) — enacted in EGTRRA §561 — is a narrow but valuable relief provision for a specific fact pattern: the transferor set up a trust for a child's benefit assuming the child would survive to consume the trust, but the child dies prematurely leaving grandchildren as remainder beneficiaries and creating GST exposure the transferor did not anticipate at drafting.<sup><a href="#source-12">[12]</a></sup></p>
+
+<p>The mechanic: within 90 days after the non-skip person's death, the transferor files a Form 709 with a statement identifying the trust, the deceased non-skip person, and the retroactive allocation. The retroactive allocation is measured at the value of the property at the time of the original transfer, NOT at the value at the child's death — a significant advantage when the trust has appreciated between the transfer and the child's death.</p>
+
+<h3>The §2632(d) qualifying conditions</h3>
+
+<p>Section 2632(d)(1) requires three conditions for retroactive allocation:</p>
+
+<ol>
+<li>A non-skip person has an interest or a future interest in a trust to which any transfer has been made.</li>
+<li>The non-skip person is a lineal descendant of a grandparent of the transferor or of a grandparent of the transferor's spouse (or former spouse), or is the spouse of such a lineal descendant.</li>
+<li>The non-skip person is assigned to a generation below the generation of the transferor.</li>
+</ol>
+
+<p>The typical §2632(d) fact pattern: a grandparent transferred property to a discretionary trust for the benefit of an adult child (the transferor's descendant), with grandchildren as remainder beneficiaries. The child dies prematurely (before the transferor's death) leaving the trust to be distributed to grandchildren — a taxable termination under IRC §2612(a) at the transferor's chargeable-generation level. Without §2632(d), the transferor could only allocate GST exemption on a going-forward basis (via §2642(b) late allocation at the current appreciated value). With §2632(d), the transferor can allocate exemption retroactively at the original-transfer valuation date, avoiding the appreciation trap.</p>
+
+<h2 id="section-2632-e">§2632(e) automatic allocation at death of unused exemption</h2>
+
+<p>IRC §2632(e) automatically allocates any GST exemption remaining unused at the transferor's death. The allocation follows a specific priority:</p>
+
+<ol>
+<li><strong>First — direct skips at death.</strong> Exemption is allocated to any lifetime direct skips that occurred at death (typically bequests to skip persons in the will or under intestacy). Allocation is pro rata across all direct skips at death up to the value of each skip, producing a 0 inclusion ratio for each up to the exemption balance.</li>
+<li><strong>Second — trusts of which the decedent is the transferor.</strong> Any exemption remaining after allocation to direct skips at death is automatically allocated pro rata to trusts of which the decedent is the transferor (either because the trust was created by the decedent's will, or because the decedent transferred property to the trust during lifetime and the property is now includible in the decedent's estate).</li>
+</ol>
+
+<p>The §2632(e) automatic allocation is a default mechanism that operates in the absence of affirmative allocation on Form 706. The executor may make affirmative allocation on Schedule R of Form 706, and Treas. Reg. §26.2632-1(d)(1) provides that affirmative allocation supersedes the §2632(e) default. The practical effect: a well-drafted Form 706 should make affirmative Schedule R allocations rather than rely on §2632(e) default allocation, because affirmative allocation permits the executor to direct exemption to specific trusts producing 0 inclusion ratios rather than pro rata allocation across all applicable trusts producing partial inclusion ratios everywhere.<sup><a href="#source-13">[13]</a></sup></p>
+
+<h3>Coordination with the reverse-QTIP election under §2652(a)(3)</h3>
+
+<p>For a decedent whose Form 706 makes a §2652(a)(3) reverse-QTIP election, the §2632(e) default allocation interacts with the reverse-QTIP mechanic in a specific way. The reverse-QTIP election under §2652(a)(3) treats the deceased spouse as the transferor of QTIP-elected property for GST purposes; without an affirmative Schedule R allocation, the §2632(e) default allocation applies to the QTIP trust (as a trust of which the decedent is the transferor under §2652(a)(3)) pro rata with any other trusts of which the decedent is the transferor.<sup><a href="#source-3">[3]</a></sup></p>
+
+<p>The pro-rata default is generally suboptimal for a decedent with multiple trusts. A well-drafted Form 706 for a decedent making a reverse-QTIP election on a QTIP trust with grandchild remaindermen should:</p>
+
+<ol>
+<li>Make the affirmative §2652(a)(3) reverse-QTIP election on Schedule R-1.</li>
+<li>Make an affirmative §2632(a) exemption allocation on Schedule R Part 2, targeting the QTIP trust for allocation in the amount necessary to produce a 0 inclusion ratio.</li>
+<li>Allocate any remaining exemption to other trusts of which the decedent is the transferor (typically the credit-shelter trust or a separate dynasty trust), in an order and amount matched to the couple's overall GST-planning objective.</li>
+</ol>
+
+<p>Failing to make the affirmative Schedule R allocation forces the §2632(e) pro-rata default, which typically produces partial inclusion ratios across multiple trusts rather than a 0 inclusion ratio on the highest-priority trust. This is the specific mistake identified in surviving-spouse Form 706 post-mortem review as the second-most-common GST-planning error after the missed reverse-QTIP election itself.</p>
+
+<h2 id="form-709-mechanics">The Form 709 Schedule D and Schedule D-1 mechanic</h2>
+
+<p>Lifetime GST exemption allocations are made on Form 709 (United States Gift (and Generation-Skipping Transfer) Tax Return), specifically on Schedule D — Computation of Generation-Skipping Transfer Tax and Schedule D-1 — Notification of Distribution From a Generation-Skipping Trust.<sup><a href="#source-14">[14]</a></sup></p>
+
+<p>The typical Schedule D workflow for a lifetime transfer to a GST trust:</p>
+
+<ol>
+<li><strong>Part 1 — Generation-Skipping Transfers.</strong> Identify each transfer for GST purposes: date, description, transferee, transfer value, and whether the transfer is a direct skip, an indirect skip (to a GST trust), or subject to an ETIP under §2642(f).</li>
+<li><strong>Part 2 — GST Exemption Reconciliation.</strong> Compute the transferor's remaining GST exemption at the start of the year, add any adjustments from the current year (such as increases due to inflation-indexing of the $15M exemption per Notice 2025-67), subtract the allocations being made in the current year, and compute the remaining exemption available for future allocation.</li>
+<li><strong>Part 3 — Tax Computation.</strong> For any direct skip during the year, compute the GST tax based on the applicable inclusion ratio after allocation.</li>
+</ol>
+
+<p>Election-outs under §2632(c)(5)(A)(i) and opt-ins under §2632(c)(5)(A)(ii) are made by attaching a specific-purpose statement to Form 709 identifying the trust and specifying the scope of the election (single transfer, all current-year transfers, all future transfers). The statement should include the trust's employer identification number (EIN), the transferor's identification number, the date and amount of the transfer, and specific reference to the §2632(c)(5) subsection being invoked.</p>
+
+<div class="callout tip">
+<h4>The Form 709 filing-necessity trap</h4>
+<p>Even a transferor who makes no taxable gifts in a year (all gifts under the $19,000 annual exclusion per Rev. Proc. 2025-32) must file Form 709 to elect out of §2632(c) automatic allocation on transfers to GST trusts. Failing to file Form 709 in a year with annual-exclusion gifts to a GST trust means the §2632(c) default applies and exemption is automatically consumed at the transfer value. Practitioners should confirm every year whether a client made ANY transfers to GST trusts, whether or not the transfers exceeded the annual exclusion, and file Form 709 for allocation-management purposes even when no gift-tax liability is generated.</p>
+</div>
+
+<h2 id="formula-allocation">Formula-allocation drafting</h2>
+
+<p>Formula allocation is a drafting technique that allocates a specific dollar amount, a specific fraction, or a specific inclusion-ratio target of GST exemption to a transfer without naming a fixed dollar amount. The technique is used when the transferor wants a specific GST outcome regardless of how the transferred property is later valued for gift-tax purposes — a Wandry-style protection against IRS audit revaluation of the underlying transfer.<sup><a href="#source-15">[15]</a></sup></p>
+
+<h3>The three common formulations</h3>
+
+<ol>
+<li><strong>Inclusion-ratio formula.</strong> "The transferor hereby allocates GST exemption to this transfer in the amount necessary to produce an inclusion ratio of zero on the transferred property, calculated based on the finally determined gift-tax value of the transfer." This formulation targets a specific inclusion-ratio outcome (typically 0) regardless of the finally determined transfer value.</li>
+<li><strong>Full-exemption formula.</strong> "The transferor hereby allocates the transferor's remaining GST exemption at the time of transfer to this trust, computed after any prior allocations on Form 709 or Form 706." This formulation targets full exemption utilization regardless of the transfer value; the resulting inclusion ratio is 1 − (remaining exemption ÷ finally determined transfer value).</li>
+<li><strong>Partial-exemption formula.</strong> "The transferor hereby allocates GST exemption to this transfer sufficient to produce an inclusion ratio of not more than X% and no more, calculated based on the finally determined gift-tax value of the transfer." This formulation targets a specific inclusion-ratio ceiling.</li>
+</ol>
+
+<p>The Tax Court has generally accepted formula allocations as valid, though the leading defined-value cases (Wandry v. Commissioner T.C. Memo. 2012-88 and McCord v. Commissioner 461 F.3d 614 (5th Cir. 2006)) were gift-tax defined-value cases whose GST-application has been confirmed in subsequent PLRs but not in a direct Tax Court GST case. The IRS position, expressed in Rev. Proc. 2004-46 and subsequent guidance, is that formula allocations are valid provided they are unambiguous, mechanically determinable at the time of transfer, and do not attempt to reallocate property based on the IRS's later revaluation of the transfer.<sup><a href="#source-16">[16]</a></sup></p>
+
+<h3>The Wandry-style protection</h3>
+
+<p>The Wandry-style defined-value clause protects the transferor from IRS audit revaluation of the underlying gift. If the IRS audits the gift and revalues it upward (say, from $5M as reported to $7M as re-determined by the IRS), the Wandry-style formula automatically increases the amount transferred to charity or another party to preserve the taxable gift at the original reported amount. Applied to GST allocation, a Wandry-style formula automatically increases the amount of GST exemption allocated to preserve the intended inclusion ratio regardless of IRS revaluation.</p>
+
+<p>The practical importance for a QTIP-held inherited IRA is limited (the IRA has a determinable value at date of death that is not subject to material valuation dispute), but the technique is important for QTIP-eligible property that includes hard-to-value assets — closely held business interests, real estate, marketable securities with restrictions, or partnership interests with minority/marketability discounts.</p>
+
+<h2 id="ira-application">Application to a QTIP-held inherited IRA</h2>
+
+<p>The §2632 allocation mechanics apply to a QTIP-held inherited IRA at two distinct points in the mechanic: (1) allocation on the deceased spouse's Form 706 as part of the reverse-QTIP election under §2652(a)(3), and (2) allocation on the surviving spouse's Form 706 for any residual trust corpus (or, if the reverse-QTIP election was not made, for the full QTIP trust as her transferor property under §2652(a)(1)).</p>
+
+<h3>The SECURE Act 10-year rule interaction</h3>
+
+<p>Under IRC §401(a)(9)(H) as enacted in the SECURE Act (Pub. L. 116-94 §401, December 20, 2019) and interpreted in the final regulations at TD 10001 (89 Fed. Reg. 58886, July 19, 2024), a QTIP trust holding an inherited IRA is a see-through trust subject to the 10-year rule.<sup><a href="#source-17">[17]</a></sup> The entire IRA must be distributed from the QTIP trust within ten years of the account owner's death.</p>
+
+<p>For §2632 allocation purposes, the 10-year rule creates a specific timing challenge: the trust corpus at the surviving spouse's later death is the reinvested IRA proceeds (not the IRA face value at the deceased spouse's death). If the surviving spouse dies within the 10-year window, some or all of the IRA proceeds may still be inside the trust at her death; if she dies after the 10-year window, the IRA has been fully distributed and the trust corpus consists of reinvested proceeds (net of any income tax paid on the IRA distributions and net of any consumption by the surviving spouse under the trust's dispositive provisions).</p>
+
+<p>The GST exemption allocation on the deceased spouse's Form 706 should be sized against the modeled trust corpus at the surviving spouse's expected death — not against the IRA face value at the deceased spouse's death. Over-allocating exemption to the IRA face value wastes exemption on the portion of the IRA that will be consumed by the surviving spouse during her lifetime; under-allocating leaves a partial inclusion ratio on the residual trust corpus at her later death.</p>
+
+<h3>Modeling the trust corpus at three surviving-spouse-death scenarios</h3>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Scenario at surviving spouse's death</th><th>IRA distributions during S.S. lifetime</th><th>S.S. consumption of distributions</th><th>Reinvested residual corpus</th><th>GST exemption allocation target</th></tr></thead>
+<tbody>
+<tr><td>S.S. dies within 10-year window (year 3-5)</td><td>~$3-5M of $10M IRA</td><td>Minimal (< $500K/yr)</td><td>~$5-7M residual IRA balance + ~$2-3M reinvested</td><td>$7-10M (full IRA face value)</td></tr>
+<tr><td>S.S. dies near end of 10-year window (year 8-10)</td><td>Full $10M IRA distributed</td><td>Modest ($500K-$1M/yr = $4-8M consumed)</td><td>~$2-6M reinvested proceeds</td><td>$4-6M (modeled residual)</td></tr>
+<tr><td>S.S. dies 15+ years post-death</td><td>Full $10M IRA distributed</td><td>Substantial ($500K-$1.5M/yr = $8M-$22M consumed)</td><td>~$0-$3M residual (some corpus consumed)</td><td>$2-4M (modeled residual after 15-25 year drawdown)</td></tr>
+</tbody>
+</table></div>
+
+<p>The specific allocation target depends heavily on the surviving spouse's age and health at the deceased spouse's death. A younger surviving spouse (age 60-70) with normal health should model a longer expected drawdown period, warranting a lower allocation target. An older surviving spouse (age 80+) with health issues should model a shorter expected drawdown period, warranting a higher allocation target closer to the IRA face value.</p>
+
+<h2 id="six-mistakes">Six recurring §2632 allocation mistakes</h2>
+
+<p>The following mistakes account for the vast majority of §2632 allocation failures that reach practitioner attention.</p>
+
+<p><strong>Mistake 1 — Failing to allocate exemption to a lifetime transfer to a trust that does not qualify as a §2632(c)(3) GST trust.</strong> The §2632(c) automatic allocation does not apply, so no exemption is deemed allocated. Unless the transferor affirmatively allocates on Form 709 (or under the §2632(c)(5)(A)(ii) opt-in), the trust ends up unsheltered with a 1.0 inclusion ratio. Prevention: run a written §2632(c)(3) exclusion analysis on every trust to which a lifetime transfer is made, and either affirmatively allocate exemption on Form 709 or file the §2632(c)(5)(A)(ii) opt-in.</p>
+
+<p><strong>Mistake 2 — Failing to elect out of automatic allocation under §2632(c)(5)(A)(i) when the transferor wants to preserve exemption.</strong> The default under §2632(c) consumes exemption at the current transfer value, which is often much lower than the transferor's later-desired allocation target. Prevention: for every lifetime transfer to a GST trust where the transferor prefers to preserve exemption, file Form 709 with a §2632(c)(5)(A)(i) election-out statement identifying the trust and the scope of the election.</p>
+
+<p><strong>Mistake 3 — Making the §2632(c)(5)(A)(ii) opt-in election on a trust with mixed skip and non-skip beneficiaries without modeling the inclusion-ratio consequences.</strong> The opt-in permanently consumes exemption on transfers that may never reach skip persons if the non-skip beneficiaries consume the trust corpus first. Prevention: for every §2632(c)(5)(A)(ii) opt-in decision, model the probable distributions to skip vs non-skip beneficiaries and confirm that the expected skip-person distributions justify the exemption consumption.</p>
+
+<p><strong>Mistake 4 — Missing the §2632(d) 90-day retroactive-allocation window after unnatural order of deaths.</strong> The window is short and the fact pattern (a non-skip person's death before the transferor's death) can be missed in the emotional aftermath of the death. Prevention: standing family-planning protocols should flag any non-skip person's death for immediate §2632(d) analysis; the 90-day window runs from the date of death, and no extension is available under the statute.</p>
+
+<p><strong>Mistake 5 — Late-allocating exemption under §2642(b)(3) at an unfavorable appreciation valuation date rather than allocating at the time of the original transfer.</strong> The appreciation trap can multiply the exemption consumption by 2-5× for a trust that has appreciated substantially between the original transfer and the late allocation date. Prevention: at the time of every lifetime transfer, either confirm that automatic allocation applies (with a written §2632(c)(3) analysis) or affirmatively allocate on Form 709 for the year of transfer. Late allocation should be a rare corrective measure, not a routine planning step.</p>
+
+<p><strong>Mistake 6 — Failing to coordinate the §2632 allocation with the §2652(a)(3) reverse-QTIP election on the deceased spouse's Form 706.</strong> The reverse-QTIP election under §2652(a)(3) treats the deceased spouse as the transferor of QTIP property but does not automatically allocate the deceased spouse's exemption to the QTIP trust — that requires affirmative allocation on Schedule R Part 2 (or the §2632(e) pro-rata default, which is typically suboptimal). Prevention: every Form 706 that makes a reverse-QTIP election should also make an affirmative Schedule R allocation targeting the QTIP trust for a specific inclusion-ratio outcome (typically 0).</p>
+
+<h2 id="worked-example">Worked case study: $8 million inherited IRA</h2>
+
+<p>Consider Marcus and Priya, a first-marriage couple in their mid-60s with two adult children (Elena and Diana) and five grandchildren aged 3 to 15. Marcus (age 68) dies in April 2026 survived by Priya (age 65). Marcus's largest asset is an $8,000,000 traditional IRA held at Schwab. Marcus's estate plan includes a revocable trust that funds a single QTIP trust at his death with the IRA and $2M of other assets — total QTIP-eligible property of $10M. The remainder passes at Priya's death to the five grandchildren per stirpes through Elena and Diana.</p>
+
+<h3>Marcus's Form 706 choices</h3>
+
+<p>Marcus's executor faces three concurrent elections on Marcus's Form 706:</p>
+
+<ol>
+<li><strong>§2056(b)(7) QTIP election.</strong> Elect QTIP treatment on the single $10M QTIP trust. Marital deduction of $10M claimed. Marcus's remaining gross estate (personal effects, residence, taxable brokerage) totals $4.2M, well within his $15M applicable exclusion amount. Zero estate tax due.</li>
+<li><strong>§2652(a)(3) reverse-QTIP election.</strong> Elect reverse-QTIP on the QTIP trust so that Marcus becomes the GST transferor rather than Priya. The all-or-nothing rule of Treas. Reg. §26.2652-2(a) requires the election to apply to the full $10M trust.</li>
+<li><strong>§2632(a) affirmative allocation on Schedule R Part 2.</strong> Allocate Marcus's GST exemption to the QTIP trust. Marcus has $15M of GST exemption available; the QTIP trust is $10M. Marcus's executor has two allocation choices:</li>
+</ol>
+
+<ol>
+<li><strong>Option A — Allocate the full $10M to the QTIP trust.</strong> Inclusion ratio = 1 − ($10M ÷ $10M) = 0. Every distribution from the QTIP trust (and the trust remainder at Priya's later death) flows out at 0 GST tax. The remaining $5M of Marcus's GST exemption is available for allocation to other trusts on Marcus's Form 706 (typically a credit-shelter trust or a separate dynasty trust), or is defaulted at Marcus's death under §2632(e) to any remaining direct skips or trusts of which Marcus is the transferor.</li>
+<li><strong>Option B — Allocate $6M to the QTIP trust (leaving $4M unsheltered).</strong> Inclusion ratio = 1 − ($6M ÷ $10M) = 0.4. Every skip-transfer from the QTIP trust is taxed at 0.4 × 40% = 16% effective GST rate. The remaining $9M of Marcus's GST exemption is available for other trusts.</li>
+</ol>
+
+<p>For a couple with no other trusts of any GST significance, Option A is unambiguously better — full $10M allocation to the QTIP trust producing a 0 inclusion ratio, with $5M of Marcus's exemption remaining and defaulted at his death (which is effectively wasted unless he has other direct skips at death or trusts of which he is the transferor). Marcus's executor makes Option A.</p>
+
+<h3>Modeling the surviving-spouse-death scenarios</h3>
+
+<p>The value of the Option A allocation becomes visible at Priya's later death. Consider three scenarios based on when Priya dies:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Scenario at Priya's later death</th><th>Trust remainder to grandchildren</th><th>GST tax with Option A ($10M allocation, 0 IR)</th><th>GST tax if Marcus's executor had failed to make §2632 affirmative allocation (§2632(e) default)</th></tr></thead>
+<tbody>
+<tr><td>Priya dies year 4 post-Marcus (2030)</td><td>$8.5M (IRA + reinvested + $2M non-IRA)</td><td>$0 (0 inclusion ratio)</td><td>$1.36M (pro-rata default produces ~0.4 IR)</td></tr>
+<tr><td>Priya dies year 10 post-Marcus (2036)</td><td>$6M (IRA distributed, reinvested, some consumed)</td><td>$0 (0 inclusion ratio)</td><td>$0.96M (0.4 IR × 40% × $6M)</td></tr>
+<tr><td>Priya dies year 18 post-Marcus (2044)</td><td>$3.5M (much of remainder consumed)</td><td>$0 (0 inclusion ratio)</td><td>$0.56M (0.4 IR × 40% × $3.5M)</td></tr>
+</tbody>
+</table></div>
+
+<p>In every plausible scenario, the affirmative Schedule R allocation on Marcus's Form 706 is worth material dollars — $560K to $1.36M of avoided GST tax across the modeled scenarios. The affirmative allocation costs nothing to make (it is a single line entry on Schedule R Part 2 with an accompanying computation) and preserves the couple's GST-planning intent regardless of when Priya later dies or how the trust corpus evolves during her lifetime.</p>
+
+<h3>Recommended alternative for a multi-trust structure</h3>
+
+<p>If Marcus's estate plan had used a two-trust structure (Trust A funded to the deceased spouse's remaining GST exemption and Trust B funded with the balance), the executor's optimal choices would be:</p>
+
+<ol>
+<li>Make the §2056(b)(7) QTIP election on both Trust A and Trust B.</li>
+<li>Make the §2652(a)(3) reverse-QTIP election on Trust A only.</li>
+<li>Allocate Marcus's $15M GST exemption on Schedule R Part 2 as follows: $10M to Trust A (producing a 0 inclusion ratio) and $5M reserved for other trusts. Do not allocate any exemption to Trust B — Priya will be the GST transferor for Trust B at her later death and her own $15M exemption will apply.</li>
+<li>Coordinate with Schwab as IRA custodian to ensure the IRA beneficiary designation names Trust A specifically (not the QTIP structure aggregate), that Trust A satisfies see-through requirements under Treas. Reg. §1.401(a)(9)-4, and that the trustee delivers the required documentation to Schwab by October 31, 2027.</li>
+</ol>
+
+<h2 id="checklist">Pre-allocation action checklist</h2>
+
+<div class="callout key">
+<h4>The 8-item pre-§2632-allocation checklist for a decedent-QTIP-plus-inherited-IRA fact pattern</h4>
+<p>Complete each item before filing Form 706 or making a lifetime allocation on Form 709 for any fact pattern involving GST-eligible property with skip-person remaindermen or beneficiaries. Retain the completed checklist and the tax preparer's contemporaneous work notes for the statute of limitations plus a reasonable margin.</p>
+</div>
+
+<ol>
+<li><strong>Identify every trust or transfer with skip-person exposure.</strong> Review the transferor's Form 709 filing history, the transferor's revocable trust and will, all IRA and retirement-plan beneficiary designations, and all trust instruments to which the transferor has made or may make lifetime transfers. Flag every trust with grandchild, great-grandchild, or unrelated-younger-person (below the child generation) remaindermen or beneficiaries. That is the universe requiring §2632 allocation analysis.</li>
+<li><strong>Run the §2632(c)(3) GST-trust exclusion analysis on every trust.</strong> For each trust identified in step 1, document in writing whether the trust qualifies as a GST trust under §2632(c)(3)(B) (i.e., does not fall within any of the six exclusions). The written analysis becomes the record supporting the assumption that §2632(c) automatic allocation does or does not apply.</li>
+<li><strong>Compute the transferor's remaining GST exemption at the allocation date.</strong> Start with $15M for 2026 per Notice 2025-67. Subtract all prior allocations under §2632(a) or §2632(b) automatic allocation on prior Form 709 filings. Subtract any allocations under §2632(c) automatic allocation on prior Form 709 filings. Subtract any allocations under §2642(b) late allocation. The residual is the exemption available for current-year allocation.</li>
+<li><strong>Determine the allocation strategy for each transfer.</strong> For each current-year transfer to a trust: (a) confirm whether §2632(c) automatic allocation applies, (b) decide whether to elect out under §2632(c)(5)(A)(i) or opt in under §2632(c)(5)(A)(ii), (c) determine the target inclusion ratio for the trust (typically 0 for dynasty trusts, 1 for consumption-purpose trusts, partial for mixed-purpose trusts), and (d) compute the exemption allocation necessary to achieve the target.</li>
+<li><strong>File Form 709 for every year with any GST-significant transfer.</strong> Form 709 must be filed even for a year with only annual-exclusion gifts if any of those gifts went to a GST trust, in order to make election-outs, opt-ins, affirmative allocations, or late allocations. The filing establishes the record of the transferor's GST-planning intent for the year.</li>
+<li><strong>For a decedent, coordinate the §2632 allocation with the §2652(a)(3) reverse-QTIP election.</strong> On the deceased spouse's Form 706: (a) make the §2056(b)(7) QTIP election on Schedule M for each QTIP-eligible trust, (b) make the §2652(a)(3) reverse-QTIP election on Schedule R-1 for each QTIP trust with skip-person remaindermen, and (c) make affirmative §2632(a) allocation on Schedule R Part 2 targeting each reverse-QTIP-elected trust for the desired inclusion ratio.</li>
+<li><strong>For a QTIP trust holding an inherited IRA, model the trust corpus at multiple surviving-spouse-death scenarios.</strong> The 10-year rule under IRC §401(a)(9)(H) forces distribution of the IRA within ten years of the account owner's death, meaning the trust corpus at the surviving spouse's later death is reinvested proceeds (net of consumption). Model at least three scenarios (surviving spouse dies within the 10-year window, near the end of the window, and 15+ years after death) and confirm the exemption allocation is appropriate for the modeled scenarios.</li>
+<li><strong>Document the allocation decision in a GST-planning memorandum.</strong> Prepare a written memorandum documenting: (a) the identification of trusts with skip-person exposure, (b) the §2632(c)(3) GST-trust status of each trust, (c) the exemption balance computation, (d) the allocation strategy for each trust, (e) the resulting inclusion ratio for each trust, and (f) the coordination with any §2652(a)(3) reverse-QTIP election. The memorandum becomes the practitioner's file record if the allocation is later challenged or if a subsequent Form 706 review discovers an unsheltered trust.</li>
+</ol>
+
+<h2 id="faq">Frequently asked questions about IRC §2632 and inherited IRAs</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What is IRC §2632 and why does it matter for a QTIP-held inherited IRA?</h3>
+<p>IRC §2632 governs how a transferor's $15M lifetime GST exemption is allocated to actual transfers — automatically for lifetime direct skips under §2632(b), automatically for lifetime indirect skips to §2632(c)(3) GST trusts under §2632(c), retroactively under §2632(d), and at death under §2632(e). For a QTIP-held inherited IRA whose remainder passes to grandchildren, the §2632 allocation on the deceased spouse's Form 706 (Schedule R Part 2, coordinated with the §2652(a)(3) reverse-QTIP election on Schedule R-1) is what determines whether grandchildren pay 0% GST tax or up to 40% on the trust remainder.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does automatic allocation under §2632(c) work?</h3>
+<p>Enacted in EGTRRA 2001, §2632(c) extends automatic GST exemption allocation from direct skips to indirect skips — lifetime gifts to a "GST trust" defined in §2632(c)(3). The default is now correct-for-most-transferors allocation rather than no-allocation. The transferor may elect out under §2632(c)(5)(A)(i) to preserve exemption for later use, or elect in under §2632(c)(5)(A)(ii) for a non-qualifying trust. Both elections are made by attaching a statement to Form 709 and are generally irrevocable.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is a "GST trust" under §2632(c)(3)?</h3>
+<p>IRC §2632(c)(3)(B) defines a GST trust as any trust that could have a GST with respect to the transferor, subject to six specific exclusions (25%-distribution-before-46, 25%-distribution-within-10-years-of-death, probate-inclusion, charitable-lead annuity or remainder trust, charitable-lead unitrust, and §2642(f)(2) ETIP-subject trust). Most modern discretionary dynasty trusts, QTIP trusts, credit-shelter trusts, and see-through IRA trusts qualify. Always run the six-exclusion analysis on paper for every trust.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is late allocation under §2642(b)(3)?</h3>
+<p>Late allocation under §2642(b)(3) permits a transferor to allocate GST exemption to a prior transfer at a later date, typically by filing Form 709 with a statement. The critical rule is that late allocation is measured at the value of the trust at the time of late allocation — not at the time of the original transfer. This is generally unfavorable if the trust has appreciated: more exemption is consumed per dollar of eventual shelter. Rev. Proc. 2004-46 and 2004-47 provide narrow simplified relief for certain fact patterns.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is formula allocation and when is it used?</h3>
+<p>Formula allocation is a defined-value drafting technique that allocates exemption in an amount targeted to a specific inclusion-ratio outcome (typically 0) regardless of the finally determined transfer value. The technique protects against IRS audit revaluation of the underlying gift (a Wandry-style protection). The Tax Court has generally accepted formula allocations as valid, though the leading defined-value cases (Wandry T.C. Memo. 2012-88, McCord 461 F.3d 614) were gift-tax cases whose GST-application has been confirmed in subsequent PLRs.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does §2632(d) handle unnatural order of deaths?</h3>
+<p>IRC §2632(d), enacted in EGTRRA 2001, permits a transferor to retroactively allocate GST exemption to a prior transfer if a non-skip person (typically the transferor's child) dies before the transferor. The retroactive allocation is measured at the value of the property at the time of the original transfer, not at the value at the child's death — a significant advantage when the trust has appreciated. Within 90 days after the non-skip person's death, the transferor files Form 709 with a statement identifying the trust, the deceased person, and the retroactive allocation.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does §2632 interact with the reverse-QTIP election under §2652(a)(3)?</h3>
+<p>The reverse-QTIP election treats the deceased spouse as transferor for GST purposes. Once made on Schedule R-1, the deceased spouse's GST exemption should be affirmatively allocated on Schedule R Part 2 targeting the QTIP trust for a 0 inclusion ratio. Without affirmative allocation, §2632(e) default pro-rata allocation applies across all trusts of which the decedent is the transferor — typically producing partial inclusion ratios rather than a 0 inclusion ratio on the highest-priority trust. Always make affirmative Schedule R allocation with a reverse-QTIP election.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can I use §9100 relief to fix a missed §2632 allocation?</h3>
+<p>Yes, and IRC §2642(g)(1) directs Treasury to prescribe regulations for extended time to make GST allocations when failure was due to reasonable cause. Rev. Proc. 2004-46 and 2004-47 provide simplified relief for narrow fact patterns (trust value at transfer plus subsequent additions did not exceed remaining exemption; no other allocations required). For missed elections outside these procedures, §9100 relief through a private letter ruling is available at $38,000 user fee (Rev. Proc. 2025-1) and six-to-nine-month typical processing. The prudent practice is to catch omissions on the next Form 709 and late-allocate under §2642(b)(3).</p>
+</div>
+
+<div class="faq-item">
+<h3>What are the most common §2632 allocation mistakes?</h3>
+<p>The most common: (1) failing to allocate to a non-GST-trust transfer that does not trigger automatic allocation; (2) failing to elect out under §2632(c)(5)(A)(i) when preserving exemption is desired; (3) opting in under §2632(c)(5)(A)(ii) on mixed-beneficiary trusts without modeling; (4) missing the §2632(d) 90-day retroactive-allocation window; (5) late-allocating at appreciated valuation dates rather than allocating timely; and (6) failing to coordinate §2632 allocation with the §2652(a)(3) reverse-QTIP election on the deceased spouse's Form 706.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does §2632 apply to a QTIP-held inherited IRA under the SECURE Act 10-year rule?</h3>
+<p>The 10-year rule under IRC §401(a)(9)(H) forces distribution of the IRA within ten years of the account owner's death, meaning the trust corpus at the surviving spouse's later death is reinvested proceeds (not IRA face value). The §2632 allocation on the deceased spouse's Form 706 should be sized against the modeled trust corpus at the surviving spouse's expected death — not against the IRA face value at the deceased spouse's death. Model at least three scenarios and confirm the allocation is appropriate for the modeled residual.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All statutory citations in this article are current as of August 2026. The IRC §2632 analysis draws on the Internal Revenue Code as amended through the One Big Beautiful Bill Act (Public Law 119-21, July 4, 2025), Treasury Regulation §26.2632-1 as amended through August 2026, and the controlling authorities on GST exemption allocation (Tax Reform Act of 1986 Pub. L. 99-514, Economic Growth and Tax Relief Reconciliation Act of 2001 Pub. L. 107-16 §561, Pension Protection Act of 2006 Pub. L. 109-280 §1408, Instructions for Form 709, Rev. Proc. 2004-46, Rev. Proc. 2004-47, and Rev. Proc. 2025-1). The 2026 GST exemption figure ($15,000,000 unified with the estate-tax exemption) is drawn from IRS Notice 2025-67 and Rev. Proc. 2025-32. The SECURE Act 10-year rule analysis references IRC §401(a)(9)(H) as enacted in Pub. L. 116-94 §401 (SECURE Act, December 20, 2019) and the Final Regulations at TD 10001 (89 Fed. Reg. 58886, July 19, 2024). The QTIP-plus-IRA mechanic references Rev. Rul. 2000-2 and IRC §2056(b)(7) as walked in the companion 2026-08-20 CalcLeap piece. The reverse-QTIP interaction references the 2026-08-23 CalcLeap §2652(a)(3) piece. The formula-allocation analysis references Wandry v. Commissioner T.C. Memo. 2012-88 and McCord v. Commissioner 461 F.3d 614 (5th Cir. 2006). The case-study calculations use conservative 5-percent nominal returns, 2026 IRS Uniform Lifetime Table factors, and mid-range inflation assumptions for the OBBBA-2025 exemption trajectory. This article is educational; readers implementing any §2632 GST exemption allocation with material planning exposure should engage a state-licensed estate-planning attorney experienced in GST-tax mechanics and a Form 706 or Form 709 preparer with substantial Schedule R (Form 706) or Schedule D (Form 709) experience.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Internal Revenue Code §§2601-2664 — Chapter 13 Generation-Skipping Transfer Tax — full statutory text as amended through the One Big Beautiful Bill Act (Public Law 119-21, July 4, 2025). <a href="https://www.law.cornell.edu/uscode/text/26/subtitle-B/chapter-13" rel="nofollow noopener">law.cornell.edu/uscode/text/26/subtitle-B/chapter-13</a></li>
+<li id="source-2">Internal Revenue Code §2642 — Inclusion ratio — the formula for computing the fraction of a transfer subject to GST tax based on the ratio of GST exemption allocated to the value of the property transferred, and the late-allocation rule under §2642(b). <a href="https://www.law.cornell.edu/uscode/text/26/2642" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2642</a></li>
+<li id="source-3">CalcLeap Editorial, IRC §2652(a)(3) Reverse-QTIP Election for GST-Exemption Utilization on QTIP-Held Inherited IRAs in 2026 (August 23, 2026). <a href="/blog/irc-2652-a-3-reverse-qtip-election-inherited-ira-2026.html">calcleap.com/blog/irc-2652-a-3-reverse-qtip-election-inherited-ira-2026.html</a></li>
+<li id="source-4">Economic Growth and Tax Relief Reconciliation Act of 2001, Public Law 107-16, §561, 115 Stat. 38, 87 (2001) — enacted IRC §2632(c) automatic allocation to indirect skips and §2632(d) retroactive allocation for unnatural order of deaths. <a href="https://www.congress.gov/bill/107th-congress/house-bill/1836" rel="nofollow noopener">congress.gov/bill/107th-congress/house-bill/1836</a></li>
+<li id="source-5">Treasury Regulation §26.2632-1 — Allocation of GST exemption — regulatory implementation of the §2632 allocation mechanics, including timing rules, election-out and opt-in procedures, and coordination with §2642(b) late allocation. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-B/part-26/section-26.2632-1" rel="nofollow noopener">ecfr.gov/title-26/section-26.2632-1</a></li>
+<li id="source-6">Internal Revenue Code §2641 — Applicable rate — provides that the GST tax rate is the maximum estate-tax rate (currently 40% per §2001(c)) multiplied by the inclusion ratio determined under §2642. <a href="https://www.law.cornell.edu/uscode/text/26/2641" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2641</a></li>
+<li id="source-7">Internal Revenue Code §2651 — Generation assignment — defines skip persons, non-skip persons, and the generation-assignment rules, including the §2651(e) predecessor-deceased-parent exception that recasts a grandchild as a child of the transferor when the intervening parent has predeceased the transferor. <a href="https://www.law.cornell.edu/uscode/text/26/2651" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2651</a></li>
+<li id="source-8">Joint Committee on Taxation, JCX-51-01 (June 4, 2001) — Description of the Chairman's Amendment in the Nature of a Substitute to H.R. 1836, including the §561 enactment of §2632(c) automatic allocation to indirect skips and legislative history describing the pre-EGTRRA under-allocation problem. <a href="https://www.jct.gov/publications/2001/jcx-51-01/" rel="nofollow noopener">jct.gov/publications/2001/jcx-51-01</a></li>
+<li id="source-9">Internal Revenue Code §2632(c)(3) — Definition of GST trust — the six-exclusion definition determining whether a trust triggers automatic allocation of GST exemption under §2632(c). <a href="https://www.law.cornell.edu/uscode/text/26/2632" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2632</a></li>
+<li id="source-10">Internal Revenue Code §2642(b) — Valuation rules — including the general valuation rule for lifetime and testamentary allocations and the specific rule under §2642(b)(3) requiring late allocations to be valued at the time of the late allocation rather than at the time of the original transfer. <a href="https://www.law.cornell.edu/uscode/text/26/2642" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2642</a></li>
+<li id="source-11">Internal Revenue Service, Revenue Procedure 2004-46, 2004-2 C.B. 142 — Simplified relief for late GST exemption allocations to certain lifetime transfers where the transferred property plus subsequent additions did not exceed the transferor's remaining GST exemption. <a href="https://www.irs.gov/pub/irs-drop/rp-04-46.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rp-04-46.pdf</a></li>
+<li id="source-12">Internal Revenue Code §2632(d) — Retroactive allocation — permits a transferor to retroactively allocate GST exemption to a prior transfer if a non-skip person dies before the transferor, with the retroactive allocation measured at the time of the original transfer. <a href="https://www.law.cornell.edu/uscode/text/26/2632" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2632</a></li>
+<li id="source-13">Internal Revenue Code §2632(e) — Allocation of unused GST exemption — automatic allocation of any exemption remaining at the transferor's death, first to direct skips at death and then pro rata to trusts of which the decedent is the transferor. <a href="https://www.law.cornell.edu/uscode/text/26/2632" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2632</a></li>
+<li id="source-14">Internal Revenue Service, Instructions for Form 709 (2025 Rev.) — updated instructions for tax year 2025 (filed in 2026) including Schedule D and Schedule D-1 mechanics for GST exemption allocation, election-outs under §2632(c)(5)(A)(i), and opt-ins under §2632(c)(5)(A)(ii). <a href="https://www.irs.gov/pub/irs-pdf/i709.pdf" rel="nofollow noopener">irs.gov/pub/irs-pdf/i709.pdf</a></li>
+<li id="source-15">Wandry v. Commissioner, T.C. Memo. 2012-88 (2012) — Tax Court decision upholding a defined-value clause that adjusted the amount of property gifted based on the finally determined value for gift-tax purposes; the leading authority for Wandry-style defined-value formula drafting. <a href="https://www.ustaxcourt.gov/InternetOrders/DocumentViewer.aspx?IndexSearchableOrdersID=101014" rel="nofollow noopener">ustaxcourt.gov/InternetOrders/Wandry</a></li>
+<li id="source-16">McCord v. Commissioner, 461 F.3d 614 (5th Cir. 2006) — Fifth Circuit decision reversing the Tax Court and upholding a defined-value formula in a gift transfer with post-transfer valuation reallocation to a charity, an important precedent for defined-value clauses. <a href="https://caselaw.findlaw.com/court/us-5th-circuit/1244553.html" rel="nofollow noopener">caselaw.findlaw.com/court/us-5th-circuit/mccord-v-commissioner</a></li>
+<li id="source-17">Internal Revenue Service, TD 10001 — Required Minimum Distributions, Final Regulations, 89 Fed. Reg. 58886 (July 19, 2024) — implements the SECURE Act §401 10-year rule and SECURE 2.0 Act §§107, 202, 302, 325, 327 for post-2019 designated-beneficiary distributions, including QTIP-trust-held IRAs. <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" rel="nofollow noopener">federalregister.gov/2024-14542</a></li>
+<li id="source-18">Internal Revenue Service, Notice 2025-67 — 2026 inflation adjustments for estate, gift, and generation-skipping transfer tax purposes, including the $15,000,000 unified exemption for 2026 decedents, donors, and GST transferors. <a href="https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2026" rel="nofollow noopener">irs.gov/newsroom/2026-inflation-adjustments</a></li>
+<li id="source-19">Internal Revenue Service, Revenue Procedure 2025-32 — Annual inflation adjustments for 2026 including the $19,000 gift-tax annual exclusion under IRC §2503(b), the $15,000,000 unified estate-and-GST exemption, and other 2026 dollar limitations. <a href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rp-25-32.pdf</a></li>
+<li id="source-20">Internal Revenue Code §2631 — GST exemption — provides the $15,000,000 (2026) lifetime GST exemption per transferor and the underlying inflation-indexing mechanic for post-2011 annual adjustments. <a href="https://www.law.cornell.edu/uscode/text/26/2631" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2631</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized legal or financial advice. IRC §2632 GST exemption allocation is a jurisdiction-specific federal-tax mechanic with substantial procedural and strategic complexity. The §2632(c) automatic-allocation defaults, the §2632(c)(3) GST-trust exclusion analysis, the appreciation-trap arithmetic of §2642(b)(3) late allocation, and the coordination with the §2652(a)(3) reverse-QTIP election on the deceased spouse's Form 706 make front-end allocation decisions as important as the underlying transfer. Consult a state-licensed estate-planning attorney experienced in GST-tax mechanics and a Form 706 or Form 709 preparer with substantial Schedule R or Schedule D experience before making any allocation. Any trust with skip-person exposure and material trust value ($1M+) warrants explicit §2632 allocation analysis; over $10M warrants consideration of formula-allocation drafting and multi-trust restructuring. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Results may not reflect your actual situation. State statutes, IRC provisions, Treasury Regulations, and revenue rulings change; always verify current law with primary sources and consult a qualified estate-planning attorney and tax advisor before making decisions. CalcLeap is not a law firm and does not provide legal advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#statutory-framework">IRC §2632 statutory framework</a></li>
+        <li><a href="#direct-skips">§2632(b) direct-skip allocation</a></li>
+        <li><a href="#indirect-skips">§2632(c) indirect-skip allocation</a></li>
+        <li><a href="#late-allocation">§2642(b) late allocation</a></li>
+        <li><a href="#retroactive-allocation">§2632(d) retroactive allocation</a></li>
+        <li><a href="#section-2632-e">§2632(e) allocation at death</a></li>
+        <li><a href="#form-709-mechanics">Form 709 Schedule D mechanics</a></li>
+        <li><a href="#formula-allocation">Formula-allocation drafting</a></li>
+        <li><a href="#ira-application">Application to inherited IRAs</a></li>
+        <li><a href="#six-mistakes">Six recurring mistakes</a></li>
+        <li><a href="#worked-example">$8M inherited-IRA case study</a></li>
+        <li><a href="#checklist">Pre-allocation action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/estate-tax-calculator.html">Estate Tax Calculator</a>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/traditional-ira-calculator.html">Traditional IRA Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth IRA Conversion Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/irc-2652-a-3-reverse-qtip-election-inherited-ira-2026.html">IRC §2652(a)(3) Reverse-QTIP Election</a>
+      <a href="/blog/irc-2518-qualified-disclaimer-inherited-ira-2026.html">IRC §2518 Qualified Disclaimer for QTIP Inherited IRAs</a>
+      <a href="/blog/irc-2519-year-10-gift-treatment-inherited-ira-2026.html">IRC §2519 Year-10 Gift Treatment</a>
+      <a href="/blog/irc-2056-b-7-qtip-inherited-ira-2026.html">IRC §2056(b)(7) QTIP Marital Deduction</a>
+      <a href="/blog/state-unitrust-conversion-inherited-ira-2026.html">State Unitrust Conversion (§106)</a>
+      <a href="/blog/1997-upia-section-104-power-to-adjust-inherited-ira-2026.html">1997 UPIA §104 Power to Adjust</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
