@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRC §2642(c) Special Valuation Rules for Split Gifts and Future-Interest Transfers in 2026: The Zero-Inclusion-Ratio Trap for Crummey Trusts, 529 Plans, and Annual-Exclusion Direct Skips | CalcLeap</title>
+<meta name="description" content="IRC §2642(c) treats a nontaxable-gift direct skip as having a zero inclusion ratio — but only if the transfer is either an outright annual-exclusion gift to a skip person, a §2503(e) direct payment for tuition or medical care, or a transfer to a trust that satisfies the §2642(c)(2) single-beneficiary-plus-estate-inclusion rule. Miss the §2642(c)(2) restrictive trust conditions and a Crummey-power ILIT that looked GST-free burns real §2632 exemption on every $19,000 annual-exclusion gift. This piece walks the §2642(c) statute end to end, the §2503(b) present-interest requirement and the Crummey future-interest workaround, the §2513 spousal-gift-splitting election, the §2503(e) direct-pay carve-out, the §529(c)(5)(A) five-year averaging election, and the specific interaction with QTIP-held inherited IRAs under the SECURE Act 10-year rule.">
+<link rel="canonical" href="https://calcleap.com/blog/irc-2642-c-special-valuation-rules-nontaxable-gifts-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="IRC §2642(c) Special Valuation Rules for Split Gifts and Future-Interest Transfers in 2026 — CalcLeap">
+<meta property="og:description" content="The federal-tax deep-dive on IRC §2642(c) zero-inclusion-ratio treatment for nontaxable-gift direct skips — §2503(b) annual-exclusion gifts, §2503(e) direct-pay tuition and medical, Crummey-power ILIT interaction, §2513 spousal gift splitting, §529(c)(5)(A) five-year averaging, and worked case study.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/irc-2642-c-special-valuation-rules-nontaxable-gifts-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-08-25T00:00:00Z">
+<meta property="article:modified_time" content="2026-08-25T00:00:00Z">
+<meta property="article:section" content="Retirement Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IRC §2642(c) Special Valuation Rules for Split Gifts and Future-Interest Transfers in 2026",
+  "description": "A deep-dive on IRC §2642(c) zero-inclusion-ratio treatment for nontaxable-gift direct skips — the §2642(c)(3) definition of a nontaxable gift, the §2642(c)(2) restrictive rule for transfers to trusts, the §2503(b) present-interest annual-exclusion requirement and Crummey future-interest workaround, the §2513 spousal gift-splitting election, the §2503(e) direct-pay carve-out for tuition and medical, the §529(c)(5)(A) five-year averaging election, and the specific interaction with QTIP-held inherited IRAs under the SECURE Act 10-year rule.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-08-25T00:00:00Z",
+  "dateModified": "2026-08-25T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/irc-2642-c-special-valuation-rules-nontaxable-gifts-2026.html"
+  },
+  "articleSection": "Retirement Planning",
+  "wordCount": 6800,
+  "about": [
+    {"@type": "Thing", "name": "IRC Section 2642(c)"},
+    {"@type": "Thing", "name": "Nontaxable gift direct skip"},
+    {"@type": "Thing", "name": "Zero inclusion ratio"},
+    {"@type": "Thing", "name": "Crummey trust"},
+    {"@type": "Thing", "name": "Annual exclusion gift"},
+    {"@type": "Thing", "name": "Spousal gift splitting"},
+    {"@type": "Thing", "name": "529 plan five-year averaging"},
+    {"@type": "Thing", "name": "Direct-pay tuition and medical"},
+    {"@type": "Thing", "name": "Inherited IRA"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "IRC §2642(c) Special Valuation Rules for Split Gifts and Future-Interest Transfers"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is IRC §2642(c) and why does it matter?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2642(c) treats a 'nontaxable gift' that is also a direct skip as having a zero inclusion ratio for generation-skipping-transfer-tax purposes — meaning the transfer is GST-free without consuming any of the transferor's $15,000,000 (2026) lifetime GST exemption. A 'nontaxable gift' under §2642(c)(3) means a transfer covered by the §2503(b) annual exclusion ($19,000 per donee for 2026 under Rev. Proc. 2025-32) or a §2503(e) direct payment for tuition or medical care. The mechanic is powerful because it allows a grandparent to fund multiple grandchildren's needs each year without touching the GST exemption. The §2642(c)(2) restrictive rule dramatically narrows the mechanic when the transfer is to a trust rather than outright: the trust must benefit only ONE skip person, and if that beneficiary dies before trust termination the trust corpus must be includible in that beneficiary's gross estate."}},
+    {"@type": "Question", "name": "How does the §2642(c)(2) restrictive trust rule work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2642(c)(2) provides that the zero-inclusion-ratio treatment of §2642(c)(1) applies to a transfer to a trust only if two additional conditions are satisfied: (A) during the life of an individual skip beneficiary, no portion of the trust corpus or income may be distributed to (or for the benefit of) any person other than that beneficiary; and (B) if the individual dies before the trust terminates, the corpus is includible in that individual's gross estate. Practically, this means a standard Crummey-power ILIT with multiple beneficiaries or discretionary sprinkle provisions does NOT qualify for §2642(c) zero-inclusion-ratio treatment — even though each annual $19,000 Crummey gift is a nontaxable gift under §2503(b) via the Crummey present-interest workaround. The mechanic is designed to prevent leverage of the annual exclusion into GST-tax-free dynasty planning."}},
+    {"@type": "Question", "name": "What is a §2503(b) 'present interest' and what is the Crummey workaround?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2503(b) provides the $19,000 (2026) annual gift-tax exclusion per donee, but only for gifts of a 'present interest' in property — an unrestricted right to the immediate use, possession, or enjoyment of the property or the income from the property. A gift to a trust is generally a 'future interest' because the beneficiary must wait for a trustee distribution decision, which fails §2503(b). The Crummey v. Commissioner, 397 F.2d 82 (9th Cir. 1968) decision created the workaround: giving the beneficiary a limited-time withdrawal power over trust contributions (typically 30 days) converts the future-interest trust gift into a present-interest gift qualifying for the annual exclusion. Most modern ILITs and dynasty trusts rely on Crummey powers. But under §2642(c)(2), a Crummey trust must still satisfy the single-beneficiary-plus-estate-inclusion rule to qualify for GST zero-inclusion-ratio treatment — the §2503(b) qualification alone is not enough."}},
+    {"@type": "Question", "name": "How does the §2513 spousal gift-splitting election interact with §2642(c)?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2513 permits a married couple to elect on Form 709 to treat any gift made by either spouse to a third party as if made one-half by each spouse. This effectively doubles the annual exclusion to $38,000 per donee ($19,000 × 2 for 2026) and allows both spouses to combine their lifetime gift/GST exemptions on a single gift. For §2642(c) purposes, split-gift election also splits the GST-transferor status: each spouse becomes the transferor of half the gift under §2652(a)(2). This is generally favorable because it doubles the amount that qualifies for §2642(c) zero-inclusion-ratio treatment on nontaxable-gift direct skips. But the election is all-or-nothing for the year — if the couple elects gift-splitting on any gift for a year, they must split all gifts made by either spouse to third parties for that year. The election is made on the timely filed Form 709 for the calendar year of the gift."}},
+    {"@type": "Question", "name": "How does §2503(e) direct-pay for tuition and medical care work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §2503(e) provides an unlimited exclusion (no dollar cap) from gift and GST tax for amounts paid directly to a qualified educational organization for tuition or directly to a healthcare provider for medical care, on behalf of any individual. The exclusion is not limited by the §2503(b) $19,000 annual exclusion — the two exclusions stack. Tuition-only payments qualify; room, board, books, fees, and other charges do not. Medical payments qualify only for care described in IRC §213(d), including insurance premiums. Payments must be made directly to the provider, not reimbursed to the individual. For §2642(c) purposes, every §2503(e) direct payment is a nontaxable gift under §2642(c)(3)(B), so a direct payment to a grandchild's college for tuition or to a grandchild's hospital for surgery is a zero-inclusion-ratio direct skip that consumes no GST exemption regardless of the amount."}},
+    {"@type": "Question", "name": "How does §529(c)(5)(A) five-year averaging work for 529 plan contributions?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §529(c)(5)(A), enacted in 1997 as part of the original §529 legislative framework, permits a contributor to a §529 qualified tuition program to elect to treat a single-year contribution of up to five times the §2503(b) annual exclusion ($19,000 × 5 = $95,000 for 2026) as if made ratably over five calendar years. The election is made on Form 709. If the contributor dies within the five-year averaging period, the pro-rata portion of the contribution attributable to years after the year of death is included in the contributor's gross estate under §529(c)(4)(C). The mechanic is a powerful front-loading tool for §529 plan funding, but the interaction with §2642(c) is limited: a §529 plan account beneficiary can be changed later to a different beneficiary, which raises the risk that a subsequent beneficiary change to a skip person triggers a new §2642(c) analysis. Direct §529 contributions where the account beneficiary is a grandchild are direct-skip transfers eligible for §2642(c)(1) zero-inclusion-ratio treatment as nontaxable gifts."}},
+    {"@type": "Question", "name": "Does a Crummey-power ILIT with multiple beneficiaries qualify for §2642(c) zero-inclusion-ratio treatment?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Generally no. The §2642(c)(2)(A) restrictive rule requires that during the life of an individual skip beneficiary, no portion of trust corpus or income may be distributed to any person other than that beneficiary — a condition rarely satisfied in a multi-beneficiary Crummey ILIT with pooled corpus. Also, §2642(c)(2)(B) requires that the trust corpus be includible in that individual's gross estate if the individual dies before trust termination — a condition rarely satisfied in a discretionary sprinkle trust with contingent remaindermen. The result: annual-exclusion gifts to a multi-beneficiary Crummey ILIT are §2503(b) nontaxable for GIFT-tax purposes but §2642(c)-ineligible for GST-tax purposes. Each annual gift consumes §2632 exemption at the transfer value or (if no exemption is allocated) leaves the trust with a partial-inclusion-ratio taint on skip-person distributions. Practitioners typically address this by either (a) creating separate single-beneficiary Crummey sub-trusts to satisfy §2642(c)(2), or (b) accepting §2632(c) automatic allocation and using formula-allocation drafting to preserve exemption allocation at the trust level."}},
+    {"@type": "Question", "name": "How does §2642(c) interact with a QTIP-held inherited IRA?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The direct §2642(c) interaction with a QTIP-held inherited IRA is indirect but material. The QTIP trust itself is a §2632(c)-and-§2642(c)-context transfer at the deceased spouse's death, allocated exemption via Form 706 Schedule R and the §2652(a)(3) reverse-QTIP election — not a nontaxable-gift direct skip. But §2642(c) becomes relevant in three specific scenarios: (1) the surviving spouse's annual-exclusion gifting during the 10-year IRA distribution window uses trust income distributions to fund gifts to grandchildren, (2) the QTIP structure creates separate single-beneficiary sub-trusts to satisfy §2642(c)(2) for grandchild-remainderman corpus preservation, and (3) direct §2503(e) tuition payments to grandchildren funded by IRA distributions received by the QTIP trust and paid through to the surviving spouse. All three planning uses depend on correct §2642(c) analysis at the moment of the annual-exclusion or direct-pay gift, not at the moment of the original QTIP funding."}},
+    {"@type": "Question", "name": "What are the most common §2642(c) mistakes?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The most common: (1) assuming a multi-beneficiary Crummey ILIT qualifies for §2642(c) zero-inclusion-ratio treatment when §2642(c)(2)(A) requires single-beneficiary-only distributions; (2) failing to allocate §2632(c) automatic-allocation election-outs for annual-exclusion gifts to multi-beneficiary Crummey ILITs, letting exemption be consumed at the current low value; (3) making §2513 spousal gift-splitting elections without confirming both spouses' Form 709 consent; (4) using §2503(e) direct-pay for room, board, or fees rather than tuition, or reimbursing the beneficiary rather than paying the provider directly; (5) failing to file Form 709 for §529(c)(5)(A) five-year averaging elections; and (6) missing the §529(c)(4)(C) death-within-five-years pullback for §529 five-year averaging contributions. Each mistake either wastes §2632 exemption at the transfer level or fails to secure the §2642(c) zero-inclusion-ratio treatment on transfers that should have qualified."}},
+    {"@type": "Question", "name": "Can I use §9100 relief to fix a missed §2642(c) election?",
+     "acceptedAnswer": {"@type": "Answer", "text": "For §2503(b) present-interest characterization and §2642(c)(1) zero-inclusion-ratio treatment, no separate election is required — the treatment applies by operation of statute if the underlying facts qualify. §9100 relief through Treas. Reg. §§301.9100-1 through 301.9100-3 is not available to change the underlying facts (e.g., a multi-beneficiary trust cannot become a single-beneficiary trust retroactively). §9100 relief IS available for missed §2513 spousal gift-splitting elections and missed §529(c)(5)(A) five-year averaging elections, at the standard $38,000 user fee under Rev. Proc. 2025-1. For missed §2632(c) automatic-allocation election-outs on annual-exclusion gifts to a non-qualifying Crummey ILIT, §2642(g)(1) relief applies at the same user fee and typical six-to-nine-month processing. The prudent practice is to correctly analyze §2642(c) qualification at the time of each transfer and file Form 709 with clear election statements even for below-annual-exclusion gifts to trusts."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:680px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.15rem;color:var(--text);box-shadow:var(--shadow)}
+
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>IRC §2642(c) Special Valuation Rules for Split Gifts and Future-Interest Transfers
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement Planning · Updated August 25, 2026</span>
+  <h1 id="article-start">IRC §2642(c) Special Valuation Rules for Split Gifts and Future-Interest Transfers in 2026: The Zero-Inclusion-Ratio Trap for Crummey Trusts, 529 Plans, and Annual-Exclusion Direct Skips</h1>
+  <p class="deck">Yesterday's IRC §2632 exemption-allocation piece walked how a transferor's $15 million lifetime GST exemption is allocated to actual transfers. Today's piece walks the specific carve-out for transfers that never touch the exemption at all — IRC §2642(c)'s zero-inclusion-ratio treatment for "nontaxable gift" direct skips. On paper, the mechanic is powerful: every $19,000 annual-exclusion gift a grandparent makes to a grandchild in 2026 is a §2503(b) present-interest transfer, and if that grandchild is a §2612(c) skip person, the transfer is a nontaxable-gift direct skip that produces a zero inclusion ratio without consuming any §2632 exemption. In practice, the §2642(c)(2) restrictive trust rule dramatically narrows the mechanic when the transfer is to a trust — the trust must benefit only ONE skip person, and the corpus must be includible in that beneficiary's gross estate if the beneficiary dies before trust termination. Miss the restrictive rule and a multi-beneficiary Crummey ILIT that looked GST-free burns real exemption on every annual gift. This piece walks §2642(c) end to end, the §2503(b) present-interest requirement and the Crummey future-interest workaround, the §2513 spousal gift-splitting election, the §2503(e) unlimited direct-pay carve-out for tuition and medical, the §529(c)(5)(A) five-year averaging election, the specific interaction with QTIP-held inherited IRAs under the SECURE Act 10-year rule, six recurring mistakes, and a worked case study.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published August 25, 2026</span>
+    <span class="dot"></span>
+    <span>26 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>The 40 percent generation-skipping-transfer tax rate under IRC §2641 multiplied by a trust's inclusion ratio is the tax cost every GST-planner is trying to eliminate. IRC §2632, walked in <a href="/blog/irc-2632-gst-exemption-allocation-inherited-ira-2026.html">yesterday's piece</a>, is one path to a zero inclusion ratio: allocate enough of the transferor's $15,000,000 (2026) lifetime GST exemption per IRS Notice 2025-67 to shelter the entire transfer.<sup><a href="#source-1">[1]</a></sup> IRC §2642(c) is the other path: for a specific category of "nontaxable gift" direct skips, the transfer receives a zero inclusion ratio automatically, without consuming any exemption at all.</p>
+
+<p>The §2642(c) mechanic is quietly one of the highest-leverage GST-planning tools in the Code. A grandparent making $19,000 (2026) annual-exclusion gifts to each of ten grandchildren every year for twenty years transfers $3,800,000 to the skip generation with zero GST tax and zero exemption consumption. Layer the §2513 spousal gift-splitting election on top and both spouses combined transfer $7,600,000 over the same twenty-year period at the same zero cost. Add §2503(e) direct-pay tuition and medical expenses on top of the annual-exclusion gifting — with no dollar cap — and multi-generational transfers can run into the tens of millions before any §2632 exemption is touched.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>The trap is the §2642(c)(2) restrictive trust rule. When the transfer is outright to a grandchild (a UTMA/UGMA account, a §529 plan account with the grandchild as beneficiary, a direct payment to a college), the §2642(c) zero-inclusion-ratio treatment applies as long as the underlying §2503(b) or §2503(e) qualification is met. When the transfer is to a trust — even a well-drafted Crummey ILIT that qualifies for the §2503(b) annual exclusion via a present-interest withdrawal power — the §2642(c)(2)(A) single-beneficiary rule and the §2642(c)(2)(B) estate-inclusion rule dramatically narrow the mechanic. This piece walks the statute, the case law, the interaction with the §2513 gift-splitting election, and the specific application to QTIP-held inherited IRAs under the SECURE Act 10-year rule — the ninth piece in the retirement-inheritance sub-cluster's practitioner-toolkit arc closing the transferor-election loop opened by the August 20 §2056(b)(7) piece.<sup><a href="#source-3">[3]</a></sup></p>
+
+<a class="cta-calc" href="/calc/estate-tax-calculator.html">
+  <span class="ic">📜</span>
+  <div>
+    <h4>Model annual-exclusion GST-free transfers under the $19,000 per donee cap</h4>
+    <p>Compare (a) outright annual-exclusion gifts to grandchildren, (b) Crummey-trust gifts subject to §2642(c)(2), (c) §529 plan five-year averaging, and (d) §2503(e) direct-pay tuition and medical stacking.</p>
+  </div>
+  <span class="go">Open →</span>
+</a>
+
+<h2 id="statutory-framework">The IRC §2642(c) statutory framework</h2>
+
+<p>IRC §2642(c) was enacted as part of the modern generation-skipping-transfer tax in the Tax Reform Act of 1986 (Pub. L. 99-514 §1431) and has been substantially reworked twice — once by the Technical and Miscellaneous Revenue Act of 1988 (Pub. L. 100-647 §1014) to tighten the trust rule and once by the Small Business Job Protection Act of 1996 (Pub. L. 104-188) to conform the definition of "nontaxable gift" to the §2503(e) direct-pay exclusion.<sup><a href="#source-4">[4]</a></sup> The statute now has three operative paragraphs:</p>
+
+<ol>
+<li><strong>§2642(c)(1) — Zero inclusion ratio.</strong> In the case of any direct skip which is a nontaxable gift, the inclusion ratio shall be zero. The mechanic operates by exception to the general §2642(a) inclusion-ratio formula: instead of computing inclusion ratio as 1 minus (GST exemption allocated ÷ property transferred), the ratio is deemed to be zero without any allocation of exemption.</li>
+<li><strong>§2642(c)(2) — Special rule for transfers to trusts.</strong> The zero-inclusion-ratio treatment of §2642(c)(1) applies to a transfer to a trust only if (A) during the life of the individual skip beneficiary, no portion of the trust corpus or income may be distributed to (or for the benefit of) any person other than that beneficiary, and (B) if the individual dies before the trust terminates, the trust corpus is includible in the gross estate of that individual.</li>
+<li><strong>§2642(c)(3) — Definition of nontaxable gift.</strong> A "nontaxable gift" means any transfer of property that is not treated as a taxable gift by reason of (A) §2503(b) (relating to per-donee annual exclusion of $19,000 for 2026 per Rev. Proc. 2025-32) after application of §2503(e), or (B) §2503(e) (relating to exclusion of certain transfers for educational expenses or medical expenses).</li>
+</ol>
+
+<p>Treasury Regulation §26.2642-1(c) is the primary regulatory guidance on the mechanic. The regulation walks the interaction with the §2642(a) inclusion-ratio formula, the §2642(b) valuation rules, and the coordination with §2632(c) automatic allocation to indirect skips. The regulation confirms that §2642(c) zero-inclusion-ratio treatment does not require any Form 709 election or affirmative statement — the treatment applies by operation of statute if the underlying facts qualify.<sup><a href="#source-5">[5]</a></sup></p>
+
+<h3>The mechanic that §2642(c) preempts</h3>
+
+<p>The general inclusion-ratio formula from §2642(a) is:</p>
+
+<div class="formula">Inclusion ratio = 1 − (GST exemption allocated ÷ Value of property transferred)</div>
+
+<p>Without §2642(c), a $19,000 annual-exclusion gift to a grandchild would be a direct skip requiring some amount of §2632 exemption allocation to reach a zero inclusion ratio. The transferor would either (a) affirmatively allocate $19,000 of exemption on Form 709 to reach a 0 inclusion ratio at the current transfer value, (b) accept the §2632(b) automatic allocation of $19,000 of exemption to the direct skip, or (c) file a Form 709 election-out and pay the 40 percent GST tax on the transfer. Over twenty years of annual gifting to ten grandchildren, the exemption consumption would be $3,800,000 — a material fraction of the $15,000,000 lifetime exemption.</p>
+
+<p>§2642(c) preempts this by treating the same gift as automatically having a zero inclusion ratio. No exemption allocation is required, no Form 709 election is needed, no GST tax is owed. The transferor's $15,000,000 exemption remains untouched and available for larger, more valuable transfers later.<sup><a href="#source-6">[6]</a></sup></p>
+
+<h2 id="nontaxable-gift-definition">The §2642(c)(3) definition of "nontaxable gift"</h2>
+
+<p>IRC §2642(c)(3) defines the universe of transfers eligible for §2642(c)(1) zero-inclusion-ratio treatment. Two categories qualify:</p>
+
+<ol>
+<li><strong>§2503(b) annual-exclusion transfers</strong> — Any transfer that is not treated as a taxable gift because of the §2503(b) per-donee annual exclusion, which is $19,000 for 2026 per Rev. Proc. 2025-32 (indexed for inflation from a $10,000 statutory baseline enacted in 1997 under the Taxpayer Relief Act §501). The annual exclusion is per donee per donor per year — a married couple electing §2513 gift-splitting doubles the effective exclusion to $38,000 per donee per year.</li>
+<li><strong>§2503(e) direct-pay transfers</strong> — Any transfer that is not treated as a taxable gift because of the §2503(e) exclusion for direct payments to a qualified educational organization for tuition or to a healthcare provider for medical care. The §2503(e) exclusion has NO dollar cap and applies in addition to the §2503(b) annual exclusion (the two exclusions stack).<sup><a href="#source-7">[7]</a></sup></li>
+</ol>
+
+<p>Notably absent from the §2642(c)(3) definition: transfers that avoid gift-tax treatment by other means, including the §2523 marital deduction, the §2522 charitable deduction, the §2503(c) minor's-trust special exclusion, and non-gift transfers under the §2503(f) qualified transfer rules. A transfer to a §2503(c) minor's trust — even though the minor's-trust rules make the transfer a §2503(b) present-interest gift qualifying for the annual exclusion — is a nontaxable gift under §2642(c)(3)(A) only for the annual-exclusion portion. Amounts above the annual exclusion to a §2503(c) trust are taxable gifts, and if the beneficiary is a skip person, §2632(c) automatic allocation applies to those excess amounts.</p>
+
+<h3>The stacking rule</h3>
+
+<p>The §2503(b) annual exclusion and §2503(e) direct-pay exclusion stack — a transferor may make both an unlimited §2503(e) direct-pay tuition payment AND a $19,000 §2503(b) annual-exclusion cash gift to the same donee in the same year. Both transfers are nontaxable gifts under §2642(c)(3), and if the donee is a skip person, both transfers receive §2642(c)(1) zero-inclusion-ratio treatment.<sup><a href="#source-8">[8]</a></sup> The 2026 numbers ($19,000 annual exclusion under §2503(b), $95,000 §529(c)(5)(A) five-year averaged maximum, $15,000,000 unified exemption under §§2010(c) and 2631, $190,000 §2523(i)(2) non-citizen-spouse annual exclusion) are all drawn from IRS Notice 2025-67 and Rev. Proc. 2025-32.<sup><a href="#source-20">[20]</a></sup></p>
+
+<p>The stacking mechanic is the specific reason §2642(c) is so powerful for grandparent-to-grandchild planning. A grandparent paying $75,000 in college tuition directly to Stanford and giving the same grandchild $19,000 in annual-exclusion cash for personal expenses in the same year has transferred $94,000 to the skip generation without consuming any gift-tax exemption ($94,000 nontaxable-gift character) and without consuming any GST exemption ($94,000 zero-inclusion-ratio direct skip). Repeated across four grandchildren for four college years, the transfers total $1,504,000 — all GST-free and gift-tax-free.</p>
+
+<h2 id="restrictive-trust-rule">The §2642(c)(2) restrictive trust rule</h2>
+
+<p>The §2642(c) mechanic works cleanly for outright transfers. The complexity arises for transfers to a trust. IRC §2642(c)(2) provides two additional conditions that MUST be satisfied for a trust transfer to receive §2642(c)(1) zero-inclusion-ratio treatment:</p>
+
+<ol>
+<li><strong>§2642(c)(2)(A) — Single-beneficiary rule.</strong> During the life of the individual skip beneficiary, no portion of the trust corpus or income may be distributed to (or for the benefit of) any person other than that beneficiary. A multi-beneficiary trust with pooled corpus, a sprinkle trust with discretionary distributions among multiple beneficiaries, or a trust with a non-skip parent as a permissible income beneficiary all fail this rule.</li>
+<li><strong>§2642(c)(2)(B) — Estate-inclusion rule.</strong> If the individual dies before the trust terminates, the trust corpus must be includible in that individual's gross estate. A trust with a mandatory pass-through to alternate beneficiaries on the primary beneficiary's death fails this rule unless the alternate-beneficiary provision is triggered only by the primary beneficiary's affirmative appointment (i.e., the beneficiary holds a testamentary general power of appointment causing estate inclusion under §2041).</li>
+</ol>
+
+<p>The §2642(c)(2) rule is a Congressional response to the perceived abuse potential of dynasty-trust GST-tax leverage using annual-exclusion gifts. Without §2642(c)(2), a transferor could fund a discretionary sprinkle dynasty trust with 20 skip-person beneficiaries with $380,000 per year ($19,000 × 20) of §2503(b) present-interest annual-exclusion gifts (via Crummey powers), producing a zero-inclusion-ratio dynasty trust corpus that grows GST-free forever without ever touching the transferor's $15,000,000 GST exemption. §2642(c)(2)(A) shuts this down by requiring single-beneficiary treatment for §2642(c) qualification.<sup><a href="#source-9">[9]</a></sup></p>
+
+<div class="callout warn">
+<h4>The most common §2642(c)(2) misunderstanding in practice</h4>
+<p>Practitioners frequently assume that a Crummey ILIT with multiple grandchild beneficiaries qualifies for §2642(c) zero-inclusion-ratio treatment because each annual $19,000 Crummey gift is a §2503(b) nontaxable gift. It does not. The Crummey qualification satisfies the §2642(c)(3)(A) "nontaxable gift" definition, but the §2642(c)(2)(A) single-beneficiary rule fails as long as the trust has multiple current beneficiaries who could receive distributions during any one beneficiary's lifetime. The result: every annual-exclusion gift to the multi-beneficiary Crummey ILIT is a §2503(b) nontaxable gift for GIFT-tax purposes but is a §2632(c)-allocation event for GST-tax purposes, consuming §2632 exemption at the transfer value or leaving the trust with a partial-inclusion-ratio taint on skip-person distributions.</p>
+</div>
+
+<h3>The workarounds — separate single-beneficiary sub-trusts</h3>
+
+<p>The standard workaround for the §2642(c)(2) restrictive rule is to structure the Crummey ILIT as separate single-beneficiary sub-trusts, one per grandchild, each satisfying both §2642(c)(2)(A) and §2642(c)(2)(B). The trust instrument typically provides:</p>
+
+<ol>
+<li>The trust is divided into equal sub-trusts, one for each named grandchild.</li>
+<li>Each sub-trust benefits only its named beneficiary during his or her life — no other person may receive distributions.</li>
+<li>Each sub-trust's Crummey withdrawal power runs solely to the named beneficiary (not a "hanging" power over the whole trust).</li>
+<li>Each sub-trust corpus is includible in the beneficiary's gross estate under a general testamentary power of appointment, which the beneficiary may not release.</li>
+</ol>
+
+<p>The separate-sub-trust design satisfies §2642(c)(2) but comes at the cost of losing the pooling and discretionary-sprinkle flexibility that most Crummey ILITs are drafted to provide. Practitioners typically weigh the §2642(c) GST-tax savings ($19,000/year/beneficiary of exemption preserved) against the loss of drafting flexibility and administrative simplicity, and choose the design that fits the overall estate plan best.</p>
+
+<p>An alternative workaround is to accept §2632(c) automatic allocation on the multi-beneficiary Crummey ILIT and use the transferor's §2632 exemption to shelter the annual gifts. Under §2632(c), a multi-beneficiary Crummey ILIT qualifying as a "GST trust" under §2632(c)(3)(B) receives automatic allocation of exemption to the annual gift amount — producing the same zero-inclusion-ratio outcome as §2642(c) would provide, but at the cost of exemption consumption. This is the standard choice for larger annual gifting programs where the drafting-flexibility benefits of the multi-beneficiary design outweigh the exemption-consumption cost.</p>
+
+<h2 id="present-interest">§2503(b) present-interest requirement and the Crummey workaround</h2>
+
+<p>IRC §2503(b) provides the $19,000 (2026) per-donee annual exclusion from gift tax, but only for gifts of a "present interest" in property. Treasury Regulation §25.2503-3 defines a present interest as "an unrestricted right to the immediate use, possession, or enjoyment of property or the income from property (such as a life estate or term certain)." A future interest — including any interest that is contingent, reversionary, or subject to a trustee's distribution discretion — does not qualify for the annual exclusion.<sup><a href="#source-10">[10]</a></sup></p>
+
+<p>A garden-variety gift to an irrevocable trust with discretionary distribution provisions is a future-interest gift because the beneficiary has no unrestricted right to immediate use — the trustee must decide whether and when to distribute. Without the Crummey workaround, gifts to modern discretionary trusts would never qualify for the §2503(b) annual exclusion and would consume gift-tax exemption on every transfer.</p>
+
+<h3>The Crummey withdrawal power</h3>
+
+<p>Crummey v. Commissioner, 397 F.2d 82 (9th Cir. 1968), established the modern workaround. The Ninth Circuit held that a beneficiary's limited-time right to withdraw a contribution from a trust — even a discretionary trust — converts the future-interest trust gift into a present-interest gift qualifying for the §2503(b) annual exclusion. The withdrawal power is typically:</p>
+
+<ol>
+<li>Immediately exercisable upon notice of the contribution.</li>
+<li>Limited to the beneficiary's share of the contribution (typically the annual exclusion amount).</li>
+<li>Time-limited (typically 30 days from notice, though some drafters use 60 days for administrative convenience).</li>
+<li>Lapsing if not exercised, with the withdrawal amount remaining in the trust.</li>
+</ol>
+
+<p>The IRS accepted Crummey powers in Rev. Rul. 73-405 and has consistently ruled that a properly drafted Crummey power creates a present-interest gift qualifying for the annual exclusion. The critical documentation requirement is written notice to each Crummey powerholder of every contribution — the "Crummey notice" — which the IRS scrutinizes in audits. Failure to give proper Crummey notice invalidates the present-interest characterization and disqualifies the gift for the annual exclusion.<sup><a href="#source-11">[11]</a></sup></p>
+
+<h3>The §2514(e) 5-and-5 lapse limit</h3>
+
+<p>Crummey powers create a collateral gift-tax issue for the powerholder: when the powerholder allows the withdrawal power to lapse, the lapse is treated as a gift by the powerholder to the other trust beneficiaries under IRC §2514(b) (a general power of appointment lapse). IRC §2514(e) provides a safe harbor for lapses that do not exceed the greater of $5,000 or 5% of the trust corpus — the "5-and-5 rule." Lapses within the 5-and-5 safe harbor are not treated as gifts by the powerholder; lapses in excess are.<sup><a href="#source-12">[12]</a></sup></p>
+
+<p>Practical implication: a Crummey power over a full $19,000 annual gift creates a $14,000 excess lapse ($19,000 − $5,000 = $14,000) each year, and if the trust corpus is less than $280,000, the 5% alternative safe harbor does not cover the full amount either. Standard drafting workarounds include (a) "hanging" Crummey powers that carry forward unlapsed portions to satisfy the 5-and-5 rule over multiple years, (b) restricting the Crummey withdrawal amount to $5,000, or (c) restructuring the trust as a §2503(c) minor's trust where the §2514(e) issue does not arise.</p>
+
+<h2 id="spousal-gift-splitting">§2513 spousal gift-splitting election</h2>
+
+<p>IRC §2513 permits a married couple to elect to treat any gift made by either spouse to a third party as if made one-half by each spouse. The election effectively doubles the §2503(b) annual exclusion to $38,000 per donee per year and doubles the amount that qualifies for §2642(c)(1) zero-inclusion-ratio treatment on nontaxable-gift direct skips.<sup><a href="#source-13">[13]</a></sup></p>
+
+<h3>The election mechanics</h3>
+
+<ol>
+<li><strong>Both spouses must be U.S. citizens or residents.</strong> The election is not available if either spouse is a nonresident alien.</li>
+<li><strong>Both spouses must be married at the time of the gift.</strong> Marriage is measured under state law at the moment of the gift.</li>
+<li><strong>The consenting spouse must consent on the gift-tax return.</strong> The election is made by both spouses signing Form 709 for the calendar year of the gift. The consenting spouse must not have remarried during the year.</li>
+<li><strong>The election is all-or-nothing for the year.</strong> If a couple elects to split any gift for a year, they must split all gifts made by either spouse to third parties for that year. Partial splitting is not permitted.</li>
+<li><strong>The election must be made on a timely filed Form 709.</strong> The Form 709 for a given calendar year is due April 15 of the following year (or on extension). §9100 relief is available for late elections at the $38,000 user fee under Rev. Proc. 2025-1.</li>
+</ol>
+
+<h3>The GST implications of gift-splitting</h3>
+
+<p>For GST-tax purposes, IRC §2652(a)(2) provides that when spouses elect gift-splitting under §2513, each spouse is treated as the transferor of one-half of the gift. This creates a specific interaction with §2642(c): each half of the split gift is separately analyzed for §2642(c) qualification, and each half receives §2642(c)(1) zero-inclusion-ratio treatment independently if the underlying qualification is met.<sup><a href="#source-14">[14]</a></sup></p>
+
+<p>Practical implication: a couple electing gift-splitting on a $38,000 gift to a grandchild produces two $19,000 nontaxable-gift direct skips (one from each spouse), each receiving §2642(c)(1) zero-inclusion-ratio treatment. Neither spouse's §2632 exemption is consumed. But if the gift is $50,000 (above the doubled annual exclusion), only the first $38,000 receives §2642(c) treatment; the remaining $12,000 is a taxable gift split equally between the spouses ($6,000 each), and each half consumes the respective spouse's §2632 exemption for GST purposes.</p>
+
+<div class="callout tip">
+<h4>The §2513 election is generally optimal — but not always</h4>
+<p>Splitting gifts under §2513 is generally optimal because it doubles the annual-exclusion capacity and equalizes the couple's lifetime exemption consumption. But two specific fact patterns argue against gift-splitting: (a) when one spouse has already made large gifts against his or her own exemption and the other spouse has not — splitting would push the un-utilized spouse's exemption toward gift-tax exposure earlier than necessary, and (b) when the gift is a GST direct skip that the couple wants attributed 100% to one spouse for §2652(a)(3) reverse-QTIP or other planning reasons. In both cases, the couple should model the gift-tax and GST-tax consequences of splitting versus not splitting before making the Form 709 election.</p>
+</div>
+
+<h2 id="direct-pay">§2503(e) direct-pay for tuition and medical</h2>
+
+<p>IRC §2503(e), enacted in 1981 as part of the Economic Recovery Tax Act §441, provides an unlimited exclusion from gift and GST tax for two specific categories of transfers made on behalf of any individual:</p>
+
+<ol>
+<li><strong>Tuition paid directly to a qualified educational organization.</strong> "Qualified educational organization" means an organization described in §170(b)(1)(A)(ii) — an educational organization that normally maintains a regular faculty and curriculum and has a regularly enrolled body of students in attendance at the place where its educational activities are regularly conducted. This covers K-12 schools, colleges, universities, and vocational schools.</li>
+<li><strong>Medical care paid directly to a healthcare provider.</strong> "Medical care" is defined by cross-reference to §213(d) — amounts paid for the diagnosis, cure, mitigation, treatment, or prevention of disease, for the purpose of affecting any structure or function of the body, and for transportation primarily for and essential to medical care. Health insurance premiums also qualify.<sup><a href="#source-15">[15]</a></sup></li>
+</ol>
+
+<h3>The direct-pay requirement</h3>
+
+<p>The §2503(e) exclusion applies only to payments made DIRECTLY to the educational organization or healthcare provider — not to reimbursements of the individual for expenses previously paid. Treas. Reg. §25.2503-6 is unambiguous on this: "The exclusion is available only for payments made directly to the educational organization providing the education or to the person providing the medical care."<sup><a href="#source-16">[16]</a></sup></p>
+
+<p>A grandparent who writes a check to Stanford for a grandchild's tuition qualifies for the §2503(e) exclusion. A grandparent who gives the grandchild cash to pay Stanford tuition (even if the grandchild uses the cash for that purpose) does not — the cash gift is a §2503(b)-category transfer subject to the $19,000 annual exclusion, and any amount above $19,000 consumes gift-tax and GST exemption.</p>
+
+<h3>Tuition — only tuition, not everything</h3>
+
+<p>The §2503(e) exclusion for tuition covers only tuition — the direct instructional cost. Room, board, books, fees, supplies, activity fees, transportation, and other charges do not qualify. A grandparent paying $65,000 of Stanford's $85,000 annual cost as "tuition" qualifies for the §2503(e) exclusion on the $65,000; the remaining $20,000 (room, board, fees) does not qualify and must fit within the §2503(b) annual exclusion or a taxable-gift bucket.</p>
+
+<p>Practical implication: for tuition-heavy schools where tuition is separately billed (most private universities), the §2503(e) exclusion covers a large fraction of the total cost. For schools where "tuition" includes bundled room and board (some prep schools and specific undergraduate programs), the grandparent must ask the school to separately bill and receive the tuition portion for §2503(e) qualification.</p>
+
+<h3>Medical care — broad but with limits</h3>
+
+<p>The §2503(e) exclusion for medical care is broader than the tuition exclusion — it covers essentially every category of medical expense qualifying for the §213(d) medical-expense income-tax deduction, including insurance premiums. Grandparent-paid health insurance for a grandchild qualifies. Grandparent-paid dental care, orthodontia, mental-health care, and long-term care qualify. Even elective and cosmetic procedures qualify if they meet the §213(d)(1) "diagnosis, cure, mitigation, treatment, or prevention of disease" definition.</p>
+
+<p>The direct-pay requirement is critical here too. Payments must be made to the healthcare provider or insurance company, not to the individual. Reimbursement of the individual for medical care previously paid does not qualify — the reimbursement is a §2503(b)-category transfer subject to the $19,000 annual exclusion.</p>
+
+<h2 id="529-plans">§529(c)(5)(A) five-year averaging election</h2>
+
+<p>IRC §529, enacted in 1997 as part of the Taxpayer Relief Act §211, establishes a specific gift-tax treatment for qualified tuition programs (§529 plans) that is generally more favorable than the ordinary §2503(b) treatment. Section 529(c)(2)(A) treats a contribution to a §529 plan as a completed gift to the designated beneficiary at the time of contribution, qualifying for the §2503(b) annual exclusion.<sup><a href="#source-17">[17]</a></sup></p>
+
+<h3>The five-year averaging mechanic</h3>
+
+<p>IRC §529(c)(5)(A) provides a specific enhancement: a contributor may elect to treat a single-year contribution of up to five times the §2503(b) annual exclusion ($19,000 × 5 = $95,000 for 2026) as if made ratably over five calendar years starting with the year of contribution. A married couple electing §2513 gift-splitting can double this: $190,000 in a single year, treated as $38,000 in each of five consecutive years.</p>
+
+<p>The election is made on Form 709 for the year of contribution. Each of the five years is treated separately for §2503(b) annual-exclusion purposes — if the contributor makes additional gifts to the same beneficiary in any of the five years, the additional gifts stack on top of the $19,000 attributed portion and consume gift-tax exemption for any excess.</p>
+
+<h3>The §529(c)(4)(C) death-within-five-years pullback</h3>
+
+<p>IRC §529(c)(4)(C) provides that if the contributor dies before the end of the five-year averaging period, the pro-rata portion of the contribution attributable to years AFTER the year of death is included in the contributor's gross estate. Example: a contributor makes a $95,000 §529(c)(5)(A) five-year averaged contribution in 2026 and dies in 2027. The 2027 election attributed $19,000 to each of 2026, 2027, 2028, 2029, and 2030. Two of these years (2029 and 2030) are after the year of death. Pro-rata: 2/5 × $95,000 = $38,000 is included in the contributor's gross estate under §529(c)(4)(C).<sup><a href="#source-18">[18]</a></sup></p>
+
+<p>Practical implication: the §529(c)(5)(A) five-year averaging is most valuable when the contributor has substantial life expectancy remaining. Elderly contributors (age 80+) with material mortality risk should consider whether the front-loading benefit justifies the §529(c)(4)(C) pullback risk, or whether spreading contributions across five years directly is a safer approach.</p>
+
+<h3>§529 plans and §2642(c)</h3>
+
+<p>Direct §529 contributions where the account beneficiary is a grandchild are direct-skip transfers, and to the extent the contribution qualifies as a §2503(b) nontaxable gift (either through the ordinary $19,000 annual exclusion or through the §529(c)(5)(A) $95,000 five-year averaged amount), the transfer is a nontaxable gift under §2642(c)(3)(A). The §2642(c)(1) zero-inclusion-ratio treatment applies to the entire nontaxable-gift portion.</p>
+
+<p>The §2642(c)(2) restrictive trust rule does not apply to §529 plan contributions because a §529 plan is not a "trust" for §2642(c)(2) purposes — it is a statutory account arrangement under §529(a). A §529 plan account with a single grandchild as designated beneficiary receives §2642(c)(1) zero-inclusion-ratio treatment on nontaxable-gift contributions without needing to satisfy the single-beneficiary or estate-inclusion conditions.</p>
+
+<div class="callout warn">
+<h4>The §529 beneficiary-change trap</h4>
+<p>The §529 account owner can change the designated beneficiary at any time under §529(c)(3)(C). If the new beneficiary is a member of the family of the original beneficiary (defined broadly in §529(e)(2)), no gift-tax consequence arises. But if the new beneficiary is one generation below the prior beneficiary (a change from a niece to that niece's child), the change is treated as a distribution from the prior beneficiary to the new beneficiary — potentially triggering a fresh gift-tax analysis and a fresh §2642(c) analysis for GST purposes. A grandparent-funded §529 plan account for a grandchild that is later changed to a great-grandchild beneficiary requires careful review to preserve the original §2642(c) zero-inclusion-ratio characterization.</p>
+</div>
+
+<h2 id="qtip-interaction">Application to a QTIP-held inherited IRA</h2>
+
+<p>The direct §2642(c) interaction with a QTIP-held inherited IRA is indirect but material. The QTIP trust itself is a Form 706 Schedule R allocation event coordinated with the §2652(a)(3) reverse-QTIP election — not a nontaxable-gift direct skip. But §2642(c) becomes relevant in three specific planning scenarios that arise during the surviving spouse's lifetime and the SECURE Act 10-year distribution window.<sup><a href="#source-19">[19]</a></sup></p>
+
+<h3>Scenario 1 — Surviving-spouse annual-exclusion gifting</h3>
+
+<p>A QTIP trust holding an inherited IRA must distribute the entire IRA within ten years of the deceased spouse's death under the SECURE Act §401(a)(9)(H) rule interpreted in TD 10001 (July 19, 2024). The surviving spouse receives trust income throughout the 10-year window under the §2056(b)(7)(B)(ii) qualifying-income-interest-for-life mechanic and the Rev. Rul. 2000-2 "greater of" rule.</p>
+
+<p>A surviving spouse with substantial trust-income receipts and a large enough personal financial position may choose to make annual-exclusion gifts from those trust income receipts (received into her personal account, then gifted from that account) to her grandchildren — the deceased spouse's grandchildren from a first marriage, or her own grandchildren from a first marriage, or shared grandchildren from the deceased spouse's marriage. Each such $19,000 gift is a §2503(b) nontaxable gift; if the grandchild is a skip person relative to the surviving spouse (which is the ordinary case), the gift is a §2642(c)(1) zero-inclusion-ratio direct skip consuming no §2632 exemption.</p>
+
+<h3>Scenario 2 — Grandchild-remainderman single-beneficiary sub-trusts</h3>
+
+<p>If the deceased spouse's estate plan contemplated grandchildren as ultimate remainderman of the QTIP-held IRA proceeds (post-surviving-spouse-death), the trust instrument may create separate single-beneficiary sub-trusts for each grandchild to preserve §2642(c) qualification for any direct testamentary gifts made under the surviving spouse's own will out of the receiving-trust corpus.</p>
+
+<p>The single-beneficiary sub-trust design is the same as the standard §2642(c)(2) workaround for Crummey ILITs (walked in §2642(c)(2) section above). Each sub-trust benefits only its named grandchild during his or her life, the corpus is includible in the grandchild's gross estate under a general testamentary power of appointment, and any distributions from the sub-trust receive §2642(c) treatment if the underlying transfer is a §2503(b) nontaxable-gift or §2503(e) direct-pay transfer.</p>
+
+<h3>Scenario 3 — §2503(e) tuition and medical for grandchildren</h3>
+
+<p>A surviving spouse receiving IRA distributions through the QTIP trust may pay grandchildren's tuition and medical care directly under §2503(e). Unlike an outright cash gift subject to the $19,000 annual exclusion, the §2503(e) exclusion has no dollar cap. A surviving spouse paying $65,000 per year of a grandchild's Stanford tuition and $12,000 per year of the grandchild's health insurance premium for four years transfers $308,000 to the skip generation entirely GST-free and gift-tax-free — an amount that would otherwise consume $308,000 of §2632 exemption if allocated to a discretionary trust with grandchild beneficiaries.</p>
+
+<p>Layered across multiple grandchildren over the 10-year IRA distribution window plus the surviving spouse's later life, the §2503(e) direct-pay mechanism can transfer several million dollars to the skip generation without touching either the surviving spouse's or the deceased spouse's remaining GST exemption.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Transfer type</th><th>Annual cap</th><th>§2503 category</th><th>§2642(c) direct-skip treatment</th><th>Notes for QTIP-context planning</th></tr></thead>
+<tbody>
+<tr><td>Outright cash gift to grandchild</td><td>$19,000/donee/donor (2026)</td><td>§2503(b) annual exclusion</td><td>Zero inclusion ratio</td><td>Available every year during 10-year window</td></tr>
+<tr><td>Cash gift to §529 plan (grandchild beneficiary)</td><td>$19,000/yr or $95,000 with §529(c)(5)(A) five-year averaging</td><td>§2503(b) via §529(c)(2)(A)</td><td>Zero inclusion ratio (§529 not a §2642(c)(2) trust)</td><td>Watch §529(c)(4)(C) death-within-5-years pullback</td></tr>
+<tr><td>Direct-pay tuition to college</td><td>No cap</td><td>§2503(e)</td><td>Zero inclusion ratio</td><td>Must be paid directly to institution; only tuition, not room/board</td></tr>
+<tr><td>Direct-pay medical to hospital</td><td>No cap</td><td>§2503(e)</td><td>Zero inclusion ratio</td><td>Must be paid directly to provider or insurer; §213(d) categories only</td></tr>
+<tr><td>Gift to multi-beneficiary Crummey ILIT for grandchildren</td><td>$19,000/beneficiary/donor</td><td>§2503(b) via Crummey</td><td>NOT zero — §2642(c)(2)(A) single-beneficiary rule fails</td><td>Requires §2632(c) automatic allocation of exemption; costs exemption per year</td></tr>
+<tr><td>Gift to single-beneficiary Crummey sub-trust for one grandchild</td><td>$19,000/donor</td><td>§2503(b) via Crummey</td><td>Zero inclusion ratio IF §2642(c)(2)(B) estate-inclusion satisfied via general POA</td><td>Preserves §2642(c) but sacrifices sprinkle-trust flexibility</td></tr>
+<tr><td>Split-gift $38,000 cash to grandchild (§2513)</td><td>$38,000/donee/couple</td><td>Two $19,000 §2503(b) halves</td><td>Zero inclusion ratio (each half separately)</td><td>All-or-nothing election on Form 709 for the year</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="six-mistakes">Six recurring §2642(c) mistakes</h2>
+
+<p>The following mistakes account for the vast majority of §2642(c) failures that reach practitioner attention. Each mistake either wastes §2632 exemption at the transfer level or fails to secure the §2642(c) zero-inclusion-ratio treatment on transfers that should have qualified.</p>
+
+<p><strong>Mistake 1 — Assuming a multi-beneficiary Crummey ILIT qualifies for §2642(c) zero-inclusion-ratio treatment.</strong> The §2503(b) annual-exclusion qualification satisfies §2642(c)(3)(A) but the §2642(c)(2)(A) single-beneficiary rule fails on a pooled multi-beneficiary trust. Prevention: for every multi-beneficiary Crummey ILIT with skip-person beneficiaries, either restructure into separate single-beneficiary sub-trusts satisfying both §2642(c)(2)(A) and §2642(c)(2)(B), or accept §2632(c) automatic allocation and use the transferor's §2632 exemption to shelter annual gifts. Never assume that a Crummey ILIT with grandchild beneficiaries is GST-free.</p>
+
+<p><strong>Mistake 2 — Failing to file Form 709 to elect out of §2632(c) automatic allocation on annual-exclusion gifts to a non-qualifying Crummey ILIT.</strong> Even when the annual gift is entirely within the $19,000 annual exclusion, if the trust is a "GST trust" under §2632(c)(3)(B), §2632(c) automatic allocation applies at the transfer value unless the transferor elects out. Missing the election consumes exemption at $19,000/beneficiary/year in transferor's exemption on gifts that would otherwise not have consumed exemption at all. Prevention: file Form 709 every year for any annual-exclusion gift to any GST trust, with an explicit §2632(c)(5)(A)(i) election-out statement when preserving exemption is desired.</p>
+
+<p><strong>Mistake 3 — Making a §2513 spousal gift-splitting election without confirming both spouses' Form 709 consent.</strong> The election requires both spouses to sign the Form 709 (or file separate Forms 709 with the consent-of-spouse box checked). Failing to obtain the consenting spouse's signature invalidates the election, leaving all gifts attributed to the donor spouse alone and potentially consuming double the transferor's exemption. Prevention: for every §2513 election, obtain a written consent from the consenting spouse before filing Form 709 and confirm both signatures on the return.</p>
+
+<p><strong>Mistake 4 — Using §2503(e) for room, board, or fees rather than tuition, or reimbursing the beneficiary rather than paying the provider directly.</strong> §2503(e) is a narrowly drafted exclusion covering only tuition (not room, board, books, or fees) and only direct payments (not reimbursements). Common practitioner errors include treating a school's bundled charges as "tuition" for §2503(e) purposes, or allowing a grandparent to give cash to a grandchild for school payment rather than paying the school directly. Prevention: ask the school to separately bill and receive the tuition portion; make every payment payable to the institution directly, not to the individual; retain the school's receipt showing the payment as tuition.</p>
+
+<p><strong>Mistake 5 — Failing to file Form 709 for §529(c)(5)(A) five-year averaging elections.</strong> The election must be affirmatively made on Form 709 for the year of contribution — silence is not an election. Without the affirmative election, the $95,000 contribution is a $19,000 annual-exclusion gift plus a $76,000 taxable gift consuming lifetime exemption. Prevention: file Form 709 for any §529 contribution above $19,000 per beneficiary per year with a specific §529(c)(5)(A) election statement identifying the beneficiary, the contribution amount, and the five-year averaging period.</p>
+
+<p><strong>Mistake 6 — Missing the §529(c)(4)(C) death-within-five-years pullback risk when advising elderly contributors on five-year averaging.</strong> The pullback is measured based on the calendar-year attribution — a contributor who dies mid-year 2027 after making a 2026 five-year averaged $95,000 contribution pulls back three-fifths of the contribution ($57,000) into the gross estate. Prevention: for contributors age 80+ or with material mortality risk, compare the five-year averaging benefit against the pullback risk and consider staged five-year contributions ($19,000 per year for five years) rather than a single $95,000 election.</p>
+
+<h2 id="worked-example">Worked case study: multi-vehicle grandchild transfer program</h2>
+
+<p>Consider Robert and Margaret, a couple in their mid-70s with three adult children and eight grandchildren aged 6 to 17. Robert has a $12M taxable estate; Margaret has a $9M taxable estate; together they have $21M in gross assets and are committed to a systematic grandchild transfer program to consume some of their combined estate while remaining under the $15M-per-spouse OBBBA exemption at death.</p>
+
+<p>Robert and Margaret's estate-planning attorney recommends a four-vehicle transfer program:</p>
+
+<ol>
+<li><strong>Vehicle A — Annual-exclusion cash gifts.</strong> Robert and Margaret elect §2513 spousal gift-splitting each year, giving each of the eight grandchildren $38,000 per year ($19,000 × 2). Total annual transfer: $304,000 per year. All transfers are §2503(b) nontaxable gifts and §2642(c)(1) zero-inclusion-ratio direct skips (skip persons; outright to individuals). Zero §2632 exemption consumed; zero gift-tax exemption consumed.</li>
+<li><strong>Vehicle B — §529 plan front-loaded contributions.</strong> Robert makes $95,000 five-year averaged §529 contributions for each of the eight grandchildren in year 1 ($760,000 total), and Margaret does the same in year 2 ($760,000 total). Total: $1,520,000 transferred to §529 plans across two years. All contributions are §2503(b) nontaxable gifts via §529(c)(2)(A) and are §2642(c)(1) zero-inclusion-ratio direct skips (§529 plans are not §2642(c)(2) trusts). Zero §2632 exemption consumed; zero gift-tax exemption consumed.</li>
+<li><strong>Vehicle C — §2503(e) direct-pay tuition.</strong> When each grandchild reaches college age, Robert and Margaret pay tuition directly to the college. Average tuition: $60,000 per year at private colleges; each grandchild attends for four years; total tuition per grandchild: $240,000. Total across eight grandchildren: $1,920,000. All payments are §2503(e) direct-pay nontaxable gifts and §2642(c)(1) zero-inclusion-ratio direct skips. Zero §2632 exemption consumed.</li>
+<li><strong>Vehicle D — Multi-beneficiary Crummey ILIT (with §2632(c) automatic allocation).</strong> Robert and Margaret fund a Crummey ILIT with eight grandchild beneficiaries with $304,000 per year of annual gifts (matched to Vehicle A). Because the multi-beneficiary trust fails §2642(c)(2)(A), the annual gifts consume §2632 exemption at $304,000 per year via §2632(c) automatic allocation. Over 10 years: $3,040,000 of combined §2632 exemption consumed. The trade-off is that the ILIT accumulates in a discretionary sprinkle structure with creditor-protection benefits that outright gifts do not provide.</li>
+</ol>
+
+<h3>The 20-year cumulative transfer</h3>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Vehicle</th><th>20-year cumulative transfer to skip generation</th><th>§2632 exemption consumed (combined couple)</th><th>Gift-tax exemption consumed (combined couple)</th><th>GST-tax paid</th></tr></thead>
+<tbody>
+<tr><td>Vehicle A — Annual-exclusion gifts ($304K/yr × 20)</td><td>$6,080,000</td><td>$0</td><td>$0</td><td>$0</td></tr>
+<tr><td>Vehicle B — §529 five-year averaging (front-loaded in yrs 1-2)</td><td>$1,520,000</td><td>$0</td><td>$0</td><td>$0</td></tr>
+<tr><td>Vehicle C — §2503(e) direct-pay tuition (four years/grandchild)</td><td>$1,920,000</td><td>$0</td><td>$0</td><td>$0</td></tr>
+<tr><td>Vehicle D — Multi-beneficiary Crummey ILIT ($304K/yr × 20)</td><td>$6,080,000</td><td>$6,080,000</td><td>$0 (within exemption)</td><td>$0</td></tr>
+<tr><td><strong>Total transferred to grandchildren</strong></td><td><strong>$15,600,000</strong></td><td><strong>$6,080,000</strong></td><td><strong>$0</strong></td><td><strong>$0</strong></td></tr>
+</tbody>
+</table></div>
+
+<p>The Vehicles A + B + C combination transfers $9,520,000 to the skip generation over 20 years without consuming ANY combined §2632 exemption or ANY gift-tax exemption. Vehicle D transfers an additional $6,080,000 but at a cost of $6,080,000 in combined §2632 exemption consumption. If Robert and Margaret's goal is to maximize skip-generation transfer while preserving combined GST exemption for later use (perhaps to shelter a QTIP-held IRA at the surviving spouse's later death), they may choose to omit Vehicle D and focus on Vehicles A + B + C — $9,520,000 transferred at zero exemption cost.</p>
+
+<h3>The §2642(c)-optimal restructuring</h3>
+
+<p>If Robert and Margaret want both the trust-structure benefits of Vehicle D and the §2642(c) zero-inclusion-ratio treatment, they can restructure Vehicle D as eight separate single-beneficiary Crummey sub-trusts, one per grandchild, each satisfying §2642(c)(2)(A) and §2642(c)(2)(B). Each sub-trust receives $38,000 per year of split gifts from Robert and Margaret; each gift is a §2503(b) nontaxable gift via the Crummey withdrawal power; each gift is a §2642(c)(1) zero-inclusion-ratio direct skip because the single-beneficiary sub-trust satisfies §2642(c)(2).</p>
+
+<p>Total for restructured Vehicle D over 20 years: $6,080,000 transferred to the eight single-beneficiary sub-trusts with zero §2632 exemption consumed. The cost is loss of pooled-corpus and discretionary-sprinkle flexibility — each sub-trust is administered separately and each beneficiary's share is fixed.</p>
+
+<h3>Coordination with a future QTIP-held inherited IRA</h3>
+
+<p>If Robert dies first with a $6M IRA that funds a QTIP trust for Margaret, the deceased spouse's Form 706 uses a §2652(a)(3) reverse-QTIP election and §2632(a) affirmative Schedule R allocation to allocate the appropriate portion of Robert's $15M GST exemption to the QTIP trust (walked in <a href="/blog/irc-2632-gst-exemption-allocation-inherited-ira-2026.html">yesterday's piece</a>). If the couple's 20-year annual-exclusion and direct-pay program has left Robert's $15M GST exemption entirely intact, Robert's executor can allocate the full $15M — more than enough to fully shelter the $6M QTIP trust with $9M of remaining exemption for other trusts (a credit-shelter trust, a separate dynasty trust, or defaulted at Robert's death under §2632(e)).</p>
+
+<p>This coordination is the load-bearing reason §2642(c) planning matters even for couples with modest estates. Preserving exemption during lifetime through §2642(c)-qualifying transfers leaves the exemption available for the most-valuable-use case at death: sheltering a large retirement-account remainderman-trust structure that would otherwise be GST-exposed for the trust's entire multi-generation life.</p>
+
+<h2 id="checklist">Pre-transfer action checklist</h2>
+
+<div class="callout key">
+<h4>The 8-item pre-§2642(c)-transfer checklist</h4>
+<p>Complete each item before making any transfer to a skip person (grandchild, great-grandchild, or unrelated person more than 37.5 years younger than the transferor) intended to qualify for §2642(c)(1) zero-inclusion-ratio treatment. Retain the completed checklist with the transfer file and the Form 709 workpapers for the statute of limitations plus a reasonable margin.</p>
+</div>
+
+<ol>
+<li><strong>Confirm the donee's skip-person status.</strong> Under IRC §2612(c), a skip person is a natural person assigned to a generation two or more generations below the transferor (typically a grandchild or great-grandchild), or an unrelated person more than 37.5 years younger than the transferor per §2651(d), or a trust of which every interest is held by skip persons. If the donee is not a skip person, the §2642(c) analysis is moot and the transfer is not GST-taxed regardless of qualification.</li>
+<li><strong>Analyze the §2503(b) or §2503(e) qualification.</strong> For each transfer, confirm whether the transfer qualifies as a nontaxable gift under §2503(b) (annual-exclusion cash or property gift, present interest with Crummey qualification if to a trust) or §2503(e) (direct-pay tuition to a §170(b)(1)(A)(ii) organization or direct-pay medical care to a §213(d)-qualifying provider). If the transfer does not qualify as a nontaxable gift, §2642(c) does not apply and the transfer is a taxable gift subject to §2632 allocation mechanics.</li>
+<li><strong>For transfers to trusts, run the §2642(c)(2) two-condition analysis.</strong> Document whether the trust satisfies §2642(c)(2)(A) (during the beneficiary's lifetime, only that beneficiary can receive distributions) and §2642(c)(2)(B) (if the beneficiary dies before trust termination, the corpus is includible in the beneficiary's gross estate). If either condition fails, §2642(c) does not apply to trust transfers; a §2632(c) automatic-allocation analysis is required instead.</li>
+<li><strong>Consider the §2513 spousal gift-splitting election.</strong> If the transferor is married and both spouses are U.S. citizens or residents, confirm whether §2513 gift-splitting is optimal for the year. The election doubles the §2503(b) annual exclusion to $38,000 per donee, doubles the §2642(c) qualification amount, and equalizes exemption consumption between the spouses. The election is all-or-nothing for the year and must be made on a timely filed Form 709.</li>
+<li><strong>For §529 plan contributions, decide on the §529(c)(5)(A) five-year averaging election.</strong> For contributions above $19,000 per beneficiary per year, the election permits treating up to $95,000 (2026) as a five-year averaged contribution. Weigh the front-loading benefit against the §529(c)(4)(C) death-within-five-years pullback risk. File Form 709 for the year of contribution with the specific election statement.</li>
+<li><strong>Document Crummey notice for every ILIT contribution.</strong> If the transfer is to a Crummey ILIT, provide written Crummey notice to each powerholder within a reasonable time after the contribution (typically same day or within 30 days) and retain a copy of the notice in the trust file. The Crummey notice is the load-bearing documentation for the §2503(b) present-interest characterization.</li>
+<li><strong>For §2503(e) direct-pay, ensure payment is made to the institution or provider directly.</strong> Payments must be made payable to the school (for tuition) or the healthcare provider or insurance company (for medical care). Reimbursement of the individual is not a §2503(e) transfer. Retain the school's or provider's receipt showing the payment as tuition or medical care.</li>
+<li><strong>File Form 709 for the year of transfer.</strong> Even for transfers entirely within the $19,000 annual exclusion, file Form 709 to (a) elect §2513 gift-splitting if applicable, (b) elect out of §2632(c) automatic allocation on any transfers to trusts, (c) document the §2642(c) qualification for the transferor's records, and (d) start the statute of limitations under §6501(c)(9) with adequate disclosure. Silence in a year with GST-significant transfers can create audit exposure and later-year clean-up complexity.</li>
+</ol>
+
+<h2 id="faq">Frequently asked questions about IRC §2642(c)</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What is IRC §2642(c) and why does it matter?</h3>
+<p>IRC §2642(c) treats a "nontaxable gift" that is also a direct skip as having a zero inclusion ratio for GST-tax purposes — meaning the transfer is GST-free without consuming any §2632 lifetime GST exemption. A "nontaxable gift" under §2642(c)(3) means a transfer covered by the §2503(b) annual exclusion ($19,000 per donee for 2026) or a §2503(e) direct payment for tuition or medical care. The mechanic allows a grandparent to fund multiple grandchildren's needs each year without touching the $15M lifetime GST exemption. The §2642(c)(2) restrictive trust rule dramatically narrows the mechanic when the transfer is to a trust.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does the §2642(c)(2) restrictive trust rule work?</h3>
+<p>§2642(c)(2) provides that zero-inclusion-ratio treatment applies to a trust transfer only if (A) during the individual skip beneficiary's lifetime, no portion of trust corpus or income may be distributed to any person other than that beneficiary, and (B) if the beneficiary dies before trust termination, the corpus is includible in that beneficiary's gross estate. A multi-beneficiary Crummey ILIT with pooled corpus or discretionary sprinkle provisions does NOT qualify — even though each annual gift is a §2503(b) nontaxable gift via Crummey. The mechanic is designed to prevent annual-exclusion leverage into GST-tax-free dynasty planning.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is a §2503(b) "present interest" and what is the Crummey workaround?</h3>
+<p>§2503(b) provides the $19,000 (2026) annual gift-tax exclusion but only for present-interest gifts — an unrestricted right to immediate use, possession, or enjoyment. A gift to a discretionary trust is a future interest that fails §2503(b). Crummey v. Commissioner, 397 F.2d 82 (9th Cir. 1968) created the workaround: a limited-time withdrawal power (typically 30 days) converts a future-interest trust gift into a present-interest gift qualifying for the annual exclusion. Under §2642(c)(2), a Crummey trust must still satisfy the single-beneficiary-plus-estate-inclusion rule to qualify for GST zero-inclusion-ratio treatment.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does the §2513 spousal gift-splitting election interact with §2642(c)?</h3>
+<p>§2513 permits a married couple to treat any gift as if made one-half by each spouse, effectively doubling the annual exclusion to $38,000 per donee. For §2642(c) purposes, gift-splitting also splits GST-transferor status under §2652(a)(2): each spouse becomes transferor of half. Each half receives §2642(c)(1) zero-inclusion-ratio treatment independently if underlying qualification is met. The election is all-or-nothing for the year and made on both spouses' Form 709.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does §2503(e) direct-pay for tuition and medical care work?</h3>
+<p>§2503(e) provides an unlimited exclusion (no dollar cap) from gift and GST tax for direct payments to a qualified educational organization for tuition or to a healthcare provider for medical care. The two exclusions stack with §2503(b). Tuition-only qualifies; room, board, books, fees don't. Medical qualifies only for §213(d) categories including insurance premiums. Payments must be made directly to the provider, not reimbursed. Every §2503(e) direct payment to a skip person is a §2642(c)(1) zero-inclusion-ratio direct skip.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does §529(c)(5)(A) five-year averaging work for 529 plan contributions?</h3>
+<p>§529(c)(5)(A) permits a contributor to treat a single-year §529 contribution of up to 5× the annual exclusion ($95,000 for 2026) as if made ratably over five calendar years. Made on Form 709. If the contributor dies within the averaging period, the pro-rata attribution to years after death is included in the gross estate under §529(c)(4)(C). Direct §529 contributions where the beneficiary is a grandchild are direct-skip transfers eligible for §2642(c)(1) zero-inclusion-ratio treatment as nontaxable gifts (§529 plans are not §2642(c)(2) trusts).</p>
+</div>
+
+<div class="faq-item">
+<h3>Does a Crummey-power ILIT with multiple beneficiaries qualify for §2642(c) zero-inclusion-ratio treatment?</h3>
+<p>Generally no. §2642(c)(2)(A) requires that during the lifetime of an individual skip beneficiary, no portion of corpus or income may be distributed to any other person — a condition rarely satisfied in a multi-beneficiary Crummey ILIT with pooled corpus. §2642(c)(2)(B) requires estate inclusion if the beneficiary dies before termination — rarely satisfied in a discretionary sprinkle trust with contingent remaindermen. Practitioners address this by (a) creating separate single-beneficiary Crummey sub-trusts to satisfy §2642(c)(2), or (b) accepting §2632(c) automatic allocation and using formula-allocation drafting.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does §2642(c) interact with a QTIP-held inherited IRA?</h3>
+<p>The direct interaction is indirect but material. The QTIP trust itself is a Form 706 Schedule R allocation event with §2652(a)(3) reverse-QTIP election — not a nontaxable-gift direct skip. But §2642(c) matters for (1) the surviving spouse's annual-exclusion gifting during the 10-year IRA distribution window, (2) grandchild-remainderman single-beneficiary sub-trusts satisfying §2642(c)(2), and (3) direct §2503(e) tuition/medical payments to grandchildren funded by IRA distributions.</p>
+</div>
+
+<div class="faq-item">
+<h3>What are the most common §2642(c) mistakes?</h3>
+<p>The most common: (1) assuming a multi-beneficiary Crummey ILIT qualifies for §2642(c) when §2642(c)(2)(A) requires single-beneficiary treatment; (2) failing to elect out of §2632(c) automatic allocation on annual-exclusion gifts to non-qualifying Crummey ILITs; (3) making §2513 gift-splitting elections without both spouses' Form 709 consent; (4) using §2503(e) for room/board/fees rather than tuition, or reimbursing rather than paying directly; (5) failing to file Form 709 for §529(c)(5)(A) five-year averaging; and (6) missing the §529(c)(4)(C) death-within-five-years pullback for elderly contributors.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can I use §9100 relief to fix a missed §2642(c) election?</h3>
+<p>§2642(c)(1) zero-inclusion-ratio treatment applies by operation of statute if the underlying facts qualify — no separate election is required. §9100 relief is not available to change the underlying facts (a multi-beneficiary trust cannot become single-beneficiary retroactively). §9100 relief IS available for missed §2513 spousal gift-splitting elections and missed §529(c)(5)(A) five-year averaging elections at the $38,000 user fee under Rev. Proc. 2025-1. For missed §2632(c) automatic-allocation election-outs, §2642(g)(1) relief applies at the same user fee. The prudent practice is correct §2642(c) analysis at the time of each transfer.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All statutory citations in this article are current as of August 2026. The IRC §2642(c) analysis draws on the Internal Revenue Code as amended through the One Big Beautiful Bill Act (Public Law 119-21, July 4, 2025), Treasury Regulations §26.2642-1, §25.2503-3, §25.2503-6, §26.2632-1, §25.2513-1, and §25.2503-4 as amended through August 2026, and the controlling authorities on GST zero-inclusion-ratio treatment (Tax Reform Act of 1986 Pub. L. 99-514 §1431, Technical and Miscellaneous Revenue Act of 1988 Pub. L. 100-647 §1014, Small Business Job Protection Act of 1996 Pub. L. 104-188, Economic Recovery Tax Act of 1981 §441, Taxpayer Relief Act of 1997 §501 and §211, Crummey v. Commissioner 397 F.2d 82 (9th Cir. 1968), Rev. Rul. 73-405, and Instructions for Form 709). The 2026 dollar figures ($19,000 §2503(b) annual exclusion; $95,000 §529(c)(5)(A) five-year averaged maximum; $15,000,000 unified estate-and-GST exemption; $190,000 §2523(i)(2) non-citizen-spouse annual exclusion) are drawn from IRS Notice 2025-67 and Rev. Proc. 2025-32. The SECURE Act 10-year rule analysis references IRC §401(a)(9)(H) as enacted in Pub. L. 116-94 §401 (SECURE Act, December 20, 2019) and the Final Regulations at TD 10001 (89 Fed. Reg. 58886, July 19, 2024). The QTIP-plus-IRA mechanic references Rev. Rul. 2000-2 and IRC §2056(b)(7) as walked in the companion 2026-08-20 CalcLeap piece. The §2632 exemption-allocation mechanic references the 2026-08-24 CalcLeap piece. The case-study calculations use conservative $19,000 annual exclusion assumptions (frozen at 2026 levels for simplicity; actual inflation-indexed exclusion will exceed this figure in later years) and 2026 IRS Uniform Lifetime Table factors. This article is educational; readers implementing any §2642(c) planning with material exposure should engage a state-licensed estate-planning attorney experienced in GST-tax mechanics and a Form 709 preparer with substantial Schedule D (Form 709) experience.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Internal Revenue Code §§2601-2664 — Chapter 13 Generation-Skipping Transfer Tax — full statutory text as amended through the One Big Beautiful Bill Act (Public Law 119-21, July 4, 2025). <a href="https://www.law.cornell.edu/uscode/text/26/subtitle-B/chapter-13" rel="nofollow noopener">law.cornell.edu/uscode/text/26/subtitle-B/chapter-13</a></li>
+<li id="source-2">Internal Revenue Code §2642 — Inclusion ratio — including the §2642(c) zero-inclusion-ratio rule for nontaxable-gift direct skips and the §2642(c)(2) restrictive rule for trust transfers. <a href="https://www.law.cornell.edu/uscode/text/26/2642" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2642</a></li>
+<li id="source-3">CalcLeap Editorial, IRC §2632 GST Exemption Allocation for QTIP-Held Inherited IRAs in 2026 (August 24, 2026). <a href="/blog/irc-2632-gst-exemption-allocation-inherited-ira-2026.html">calcleap.com/blog/irc-2632-gst-exemption-allocation-inherited-ira-2026.html</a></li>
+<li id="source-4">Tax Reform Act of 1986, Public Law 99-514, §1431, 100 Stat. 2085 (1986) — enacted the modern generation-skipping transfer tax and IRC §2642(c) zero-inclusion-ratio treatment; Technical and Miscellaneous Revenue Act of 1988, Pub. L. 100-647 §1014, tightened the trust rule; Small Business Job Protection Act of 1996, Pub. L. 104-188, conformed the definition of "nontaxable gift." <a href="https://www.congress.gov/bill/99th-congress/house-bill/3838" rel="nofollow noopener">congress.gov/bill/99th-congress/house-bill/3838</a></li>
+<li id="source-5">Treasury Regulation §26.2642-1 — Inclusion ratio — regulatory implementation of the §2642 mechanics, including §2642(c) zero-inclusion-ratio treatment, coordination with §2642(a) inclusion-ratio formula, and interaction with §2632(c) automatic allocation. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-B/part-26/section-26.2642-1" rel="nofollow noopener">ecfr.gov/title-26/section-26.2642-1</a></li>
+<li id="source-6">Internal Revenue Code §2641 — Applicable rate — provides that the GST tax rate is the maximum estate-tax rate (currently 40% per §2001(c)) multiplied by the inclusion ratio determined under §2642. <a href="https://www.law.cornell.edu/uscode/text/26/2641" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2641</a></li>
+<li id="source-7">Internal Revenue Code §2503 — Taxable gifts — including §2503(b) per-donee annual exclusion, §2503(c) transfers to trusts for benefit of minors, and §2503(e) exclusion for certain transfers for educational or medical expenses. <a href="https://www.law.cornell.edu/uscode/text/26/2503" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2503</a></li>
+<li id="source-8">Treasury Regulation §25.2503-6 — Exclusion for certain qualified transfers for tuition or medical expenses — walks the direct-pay requirement, the tuition-only rule for educational payments, and the §213(d) medical-care definition. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-B/part-25/section-25.2503-6" rel="nofollow noopener">ecfr.gov/title-26/section-25.2503-6</a></li>
+<li id="source-9">Joint Committee on Taxation, JCS-10-87 — General Explanation of the Tax Reform Act of 1986 (Blue Book) — legislative history of the modern GST regime including the §2642(c) restrictive trust rule and its anti-abuse purpose. <a href="https://www.jct.gov/publications/1987/jcs-10-87/" rel="nofollow noopener">jct.gov/publications/1987/jcs-10-87</a></li>
+<li id="source-10">Treasury Regulation §25.2503-3 — Future interests in property — defines "present interest" for §2503(b) annual-exclusion purposes and walks the future-interest disqualification for ordinary trust gifts. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-B/part-25/section-25.2503-3" rel="nofollow noopener">ecfr.gov/title-26/section-25.2503-3</a></li>
+<li id="source-11">Crummey v. Commissioner, 397 F.2d 82 (9th Cir. 1968) — Ninth Circuit decision establishing that a beneficiary's limited-time withdrawal power over trust contributions converts a future-interest trust gift into a present-interest gift qualifying for the §2503(b) annual exclusion; the load-bearing case for modern ILIT and dynasty-trust drafting. <a href="https://caselaw.findlaw.com/court/us-9th-circuit/1440155.html" rel="nofollow noopener">caselaw.findlaw.com/court/us-9th-circuit/crummey-v-commissioner</a></li>
+<li id="source-12">Internal Revenue Code §2514 — Powers of appointment — including the §2514(b) treatment of a general-power lapse as a gift by the powerholder and the §2514(e) 5-and-5 safe harbor for lapses not exceeding the greater of $5,000 or 5% of the trust corpus. <a href="https://www.law.cornell.edu/uscode/text/26/2514" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2514</a></li>
+<li id="source-13">Internal Revenue Code §2513 — Gift by husband or wife to third party — spousal gift-splitting election permitting treatment of any gift as if made one-half by each spouse. <a href="https://www.law.cornell.edu/uscode/text/26/2513" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2513</a></li>
+<li id="source-14">Internal Revenue Code §2652 — Other definitions — including the §2652(a)(2) transferor rule for split gifts, providing that each spouse is treated as transferor of one-half of a split gift for GST purposes. <a href="https://www.law.cornell.edu/uscode/text/26/2652" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2652</a></li>
+<li id="source-15">Economic Recovery Tax Act of 1981, Public Law 97-34, §441, 95 Stat. 172 (1981) — enacted IRC §2503(e) unlimited direct-pay exclusion for tuition and medical care. <a href="https://www.congress.gov/bill/97th-congress/house-bill/4242" rel="nofollow noopener">congress.gov/bill/97th-congress/house-bill/4242</a></li>
+<li id="source-16">Internal Revenue Service, Instructions for Form 709 (2025 Rev.) — updated instructions for tax year 2025 (filed in 2026) including Schedule A gift reporting, §2513 gift-splitting election mechanics, §2632(c) automatic-allocation election-outs, and §529(c)(5)(A) five-year averaging election statements. <a href="https://www.irs.gov/pub/irs-pdf/i709.pdf" rel="nofollow noopener">irs.gov/pub/irs-pdf/i709.pdf</a></li>
+<li id="source-17">Internal Revenue Code §529 — Qualified tuition programs — including §529(c)(2)(A) treatment of contributions as completed gifts for gift-tax purposes, §529(c)(5)(A) five-year averaging election, and §529(c)(4)(C) death-within-five-years pullback. <a href="https://www.law.cornell.edu/uscode/text/26/529" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529</a></li>
+<li id="source-18">Taxpayer Relief Act of 1997, Public Law 105-34, §211, 111 Stat. 788 (1997) — enacted IRC §529 qualified tuition programs including the §529(c)(5)(A) five-year averaging mechanic and increased the §2503(b) annual exclusion baseline to $10,000 (indexed). <a href="https://www.congress.gov/bill/105th-congress/house-bill/2014" rel="nofollow noopener">congress.gov/bill/105th-congress/house-bill/2014</a></li>
+<li id="source-19">Internal Revenue Service, TD 10001 — Required Minimum Distributions, Final Regulations, 89 Fed. Reg. 58886 (July 19, 2024) — implements the SECURE Act §401 10-year rule and SECURE 2.0 Act §§107, 202, 302, 325, 327 for post-2019 designated-beneficiary distributions, including QTIP-trust-held IRAs. <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" rel="nofollow noopener">federalregister.gov/2024-14542</a></li>
+<li id="source-20">Internal Revenue Service, Rev. Proc. 2025-32 — Annual inflation adjustments for 2026 including the $19,000 §2503(b) annual gift-tax exclusion, the $190,000 §2523(i)(2) non-citizen-spouse annual exclusion, the $15,000,000 unified estate-and-GST exemption under IRC §§2010(c) and 2631, and other 2026 dollar limitations. <a href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rp-25-32.pdf</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized legal or financial advice. IRC §2642(c) zero-inclusion-ratio treatment for nontaxable-gift direct skips is a federal-tax mechanic with substantial procedural complexity, particularly for transfers to trusts under the §2642(c)(2) restrictive rule. The §2503(b) present-interest characterization, the Crummey workaround, the §2503(e) direct-pay requirements, and the §529(c)(5)(A) five-year averaging election all require careful Form 709 documentation. Consult a state-licensed estate-planning attorney experienced in GST-tax mechanics and a Form 709 preparer with substantial Schedule D experience before making any GST-significant transfer. Any transfer to a skip person exceeding the annual exclusion warrants explicit §2642(c) qualification analysis; any transfer to a trust with skip-person beneficiaries warrants explicit §2642(c)(2) analysis regardless of amount. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Results may not reflect your actual situation. State statutes, IRC provisions, Treasury Regulations, and revenue rulings change; always verify current law with primary sources and consult a qualified estate-planning attorney and tax advisor before making decisions. CalcLeap is not a law firm and does not provide legal advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#statutory-framework">IRC §2642(c) statutory framework</a></li>
+        <li><a href="#nontaxable-gift-definition">§2642(c)(3) nontaxable-gift definition</a></li>
+        <li><a href="#restrictive-trust-rule">§2642(c)(2) restrictive trust rule</a></li>
+        <li><a href="#present-interest">§2503(b) present interest + Crummey</a></li>
+        <li><a href="#spousal-gift-splitting">§2513 spousal gift-splitting</a></li>
+        <li><a href="#direct-pay">§2503(e) direct-pay tuition/medical</a></li>
+        <li><a href="#529-plans">§529(c)(5)(A) five-year averaging</a></li>
+        <li><a href="#qtip-interaction">QTIP-held inherited IRA application</a></li>
+        <li><a href="#six-mistakes">Six recurring mistakes</a></li>
+        <li><a href="#worked-example">Worked case study</a></li>
+        <li><a href="#checklist">Pre-transfer action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/estate-tax-calculator.html">Estate Tax Calculator</a>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/401k-withdrawal-calculator.html">401(k) Withdrawal Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/traditional-ira-calculator.html">Traditional IRA Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth IRA Conversion Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/irc-2632-gst-exemption-allocation-inherited-ira-2026.html">IRC §2632 GST Exemption Allocation</a>
+      <a href="/blog/irc-2652-a-3-reverse-qtip-election-inherited-ira-2026.html">IRC §2652(a)(3) Reverse-QTIP Election</a>
+      <a href="/blog/irc-2518-qualified-disclaimer-inherited-ira-2026.html">IRC §2518 Qualified Disclaimer</a>
+      <a href="/blog/irc-2519-year-10-gift-treatment-inherited-ira-2026.html">IRC §2519 Year-10 Gift Treatment</a>
+      <a href="/blog/irc-2056-b-7-qtip-inherited-ira-2026.html">IRC §2056(b)(7) QTIP Marital Deduction</a>
+      <a href="/blog/state-unitrust-conversion-inherited-ira-2026.html">State Unitrust Conversion (§106)</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
