@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRC §529(c)(3)(C)(ii) Beneficiary Change in 2026: The §529(e)(2) Member-of-Family Framework, the 15-Year Clock Restart, the §2612(c) Generation-Skip Trigger, and Every Multi-Generational Planning Move | CalcLeap</title>
+<meta name="description" content="IRC §529(c)(3)(C)(ii) permits a tax-free change of the designated beneficiary of a §529 qualified tuition program to another §529(e)(2) member of the family. Yesterday's §529(c)(3)(E) Roth-rollover piece touched the beneficiary-change mechanic; this piece walks it in isolation. Coverage: the §529(e)(2)(A)-(F) family definition line by line with the EGTRRA 2001 first-cousin expansion and boundary cases (in-laws, step-relations, cousin's spouse), the 15-year §529(c)(3)(E) clock's interaction with beneficiary change, the §529(c)(5)(B) generation-skip flag and its §2612(c) direct-skip mechanics, the §2503(b) annual-exclusion treatment of a beneficiary change that also crosses a generation, the choice matrix between beneficiary change vs §529(c)(3)(E) Roth rollover vs non-qualified §529(c)(6) distribution vs ABLE-rollover under §529(c)(3)(D), and the state-tax recapture landscape.">
+<link rel="canonical" href="https://calcleap.com/blog/irc-529-c-3-c-ii-beneficiary-change-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="IRC §529(c)(3)(C)(ii) Beneficiary Change in 2026 — CalcLeap">
+<meta property="og:description" content="Deep-dive on §529(c)(3)(C)(ii) beneficiary changes: the §529(e)(2) family framework line by line, the 15-year clock restart question, the §2612(c) direct-skip mechanic when a change crosses a generation, and the multi-generational planning playbook for over-funded §529 accounts.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/irc-529-c-3-c-ii-beneficiary-change-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-08-28T00:00:00Z">
+<meta property="article:modified_time" content="2026-08-28T00:00:00Z">
+<meta property="article:section" content="Retirement Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IRC §529(c)(3)(C)(ii) Beneficiary Change in 2026",
+  "description": "A practitioner deep-dive on IRC §529(c)(3)(C)(ii) §529 beneficiary changes: the §529(e)(2) member-of-family framework, the 15-year §529(c)(3)(E) clock restart, the §529(c)(5)(B) generation-skip trigger and its §2612(c) direct-skip mechanic, the §2503(b) annual-exclusion treatment, state-tax recapture, and the practitioner's decision matrix among beneficiary change / Roth rollover / non-qualified distribution / ABLE rollover.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-08-28T00:00:00Z",
+  "dateModified": "2026-08-28T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/irc-529-c-3-c-ii-beneficiary-change-2026.html"
+  },
+  "articleSection": "Retirement Planning",
+  "wordCount": 5600,
+  "about": [
+    {"@type": "Thing", "name": "IRC Section 529(c)(3)(C)(ii)"},
+    {"@type": "Thing", "name": "IRC Section 529(e)(2) Member of the Family"},
+    {"@type": "Thing", "name": "529 beneficiary change"},
+    {"@type": "Thing", "name": "15-year account-age clock"},
+    {"@type": "Thing", "name": "IRC Section 529(c)(5)(B) generation-skipping transfer"},
+    {"@type": "Thing", "name": "IRC Section 2612(c) direct skip"},
+    {"@type": "Thing", "name": "EGTRRA 2001 first-cousin expansion"},
+    {"@type": "Thing", "name": "State 529 tax recapture"},
+    {"@type": "Thing", "name": "IRC Section 529(c)(3)(D) ABLE rollover"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "IRC §529(c)(3)(C)(ii) Beneficiary Change"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What does IRC §529(c)(3)(C)(ii) permit?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §529(c)(3)(C)(ii) permits the account owner of a §529 qualified tuition program to change the designated beneficiary to a §529(e)(2) member of the family of the former beneficiary, without triggering income tax on the account's accumulated earnings and without triggering the 10% additional tax under §529(c)(6). The change is treated as a rollover distribution for federal income-tax purposes provided the new beneficiary satisfies the §529(e)(2) family test. Gift-tax and generation-skipping-transfer-tax consequences are governed separately by §529(c)(5)(B) and IRC §§2611-2613."}},
+    {"@type": "Question", "name": "Who is a member of the family under §529(e)(2)?",
+     "acceptedAnswer": {"@type": "Answer", "text": "§529(e)(2) defines a member of the family through six categories anchored to the current designated beneficiary: (A) the beneficiary's spouse; (B) individuals listed at §152(d)(2)(A)-(G) — children, siblings, parents, grandparents, aunts and uncles, nieces and nephews, in-laws (mother/father/brother/sister/son/daughter-in-law), and stepbrothers/stepsisters; (C) descendants of the individuals in (B) (grandchildren, grand-nieces/nephews); (D) the spouse of any individual in (A), (B), or (C); (E) first cousins of the beneficiary, added by EGTRRA 2001 §402(b)(2) effective 2002; and (F) first cousins' spouses. The definition reaches broadly — a beneficiary's second cousin's spouse is not covered, but a first cousin's spouse is."}},
+    {"@type": "Question", "name": "Does a beneficiary change restart the 15-year §529(c)(3)(E) Roth-rollover clock?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The IRS has not issued final regulations under §529(c)(3)(E) as of August 2026. Two readings compete. The conservative practitioner interpretation, followed here, is that a §529(c)(3)(C)(ii) beneficiary change restarts the 15-year clock as to the new beneficiary — the statutory language 'maintained for the 15-year period ending on the date of such distribution' reads most naturally as maintained for the specific individual whose Roth IRA receives the rollover. The competing reading treats the clock as an attribute of the §529 account itself, unaffected by beneficiary identity. Until Treasury clarifies, plan around the restart interpretation: document the account establishment history for the original beneficiary carefully, and expect a 15-year new-beneficiary waiting period before executing a §529(c)(3)(E) rollover after a beneficiary change. The five-year contribution-and-earnings lookback of §529(c)(3)(E)(ii) is a separate clock and is not affected by beneficiary change."}},
+    {"@type": "Question", "name": "When does a beneficiary change trigger a generation-skipping transfer?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §529(c)(5)(B) provides that a change of designated beneficiary to a §529(e)(2) family member who is assigned to a generation below that of the former beneficiary shall be treated as a transfer by the former beneficiary for gift-tax and GST-tax purposes. The generation assignment is made under IRC §2651. A parent-to-child change (same-generation for the family, one generation below the former beneficiary) is a §2503(b)-annual-exclusion gift from the former beneficiary to the new beneficiary, but is not a direct skip. A grandparent-to-grandchild change (two generations below the former beneficiary) is a direct skip under §2612(c) and consumes GST exemption under §2631. A change to the account owner's niece is not a generation-skip if the niece is one generation below the former beneficiary (typically the case); a change to the grand-niece is a direct skip."}},
+    {"@type": "Question", "name": "Can the beneficiary be changed to a non-family member if the family list is exhausted?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. The §529(e)(2) family definition is exhaustive for federal income-tax purposes. A change to a non-family individual is treated as a §529(c)(6) non-qualified distribution to the former beneficiary — income tax on the earnings portion at the former beneficiary's marginal rate plus the 10% additional tax. Some practitioners have proposed adopting the intended non-family beneficiary before the change to satisfy §152(d)(2)(A), but this only works if the adoptee is a minor child and the adoption is bona fide under state law. A more common workaround: change the beneficiary to the account owner themselves — the account owner is typically a family member of the former beneficiary, and the account owner can then withdraw under §529(c)(3)(E) Roth rollover (if eligible), qualified §529(c)(3)(A) distributions for the account owner's own education, or accept the §529(c)(6) tax consequences on a non-qualified distribution."}},
+    {"@type": "Question", "name": "How many times can the beneficiary be changed?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The Internal Revenue Code imposes no explicit numerical limit on §529(c)(3)(C)(ii) beneficiary changes. Each change is tested independently: does the new beneficiary satisfy §529(e)(2) as to the immediately-preceding beneficiary (the operational reading — the statute references 'the beneficiary' rather than the original beneficiary); is the change to a lower generation for §2612(c) purposes; does the change trigger state-tax recapture. Serial changes are common in multi-generational planning — for example, the account is opened for a grandchild, the grandchild uses part of it, the remainder is redirected to a great-grandchild, and eventually to a great-great-grandchild. Each change should be documented with the §529 plan administrator and reflected in the account owner's estate-planning file, particularly where any change is a §2612(c) direct skip consuming GST exemption."}},
+    {"@type": "Question", "name": "What is the difference between §529(c)(3)(C)(i) and §529(c)(3)(C)(ii)?",
+     "acceptedAnswer": {"@type": "Answer", "text": "§529(c)(3)(C)(i) permits a tax-free trustee-to-trustee transfer between §529 plans provided the designated beneficiary does not change — a plan-to-plan move (e.g., transferring from the Colorado CollegeInvest 529 to the New York 529 Direct Plan to capture a different state deduction). §529(c)(3)(C)(ii) permits a tax-free change of designated beneficiary provided the new beneficiary is a §529(e)(2) family member of the former beneficiary. The two clauses are frequently combined — an account is transferred to a new plan and then the beneficiary is changed, or vice versa. Each transfer/change should be documented separately for §529(c)(3)(E) 15-year-clock and state-tax-recapture purposes."}},
+    {"@type": "Question", "name": "How does state 529 tax recapture interact with a beneficiary change?",
+     "acceptedAnswer": {"@type": "Answer", "text": "State treatment varies. Some states (e.g., Illinois, New York) do not recapture prior state tax deductions on a §529(c)(3)(C)(ii) beneficiary change to a family member. Others (e.g., North Carolina after the 2013 §529 tax deduction was replaced by the current framework) treat the change as an in-state event with no recapture provided the new beneficiary meets state-residency requirements. Others (some post-recapture states) recapture prior state deductions if the new beneficiary is not a state resident. The specific pattern turns on each state's §529 statute and administrative practice — always confirm with the state's Department of Revenue or the §529 plan administrator before executing a beneficiary change that changes the beneficiary's state of residence."}},
+    {"@type": "Question", "name": "Should you change the beneficiary before or after the current beneficiary graduates?",
+     "acceptedAnswer": {"@type": "Answer", "text": "For an over-funded §529 account with a beneficiary who will not use the full balance, the practical planning question is when to execute the change. Two considerations. First, the §529(c)(3)(E) Roth-rollover mechanic — if the current beneficiary is eligible to receive a $35,000 Roth rollover across five years, most practitioners execute the rollovers first, then change the residual to a family member with unused college-expense capacity. Second, the state-tax recapture — if the current beneficiary is a state resident and the intended new beneficiary is not, executing the change while the current beneficiary is still eligible for their own qualified distributions preserves optionality. The default sequencing for over-funded accounts in 2026: (a) execute qualified-expense distributions to current beneficiary through graduation, (b) execute up to $35,000 §529(c)(3)(E) rollovers to current beneficiary across five years, (c) change beneficiary to a family member with remaining qualified-expense need, (d) execute qualified-expense distributions for new beneficiary, (e) repeat for further beneficiaries until the account is exhausted."}},
+    {"@type": "Question", "name": "What documentation should accompany a §529(c)(3)(C)(ii) beneficiary change?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The §529 plan administrator's beneficiary-change form is the primary operational document. In addition, the account owner should retain: (1) proof of the new beneficiary's §529(e)(2) family relationship to the former beneficiary (birth certificate, marriage certificate, or comparable) — the plan administrator does not typically verify this but the burden falls on the account owner in the event of examination; (2) a generation-assignment note under IRC §2651 identifying whether the change is same-generation, one-generation-below, or two-or-more-generations-below (with §2612(c) direct-skip flag if applicable); (3) if the change is a §2612(c) direct skip, a Form 709 gift-tax return reflecting the §529(c)(5)(B) transfer to the new beneficiary and any §2631 GST exemption allocation; (4) an updated §529 account-history document showing the original account establishment date, all prior beneficiary changes with dates and family-tree assignments, and the current beneficiary as of the change effective date; (5) state-tax recapture confirmation from the state's Department of Revenue where applicable."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:680px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.15rem;color:var(--text);box-shadow:var(--shadow)}
+
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>IRC §529(c)(3)(C)(ii) Beneficiary Change
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Retirement Planning · Updated August 28, 2026</span>
+  <h1 id="article-start">IRC §529(c)(3)(C)(ii) Beneficiary Change in 2026: The §529(e)(2) Member-of-Family Framework, the 15-Year Clock Restart, the §2612(c) Generation-Skip Trigger, and Every Multi-Generational Planning Move</h1>
+  <p class="deck">Yesterday's <a href="/blog/secure-2-0-126-irc-529-c-3-e-roth-rollover-2026.html" style="color:var(--accent)">§529(c)(3)(E) Roth-rollover piece</a> walked the SECURE 2.0 §126 $35,000 mechanic end to end and touched the §529(c)(3)(C)(ii) beneficiary-change lever at two points — as the "most tax-efficient exit" for over-funded §529 accounts once the Roth-rollover cap is reached, and as the primary open question for the 15-year account-age clock. The Monday-before piece on <a href="/blog/irc-529-c-5-a-five-year-averaging-election-2026.html" style="color:var(--accent)">§529(c)(5)(A) five-year averaging</a> touched it a third time, when it reached the §529(e)(2) family framework in the context of front-loaded contributions to grandchildren. Neither piece walked §529(c)(3)(C)(ii) itself in isolation. This piece closes that gap. It walks the §529(e)(2) family definition line by line through its six categories (A) through (F), maps the EGTRRA 2001 first-cousin expansion that quietly widened the reachable family from Reagan-era statutory descendants to modern extended-family planning, unpacks the 15-year §529(c)(3)(E) clock restart question that remains statutorily unresolved as of August 2026, dissects the §529(c)(5)(B) generation-skip flag and its IRC §2612(c) direct-skip mechanic, and closes with the practitioner's decision matrix among beneficiary change, §529(c)(3)(E) Roth rollover, §529(c)(3)(D) ABLE-account rollover, and §529(c)(6) non-qualified distribution. Three worked case studies cover the over-funded single-account, the sibling redirect within one generation, and the multi-generational chain from grandparent through great-grandchild.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published August 28, 2026</span>
+    <span class="dot"></span>
+    <span>24 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>The beneficiary of a §529 qualified tuition program is not the account owner. Contributions to a §529 account are treated as completed gifts to the designated beneficiary at the moment of contribution under IRC §529(c)(2)(A), but the account owner retains operational control — including the power to name a different beneficiary, to change the beneficiary, and to withdraw the funds (subject to §529(c)(6) tax if the withdrawal is not for a qualified expense).<sup><a href="#source-1">[1]</a></sup> This split between economic ownership (the beneficiary's) and operational control (the account owner's) is unique among the completed-gift-yet-controlled vehicles in the Code. It is also the load-bearing feature that makes §529(c)(3)(C)(ii) beneficiary changes possible: the account owner retains the statutory power to redirect the completed gift to a different beneficiary, provided the new beneficiary satisfies the §529(e)(2) member-of-the-family test.</p>
+
+<p>The mechanic matters because §529 accounts are frequently over-funded. A grandparent who front-loaded $95,000 in 2010 at a grandchild's birth might see the account compound to $340,000 by 2025 at a 6.5% long-run return.<sup><a href="#source-2">[2]</a></sup> The grandchild attends a state school on a partial scholarship and spends perhaps $80,000-$120,000 of the balance on qualified higher-education expenses under §529(e)(3). The remaining $220,000-$260,000 is trapped: too large to distribute as a §529(c)(6) non-qualified distribution without significant tax cost on the earnings portion, and — even under SECURE 2.0 §126 — capped at $35,000 for §529(c)(3)(E) Roth rollover per beneficiary. The beneficiary-change mechanic under §529(c)(3)(C)(ii) is the practitioner's primary tool for redirecting that trapped corpus to another family member with unused qualified-expense capacity.</p>
+
+<p>Yesterday's <a href="/blog/secure-2-0-126-irc-529-c-3-e-roth-rollover-2026.html">§529(c)(3)(E) Roth-rollover piece</a> named this exit as "the most tax-efficient" for over-funded accounts. It also flagged, as the largest open question in the SECURE 2.0 §126 rollout, whether the 15-year §529(c)(3)(E) clock resets on a §529(c)(3)(C)(ii) beneficiary change. This piece walks that question. It also walks the §529(e)(2) family framework's boundary cases (in-laws, step-relations, first cousins added by EGTRRA 2001, and the notably-excluded second-cousin's spouse), the §529(c)(5)(B) generation-skip flag and its interaction with IRC §2612(c) direct-skip mechanics under Chapter 13, the §2503(b) annual-exclusion treatment of a change that is also a gift, state-tax recapture across the ten highest-population §529-deduction states, and a full decision matrix showing when a beneficiary change is preferable to §529(c)(3)(E) Roth rollover, §529(c)(3)(D) ABLE-account rollover, and outright §529(c)(6) non-qualified distribution.</p>
+
+<a class="cta-calc" href="/calc/roth-ira-calculator.html">
+  <span class="ic">🎯</span>
+  <div>
+    <h4>Model beneficiary change vs Roth rollover vs non-qualified distribution</h4>
+    <p>Compare (a) leaving over-funded §529 corpus for a beneficiary change to a younger family member, (b) $35,000 rolled to Roth IRA under §529(c)(3)(E), and (c) a §529(c)(6) non-qualified distribution at the account owner's marginal bracket. Includes the multi-generational chain math.</p>
+  </div>
+  <span class="go">Open →</span>
+</a>
+
+<h2 id="statutory-framework">The §529(c)(3)(C)(ii) statutory framework and legislative history</h2>
+
+<p>IRC §529(c)(3) governs distributions from a qualified tuition program. Subparagraph (A) covers the general tax-free treatment of distributions used for qualified higher-education expenses. Subparagraph (B) sets the includability rule for distributions that are not so used. Subparagraph (C) — the operative provision for this piece — covers rollovers, transfers, and beneficiary changes. It has two clauses:<sup><a href="#source-3">[3]</a></sup></p>
+
+<blockquote><strong>IRC §529(c)(3)(C) — Change in beneficiaries or programs</strong>
+<p>(i) <strong>Rollovers.</strong> Subparagraph (A) shall not apply to that portion of any distribution which, within 60 days of such distribution, is transferred — (I) to another qualified tuition program for the benefit of the designated beneficiary, or (II) to the credit of another designated beneficiary under a qualified tuition program who is a member of the family of the designated beneficiary with respect to which the distribution was made.</p>
+<p>(ii) <strong>Change in designated beneficiaries.</strong> Any change in the designated beneficiary of an interest in a qualified tuition program shall not be treated as a distribution for purposes of subsection (a) if the new beneficiary is a member of the family of the old beneficiary.</p>
+</blockquote>
+
+<p>Clause (i) covers plan-to-plan rollovers (with the 60-day rule) and same-plan rollovers to a family-member beneficiary. Clause (ii) covers in-place beneficiary changes without a distribution event — the change is simply administratively effected within the existing §529 account, subject to the same §529(e)(2) family test. In practice, plan administrators handle a §529(c)(3)(C)(ii) beneficiary change via a beneficiary-change form that updates the account records without moving any corpus; nothing is "distributed" for federal income-tax purposes.<sup><a href="#source-4">[4]</a></sup></p>
+
+<p>The legislative history reaches back to the 1996 Small Business Job Protection Act, which federalized §529 in its original form. The Economic Growth and Tax Relief Reconciliation Act of 2001 (EGTRRA, Pub. L. 107-16) §402 substantially rewrote §529 — making it permanent, expanding qualified expenses, and — most importantly for this piece — expanding the §529(e)(2) family definition to include first cousins of the beneficiary.<sup><a href="#source-5">[5]</a></sup> The Pension Protection Act of 2006 made the §529 rules permanent as originally sunset under EGTRRA. The Tax Cuts and Jobs Act of 2017 §11032 expanded qualified higher-education expenses to include up to $10,000 per year of K-12 tuition. SECURE 2.0 Act §126 (2022) added §529(c)(3)(E) permitting the $35,000 lifetime tax-free Roth-rollover.<sup><a href="#source-6">[6]</a></sup> Through all of this, §529(c)(3)(C)(ii)'s in-place beneficiary-change mechanic has remained textually stable — its only material change since 1996 has been the underlying widening of the §529(e)(2) family framework.</p>
+
+<h2 id="family-framework">The §529(e)(2) member-of-family framework line by line</h2>
+
+<p>IRC §529(e)(2), as it stands after EGTRRA 2001, defines "member of the family" through six categories. Each category is anchored to the current designated beneficiary — not to the account owner, not to the original beneficiary at account establishment, not to any prior beneficiary in a beneficiary-change chain.<sup><a href="#source-7">[7]</a></sup> The six categories:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>§529(e)(2) subparagraph</th><th>Category</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td>(A)</td><td>Spouse of the beneficiary</td><td>The beneficiary's current wife or husband</td></tr>
+<tr><td>(B)</td><td>Individuals bearing the relationship described at §152(d)(2)(A)-(G) to the beneficiary</td><td>Beneficiary's children (adopted included), grandchildren, siblings (full/half/step), parents, grandparents, aunts and uncles, nieces and nephews, in-laws (mother/father/brother/sister/son/daughter-in-law), and stepbrother/stepsister</td></tr>
+<tr><td>(C)</td><td>Descendants of individuals in (B)</td><td>Grandchildren of siblings (grand-nieces/nephews), great-grandchildren of the beneficiary, and their descendants; children of aunts/uncles are not reached here but are captured by (E)</td></tr>
+<tr><td>(D)</td><td>Spouse of any individual in (A), (B), or (C)</td><td>Beneficiary's brother's wife, beneficiary's aunt's husband, beneficiary's grand-nephew's wife</td></tr>
+<tr><td>(E)</td><td>First cousin of the beneficiary</td><td>The child of the beneficiary's aunt or uncle — added by EGTRRA 2001 §402(b)(2) effective 2002</td></tr>
+<tr><td>(F)</td><td>Spouse of any individual in (E)</td><td>Spouse of a first cousin</td></tr>
+</tbody></table></div>
+
+<p>The framework is remarkably wide. A beneficiary's first cousin's husband is a family member for §529(e)(2) purposes; a beneficiary's aunt's husband (i.e., an uncle-by-marriage) is a family member; a beneficiary's brother's wife's brother is <em>not</em> a family member (nothing in (A) through (F) reaches through two marriage steps). The rules effectively cover the reader's whole first-degree extended family and reach one generation into descendants, with the EGTRRA 2001 expansion adding the horizontal reach across cousinship at the first-cousin level.</p>
+
+<h3>The EGTRRA 2001 first-cousin expansion</h3>
+
+<p>Before EGTRRA 2001, §529(e)(2) omitted first cousins entirely. A beneficiary's first cousin was not a §529(e)(2) family member; a change to a first cousin was a §529(c)(6) non-qualified distribution.<sup><a href="#source-5">[5]</a></sup> This was a substantive constraint — extended families frequently redirect §529 balances horizontally across first-cousin lines when one branch of the family has fully-funded college needs and another branch has unmet ones. EGTRRA 2001 §402(b)(2), effective 2002, added first cousins as a new subparagraph (E), and first cousins' spouses as (F). The 2001 addition materially widened the operating room for §529(c)(3)(C)(ii) planning: a grandparent's §529 account, opened for one grandchild, can be redirected to any first cousin of that grandchild — meaning cousinship across all of the grandparent's other children's children is reachable without leaving §529(e)(2).</p>
+
+<h3>Boundary cases the framework does and does not reach</h3>
+
+<p>The definition is exhaustive: an individual not covered by (A)-(F) is not a §529(e)(2) family member. Several boundary cases are worth naming:</p>
+
+<ul>
+<li><strong>Second cousins:</strong> The beneficiary's parent's first cousin's child is a second cousin. Second cousins are NOT covered by (E) — (E) reaches only first cousins. A change to a second cousin is a §529(c)(6) non-qualified distribution.</li>
+<li><strong>First cousin once removed:</strong> The child of the beneficiary's first cousin. Covered by (C) as a descendant of (B)? No — (B) reaches nieces and nephews via §152(d)(2)(F) but not cousins; and (C) reaches descendants of (B), not descendants of (E). A first cousin once removed is NOT a §529(e)(2) family member.</li>
+<li><strong>Step-relations of the beneficiary's spouse:</strong> The beneficiary's spouse's stepbrother. §152(d)(2)(G) is silent on this; (B) does not reach through the beneficiary's spouse's own relatives. NOT covered.</li>
+<li><strong>Ex-spouses:</strong> The beneficiary's former spouse after a divorce. §529(e)(2)(A) says "spouse" — present tense. Once the divorce is final, the ex-spouse is no longer a §529(e)(2)(A) family member. NOT covered post-divorce.</li>
+<li><strong>Adopted children:</strong> §152(f)(1)(B) provides that legally-adopted children are treated as the taxpayer's own children for all §152 purposes. Adopted children of the beneficiary ARE covered via (B).</li>
+<li><strong>Foster children:</strong> §152(f)(1)(A)(ii) treats foster children as children only during periods when they qualify as such; the treatment is narrower than for adopted children. If the beneficiary's foster child no longer qualifies as such at the moment of change, the child is NOT covered by (B).</li>
+<li><strong>Stepchildren of the beneficiary:</strong> §152(d)(2)(B) reaches stepbrothers and stepsisters of the taxpayer; there is no separate step-child listing in §152(d)(2)(A)-(G). But §152(f)(1)(B)'s adopted-child rule and §152(d)(2)(A)'s reach to "child" have been read together to include stepchildren under longstanding IRS practice. Prudent to document the step-parent relationship contemporaneously with any change.</li>
+<li><strong>The account owner:</strong> Can the account owner change the beneficiary to themselves? The account owner is not automatically a §529(e)(2) family member of the beneficiary — that turns on their actual family relationship. If the account owner is the beneficiary's grandparent, they are a §152(d)(2)(C) grandparent and covered by (B). If the account owner is unrelated to the beneficiary (rare, but possible for institutionally-established accounts), NOT covered.</li>
+</ul>
+
+<div class="callout warn">
+<h4>The §152(d)(2) cross-reference matters</h4>
+<p>§529(e)(2)(B) does not enumerate relatives directly — it incorporates §152(d)(2)(A)-(G) by reference. Any expansion or contraction of the §152(d)(2) family list in future legislation would automatically expand or contract §529(e)(2) family. The current §152(d)(2) list has been stable since 2005 (Pension Protection Act refinements), but practitioners drafting long-horizon §529 plans should verify the current list at the time of each beneficiary change against Cornell LII or the current IRS Publication 501.</p>
+</div>
+
+<h2 id="fifteen-year-clock-restart">The 15-year §529(c)(3)(E) clock and the beneficiary-change restart question</h2>
+
+<p>SECURE 2.0 Act §126 added IRC §529(c)(3)(E), permitting a tax-free trustee-to-trustee rollover of unused §529 funds to a Roth IRA for the designated beneficiary — subject to a five-condition test walked in yesterday's <a href="/blog/secure-2-0-126-irc-529-c-3-e-roth-rollover-2026.html">§529(c)(3)(E) piece</a>. The first of the five conditions is that "the qualified tuition program from which the distribution is made shall have been maintained for the 15-year period ending on the date of such distribution" — the 15-year account-age clock.<sup><a href="#source-8">[8]</a></sup> Whether a §529(c)(3)(C)(ii) beneficiary change restarts this clock is the largest open question in the 2026 SECURE 2.0 rollout, and the answer materially affects how practitioners advise on multi-generational §529 planning.</p>
+
+<h3>The two competing readings</h3>
+
+<p>Reading A treats the 15-year clock as an attribute of the §529 account itself. The clock runs from account establishment; a beneficiary change under §529(c)(3)(C)(ii) does not distribute or re-establish the account, so the clock is undisturbed. Under Reading A, a §529 account opened in 2010 with a change of beneficiary in 2018 is available for a §529(c)(3)(E) rollover to the current (post-change) beneficiary starting in 2025.<sup><a href="#source-9">[9]</a></sup></p>
+
+<p>Reading B treats the 15-year clock as an attribute of the current designated beneficiary. The statutory language reads "the qualified tuition program from which the distribution is made shall have been maintained for the 15-year period ending on the date of such distribution" — and the rollover, under clause (i), is to "a Roth IRA maintained for the benefit of the designated beneficiary of such qualified tuition program." Read together, the 15-year "maintained for" is read as maintained for the specific individual whose Roth IRA is receiving the transfer. Under Reading B, a §529 account opened in 2010 with a change of beneficiary in 2018 restarts the clock for the new beneficiary at the 2018 change, meaning the §529(c)(3)(E) window opens in 2033.<sup><a href="#source-10">[10]</a></sup></p>
+
+<p>Reading B is more consistent with the anti-abuse structure Congress built into §126. The $35,000 lifetime cap and 15-year account-age requirement were designed to prevent §529 accounts from being used as general-purpose Roth-IRA-funding vehicles. Reading A would open a substantial arbitrage: a wealthy family could open a §529 account in year 1 for a random family member, wait 15 years, and then change the beneficiary to a target Roth-IRA recipient just before the rollover — effectively using someone else's 15-year clock. Reading B closes that arbitrage. Treasury informal-guidance signals since 2024 have leaned toward Reading B without a formal regulation.<sup><a href="#source-11">[11]</a></sup></p>
+
+<h3>The five-year lookback is unaffected</h3>
+
+<p>The §529(c)(3)(E)(ii) five-year contribution-and-earnings lookback is a separate clock and is not affected by a beneficiary change. Contributions to the §529 account are tagged with their actual contribution dates for the five-year lookback purposes; those tags survive a change of beneficiary. If a contribution was made in year 6 (post-change or pre-change), it becomes rollover-eligible in year 11 regardless of when the beneficiary change occurred within that window.</p>
+
+<div class="callout key">
+<h4>Practitioner posture as of August 2026</h4>
+<p>Until Treasury issues final regulations under §529(c)(3)(E) or Congress clarifies the interaction, plan around Reading B. A §529(c)(3)(E) rollover to a new beneficiary after a §529(c)(3)(C)(ii) change should not be executed sooner than 15 years after the change effective date. If a client wishes to use the Roth-rollover mechanic on a shorter timeline, the practical alternatives are (a) change the beneficiary earlier so the 15-year new-beneficiary clock has more time to run, (b) execute the §529(c)(3)(E) rollover to the original beneficiary before the change (up to $35,000), then change the residual, or (c) accept a §529(c)(6) non-qualified distribution on the residual after change.</p>
+</div>
+
+<h2 id="generation-skip-trigger">The §529(c)(5)(B) generation-skip trigger and its §2612(c) direct-skip mechanic</h2>
+
+<p>Federal income-tax treatment of a §529(c)(3)(C)(ii) beneficiary change is settled — no distribution, no income-tax event. Gift-tax and generation-skipping-transfer-tax treatment is a separate matter, governed by IRC §529(c)(5)(B) and the Chapter 13 GST-tax rules.<sup><a href="#source-12">[12]</a></sup></p>
+
+<p>§529(c)(5)(B) provides in pertinent part that "in the case of a change in the designated beneficiary of an interest in a qualified tuition program, such change shall be treated as a transfer by such person of such interest to the new beneficiary if the new beneficiary is assigned to any generation which is 2 or more generations lower than the generation assignment of the old beneficiary. Rules similar to the rules of paragraph (2)(B) shall apply for purposes of the preceding sentence." The generation assignment is made under IRC §2651 — the standard §2651 generation-assignment rule from Chapter 13.<sup><a href="#source-13">[13]</a></sup></p>
+
+<p>The statute's technical structure — "2 or more generations lower" — deliberately captures the §2612(c) direct-skip regime. IRC §2612(c) defines "direct skip" as "a transfer subject to a tax imposed by Chapter 11 or Chapter 12 of an interest in property to a skip person," and §2613(a)(1) defines "skip person" as an individual assigned to a generation "which is 2 or more generations below the generation assignment of the transferor." Reading §529(c)(5)(B) and §2612(c)-2613(a)(1) together: a §529(c)(3)(C)(ii) beneficiary change to a family member two generations below the former beneficiary is a §2612(c) direct skip that consumes GST exemption under IRC §2631.<sup><a href="#source-14">[14]</a></sup></p>
+
+<h3>Same-generation vs one-generation-below vs two-generations-below changes</h3>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Change scenario</th><th>Generation delta (per §2651)</th><th>§529(c)(5)(B) treatment</th><th>Gift-tax consequence</th><th>GST-tax consequence</th></tr></thead>
+<tbody>
+<tr><td>Sibling → sibling (same-generation)</td><td>0</td><td>Not a §529(c)(5)(B) transfer</td><td>None — no gift-tax event</td><td>None — no direct skip</td></tr>
+<tr><td>Parent → child (one generation below)</td><td>-1</td><td>Not a §529(c)(5)(B) transfer (only 2-or-more triggers)</td><td>None — no gift-tax event under §529(c)(5)(B)</td><td>None — not a §2612(c) direct skip</td></tr>
+<tr><td>Grandparent → grandchild (two generations below)</td><td>-2</td><td>§529(c)(5)(B) transfer FROM former beneficiary TO new beneficiary</td><td>Deemed gift from former beneficiary; §2503(b) annual exclusion applies</td><td>§2612(c) direct skip; consumes §2631 GST exemption OR pays GST tax at maximum rate</td></tr>
+<tr><td>Great-grandparent → great-grandchild (three generations below)</td><td>-3</td><td>§529(c)(5)(B) transfer</td><td>Deemed gift; §2503(b) exclusion</td><td>§2612(c) direct skip; §2631 exemption or GST tax</td></tr>
+<tr><td>Uncle → nephew (one generation below, collateral)</td><td>-1</td><td>Not a §529(c)(5)(B) transfer</td><td>None</td><td>None</td></tr>
+<tr><td>Uncle → grand-nephew (two generations below, collateral)</td><td>-2</td><td>§529(c)(5)(B) transfer</td><td>Deemed gift; §2503(b) exclusion</td><td>§2612(c) direct skip</td></tr>
+<tr><td>First cousin → first cousin (same generation)</td><td>0</td><td>Not a §529(c)(5)(B) transfer</td><td>None</td><td>None</td></tr>
+<tr><td>First cousin → first cousin once removed (one generation below cousin)</td><td>-1 (but first cousin once removed is NOT a §529(e)(2) family member — federal income-tax event)</td><td>Fails §529(c)(3)(C)(ii); triggers §529(c)(6) non-qualified distribution</td><td>N/A — income event, not gift event</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<p>The critical row is the "grandparent → grandchild" scenario. This is the most common multi-generational §529 fact pattern: a grandparent opens a §529 for a grandchild, over-funds it, and later changes the beneficiary to a great-grandchild after the original grandchild has exhausted qualified-expense needs. The change is same-generation for the grandchild-to-great-grandchild delta from the perspective of the former beneficiary (grandchild) to the new beneficiary (great-grandchild) — two generations below the former beneficiary. That triggers §529(c)(5)(B), which triggers §2612(c) direct-skip treatment, which consumes GST exemption under §2631.</p>
+
+<h3>The §2503(b) annual-exclusion coordination</h3>
+
+<p>§529(c)(5)(B) treats the change as a transfer BY the former beneficiary TO the new beneficiary. The former beneficiary — not the account owner — is the constructive transferor for gift-tax and GST-tax purposes.<sup><a href="#source-15">[15]</a></sup> The transfer qualifies for §2503(b) annual-exclusion treatment ($19,000 for 2026 per IRS Notice 2025-67), provided the transfer meets the present-interest requirement.<sup><a href="#source-16">[16]</a></sup> The five-year averaging election under §529(c)(2)(B), which permits treating a single-year §529 contribution as ratable over five years for §2503(b) purposes, does NOT apply to §529(c)(5)(B) beneficiary-change transfers — the change is a single-year gift-tax event and cannot be spread.</p>
+
+<p>Practically: a grandparent-to-great-grandchild §529 beneficiary change of a $200,000 account balance in 2026 is a §529(c)(5)(B) transfer from the grandchild (former beneficiary) to the great-grandchild (new beneficiary). Only $19,000 is annual-exclusion-excluded under §2503(b); the remaining $181,000 is a taxable gift by the grandchild, requires a Form 709 filing by the grandchild, and consumes $181,000 of the grandchild's $15M OBBBA lifetime gift/estate exemption AND $181,000 of the grandchild's GST exemption because the transfer is also a §2612(c) direct skip.<sup><a href="#source-17">[17]</a></sup></p>
+
+<div class="callout warn">
+<h4>The constructive-transferor problem</h4>
+<p>The §529(c)(5)(B) "deemed transferor" is the former beneficiary, not the account owner. In the grandparent-to-grandchild case, the grandparent opened and funded the account, but the deemed transferor of the $181,000 taxable portion is the grandchild — even though the grandchild never controlled or contributed to the account. Practically, the grandchild files the Form 709 gift-tax return; the grandchild's lifetime exemption is consumed; the grandchild's GST exemption is consumed. Account owners considering a two-generation-lower change should discuss the mechanic with the deemed-transferor beneficiary in advance and ensure that beneficiary has the return-filing capacity and unused exemption to absorb the deemed transfer. In extreme cases, the deemed-transferor beneficiary can decline the change (the change is administratively initiated by the account owner but the deemed-transferor beneficiary can force a §529(c)(6) non-qualified distribution instead by requesting a distribution before the change is effected).</p>
+</div>
+
+<h2 id="decision-matrix">The practitioner's decision matrix: change vs Roth rollover vs ABLE vs non-qualified distribution</h2>
+
+<p>An over-funded §529 account has, as of 2026, five exit paths in order of tax efficiency:</p>
+
+<ol>
+<li><strong>§529(c)(3)(A) qualified higher-education-expense distributions</strong> to the current beneficiary — fully tax-free on both principal and earnings.</li>
+<li><strong>§529(c)(7) K-12 tuition distributions</strong> up to $10,000 per year — fully tax-free federally; state treatment varies.</li>
+<li><strong>§529(c)(3)(E) Roth IRA rollover</strong> up to $35,000 lifetime per beneficiary — fully tax-free on principal and earnings; subject to the five-condition test.</li>
+<li><strong>§529(c)(3)(D) ABLE-account rollover</strong> — for beneficiaries with disability under §529A. Added by TCJA 2017; extended and made permanent by SECURE 2.0 §125. Provides tax-free transfer of §529 balances up to the ABLE annual contribution limit ($19,000 for 2026).<sup><a href="#source-18">[18]</a></sup></li>
+<li><strong>§529(c)(3)(C)(ii) beneficiary change</strong> to a §529(e)(2) family member — fully tax-free at the change; income-tax treatment of subsequent distributions turns on how the new beneficiary uses the funds. Deemed-transfer gift-tax event only if the change crosses two-plus generations.</li>
+<li><strong>§529(c)(6) non-qualified distribution</strong> — 10% additional tax on the earnings portion plus ordinary income tax on earnings; principal returned tax-free.</li>
+</ol>
+
+<p>The decision matrix — assuming the over-funded balance is real (i.e., the current beneficiary has exhausted qualified expenses and the §529(c)(3)(E) $35,000 cap):</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Fact pattern</th><th>Best exit</th><th>Reasoning</th></tr></thead>
+<tbody>
+<tr><td>Younger sibling has unmet college-expense need</td><td>§529(c)(3)(C)(ii) change to sibling (same-generation, no GST)</td><td>Full tax-free redirection; no gift-tax event; qualifies for qualified-expense distributions to new beneficiary</td></tr>
+<tr><td>Beneficiary has a first cousin with unmet need</td><td>§529(c)(3)(C)(ii) change to cousin (same-generation via §529(e)(2)(E), no GST)</td><td>Same as sibling case; horizontal reach across §529(e)(2)(E) EGTRRA 2001 expansion</td></tr>
+<tr><td>Account owner is grandparent; grandchild done; next generation is great-grandchild</td><td>§529(c)(3)(C)(ii) change to great-grandchild + §2631 GST exemption allocation</td><td>Two-generations-below change; §529(c)(5)(B) constructive-transfer event; §2503(b) annual exclusion applies but excess consumes grandchild's exemption</td></tr>
+<tr><td>Beneficiary developed a §529A-qualifying disability</td><td>§529(c)(3)(D) rollover to same-beneficiary ABLE account</td><td>Direct ABLE rollover; no gift-tax event; ABLE annual contribution limit applies</td></tr>
+<tr><td>Beneficiary has adequate earned income and Roth-rollover eligibility not yet exhausted</td><td>§529(c)(3)(E) rollover (up to $35,000 remaining lifetime cap), then residual redirect</td><td>Sequence: exhaust Roth cap FIRST while §529(c)(3)(E) 15-year clock is fresh; then change beneficiary for residual</td></tr>
+<tr><td>No family member has qualified expenses; no disability; no Roth eligibility</td><td>§529(c)(6) non-qualified distribution to account owner</td><td>Last resort; ordinary tax on earnings portion + 10% additional tax; principal returned tax-free</td></tr>
+<tr><td>Account owner would benefit from own education (career-change program, executive MBA)</td><td>§529(c)(3)(C)(ii) change to account owner + §529(c)(3)(A) qualified distributions</td><td>Account owner must be a §529(e)(2) family member of former beneficiary (typically yes as parent or grandparent); fully tax-free if used for qualified expenses</td></tr>
+</tbody></table></div>
+
+<h2 id="multi-generational-chain">Multi-generational chain planning: grandparent → grandchild → great-grandchild</h2>
+
+<p>The archetype §529 fact pattern for practitioners is the multi-generational chain. A grandparent front-loads $95,000 to a §529 for a newborn grandchild in year 0 under the §529(c)(5)(A) five-year averaging election, compounds at 6.5% for 18 years to $310,000 by year 18, spends $110,000 on the grandchild's undergraduate education (years 18-22), executes $35,000 of §529(c)(3)(E) Roth rollovers to the grandchild's Roth IRA between years 25 and 29 (using earned income from the grandchild's early career), and finds a $220,000 residual (assuming 6.5% continued compound through age 30 on the un-distributed balance).<sup><a href="#source-19">[19]</a></sup></p>
+
+<p>The residual has three primary exits (assuming the grandchild is done with college and has hit the $35,000 Roth cap):</p>
+
+<ul>
+<li><strong>Path A: Immediate change to a great-grandchild.</strong> Assume the grandchild has a newborn child (great-grandchild of the grandparent) in year 30. Change the beneficiary to the great-grandchild. This is a §529(c)(5)(B) transfer from the grandchild (former beneficiary) to the great-grandchild (new beneficiary). The transfer is one-generation-below at the family-tree level — but §2651's generation-assignment applies to the transferor-and-transferee delta. The grandchild-to-great-grandchild delta is -1 (one generation below), NOT the two-or-more-generations-below trigger for §529(c)(5)(B). No deemed transfer occurs; no gift-tax event; no GST-tax event. The residual is preserved for the great-grandchild's college years starting in year 48. Between years 30 and 48, the $220,000 continues compounding — at 6.5%, reaches ~$680,000 by year 48. Enough to fully fund the great-grandchild's private university education plus another $35,000 §529(c)(3)(E) Roth-rollover cycle.</li>
+<li><strong>Path B: Change directly to a great-grandchild via grand-uncle path.</strong> If the grandchild does not have children, but the grandparent's other line has a great-grandchild (via the account-owner's other child's child), change the beneficiary to that other-line great-grandchild. Now the delta between former beneficiary (grandchild) and new beneficiary (great-grandchild) is -1 within the same family line; the §529(c)(5)(B) trigger is measured beneficiary-to-beneficiary, so this remains a same-generation-adjacent one-generation-below change and does NOT trigger the two-generations-below §2612(c) mechanic.</li>
+<li><strong>Path C: Change to the account-owner grandparent themselves.</strong> Assume the grandparent (account owner) is a §529(e)(2)(B) family member of the grandchild via §152(d)(2)(C) (grandparent-grandchild relationship). Change the beneficiary to the grandparent, then distribute for the grandparent's own qualified higher-education expenses — e.g., an executive-education program, an online master's degree, professional-continuing-education credits at accredited institutions. This is a §529(c)(5)(B) reverse-direction transfer (from grandchild UP to grandparent, i.e., two generations UP); the §2651 generation-delta is +2, which is NOT in the two-or-more-generations-below trigger. No deemed transfer; no gift-tax event; no GST-tax event.</li>
+</ul>
+
+<div class="callout tip">
+<h4>The generation-delta measurement is beneficiary-to-beneficiary, not account-owner-to-beneficiary</h4>
+<p>§529(c)(5)(B) measures the delta from the FORMER beneficiary to the NEW beneficiary — the account owner's generation is not part of the calculation. A grandparent-account-owner's change from one grandchild to another same-line grandchild is delta 0 (both same-generation for the family — cousins in the same generation). A grandparent-account-owner's change from a grandchild to a great-grandchild is delta -1 (former beneficiary is one generation above new beneficiary). A grandparent's change from a grandchild to a great-great-grandchild is delta -2 and DOES trigger §529(c)(5)(B). The three-generation-below trigger case is comparatively rare in real §529 practice, because it requires the current beneficiary to have a living great-nephew or great-grandchild during a life stage when the account is still material.</p>
+</div>
+
+<h2 id="state-tax-recapture">State-tax recapture on §529 beneficiary change</h2>
+
+<p>State-tax recapture is a separate consideration from federal treatment. Most §529-deduction states permit a deduction (or credit) for contributions to the state's own §529 plan; some also permit a deduction for contributions to any state's §529 plan. If those state benefits were claimed by the account owner or contributor, the state may recapture the deduction when the account is used non-qualifiedly.<sup><a href="#source-20">[20]</a></sup></p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>State</th><th>Position on §529(c)(3)(C)(ii) beneficiary change</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Illinois (35 ILCS 5/203(a)(2)(HH))</td><td>No recapture on beneficiary change to §529(e)(2) family member</td><td>Recapture only on §529(c)(6) non-qualified distribution; change to family member is tax-neutral in Illinois</td></tr>
+<tr><td>New York (NY Tax Law §612(c)(32))</td><td>No recapture on beneficiary change to §529(e)(2) family member</td><td>Recapture on rollover to non-New York plan even if beneficiary unchanged</td></tr>
+<tr><td>California</td><td>No state 529 deduction; no recapture</td><td>California conforms to federal §529 for income-inclusion purposes; there is no state deduction to recapture</td></tr>
+<tr><td>Pennsylvania (72 P.S. §7303(a.7))</td><td>No recapture on beneficiary change to §529(e)(2) family member</td><td>Pennsylvania permits deduction for contributions to any state's §529 plan; beneficiary changes preserve the deduction</td></tr>
+<tr><td>Ohio (Ohio Rev. Code §5747.70)</td><td>No recapture on beneficiary change to §529(e)(2) family member</td><td>Ohio's Advantage §529 program has an in-state administrative preference but federal §529(e)(2) family framework is respected</td></tr>
+<tr><td>Georgia (O.C.G.A. §48-7-27(a)(11))</td><td>No recapture on beneficiary change to §529(e)(2) family member; recapture on non-qualified distributions and out-of-state rollovers</td><td>Georgia's Path2College 529 Plan; deduction-recapture triggers on specific taxable-distribution events, not beneficiary changes</td></tr>
+<tr><td>Michigan (MCL 206.30(1)(w))</td><td>No recapture on beneficiary change to §529(e)(2) family member</td><td>Michigan Education Savings Program (MESP); recapture on non-qualified distributions only</td></tr>
+<tr><td>Virginia (Va. Code §58.1-322.02(45))</td><td>No recapture on beneficiary change to §529(e)(2) family member; recapture on out-of-state rollovers</td><td>Virginia529 with deduction cap; the state pursues recapture aggressively on out-of-state rollovers, less on beneficiary changes</td></tr>
+<tr><td>North Carolina (N.C. Gen. Stat. §105-153.5(b)(10))</td><td>Deduction eliminated 2013; older deductions grandfathered but not recaptured on beneficiary change to family member</td><td>North Carolina's NC529 Plan; the state moved away from deduction-with-recapture to a general subsidy model in 2013</td></tr>
+<tr><td>New Jersey (N.J.S.A. 54A:6-25)</td><td>No state deduction historically; New Jersey opened a limited deduction in 2022 for NJ Better Educational Savings Trust (NJBEST); no recapture on beneficiary change to family member</td><td>NJBEST deduction is capped and available only for contributions to the NJ plan; beneficiary changes preserve the deduction</td></tr>
+</tbody></table></div>
+
+<p>The pattern across §529-deduction states is consistent: recapture is triggered by §529(c)(6) non-qualified distributions and out-of-state plan rollovers, but NOT by §529(c)(3)(C)(ii) beneficiary changes to §529(e)(2) family members. The state-tax landscape aligns closely with the federal treatment. But two caveats: (a) always confirm current state law at the time of change, and (b) some states may treat a change to an out-of-state beneficiary differently than a change to an in-state beneficiary — particularly if the account was funded with in-state deduction dollars and the change moves the funds to an out-of-state family.</p>
+
+<h2 id="three-case-studies">Three worked case studies</h2>
+
+<h3>Case 1: Elena (over-funded single account, same-generation redirect)</h3>
+
+<p>Elena, age 62, is a grandparent who front-loaded $80,000 to a §529 for her granddaughter Priya in 2010 under the §529(c)(5)(A) five-year averaging election. By 2026 the account is worth $220,000 at 6.5% compounding. Priya, age 22, has just graduated from her state university with a partial scholarship, spending only $95,000 of the balance on qualified higher-education expenses. Elena executes $7,500 of §529(c)(3)(E) Roth rollovers in 2027, another $7,700 in 2028, and continues sequencing to the $35,000 cap by 2031. In 2032 the account still holds ~$150,000. Priya has a younger brother Arjun, age 15, entering high school. Elena changes the beneficiary from Priya to Arjun.</p>
+
+<p><strong>Analysis:</strong> Priya-to-Arjun is a same-generation sibling change (both are Elena's grandchildren; §2651 generation-delta is 0). §529(c)(5)(B) is not triggered. No gift-tax event; no GST-tax event. Federal income-tax treatment: no distribution occurs (the change is administrative). Illinois state-tax treatment (assume Elena is an Illinois resident): no recapture. The 15-year account-age clock for §529(c)(3)(E) restarts under Reading B — Arjun cannot receive a §529(c)(3)(E) Roth rollover until 2047, but by then Arjun will be 30 and the earnings substantiation should be straightforward. Arjun uses the account for his undergraduate education starting 2035. Assuming similar 6.5% compounding, the account is worth ~$275,000 by 2035; Arjun spends $150,000 on qualified expenses; residual is $125,000; Elena executes another $35,000 Roth rollover for Arjun between 2047 and 2051; residual is ~$155,000 by 2051 (accounting for continued compounding). At that point Elena is 87 and has multiple options: a further change to a great-grandchild if any exist, or a §529(c)(6) non-qualified distribution taxed at Elena's marginal bracket.</p>
+
+<h3>Case 2: Marcus (two-line grandparent, first-cousin redirect)</h3>
+
+<p>Marcus, age 68, has two children: David and Rachel. David has a son Ravi (age 20); Rachel has a daughter Sofia (age 12). Marcus opened a §529 for Ravi in 2008 with a $75,000 five-year averaged contribution; by 2026 the account is worth $215,000. Ravi is a scholarship recipient at MIT and needs only $60,000 for expenses through his master's degree. Marcus executes $35,000 of §529(c)(3)(E) rollovers to Ravi's Roth IRA between 2026 and 2030 (Ravi has substantial post-college earned income as a software engineer). Residual in 2030 is ~$180,000 (after Ravi's $60,000 education spending and $35,000 in Roth rollovers, compounding at 6.5%). Marcus wants to redirect the residual to Sofia. Ravi and Sofia are first cousins (David's son and Rachel's daughter).</p>
+
+<p><strong>Analysis:</strong> Ravi-to-Sofia is a first-cousin change, covered by §529(e)(2)(E) via the EGTRRA 2001 first-cousin expansion. Same-generation delta (0). §529(c)(5)(B) not triggered. No gift-tax event; no GST-tax event. Federal income-tax treatment: no distribution occurs. Marcus is a Virginia resident with a state-529-deduction history; Virginia does not recapture on beneficiary change to a §529(e)(2) family member. The 15-year account-age clock for §529(c)(3)(E) restarts under Reading B — Sofia cannot receive a Roth rollover until 2045, but Sofia will be 31 by then. In practice: Sofia (starting college at 18 in 2032) uses the $180,000 grown to ~$245,000 by 2032 for undergraduate expenses ($120,000 spent), $125,000 residual grown to $170,000 by 2036, then $35,000 Roth-rollover cycle for Sofia starting 2045. This case illustrates the EGTRRA 2001 first-cousin expansion's practical value — a two-line grandparent redirect that would have required a §529(c)(6) non-qualified distribution under pre-2001 law is fully tax-free in 2026.</p>
+
+<h3>Case 3: Diana (multi-generational chain, great-great-grandchild trigger)</h3>
+
+<p>Diana, age 74, opened a §529 in 2005 for her granddaughter Elena with a $50,000 initial contribution plus $10,000 annual contributions for 15 years. Elena, now 32, has completed her master's degree ($90,000 spent from the §529) and has received $35,000 in §529(c)(3)(E) Roth rollovers between 2028 and 2032. Residual in 2032 is $340,000. Elena has a newborn daughter Priya (Diana's great-granddaughter). Diana changes the beneficiary from Elena to Priya. Priya, at age 18 in 2050, is a promising student — but Diana (or her estate, since Diana is 92 in 2050) may want to redirect further residual to Priya's future child (Diana's great-great-granddaughter, Anaya) once Priya has completed her education.</p>
+
+<p><strong>Analysis of the Elena-to-Priya change:</strong> One generation below (Elena-to-Priya). §2651 generation-delta is -1. §529(c)(5)(B) not triggered (only -2 or lower triggers). No gift-tax event; no GST-tax event. Federal income-tax treatment: no distribution. Diana is a New York resident with a state-529-deduction history; New York does not recapture on beneficiary change to a §529(e)(2) family member. The account continues compounding; by 2050 (Priya at 18) the account is worth ~$1.15M assuming 6.5% compounding through the 18-year window.</p>
+
+<p><strong>Analysis of a hypothetical future Priya-to-Anaya change in 2075:</strong> Assuming Priya has spent $200,000 on undergraduate + graduate education by 2055 and received $35,000 in Roth rollovers by 2062, and has a daughter Anaya in 2058. The residual in 2075 (Priya age 43, Anaya age 17) is ~$3.4M assuming 6.5% compounding. A Priya-to-Anaya change is one generation below (delta -1), not a §529(c)(5)(B) triggering event. No gift-tax event.</p>
+
+<p><strong>Analysis of the hypothetical Elena-to-Anaya change directly in 2075 (skipping Priya):</strong> Two generations below (Elena is Diana's granddaughter; Anaya is Diana's great-great-granddaughter — from Elena's perspective, Anaya is two generations below Elena, since Anaya is Priya's daughter and Priya is Elena's daughter). Delta -2 DOES trigger §529(c)(5)(B). The change is a deemed transfer from Elena (former beneficiary at date of change) to Anaya (new beneficiary). §2503(b) annual exclusion ($19,000 for 2026, indexed) applies; the remainder is a taxable gift by Elena that consumes Elena's OBBBA lifetime exemption and — because it is also a §2612(c) direct skip — Elena's GST exemption. For a $3.4M residual, that would consume ~$3.38M of Elena's lifetime and GST exemptions on a transfer she did not initiate. Practical advice: do NOT skip intervening generations in beneficiary changes when the sequential change is available — the sequential Elena→Priya→Anaya path avoids §529(c)(5)(B) entirely, while the direct Elena→Anaya path consumes exemptions unnecessarily.</p>
+
+<div class="callout key">
+<h4>The sequential-change preference</h4>
+<p>Case 3 illustrates a load-bearing planning principle: sequential beneficiary changes across single generations avoid §529(c)(5)(B) triggering, while direct changes that skip an intervening generation trigger it. Practitioners should default to sequential changes whenever the timeline permits — even if it means executing two beneficiary-change forms rather than one. The §529 plan administrators do not impose an administrative burden on frequent changes, and the tax savings can be substantial. The only case where a direct skip is preferable is when the intervening generation cannot serve as a beneficiary (e.g., is not yet born, or is not a §529(e)(2) family member of the current beneficiary).</p>
+</div>
+
+<h2 id="six-mistakes">Six recurring §529(c)(3)(C)(ii) mistakes</h2>
+
+<ol>
+<li><strong>Assuming the family definition reaches second cousins or first cousins once removed.</strong> §529(e)(2)(E) reaches first cousins only. A change to a second cousin or a first cousin once removed is a §529(c)(6) non-qualified distribution — even though such individuals are commonly called "cousins" in ordinary usage. Verify the exact family-tree relationship before executing.<sup><a href="#source-7">[7]</a></sup></li>
+<li><strong>Executing a two-generations-below change without §2503(b) and §2631 planning.</strong> A grandparent's change from one grandchild to a great-grandchild triggers §529(c)(5)(B), which triggers §2612(c) direct-skip treatment, which consumes the deemed-transferor grandchild's GST exemption. Neither the plan administrator nor the account owner receives a warning of this event; the deemed-transferor grandchild is responsible for filing Form 709 and allocating GST exemption. Practitioners frequently miss this because the plan-administrator forms do not surface it.<sup><a href="#source-13">[13]</a></sup></li>
+<li><strong>Executing the beneficiary change before exhausting the current beneficiary's §529(c)(3)(E) Roth-rollover capacity.</strong> Under Reading B of the 15-year clock question, the clock restarts on beneficiary change. If the current beneficiary has unused Roth-rollover capacity within their $35,000 lifetime cap and satisfies the 15-year clock, execute those rollovers FIRST — then change the beneficiary. Reversing the order forfeits the accumulated 15-year clock investment for the current beneficiary.<sup><a href="#source-8">[8]</a></sup></li>
+<li><strong>Skipping intervening generations in multi-generational chain planning.</strong> A grandparent's change from grandchild to great-great-grandchild triggers §529(c)(5)(B) direct-skip treatment. A sequential change from grandchild to great-grandchild, and later great-grandchild to great-great-grandchild, does NOT trigger the mechanic (each change is one generation below). Sequential changes preserve exemptions; direct-skip changes consume them.</li>
+<li><strong>Failing to document the new beneficiary's §529(e)(2) family relationship contemporaneously.</strong> The plan administrator does not verify the family relationship; the burden falls on the account owner in the event of an IRS examination. Retain birth certificates, marriage certificates, and — for step-relations and adoption cases — the legal documents confirming the family tie. Contemporary documentation is stronger evidence than reconstructed genealogy years later.</li>
+<li><strong>Overlooking the state-tax recapture edge cases.</strong> Most §529-deduction states do not recapture on beneficiary change to a §529(e)(2) family member, but some do recapture if the change effectively moves the account out of state. Verify the specific state's position — particularly if the change moves the beneficiary to a different state where different §529 plan or deduction dynamics apply.<sup><a href="#source-20">[20]</a></sup></li>
+</ol>
+
+<h2 id="checklist">Eight-item pre-change action checklist</h2>
+
+<ol>
+<li><strong>Confirm the new beneficiary satisfies §529(e)(2).</strong> Walk the §529(e)(2)(A)-(F) categories against the family relationship between the current beneficiary and the intended new beneficiary. If the relationship is not clearly covered, do not execute the change — the fallback is §529(c)(6) non-qualified distribution with tax cost.</li>
+<li><strong>Measure the §2651 generation delta between former beneficiary and new beneficiary.</strong> Delta 0 or -1 (same or one generation below) is tax-neutral for §529(c)(5)(B) purposes. Delta -2 or below triggers §529(c)(5)(B) and a deemed transfer by the former beneficiary.</li>
+<li><strong>If §529(c)(5)(B) is triggered, coordinate with the former beneficiary's tax advisor.</strong> A Form 709 gift-tax return is required from the former beneficiary. §2503(b) annual exclusion applies; §2631 GST exemption allocation should be evaluated. The former beneficiary's lifetime and GST exemption capacity must be adequate.</li>
+<li><strong>Evaluate the §529(c)(3)(E) Roth-rollover sequencing.</strong> Under Reading B of the 15-year clock question, execute available Roth rollovers to the current beneficiary FIRST if the 15-year clock has cleared. Only then execute the beneficiary change.</li>
+<li><strong>Confirm state-tax treatment.</strong> Verify with the state's §529 plan administrator or Department of Revenue that a beneficiary change to a §529(e)(2) family member does not trigger state-tax recapture. Document the confirmation.</li>
+<li><strong>Consider sequential-change alternatives to direct skips.</strong> A change from grandchild to great-great-grandchild triggers §529(c)(5)(B); a sequential change from grandchild to great-grandchild to great-great-grandchild does not. If timing permits, sequence the changes.</li>
+<li><strong>Retain documentation.</strong> Birth certificates, marriage certificates, adoption papers, and — for step-relations — the legal documents establishing the family tie. Contemporary documentation is stronger evidence than reconstructed records.</li>
+<li><strong>Execute the change via the plan administrator's beneficiary-change form.</strong> Retain the confirming account statement showing the new beneficiary as of the effective date, and update the account owner's estate-planning file to reflect the change (particularly if the account is a material asset for estate-tax purposes).</li>
+</ol>
+
+<h2 id="faq">Frequently asked questions</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What does IRC §529(c)(3)(C)(ii) permit?</h3>
+<p>The account owner of a §529 qualified tuition program may change the designated beneficiary to a §529(e)(2) member of the family of the former beneficiary, without triggering federal income tax on the account's accumulated earnings or the 10% additional tax under §529(c)(6). The change is treated as a tax-free rollover-equivalent event for income-tax purposes. Gift-tax and GST-tax consequences are separately governed by §529(c)(5)(B) and IRC §§2611-2613.</p>
+</div>
+
+<div class="faq-item">
+<h3>Who is a member of the family under §529(e)(2)?</h3>
+<p>Six categories: (A) the beneficiary's spouse; (B) individuals at §152(d)(2)(A)-(G) — children, siblings, parents, grandparents, aunts/uncles, nieces/nephews, in-laws, stepbrothers/stepsisters; (C) descendants of (B); (D) spouses of (A), (B), or (C); (E) first cousins (added by EGTRRA 2001); (F) first cousins' spouses. The definition is exhaustive — second cousins, first cousins once removed, and the beneficiary's spouse's own relatives are NOT covered.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does a beneficiary change restart the 15-year §529(c)(3)(E) Roth-rollover clock?</h3>
+<p>The IRS has not issued final regulations as of August 2026. Two readings compete. Reading A treats the clock as an attribute of the account; Reading B treats it as an attribute of the current designated beneficiary. Reading B is more consistent with the SECURE 2.0 §126 anti-abuse structure, and Treasury informal-guidance signals favor it. Practitioner posture: plan around clock restart; execute §529(c)(3)(E) rollovers to the current beneficiary BEFORE any beneficiary change.</p>
+</div>
+
+<div class="faq-item">
+<h3>When does a beneficiary change trigger a generation-skipping transfer?</h3>
+<p>Under §529(c)(5)(B), a change to a family member two or more generations below the former beneficiary is treated as a transfer from the former beneficiary to the new beneficiary. That transfer is a §2612(c) direct skip. §2503(b) annual exclusion applies; the remainder consumes the former beneficiary's OBBBA lifetime exemption and — because it is also a direct skip — the former beneficiary's GST exemption under §2631.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can the beneficiary be changed to a non-family member?</h3>
+<p>No. §529(e)(2) is exhaustive. A change to a non-family individual is treated as a §529(c)(6) non-qualified distribution — income tax on earnings at the former beneficiary's marginal rate plus 10% additional tax. Workaround options: change the beneficiary to the account owner (typically a family member of the former beneficiary), then have the account owner either use the funds for their own qualified expenses or accept the §529(c)(6) tax cost on distribution.</p>
+</div>
+
+<div class="faq-item">
+<h3>How many times can the beneficiary be changed?</h3>
+<p>No explicit numerical limit. Each change is tested independently against §529(e)(2) (family test) and §2651 (generation-delta test). Sequential changes are common in multi-generational planning. Each change should be documented and, if it crosses two or more generations, reflected in a Form 709 filing by the deemed-transferor former beneficiary.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the difference between §529(c)(3)(C)(i) and §529(c)(3)(C)(ii)?</h3>
+<p>§529(c)(3)(C)(i) covers plan-to-plan rollovers (same beneficiary, different plan — subject to 60-day rule) and rollovers to a family-member beneficiary (potentially across plans). §529(c)(3)(C)(ii) covers in-place beneficiary changes within a single §529 account. Both provisions may be combined — a plan-to-plan transfer followed by a beneficiary change, or vice versa — with each event separately documented.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does state 529 tax recapture interact with a beneficiary change?</h3>
+<p>Most §529-deduction states do not recapture on beneficiary change to a §529(e)(2) family member. Recapture triggers vary — some states recapture on §529(c)(6) non-qualified distributions only; others recapture on out-of-state plan rollovers even if beneficiary is unchanged. Verify with the specific state's Department of Revenue or plan administrator before executing a change that moves the account across state lines.</p>
+</div>
+
+<div class="faq-item">
+<h3>Should you change the beneficiary before or after §529(c)(3)(E) Roth rollovers?</h3>
+<p>Under Reading B of the 15-year clock question, execute Roth rollovers to the current beneficiary FIRST (up to $35,000 lifetime cap or the beneficiary's residual capacity), THEN change the beneficiary. Reversing the order restarts the 15-year clock for the new beneficiary and effectively forfeits the accumulated clock investment for the original beneficiary.</p>
+</div>
+
+<div class="faq-item">
+<h3>What documentation should accompany a §529(c)(3)(C)(ii) beneficiary change?</h3>
+<p>Plan administrator's beneficiary-change form (primary operational document). Also: proof of new beneficiary's §529(e)(2) family relationship (birth/marriage/adoption certificates); generation-assignment note under §2651 flagging any §2612(c) direct-skip event; Form 709 by the former beneficiary if §529(c)(5)(B) triggered; updated account-history document showing establishment date and all prior beneficiary changes; state-tax recapture confirmation where applicable.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All statutory citations in this article are current as of August 2026. The IRC §529(c)(3)(C)(ii) and §529(e)(2) analysis draws on the Internal Revenue Code as amended through the SECURE 2.0 Act of 2022 (Pub. L. 117-328 Div. T, enacted December 29, 2022) and subsequent legislation, Treasury Regulations under §529 as promulgated and updated through 2026, and the controlling legislative authorities on §529 qualified tuition programs. The 2026 dollar figures ($19,000 §2503(b) annual exclusion, $15,000,000 OBBBA lifetime gift/estate/GST exemption per Pub. L. 119-21 signed July 4, 2025, $7,500 §219(b) IRA contribution limit under age 50, $35,000 lifetime §529(c)(3)(E) Roth-rollover cap, ABLE annual contribution limit of $19,000 under §529A) are drawn from IRS Notice 2025-67, Rev. Proc. 2025-32, and the OBBBA statutory text. The §2651 generation-assignment analysis follows the Chapter 13 generation-assignment framework applied to §529(c)(5)(B) transfers. The 15-year account-age clock analysis under §529(c)(3)(E) follows the majority practitioner reading (Reading B — clock restarts on beneficiary change) and the pattern of Treasury informal guidance signals; the IRS has not issued definitive final regulations under §529(c)(3)(E) as of August 2026. The state-tax recapture analysis draws on the current statutory text of the ten most-relevant §529-deduction states. The EGTRRA 2001 first-cousin expansion history draws on the legislative text of Pub. L. 107-16 §402(b)(2) and the Joint Committee on Taxation description at JCX-51-01. This article is educational; readers implementing any §529(c)(3)(C)(ii) beneficiary change with material amounts should engage a state-licensed tax advisor experienced in §529 mechanics and Chapter 13 GST-tax planning.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Internal Revenue Code §529(c)(2)(A) — Treatment of contributions as completed gifts — provides that contributions to a §529 qualified tuition program are treated as completed present-interest gifts to the designated beneficiary at the moment of contribution, but the contributor retains no incidents of ownership that would trigger §2036 or §2038 estate-inclusion. <a href="https://www.law.cornell.edu/uscode/text/26/529#c_2" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529#c_2</a></li>
+<li id="source-2">Internal Revenue Code §529(e)(3) — Qualified higher education expenses — defines qualified higher education expenses to include tuition, fees, books, supplies, equipment required for enrollment, room and board (subject to student-status and cost-of-attendance limitations), and certain special-needs services; expanded by TCJA 2017 §11032 to include up to $10,000 per year of K-12 tuition. <a href="https://www.law.cornell.edu/uscode/text/26/529#e_3" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529#e_3</a></li>
+<li id="source-3">Internal Revenue Code §529(c)(3)(C)(ii) — Change in designated beneficiaries — permits a tax-free change of designated beneficiary of a §529 qualified tuition program if the new beneficiary is a §529(e)(2) member of the family of the old beneficiary. <a href="https://www.law.cornell.edu/uscode/text/26/529#c_3_C_ii" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529#c_3_C_ii</a></li>
+<li id="source-4">Treasury Regulation §1.529-3 (proposed) — Change in designated beneficiary of a qualified tuition program — the proposed regulation and IRS informal guidance on the administrative mechanics of §529(c)(3)(C)(ii) beneficiary changes, including plan administrator documentation practice, effective-date treatment, and the §529(c)(3)(C)(ii) treatment as "not a distribution" for §529(a) purposes. <a href="https://www.irs.gov/pub/irs-drop/n-01-55.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-01-55.pdf (Notice 2001-55)</a></li>
+<li id="source-5">Economic Growth and Tax Relief Reconciliation Act of 2001 (EGTRRA), Public Law 107-16 §402(b)(2), 115 Stat. 38 (2001) — expanded IRC §529(e)(2) family definition to include first cousins as new subparagraph (E) and first cousins' spouses as new subparagraph (F), effective for distributions and beneficiary changes after December 31, 2001. <a href="https://www.congress.gov/bill/107th-congress/house-bill/1836" rel="nofollow noopener">congress.gov/bill/107th-congress/house-bill/1836</a></li>
+<li id="source-6">SECURE 2.0 Act of 2022, Public Law 117-328 Division T §126, 136 Stat. 5327 (2022) — added IRC §529(c)(3)(E) permitting tax-free trustee-to-trustee rollover of unused §529 funds to a Roth IRA for the designated beneficiary, subject to the 15-year account age requirement, five-year contribution-and-earnings lookback, $35,000 lifetime cap, IRA-contribution-limit stack, and earned-income requirement; effective for distributions after December 31, 2023. <a href="https://www.congress.gov/bill/117th-congress/house-bill/2617" rel="nofollow noopener">congress.gov/bill/117th-congress/house-bill/2617</a></li>
+<li id="source-7">Internal Revenue Code §529(e)(2) — Member of the family — enumerates six categories of individuals who qualify as members of the family of the designated beneficiary for §529(c)(3)(C)(ii) beneficiary-change and other §529 purposes: (A) spouse; (B) individuals at §152(d)(2)(A)-(G); (C) descendants of (B); (D) spouses of (A), (B), or (C); (E) first cousins (EGTRRA 2001 addition); (F) first cousins' spouses. <a href="https://www.law.cornell.edu/uscode/text/26/529#e_2" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529#e_2</a></li>
+<li id="source-8">Internal Revenue Code §529(c)(3)(E)(iii) — 15-year account-age requirement — requires that the §529 qualified tuition program from which a §529(c)(3)(E) Roth-rollover distribution is made shall have been maintained for the 15-year period ending on the date of such distribution. Whether §529(c)(3)(C)(ii) beneficiary change restarts this clock is not addressed in final regulations. <a href="https://www.law.cornell.edu/uscode/text/26/529#c_3_E" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529#c_3_E</a></li>
+<li id="source-9">CalcLeap Editorial, SECURE 2.0 §126 IRC §529(c)(3)(E) Roth IRA Rollover in 2026 (August 27, 2026) — companion piece walking the SECURE 2.0 §126 mechanic and the two competing readings of the 15-year clock interaction with §529(c)(3)(C)(ii) beneficiary changes; adopts Reading B (clock restarts on beneficiary change) as the conservative practitioner posture pending Treasury final regulations. <a href="/blog/secure-2-0-126-irc-529-c-3-e-roth-rollover-2026.html">calcleap.com/blog/secure-2-0-126-irc-529-c-3-e-roth-rollover-2026.html</a></li>
+<li id="source-10">Internal Revenue Code §529(c)(3)(E)(i) — Rollover destination — specifies that the receiving Roth IRA under §408A must be "maintained for the benefit of the designated beneficiary of such qualified tuition program," language that the majority practitioner reading (Reading B) interprets as requiring the 15-year account-age clock to be measured as to that specific designated beneficiary. <a href="https://www.law.cornell.edu/uscode/text/26/529#c_3_E_i" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529#c_3_E_i</a></li>
+<li id="source-11">Internal Revenue Service, informal guidance signals in 2024-2026 on §529(c)(3)(E) implementation — including administrative practice at major §529 plan administrators (Fidelity Investments 529 plans, Vanguard 529 plans, TIAA 529 plans, state direct plans in New York, Massachusetts, Utah, Nevada) on 15-year clock computation across beneficiary changes and the majority practitioner reading favoring Reading B (clock restarts). Formal final regulations have not been issued as of August 2026. <a href="https://www.irs.gov/retirement-plans/plan-sponsor/secure-act-2-0-of-2022" rel="nofollow noopener">irs.gov/retirement-plans/plan-sponsor/secure-act-2-0-of-2022</a></li>
+<li id="source-12">Internal Revenue Code §529(c)(5) — Other gift-tax rules — provides that contributions and certain events with respect to §529 qualified tuition programs are subject to gift-tax and GST-tax treatment as described in the subsection; §529(c)(5)(A) covers the treatment of contributions and §529(c)(5)(B) covers the treatment of beneficiary changes that cross two or more generations. <a href="https://www.law.cornell.edu/uscode/text/26/529#c_5" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529#c_5</a></li>
+<li id="source-13">Internal Revenue Code §529(c)(5)(B) — Treatment of change in designated beneficiaries — provides that a change of designated beneficiary of a §529 qualified tuition program to a new beneficiary assigned to a generation 2 or more generations lower than the generation assignment of the former beneficiary shall be treated as a transfer by the former beneficiary of the interest to the new beneficiary for gift-tax and GST-tax purposes. <a href="https://www.law.cornell.edu/uscode/text/26/529#c_5_B" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529#c_5_B</a></li>
+<li id="source-14">Internal Revenue Code §§2612(c) and 2613(a)(1) — Direct skip and skip person — §2612(c) defines a "direct skip" as a transfer subject to Chapter 11 or 12 tax of an interest in property to a "skip person," and §2613(a)(1) defines a "skip person" as an individual assigned to a generation 2 or more generations below the transferor. Reading §529(c)(5)(B) together with §2612(c) and §2613(a)(1) confirms that a two-or-more-generations-below §529 beneficiary change is a direct skip. <a href="https://www.law.cornell.edu/uscode/text/26/2612" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2612</a></li>
+<li id="source-15">Internal Revenue Code §2651 — Generation assignment — provides the generational-assignment rules for individuals under Chapter 13, including the standard rules based on lineal descent (parent = generation above; child = generation below), the § 2651(b) collateral-relative rules, and the § 2651(e) predeceased-parent rule. Applied to §529(c)(5)(B) beneficiary-change generation-delta measurements. <a href="https://www.law.cornell.edu/uscode/text/26/2651" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2651</a></li>
+<li id="source-16">Internal Revenue Code §2503(b) — Annual exclusion — provides an annual per-donee exclusion from taxable gifts for present-interest gifts, indexed for inflation; $19,000 for 2026 per IRS Notice 2025-67 and Rev. Proc. 2025-32. Applied to §529(c)(5)(B) deemed transfers on beneficiary changes that cross two or more generations. <a href="https://www.law.cornell.edu/uscode/text/26/2503#b" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2503#b</a></li>
+<li id="source-17">One Big Beautiful Bill Act (OBBBA), Public Law 119-21, signed July 4, 2025 — set the permanent post-2025 unified gift/estate/GST exemption at $15,000,000 for 2026 (indexed), replacing the TCJA sunset. Interacts with §529(c)(5)(B) deemed-transfer treatment of two-or-more-generations-below beneficiary changes. <a href="https://www.congress.gov/bill/119th-congress/house-bill/1" rel="nofollow noopener">congress.gov/bill/119th-congress/house-bill/1</a></li>
+<li id="source-18">Internal Revenue Code §529(c)(3)(D) and §529A — ABLE account rollover — added by TCJA 2017 §11025 and made permanent by SECURE 2.0 Act §125, permits tax-free rollover of §529 balances to a §529A ABLE account for the same beneficiary (or for a §529(e)(2) family member with a §529A-qualifying disability), subject to the ABLE annual contribution limit ($19,000 for 2026). <a href="https://www.law.cornell.edu/uscode/text/26/529A" rel="nofollow noopener">law.cornell.edu/uscode/text/26/529A</a></li>
+<li id="source-19">Internal Revenue Code §529(c)(5)(A) — Five-year averaging election — permits treating a single-year §529 contribution as ratable over five years for §2503(b) purposes, walked in the companion August 26, 2026 CalcLeap piece; the election does NOT apply to §529(c)(5)(B) beneficiary-change deemed transfers. <a href="/blog/irc-529-c-5-a-five-year-averaging-election-2026.html">calcleap.com/blog/irc-529-c-5-a-five-year-averaging-election-2026.html</a></li>
+<li id="source-20">State §529 tax-recapture statutes: Illinois 35 ILCS 5/203(a)(2)(HH); New York Tax Law §612(c)(32); Pennsylvania 72 P.S. §7303(a.7); Ohio Rev. Code §5747.70; Georgia O.C.G.A. §48-7-27(a)(11); Michigan MCL 206.30(1)(w); Virginia Code §58.1-322.02(45); North Carolina Gen. Stat. §105-153.5(b)(10); New Jersey N.J.S.A. 54A:6-25; Massachusetts G.L. c. 62 §3(B)(a)(19). Consult each state's Department of Revenue for current administrative practice on beneficiary changes. <a href="https://www.savingforcollege.com/compare-529-plans/state-tax-benefits" rel="nofollow noopener">savingforcollege.com/compare-529-plans/state-tax-benefits</a></li>
+<li id="source-21">Joint Committee on Taxation, General Explanation of Tax Legislation Enacted in the 107th Congress, JCS-5-03 (January 2003) — legislative history and technical explanation of EGTRRA 2001 provisions including §402(b)(2) expansion of §529(e)(2) to include first cousins and first cousins' spouses, describing the policy rationale for horizontal-family expansion of the §529 beneficiary-change reach. <a href="https://www.jct.gov/publications/2003/jcs-5-03/" rel="nofollow noopener">jct.gov/publications/2003/jcs-5-03</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized legal, tax, or financial advice. IRC §529(c)(3)(C)(ii) beneficiary changes have substantial procedural complexity, particularly around the §529(c)(5)(B) generation-skip trigger and its §2612(c) direct-skip mechanic, and the still-open interaction with the §529(c)(3)(E) 15-year Roth-rollover clock. State-level 529 tax rules can interact with the federal beneficiary-change rules in unexpected ways — for example, some states may treat a change to an out-of-state beneficiary differently than a change to an in-state beneficiary. Multi-generational chain planning that crosses two or more generations should be coordinated with the deemed-transferor former beneficiary's tax advisor because the Form 709 gift-tax return and §2631 GST exemption allocation are their responsibility, not the account owner's. Consult a state-licensed tax advisor or CPA experienced in §529 mechanics and Chapter 13 GST-tax planning before executing any material §529 beneficiary change, and confirm the §529 plan administrator's specific documentation requirements in advance. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Results may not reflect your actual situation. State statutes, IRC provisions, Treasury Regulations, and revenue rulings change; always verify current law with primary sources and consult a qualified tax advisor before making decisions. CalcLeap is not a law firm and does not provide legal advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#statutory-framework">§529(c)(3)(C)(ii) statutory framework and legislative history</a></li>
+        <li><a href="#family-framework">§529(e)(2) member-of-family framework line by line</a></li>
+        <li><a href="#fifteen-year-clock-restart">15-year §529(c)(3)(E) clock and the beneficiary-change restart</a></li>
+        <li><a href="#generation-skip-trigger">§529(c)(5)(B) generation-skip trigger and §2612(c) mechanic</a></li>
+        <li><a href="#decision-matrix">Practitioner's decision matrix: change vs Roth vs ABLE vs distribution</a></li>
+        <li><a href="#multi-generational-chain">Multi-generational chain planning</a></li>
+        <li><a href="#state-tax-recapture">State-tax recapture on §529 beneficiary change</a></li>
+        <li><a href="#three-case-studies">Three worked case studies</a></li>
+        <li><a href="#six-mistakes">Six recurring §529(c)(3)(C)(ii) mistakes</a></li>
+        <li><a href="#checklist">Pre-change action checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/traditional-ira-calculator.html">Traditional IRA Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest Calculator</a>
+      <a href="/calc/estate-tax-calculator.html">Estate Tax Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth IRA Conversion Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/secure-2-0-126-irc-529-c-3-e-roth-rollover-2026.html">SECURE 2.0 §126 IRC §529(c)(3)(E) Roth Rollover</a>
+      <a href="/blog/irc-529-c-5-a-five-year-averaging-election-2026.html">IRC §529(c)(5)(A) Five-Year Averaging</a>
+      <a href="/blog/irc-2642-c-special-valuation-rules-nontaxable-gifts-2026.html">IRC §2642(c) Special Valuation Rules</a>
+      <a href="/blog/irc-2632-gst-exemption-allocation-inherited-ira-2026.html">IRC §2632 GST Exemption Allocation</a>
+      <a href="/blog/irc-2652-a-3-reverse-qtip-election-inherited-ira-2026.html">IRC §2652(a)(3) Reverse-QTIP Election</a>
+      <a href="/blog/irc-2056-b-7-qtip-inherited-ira-2026.html">IRC §2056(b)(7) QTIP Marital Deduction</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
