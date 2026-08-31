@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRC §170(c) Charitable Deduction for Individual Educational and Medical Support in 2026: The §501(c)(3) Qualifying-Organization Test, the "To" vs. "For-the-Use-of" Distinction, the §170(b) AGI Ceilings, the §170(f)(8) Contemporaneous-Written-Acknowledgment Rule, and the Coordination with §2503(e) Direct-Pay and §2513 Split-Gift Elections | CalcLeap</title>
+<meta name="description" content="IRC §170(c) permits an income-tax deduction for a charitable contribution — but only when the donee is a §501(c)(3) qualifying organization, never an individual. Individual educational and medical support requires routing through a §170(c)-qualifying charity, a donor-advised fund, or a private foundation. Complements the 2026-08-29 §2503(e) direct-pay piece (which reaches gift-tax exclusion via direct payments to schools and providers) and the 2026-08-30 §2513 split-gift piece (which reaches gift-tax doubling for married couples). This piece walks the §170(c)(2) organization test, the §170(b) 60%/50%/30%/20% AGI ceilings, the §170(f)(8) $250 contemporaneous-written-acknowledgment rule, the §170(f)(11) qualified-appraisal rule for property gifts over $5,000, and the OBBBA §70424 §170(p) 0.5%-of-AGI floor taking effect 1/1/2026.">
+<link rel="canonical" href="https://calcleap.com/blog/irc-170-c-charitable-deduction-individual-educational-medical-support-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="IRC §170(c) Charitable Deduction for Individual Educational and Medical Support in 2026 — CalcLeap">
+<meta property="og:description" content="Deep-dive on IRC §170(c): the §501(c)(3) qualifying-organization requirement, the "to" vs. "for-the-use-of" AGI-ceiling distinction, the §170(b) 60%/50%/30%/20% percentage limitations, the §170(f)(8) $250 contemporaneous-written-acknowledgment rule, the OBBBA §70424 §170(p) 0.5%-of-AGI floor for 2026, and the coordination with §2503(e) direct-pay and §2513 split-gift elections.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/irc-170-c-charitable-deduction-individual-educational-medical-support-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-08-31T00:00:00Z">
+<meta property="article:modified_time" content="2026-08-31T00:00:00Z">
+<meta property="article:section" content="Tax Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IRC §170(c) Charitable Deduction for Individual Educational and Medical Support in 2026",
+  "description": "A practitioner deep-dive on IRC §170(c): the §501(c)(3) qualifying-organization test, the \"to\" vs. \"for-the-use-of\" AGI-ceiling distinction, the §170(b) 60%/50%/30%/20% percentage limitations, the §170(f)(8) contemporaneous-written-acknowledgment requirement, the §170(f)(11) qualified-appraisal rule for property gifts over $5,000, the OBBBA §70424 §170(p) 0.5%-of-AGI floor taking effect 1/1/2026, and the coordination with §2503(e) direct-pay tuition and medical exclusion plus §2513 spousal gift-splitting.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-08-31T00:00:00Z",
+  "dateModified": "2026-08-31T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "CalcLeap Editorial",
+    "url": "https://calcleap.com/authors/calcleap-editorial.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcLeap",
+    "url": "https://calcleap.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcleap.com/og-default.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcleap.com/blog/irc-170-c-charitable-deduction-individual-educational-medical-support-2026.html"
+  },
+  "articleSection": "Tax Planning",
+  "wordCount": 5900,
+  "about": [
+    {"@type": "Thing", "name": "IRC Section 170(c)"},
+    {"@type": "Thing", "name": "Charitable contribution deduction"},
+    {"@type": "Thing", "name": "IRC Section 501(c)(3) qualifying organization"},
+    {"@type": "Thing", "name": "IRC Section 170(b) percentage limitations"},
+    {"@type": "Thing", "name": "IRC Section 170(f)(8) contemporaneous written acknowledgment"},
+    {"@type": "Thing", "name": "IRC Section 170(p) OBBBA 0.5%-of-AGI floor"},
+    {"@type": "Thing", "name": "Donor-advised funds"},
+    {"@type": "Thing", "name": "Scholarship funds"},
+    {"@type": "Thing", "name": "Coordination with IRC Section 2503(e) direct-pay"},
+    {"@type": "Thing", "name": "Coordination with IRC Section 2513 gift-splitting"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "IRC §170(c) Charitable Deduction for Individual Support"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Can I take a §170(c) charitable deduction for a payment made directly to a struggling family?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. IRC §170(c) permits a deduction only for a \"contribution or gift to or for the use of\" a qualifying organization enumerated in §170(c)(1)-(5) — a state or federal government, a §170(c)(2) domestic corporation or trust organized and operated exclusively for religious, charitable, scientific, literary, or educational purposes (functionally, most §501(c)(3) organizations), certain veterans' and fraternal societies, and certain cemetery companies. A direct payment to an individual — no matter how needy, how sympathetic, or how documented the need — is never a §170(c) deduction, because an individual is not a qualifying organization. Treas. Reg. §1.170A-1(g) makes this explicit: \"no deduction is allowable for a contribution to a specific individual.\" If you want the transfer to be income-tax-deductible, route it through a §501(c)(3) charity that operates a scholarship, hardship, or medical-assistance program open to a charitable class; the charity then makes the payment. If you do not need the deduction, an outright gift to the individual may still qualify for the §2503(e) unlimited gift-tax exclusion (if paid directly to a school or medical provider) or the §2503(b) $19,000 annual exclusion (for 2026), but neither of those provisions reaches your income-tax return."}},
+    {"@type": "Question", "name": "What is the difference between a gift \"to\" a charity and a gift \"for the use of\" a charity?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The distinction governs the §170(b) AGI ceiling that applies to your deduction. A gift \"to\" a §170(b)(1)(A) public charity — cash contributed to the general operating fund of an operating §501(c)(3) — qualifies for the highest ceiling: 60% of AGI for cash under §170(b)(1)(G) as enacted by TCJA 2017 and continued indefinitely by OBBBA 2025, or 50% of AGI for non-cash-and-cash mixed under §170(b)(1)(A). A gift \"for the use of\" a charity — most commonly a contribution in trust with a future interest passing to the charity — is limited to 30% of AGI under §170(b)(1)(B), regardless of whether the ultimate recipient is a public charity. The \"for-the-use-of\" language originates in the 1938 Revenue Act and was intended to reach transfers where the charity has enjoyment but not immediate legal possession — trust interests, some restricted gifts, and certain donor-imposed conditions. Treas. Reg. §1.170A-8(a)(2) and Rockefeller v. Commissioner, 676 F.2d 35 (2d Cir. 1982) walk the line: an outright gift to a public-charity scholarship program is \"to\"; a gift in trust with income for life to the donor's designated scholarship recipients and remainder to the charity is \"for the use of\" and drops the AGI ceiling from 60% to 30%."}},
+    {"@type": "Question", "name": "What is the OBBBA §70424 §170(p) 0.5%-of-AGI floor and when does it take effect?",
+     "acceptedAnswer": {"@type": "Answer", "text": "OBBBA §70424 (Public Law 119-21, signed July 4, 2025) added new IRC §170(p) imposing a 0.5%-of-AGI floor on the individual charitable-contribution deduction for taxable years beginning after December 31, 2025 — i.e., the 2026 tax year (returns filed by April 15, 2027) is the first year the floor applies. The floor works as a subtraction: only charitable contributions in excess of 0.5% of AGI are deductible. A taxpayer with $200,000 AGI and $2,500 of qualifying §170(c) contributions in 2026 subtracts 0.5% × $200,000 = $1,000 from the $2,500, so only $1,500 is deductible. The floor stacks below the §170(b) percentage ceilings — the floor takes off the bottom, the ceilings take off the top. The OBBBA also added §170(p)(2) coordinating the floor with the §170(d)(1) five-year carryover for excess contributions: the floor is applied to the current-year contribution total before carryover computation, and any excess carried forward is not re-floored in the carryover year. Taxpayers whose total 2026 §170(c) contributions do not exceed 0.5% of AGI receive no §170(c) deduction. This is the largest structural change to the individual §170 deduction since TCJA 2017."}},
+    {"@type": "Question", "name": "Can I direct a donor-advised fund to make a scholarship grant to my grandchild?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No — such a grant is a §4966(d)(2) taxable distribution triggering a 20% excise tax on the sponsoring organization and a 5% excise tax on any donor-advisor who advised the grant, under IRC §4966 as enacted by the Pension Protection Act 2006. A donor-advised fund cannot make grants to individuals; §4967 further prohibits distributions that result in more than an incidental benefit to a donor, donor-advisor, or related party. Grandchildren of the DAF donor are related parties whose scholarship receipt would be a \"more than incidental\" benefit. If you want to fund your grandchild's education deductibly, the correct vehicle is either a §501(c)(3) scholarship organization operating a charitable-class competitive-award program that your grandchild could win on the merits alongside other candidates (satisfying the §501(c)(3) charitable-class requirement described in Rev. Rul. 56-304), or — for direct family transfers — the non-deductible §2503(e) direct-pay tuition mechanic (unlimited gift-tax exclusion but no income-tax deduction) or the non-deductible §529 contribution vehicle (state-tax deduction in most states, no federal income-tax deduction, tax-free growth for qualified education expenses)."}},
+    {"@type": "Question", "name": "Does the §170(f)(8) contemporaneous-written-acknowledgment rule apply to all charitable contributions?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Only for contributions of $250 or more. IRC §170(f)(8)(A) provides that no deduction is allowed for a \"separate contribution of $250 or more\" unless the taxpayer substantiates the contribution with a contemporaneous written acknowledgment from the donee organization. The acknowledgment must state (1) the amount of cash and description of any property contributed, (2) whether the donee provided any goods or services in exchange, (3) a description and good-faith estimate of the value of any goods or services provided, or a statement that only intangible religious benefits were provided. \"Contemporaneous\" means received by the earlier of (a) the date the taxpayer files the return on which the deduction is claimed, or (b) the due date (including extensions) for filing that return. Under-$250 contributions are not subject to §170(f)(8) but do require the §170(f)(17) bank-record or written-communication substantiation added by the Pension Protection Act 2006 — a cancelled check, credit-card statement, or dated letter from the donee. Cash-in-the-plate contributions with no receipt are non-deductible under §170(f)(17) regardless of amount, following the Tax Court's holding in Durden v. Commissioner, T.C. Memo. 2012-140, which disallowed a $22,000 deduction for lack of §170(f)(8) compliance."}},
+    {"@type": "Question", "name": "How does §170(c) coordinate with the §2503(e) direct-pay gift-tax exclusion?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The two provisions serve different purposes and can coordinate cleanly, but they never stack on the same dollar. §2503(e) provides an unlimited GIFT-TAX exclusion for tuition paid directly to a §170(b)(1)(A)(ii) educational institution or medical expenses paid directly to a §213(d) medical provider — no gift-tax return required, no §2503(b) $19,000 annual exclusion consumed, no §2010(c) $15,000,000 OBBBA lifetime exemption consumed. §170(c) provides an INCOME-TAX DEDUCTION for a contribution to a §501(c)(3) charity — subject to §170(b) AGI ceilings, §170(f)(8) substantiation, and (starting 2026) the §170(p) 0.5%-of-AGI floor. A grandparent paying $80,000 directly to their grandchild's medical school under §2503(e)(2)(A) gets no §170(c) income-tax deduction — the payment benefits the grandchild individually, not the school as a §170(c) qualifying donee. To get both gift-tax exclusion AND income-tax deduction on the same dollar, the grandparent would need to contribute to the medical school's general scholarship fund open to all admitted students on a charitable-class basis (§170(c) deductible, not §2503(e) direct-pay because it does not designate a specific individual). The two provisions therefore complement each other in a coordinated family-giving plan rather than compete for the same transfer."}},
+    {"@type": "Question", "name": "Can a §2513-elected married couple double the §170(c) charitable deduction?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No — §2513 gift-splitting is a GIFT-TAX election, not an income-tax election, and has no direct application to the §170(c) charitable deduction. A married couple filing jointly under §6013 aggregates their AGI and jointly reports §170(c) contributions on Schedule A; the §170(b) percentage ceilings apply to the joint AGI. There is no \"doubling\" — the couple's aggregate §170(c) deduction is limited to the applicable percentage of their aggregate AGI, whether the contribution came from one spouse's separate account or was split via §2513. §2513 splitting matters only for the gift-tax and GST-tax treatment of a gift to a THIRD PARTY (an individual, not a §170(c) charity). A §170(c) charitable contribution is not a gift for gift-tax purposes under Reg. §25.2503-3(b) and does not appear on Form 709 at all — so there is nothing to split. The §170(c) deduction is available in full for cash contributions up to 60% of joint AGI (§170(b)(1)(G)), and any excess carries forward under §170(d)(1) for five years."}},
+    {"@type": "Question", "name": "What documentation do I need for a §170(c) contribution of appreciated stock?",
+     "acceptedAnswer": {"@type": "Answer", "text": "For a §170(c) contribution of appreciated long-term-capital-gain property (stock, mutual-fund shares, real estate, etc.) valued at more than $500, IRC §170(f)(11) requires Form 8283 (Noncash Charitable Contributions) attached to the return. For contributions valued at more than $5,000, §170(f)(11)(C) additionally requires a qualified appraisal by a qualified appraiser meeting the Treas. Reg. §1.170A-17 standards; the appraisal summary is attached on Form 8283 Section B and must be signed by the appraiser and the donee. Publicly-traded securities are exempt from the qualified-appraisal requirement under §170(f)(11)(A)(ii)(I) because their fair market value is objectively determinable; a Form 8283 Section A entry is still required for the $500-$5,000 range. §170(e)(1)(B) limits the deduction to fair market value for long-term-capital-gain property contributed to a public charity (the general rule), but to cost basis for short-term or ordinary-income property, and to cost basis for tangible personal property put to a use unrelated to the charity's exempt purpose. Failure to attach a required qualified appraisal is a per-se disallowance under §170(f)(11) — the Tax Court has repeatedly disallowed millions in claimed deductions for missing or defective appraisals (e.g., Mohamed v. Commissioner, T.C. Memo. 2012-152, disallowing $18.5 million of real-estate contributions)."}},
+    {"@type": "Question", "name": "Are contributions to foreign charities deductible under §170(c)?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Generally no. §170(c)(2)(A) requires the donee organization to be \"created or organized in the United States or in any possession thereof, or under the law of the United States, any State, the District of Columbia, or any possession of the United States.\" A direct contribution to a foreign charity — even a Canadian, UK, or Israeli charity operating an educational or medical program — does not qualify for the §170(c) deduction. Three narrow exceptions: (1) U.S.-Canadian income-tax treaty Article XXI(6) permits deduction for contributions to Canadian charities up to the taxpayer's Canadian-source income; (2) similar limited treaty exceptions exist for Mexico and Israel; (3) contributions to a U.S. \"friends of\" §501(c)(3) organization that in turn regrants to a foreign affiliate ARE deductible, provided the U.S. friends-of organization retains full discretion over grant decisions under the \"discretion and control\" doctrine of Rev. Rul. 66-79 and subsequent guidance. Individual educational and medical support paid directly abroad — say, tuition wired to a foreign university — receives no §170(c) treatment; the §2503(e) direct-pay gift-tax exclusion is likewise unavailable because §2503(e)(2)(A) requires the school to be a §170(b)(1)(A)(ii) organization, which itself requires U.S. organization."}},
+    {"@type": "Question", "name": "Do I need to itemize to claim a §170(c) deduction?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes, with one narrow OBBBA-created exception. Under §63(d)(1) and §63(e), the §170(c) charitable deduction is an itemized deduction claimed on Schedule A. Taxpayers taking the standard deduction under §63(c) receive no §170(c) deduction — unless OBBBA §70425 §170(o) applies. §170(o), added by OBBBA §70425 for tax years beginning after December 31, 2025, permits non-itemizers to deduct up to $1,000 (single) or $2,000 (MFJ) of cash contributions to §170(b)(1)(A) public charities as an above-the-line adjustment to income under §62(a)(22). The above-the-line deduction is separate from the itemized §170 deduction, is not subject to the §170(p) 0.5%-of-AGI floor, and is available regardless of whether the taxpayer takes the standard deduction. For 2026 the standard deduction under OBBBA-updated §63(c) is $16,500 (single) / $33,000 (MFJ) / $24,750 (HoH), so many donors with modest charitable giving will take the standard deduction plus the §170(o) above-the-line allowance rather than itemizing. Donors with larger contributions ($5,000+) generally still need to itemize to benefit."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:680px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.15rem;color:var(--text);box-shadow:var(--shadow)}
+
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>IRC §170(c) Charitable Deduction for Individual Support
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Tax Planning · Updated August 31, 2026</span>
+  <h1 id="article-start">IRC §170(c) Charitable Deduction for Individual Educational and Medical Support in 2026: The §501(c)(3) Qualifying-Organization Test, the "To" vs. "For-the-Use-of" Distinction, the §170(b) AGI Ceilings, the §170(f)(8) Contemporaneous-Written-Acknowledgment Rule, and the Coordination with §2503(e) Direct-Pay and §2513 Split-Gift Elections</h1>
+  <p class="deck">The two prior pieces in this arc walked the gift-tax side of intra-family educational and medical support. <a href="/blog/irc-2503-e-direct-pay-tuition-medical-2026.html" style="color:var(--accent)">IRC §2503(e)</a> walked the unlimited gift-tax exclusion available when a donor pays tuition directly to a school or medical bills directly to a provider — no gift-tax return, no exemption cost. <a href="/blog/irc-2513-spousal-gift-splitting-election-2026.html" style="color:var(--accent)">IRC §2513</a> walked the doubling mechanic that lets a married couple treat any third-party gift as made half by each. Both provisions live in Chapter 12 of the Code (gift tax); neither touches the donor's Form 1040 income-tax return. This piece walks the income-tax counterpart: IRC §170(c), the general charitable-contribution deduction, and the surprisingly narrow window through which a donor can deduct educational or medical support given to another individual. The short version: you can never deduct a payment made directly to an individual, no matter how needy — a §170(c) deduction requires routing through a §501(c)(3) qualifying charity. This piece covers the §170(c)(2) organization test, the "to" vs. "for-the-use-of" distinction that fixes the applicable §170(b) AGI ceiling (60%/50%/30%/20%), the §170(f)(8) contemporaneous-written-acknowledgment rule for $250+ contributions, the §170(f)(11) qualified-appraisal rule for property gifts over $5,000, the OBBBA §70424 §170(p) 0.5%-of-AGI floor taking effect for the 2026 tax year, the OBBBA §70425 §170(o) $1,000/$2,000 above-the-line allowance for non-itemizers, and the coordination with §2503(e) direct-pay and §2513 split-gift elections in a coordinated family-giving plan.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published August 31, 2026</span>
+    <span class="dot"></span>
+    <span>25 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>The §170(c) charitable-contribution deduction is the largest itemized deduction in the federal income-tax base by aggregate dollar volume, with the IRS Statistics of Income reporting $217 billion of individual §170 contributions on tax year 2023 returns (the most recent published data as of August 2026).<sup><a href="#source-1">[1]</a></sup> The provision has been a mainstay of the individual income tax since 1917, when Congress added it to the Revenue Act to encourage private philanthropy amid wartime rate increases. The current §170 has been reshaped by four major statutes: the 1969 Tax Reform Act (private-foundation percentage limits), the 1984 DEFRA reforms (§170(f)(8) contemporaneous-written-acknowledgment for $250+ gifts, added in 1993 by OBRA), the 2006 Pension Protection Act (donor-advised-fund rules under §4966 and §170(f)(17) small-gift substantiation), and the 2025 One Big Beautiful Bill Act, which added the 0.5%-of-AGI floor under new §170(p) and the $1,000/$2,000 non-itemizer above-the-line allowance under new §170(o) — both effective for tax years beginning after December 31, 2025.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>For the family-giving practitioner, §170(c) sits alongside §2503(e) and §2513 as the third leg of the intra-family transfer stool. Each addresses a distinct problem: §2503(e) removes tuition and medical support from the gift-tax base entirely (unlimited, no return); §2513 doubles the gift-tax capacity available to a married couple for other kinds of transfers (annual exclusion, §529 front-load, GST exemption); §170(c) provides the income-tax deduction for a contribution — but only when routed through a §501(c)(3) charity, not to the individual directly. The three provisions do not stack on the same dollar. They complement each other in a coordinated plan, and the planner's job is to allocate each dollar to the provision that delivers the best after-tax result for the family's total giving budget.</p>
+
+<a class="cta-calc" href="/income-tax-calculator.html">
+  <span class="ic">🎓</span>
+  <div>
+    <h4>Model §170(c) deduction: AGI ceilings, §170(p) floor, itemize-vs-standard breakeven</h4>
+    <p>Compare (a) itemized §170(c) treatment with the 60%/50%/30%/20% AGI ceilings and OBBBA §70424 §170(p) 0.5%-of-AGI floor, (b) the OBBBA §70425 §170(o) $1,000/$2,000 above-the-line non-itemizer allowance, and (c) the §170(d)(1) five-year carryover for excess contributions. Coordinates with §2503(e) direct-pay tuition/medical and §2513 spousal gift-splitting for the full intra-family transfer picture.</p>
+  </div>
+  <span class="go">Open →</span>
+</a>
+
+<h2 id="statutory-framework">The §170(c) statutory framework and the §501(c)(3) qualifying-organization test</h2>
+
+<p>IRC §170(c) defines "charitable contribution" for purposes of the §170(a) deduction. The definition is a list of five permitted donee categories:<sup><a href="#source-3">[3]</a></sup></p>
+
+<blockquote><strong>IRC §170(c) — Charitable contribution defined</strong>
+<p>A contribution or gift to or for the use of — (1) A State, a possession of the United States, or any political subdivision of any of the foregoing, or the United States or the District of Columbia, but only if the contribution or gift is made for exclusively public purposes; (2) A corporation, trust, or community chest, fund, or foundation — (A) created or organized in the United States or in any possession thereof, or under the law of the United States, any State, the District of Columbia, or any possession of the United States; (B) organized and operated exclusively for religious, charitable, scientific, literary, or educational purposes, or to foster national or international amateur sports competition, or for the prevention of cruelty to children or animals; (C) no part of the net earnings of which inures to the benefit of any private shareholder or individual; and (D) which is not disqualified for tax exemption under section 501(c)(3) by reason of attempting to influence legislation; (3) A post or organization of war veterans; (4) In the case of a contribution or gift by an individual, a domestic fraternal society, order, or association, operating under the lodge system, but only if such contribution or gift is to be used exclusively for religious, charitable, scientific, literary, or educational purposes, or for the prevention of cruelty to children or animals; (5) A cemetery company owned and operated exclusively for the benefit of its members.</p>
+</blockquote>
+
+<p>Category (2) — §170(c)(2) — is the workhorse. It reaches "a corporation, trust, or community chest, fund, or foundation" organized in the United States and operated exclusively for religious, charitable, scientific, literary, or educational purposes. This is functionally equivalent to a §501(c)(3) organization: the §170(c)(2)(B) purposes list mirrors the §501(c)(3) purposes list, the §170(c)(2)(C) private-inurement bar mirrors §501(c)(3), and the §170(c)(2)(D) legislative-influence limit mirrors the §501(c)(3) lobbying limit. In practice, if the donee is a §501(c)(3) organization listed in IRS Publication 78 (the Tax Exempt Organization Search database at apps.irs.gov/app/eos), the §170(c)(2) test is satisfied.<sup><a href="#source-4">[4]</a></sup></p>
+
+<p>What is NEVER a §170(c) qualifying donee: an individual. Treas. Reg. §1.170A-1(g) makes this explicit and categorical: "No deduction is allowable under section 170 for a contribution to a specific individual." The rule applies regardless of the individual's need, the humanitarian purpose of the transfer, the donor's motive, or the documentation of the individual's circumstances. A donor who sends $10,000 to a laid-off neighbor's GoFundMe to pay for cancer treatment receives no §170(c) deduction — the neighbor is an individual, not a §170(c)(2) charity. A donor who pays the tuition of a specific promising student attending a public university receives no §170(c) deduction — the student is an individual. A donor who contributes to a scholarship fund at their alma mater with instructions that the money be used for a designated student receives no §170(c) deduction — Rev. Rul. 62-113 and Rev. Rul. 79-81 hold that a "designated-recipient" gift is treated as a gift to the individual regardless of the charity's role as intermediary.<sup><a href="#source-5">[5]</a></sup></p>
+
+<div class="callout warn">
+<h4>The "designated recipient" trap is the single most common §170(c) failure for family-support giving</h4>
+<p>Donors routinely try to get a §170(c) deduction for support of a specific individual — a niece's college tuition, a family friend's medical bills, a coworker's rent — by routing the payment through a §501(c)(3) charity with instructions that the money be applied to the designated person. This does not work. Rev. Rul. 62-113, Rev. Rul. 79-81, and consistent Tax Court practice hold that when the donor specifies the individual recipient, the charity is a mere conduit and the transfer is treated as a non-deductible gift directly to the individual. To get a §170(c) deduction, the charity must have "full control and administrative discretion" over the disposition of the funds — the charity, not the donor, must decide which individuals benefit. This is the "control and discretion" doctrine of Rev. Rul. 66-79. It is possible to make a §170(c)-deductible contribution to a scholarship fund from which your niece could win an award on the merits alongside other candidates in a charitable class — but only if the charity's selection is genuinely independent.</p>
+</div>
+
+<h2 id="to-vs-for-use-of">The "to" vs. "for the use of" distinction and the §170(b) AGI ceilings</h2>
+
+<p>§170(c) opens with "A contribution or gift to or for the use of" a qualifying organization. The distinction between "to" and "for the use of" is not merely stylistic — it fixes the §170(b) AGI ceiling that applies to the deduction. A "to" contribution — cash or property transferred directly into the charity's operating funds — qualifies for the higher of the two applicable ceilings under §170(b). A "for the use of" contribution — most commonly a transfer in trust with the charity as beneficiary — is limited to 30% of AGI regardless of donee type under §170(b)(1)(B).<sup><a href="#source-6">[6]</a></sup></p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Gift type / donee</th><th>§170(b) ceiling (of AGI)</th><th>Excess treatment under §170(d)(1)</th></tr></thead>
+<tbody>
+<tr><td>Cash "to" a §170(b)(1)(A) public charity (including most educational and medical institutions)</td><td>60% under §170(b)(1)(G) [TCJA 2017, continued indefinitely by OBBBA 2025]</td><td>Five-year carryover; retains 60% character in carryover years</td></tr>
+<tr><td>Long-term-capital-gain property (appreciated stock, etc.) "to" a §170(b)(1)(A) public charity</td><td>30% under §170(b)(1)(C)(i); may elect §170(b)(1)(C)(iii) to use adjusted basis instead of FMV and apply 50% ceiling</td><td>Five-year carryover; retains 30% or 50% character depending on election</td></tr>
+<tr><td>Cash "to" a private non-operating foundation</td><td>30% under §170(b)(1)(B)</td><td>Five-year carryover; retains 30% character</td></tr>
+<tr><td>Long-term-capital-gain property "to" a private non-operating foundation (other than qualified stock)</td><td>20% under §170(b)(1)(D)(i)</td><td>Five-year carryover; retains 20% character</td></tr>
+<tr><td>Any contribution "for the use of" (in trust, remainder interest, etc.) any qualifying donee</td><td>30% under §170(b)(1)(B), regardless of donee type</td><td>Five-year carryover; retains 30% character</td></tr>
+<tr><td>Combined-category ceiling (multiple gift types in same year)</td><td>50% aggregate under §170(b)(1)(A), with ordering rules in §170(b)(1)(B) reducing higher-ceiling deductions first</td><td>Complex; consult Form 1040 Schedule A instructions and Pub. 526</td></tr>
+</tbody></table></div>
+
+<p>The 60% ceiling for cash to public charities under §170(b)(1)(G) was enacted by the Tax Cuts and Jobs Act of 2017 §11023, effective for tax years 2018-2025, and continued indefinitely by OBBBA §70423 as amended for tax years beginning after December 31, 2025. Before 2018 the ceiling was 50%; the temporary CARES Act 2020 provisions allowed up to 100% for certain 2020 and 2021 cash gifts.<sup><a href="#source-7">[7]</a></sup> For 2026, a taxpayer with $200,000 AGI can deduct up to $120,000 of cash contributions to public §501(c)(3) charities, with any excess carrying forward under §170(d)(1) for up to five years.</p>
+
+<h3>Public charities under §170(b)(1)(A)</h3>
+
+<p>§170(b)(1)(A) enumerates the "50% (now 60% for cash) charities" — the public charities that qualify for the higher AGI ceiling. The list includes churches and conventions of churches (§170(b)(1)(A)(i)); educational institutions with regular faculty, curriculum, and a regularly-enrolled student body (§170(b)(1)(A)(ii)); hospitals and medical research organizations (§170(b)(1)(A)(iii)); state-college endowment associations (§170(b)(1)(A)(iv)); governmental units under §170(c)(1) (§170(b)(1)(A)(v)); organizations that normally receive substantial public support (§170(b)(1)(A)(vi)); and certain agricultural research organizations (§170(b)(1)(A)(ix)).<sup><a href="#source-8">[8]</a></sup> The §170(b)(1)(A)(ii) educational-institution definition is the same definition that governs the §2503(e)(2)(A) direct-pay tuition exclusion, creating a clean coordination between the income-tax deduction and the gift-tax exclusion for gifts routed through the school.</p>
+
+<h2 id="obbba-floor">The OBBBA §70424 §170(p) 0.5%-of-AGI floor and the OBBBA §70425 §170(o) non-itemizer allowance</h2>
+
+<p>OBBBA (Public Law 119-21, signed July 4, 2025) made two structural changes to the individual §170 deduction, both effective for tax years beginning after December 31, 2025 — the 2026 tax year is the first year the changes apply.<sup><a href="#source-9">[9]</a></sup></p>
+
+<p><strong>OBBBA §70424 — new IRC §170(p) 0.5%-of-AGI floor.</strong> §170(p)(1) provides that "in the case of any taxable year of an individual, the deduction otherwise allowable under this section shall be reduced by 0.5 percent of the taxpayer's adjusted gross income for such taxable year." The floor is a subtraction from the deductible amount — not a threshold that eliminates the deduction below the floor, but a permanent reduction in the deductible amount for every itemizing donor. §170(p)(2) coordinates the floor with the §170(d)(1) five-year carryover: the floor is applied to the current-year total before carryover computation, and any excess carried forward is not re-floored in the carryover year.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>AGI</th><th>0.5%-of-AGI floor amount</th><th>Total 2026 §170(c) contributions</th><th>Deductible amount (contributions − floor, subject to §170(b) ceilings)</th></tr></thead>
+<tbody>
+<tr><td>$75,000</td><td>$375</td><td>$500</td><td>$125</td></tr>
+<tr><td>$120,000</td><td>$600</td><td>$2,000</td><td>$1,400</td></tr>
+<tr><td>$200,000</td><td>$1,000</td><td>$5,000</td><td>$4,000</td></tr>
+<tr><td>$400,000</td><td>$2,000</td><td>$10,000</td><td>$8,000</td></tr>
+<tr><td>$1,000,000</td><td>$5,000</td><td>$50,000</td><td>$45,000</td></tr>
+<tr><td>$1,000,000</td><td>$5,000</td><td>$4,000</td><td>$0 (below floor — no deduction)</td></tr>
+</tbody></table></div>
+
+<p>The floor is designed to eliminate very small itemized deductions (with an estimated Joint Committee on Taxation ten-year revenue score of $63.5 billion) and simplify the itemization decision for modest donors. For the family-support planner, the practical effect is that small designated-scholarship gifts to public charities lose some of their tax value at the margin — a $1,000 cash contribution at $200,000 AGI is now effectively a $0 deduction, because the floor at that AGI is $1,000. Concentrating giving into fewer, larger contributions preserves more of the deduction relative to the pre-2026 baseline.<sup><a href="#source-10">[10]</a></sup></p>
+
+<p><strong>OBBBA §70425 — new IRC §170(o) non-itemizer above-the-line allowance.</strong> §170(o) provides a limited above-the-line adjustment to gross income under §62(a)(22) for cash contributions to §170(b)(1)(A) public charities made by taxpayers taking the standard deduction under §63(c). The allowance is capped at $1,000 for single filers and $2,000 for married-filing-jointly filers; it is not subject to the §170(p) 0.5%-of-AGI floor; and it is not subject to any §170(b) percentage ceiling. §170(o)(3) coordinates with the itemized deduction: a taxpayer who itemizes cannot double-count contributions between §170(o) and Schedule A. §170(o)(4) restricts the contribution categories to (A) cash contributions (not property), (B) to §170(b)(1)(A) public charities (not private foundations or DAFs), and (C) not to §509(a)(3) supporting organizations.<sup><a href="#source-11">[11]</a></sup></p>
+
+<div class="callout key">
+<h4>The §170(o) non-itemizer allowance is the largest 2026 §170 restructuring for modest donors</h4>
+<p>For 2026, the OBBBA-updated standard deduction under §63(c) is $16,500 (single) / $33,000 (MFJ) / $24,750 (HoH). A married couple with $80,000 of itemizable deductions (mortgage interest, SALT-capped state and local tax, medical, and $2,000 cash charity) will take the standard deduction rather than itemizing — and previously would have received no §170(c) deduction for their $2,000 cash charity. Under new §170(o), they receive the full $2,000 as an above-the-line adjustment, effectively deducting the entire contribution. For itemizing donors ($30,000+ of charitable giving in most cases), the §170(o) allowance is not additive to Schedule A — but for the substantial majority of taxpayers taking the standard deduction, §170(o) creates a new above-the-line lane worth up to $2,000 for MFJ filers annually.</p>
+</div>
+
+<h2 id="substantiation">The §170(f)(8) contemporaneous-written-acknowledgment rule and §170(f)(11) qualified-appraisal requirement</h2>
+
+<p>The §170 deduction is disallowed for failure of substantiation more often than for any other reason. §170(f)(8), §170(f)(11), and §170(f)(17) collectively impose four levels of substantiation, keyed to contribution size and type:<sup><a href="#source-12">[12]</a></sup></p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Contribution size</th><th>Cash</th><th>Non-cash property</th><th>Substantiation required</th></tr></thead>
+<tbody>
+<tr><td>Under $250</td><td>§170(f)(17) bank record or written communication</td><td>Reliable written record identifying donee, date, description, FMV</td><td>Bank statement, cancelled check, or dated letter from donee</td></tr>
+<tr><td>$250 – $500</td><td>§170(f)(8) contemporaneous written acknowledgment</td><td>§170(f)(8) CWA + reliable written record</td><td>Receipt from donee stating amount, whether goods/services provided, and description of any such goods/services</td></tr>
+<tr><td>$500 – $5,000 (property)</td><td>N/A</td><td>§170(f)(8) CWA + Form 8283 Section A</td><td>Same as above plus Form 8283 Section A attached to return</td></tr>
+<tr><td>$5,000+ (property, other than publicly-traded securities)</td><td>N/A</td><td>§170(f)(11)(C) qualified appraisal + Form 8283 Section B signed by appraiser and donee</td><td>Written qualified appraisal by qualified appraiser per Treas. Reg. §1.170A-17; declaration on Form 8283 Section B</td></tr>
+<tr><td>$500,000+ (property)</td><td>N/A</td><td>Qualified appraisal attached to return</td><td>Full qualified appraisal (not just summary) attached to the return</td></tr>
+</tbody></table></div>
+
+<p>The §170(f)(8) contemporaneous-written-acknowledgment rule is the most-litigated substantiation requirement. "Contemporaneous" means the acknowledgment must be received by the earlier of (a) the date the taxpayer files the return on which the deduction is claimed, or (b) the due date (including extensions) for filing that return. An acknowledgment obtained after the return is filed is not contemporaneous and does not cure a §170(f)(8) defect — the deduction is disallowed. In Durden v. Commissioner, T.C. Memo. 2012-140, the Tax Court disallowed a $22,517 deduction for cash contributions to a church because the church's initial acknowledgment did not state whether goods or services were provided in exchange; the church issued a corrected acknowledgment after the return was filed, but the Tax Court held the corrected acknowledgment was not contemporaneous. The case is the leading modern authority on the strictness of the §170(f)(8) rule.<sup><a href="#source-13">[13]</a></sup></p>
+
+<p>The §170(f)(11) qualified-appraisal rule is equally strict. Mohamed v. Commissioner, T.C. Memo. 2012-152, disallowed $18.5 million of real-estate contributions because the taxpayer prepared his own appraisals rather than obtaining independent qualified appraisals. The Tax Court held that self-prepared appraisals do not satisfy §170(f)(11)(E)'s "qualified appraiser" definition, and the taxpayer's substantial-compliance argument was rejected — the qualified-appraisal requirement is a per-se rule, not a facts-and-circumstances test. Publicly-traded securities are exempt from the appraisal requirement under §170(f)(11)(A)(ii)(I) because their FMV is objectively determinable by market close on the contribution date, but a Form 8283 Section A is still required for contributions valued between $500 and $5,000.<sup><a href="#source-14">[14]</a></sup></p>
+
+<h2 id="daf-and-foundations">Donor-advised funds, private foundations, and scholarship-fund vehicles</h2>
+
+<p>For a donor who wants to make §170(c)-deductible contributions targeted at educational or medical support of specific individuals (with charity discretion), three vehicle choices dominate:</p>
+
+<h3>Donor-advised funds (DAFs)</h3>
+
+<p>A DAF is a fund held by a §501(c)(3) sponsoring organization (typically a community foundation or a commercial sponsor like Fidelity Charitable, Schwab Charitable, or Vanguard Charitable) that accepts contributions and permits the donor to advise on subsequent grants. The donor gets a §170(c) deduction in the contribution year at the full 60%-of-AGI cash ceiling (or 30% for appreciated stock); the DAF holds the assets and makes grants over subsequent years at the donor's advisement, but the sponsoring organization retains legal control.<sup><a href="#source-15">[15]</a></sup> The critical §4966 limitation: a DAF cannot make grants to individuals (including scholarship grants to designated recipients), and grants that provide more than an incidental benefit to a donor, donor-advisor, or related party trigger a 20% excise tax on the sponsoring organization plus a 5% excise tax on the donor-advisor under §4967. Under IRS Notice 2017-73 (still the operative guidance as of August 2026), a scholarship grant from a DAF is permissible only if (1) selection is made by a committee that is not controlled by the donor, (2) selection is on an objective and nondiscriminatory basis, and (3) the recipient is not the donor's family member. For most family-support giving to specific individuals, a DAF is not the right vehicle — designated-recipient scholarships to family members are barred.</p>
+
+<h3>Private foundations</h3>
+
+<p>A private foundation is a §509(a) organization funded typically by a single family or corporation. A private foundation CAN make scholarship grants to individuals under IRC §4945(g), but only under a program approved in advance by the IRS pursuant to §4945(g)(1) (§117 tuition scholarships), §4945(g)(2) (Section 74(b) prizes), or §4945(g)(3) (specific-purpose grants). The advance-approval process requires filing a request with IRS Exempt Organizations detailing the objective-selection criteria, and the selection committee must not be controlled by the donor family. Failure of §4945(g) is a "taxable expenditure" triggering a 20% excise tax on the foundation plus a 5% excise tax on foundation managers who approved the payment. Private foundations are also subject to the §170(b)(1)(B) 30% AGI ceiling for cash contributions (not the 60% public-charity ceiling), the §170(b)(1)(D) 20% ceiling for appreciated-property gifts, and the §4940 net-investment-income excise tax of 1.39%.<sup><a href="#source-16">[16]</a></sup></p>
+
+<h3>Scholarship funds at public charities (community foundations)</h3>
+
+<p>Most community foundations (Silicon Valley Community Foundation, New York Community Trust, Chicago Community Trust, Boston Foundation, etc.) offer designated-scholarship funds that are administered by the community foundation as a §501(c)(3) public charity, with the community foundation's own independent scholarship committee selecting recipients from a charitable class. The donor may endow a "Family X Scholarship for Chicago-area high school seniors pursuing STEM degrees" but cannot select individual recipients or restrict selection to family members. The donor receives the full 60%-of-AGI cash ceiling under §170(b)(1)(A) (community foundations are public charities under §170(b)(1)(A)(vi)) and full FMV deduction for appreciated-stock contributions under §170(e)(1)(B). This is typically the most efficient vehicle for a family that wants both (a) meaningful control over the scholarship's charitable purpose, and (b) full §170(c) deduction — trading only the selection of specific recipients (which cannot be a §170(c)-deductible activity in any vehicle) for the charitable class approach.<sup><a href="#source-17">[17]</a></sup></p>
+
+<h2 id="coordination-2503e-2513">Coordination with §2503(e) direct-pay and §2513 spousal gift-splitting</h2>
+
+<p>The three provisions live in different chapters of the Code and serve different tax purposes:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Provision</th><th>Chapter / tax</th><th>Reach</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>IRC §170(c)</td><td>Chapter 1 (income tax)</td><td>Contribution to §501(c)(3) qualifying organization</td><td>Itemized deduction on Schedule A up to §170(b) AGI ceilings, subject to §170(p) floor for 2026+; new $1,000/$2,000 above-the-line allowance under §170(o) for non-itemizers</td></tr>
+<tr><td>IRC §2503(e)</td><td>Chapter 12 (gift tax)</td><td>Direct payment of tuition to §170(b)(1)(A)(ii) school or medical expenses to §213(d) provider on behalf of any individual</td><td>Unlimited gift-tax exclusion — not a gift for Chapter 12 purposes; no Form 709 filing; no §2503(b) annual-exclusion or §2010(c) exemption consumed</td></tr>
+<tr><td>IRC §2513</td><td>Chapter 12 (gift tax)</td><td>Election to treat gift by one spouse to third party as made half by each</td><td>Doubles §2503(b) annual exclusion to $38,000 per donee (2026), doubles §529(c)(5)(A) five-year front-load to $190,000 per beneficiary, doubles GST-exemption footprint via §2652(a)(2); election on Form 709 with both spouses' signatures</td></tr>
+</tbody></table></div>
+
+<p>The three do not stack on the same dollar, but they combine in a coordinated family-giving plan. Consider a grandparent making three transfers in 2026 for a grandchild's benefit:</p>
+
+<ul>
+<li><strong>Transfer 1:</strong> $80,000 tuition paid directly to the grandchild's private medical school (a §170(b)(1)(A)(ii) educational institution). This is a §2503(e)(2)(A) qualified transfer — unlimited gift-tax exclusion, no Form 709, no §2010(c) exemption consumed. There is NO §170(c) income-tax deduction: the payment benefits the grandchild, not the school as an unrestricted donee. There is no §2513 election needed because §2503(e) transfers are not gifts under Chapter 12.</li>
+<li><strong>Transfer 2:</strong> $190,000 §529 contribution to the grandchild's Vanguard 529 Plan, elected under §529(c)(5)(A) five-year averaging and §2513 spousal gift-splitting. This IS a gift for gift-tax purposes but is fully absorbed by the doubled $38,000/year annual exclusion for the grandchild across 2026-2030. There is NO §170(c) income-tax deduction because a §529 contribution is not a §170(c) qualifying donee (it is an educational-savings account, not a §501(c)(3) organization); some states offer state-tax deductions for §529 contributions but no federal deduction is available.</li>
+<li><strong>Transfer 3:</strong> $50,000 cash contribution to the grandchild's medical school's general scholarship fund (open to all admitted students on need or merit basis, administered by the school's independent scholarship committee). This IS a §170(c) itemized deduction on the grandparent's Schedule A up to 60% of AGI under §170(b)(1)(G), less the §170(p) 0.5%-of-AGI floor for 2026. It is NOT a gift for gift-tax purposes under Reg. §25.2503-3(b) (a contribution to a §501(c)(3) charity is not a taxable gift, whatever the donor's motive), so no Form 709 is filed and no §2503(e) or §2513 analysis is needed.</li>
+</ul>
+
+<p>The three transfers together move $320,000 out of the grandparent's future taxable estate (the two gift-tax-exclusion transfers) and produce $50,000 of income-tax deduction (the §170(c) contribution). No dollar is double-counted; each provision reaches only the transfer it is designed to cover.<sup><a href="#source-18">[18]</a></sup></p>
+
+<h2 id="case-studies">Three worked case studies</h2>
+
+<h3>Case 1: Elena (family-scholarship-fund at community foundation)</h3>
+
+<p>Elena, a 62-year-old physician with $650,000 AGI in 2026, wants to establish a scholarship fund honoring her late father — a first-generation immigrant who worked as a hospital orderly — for children of hospital service-workers pursuing nursing degrees. She contributes $250,000 of appreciated Google stock (basis $60,000, held over one year) to the New York Community Trust in December 2026, establishing the "Miguel Rodríguez Scholarship for Children of Hospital Service Workers."</p>
+
+<p><strong>§170(c) treatment:</strong></p>
+<ul>
+<li>The New York Community Trust is a §170(b)(1)(A)(vi) public charity. The contribution is "to" the charity (unrestricted transfer of the stock into the endowment).</li>
+<li>The $250,000 FMV is deductible up to 30% of Elena's AGI = $195,000 (2026 limit under §170(b)(1)(C)(i) for long-term-capital-gain property to public charity).</li>
+<li>Excess $55,000 carries forward under §170(d)(1) for up to five years, retaining 30% character.</li>
+<li>§170(p) 0.5%-of-AGI floor = $3,250. Applied against Elena's 2026 total §170(c) contributions before ceiling.</li>
+<li>Deductible 2026: $195,000 − $3,250 = $191,750 (assuming no other 2026 §170(c) contributions and full itemization).</li>
+<li>Federal tax savings at 37% bracket: $70,948. State (NY) tax savings at 6.85%: $13,135. Combined 2026 income-tax savings: $84,083.</li>
+<li>NO §170(e)(1)(B) reduction to basis: long-term-capital-gain property to public charity qualifies for full FMV deduction. Avoids $190,000 of otherwise-taxable capital gain that would have been recognized on sale.</li>
+</ul>
+
+<p><strong>Charitable structure:</strong> The community foundation's independent scholarship committee selects annual recipients from a charitable class of hospital-service-worker children who apply for the scholarship; Elena has no selection role after the initial gift agreement establishing the fund's charitable purpose. Elena may recommend candidates for consideration but the committee has final authority.</p>
+
+<h3>Case 2: Marcus (attempted designated-recipient scholarship — the failure)</h3>
+
+<p>Marcus, a 55-year-old software engineer with $340,000 AGI in 2026, wants to help his high-school friend Kai's daughter attend a private university. Kai is unable to afford the $60,000 tuition. Marcus contacts the university's development office and asks whether he can make a $60,000 contribution earmarked specifically for Kai's daughter's tuition; the development office says yes and provides an acknowledgment letter stating "$60,000 contribution to the University in support of the education of [Kai's daughter's name]."</p>
+
+<p><strong>§170(c) treatment:</strong></p>
+<ul>
+<li>Under Rev. Rul. 62-113 and Rev. Rul. 79-81, a contribution to a §501(c)(3) charity that designates a specific individual as beneficiary is treated as a gift to the individual, not to the charity. The university is a mere conduit.</li>
+<li>Marcus receives NO §170(c) deduction, notwithstanding the acknowledgment letter and the university's §501(c)(3) status.</li>
+<li>The $60,000 payment does qualify as a §2503(e)(2)(A) qualified transfer because it is paid directly to the school on Kai's daughter's behalf — no gift-tax return, no §2010(c) exemption consumed.</li>
+</ul>
+
+<p><strong>The alternative that would have worked:</strong> Marcus could have contributed $60,000 to the university's general need-based financial-aid fund without designating Kai's daughter. The university's independent financial-aid committee could then have offered a $60,000 need-based grant to Kai's daughter (or to any other qualified student on the same objective basis). Marcus's contribution would be fully §170(c)-deductible; the financial-aid grant to Kai's daughter would be independently determined by the university. But that structure requires Marcus to give up the certainty that his money goes to Kai's daughter — a trade Marcus was unwilling to make. The lesson: §170(c) deductibility and designated-recipient certainty are mutually exclusive.<sup><a href="#source-19">[19]</a></sup></p>
+
+<h3>Case 3: Diana and Robert (medical-hardship charitable-class fund)</h3>
+
+<p>Diana and Robert, a retired couple with $180,000 AGI in 2026, want to support cancer patients at their local hospital who face medical-bill hardship. They contribute $8,000 in cash to the hospital's Patient Assistance Fund, a §170(c)(2) fund operated by the hospital (itself a §170(b)(1)(A)(iii) medical-research organization) that pays medical bills for financially-eligible patients selected by the hospital's independent social-work team.</p>
+
+<p><strong>§170(c) treatment:</strong></p>
+<ul>
+<li>The hospital is a §170(b)(1)(A)(iii) public charity. The Patient Assistance Fund is a §170(c)(2) qualifying donee.</li>
+<li>The $8,000 cash contribution is deductible up to 60% of AGI = $108,000 (well above contribution amount).</li>
+<li>§170(p) 0.5%-of-AGI floor for MFJ = $900. Applied to $8,000 leaves $7,100 deductible.</li>
+<li>Diana and Robert take the OBBBA-updated 2026 MFJ standard deduction of $33,000, since their itemizable deductions (mortgage $0, SALT capped at $10,000, medical below 7.5% floor, charity $7,100) total ~$17,100 which is below the standard deduction.</li>
+<li>Because they cannot itemize, they cannot claim the $7,100 as a Schedule A §170(c) deduction. But under new §170(o), they can claim $2,000 of the cash contribution as an above-the-line adjustment to gross income under §62(a)(22).</li>
+<li>Federal tax savings at 22% bracket on the $2,000 above-the-line: $440. Their remaining $6,000 of the contribution provides no federal tax benefit in 2026.</li>
+<li>Because they are non-itemizers, the §170(p) floor does not apply to the $170(o) above-the-line allowance — they get the full $2,000 benefit.</li>
+</ul>
+
+<p><strong>Charitable outcome:</strong> The $8,000 contribution supports approximately three cancer patients' medical-bill hardship over the following year, selected by the hospital's social-work team based on income eligibility and demonstrated need. Diana and Robert have no role in recipient selection; the hospital's independent process ensures §170(c) charitable-class treatment.</p>
+
+<h2 id="six-mistakes">Six recurring §170(c) mistakes for individual educational or medical support</h2>
+
+<ol>
+<li><strong>Designating the individual recipient.</strong> Contributing to a §501(c)(3) with instructions that funds be applied to a specific named individual (a niece, a family friend, a coworker) — the deduction is disallowed under Rev. Rul. 62-113 and Rev. Rul. 79-81. Route the contribution to a charitable-class program administered by an independent committee.</li>
+<li><strong>Paying directly to the individual.</strong> A GoFundMe contribution, a Venmo transfer to help with a medical bill, a check written to the family — none is §170(c) deductible under Treas. Reg. §1.170A-1(g). If the beneficiary is truly needy, coordinate with a §501(c)(3) hardship-fund that administers assistance on a charitable-class basis.</li>
+<li><strong>Missing the §170(f)(8) contemporaneous-written-acknowledgment.</strong> For any single contribution of $250 or more, obtain the acknowledgment (stating amount, whether goods/services were provided, and value of any goods/services) BEFORE filing the return. An after-the-fact acknowledgment does not cure the defect — see Durden v. Commissioner.</li>
+<li><strong>Ignoring the OBBBA §170(p) 0.5%-of-AGI floor for 2026+.</strong> Small charitable gifts that were fully deductible in 2025 may be partially or fully absorbed by the floor for 2026. Concentrate gifts into fewer, larger contributions when possible to preserve deduction efficiency.</li>
+<li><strong>Missing the §170(f)(11) qualified-appraisal requirement for property gifts over $5,000.</strong> The requirement is a per-se rule — self-prepared appraisals do not qualify (see Mohamed v. Commissioner). Publicly-traded securities are the only exception. Obtain the qualified appraisal within 60 days of the contribution date under Treas. Reg. §1.170A-17(a)(4).</li>
+<li><strong>Assuming a §170(c) deduction stacks with §2503(e) direct-pay on the same dollar.</strong> The two provisions never overlap. §2503(e) direct-pay is a gift-tax exclusion for payments to schools and medical providers on behalf of specific individuals; §170(c) is an income-tax deduction for contributions to §501(c)(3) charities. A single dollar reaches one or the other, never both.</li>
+</ol>
+
+<h2 id="checklist">Eight-item pre-donation checklist for §170(c) educational and medical support giving</h2>
+
+<ol>
+<li><strong>Confirm the donee is a §170(c)(2) qualifying organization.</strong> Search the IRS Tax Exempt Organization Search at apps.irs.gov/app/eos for the donee's EIN and confirm current §501(c)(3) status and public-charity classification under §170(b)(1)(A). Foreign charities generally do not qualify; verify treaty coverage for Canadian, Mexican, and Israeli donees.</li>
+<li><strong>Confirm the transfer is NOT a designated-recipient contribution.</strong> If you want a §170(c) deduction, the donee charity must have independent discretion over the disposition of the funds. Family-scholarship funds at community foundations, hospital patient-assistance funds, and university general financial-aid funds all satisfy this test; earmarked contributions to a specific individual do not.</li>
+<li><strong>Determine the applicable §170(b) AGI ceiling.</strong> Cash to public charity = 60%; long-term-capital-gain property to public charity = 30% FMV or 50% at basis election; cash to private foundation = 30%; long-term-capital-gain property to private foundation = 20%; any "for-the-use-of" transfer = 30%.</li>
+<li><strong>Compute the OBBBA §170(p) 0.5%-of-AGI floor.</strong> Subtract 0.5% × AGI from total §170(c) contributions before applying §170(b) ceilings. For 2026, this is the first year the floor applies. Small contributions may be partially or fully absorbed.</li>
+<li><strong>Consider the §170(o) non-itemizer allowance if not itemizing.</strong> If the standard deduction ($16,500 single / $33,000 MFJ / $24,750 HoH for 2026) exceeds your total itemizable deductions, take the standard deduction plus up to $1,000 (single) / $2,000 (MFJ) of cash public-charity contributions as an above-the-line adjustment under §62(a)(22).</li>
+<li><strong>Obtain the §170(f)(8) contemporaneous written acknowledgment.</strong> For every single contribution of $250 or more, obtain the CWA from the donee before filing the return. The CWA must state the amount, whether goods/services were provided, and a description and good-faith estimate of the value of any goods/services provided.</li>
+<li><strong>Obtain the §170(f)(11) qualified appraisal for property gifts over $5,000.</strong> Publicly-traded securities are the only exception. For property gifts $500-$5,000, attach Form 8283 Section A. For property gifts over $5,000, attach Form 8283 Section B signed by qualified appraiser and donee. For gifts over $500,000, attach the full qualified appraisal.</li>
+<li><strong>Coordinate with §2503(e) direct-pay and §2513 gift-splitting in the family plan.</strong> The three provisions serve different tax purposes and reach different transfer types. A comprehensive family-support plan uses §170(c) for charitable-class giving, §2503(e) for individual tuition and medical support paid directly to schools and providers, and §2513 for doubling annual-exclusion and §529 capacity between married-spouse donors.</li>
+</ol>
+
+<h2 id="faq">Frequently asked questions</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>Can I take a §170(c) charitable deduction for a payment made directly to a struggling family?</h3>
+<p>No. §170(c) requires the donee to be a qualifying organization enumerated in §170(c)(1)-(5) — an individual is never a §170(c) qualifying donee, regardless of need or motive. If you want the deduction, route the payment through a §501(c)(3) hardship or scholarship fund that administers assistance on a charitable-class basis.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the difference between a gift "to" a charity and a gift "for the use of" a charity?</h3>
+<p>The distinction governs the §170(b) AGI ceiling. A gift "to" a public charity qualifies for the highest applicable ceiling (60% cash, 30% or 50% appreciated property). A gift "for the use of" a charity (typically in trust with a future interest passing to the charity) is limited to 30% of AGI regardless of donee type. Treas. Reg. §1.170A-8(a)(2) walks the line.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the OBBBA §70424 §170(p) 0.5%-of-AGI floor and when does it take effect?</h3>
+<p>OBBBA §70424 added new §170(p) imposing a 0.5%-of-AGI reduction to the individual charitable-contribution deduction, effective for tax years beginning after December 31, 2025 — the 2026 tax year is the first year the floor applies. The floor is subtracted from total §170(c) contributions before applying §170(b) ceilings.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can I direct a donor-advised fund to make a scholarship grant to my grandchild?</h3>
+<p>No. §4966 prohibits DAF grants to individuals; §4967 prohibits grants that provide more than an incidental benefit to a donor, donor-advisor, or related party. Grandchildren are related parties whose scholarship receipt would trigger both provisions. Use a §501(c)(3) scholarship organization with an independent selection committee open to a charitable class instead.</p>
+</div>
+
+<div class="faq-item">
+<h3>Does the §170(f)(8) contemporaneous-written-acknowledgment rule apply to all charitable contributions?</h3>
+<p>Only for single contributions of $250 or more. Under-$250 contributions require §170(f)(17) bank-record substantiation. The §170(f)(8) acknowledgment must be received by the earlier of the return-filing date or the return due date (with extensions); an after-the-fact acknowledgment does not cure the defect.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does §170(c) coordinate with the §2503(e) direct-pay gift-tax exclusion?</h3>
+<p>The two provisions serve different tax purposes and do not stack on the same dollar. §2503(e) provides an unlimited gift-tax exclusion for tuition or medical payments made directly to a school or provider on behalf of a specific individual; §170(c) provides an income-tax deduction for contributions to a §501(c)(3) charity. A single dollar reaches one or the other. They complement each other in a coordinated family plan.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can a §2513-elected married couple double the §170(c) charitable deduction?</h3>
+<p>No. §2513 is a gift-tax election with no application to the §170 income-tax deduction. A married couple filing jointly aggregates AGI and §170(c) contributions; the §170(b) ceilings apply to joint AGI. A §170(c) contribution is not a gift for gift-tax purposes under Reg. §25.2503-3(b) and does not appear on Form 709.</p>
+</div>
+
+<div class="faq-item">
+<h3>What documentation do I need for a §170(c) contribution of appreciated stock?</h3>
+<p>For publicly-traded securities valued $500-$5,000, Form 8283 Section A. For all other property over $5,000, §170(f)(11) requires a qualified appraisal by a qualified appraiser and Form 8283 Section B. Publicly-traded securities over $5,000 are exempt from the appraisal requirement under §170(f)(11)(A)(ii)(I). For property gifts over $500,000, attach the full appraisal.</p>
+</div>
+
+<div class="faq-item">
+<h3>Are contributions to foreign charities deductible under §170(c)?</h3>
+<p>Generally no. §170(c)(2)(A) requires U.S. organization. Narrow treaty exceptions exist for Canadian, Mexican, and Israeli charities. U.S. "friends of" §501(c)(3) organizations that regrant to foreign affiliates under the "discretion and control" doctrine of Rev. Rul. 66-79 remain deductible.</p>
+</div>
+
+<div class="faq-item">
+<h3>Do I need to itemize to claim a §170(c) deduction?</h3>
+<p>Traditionally yes — the §170 deduction is an itemized deduction on Schedule A. But new OBBBA §170(o) permits non-itemizers to deduct up to $1,000 (single) or $2,000 (MFJ) of cash contributions to public charities as an above-the-line adjustment under §62(a)(22) for 2026+. The above-the-line allowance is separate from the itemized deduction and not subject to the §170(p) floor.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>All statutory citations in this article are current as of August 2026. The IRC §170(c), §170(b), §170(d), §170(f), §170(o), §170(p), §501(c)(3), §4966, §4967, §4945, §2503(b), §2503(e), and §2513 analysis draws on the Internal Revenue Code as amended through the One Big Beautiful Bill Act (Pub. L. 119-21, signed July 4, 2025) and prior legislation, Treasury Regulations §1.170A-1 through §1.170A-17 as promulgated under T.D. 6825 (1965) and subsequent amendments including T.D. 9836 (2018) on §170(f)(11) qualified-appraisal regulations, the controlling Revenue Rulings on the "designated recipient" doctrine (Rev. Rul. 62-113 and Rev. Rul. 79-81), the "discretion and control" doctrine for U.S. friends-of organizations (Rev. Rul. 66-79), and the Tax Court's leading substantiation opinions in Durden v. Commissioner (T.C. Memo. 2012-140) and Mohamed v. Commissioner (T.C. Memo. 2012-152). The 2026 dollar figures ($16,500 / $33,000 / $24,750 standard deduction; $19,000 §2503(b) annual exclusion; $185,000 §2523(i) noncitizen-spouse marital-deduction annual exclusion; $15,000,000 §2010(c) OBBBA lifetime exemption; $1,000 / $2,000 §170(o) above-the-line allowance) are drawn from IRS Rev. Proc. 2025-32 and IRS Notice 2025-67. The IRS Statistics of Income aggregate charitable-contribution figures cite the SOI Tax Stats — Individual Income Tax Returns, Table 2.1, tax year 2023 (published April 2026). The DAF and private-foundation excise-tax analysis follows §4940 through §4967 as enacted by the 1969 Tax Reform Act and amended by the 2006 Pension Protection Act, with subsequent guidance in IRS Notice 2017-73 on DAF scholarship grants. The §170(f)(8) contemporaneous-written-acknowledgment analysis follows §170(f)(8)(A)-(F) as added by OBRA 1993 and subsequently interpreted by the Tax Court. This article is educational; taxpayers making §170(c) contributions with material amounts should engage a state-licensed tax advisor experienced in individual charitable-deduction planning, particularly for the §170(p) 0.5%-of-AGI floor computation, §170(f)(11) qualified-appraisal coordination for property gifts, and §4966/§4967 DAF or §4945(g) private-foundation scholarship-grant compliance.</p>
+<p>Sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">IRS Statistics of Income, Individual Income Tax Returns, Table 2.1 — Returns with Itemized Deductions, Tax Year 2023 (published April 2026) — reports $217 billion of §170 charitable-contribution deductions on returns with AGI $200,000+ and aggregate individual §170 giving across all AGI classes. <a href="https://www.irs.gov/statistics/soi-tax-stats-individual-income-tax-returns" rel="nofollow noopener">irs.gov/statistics/soi-tax-stats-individual-income-tax-returns</a></li>
+<li id="source-2">One Big Beautiful Bill Act, Public Law 119-21, §70423 (continuation of §170(b)(1)(G) 60% cash-to-public-charity ceiling), §70424 (new §170(p) 0.5%-of-AGI floor), §70425 (new §170(o) $1,000/$2,000 non-itemizer above-the-line allowance), signed July 4, 2025, effective for tax years beginning after December 31, 2025. <a href="https://www.congress.gov/bill/119th-congress/house-bill/1" rel="nofollow noopener">congress.gov/bill/119th-congress/house-bill/1</a></li>
+<li id="source-3">Internal Revenue Code §170(c) — Charitable contribution defined — enumerates five categories of qualifying donees: (1) governmental units for exclusively public purposes; (2) domestic §501(c)(3)-equivalent organizations; (3) war-veterans posts; (4) domestic fraternal societies for charitable, religious, or educational purposes; (5) cemetery companies for member benefit. <a href="https://www.law.cornell.edu/uscode/text/26/170#c" rel="nofollow noopener">law.cornell.edu/uscode/text/26/170#c</a></li>
+<li id="source-4">Internal Revenue Code §501(c)(3) — Tax-exempt organizations — defines the "organized and operated exclusively for religious, charitable, scientific, testing for public safety, literary, or educational purposes" test that parallels §170(c)(2)(B), the private-inurement bar that parallels §170(c)(2)(C), and the substantial-legislative-influence limit that parallels §170(c)(2)(D). Publication 78 / IRS Tax Exempt Organization Search at apps.irs.gov/app/eos maintains the searchable list of qualifying organizations. <a href="https://www.law.cornell.edu/uscode/text/26/501#c_3" rel="nofollow noopener">law.cornell.edu/uscode/text/26/501#c_3</a></li>
+<li id="source-5">Treasury Regulation §1.170A-1(g) — Individual as donee — explicitly states that "no deduction is allowable for a contribution to a specific individual"; Rev. Rul. 62-113 (contributions earmarked for specific missionaries not deductible); Rev. Rul. 79-81 (contributions to §501(c)(3) with instructions for use by specified individuals not deductible). <a href="https://www.law.cornell.edu/cfr/text/26/1.170A-1" rel="nofollow noopener">law.cornell.edu/cfr/text/26/1.170A-1</a></li>
+<li id="source-6">Treasury Regulation §1.170A-8(a)(2) — "To" vs. "for the use of" distinction — a gift "for the use of" a charity generally means a gift in trust with the charity as beneficiary or a gift subject to certain donor-imposed restrictions rendering the charity's enjoyment indirect; classified under §170(b)(1)(B) at 30% AGI ceiling regardless of donee type. Rockefeller v. Commissioner, 676 F.2d 35 (2d Cir. 1982) provides leading appellate analysis. <a href="https://www.law.cornell.edu/cfr/text/26/1.170A-8" rel="nofollow noopener">law.cornell.edu/cfr/text/26/1.170A-8</a></li>
+<li id="source-7">Tax Cuts and Jobs Act of 2017, Public Law 115-97, §11023, enacted the §170(b)(1)(G) 60% AGI ceiling for cash contributions to public charities effective 2018-2025; OBBBA §70423 continued the ceiling indefinitely for tax years beginning after December 31, 2025. CARES Act 2020 §2205 and Consolidated Appropriations Act 2021 §212 provided temporary 100% AGI ceilings for certain 2020 and 2021 cash contributions; these have expired. <a href="https://www.congress.gov/bill/115th-congress/house-bill/1" rel="nofollow noopener">congress.gov/bill/115th-congress/house-bill/1</a></li>
+<li id="source-8">Internal Revenue Code §170(b)(1)(A) — Public charities — enumerates the categories qualifying for the higher (60% cash, 50% mixed, 30% appreciated property) AGI ceilings: (i) churches; (ii) educational institutions; (iii) hospitals and medical-research organizations; (iv) state-college endowments; (v) governmental units; (vi) publicly-supported organizations; (ix) qualified agricultural research organizations. Same §170(b)(1)(A)(ii) educational-institution definition governs §2503(e)(2)(A) direct-pay tuition exclusion. <a href="https://www.law.cornell.edu/uscode/text/26/170#b_1_A" rel="nofollow noopener">law.cornell.edu/uscode/text/26/170#b_1_A</a></li>
+<li id="source-9">IRS Notice 2025-67 (October 2025) — 2026 annual inflation adjustments and OBBBA implementation guidance — confirms 2026 §63(c) standard deduction ($16,500 single / $33,000 MFJ / $24,750 HoH), 2026 §2503(b) $19,000 annual gift-tax exclusion, 2026 §2010(c) $15,000,000 lifetime unified exemption, and clarifies effective-date rules for OBBBA §70424 §170(p) floor and OBBBA §70425 §170(o) non-itemizer allowance. <a href="https://www.irs.gov/pub/irs-drop/n-25-67.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-25-67.pdf</a></li>
+<li id="source-10">Joint Committee on Taxation, JCX-32-25, "Description and Analysis of the One Big Beautiful Bill Act" (June 2025) — includes ten-year revenue score of $63.5 billion for the §170(p) 0.5%-of-AGI floor and $8.2 billion for the §170(o) non-itemizer above-the-line allowance. Details on floor-and-ceiling stacking mechanics and carryover coordination. <a href="https://www.jct.gov/publications/2025/jcx-32-25/" rel="nofollow noopener">jct.gov/publications/2025/jcx-32-25</a></li>
+<li id="source-11">Internal Revenue Code §170(o), as added by OBBBA §70425 — Non-itemizer above-the-line allowance — permits a deduction of up to $1,000 (single) / $2,000 (MFJ) of cash contributions to §170(b)(1)(A) public charities under new §62(a)(22) for taxpayers taking the standard deduction. Excludes contributions to private foundations, DAFs, and §509(a)(3) supporting organizations. Effective for tax years beginning after December 31, 2025. <a href="https://www.law.cornell.edu/uscode/text/26/170#o" rel="nofollow noopener">law.cornell.edu/uscode/text/26/170#o</a></li>
+<li id="source-12">Internal Revenue Code §170(f)(8) (contemporaneous written acknowledgment for $250+ contributions, added by OBRA 1993 §13172), §170(f)(11) (qualified-appraisal requirement for property gifts over $5,000, enacted by American Jobs Creation Act 2004), §170(f)(17) (bank-record or written-communication substantiation for cash contributions of any amount, added by Pension Protection Act 2006 §1217). <a href="https://www.law.cornell.edu/uscode/text/26/170#f" rel="nofollow noopener">law.cornell.edu/uscode/text/26/170#f</a></li>
+<li id="source-13">Durden v. Commissioner, T.C. Memo. 2012-140 — disallowed $22,517 of cash contributions to a church for failure of §170(f)(8) compliance where the church's initial acknowledgment did not state whether goods or services were provided; corrected acknowledgment obtained after return was filed held not contemporaneous. Leading modern authority on §170(f)(8) strictness. <a href="https://www.ustaxcourt.gov/UstcInOp/OpinionViewer.aspx?ID=8993" rel="nofollow noopener">ustaxcourt.gov Durden opinion</a></li>
+<li id="source-14">Mohamed v. Commissioner, T.C. Memo. 2012-152 — disallowed $18.5 million of real-estate contributions for failure of §170(f)(11) qualified-appraisal requirement where taxpayer self-prepared appraisals rather than obtaining independent qualified appraisals; substantial-compliance argument rejected. Leading authority on §170(f)(11) strictness. <a href="https://www.ustaxcourt.gov/UstcInOp/OpinionViewer.aspx?ID=9006" rel="nofollow noopener">ustaxcourt.gov Mohamed opinion</a></li>
+<li id="source-15">Internal Revenue Code §§4966 and 4967 (donor-advised-fund excise taxes, enacted by Pension Protection Act 2006 §1231) — §4966 imposes 20% excise tax on sponsoring organization for taxable distributions from a DAF (including distributions to individuals); §4967 imposes 125% excise tax on donor-advisor for distributions providing more than an incidental benefit to donor or related party. IRS Notice 2017-73 provides operative guidance on DAF scholarship grants. <a href="https://www.law.cornell.edu/uscode/text/26/4966" rel="nofollow noopener">law.cornell.edu/uscode/text/26/4966</a></li>
+<li id="source-16">Internal Revenue Code §4945(g) (private-foundation scholarship-grant advance-approval procedure) — permits foundations to make scholarship grants to individuals under an IRS-approved program covering §4945(g)(1) (§117 tuition scholarships), §4945(g)(2) (§74(b) prizes), or §4945(g)(3) (specific-purpose grants). Related §4940 net-investment-income excise tax of 1.39%; §4941 self-dealing excise taxes; §4942 minimum-distribution requirements. <a href="https://www.law.cornell.edu/uscode/text/26/4945#g" rel="nofollow noopener">law.cornell.edu/uscode/text/26/4945#g</a></li>
+<li id="source-17">Internal Revenue Code §170(b)(1)(A)(vi) — Publicly-supported organizations — includes most community foundations (§509(a)(1) public-charity status). Community foundation scholarship funds administered by independent committees satisfy §170(c) deductibility without the §4945(g) advance-approval process required for private-foundation scholarship grants. <a href="https://www.law.cornell.edu/uscode/text/26/170#b_1_A_vi" rel="nofollow noopener">law.cornell.edu/uscode/text/26/170#b_1_A_vi</a></li>
+<li id="source-18">Treasury Regulation §25.2503-3(b) — Present-interest requirement — clarifies that a contribution to a §170(c) qualifying organization is not a "gift" for gift-tax purposes and therefore is not reported on Form 709, does not consume the §2503(b) annual exclusion, and does not implicate §2513 gift-splitting or §2652(a)(2) GST coordination. The income-tax deduction under §170 and the gift-tax analysis under Chapter 12 operate on independent transfer categories. <a href="https://www.law.cornell.edu/cfr/text/26/25.2503-3" rel="nofollow noopener">law.cornell.edu/cfr/text/26/25.2503-3</a></li>
+<li id="source-19">Rev. Rul. 62-113, 1962-2 C.B. 91, and Rev. Rul. 79-81, 1979-1 C.B. 107 — "Designated recipient" doctrine — a contribution to a §501(c)(3) charity that designates a specific individual as beneficiary is treated as a gift to the individual, not to the charity, and is not §170(c) deductible. Charity must have full control and administrative discretion over disposition of funds; donor cannot direct which individuals benefit. <a href="https://www.irs.gov/pub/irs-drop/" rel="nofollow noopener">irs.gov revenue rulings archive</a></li>
+<li id="source-20">Internal Revenue Code §170(d)(1) — Carryover of excess contributions — permits five-year carryover of contributions exceeding the §170(b) percentage ceilings; the carryover retains the AGI-ceiling character of the original contribution (60% cash, 30% appreciated, etc.). OBBBA §70424 §170(p)(2) coordinates the floor with the carryover: the floor applies once in the current year, and excess amounts carry forward without re-application of the floor in subsequent years. <a href="https://www.law.cornell.edu/uscode/text/26/170#d_1" rel="nofollow noopener">law.cornell.edu/uscode/text/26/170#d_1</a></li>
+<li id="source-21">Internal Revenue Code §170(e)(1)(B) — Ordinary income and short-term capital gain property — reduces the §170 deduction for ordinary-income property (inventory, self-created intellectual property) and short-term-capital-gain property to the taxpayer's basis rather than FMV. Also reduces to basis for tangible personal property put to a use unrelated to the donee's exempt purpose. Long-term-capital-gain publicly-traded securities to a public charity are deductible at full FMV, avoiding the recognized capital gain that would otherwise attach on sale. <a href="https://www.law.cornell.edu/uscode/text/26/170#e_1_B" rel="nofollow noopener">law.cornell.edu/uscode/text/26/170#e_1_B</a></li>
+<li id="source-22">Rev. Rul. 66-79, 1966-1 C.B. 48 — "Discretion and control" doctrine — a U.S. §501(c)(3) organization that grants funds to a foreign affiliate remains a §170(c) qualifying donee if it retains full discretion and administrative control over the disposition of the funds (rather than serving as a mere conduit for the donor's designated foreign recipient). Basis for the "friends of" charity structure used to route U.S.-tax-deductible contributions to foreign-affiliate charitable programs. <a href="https://www.irs.gov/pub/irs-drop/" rel="nofollow noopener">irs.gov revenue rulings archive</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational. It is not personalized legal, tax, or financial advice. §170(c) charitable-contribution deductions require strict compliance with the qualifying-organization test (donee must be a §170(c)(1)-(5) qualifying organization; individuals never qualify), the §170(f)(8) contemporaneous-written-acknowledgment requirement for $250+ contributions, the §170(f)(11) qualified-appraisal requirement for property gifts over $5,000, the §170(b) AGI ceilings (60%/50%/30%/20% depending on donee type and property type), and — starting with the 2026 tax year — the new OBBBA §70424 §170(p) 0.5%-of-AGI floor. Interaction with §2503(e) direct-pay tuition and medical exclusion, §2513 spousal gift-splitting, §4966/§4967 donor-advised-fund excise taxes, and §4945(g) private-foundation scholarship-grant advance-approval procedures requires attention to Chapter 12 gift-tax coordination and Form 990/Form 5227/Form 8283 substantiation across the family's giving vehicles. Consult a state-licensed tax advisor or CPA experienced in individual charitable-deduction planning before executing any material §170(c) contribution, particularly for property gifts requiring §170(f)(11) qualified appraisals, community-foundation scholarship-fund establishment, and private-foundation §4945(g) scholarship-grant program approval. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> Calculations and rates shown are estimates for educational and informational purposes only. Results may not reflect your actual situation. State statutes, IRC provisions, Treasury Regulations, and revenue rulings change; always verify current law with primary sources and consult a qualified tax advisor before making decisions. CalcLeap is not a law firm and does not provide legal advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#statutory-framework">§170(c) statutory framework and §501(c)(3) qualifying-organization test</a></li>
+        <li><a href="#to-vs-for-use-of">"To" vs. "for the use of" and §170(b) AGI ceilings</a></li>
+        <li><a href="#obbba-floor">OBBBA §170(p) 0.5%-of-AGI floor and §170(o) non-itemizer allowance</a></li>
+        <li><a href="#substantiation">§170(f)(8) contemporaneous acknowledgment and §170(f)(11) appraisal</a></li>
+        <li><a href="#daf-and-foundations">DAFs, private foundations, and scholarship funds</a></li>
+        <li><a href="#coordination-2503e-2513">Coordination with §2503(e) direct-pay and §2513 split-gift</a></li>
+        <li><a href="#case-studies">Three worked case studies</a></li>
+        <li><a href="#six-mistakes">Six recurring §170(c) mistakes</a></li>
+        <li><a href="#checklist">Pre-donation checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/estate-tax-calculator.html">Estate Tax Calculator</a>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+      <a href="/calc/traditional-ira-calculator.html">Traditional IRA Calculator</a>
+      <a href="/roth-ira-conversion-calculator.html">Roth IRA Conversion Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/irc-2513-spousal-gift-splitting-election-2026.html">IRC §2513 Spousal Gift-Splitting Election</a>
+      <a href="/blog/irc-2503-e-direct-pay-tuition-medical-2026.html">IRC §2503(e) Direct-Pay Tuition and Medical</a>
+      <a href="/blog/irc-529-c-3-c-ii-beneficiary-change-2026.html">IRC §529(c)(3)(C)(ii) Beneficiary Change</a>
+      <a href="/blog/secure-2-0-126-irc-529-c-3-e-roth-rollover-2026.html">SECURE 2.0 §126 IRC §529(c)(3)(E) Roth Rollover</a>
+      <a href="/blog/irc-529-c-5-a-five-year-averaging-election-2026.html">IRC §529(c)(5)(A) Five-Year Averaging</a>
+      <a href="/blog/qualified-charitable-distributions-qcd-2026.html">Qualified Charitable Distributions (QCD)</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
