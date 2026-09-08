@@ -247,7 +247,34 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
+    
+<style>
+/* === Guide Content Section === */
+.guide{margin:2.5rem 0 1.5rem;padding:0}
+.guide h2{font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin:2rem 0 .75rem;color:var(--text,#1d1d1f);line-height:1.2}
+.guide h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--text,#1d1d1f)}
+.guide p{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem}
+.guide ul,.guide ol{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem;padding-left:1.5rem}
+.guide li{margin-bottom:.4rem}
+.guide strong{color:var(--text,#1d1d1f)}
+.guide .formula-box{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem;font-family:'SF Mono',Monaco,Consolas,monospace;font-size:.95rem;text-align:center;color:var(--text,#1d1d1f);letter-spacing:.01em}
+.guide .callout{border-radius:12px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;line-height:1.6}
+.guide .callout h4{font-size:.85rem;font-weight:700;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.03em}
+.guide .callout.tip{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+.guide .callout.warn{background:#fff8e1;border:1px solid #fde68a;color:#92400e}
+.guide .callout.key{background:var(--accent-bg,rgba(0,113,227,.06));border:1px solid rgba(0,113,227,.15);color:#1d4ed8}
+.guide .example{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem}
+.guide .example h4{font-size:.9rem;font-weight:700;margin-bottom:.5rem}
+.guide .faq{margin-top:2rem}
+.guide .faq details{border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+.guide .faq summary{padding:.85rem 1.1rem;font-weight:600;font-size:.95rem;cursor:pointer;background:var(--white,#fff);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.guide .faq summary::-webkit-details-marker{display:none}
+.guide .faq summary::after{content:'+';font-size:1.1rem;color:var(--text-3,#86868b);transition:transform .2s}
+.guide .faq details[open] summary::after{content:'−'}
+.guide .faq .faq-answer{padding:.75rem 1.1rem 1rem;font-size:.9rem;line-height:1.65;color:var(--text-2,#424245)}
+</style>
+
+</style>
 </head>
 <body>
     <div class="container">
@@ -507,5 +534,67 @@
             }
         }
     </script>
+
+<section class="guide">
+<h2>The real cost of credit card minimum payments</h2>
+
+<p>Credit card statements are required to show how long it takes to pay off your balance making only minimum payments. Most people glance at it and move on. They shouldn't. A $7,000 balance at 24.99% APR with a minimum payment of 2% of the balance (or $25, whichever is higher) takes over <strong>27 years</strong> to pay off. Total paid: $20,869 — nearly three times the original balance.</p>
+
+<p>This isn't an edge case. It's the math for an average American credit card balance at an average interest rate. The credit card business model depends on this exact pattern.</p>
+
+<h2>How credit card interest actually works</h2>
+
+<p>Credit cards compound interest daily, not monthly. Your APR is divided by 365 to get a daily periodic rate. On a 24.99% APR, that's 0.0685% per day. Every day, that rate is applied to your outstanding balance (including previously accumulated interest). Over a month, this daily compounding adds up to slightly more than a simple monthly interest calculation would suggest.</p>
+
+<div class="formula-box">Daily interest = Balance × (APR ÷ 365)</div>
+
+<div class="example">
+<h4>$7,000 balance at 24.99% APR, paying $300/month</h4>
+<p>Month 1 interest: ~$143. Principal paid: $157. Remaining balance: $6,843.<br>
+Month 2 interest: ~$140. Principal paid: $160. Remaining balance: $6,683.<br>
+At $300/month, payoff takes 30 months. Total interest paid: $1,935.<br>
+At minimum payments (~$140 initially, declining): payoff takes 27+ years. Total interest: $13,869.<br>
+<strong>The $160/month difference between $300 and the minimum saves you $11,934.</strong></p>
+</div>
+
+<h2>The grace period — and how you lose it</h2>
+
+<p>If you pay your full statement balance by the due date, you pay zero interest. This is the grace period, and it's the only way credit cards are truly "free." Once you carry a balance — even $1 past the due date — you lose the grace period on new purchases too. From that point, every purchase starts accruing interest from the transaction date, not the statement date. Getting the grace period back requires paying your full balance for one or two complete billing cycles.</p>
+
+<h2>Payoff strategies that actually work</h2>
+
+<h3>Fixed payment, not minimum</h3>
+<p>Pick a fixed amount you can afford — say $400/month — and pay that every month regardless of what the minimum says. As the balance drops, the minimum decreases, tempting you to pay less. Don't. The fixed payment accelerates your payoff because more of each payment goes to principal as interest charges decline.</p>
+
+<h3>Balance transfer</h3>
+<p>Transfer to a 0% APR card if you qualify. Most charge a 3–5% transfer fee. On $7,000, that's $210–$350. A typical 15-month 0% window lets you pay $467/month with zero interest. If you can't pay it off in the promo period, make sure you know what the regular APR will be — some cards jump to 29.99%.</p>
+
+<h3>Personal loan consolidation</h3>
+<p>A personal loan at 10–14% to pay off 24.99% credit card debt saves money if you commit to the payoff timeline. On $7,000, a 3-year personal loan at 12% costs $2,023 in total interest vs. $11,934 in minimum-payment credit card interest. That's not a close comparison.</p>
+
+<div class="callout tip">
+<h4>Call and ask for a lower rate</h4>
+<p>It works more often than you'd think. If you have a solid payment history, calling your credit card company and asking for a rate reduction has about a 65–75% success rate according to industry surveys. Even a drop from 24.99% to 19.99% saves meaningful money on a large balance. It takes five minutes.</p>
+</div>
+
+<div class="faq">
+<h2>Common questions</h2>
+
+<details>
+<summary>Does carrying a balance help my credit score?</summary>
+<div class="faq-answer">No. This is a persistent myth. Paying your balance in full every month is better for your score than carrying a balance. What matters is having activity on the card (using it and paying it off) and keeping utilization low. Paying interest does absolutely nothing positive for your credit.</div>
+</details>
+
+<details>
+<summary>Should I close a card after paying it off?</summary>
+<div class="faq-answer">Usually not. Closing a card reduces your total available credit, which increases your utilization ratio and can drop your score. It also shortens your average account age over time. Cut up the card if you're worried about temptation, but keep the account open — especially if it's one of your oldest cards.</div>
+</details>
+
+<details>
+<summary>What's the fastest way to pay off $10,000 in credit card debt?</summary>
+<div class="faq-answer">Mathematically: transfer to a 0% APR card and pay $667/month for 15 months. Total cost: ~$350 in transfer fees. If you don't qualify for a balance transfer, take a personal loan at the lowest rate you can find and pay aggressively. Either way, stop using the cards until the balance is gone.</div>
+</details>
+</div>
+</section>
 </body>
 </html>

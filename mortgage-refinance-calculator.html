@@ -283,6 +283,33 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .result-grid{grid-template-columns:1fr}
 }
 
+
+<style>
+/* === Guide Content Section === */
+.guide{margin:2.5rem 0 1.5rem;padding:0}
+.guide h2{font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin:2rem 0 .75rem;color:var(--text,#1d1d1f);line-height:1.2}
+.guide h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--text,#1d1d1f)}
+.guide p{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem}
+.guide ul,.guide ol{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem;padding-left:1.5rem}
+.guide li{margin-bottom:.4rem}
+.guide strong{color:var(--text,#1d1d1f)}
+.guide .formula-box{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem;font-family:'SF Mono',Monaco,Consolas,monospace;font-size:.95rem;text-align:center;color:var(--text,#1d1d1f);letter-spacing:.01em}
+.guide .callout{border-radius:12px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;line-height:1.6}
+.guide .callout h4{font-size:.85rem;font-weight:700;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.03em}
+.guide .callout.tip{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+.guide .callout.warn{background:#fff8e1;border:1px solid #fde68a;color:#92400e}
+.guide .callout.key{background:var(--accent-bg,rgba(0,113,227,.06));border:1px solid rgba(0,113,227,.15);color:#1d4ed8}
+.guide .example{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem}
+.guide .example h4{font-size:.9rem;font-weight:700;margin-bottom:.5rem}
+.guide .faq{margin-top:2rem}
+.guide .faq details{border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+.guide .faq summary{padding:.85rem 1.1rem;font-weight:600;font-size:.95rem;cursor:pointer;background:var(--white,#fff);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.guide .faq summary::-webkit-details-marker{display:none}
+.guide .faq summary::after{content:'+';font-size:1.1rem;color:var(--text-3,#86868b);transition:transform .2s}
+.guide .faq details[open] summary::after{content:'−'}
+.guide .faq .faq-answer{padding:.75rem 1.1rem 1rem;font-size:.9rem;line-height:1.65;color:var(--text-2,#424245)}
+</style>
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When does it make sense to refinance my mortgage?", "acceptedAnswer": {"@type": "Answer", "text": "Refinancing typically makes sense when you can lower your interest rate by at least 0.5–1%, plan to stay in the home long enough to recoup closing costs (past the break-even point), or need to switch from an adjustable-rate to a fixed-rate mortgage. Use the break-even month result above to see how long it will take to recover your closing costs."}}, {"@type": "Question", "name": "What are typical closing costs for a refinance?", "acceptedAnswer": {"@type": "Answer", "text": "Closing costs usually range from 2–5% of the loan amount and include appraisal fees, title insurance, origination fees, and recording fees. On a $250,000 loan, expect $5,000–$12,500. Some lenders offer \"no-closing-cost\" refinances, but they usually charge a higher interest rate to compensate."}}, {"@type": "Question", "name": "Should I refinance to a shorter or longer term?", "acceptedAnswer": {"@type": "Answer", "text": "A shorter term (e.g., 15 years) means higher monthly payments but significantly less total interest paid. A longer term (e.g., 30 years) lowers monthly payments but costs more over the life of the loan. Choose based on your monthly budget and financial goals."}}, {"@type": "Question", "name": "What credit score do I need to refinance?", "acceptedAnswer": {"@type": "Answer", "text": "Most conventional lenders require a minimum credit score of 620, though you'll get the best rates with a score of 740 or higher. FHA streamline refinances may accept scores as low as 580. Higher scores typically qualify for lower interest rates, which means more savings."}}, {"@type": "Question", "name": "How long does the refinancing process take?", "acceptedAnswer": {"@type": "Answer", "text": "The refinancing process typically takes 30–45 days from application to closing, though it can take longer during busy periods. Steps include application, appraisal, underwriting, and closing. Having your financial documents organized can speed up the process."}}]}</script>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
@@ -497,6 +524,70 @@ function calculate() {
 
 </div>
 
+
+<section class="guide">
+<h2>When refinancing actually saves you money</h2>
+
+<p>The old rule of thumb — "refinance if rates drop 1%" — was never great advice, and it's worse now. Whether refinancing makes sense depends on your loan balance, how long you'll stay in the house, and what closing costs look like. A rate drop from 7.2% to 6.5% on a $300,000 balance saves about $150/month. If closing costs run $4,500, you break even in 30 months. Stay in the house longer than that and you come out ahead. Move sooner and you've lost money.</p>
+
+<h2>The break-even calculation</h2>
+
+<div class="formula-box">Break-even months = Closing costs ÷ Monthly savings</div>
+
+<p>That's the simplified version. The more honest version accounts for the fact that refinancing restarts your amortization clock. If you're 7 years into a 30-year mortgage and refi into a new 30-year, you've just added 7 years of payments. The monthly payment drops, but total interest paid over the life of the loan may go up.</p>
+
+<div class="example">
+<h4>Scenario: 7 years in, $280,000 remaining, 7.1% → 6.3%</h4>
+<p>Current payment (P&amp;I): $1,896. New payment on fresh 30-year at 6.3%: $1,734.<br>
+Monthly savings: $162. Closing costs: $5,200.<br>
+Simple break-even: 32 months.<br>
+But: you'll pay $344,000 in total interest on the new loan vs. $216,000 remaining on the old one. Refinancing into a 23-year term instead (matching your remaining timeline) costs $1,979/month — only $83 more than your current payment — and saves $128,000 in total interest.</p>
+</div>
+
+<div class="callout warn">
+<h4>The reset trap</h4>
+<p>Refinancing from a 30-year into another 30-year when you're already a decade in is one of the most expensive "savings" in personal finance. Always compare against a shorter term that matches your remaining payoff timeline. The monthly payment will be higher, but the lifetime cost difference is enormous.</p>
+</div>
+
+<h2>Cash-out refi vs. HELOC</h2>
+
+<p>If you need to pull equity out, a cash-out refinance replaces your entire mortgage with a larger one and hands you the difference. A HELOC gives you a revolving credit line against your equity without touching the original mortgage. The cash-out refi makes sense when your current rate is already high and you'd benefit from refinancing anyway. If your existing rate is below 5% — a rate you'll probably never see again — a HELOC preserves that low rate on your primary balance.</p>
+
+<h3>When to refinance (the short version)</h3>
+<ul>
+<li>Your rate is at least 0.75% above current market rates AND you plan to stay 3+ more years</li>
+<li>You can refi into a shorter term without stretching your budget</li>
+<li>You're dropping PMI by crossing the 80% LTV threshold at the same time</li>
+<li>You're switching from an ARM that's about to adjust upward into a fixed rate</li>
+</ul>
+
+<h3>When it's not worth it</h3>
+<ul>
+<li>You're planning to sell within two years</li>
+<li>Your current rate is under 4% (you won't beat it in 2026)</li>
+<li>Closing costs eat more than two years of monthly savings</li>
+<li>You're adding years back onto your payoff timeline without a deliberate reason</li>
+</ul>
+
+<div class="faq">
+<h2>Common questions</h2>
+
+<details>
+<summary>Does refinancing hurt my credit score?</summary>
+<div class="faq-answer">Temporarily, yes. The hard inquiry drops your score 5–10 points, and closing the old mortgage while opening a new one can cause a brief dip. Most people recover within 3–6 months. If you're rate-shopping, multiple mortgage inquiries within a 14–45 day window (depending on the scoring model) count as a single inquiry.</div>
+</details>
+
+<details>
+<summary>Can I refinance with less than 20% equity?</summary>
+<div class="faq-answer">Yes, but you'll likely need to pay PMI on the new loan. Some lenders offer "lender-paid" PMI where it's baked into a slightly higher rate. FHA streamline refinances don't require an appraisal or equity check if you already have an FHA loan, which can be useful if your home's value has dropped.</div>
+</details>
+
+<details>
+<summary>How long does a refinance take?</summary>
+<div class="faq-answer">Typically 30–45 days from application to closing. Rate locks usually cover this window. If your situation is straightforward (W-2 income, clean title, standard property), some lenders can close in 21 days. Self-employed borrowers or unusual properties take longer because of additional documentation.</div>
+</details>
+</div>
+</section>
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, market conditions, and other factors. Always consult a qualified financial advisor, CPA, or licensed professional before making financial decisions. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">

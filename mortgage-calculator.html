@@ -289,6 +289,33 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .result-grid{grid-template-columns:1fr}
 }
 
+
+<style>
+/* === Guide Content Section === */
+.guide{margin:2.5rem 0 1.5rem;padding:0}
+.guide h2{font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin:2rem 0 .75rem;color:var(--text,#1d1d1f);line-height:1.2}
+.guide h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--text,#1d1d1f)}
+.guide p{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem}
+.guide ul,.guide ol{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem;padding-left:1.5rem}
+.guide li{margin-bottom:.4rem}
+.guide strong{color:var(--text,#1d1d1f)}
+.guide .formula-box{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem;font-family:'SF Mono',Monaco,Consolas,monospace;font-size:.95rem;text-align:center;color:var(--text,#1d1d1f);letter-spacing:.01em}
+.guide .callout{border-radius:12px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;line-height:1.6}
+.guide .callout h4{font-size:.85rem;font-weight:700;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.03em}
+.guide .callout.tip{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+.guide .callout.warn{background:#fff8e1;border:1px solid #fde68a;color:#92400e}
+.guide .callout.key{background:var(--accent-bg,rgba(0,113,227,.06));border:1px solid rgba(0,113,227,.15);color:#1d4ed8}
+.guide .example{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem}
+.guide .example h4{font-size:.9rem;font-weight:700;margin-bottom:.5rem}
+.guide .faq{margin-top:2rem}
+.guide .faq details{border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+.guide .faq summary{padding:.85rem 1.1rem;font-weight:600;font-size:.95rem;cursor:pointer;background:var(--white,#fff);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.guide .faq summary::-webkit-details-marker{display:none}
+.guide .faq summary::after{content:'+';font-size:1.1rem;color:var(--text-3,#86868b);transition:transform .2s}
+.guide .faq details[open] summary::after{content:'−'}
+.guide .faq .faq-answer{padding:.75rem 1.1rem 1rem;font-size:.9rem;line-height:1.65;color:var(--text-2,#424245)}
+</style>
+
 </style>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
@@ -426,6 +453,66 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 </div>
 
+
+<section class="guide">
+<h2>What your monthly mortgage payment actually includes</h2>
+
+<p>The number most real estate sites show you — "your estimated payment is $2,400/month" — is almost always wrong, because it only covers principal and interest. Your actual payment includes property taxes, homeowners insurance, and often mortgage insurance on top of that. Lenders call this PITI (principal, interest, taxes, insurance), and it's the number they use to decide whether you can afford the loan.</p>
+
+<p>On a $400,000 home with 20% down and a 6.5% rate, the principal-and-interest portion runs about $2,023. But after you add typical property taxes ($4,200/year) and insurance ($1,800/year), you're looking at closer to $2,523 per month. Put less than 20% down and private mortgage insurance adds another $100–250.</p>
+
+<h2>The formula behind the numbers</h2>
+
+<div class="formula-box">M = P × [ r(1 + r)<sup>n</sup> ] / [ (1 + r)<sup>n</sup> − 1 ]</div>
+
+<p>P is your loan amount (purchase price minus down payment). The rate r is your annual interest rate divided by 12. And n is your total number of payments — 360 for a 30-year mortgage, 180 for a 15-year.</p>
+
+<div class="example">
+<h4>Worked example: $320,000 loan at 6.5%, 30 years</h4>
+<p>Monthly rate: 0.065 ÷ 12 = 0.005417. Payments: 360.<br>
+(1.005417)<sup>360</sup> = 6.9913<br>
+Numerator: 0.005417 × 6.9913 = 0.03788<br>
+Denominator: 6.9913 − 1 = 5.9913<br>
+Monthly P&amp;I: $320,000 × (0.03788 ÷ 5.9913) = <strong>$2,023</strong></p>
+</div>
+
+<p>If you want to verify a lender's quote in a spreadsheet, <code>=PMT(0.065/12, 360, -320000)</code> in Excel or Google Sheets gives you the same answer. Do this before you sign anything — lenders occasionally quote rates that don't match the paperwork.</p>
+
+<h2>Three things most buyers get wrong</h2>
+
+<h3>Confusing pre-approval with affordability</h3>
+<p>A pre-approval letter tells you the maximum a lender is willing to lend. It does not tell you what you can comfortably afford. Most lenders approve loans where PITI eats up to 28% of your gross income, but that leaves you with zero margin for car payments, childcare, or the roof replacement that will eventually happen. A more realistic ceiling is 20–25% of gross.</p>
+
+<h3>Ignoring the amortization tilt</h3>
+<p>In the first year of a 30-year mortgage at 6.5%, roughly 72% of each payment goes to interest and only 28% pays down principal. By year 15 it's about 50/50. By year 25, most of the payment goes to principal. This matters if you're thinking about selling in five years — you'll have barely dented the balance.</p>
+
+<h3>Skipping the 15-year comparison</h3>
+<p>A 15-year mortgage at 5.9% on $320,000 costs about $2,757/month — $734 more than the 30-year. But you pay $176,000 less in total interest and own the house in half the time. If you can swing the higher payment, run both scenarios before defaulting to 30 years.</p>
+
+<div class="callout key">
+<h4>Rate lock timing</h4>
+<p>Mortgage rates move daily. Once you have a signed purchase agreement, lock your rate for 30–45 days. Rate locks are free from most lenders for the first 30 days. Extensions cost 0.125–0.25% of the loan amount and are worth it if rates are rising.</p>
+</div>
+
+<div class="faq">
+<h2>Common questions</h2>
+
+<details>
+<summary>How much house can I afford on a $100,000 salary?</summary>
+<div class="faq-answer">Using the 28% front-end rule, your maximum PITI is about $2,333/month. At current rates, that supports roughly a $350,000–$380,000 purchase price with 20% down. But your actual number depends on existing debts, property tax rates in your area, and whether you need PMI.</div>
+</details>
+
+<details>
+<summary>Should I make a bigger down payment or keep cash reserves?</summary>
+<div class="faq-answer">If putting 20% down means draining your savings to zero, put 10–15% down and pay PMI for a couple of years instead. PMI on a conventional loan costs $50–150/month and automatically drops off at 78% LTV. Having six months of expenses in the bank matters more than avoiding PMI.</div>
+</details>
+
+<details>
+<summary>Are points worth buying?</summary>
+<div class="faq-answer">One discount point costs 1% of the loan and typically lowers your rate by 0.25%. On a $320,000 loan, that's $3,200 upfront to save about $48/month. Break-even: 67 months, or roughly five and a half years. If you plan to stay in the house longer than that, points can make sense. If you might move sooner, skip them.</div>
+</details>
+</div>
+</section>
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, market conditions, and other factors. Always consult a qualified financial advisor, CPA, or licensed professional before making financial decisions. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">

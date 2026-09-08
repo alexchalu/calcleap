@@ -271,6 +271,33 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .result-grid{grid-template-columns:1fr}
 }
 
+
+<style>
+/* === Guide Content Section === */
+.guide{margin:2.5rem 0 1.5rem;padding:0}
+.guide h2{font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin:2rem 0 .75rem;color:var(--text,#1d1d1f);line-height:1.2}
+.guide h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--text,#1d1d1f)}
+.guide p{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem}
+.guide ul,.guide ol{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem;padding-left:1.5rem}
+.guide li{margin-bottom:.4rem}
+.guide strong{color:var(--text,#1d1d1f)}
+.guide .formula-box{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem;font-family:'SF Mono',Monaco,Consolas,monospace;font-size:.95rem;text-align:center;color:var(--text,#1d1d1f);letter-spacing:.01em}
+.guide .callout{border-radius:12px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;line-height:1.6}
+.guide .callout h4{font-size:.85rem;font-weight:700;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.03em}
+.guide .callout.tip{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+.guide .callout.warn{background:#fff8e1;border:1px solid #fde68a;color:#92400e}
+.guide .callout.key{background:var(--accent-bg,rgba(0,113,227,.06));border:1px solid rgba(0,113,227,.15);color:#1d4ed8}
+.guide .example{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem}
+.guide .example h4{font-size:.9rem;font-weight:700;margin-bottom:.5rem}
+.guide .faq{margin-top:2rem}
+.guide .faq details{border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+.guide .faq summary{padding:.85rem 1.1rem;font-weight:600;font-size:.95rem;cursor:pointer;background:var(--white,#fff);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.guide .faq summary::-webkit-details-marker{display:none}
+.guide .faq summary::after{content:'+';font-size:1.1rem;color:var(--text-3,#86868b);transition:transform .2s}
+.guide .faq details[open] summary::after{content:'−'}
+.guide .faq .faq-answer{padding:.75rem 1.1rem 1rem;font-size:.9rem;line-height:1.65;color:var(--text-2,#424245)}
+</style>
+
 </style>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
@@ -459,6 +486,64 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 </div>
 
+
+<section class="guide">
+<h2>The claiming age decision: 62 vs. 67 vs. 70</h2>
+
+<p>You can start Social Security as early as 62 or delay as late as 70. The difference is not small. For someone with a full retirement age (FRA) benefit of $2,500/month at 67, claiming at 62 pays $1,750 (30% less), while waiting until 70 pays $3,100 (24% more, thanks to delayed retirement credits of 8% per year past FRA).</p>
+
+<p>The break-even age — where total lifetime benefits from waiting surpass what you'd have collected starting early — is typically around 80–82. If you expect to live past 82, delaying pays more. If health issues make that unlikely, claiming early puts more money in your pocket over your lifetime.</p>
+
+<div class="example">
+<h4>Break-even comparison: FRA benefit of $2,500/month</h4>
+<p><strong>Claim at 62 ($1,750/mo):</strong> By age 80, total collected = $378,000<br>
+<strong>Claim at 67 ($2,500/mo):</strong> By age 80, total collected = $390,000<br>
+<strong>Claim at 70 ($3,100/mo):</strong> By age 80, total collected = $372,000<br>
+At 80, claiming at 67 narrowly wins. But by age 85, the age-70 claimer has collected $558,000 vs. $504,000 (at 67) vs. $483,000 (at 62). Every year past 82 widens the gap.</p>
+</div>
+
+<h2>How your benefit is calculated</h2>
+
+<p>Social Security uses your highest 35 years of earnings (adjusted for inflation) to compute your Average Indexed Monthly Earnings (AIME). Years with zero earnings count as zero, which drags down the average. If you worked 30 years and retired, 5 years of zeros are in that average.</p>
+
+<p>Your AIME runs through a formula with "bend points" that replaces a higher percentage of lower earnings — Social Security is designed to replace more income for lower earners. The resulting number is your Primary Insurance Amount (PIA), which is what you get at full retirement age.</p>
+
+<h2>Full retirement age is no longer 65</h2>
+
+<p>FRA depends on your birth year. If you were born in 1960 or later, your FRA is 67. For those born between 1943 and 1954, it's 66. Born 1955–1959, it's somewhere between 66 and 67 (66 and 2 months for 1955, adding 2 months per year). The old "Social Security at 65" rule hasn't applied to anyone born after 1937.</p>
+
+<h2>Spousal benefits: the overlooked strategy</h2>
+
+<p>A spouse can claim up to 50% of the higher earner's FRA benefit, even if the spouse never worked or earned very little. This benefit is based on the higher earner's PIA, not their actual claiming age. The lower-earning spouse must wait until their own FRA to get the full 50%, and the higher earner must have filed for benefits.</p>
+
+<div class="callout tip">
+<h4>Survivor benefits are different from spousal benefits</h4>
+<p>When one spouse dies, the survivor gets the higher of their own benefit or the deceased's benefit (including delayed credits). This is a strong argument for the higher earner to delay to 70 — it maximizes the survivor benefit for the remaining spouse, which could last 20+ years.</p>
+</div>
+
+<h2>Working while collecting: the earnings test</h2>
+
+<p>If you claim Social Security before FRA and continue working, benefits are reduced by $1 for every $2 earned above $22,320 (2026 limit). This isn't lost money — it's deferred. At FRA, your benefit is recalculated upward to account for the withheld months. But in the short term, it can feel like a penalty. After FRA, there's no earnings test — you can earn any amount without affecting benefits.</p>
+
+<div class="faq">
+<h2>Common questions</h2>
+
+<details>
+<summary>Are Social Security benefits taxable?</summary>
+<div class="faq-answer">Depending on your combined income (AGI + nontaxable interest + half of Social Security), up to 85% of your benefits can be taxable. For single filers, taxation kicks in above $25,000 combined income; for married filing jointly, above $32,000. About 40% of Social Security recipients pay some tax on their benefits.</div>
+</details>
+
+<details>
+<summary>What if I claimed early and regret it?</summary>
+<div class="faq-answer">Within 12 months of your first benefit, you can withdraw your application and repay everything you received. Your benefit resets as if you never claimed. After 12 months, this option disappears. You can voluntarily suspend benefits at FRA to earn delayed credits, but that only helps going forward — it doesn't undo the early-claiming reduction.</div>
+</details>
+
+<details>
+<summary>Will Social Security run out of money?</summary>
+<div class="faq-answer">The Social Security trust fund is projected to be depleted around 2033–2035. If nothing changes, benefits would be reduced to about 77–80% of scheduled amounts (funded by ongoing payroll taxes). Full elimination is extremely unlikely — it would require Congress to actively choose to end the program. Most analysts expect some combination of tax increases, benefit adjustments, and FRA changes.</div>
+</details>
+</div>
+</section>
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This tool provides estimates for informational and educational purposes only. Results may not reflect actual values and should be verified independently. CalcLeap makes no warranties regarding the accuracy or completeness of any calculations. Use at your own discretion.</div>
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">

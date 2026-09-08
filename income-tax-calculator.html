@@ -282,6 +282,33 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .result-grid{grid-template-columns:1fr}
 }
 
+
+<style>
+/* === Guide Content Section === */
+.guide{margin:2.5rem 0 1.5rem;padding:0}
+.guide h2{font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin:2rem 0 .75rem;color:var(--text,#1d1d1f);line-height:1.2}
+.guide h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--text,#1d1d1f)}
+.guide p{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem}
+.guide ul,.guide ol{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem;padding-left:1.5rem}
+.guide li{margin-bottom:.4rem}
+.guide strong{color:var(--text,#1d1d1f)}
+.guide .formula-box{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem;font-family:'SF Mono',Monaco,Consolas,monospace;font-size:.95rem;text-align:center;color:var(--text,#1d1d1f);letter-spacing:.01em}
+.guide .callout{border-radius:12px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;line-height:1.6}
+.guide .callout h4{font-size:.85rem;font-weight:700;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.03em}
+.guide .callout.tip{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+.guide .callout.warn{background:#fff8e1;border:1px solid #fde68a;color:#92400e}
+.guide .callout.key{background:var(--accent-bg,rgba(0,113,227,.06));border:1px solid rgba(0,113,227,.15);color:#1d4ed8}
+.guide .example{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem}
+.guide .example h4{font-size:.9rem;font-weight:700;margin-bottom:.5rem}
+.guide .faq{margin-top:2rem}
+.guide .faq details{border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+.guide .faq summary{padding:.85rem 1.1rem;font-weight:600;font-size:.95rem;cursor:pointer;background:var(--white,#fff);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.guide .faq summary::-webkit-details-marker{display:none}
+.guide .faq summary::after{content:'+';font-size:1.1rem;color:var(--text-3,#86868b);transition:transform .2s}
+.guide .faq details[open] summary::after{content:'−'}
+.guide .faq .faq-answer{padding:.75rem 1.1rem 1rem;font-size:.9rem;line-height:1.65;color:var(--text-2,#424245)}
+</style>
+
 </style>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 <!-- AUDIT 2026-06-14: BreadcrumbList + FAQPage schemas added by evening-routine; replaces a stale TY2024 FAQPage block referencing $11,600/$14,600/$168,600 -->
@@ -552,6 +579,80 @@ function calculateTax() {
 
 </div>
 
+
+<section class="guide">
+<h2>How federal income tax brackets actually work</h2>
+
+<p>The most persistent tax misconception in America: "If I earn more, I'll move into a higher bracket and take home less." That's not how it works. The U.S. uses marginal tax rates — only the income within each bracket gets taxed at that bracket's rate. Earning one more dollar never makes you poorer.</p>
+
+<p>For 2026, the federal brackets for a single filer are:</p>
+
+<ul>
+<li>10% on income up to $11,925</li>
+<li>12% on $11,926–$48,475</li>
+<li>22% on $48,476–$103,350</li>
+<li>24% on $103,351–$197,300</li>
+<li>32% on $197,301–$250,525</li>
+<li>35% on $250,526–$626,350</li>
+<li>37% on income over $626,350</li>
+</ul>
+
+<h2>Marginal rate vs. effective rate</h2>
+
+<div class="example">
+<h4>Single filer earning $85,000 gross, taking the standard deduction ($15,000)</h4>
+<p>Taxable income: $85,000 − $15,000 = $70,000.<br>
+Tax calculation:<br>
+$11,925 × 10% = $1,192.50<br>
+$36,550 × 12% = $4,386.00 (income from $11,926 to $48,475)<br>
+$21,525 × 22% = $4,735.50 (income from $48,476 to $70,000)<br>
+<strong>Total federal tax: $10,314</strong><br>
+Marginal rate: 22%. Effective rate: $10,314 ÷ $85,000 = <strong>12.1%</strong>.</p>
+</div>
+
+<p>That gap between your marginal rate (22%) and your effective rate (12.1%) is why understanding brackets matters for planning. Contributing $5,000 to a traditional 401(k) saves you $1,100 in federal tax (22% × $5,000), not 12.1%.</p>
+
+<h2>Deductions: standard vs. itemized</h2>
+
+<p>The standard deduction for 2026 is $15,000 for single filers and $30,000 for married filing jointly. You only benefit from itemizing if your deductions exceed these amounts. The big itemized deductions are:</p>
+
+<ul>
+<li><strong>State and local taxes (SALT):</strong> Capped at $10,000 since 2018. If you live in a high-tax state like California, New York, or New Jersey, you hit this cap easily.</li>
+<li><strong>Mortgage interest:</strong> On up to $750,000 of acquisition debt.</li>
+<li><strong>Charitable contributions:</strong> Up to 60% of AGI for cash donations.</li>
+<li><strong>Medical expenses:</strong> Only the amount exceeding 7.5% of your AGI.</li>
+</ul>
+
+<p>After the 2017 tax reform roughly doubled the standard deduction, about 90% of filers take the standard deduction. Unless you have a large mortgage in a high-tax state AND make significant charitable contributions, itemizing probably doesn't help you.</p>
+
+<h2>The deductions that come off the top</h2>
+
+<p>Some deductions reduce your gross income before you even choose standard vs. itemized. These "above-the-line" deductions include traditional IRA contributions (up to $7,000, or $8,000 if 50+), student loan interest (up to $2,500), HSA contributions, and half of self-employment tax. These are genuinely free money — they reduce your tax regardless of whether you itemize.</p>
+
+<div class="callout key">
+<h4>TCJA expiration watch</h4>
+<p>Most provisions of the 2017 Tax Cuts and Jobs Act are scheduled to expire after December 31, 2025. If Congress doesn't extend them, 2026 brackets will revert to higher pre-2018 rates, the standard deduction will drop roughly in half, and personal exemptions will return. Tax planning for 2026 depends heavily on what happens in Washington. Check IRS announcements for confirmed 2026 parameters.</p>
+</div>
+
+<div class="faq">
+<h2>Common questions</h2>
+
+<details>
+<summary>Do I need to file if I earned under the standard deduction?</summary>
+<div class="faq-answer">If your gross income is below $15,000 (single) or $30,000 (married filing jointly), you generally don't have a filing requirement. But you should file anyway if you had taxes withheld — filing is the only way to get that refund. You also need to file if you had self-employment income of $400 or more, regardless of total income.</div>
+</details>
+
+<details>
+<summary>What's the difference between a tax deduction and a tax credit?</summary>
+<div class="faq-answer">A deduction reduces your taxable income. A $1,000 deduction saves you $220 if you're in the 22% bracket. A credit reduces your actual tax bill dollar-for-dollar. A $1,000 credit saves you exactly $1,000. Credits are always more valuable. The Child Tax Credit ($2,000 per qualifying child) and education credits are the most common ones.</div>
+</details>
+
+<details>
+<summary>Should I adjust my W-4 withholding?</summary>
+<div class="faq-answer">If you consistently get a large refund (over $1,000), you're giving the government an interest-free loan. Adjust your W-4 to withhold less and keep that money in your paycheck. If you owed more than $1,000 at filing, increase withholding to avoid the underpayment penalty. The IRS Tax Withholding Estimator can help you dial it in.</div>
+</details>
+</div>
+</section>
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational purposes only and is not tax advice. Tax laws are complex and change frequently. Results may not reflect your actual tax liability. Always consult a qualified CPA, tax attorney, or enrolled agent for tax advice specific to your situation. CalcLeap is not a tax preparation service and does not file taxes.</div>
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">

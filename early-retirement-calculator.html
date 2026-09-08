@@ -271,6 +271,33 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .result-grid{grid-template-columns:1fr}
 }
 
+
+<style>
+/* === Guide Content Section === */
+.guide{margin:2.5rem 0 1.5rem;padding:0}
+.guide h2{font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin:2rem 0 .75rem;color:var(--text,#1d1d1f);line-height:1.2}
+.guide h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--text,#1d1d1f)}
+.guide p{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem}
+.guide ul,.guide ol{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem;padding-left:1.5rem}
+.guide li{margin-bottom:.4rem}
+.guide strong{color:var(--text,#1d1d1f)}
+.guide .formula-box{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem;font-family:'SF Mono',Monaco,Consolas,monospace;font-size:.95rem;text-align:center;color:var(--text,#1d1d1f);letter-spacing:.01em}
+.guide .callout{border-radius:12px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;line-height:1.6}
+.guide .callout h4{font-size:.85rem;font-weight:700;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.03em}
+.guide .callout.tip{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+.guide .callout.warn{background:#fff8e1;border:1px solid #fde68a;color:#92400e}
+.guide .callout.key{background:var(--accent-bg,rgba(0,113,227,.06));border:1px solid rgba(0,113,227,.15);color:#1d4ed8}
+.guide .example{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem}
+.guide .example h4{font-size:.9rem;font-weight:700;margin-bottom:.5rem}
+.guide .faq{margin-top:2rem}
+.guide .faq details{border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+.guide .faq summary{padding:.85rem 1.1rem;font-weight:600;font-size:.95rem;cursor:pointer;background:var(--white,#fff);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.guide .faq summary::-webkit-details-marker{display:none}
+.guide .faq summary::after{content:'+';font-size:1.1rem;color:var(--text-3,#86868b);transition:transform .2s}
+.guide .faq details[open] summary::after{content:'−'}
+.guide .faq .faq-answer{padding:.75rem 1.1rem 1rem;font-size:.9rem;line-height:1.65;color:var(--text-2,#424245)}
+</style>
+
 </style>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
@@ -469,6 +496,68 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 </div>
 
+
+<section class="guide">
+<h2>The math behind early retirement (it's simpler than the FIRE blogs suggest)</h2>
+
+<p>Early retirement comes down to one number: your savings rate. Not your income, not your investment returns — your savings rate. Someone earning $200,000 and spending $180,000 (10% savings rate) is further from early retirement than someone earning $70,000 and spending $35,000 (50% savings rate). The second person needs to accumulate roughly 25× their annual spending and can do it in about 17 years. The first person needs 25× their spending too — but that's $4.5 million vs. $875,000.</p>
+
+<h2>The Rule of 25 and the 4% rule</h2>
+
+<p>These are two sides of the same coin. The 4% rule says you can safely withdraw 4% of your portfolio per year. The Rule of 25 says you need 25 times your annual spending to retire. $40,000/year in expenses × 25 = $1,000,000 needed. $60,000/year × 25 = $1,500,000.</p>
+
+<p>For early retirees (those who need money to last 40–50 years instead of 30), many planners suggest using 3.25–3.5% instead of 4%, which means multiplying by 28–31 instead of 25. That $40,000 in spending becomes $1,120,000–$1,240,000. The extra cushion accounts for the longer time horizon and potential for extended market downturns.</p>
+
+<div class="example">
+<h4>How long until you can retire early?</h4>
+<p>Household income: $120,000. Annual spending: $55,000. Annual savings: $65,000.<br>
+Target (using 28× spending): $55,000 × 28 = $1,540,000.<br>
+Starting from $200,000, investing $65,000/year at 7% real returns: approximately <strong>14 years</strong>.<br>
+Starting from zero: approximately <strong>16 years</strong>.<br>
+That's a realistic early retirement at 45–50 for someone who starts serious saving at 30.</p>
+</div>
+
+<h2>The three flavors of FIRE</h2>
+
+<h3>Lean FIRE</h3>
+<p>Annual spending under $40,000 for a household. You've cut expenses aggressively — no car payment, low housing costs, minimal dining out. The target portfolio is small ($1M–$1.1M) but the lifestyle requires ongoing discipline. One unexpected $15,000 expense can strain a lean budget.</p>
+
+<h3>Regular FIRE</h3>
+<p>Annual spending of $40,000–$80,000. Comfortable middle-class lifestyle without luxury. Target portfolio: $1.1M–$2.2M. This is where most early retirees land.</p>
+
+<h3>Fat FIRE</h3>
+<p>Annual spending above $100,000. You want to retire early AND travel extensively, live in a nice area, eat well. Target portfolio: $2.8M+. Achievable mainly for high earners (tech, medicine, finance) who also maintain a high savings rate.</p>
+
+<h2>The gap between early retirement and Medicare</h2>
+
+<p>This is the part nobody talks about enough. If you retire at 50, you need to cover health insurance for 15 years until Medicare kicks in at 65. ACA marketplace plans are the standard solution. A household of two in their early 50s can expect to pay $800–$1,800/month before subsidies, depending on the state and plan level.</p>
+
+<p>The key: ACA subsidies are based on Modified AGI. Early retirees who live off Roth withdrawals and capital gains in the 0% bracket can keep their MAGI low enough to qualify for substantial premium tax credits. This is a genuine planning strategy — keeping taxable income below 400% of the Federal Poverty Level (~$73,000 for a household of two in 2026) can save $10,000–$15,000 per year in premiums.</p>
+
+<div class="callout key">
+<h4>The Roth conversion ladder</h4>
+<p>Convert traditional IRA money to Roth during low-income early retirement years, paying taxes at the 10–12% bracket. After a 5-year waiting period, withdraw those converted amounts tax- and penalty-free (even before 59½). This is the standard early retirement tax strategy. You need 5 years of living expenses in taxable accounts or existing Roth contributions to bridge the gap while the ladder seasons.</p>
+</div>
+
+<div class="faq">
+<h2>Common questions</h2>
+
+<details>
+<summary>Can I access retirement accounts before 59½?</summary>
+<div class="faq-answer">Yes, several ways. Roth contributions (not earnings) can be withdrawn anytime, tax- and penalty-free. The Rule of 55 lets you access your last employer's 401(k) if you separate from service at 55+. 72(t) SEPP allows penalty-free withdrawals at any age with a fixed payment schedule. And the Roth conversion ladder gives access to converted amounts after 5 years.</div>
+</details>
+
+<details>
+<summary>What's "Coast FIRE"?</summary>
+<div class="faq-answer">Coast FIRE means you've saved enough that, even without additional contributions, compound growth will bring you to a full retirement portfolio by traditional retirement age (60–65). You still work, but only enough to cover current expenses — no need to save. It's a pressure-release valve: you can take a lower-paying job you enjoy, go part-time, or freelance without worrying about retirement savings.</div>
+</details>
+
+<details>
+<summary>How do I handle a market crash right after retiring early?</summary>
+<div class="faq-answer">Flexibility is everything. Reduce spending by 10–20% in crash years. Take on part-time or freelance work to reduce portfolio withdrawals. Spend from cash and bond holdings rather than selling stocks. A 1–2 year cash buffer gives you time to ride out most downturns without forced selling. The worst thing you can do is sell stocks after a 30% drop to fund living expenses.</div>
+</details>
+</div>
+</section>
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, market conditions, and other factors. Always consult a qualified financial advisor, CPA, or licensed professional before making financial decisions. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">

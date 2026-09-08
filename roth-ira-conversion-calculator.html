@@ -271,6 +271,33 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
   .result-grid{grid-template-columns:1fr}
 }
 
+
+<style>
+/* === Guide Content Section === */
+.guide{margin:2.5rem 0 1.5rem;padding:0}
+.guide h2{font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin:2rem 0 .75rem;color:var(--text,#1d1d1f);line-height:1.2}
+.guide h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--text,#1d1d1f)}
+.guide p{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem}
+.guide ul,.guide ol{font-size:.95rem;line-height:1.7;color:var(--text-2,#424245);margin:0 0 1rem;padding-left:1.5rem}
+.guide li{margin-bottom:.4rem}
+.guide strong{color:var(--text,#1d1d1f)}
+.guide .formula-box{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem;font-family:'SF Mono',Monaco,Consolas,monospace;font-size:.95rem;text-align:center;color:var(--text,#1d1d1f);letter-spacing:.01em}
+.guide .callout{border-radius:12px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;line-height:1.6}
+.guide .callout h4{font-size:.85rem;font-weight:700;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.03em}
+.guide .callout.tip{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+.guide .callout.warn{background:#fff8e1;border:1px solid #fde68a;color:#92400e}
+.guide .callout.key{background:var(--accent-bg,rgba(0,113,227,.06));border:1px solid rgba(0,113,227,.15);color:#1d4ed8}
+.guide .example{background:var(--bg,#f5f5f7);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0 1.25rem}
+.guide .example h4{font-size:.9rem;font-weight:700;margin-bottom:.5rem}
+.guide .faq{margin-top:2rem}
+.guide .faq details{border:1px solid var(--border,rgba(0,0,0,.08));border-radius:10px;margin-bottom:.75rem;overflow:hidden}
+.guide .faq summary{padding:.85rem 1.1rem;font-weight:600;font-size:.95rem;cursor:pointer;background:var(--white,#fff);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.guide .faq summary::-webkit-details-marker{display:none}
+.guide .faq summary::after{content:'+';font-size:1.1rem;color:var(--text-3,#86868b);transition:transform .2s}
+.guide .faq details[open] summary::after{content:'−'}
+.guide .faq .faq-answer{padding:.75rem 1.1rem 1rem;font-size:.9rem;line-height:1.65;color:var(--text-2,#424245)}
+</style>
+
 </style>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
 </head>
@@ -490,6 +517,71 @@ td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--text-2
 
 </div>
 
+
+<section class="guide">
+<h2>Roth conversions: paying taxes now to avoid paying more later</h2>
+
+<p>A Roth conversion moves money from a traditional IRA or 401(k) into a Roth IRA. You pay income tax on the converted amount today, but the money grows tax-free and comes out tax-free in retirement. The bet you're making: your tax rate now is lower than what it will be when you withdraw.</p>
+
+<p>This bet pays off more often than people think, especially if you convert during years when your income is temporarily low — between jobs, early retirement before Social Security kicks in, or a year with large deductions.</p>
+
+<h2>The conversion math</h2>
+
+<div class="example">
+<h4>Converting $50,000 in the 22% bracket</h4>
+<p>Tax owed on conversion: $11,000.<br>
+If the $50,000 grows at 7% for 20 years: $193,484.<br>
+<strong>In a Roth:</strong> You withdraw $193,484 completely tax-free.<br>
+<strong>Left in traditional:</strong> You withdraw $193,484 and owe tax on every dollar — at 22%, that's $42,567. At 24%, it's $46,436.<br>
+Net advantage of converting: $31,567–$35,436 over 20 years.</p>
+</div>
+
+<div class="callout key">
+<h4>Pay the tax bill from outside the account</h4>
+<p>If you use the converted funds themselves to pay the tax, you're effectively reducing the amount that goes into the Roth. Convert $50,000 and pull $11,000 out for taxes, and only $39,000 compounds tax-free. The full benefit comes from paying the $11,000 tax bill with money from a taxable account or savings. If you can't do that, the conversion may still make sense — but it's less powerful.</p>
+</div>
+
+<h2>The pro-rata rule (this trips people up)</h2>
+
+<p>If you have both pre-tax and after-tax (nondeductible) money in traditional IRAs, you can't just convert the after-tax portion. The IRS treats all your traditional IRAs as one pool and applies the pro-rata rule. If you have $80,000 pre-tax and $20,000 after-tax across all traditional IRAs, 80% of any conversion is taxable.</p>
+
+<p>The workaround: roll the pre-tax portion into an employer 401(k) plan (if your plan accepts rollovers), leaving only the after-tax basis in the IRA. Then convert that — it's mostly tax-free. This is the "backdoor Roth" strategy.</p>
+
+<h2>When Roth conversions make the most sense</h2>
+
+<ul>
+<li><strong>Early retirement (before RMDs):</strong> You have a window between retirement and age 73 where your income may be very low. Filling up the 10% and 12% brackets with conversions can be incredibly efficient.</li>
+<li><strong>Down income years:</strong> Lost a job, took a sabbatical, had a bad business year — any year where your marginal rate drops below your expected future rate.</li>
+<li><strong>Young and in a low bracket:</strong> If you're in the 12% bracket now but expect to be in the 24%+ bracket later in your career, converting early gives decades of tax-free compounding.</li>
+<li><strong>Estate planning:</strong> Roth IRAs have no RMDs for the original owner (since 2024 this also applies to Roth 401(k)s). Your heirs inherit tax-free money, though they must withdraw within 10 years under the SECURE Act.</li>
+</ul>
+
+<h2>Watch out for bracket creep and IRMAA</h2>
+
+<p>Converting too much in a single year can push you into a higher bracket, erasing the advantage. More subtly, if you're 63 or older, the conversion income counts toward Medicare IRMAA thresholds two years later. Cross $103,000 (single) or $206,000 (married) in MAGI and your Medicare Part B/D premiums jump by $900–$5,000+ per year. Run the numbers on the two-year-ahead IRMAA impact before doing a large conversion near Medicare age.</p>
+
+<h3>The 5-year rule</h3>
+<p>Each Roth conversion has its own 5-year clock for penalty-free withdrawal of the converted amount (not earnings) before age 59½. The clock starts January 1 of the year you convert. After 59½, all the rules relax — you can withdraw anything from a Roth that's been open for 5+ years with no tax or penalty.</p>
+
+<div class="faq">
+<h2>Common questions</h2>
+
+<details>
+<summary>Can I undo a Roth conversion?</summary>
+<div class="faq-answer">No. Before 2018, you could "recharacterize" a conversion back to traditional if the account dropped in value. The Tax Cuts and Jobs Act eliminated that option. Once you convert, it's permanent. This makes timing and amount more important than it used to be.</div>
+</details>
+
+<details>
+<summary>Is there an income limit for Roth conversions?</summary>
+<div class="faq-answer">No. While direct Roth IRA contributions are blocked above $161,000 single / $240,000 married in 2026, there is no income limit on conversions. Even if you earn $1 million, you can convert any amount from a traditional IRA to a Roth. You just have to pay the tax.</div>
+</details>
+
+<details>
+<summary>Should I convert all at once or spread it over several years?</summary>
+<div class="faq-answer">Spreading over several years almost always wins. A $200,000 lump conversion could push you into the 32% or 35% bracket. Four conversions of $50,000 over four years might stay entirely in the 22% bracket, saving $10,000–$26,000 in total tax. Plan conversions to stay just below the next bracket boundary.</div>
+</details>
+</div>
+</section>
 <div class="calc-disclaimer" style="margin:1.5rem 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e"><strong>⚠️ Disclaimer:</strong> This calculator provides estimates for educational and informational purposes only. Results are not financial advice and should not be relied upon for making financial decisions. Actual results may vary based on individual circumstances, market conditions, and other factors. Always consult a qualified financial advisor, CPA, or licensed professional before making financial decisions. CalcLeap is not a financial institution and does not provide financial advisory services.</div>
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
