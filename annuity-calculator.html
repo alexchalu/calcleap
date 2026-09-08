@@ -6,6 +6,54 @@
 <title>Annuity Calculator - Free Annuity Tool | CalcLeap</title>
 <meta name="description" content="Calculate annuity payments and compare immediate vs deferred annuities.. Free annuity calculator with instant results.">
 <link rel="canonical" href="https://calcleap.com/annuity-calculator.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is the payment on a fixed immediate annuity mathematically computed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A fixed immediate annuity (also called a Single Premium Immediate Annuity or SPIA) converts a lump-sum premium P into a stream of level periodic payments PMT for a specified number of periods n at a periodic interest rate r. The core present-value equation is P = PMT × [(1 - (1 + r)^-n) / r], solved for PMT: PMT = P × r / (1 - (1 + r)^-n). For a life-contingent immediate annuity, the n in the equation is replaced by an expected-payment horizon derived from a mortality table — insurers typically use the Society of Actuaries' 2012 Individual Annuity Mortality (IAM) Basic Table with the projection scale G2 required under the NAIC Standard Valuation Law. Under IRC §7520, the IRS publishes a monthly Section 7520 rate that is the discount rate used for federal estate/gift/generation-skipping-transfer valuation of annuities under Treas. Reg. §20.7520-1 — this rate differs from the insurer's internal pricing rate but is the mandatory rate for §2031/§2512/§7520 valuation purposes on any annuity brought into an estate or gift-tax computation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the IRC §72 exclusion ratio and how does it apply to non-qualified annuity distributions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IRC §72(b) governs the taxation of amounts received as annuity payments and prescribes the exclusion-ratio mechanic that separates the return-of-basis portion of each payment (tax-free) from the earnings portion (ordinary income). The exclusion ratio is defined as: Investment in the Contract / Expected Return. 'Investment in the Contract' is the total after-tax premium the annuitant paid, minus any tax-free amounts previously received. 'Expected Return' is the total of all payments the annuitant is expected to receive over the annuity's term, computed under Treas. Reg. §1.72-5 using mortality tables in Treas. Reg. §1.72-9 for life-contingent contracts. Once the annuitant has recovered basis in full under §72(b)(2), all further payments are 100% taxable. For fixed-period (non-life-contingent) annuities, the Expected Return equals PMT × n. Under §72(b)(3), if an annuitant with life-contingent payments dies before recovering basis in full, the unrecovered basis is allowed as a miscellaneous itemized deduction (subject to §67 pre-TCJA rules) on the annuitant's final Form 1040."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does an IRC §1035 exchange preserve tax deferral when switching annuity contracts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IRC §1035(a)(3) permits a tax-free exchange of one annuity contract for another annuity contract, provided the obligee is the same under both contracts. This mirrors the §1031 like-kind treatment but is limited to specifically enumerated insurance-product categories: life insurance → life insurance or annuity; endowment → life insurance, annuity, or endowment; annuity → annuity or long-term-care contract (the last added by the Pension Protection Act of 2006). Basis carries over per §1035(d) — the annuitant does not step up basis on the new contract. Under Treas. Reg. §1.1035-1, the exchange must be a direct trustee-to-trustee transfer; an actual constructive receipt by the annuitant destroys §1035 treatment and triggers full taxation of the earnings portion under §72(a). The §72(q) 10% penalty for pre-59½ distributions is NOT triggered by a valid §1035 exchange. Rev. Rul. 2013-6 clarifies that partial §1035 exchanges are permitted, subject to §72(e) aggregation rules that treat the old and new contracts as a single contract for basis-recovery purposes for 180 days after the partial exchange (Rev. Proc. 2011-38 fully-tax-free framework)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When does the IRC §72(q) 10% early-distribution penalty apply, and what are the exceptions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IRC §72(q)(1) imposes an additional 10% federal tax on the income portion of any non-qualified annuity distribution made before the annuitant reaches age 59½. The penalty applies only to the taxable-earnings portion — the basis-recovery portion under the §72(b) exclusion ratio remains untaxed. IRC §72(q)(2) enumerates the exceptions, closely mirroring the §72(t) exceptions for qualified plans: (A) death, (B) disability under §72(m)(7), (C) part of a series of substantially equal periodic payments made for the life or life expectancy of the annuitant (the SoSEPP or 72(q) rule, using the amortization, annuitization, or required-minimum-distribution methods clarified in Rev. Rul. 2002-62 and modernized in Notice 2022-6), (D) allocable to investment in the contract before August 14, 1982, and (E) certain immediate annuity payments. Failure to complete a SoSEPP schedule triggers retroactive imposition of the 10% penalty on all prior payments plus §6621 interest. Qualified annuities inside a §401(a), §403(b), §408, or §457(b) plan are governed by §72(t), not §72(q), but the substantive rules are largely parallel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Qualified Longevity Annuity Contract (QLAC) mechanic under Treasury Regulation §1.401(a)(9)-6?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Qualified Longevity Annuity Contract is a deferred income annuity purchased inside an IRA or defined-contribution plan whose purchase premium is excluded from the account balance used to compute Required Minimum Distributions under IRC §401(a)(9). Treasury Regulation §1.401(a)(9)-6, Q&A 17 governs QLAC qualification. SECURE 2.0 Act §202, effective January 1, 2023, eliminated the prior 25%-of-account-balance limit and raised the dollar cap; Rev. Proc. 2025-32 sets the 2026 QLAC premium ceiling at $210,000 (indexed annually). The QLAC must begin distributions no later than the first day of the month following the annuitant's attainment of age 85 (§1.401(a)(9)-6, Q&A 17(a)(2)). The QLAC must be a fixed non-variable annuity that pays a level or graded periodic payment; return-of-premium death benefits are permitted under Q&A 17(c). Because the QLAC premium is excluded from the RMD-computation base, a $210,000 QLAC purchase at age 72 defers RMDs on that amount by up to 13 years — a substantial planning tool for retirees with sufficient non-qualified assets to fund early-retirement spending without RMD acceleration."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Retirement Calculators","item":"https://calcleap.com/index.html#finance"},{"@type":"ListItem","position":3,"name":"Annuity Calculator","item":"https://calcleap.com/annuity-calculator.html"}]}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 

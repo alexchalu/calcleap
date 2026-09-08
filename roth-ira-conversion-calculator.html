@@ -6,6 +6,54 @@
 <title>Roth IRA Conversion Calculator - Free IRA Conversion Tool | CalcLeap</title>
 <meta name="description" content="Calculate the tax impact of converting a traditional IRA to a Roth IRA.. Free ira conversion calculator with instant results.">
 <link rel="canonical" href="https://calcleap.com/roth-ira-conversion-calculator.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Roth conversion under IRC §408A(d)(3) and when is the taxable amount recognized?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Roth conversion is a distribution from a traditional IRA, SEP IRA, or SIMPLE IRA (after the two-year rule under §408(d)(3)(G)) followed by a rollover of that distribution to a Roth IRA within 60 days, treated for tax purposes as a taxable distribution under §408(d)(1). IRC §408A(d)(3)(A) provides that the converted amount is included in gross income in the year of conversion, less any nondeductible-basis portion recovered under the §72(e)(8) pro-rata rule (which aggregates ALL of the taxpayer's traditional IRAs under §408(d)(2) — the pro-rata rule is why the 'Backdoor Roth' technique is often blocked when the taxpayer has significant pre-tax IRA balances). The converted amount is NOT subject to the §72(t) 10% early-distribution penalty under §408A(d)(3)(A)(ii), but a subsequent distribution of the converted amount within 5 taxable years of the conversion year IS subject to §72(t) unless another exception applies (the '5-year rule for conversions,' distinct from the §408A(d)(2) 5-year rule for earnings). Since TCJA §13611, Roth conversions can no longer be recharacterized (undone) — the conversion is permanent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the §72(e)(8) pro-rata rule work when the taxpayer has both pre-tax and after-tax IRA balances?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IRC §72(e)(8) requires that ANY distribution from a traditional IRA — including a distribution used to fund a Roth conversion — be treated as consisting of a pro-rata share of pre-tax and after-tax (nondeductible-contribution basis) amounts across ALL of the taxpayer's traditional, SEP, and SIMPLE IRAs, aggregated under §408(d)(2). The nontaxable fraction of a distribution equals: aggregate after-tax basis / (aggregate account balance at December 31 of the conversion year + distribution during the year). Example: a taxpayer with $9,000 of nondeductible basis and $91,000 of pre-tax deferrals in a $100,000 aggregate IRA balance who converts $6,000 of a $6,000 backdoor-Roth contribution has a nontaxable fraction of $9,000 / $100,000 = 9%; the conversion is $6,000 × 91% = $5,460 taxable. The pro-rata rule cannot be defeated by segregating basis into a separate IRA — the aggregation is mandatory. The rule is DEFEATED only if the taxpayer moves all pre-tax IRA balances into an employer 401(k) plan (which is not subject to the §408(d)(2) aggregation), leaving only after-tax basis in the IRA — a technique commonly called an 'IRA cleanup' before backdoor Roth contributions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the SECURE Act 10-year distribution rule and how does it interact with Roth conversion planning at retirement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SECURE Act §401, effective January 1, 2020, replaced the pre-existing 'life expectancy stretch' for most non-spouse designated beneficiaries with a 10-year mandatory-distribution rule under IRC §401(a)(9)(H). Inherited traditional IRAs must be fully distributed by December 31 of the tenth calendar year following the year of the original owner's death. Under the IRS's July 2024 final regulations (T.D. 10001), if the original owner died on or after their Required Beginning Date, the beneficiary must also take annual RMDs in years 1-9 based on the beneficiary's own single-life expectancy, in addition to the year-10 emptying requirement. This dramatically compresses the tax hit on inherited traditional IRAs for high-earning heirs. Roth-converting traditional-IRA balances during a retiree's low-income years (post-retirement, pre-Social-Security, pre-RMD age) is a highly effective response: the conversion tax is paid at the retiree's likely-lower marginal rate, and the heirs inherit a Roth IRA that (i) is still subject to the 10-year rule under §401(a)(9)(H)(ii)(I) but (ii) generates NO taxable income on the distributions, since Roth distributions of principal and qualified earnings are tax-free under §408A(d)(1)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the IRC §408A(d)(2) 5-year rule for Roth earnings differ from the conversion 5-year rule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IRC §408A(d)(2)(A) defines a Roth IRA distribution as 'qualified' — meaning entirely tax-free including earnings — only if it occurs after a 5-year 'nonexclusion period' beginning January 1 of the first year for which the taxpayer made ANY Roth IRA contribution or conversion, AND the distribution meets one of four additional conditions: (i) the account owner has attained age 59½, (ii) the account owner has died, (iii) the account owner is disabled under §72(m)(7), or (iv) the distribution is used for a first-time home purchase up to a $10,000 lifetime cap under §408(d)(5). This is the 5-year rule FOR EARNINGS. Separately, the CONVERSION 5-year rule under §408A(d)(3)(F) tracks each Roth conversion's own 5-year clock (starting January 1 of the conversion year) and applies the §72(t) 10% penalty to distributions of the converted amount within that 5-year window — even if the taxpayer has already satisfied the earnings 5-year rule from an earlier conversion. Ordering rules under Treas. Reg. §1.408A-6, Q&A 8 provide that Roth distributions are treated first as return of contributions (always tax and penalty free), then as return of conversions in order of oldest first (potentially §72(t)), then as earnings (potentially both taxable and §72(t) if the 5-year rule is not met)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the IRMAA impact of a Roth conversion for a retiree already on Medicare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Income-Related Monthly Adjustment Amount (IRMAA) under 42 U.S.C. §1395r(i) and 42 CFR §408.20 imposes tiered surcharges on Medicare Part B and Part D premiums based on Modified Adjusted Gross Income two years prior. For 2026, the CMS-published Part B surcharge tiers begin at MAGI of $107,000 single / $214,000 married filing jointly and ramp through five tiers to a maximum surcharge of approximately $443/month on Part B and $85/month on Part D at MAGI above $500,000 single / $750,000 MFJ. A Roth conversion adds to MAGI dollar-for-dollar because §408A(d)(3)(A) makes the converted amount includible in gross income. A $100,000 Roth conversion for a retiree whose baseline MAGI is $95,000 pushes them from IRMAA tier 0 to tier 3, adding roughly $4,500 per person per year in Medicare surcharges for the two-year lookback period. Practitioner responses include: (i) spread conversions across multiple tax years to stay within one IRMAA tier, (ii) execute large conversions before the two-year IRMAA lookback window opens (typically pre-age-63 to avoid the age-65 Medicare start), and (iii) coordinate conversions with QCD under §408(d)(8) which do NOT add to MAGI, so a conversion combined with a QCD leaves net MAGI unchanged."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Retirement Calculators","item":"https://calcleap.com/index.html#finance"},{"@type":"ListItem","position":3,"name":"Roth IRA Conversion Calculator","item":"https://calcleap.com/roth-ira-conversion-calculator.html"}]}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
