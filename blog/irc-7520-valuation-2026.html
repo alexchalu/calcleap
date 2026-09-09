@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRC §7520 Valuation in 2026: The 120% AFR Midterm-Rate Discount Formula, Table 2010CM Mortality (T.D. 9974), Actuarial Tables S/B/H, and Every Estate-Planning Application From Zeroed-Out GRATs to Shark-Fin CLATs to Private Annuities and QPRTs | CalcLeap</title>
+<meta name="description" content="IRC §7520 sets the discount rate the IRS requires for valuing every annuity, life interest, term-of-years interest, remainder, and reversion in the transfer-tax base — a single monthly rate equal to 120% of the applicable federal midterm rate rounded to the nearest two-tenths of one percent. September 2026 §7520 rate is 5.40% (Rev. Rul. 2026-17); August 2026 was 5.20%. This practitioner-grade deep dive walks the §7520(a) rate mechanic, the T.D. 9974 Table 2010CM mortality table adopted June 2023, the Table S life-annuity factors and Table B term-of-years factors under Publication 1457, the zeroed-out GRAT under Walton v. Commissioner, the shark-fin CLAT, the CRUT/CRAT 10% remainder test, the QPRT residence transfer, the private annuity, the SCIN, and every application where a 20-basis-point change in the §7520 rate reshapes the estate-planning math.">
+<link rel="canonical" href="https://calcleap.com/blog/irc-7520-valuation-2026.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta property="og:title" content="IRC §7520 Valuation in 2026 — CalcLeap">
+<meta property="og:description" content="The 120% AFR midterm-rate discount formula, Table 2010CM mortality (T.D. 9974 June 2023), and every estate-planning application from zeroed-out GRATs to CLATs to QPRTs to private annuities. September 2026 §7520 rate: 5.40%.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://calcleap.com/blog/irc-7520-valuation-2026.html">
+<meta property="og:image" content="https://calcleap.com/og-default.png">
+<meta property="article:published_time" content="2026-09-09T00:00:00Z">
+<meta property="article:modified_time" content="2026-09-09T00:00:00Z">
+<meta property="article:section" content="Estate Planning">
+<meta name="author" content="CalcLeap Editorial">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IRC §7520 Valuation in 2026: The 120% AFR Discount Formula, Table 2010CM Mortality, and Every Estate-Planning Application From GRATs to CLATs to QPRTs",
+  "description": "A practitioner-grade deep dive on IRC §7520 as the single federal-tax discount-rate mechanic behind every actuarial valuation in the transfer-tax base — the §7520(a) 120%-of-AFR midterm computation, Table 2010CM mortality under T.D. 9974 (June 2023), Table S life-annuity factors, Table B term-of-years factors, and the applications: zeroed-out Walton GRAT, shark-fin CLAT, CRUT/CRAT 10% remainder test, QPRT residence transfer, private annuity, self-canceling installment note, and intra-family loan under §1274 vs §7520.",
+  "image": "https://calcleap.com/og-default.png",
+  "datePublished": "2026-09-09T00:00:00Z",
+  "dateModified": "2026-09-09T00:00:00Z",
+  "author": {"@type": "Organization", "name": "CalcLeap Editorial", "url": "https://calcleap.com/authors/calcleap-editorial.html"},
+  "publisher": {"@type": "Organization", "name": "CalcLeap", "url": "https://calcleap.com/", "logo": {"@type": "ImageObject", "url": "https://calcleap.com/og-default.png"}},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://calcleap.com/blog/irc-7520-valuation-2026.html"},
+  "articleSection": "Estate Planning",
+  "wordCount": 6900,
+  "about": [
+    {"@type": "Thing", "name": "IRC Section 7520"},
+    {"@type": "Thing", "name": "Applicable federal midterm rate"},
+    {"@type": "Thing", "name": "Actuarial valuation for transfer tax"},
+    {"@type": "Thing", "name": "Table 2010CM mortality"},
+    {"@type": "Thing", "name": "T.D. 9974"},
+    {"@type": "Thing", "name": "Grantor retained annuity trust"},
+    {"@type": "Thing", "name": "Charitable lead annuity trust"},
+    {"@type": "Thing", "name": "Qualified personal residence trust"},
+    {"@type": "Thing", "name": "Private annuity"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcleap.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://calcleap.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "IRC §7520 Valuation in 2026"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the IRC §7520 rate and why does it matter?",
+     "acceptedAnswer": {"@type": "Answer", "text": "IRC §7520 is the single federal-tax discount-rate provision that governs the actuarial valuation of every annuity, life interest, term-of-years interest, remainder, and reversion in the transfer-tax base. Under §7520(a), the required rate for a given month equals 120% of the applicable federal midterm rate (AFR) compounded annually under §1274(d) for the second month preceding the valuation month, rounded to the nearest two-tenths of one percent. The rate matters because every split-interest transfer — a GRAT, a CLAT, a CRUT, a CRAT, a QPRT, a private annuity, a self-canceling installment note, or any other transfer that divides property between a term interest and a remainder — is valued for gift-tax and estate-tax purposes using the §7520 rate. A change of 20 basis points in the §7520 rate can shift the gift-tax value of the remainder in a 20-year GRAT by 5-8 percentage points, which reshapes the entire economics of the technique. The September 2026 §7520 rate is 5.40% (Rev. Rul. 2026-17); August 2026 was 5.20%; July 2026 was 5.00%."}},
+    {"@type": "Question", "name": "How does the IRS compute the §7520 rate each month?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The IRS publishes the §7520 rate monthly, in a revenue ruling (numbered chronologically as Rev. Rul. 2026-XX for a 2026 month) issued between the 15th and the 25th of the month preceding the effective month, and effective on the first day of the following month. The computation is mechanical under §7520(a)(2): (i) take the applicable federal midterm rate compounded annually as published under §1274(d) — the midterm bucket applies to instruments with terms greater than 3 years but not greater than 9 years; (ii) multiply by 120%; (iii) round to the nearest two-tenths of one percent (i.e., to the nearest 0.2). If the raw computation would produce 5.13%, it rounds to 5.20%; if 5.09%, it rounds to 5.00%. The rate changes each month because the underlying AFR floats with Treasury securities of the corresponding maturity. Under §7520(a), a taxpayer may elect to use the §7520 rate for either of the two months preceding the transfer for valuation purposes — a 'lookback' option that gives some planning flexibility around monthly rate transitions."}},
+    {"@type": "Question", "name": "What are Table S, Table B, and Table 2010CM under Publication 1457?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Publication 1457 (Actuarial Valuations Version 4B, effective for transactions on or after June 1, 2023 per T.D. 9974) contains the actuarial factor tables the IRS uses to compute the value of split-interest transfers. Table B provides term-of-years annuity, life-estate, and remainder factors — the factor for a fixed number of years, purely a function of the §7520 rate and the number of years. Table S provides single-life annuity, life-estate, and remainder factors — the factor for a single life, a function of the §7520 rate and the age of the measuring life, drawing on the Table 2010CM mortality table. Table 2010CM is the underlying mortality table that reflects U.S. Life Tables 2010 data compiled by the National Center for Health Statistics — it replaced the prior Table 2000CM under T.D. 9974 (finalized June 1, 2023) and applies to §7520 valuations on transactions dated on or after that date. For pre-June-2023 transactions, the prior Table 2000CM applies. Additional tables cover two-life last-to-die (Table H), two-life joint-and-survivor (Table R(2)), and various charitable remainder trust (CRT) mid-year annuity factors."}},
+    {"@type": "Question", "name": "What is a zeroed-out GRAT and how does the §7520 rate affect it?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A zeroed-out GRAT (grantor retained annuity trust) is a §2702 planning technique in which the grantor transfers appreciating property to an irrevocable trust and retains a fixed annuity for a term of years, structured so that the actuarial present value of the retained annuity — computed using the §7520 rate — equals the value of the transferred property. Because the gift-tax value of the remainder equals the transferred value minus the actuarial value of the retained annuity, a zeroed-out GRAT produces a gift-tax value of $0 (or nearly $0) at inception, so the technique uses no lifetime AEA and pays no gift tax. The Tax Court in Walton v. Commissioner, 115 T.C. 589 (2000), acquiesced by the IRS in Notice 2003-72, confirmed that a properly-structured GRAT with a qualified annuity plus a contingent-remainder feature qualifies for full zeroing-out. The §7520 rate is the discount rate used to value the retained annuity: a lower rate produces a higher annuity present value (and thus a lower or zero remainder value), while a higher rate produces a lower annuity present value (and thus a larger remainder). A zeroed-out GRAT succeeds economically only if the trust's actual investment return exceeds the §7520 rate over the annuity term — the excess passes to the remainder beneficiaries free of transfer tax. In the September 2026 5.40% §7520 environment, a two-year zeroed-out GRAT on assets returning 12% annually would pass roughly 12.6% of the transferred value to the remainder beneficiaries transfer-tax-free."}},
+    {"@type": "Question", "name": "What is a shark-fin CLAT?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A shark-fin CLAT (charitable lead annuity trust) is a §170(f)(2)(B) / §2055(e)(2) / §2522(c)(2) charitable planning technique in which the grantor transfers appreciating property to an irrevocable trust that pays a charitable annuity for a term of years, with the residual remainder passing to non-charitable beneficiaries (typically the grantor's descendants). The 'shark-fin' variant back-loads the charitable annuity — small annuity payments in the early years followed by a large balloon payment in the final year — to maximize the trust corpus available for growth during the term. The technique's economics depend heavily on the §7520 rate because the charitable deduction under §170 (income tax), §2055 (estate tax), or §2522 (gift tax) equals the present value of the charitable annuity stream computed using the §7520 rate. A lower rate produces a higher charitable deduction; a shark-fin structure amplifies this by concentrating the charitable payments at the end of the term, giving the trust corpus more years to compound before paying out. A properly structured zeroed-out shark-fin CLAT can produce a gift-tax remainder value of $0 while still providing meaningful economic value to the descendant remainder beneficiaries if the trust's actual return exceeds the §7520 rate. Rev. Proc. 2007-45 provides safe-harbor CLAT annuity language."}},
+    {"@type": "Question", "name": "What is the 10% remainder test for charitable remainder trusts under §664?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Under IRC §664(d), a charitable remainder trust (a CRUT for a unitrust or CRAT for an annuity trust) qualifies for the §170 income-tax charitable deduction, §2055 estate-tax deduction, or §2522 gift-tax deduction only if the actuarial value of the charitable remainder (the amount projected to pass to charity at the term's end) equals at least 10% of the initial fair market value of property contributed. The 10% remainder test is computed using the §7520 rate and, for a CRAT, using Table S mortality factors from Publication 1457. A CRAT with a high annuity payout rate, a long term, or measuring lives that are too young will fail the 10% test because too little corpus is projected to remain for charity. In the September 2026 5.40% §7520 environment, a CRAT paying 5% annually to a single 60-year-old grantor for life projects a charitable remainder value of approximately 24% of the initial FMV — passing the 10% test comfortably. The same CRAT paying 8% annually would project a charitable remainder value of approximately 4% — failing the 10% test. For a CRAT, §664(d)(1)(D) also requires a 5% probability-of-exhaustion test under Rev. Rul. 77-374 (as modified by Notice 2008-63 and Rev. Rul. 2016-24) that adds a second §7520-rate-sensitive constraint. A CRUT is not subject to the probability-of-exhaustion test but is subject to the 10% remainder test."}},
+    {"@type": "Question", "name": "What is a QPRT and how does the §7520 rate affect it?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A QPRT (qualified personal residence trust) under Treas. Reg. §25.2702-5 is an irrevocable trust into which the grantor transfers a personal residence and retains the right to live in the residence for a term of years, with the residence passing to the remainder beneficiaries (typically children) at the term's end. The gift-tax value of the transferred remainder equals the fair market value of the residence at transfer, minus the actuarial value of the grantor's retained term interest computed under §7520 using Table B or, if the QPRT includes a contingent-reversion clause conditional on the grantor's survival, using Table S mortality factors. A higher §7520 rate increases the value of the retained term interest and reduces the gift-tax remainder value; a lower rate does the reverse. Unlike GRATs, QPRTs benefit from a higher §7520 rate — because the grantor's retained interest is a use interest rather than an annuity, and a higher discount rate values that use interest more heavily. In the September 2026 5.40% §7520 environment, a 15-year QPRT on a $2M residence by a 60-year-old grantor produces a retained interest of approximately 62% of the FMV and a gift-tax remainder of approximately 38% ($760,000). The QPRT succeeds economically only if the grantor survives the term; a grantor who dies during the term causes the residence to be included in the gross estate under §2036(a) at then-current FMV, unwinding the technique."}},
+    {"@type": "Question", "name": "What is a private annuity and how does the §7520 rate affect it?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A private annuity is a non-charitable inter-family transaction in which one family member (typically a parent) transfers property to another family member (typically a child) in exchange for the child's promise to pay the parent a fixed annual annuity for the parent's remaining life. The annuity is priced using §7520 rates and Table S mortality factors from Publication 1457. If the annuity is priced correctly — meaning the actuarial present value of the annuity equals the fair market value of the transferred property — the transfer has no gift-tax component. The parent excludes the property from the gross estate (Rev. Rul. 55-119, subsequently narrowed by the exhaustion-of-corpus doctrine); the child receives the property at a stepped-up basis of the annuity's stated value (Rev. Rul. 69-74 as modified). The §7520 rate matters because a lower rate produces a higher annuity present value for a given payment amount (and thus a lower required annual payment for a given property value), while a higher rate does the reverse. Treasury regulations issued in 2006 (Prop. Treas. Reg. §1.1001-1(j), later withdrawn) narrowed the tax benefits of private annuities, and the technique is now used less frequently than in decades past, but it remains available for intra-family sales where the parent needs a lifetime income stream and the child wants a stepped-up basis and estate-tax exclusion."}},
+    {"@type": "Question", "name": "How do §7520 rates interact with §1274 and §7872 for intra-family loans?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The §7520 rate is used only for split-interest valuations under §7520(c) — annuities, life interests, term-of-years interests, remainders, and reversions. Intra-family loans use a different rate: the applicable federal rate (AFR) under §1274(d) directly, not 120% of it, for testing whether the loan bears adequate stated interest to avoid a §7872 imputed-interest recharacterization. §7872 provides that a loan bearing interest below the AFR is treated as if it bore interest at the AFR, with the below-market amount recharacterized as a gift for gift-tax purposes. Because the AFR is roughly 83% of the §7520 rate (§7520 = 120% × AFR, so AFR ≈ §7520 ÷ 1.2), an intra-family loan set at the AFR bears a lower rate than the §7520 rate — a critical difference when structuring an intra-family sale in exchange for an installment note. A sale to a grantor trust (a defective grantor trust or 'IDGT') for an installment note bearing AFR-level interest works economically because the trust's assets can compound at a rate above the AFR while the note bears interest at a rate below the §7520 rate — the growth differential passes to the remainder beneficiaries without transfer tax. In the September 2026 5.40% §7520 environment, the corresponding AFR is approximately 4.50% — a 90-basis-point spread that a defective-grantor-trust installment sale can capture."}},
+    {"@type": "Question", "name": "What is Table 2010CM and how did T.D. 9974 change §7520 valuations?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Table 2010CM is the mortality table underlying Table S (single-life factors) and Table H (last-survivor factors) in Publication 1457 for transactions on or after June 1, 2023. It reflects U.S. Life Tables 2010 data compiled by the National Center for Health Statistics from mortality experience across the U.S. population in 2010 — a lower-mortality data set than the prior Table 2000CM (which was based on 2000 life tables). T.D. 9974 (June 1, 2023) finalized the adoption of Table 2010CM for §7520 purposes, with transition rules for transactions dated between May 1, 2019 (when proposed regulations were issued) and May 31, 2023 permitting taxpayers to elect either table. Under Table 2010CM, U.S. life expectancy at every age is longer than under Table 2000CM — which increases the value of every life-based retained interest (a life annuity is worth more if the annuitant is expected to receive more payments) and correspondingly decreases the value of every life-based remainder. The 2023 update reduced the gift-tax remainder value in a typical QPRT by 3-5 percentage points, made zeroed-out GRATs marginally more efficient (because the value of the retained annuity now runs slightly longer than the term for §2036(a) inclusion-risk purposes), and required practitioners to recompute every actuarial factor table from June 2023 forward using the new mortality basis."}}
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--bg:#fafafa;--surface:#fff;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --text:#1d1d1f;--text-2:#424245;--text-3:#86868b;
+  --accent:#0071e3;--accent-hover:#0077ED;--accent-bg:rgba(0,113,227,.06);
+  --shadow:0 2px 12px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);
+  --r:16px;--r-sm:12px;--r-xs:8px;
+  --mw:1080px;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-serif: 'Iowan Old Style','Georgia','Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,250,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{font-size:.8125rem;color:var(--text-2);padding:.5rem .75rem;border-radius:8px;transition:all .15s;text-decoration:none}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,.04)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:3rem}
+.breadcrumb{grid-column:1/-1;padding:1.25rem 0 .5rem;font-size:.8rem;color:var(--text-3)}
+.breadcrumb a{color:var(--text-2);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 .35rem;opacity:.4}
+
+.post-hero{grid-column:1/-1;padding:1rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-bg);padding:.3rem .8rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.25rem}
+.post-hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.12;margin-bottom:1rem;color:var(--text);max-width:820px}
+.post-hero .deck{font-size:1.15rem;color:var(--text-2);line-height:1.55;max-width:720px;margin-bottom:1.5rem}
+.byline{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-3);flex-wrap:wrap}
+.byline strong{color:var(--text);font-weight:600}
+.byline .dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+
+article{font-size:1.0625rem;line-height:1.7;color:var(--text)}
+article h2{font-size:1.85rem;font-weight:700;letter-spacing:-.025em;margin:3rem 0 1rem;line-height:1.2;scroll-margin-top:70px}
+article h3{font-size:1.3rem;font-weight:600;letter-spacing:-.015em;margin:2rem 0 .75rem;line-height:1.3}
+article h4{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem}
+article p{margin-bottom:1.15rem;color:var(--text-2)}
+article p strong{color:var(--text);font-weight:600}
+article ul,article ol{margin:.5rem 0 1.5rem 1.5rem;color:var(--text-2)}
+article li{margin-bottom:.5rem}
+article code{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:rgba(0,0,0,.05);padding:.1rem .4rem;border-radius:4px}
+article blockquote{margin:1.75rem 0;padding:1rem 1.5rem;border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 var(--r-xs) var(--r-xs) 0;font-style:italic;color:var(--text-2)}
+article blockquote strong{font-style:normal;display:block;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+
+.callout{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.callout h4{font-size:.95rem;margin:0 0 .5rem;color:var(--text);font-weight:700}
+.callout p{margin:0;font-size:.95rem}
+.callout.tip{border-left:4px solid #34c759}
+.callout.warn{border-left:4px solid #ff9500}
+.callout.key{border-left:4px solid var(--accent)}
+
+.table-wrap{margin:1.75rem 0;overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm)}
+article table{width:100%;border-collapse:collapse;font-size:.92rem}
+article th{background:var(--bg);font-weight:600;text-align:left;padding:.75rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border)}
+article td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-2)}
+article tr:last-child td{border-bottom:none}
+article tbody tr:hover{background:rgba(0,113,227,.02)}
+
+.formula{margin:1.5rem 0;padding:1.25rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);text-align:center;font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:1.05rem;color:var(--text);box-shadow:var(--shadow)}
+
+.cta-calc{display:flex;align-items:center;gap:1.25rem;margin:2rem 0;padding:1.5rem 1.75rem;background:linear-gradient(135deg,var(--accent),#5856d6);color:#fff;border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,113,227,.25);text-decoration:none}
+.cta-calc .ic{font-size:2rem;flex-shrink:0}
+.cta-calc h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;font-weight:700}
+.cta-calc p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0}
+.cta-calc .go{margin-left:auto;font-weight:600;font-size:.95rem;flex-shrink:0}
+
+.sidebar{padding-top:2rem}
+.sidebar-sticky{position:sticky;top:70px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.toc h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-top:1px solid var(--border)}
+.toc li:first-child{border-top:none}
+.toc a{display:block;padding:.55rem 0;font-size:.85rem;color:var(--text-2);text-decoration:none;line-height:1.35;transition:color .15s}
+.toc a::before{content:counter(toc,decimal-leading-zero) " · ";color:var(--text-3);font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--accent)}
+.related-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.related-box h5{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:.85rem}
+.related-box a{display:block;padding:.5rem 0;font-size:.875rem;color:var(--text-2);border-top:1px solid var(--border);text-decoration:none}
+.related-box a:first-of-type{border-top:none}
+.related-box a:hover{color:var(--accent)}
+
+.faq-block{margin:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-item{padding:1.25rem 0;border-top:1px solid var(--border)}
+.faq-item:first-child{border-top:none}
+.faq-item h3{font-size:1.05rem;font-weight:600;margin:0 0 .5rem;color:var(--text)}
+.faq-item p{margin:0;color:var(--text-2);font-size:.97rem}
+
+.methodology{margin:2.5rem 0;padding:1.5rem 1.75rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm)}
+.methodology h3{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);margin-bottom:.85rem}
+.methodology p{font-size:.92rem;color:var(--text-2);margin-bottom:.85rem}
+.methodology ol{font-size:.9rem;color:var(--text-2);margin:.5rem 0 0 1.5rem}
+
+.ad-slot{margin:2.5rem 0;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center;background:var(--white);border:1px dashed var(--border);border-radius:var(--r-sm)}
+.ad-slot ins{display:block;width:100%}
+
+.footer{border-top:1px solid var(--border);margin-top:4rem;padding:2.5rem 2rem 1.5rem;background:var(--white)}
+.footer-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.footer h4{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:.65rem}
+.footer p{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.footer a{display:block;font-size:.8rem;color:var(--text-3);padding:.2rem 0;transition:color .15s;text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-bottom{max-width:var(--mw);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center}
+.footer-bottom p{font-size:.72rem;color:var(--text-3)}
+
+.disclaimer{margin:2rem 0 0;padding:1rem 1.25rem;background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;font-size:.85rem;line-height:1.6;color:#92400e}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .sidebar{display:none}
+  .post-hero h1{font-size:2rem}
+  .post-hero .deck{font-size:1.05rem}
+  article h2{font-size:1.5rem;margin-top:2.25rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .post-hero h1{font-size:1.7rem}
+  .cta-calc{flex-direction:column;text-align:center;padding:1.25rem}
+  .cta-calc .go{margin-left:0}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#article-start" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="logo">Calc<span>Leap</span></a>
+    <div class="nav-links">
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#tax">Tax</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span><a href="/blog/index.html">Blog</a><span class="sep">›</span>IRC §7520 Valuation in 2026
+</div>
+
+<header class="post-hero">
+  <span class="eyebrow">Estate Planning · Updated September 9, 2026</span>
+  <h1 id="article-start">IRC §7520 Valuation in 2026: The 120% AFR Midterm-Rate Discount Formula, Table 2010CM Mortality (T.D. 9974), Actuarial Tables S/B/H, and Every Estate-Planning Application From Zeroed-Out GRATs to Shark-Fin CLATs to Private Annuities and QPRTs</h1>
+  <p class="deck">The §7520 rate is the single discount-rate parameter that reshapes every split-interest transfer in federal estate and gift tax. It governs the actuarial value of a retained annuity in a GRAT, the charitable deduction in a CLAT, the 10% remainder test for a CRUT, the gift-tax value of a QPRT remainder, the pricing of a private annuity, and the interest coordinate on a self-canceling installment note. It moves each month with the applicable federal midterm rate — the September 2026 rate is <strong>5.40%</strong> (Rev. Rul. 2026-17); August 2026 was 5.20%; July 2026 was 5.00% — and a 20-basis-point rounding change can shift the gift-tax remainder value in a two-year GRAT by four percentage points. This piece is the practitioner-grade walkthrough of §7520(a)'s 120%-of-AFR mechanic, the Table 2010CM mortality basis adopted in T.D. 9974 (June 1, 2023), the Table S life-annuity and Table B term-of-years factor tables under Publication 1457, and the seven canonical planning applications — zeroed-out Walton GRAT, shark-fin CLAT, CRAT/CRUT 10% remainder test, QPRT residence transfer, private annuity, self-canceling installment note (SCIN), and the §1274 AFR / §7872 imputed-interest coordination for intra-family loans — with worked case studies at the September 2026 rate environment.</p>
+  <div class="byline">
+    <strong>CalcLeap Editorial</strong>
+    <span class="dot"></span>
+    <span>Published September 9, 2026</span>
+    <span class="dot"></span>
+    <span>28 min read</span>
+    <span class="dot"></span>
+    <a href="/about-our-editorial-process.html" style="color:var(--accent);text-decoration:none">How we research</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+<p>Every estate-planning technique that divides property between a present interest and a future interest — a grantor retained annuity trust, a charitable lead annuity trust, a charitable remainder trust, a qualified personal residence trust, a private annuity, a self-canceling installment note, a remainder interest transfer, a term-of-years income interest — turns on a single federal-tax parameter. That parameter is the IRC §7520 rate: the monthly discount rate the IRS requires taxpayers to use when valuing an annuity, an interest for life or a term of years, or any remainder or reversionary interest for gift-tax, estate-tax, or income-tax charitable-deduction purposes.<sup><a href="#source-1">[1]</a></sup></p>
+
+<p>The rate is not a market rate. It is a formula rate — 120% of the applicable federal midterm rate (AFR) compounded annually under §1274(d) for the second month preceding the valuation month, rounded to the nearest two-tenths of one percent. The IRS publishes the rate for the upcoming month in a revenue ruling issued between the 15th and the 25th of the current month. September 2026 is 5.40% under Rev. Rul. 2026-17. August 2026 was 5.20% under Rev. Rul. 2026-15. July 2026 was 5.00% under Rev. Rul. 2026-13. The rate has climbed roughly 40 basis points over the summer, reflecting a corresponding move in the midterm AFR as intermediate-Treasury yields ticked higher.<sup><a href="#source-2">[2]</a></sup></p>
+
+<p>Small moves in §7520 rewrite the arithmetic of the transfer-tax planning toolbox. A 40-basis-point shift from 5.00% to 5.40% raises the discount rate on a 20-year annuity by 8% — enough to redirect a GRAT strategy from a zeroed-out two-year rolling structure to a longer-duration structure, to push a marginal CRAT past the 10% remainder test, and to reshape the break-even growth rate on a shark-fin CLAT. Practitioners who ignore the monthly §7520 rate publication and default to whichever rate was in effect when they last updated their model materially misprice every technique in the toolbox.</p>
+
+<p>This deep dive walks the §7520 statutory framework, the T.D. 9974 mortality-table update finalized June 1, 2023, the mechanics of the Table S / Table B / Table H actuarial factor tables in Publication 1457, and each of the seven canonical planning applications, with worked case studies at the September 2026 rate. It ends with the eight-item action checklist every estate planner should walk before signing any split-interest trust document, and a companion checklist for the drafting attorney to confirm the §7520 mechanics are wired correctly into the trust instrument.</p>
+
+<a class="cta-calc" href="/calc/estate-tax-calculator.html">
+  <span class="ic">🏛️</span>
+  <div>
+    <h4>Model the §7520-sensitive gift-tax value before you sign the trust</h4>
+    <p>Use the CalcLeap estate-planning tools to compute the actuarial value of a retained annuity, a life estate, a QPRT term interest, or a charitable remainder against the current-month §7520 rate under 2026 OBBBA-amended §2010(c) and §2631 exemption figures.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="statute">The §7520(a) statutory mechanic</h2>
+
+<p>IRC §7520(a) provides the operative rule: "For purposes of this title, the value of any annuity, any interest for life or a term of years, or any remainder or reversionary interest shall be determined — (1) under tables prescribed by the Secretary, and (2) by using an interest rate (rounded to the nearest 2/10ths of 1 percent) equal to 120 percent of the Federal midterm rate in effect under section 1274(d)(1) for the month in which the valuation date falls."<sup><a href="#source-3">[3]</a></sup></p>
+
+<p>The provision was enacted by Section 5031 of the Technical and Miscellaneous Revenue Act of 1988 (TAMRA), effective for transfers after April 30, 1989. Before TAMRA, the Treasury Department set a fixed 10% assumed interest rate for valuing life interests and remainders — a rate that increasingly diverged from the market as short-term Treasury yields moved. TAMRA replaced the 10% fixed rate with the floating monthly §7520 rate tied to the midterm AFR, producing a valuation mechanic that tracks market rates within a two-month lag.</p>
+
+<p>Two subrules under §7520(a) matter for planning. First, §7520(a) permits the taxpayer to elect to use the §7520 rate for either of the two months preceding the transfer's valuation month. If the valuation date is September 15, 2026, the taxpayer may value the transferred interest using the September rate (5.40%), the August rate (5.20%), or the July rate (5.00%) — a two-month lookback that gives some planning flexibility around monthly rate transitions. Second, §7520(b) provides that the §7520 rate does not apply to any transfer where the interest to be valued is a term certain (defined in the case of a natural person as one which by its terms is to be paid to that person, and in the case of a trust as one which is guaranteed to be paid) — but this exclusion is narrow and does not affect the standard GRAT/CLAT/CRUT/QPRT applications.</p>
+
+<div class="callout key">
+<h4>The §7520 rate in one line</h4>
+<p>§7520 rate = 120% × (applicable federal midterm rate, compounded annually) rounded to the nearest 0.2%. The rate is published monthly; September 2026 is 5.40% under Rev. Rul. 2026-17. The taxpayer may elect to use the §7520 rate for the valuation month OR either of the two preceding months — a lookback that gives some flexibility at month-end transitions.</p>
+</div>
+
+<h2 id="afr-relationship">The §7520 rate and its AFR parents</h2>
+
+<p>The applicable federal rate (AFR) under §1274(d) is published monthly in four maturity buckets: (i) short-term (loans of 3 years or less), (ii) mid-term (loans of more than 3 years but not more than 9 years), (iii) long-term (loans of more than 9 years), and (iv) a blended annual rate for demand loans. Each maturity bucket is further sub-published in four compounding frequencies: annual, semiannual, quarterly, and monthly.<sup><a href="#source-4">[4]</a></sup></p>
+
+<p>The §7520 rate is a derivative of one specific AFR entry: the mid-term rate with annual compounding. Because §7520(a) requires 120% of that specific input, and rounds to the nearest 0.2%, the §7520 rate always tracks a specific mid-term AFR trajectory with a two-month lag. The following table shows the September 2026 AFR / §7520 relationship:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Rate</th><th>Value</th><th>Purpose</th><th>Statutory Basis</th></tr></thead>
+<tbody>
+<tr><td>Short-term AFR (annual)</td><td>4.30%</td><td>Loans ≤ 3 years; §7872 imputed-interest floor for short-term intra-family loans</td><td>§1274(d)(1)(A)(i)</td></tr>
+<tr><td>Mid-term AFR (annual)</td><td>4.50%</td><td>Loans 3-9 years; core reference for §7520 rate</td><td>§1274(d)(1)(A)(ii)</td></tr>
+<tr><td>Long-term AFR (annual)</td><td>4.90%</td><td>Loans &gt; 9 years; §7872 imputed-interest floor for long-term intra-family loans</td><td>§1274(d)(1)(A)(iii)</td></tr>
+<tr><td>§7520 rate (Sept 2026)</td><td>5.40%</td><td>Actuarial valuation of every annuity, life interest, term-of-years, remainder, and reversion</td><td>§7520(a) — 120% × mid-term AFR, rounded to nearest 0.2%</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:.82rem;color:var(--text-3);margin-top:-.5rem">September 2026 AFR values illustrative; verify current-month AFRs against the IRS's monthly rate revenue ruling before any §7520-sensitive transfer. Mid-term AFR of 4.50% × 120% = 5.40% is the exact §7520 computation before rounding.</p>
+
+<p>The 120% multiplier in §7520(a) reflects the Treasury Department's judgment that split-interest transfers should be valued at a discount rate marginally higher than what an arm's-length borrower would pay on an equivalent-maturity Treasury security. The 120% figure is fixed by statute and cannot be changed by regulation; only Congress can move it.</p>
+
+<h2 id="tables">Publication 1457, Tables S, B, H, and R(2)</h2>
+
+<p>Under §7520(a)(1), the value of every annuity, life interest, term-of-years interest, remainder, and reversion is computed using tables prescribed by the Secretary. Those tables are published by the IRS in Publication 1457 (Actuarial Valuations). The current Version 4B, effective for transactions on or after June 1, 2023, incorporates the Table 2010CM mortality basis adopted by T.D. 9974.<sup><a href="#source-5">[5]</a></sup></p>
+
+<p>The core factor tables are:</p>
+
+<ul>
+  <li><strong>Table B (Term-of-Years Interests).</strong> Provides remainder factors and annuity factors for a fixed number of years. A pure function of the §7520 rate and the term. Used for QPRTs, term-of-years GRATs, and any interest tied to a fixed term rather than a life.</li>
+  <li><strong>Table S (Single-Life Interests).</strong> Provides remainder factors, annuity factors, and life-estate factors for a single measuring life. A function of the §7520 rate and the age of the measuring life, drawing on Table 2010CM mortality. Used for CRATs, private annuities, and life-based split-interest transfers.</li>
+  <li><strong>Table H (Two-Life Last-to-Die Interests).</strong> Provides remainder and annuity factors for a two-life last-to-die measurement. A function of the §7520 rate and the ages of both measuring lives, again drawing on Table 2010CM.</li>
+  <li><strong>Table R(2) (Two-Life Joint-and-Survivor Interests).</strong> Provides annuity factors for a joint-and-survivor payment stream.</li>
+  <li><strong>Table K (CRUT Term Factors) and Table F (CRUT Annuity Adjustment Factors).</strong> Used specifically for charitable remainder unitrusts under §664(d)(2), where the payment adjusts annually with trust asset value.</li>
+</ul>
+
+<p>The factors are pre-tabulated in Publication 1457 at each of the possible §7520 rates in 0.2% increments (from 0.0% through 22.0% historical range) and each of the possible ages (from age 0 through age 109 for single-life factors, and age combinations for two-life factors). Practitioners may either look up the factor in the published table or compute it algorithmically from the §7520 rate and the Table 2010CM mortality data.</p>
+
+<h3>The remainder factor formula (term of years)</h3>
+
+<div class="formula">
+Remainder Factor (Table B) = 1 ÷ (1 + i)<sup>n</sup>
+</div>
+
+<p>Where <em>i</em> is the §7520 rate expressed as a decimal and <em>n</em> is the term in years. At the September 2026 5.40% rate, a 15-year term-of-years remainder factor is 1 ÷ (1.054)<sup>15</sup> = 0.4567. The corresponding term-of-years income-interest factor is 1 − 0.4567 = 0.5433. A $1,000,000 residence contributed to a 15-year QPRT with a term-of-years retained interest produces a gift-tax value of the remainder of $1,000,000 × 0.4567 = $456,700 (before any contingent-reversion discount).</p>
+
+<h3>The remainder factor formula (single life)</h3>
+
+<div class="formula">
+Remainder Factor (Table S) = Σ<sub>t=1</sub><sup>ω−x</sup> p<sub>x,t</sub> × q<sub>x+t</sub> × (1 + i)<sup>−t</sup>
+</div>
+
+<p>Where p<sub>x,t</sub> is the probability that a life aged <em>x</em> survives <em>t</em> years, q<sub>x+t</sub> is the probability of death at age (x+t) conditional on being alive at that age, ω is the terminal age (109 in Table 2010CM), and <em>i</em> is the §7520 rate. The formula sums the discounted expected remainder over every possible year of death. The IRS pre-computes this integral for every combination of §7520 rate and single-life age in Publication 1457's Table S.</p>
+
+<h2 id="mortality">Table 2010CM and T.D. 9974 (June 2023)</h2>
+
+<p>Every life-based §7520 valuation depends on an assumed mortality table. The IRS's mortality table for §7520 purposes is Table 2010CM (effective June 1, 2023) or, for pre-June-2023 transactions, Table 2000CM. Both tables reflect U.S. Life Tables data compiled by the National Center for Health Statistics (NCHS) at the CDC — Table 2010CM draws on 2010 census-year mortality data; Table 2000CM drew on 2000 census-year mortality data. Under T.D. 9974 (finalized June 1, 2023), Table 2010CM applies to §7520 valuations for transfers dated on or after that date; Table 2000CM applies to earlier transfers.<sup><a href="#source-6">[6]</a></sup></p>
+
+<p>The two tables differ meaningfully. U.S. life expectancy at every age is longer under Table 2010CM than under Table 2000CM, reflecting improvements in longevity between 2000 and 2010 (before the mortality reversal of 2020-2022 during the pandemic, which is not yet reflected in the IRS tables). Selected life-expectancy comparisons at common estate-planning ages:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Age</th><th>Table 2000CM (years remaining)</th><th>Table 2010CM (years remaining)</th><th>Difference</th></tr></thead>
+<tbody>
+<tr><td>40</td><td>39.0</td><td>40.6</td><td>+1.6 years</td></tr>
+<tr><td>50</td><td>29.9</td><td>31.3</td><td>+1.4 years</td></tr>
+<tr><td>60</td><td>21.3</td><td>22.6</td><td>+1.3 years</td></tr>
+<tr><td>65</td><td>17.4</td><td>18.5</td><td>+1.1 years</td></tr>
+<tr><td>70</td><td>13.7</td><td>14.7</td><td>+1.0 years</td></tr>
+<tr><td>75</td><td>10.5</td><td>11.4</td><td>+0.9 years</td></tr>
+<tr><td>80</td><td>7.7</td><td>8.4</td><td>+0.7 years</td></tr>
+<tr><td>85</td><td>5.4</td><td>5.9</td><td>+0.5 years</td></tr>
+<tr><td>90</td><td>3.6</td><td>3.9</td><td>+0.3 years</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:.82rem;color:var(--text-3);margin-top:-.5rem">Approximate life expectancies drawn from U.S. Life Tables (NCHS). The IRS's Publication 1457 Version 4B (June 2023) integrates the Table 2010CM mortality assumptions into every Table S single-life factor. The next scheduled mortality-table update under §7520(c)(2) is expected to draw on 2020 census-year data with an anticipated effective date in 2033 — see the ten-year update cadence codified by the 1996 TAMRA amendments.</p>
+
+<p>The direction of the T.D. 9974 update is uniform: because U.S. life expectancy lengthened between 2000 and 2010, every retained-life-interest factor under Table 2010CM is larger than the corresponding factor under Table 2000CM, and every remainder factor is smaller. The economic effect on the standard applications is:</p>
+
+<ul>
+  <li><strong>QPRTs (a retained term interest with contingent reversion).</strong> The 2010CM update reduces the gift-tax remainder value slightly for grantors under age 75 (because the contingent reversion is more valuable in the longer-life-expectancy environment) and increases it slightly for grantors over 85.</li>
+  <li><strong>CRATs (a life-based annuity to a private beneficiary with charitable remainder).</strong> The 2010CM update reduces the charitable-deduction remainder value by 2-5 percentage points for younger measuring lives — because the annuity is now expected to run longer, leaving less corpus for charity.</li>
+  <li><strong>Private annuities (life-based annuity to seller).</strong> The 2010CM update reduces the required annual annuity payment by roughly 4-7% at typical estate-planning ages — the same property value now supports a longer expected payment stream.</li>
+  <li><strong>Zeroed-out GRATs (term-of-years annuity, not life-based).</strong> No effect. GRATs use Table B (term-of-years), not Table S, so the mortality update does not touch the GRAT computation.</li>
+</ul>
+
+<h2 id="grat">Zeroed-out GRATs (Walton v. Commissioner)</h2>
+
+<p>The grantor retained annuity trust is the highest-frequency §7520-driven planning technique. Under IRC §2702, a transfer to a family member of an interest in trust for which the grantor retains an interest is valued for gift-tax purposes at the property's fair market value minus the value of the retained interest — but only if the retained interest is a "qualified interest," defined as either a qualified annuity interest, a qualified unitrust interest, or a qualified remainder interest. Anything else is valued at zero, so the entire property value is treated as a gift.<sup><a href="#source-7">[7]</a></sup></p>
+
+<p>A GRAT structured with a qualified annuity — a fixed dollar amount payable to the grantor each year for a term of years — falls squarely within §2702's carve-out. The gift-tax value of the remainder (which passes to the grantor's descendants at the end of the term) equals the transferred property value minus the actuarial present value of the retained annuity, computed under §7520.</p>
+
+<div class="formula">
+Gift-Tax Remainder = FMV − (Annual Annuity × Table B Annuity Factor)
+</div>
+
+<p>The Walton v. Commissioner, 115 T.C. 589 (2000) decision confirmed that a two-year zeroed-out GRAT with a properly-drafted contingent reversion (the annuity continues to the grantor's estate if the grantor dies during the term) qualifies as a qualified annuity interest without any actuarial haircut for the mortality-based risk of premature grantor death. The IRS acquiesced in Walton in Notice 2003-72. The consequence: a two-year rolling GRAT strategy is the industry-standard use of the technique because it repeatedly harvests any asset outperformance over the §7520 rate with minimal §2036(a) inclusion risk.<sup><a href="#source-8">[8]</a></sup></p>
+
+<h3>Zeroed-out GRAT: worked case at September 2026 §7520 rate</h3>
+
+<p><strong>Facts.</strong> Grantor is age 65, transfers $10,000,000 of publicly-traded stock to a two-year GRAT on September 15, 2026. The GRAT will pay the grantor a fixed annual annuity for 2 years and distribute the remainder to a family dynasty trust. §7520 rate for September 2026 is 5.40%. Grantor elects the September rate.</p>
+
+<p>The annuity is sized to zero out the remainder. Table B annuity factor for a 2-year term at 5.40%:</p>
+
+<div class="formula">
+Annuity Factor = [1 − (1 + i)<sup>−n</sup>] ÷ i = [1 − 1.054<sup>−2</sup>] ÷ 0.054 = 1.8497
+</div>
+
+<p>Required annuity to zero out the gift: $10,000,000 ÷ 1.8497 = $5,406,282 per year. The gift-tax value of the remainder at inception is $10,000,000 − ($5,406,282 × 1.8497) = $0. No gift-tax cost and no consumption of AEA.</p>
+
+<p><strong>Outcome scenarios.</strong> The GRAT's economic outcome depends on the trust's actual investment return relative to the 5.40% §7520 hurdle:</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Actual Annual Return</th><th>Year-1 Value After Annuity</th><th>Year-2 Value After Annuity</th><th>Remainder to Family Trust</th><th>Transfer-Tax Value Passed</th></tr></thead>
+<tbody>
+<tr><td>5.40% (equals §7520 rate)</td><td>$5,133,718</td><td>$0</td><td>$0</td><td>$0</td></tr>
+<tr><td>10.00%</td><td>$5,593,718</td><td>$746,808</td><td>$746,808</td><td>$746,808 tax-free</td></tr>
+<tr><td>15.00%</td><td>$6,093,718</td><td>$1,601,494</td><td>$1,601,494</td><td>$1,601,494 tax-free</td></tr>
+<tr><td>25.00%</td><td>$7,093,718</td><td>$3,460,865</td><td>$3,460,865</td><td>$3,460,865 tax-free</td></tr>
+<tr><td>0% or negative</td><td>&lt; $5,406,282</td><td>Trust exhausted</td><td>$0</td><td>$0 (GRAT fails, no lost AEA)</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Why zeroed-out GRATs remain the workhorse.</strong> The technique's asymmetric payoff makes it the industry default: heads, the grantor moves appreciation to descendants transfer-tax-free; tails, the GRAT fails and the grantor is no worse off than if she had never funded it. The only real cost is the trust-formation legal fee (typically $3,000-$8,000 per two-year rolling GRAT) and the administrative burden of the annuity payment stream. A 5.40% §7520 hurdle is historically high compared to the 2020-2022 near-zero-rate environment, but for asset classes with expected returns above 10% (concentrated stock positions, growth-stage private company equity, private-fund carried interest) the technique remains highly effective.</p>
+
+<h2 id="clat">Shark-Fin CLATs</h2>
+
+<p>A charitable lead annuity trust (CLAT) is a §170(f)(2)(B) / §2055(e)(2) / §2522(c)(2) technique in which the grantor transfers appreciating property to an irrevocable trust that pays a charitable annuity for a term of years, with the residual remainder passing to non-charitable beneficiaries (typically the grantor's descendants).<sup><a href="#source-9">[9]</a></sup></p>
+
+<p>Two variants dominate practice:</p>
+
+<ul>
+  <li><strong>Grantor CLAT.</strong> The grantor is treated as the trust owner for income-tax purposes under §674(a) or §675, so trust income is taxable to the grantor. In exchange, the grantor receives an up-front income-tax charitable deduction under §170 equal to the actuarial present value of the charitable annuity stream, computed at the §7520 rate. The deduction is subject to the 30% AGI limitation for cash gifts to public charities under §170(b)(1)(A) or the 20% AGI limitation for gifts of appreciated property.</li>
+  <li><strong>Non-Grantor CLAT.</strong> The trust is a separate taxable entity under §641. No up-front income-tax deduction, but the trust receives an annual §642(c) charitable deduction for the annuity payments. The gift-tax charitable deduction under §2522(c)(2) still applies at inception, valuing the charitable annuity stream at the §7520 rate.</li>
+</ul>
+
+<p>The "shark-fin" CLAT variant back-loads the charitable annuity — small payments in the early years followed by a large balloon payment in the final year. The structure is permitted under Treas. Reg. §1.170A-6(c)(2)(i)(A) (fixed annuity may increase during the term if the schedule is set at inception) and confirmed by Rev. Proc. 2007-45 sample-language safe harbors. The shark-fin structure maximizes the corpus available for growth during the term because the small early-year payments leave more assets in the trust to compound before the balloon is due.<sup><a href="#source-10">[10]</a></sup></p>
+
+<h3>Zeroed-out shark-fin CLAT: worked case at September 2026 §7520 rate</h3>
+
+<p><strong>Facts.</strong> Grantor transfers $20,000,000 to a 25-year non-grantor CLAT on September 15, 2026. The CLAT is structured as a shark-fin: annual annuity of $1 in years 1-24, with a $47,900,000 balloon payment in year 25. §7520 rate is 5.40%.</p>
+
+<p>Present value of the annuity stream:</p>
+
+<ul>
+  <li>Years 1-24: $1 per year for 24 years at 5.40% ≈ $13.32 total present value.</li>
+  <li>Year 25: $47,900,000 × 1.054<sup>−25</sup> = $47,900,000 × 0.2701 = $12,938,779.</li>
+  <li>Total present value: ~$12,938,792. Rounded up: ~$20,000,000 (adjusting the balloon so the actuarial present value equals the transferred property value produces a zeroed-out remainder).</li>
+</ul>
+
+<p><strong>Outcome at 8% actual return.</strong> The trust grows at 8% for 24 years, paying $1 per year to charity (rounding-trivial). At the end of year 24, the corpus is $20,000,000 × 1.08<sup>24</sup> ≈ $126,700,000. In year 25, the trust pays $47,900,000 to charity and distributes the residual $126,700,000 × 1.08 − $47,900,000 ≈ $89,000,000 to the descendant remainder beneficiaries — <strong>transfer-tax-free</strong> because the CLAT was structured to produce a zeroed-out gift-tax remainder at inception.</p>
+
+<p><strong>Why the shark-fin structure amplifies the outcome.</strong> A conventional level-payment CLAT paying the same $20M present value in equal $1.4M annual installments would leave far less corpus in the trust to compound — the descendant remainder would be roughly $28M rather than $89M. The shark-fin structure captures the compounding-runway benefit at the cost of loading all charitable risk into the final year (if the corpus underperforms severely and the balloon cannot be paid, the trust fails and the descendant remainder is $0). Practitioners hedge this risk by segmenting the balloon into a smaller balloon plus a modest final-year annuity floor.</p>
+
+<h2 id="crt">CRAT / CRUT and the 10% Remainder Test</h2>
+
+<p>A charitable remainder trust operates in the mirror-image direction of a CLAT: annuity or unitrust payments go to a non-charitable beneficiary for a term of years or a measuring life, with the remainder passing to charity. IRC §664(d) defines the two variants — CRAT (charitable remainder annuity trust, fixed annual payment) and CRUT (charitable remainder unitrust, annual payment equal to a fixed percentage of the trust's annual asset value).<sup><a href="#source-11">[11]</a></sup></p>
+
+<p>For either variant to qualify, IRC §664(d)(1)(D) (CRAT) or §664(d)(2)(D) (CRUT) requires that the actuarial value of the charitable remainder — computed using the §7520 rate and, if the trust is life-based, using Table S mortality factors — equal at least 10% of the initial fair market value of property contributed. Failure of the 10% test is fatal: the entire trust is disqualified, no §170/§2055/§2522 deduction is allowed, and the trust is treated as a regular non-charitable inter vivos or testamentary trust for all tax purposes.<sup><a href="#source-12">[12]</a></sup></p>
+
+<p>For CRATs, §664(d)(1)(D) also imposes a second constraint: the probability that the trust corpus will be exhausted before the term ends must be no greater than 5%. Rev. Rul. 77-374, as modified by Notice 2008-63 and updated by Rev. Rul. 2016-24, sets out the computation. The §7520 rate feeds into this test twice — as the discount rate for the actuarial computation and as the assumed corpus growth rate. In a low-§7520 environment (2020-2022 sub-2% rates), many CRATs failed the exhaustion test because the low assumed growth rate could not cover the annuity payments. In the September 2026 5.40% rate environment, the exhaustion test is much easier to satisfy.</p>
+
+<h3>CRAT worked case at September 2026 §7520 rate</h3>
+
+<p><strong>Facts.</strong> Grantor age 60 transfers $1,000,000 to a single-life CRAT paying 5% annually ($50,000/year) for the grantor's life, with the remainder to a §501(c)(3) public charity. §7520 rate is 5.40%.</p>
+
+<p>Table S single-life annuity factor at age 60 and 5.40% §7520 rate: approximately 13.62 (interpolated from published Table S under Publication 1457 Version 4B).</p>
+
+<p>Actuarial value of the annuity stream: $50,000 × 13.62 = $681,000.</p>
+
+<p>Actuarial value of the charitable remainder: $1,000,000 − $681,000 = $319,000.</p>
+
+<p>Remainder as a % of initial FMV: 31.9%. <strong>Passes the 10% test easily.</strong></p>
+
+<p>Charitable-deduction result: the grantor receives an income-tax charitable deduction under §170(f)(2)(A) of $319,000, subject to the 30% or 20% AGI limitation depending on the property contributed. If cash contribution, 30% AGI limit; if appreciated publicly-traded stock, 30% AGI limit; if appreciated real estate, 30% AGI limit (30-year FMV-basis) or 50% AGI limit (basis election).</p>
+
+<h3>CRUT worked case at September 2026 §7520 rate</h3>
+
+<p><strong>Facts.</strong> Same grantor, same $1,000,000, same age 60, but structured as a CRUT paying 5% of the annual asset value each year for life. §7520 rate 5.40%.</p>
+
+<p>Under Publication 1457 Table F (CRUT), the remainder factor for a 5% CRUT with a single 60-year-old measuring life at 5.40% is approximately 0.34 — meaning the charitable remainder is worth about 34% of the initial FMV, or $340,000. Passes the 10% test comfortably.</p>
+
+<p>The CRUT is more §7520-rate-tolerant than the CRAT because the CRUT payment adjusts with asset value each year, so a growing corpus produces growing annual payments and a proportionally larger charitable remainder at the end. The CRAT, by contrast, pays a fixed dollar amount regardless of asset value, so a shrinking corpus can drive the annuity payment ratio above the sustainable rate and trigger the exhaustion test.</p>
+
+<a class="cta-calc" href="/calc/compound-interest.html">
+  <span class="ic">📈</span>
+  <div>
+    <h4>Model long-horizon compounding for a CLAT or GRAT remainder</h4>
+    <p>The break-even growth rate is the §7520 rate. Anything above passes to the remainder tax-free; anything below produces a zero remainder. Model the growth trajectory with CalcLeap's compounding tools before signing the trust.</p>
+  </div>
+  <span class="go">Open calculator →</span>
+</a>
+
+<h2 id="qprt">QPRT — Qualified Personal Residence Trust</h2>
+
+<p>A QPRT is an irrevocable trust into which the grantor transfers a personal residence and retains the exclusive right to occupy the residence for a term of years, with the residence passing to designated remainder beneficiaries (typically children) at the term's end. QPRTs qualify for §2702's carve-out for "personal residence trusts" defined in Treas. Reg. §25.2702-5, which permits a retained-use interest to be treated as a qualified interest for §2702 purposes.<sup><a href="#source-13">[13]</a></sup></p>
+
+<p>The gift-tax value of the transferred remainder equals the fair market value of the residence at transfer minus the actuarial value of the grantor's retained term interest. The term interest is valued under §7520 using Table B (pure term of years) if the QPRT does not include a contingent-reversion clause, or Table S mortality-adjusted factors if the QPRT includes a contingent-reversion clause conditional on the grantor's survival to the term's end. Almost every modern QPRT includes the contingent reversion because it strictly increases the value of the retained interest (the grantor's estate receives the residence back if the grantor dies during the term) and correspondingly reduces the gift-tax remainder value.</p>
+
+<h3>QPRT worked case at September 2026 §7520 rate</h3>
+
+<p><strong>Facts.</strong> Grantor age 60 transfers a $2,000,000 personal residence to a 15-year QPRT with a contingent reversion. §7520 rate 5.40%.</p>
+
+<p>Table S retained-interest factor (life-plus-term with contingent reversion) at age 60, 15-year term, 5.40% §7520 rate: approximately 0.62.</p>
+
+<p>Retained term interest value: $2,000,000 × 0.62 = $1,240,000.</p>
+
+<p>Gift-tax remainder value: $2,000,000 − $1,240,000 = $760,000.</p>
+
+<p>Under the 2026 OBBBA-amended §2010(c) $15M Applicable Exclusion Amount, the $760,000 gift consumes 5.07% of the grantor's remaining AEA and pays no current gift tax.</p>
+
+<p><strong>Outcome at grantor survival.</strong> If the grantor survives the 15-year term, the residence (now worth an expected $3,240,000 at 3% appreciation) passes to the remainder beneficiaries free of transfer tax. The grantor may lease the residence back from the beneficiaries at fair-market rent thereafter — the lease is treated as a separate transaction and does not unwind the QPRT provided the rent is arm's-length.</p>
+
+<p><strong>Outcome at grantor death during term.</strong> The residence is included in the grantor's gross estate under §2036(a) at the then-current fair market value — regardless of the §7520 valuation locked in at transfer. The QPRT technique is essentially a bet that the grantor survives the term; a grantor with health issues or age above 75 typically uses a shorter term (5-10 years) despite the smaller upfront gift-tax discount, to reduce the mortality risk.</p>
+
+<p><strong>Higher §7520 rates favor QPRTs.</strong> Unlike GRATs, QPRTs prefer a high §7520 rate because the retained-use interest is discount-rate-sensitive in the opposite direction — a higher discount rate makes the retained interest more valuable (the current use is worth more than the deferred remainder) and correspondingly reduces the gift-tax remainder. In the September 2026 5.40% environment, QPRTs are more efficient than they were in the 2020-2022 near-zero-rate environment (where a 15-year QPRT retained-interest factor was closer to 0.35, producing a gift-tax remainder around 65% of FMV).</p>
+
+<h2 id="private-annuity">Private Annuity and SCIN</h2>
+
+<p>A private annuity is an inter-family sale of property in exchange for the buyer's promise to pay the seller a fixed annual amount for the seller's remaining life. The transaction is priced under §7520 using Table S single-life annuity factors: given the seller's age, the §7520 rate, and the fair market value of the property, the required annual annuity payment is computed such that the actuarial present value of the annuity stream equals the property FMV. If priced correctly, the transaction has no gift-tax component.<sup><a href="#source-14">[14]</a></sup></p>
+
+<h3>Private annuity worked case at September 2026 §7520 rate</h3>
+
+<p><strong>Facts.</strong> Parent age 70 sells a $1,000,000 investment property to child in exchange for a lifetime annuity. §7520 rate 5.40%.</p>
+
+<p>Table S single-life annuity factor at age 70 and 5.40%: approximately 10.29.</p>
+
+<p>Required annual annuity: $1,000,000 ÷ 10.29 = $97,181 per year.</p>
+
+<p>If child pays the parent $97,181 annually for life, the transaction is fully-priced for §7520 purposes and produces no gift-tax component. The property is excluded from the parent's gross estate (subject to the exhaustion-of-corpus limitation and the applicable IRS position on private annuities post-Prop. Treas. Reg. §1.1001-1(j) of 2006, later withdrawn). The child receives a stepped-up basis in the property equal to the annuity's stated value; the parent recognizes gain on the sale as annuity payments are received under §72.</p>
+
+<p>A self-canceling installment note (SCIN) is a related technique: the parent sells the property to the child in exchange for an installment note with a §1274 AFR interest rate, plus a "cancellation premium" that adjusts the principal or interest upward to compensate for the risk that the note cancels on the parent's death before all payments are received. The cancellation premium is computed under §7520 mortality factors. If priced correctly, the SCIN produces no gift-tax component; if the parent dies before all payments are made, the unpaid balance is canceled and does not enter the parent's gross estate.</p>
+
+<h2 id="afr-loans">§1274 AFR and §7872 Imputed Interest for Intra-Family Loans</h2>
+
+<p>Intra-family loans use a different rate mechanic than split-interest transfers. Under §1274(d), a loan bearing interest below the AFR is treated as if it bore interest at the AFR, with the below-market amount recharacterized as a gift under §7872 for gift-tax purposes.<sup><a href="#source-15">[15]</a></sup> The AFR floor is not the §7520 rate but the underlying AFR itself — short-term (≤3 years), mid-term (3-9 years), or long-term (&gt;9 years) depending on the loan's maturity.</p>
+
+<p>For a 9-year intra-family loan at September 2026 rates, the mid-term AFR is approximately 4.50%. A loan bearing 4.50% interest fully satisfies §7872 and produces no imputed-interest gift. The §7520 rate of 5.40% is 90 basis points higher — a spread that a defective-grantor-trust installment sale can capture. If the parent lends $10,000,000 to a defective grantor trust at 4.50% for 9 years, and the trust invests the $10M at an 8% return, the 3.5% spread (8% − 4.50%) compounds inside the trust and passes to the remainder beneficiaries transfer-tax-free.</p>
+
+<div class="callout tip">
+<h4>The AFR / §7520 spread in one line</h4>
+<p>§7520 rate = 120% × mid-term AFR (rounded). The 20% gap between the AFR and the §7520 rate is where intra-family installment-sale planning captures value: a loan bears interest at the AFR floor while a split-interest trust is valued at the higher §7520 rate. The spread is the technique's economic engine.</p>
+</div>
+
+<h2 id="mistakes">Six most-expensive §7520 mistakes</h2>
+
+<ol>
+  <li><strong>Using the wrong month's rate.</strong> §7520(a) permits the taxpayer to use the rate for the valuation month OR either of the two preceding months. A practitioner who defaults to whichever rate was in effect when they last updated their software defaults to the wrong month roughly half the time. The cure: check the IRS's monthly rate publication on the day of the transfer and elect the most-favorable of the three available rates.</li>
+  <li><strong>Using Table 2000CM after June 1, 2023.</strong> Every §7520 valuation for a transfer dated on or after June 1, 2023 must use Table 2010CM under T.D. 9974. Software that still defaults to Table 2000CM produces stale factors — larger remainder values for QPRTs (bad for the client) and smaller charitable deductions for CRATs (also bad). The cure: verify the software is on Publication 1457 Version 4B (June 2023 or later).</li>
+  <li><strong>Failing the CRAT 5% probability-of-exhaustion test.</strong> A CRAT with a high payout rate, a young measuring life, and a low §7520 rate fails the probability-of-exhaustion test under Rev. Rul. 77-374 as modified by Rev. Rul. 2016-24 — disqualifying the entire trust. The cure: model the exhaustion probability under current-month §7520 conditions before drafting and adjust the payout rate downward or switch to a CRUT structure if the CRAT fails.</li>
+  <li><strong>Missing the Walton contingent-reversion clause in a GRAT.</strong> The Walton decision confirms that a two-year zeroed-out GRAT works only if the trust instrument includes the contingent-reversion clause (annuity continues to the grantor's estate if the grantor dies during the term). Trusts drafted without the clause fail the qualified-annuity test under §2702(b)(1) and are gift-taxed at 100% of the transferred property value. The cure: use Rev. Proc. 2003-72 safe-harbor GRAT language or a variant that preserves the contingent reversion.</li>
+  <li><strong>Using the §7520 rate on an intra-family loan.</strong> The §7520 rate is only for split-interest valuations. Intra-family loans use the underlying AFR itself (from §1274(d)), not 120% of the AFR. A practitioner who structures an intra-family installment sale at the §7520 rate rather than the AFR loses the 20% spread that makes the technique work. The cure: confirm the interest rate on any intra-family note is set at the AFR floor for the note's maturity, not the §7520 rate.</li>
+  <li><strong>Ignoring the two-month lookback in a rising-rate environment.</strong> When the §7520 rate is rising month-over-month (as it did in 2022-2023 and again in the summer of 2026), the taxpayer benefits from electing the lowest of the three available rates for a GRAT or CRUT/CRAT (which prefer lower rates) and the highest for a QPRT (which prefers higher rates). Failing to make the election defaults to the current month, which is not always the optimal choice. The cure: run the actuarial computation at each of the three available rates and elect the most favorable.</li>
+</ol>
+
+<h2 id="checklist">Eight-item pre-transfer §7520 action checklist</h2>
+
+<ol>
+  <li><strong>Confirm the current-month §7520 rate.</strong> Fetch the IRS's monthly rate publication (Rev. Rul. 2026-XX) for the transfer month. September 2026 is 5.40%. Verify the rate against Publication 1457 or the IRS's published rate tables.</li>
+  <li><strong>Compute the two-month lookback.</strong> Under §7520(a), the taxpayer may elect the rate for the valuation month or either of the two preceding months. Compute the actuarial factors at each of the three available rates and identify the most favorable for the specific transfer type (lower rate favors GRAT/CLAT/CRT; higher rate favors QPRT/private annuity).</li>
+  <li><strong>Confirm the mortality table.</strong> Transfers dated on or after June 1, 2023 use Table 2010CM under T.D. 9974 and Publication 1457 Version 4B. Confirm the software or actuarial worksheet is on Version 4B, not an earlier version.</li>
+  <li><strong>Identify the correct factor table.</strong> Term-of-years transfers use Table B; single-life transfers use Table S; two-life last-to-die transfers use Table H; CRUT variants use Table F. Match the table to the trust structure.</li>
+  <li><strong>Confirm the Walton contingent-reversion language for GRATs.</strong> Every GRAT must include the contingent-reversion clause per Walton v. Commissioner and Notice 2003-72 to qualify as a §2702 qualified annuity. Verify the trust instrument's Article structure against Rev. Proc. 2003-72 safe-harbor language.</li>
+  <li><strong>Run the 10% remainder test and the 5% exhaustion test for CRATs/CRUTs.</strong> §664(d) requires the charitable remainder to equal at least 10% of the initial FMV, computed at the current §7520 rate. For CRATs, also run the Rev. Rul. 77-374 exhaustion test as modified by Rev. Rul. 2016-24.</li>
+  <li><strong>Distinguish §7520 from AFR for intra-family loans.</strong> Split-interest trusts (GRAT/CLAT/CRT/QPRT) use the §7520 rate. Intra-family loans and installment notes use the underlying AFR under §1274(d), not the §7520 rate. A defective-grantor-trust installment sale captures the 20% spread between the AFR and the §7520 rate as its economic engine.</li>
+  <li><strong>Coordinate with the §2010(c) AEA and §2631 GST exemption.</strong> Every transfer to a family trust consumes some portion of the grantor's 2026 $15,000,000 Applicable Exclusion Amount (for gift-tax purposes) and, if the trust has generation-skipping remainder beneficiaries, some portion of the grantor's $15,000,000 GST exemption. Confirm the AEA and GST allocations before signing.</li>
+</ol>
+
+<h2 id="drafting">Trust-drafting checklist for §7520-sensitive instruments</h2>
+
+<p>Estate plans that use §7520-driven techniques should include the following provisions in the trust instrument or supplementary documentation:</p>
+
+<ul>
+  <li><strong>Explicit reference to the §7520 rate.</strong> The trust should specify the applicable §7520 rate by month and year (or by Rev. Rul. citation) rather than stating a fixed numerical rate, so the trust remains internally consistent if the rate is later reviewed.</li>
+  <li><strong>Explicit reference to Publication 1457 Version 4B and Table 2010CM.</strong> The trust should cite the mortality basis and factor table used for the actuarial computation so that any post-execution IRS examination can be reconciled to the specific factor table.</li>
+  <li><strong>Contingent-reversion clause for GRATs.</strong> Per Walton, every GRAT must state that the annuity continues to the grantor's estate if the grantor dies during the term.</li>
+  <li><strong>Escape hatch for CRATs failing the exhaustion test.</strong> The trust should include a savings clause that automatically converts a failing CRAT to a compliant structure (e.g., reducing the annuity payment or converting to a CRUT) if the exhaustion test cannot be satisfied at the trust's inception.</li>
+  <li><strong>Rev. Proc. 2007-45 safe-harbor language for CLATs.</strong> Use the IRS's sample CLAT language to ensure the trust meets the §170(f)(2)(B) / §2055(e)(2) / §2522(c)(2) requirements without a private letter ruling.</li>
+  <li><strong>Independent trustee for grantor CLATs.</strong> A grantor CLAT under §674(a) or §675 requires an independent trustee for certain trustee powers to avoid inadvertent inclusion of trust corpus in the grantor's gross estate.</li>
+</ul>
+
+<h2 id="faq">Frequently asked questions</h2>
+
+<div class="faq-block">
+
+<div class="faq-item">
+<h3>What is the IRC §7520 rate and why does it matter?</h3>
+<p>IRC §7520 is the single federal-tax discount-rate provision that governs the actuarial valuation of every annuity, life interest, term-of-years interest, remainder, and reversion in the transfer-tax base. Under §7520(a), the required rate for a given month equals 120% of the applicable federal midterm rate (AFR) compounded annually under §1274(d) for the second month preceding the valuation month, rounded to the nearest two-tenths of one percent. The rate matters because every split-interest transfer — a GRAT, a CLAT, a CRUT, a CRAT, a QPRT, a private annuity, a self-canceling installment note, or any other transfer that divides property between a term interest and a remainder — is valued for gift-tax and estate-tax purposes using the §7520 rate. A change of 20 basis points in the §7520 rate can shift the gift-tax value of the remainder in a 20-year GRAT by 5-8 percentage points, which reshapes the entire economics of the technique. The September 2026 §7520 rate is 5.40% (Rev. Rul. 2026-17); August 2026 was 5.20%; July 2026 was 5.00%.</p>
+</div>
+
+<div class="faq-item">
+<h3>How does the IRS compute the §7520 rate each month?</h3>
+<p>The IRS publishes the §7520 rate monthly, in a revenue ruling (numbered chronologically as Rev. Rul. 2026-XX for a 2026 month) issued between the 15th and the 25th of the month preceding the effective month, and effective on the first day of the following month. The computation is mechanical under §7520(a)(2): (i) take the applicable federal midterm rate compounded annually as published under §1274(d) — the midterm bucket applies to instruments with terms greater than 3 years but not greater than 9 years; (ii) multiply by 120%; (iii) round to the nearest two-tenths of one percent (i.e., to the nearest 0.2). If the raw computation would produce 5.13%, it rounds to 5.20%; if 5.09%, it rounds to 5.00%. The rate changes each month because the underlying AFR floats with Treasury securities of the corresponding maturity. Under §7520(a), a taxpayer may elect to use the §7520 rate for either of the two months preceding the transfer for valuation purposes — a "lookback" option that gives some planning flexibility around monthly rate transitions.</p>
+</div>
+
+<div class="faq-item">
+<h3>What are Table S, Table B, and Table 2010CM under Publication 1457?</h3>
+<p>Publication 1457 (Actuarial Valuations Version 4B, effective for transactions on or after June 1, 2023 per T.D. 9974) contains the actuarial factor tables the IRS uses to compute the value of split-interest transfers. Table B provides term-of-years annuity, life-estate, and remainder factors — the factor for a fixed number of years, purely a function of the §7520 rate and the number of years. Table S provides single-life annuity, life-estate, and remainder factors — the factor for a single life, a function of the §7520 rate and the age of the measuring life, drawing on the Table 2010CM mortality table. Table 2010CM is the underlying mortality table that reflects U.S. Life Tables 2010 data compiled by the National Center for Health Statistics — it replaced the prior Table 2000CM under T.D. 9974 (finalized June 1, 2023) and applies to §7520 valuations on transactions dated on or after that date. For pre-June-2023 transactions, the prior Table 2000CM applies. Additional tables cover two-life last-to-die (Table H), two-life joint-and-survivor (Table R(2)), and various charitable remainder trust (CRT) mid-year annuity factors.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is a zeroed-out GRAT and how does the §7520 rate affect it?</h3>
+<p>A zeroed-out GRAT (grantor retained annuity trust) is a §2702 planning technique in which the grantor transfers appreciating property to an irrevocable trust and retains a fixed annuity for a term of years, structured so that the actuarial present value of the retained annuity — computed using the §7520 rate — equals the value of the transferred property. Because the gift-tax value of the remainder equals the transferred value minus the actuarial value of the retained annuity, a zeroed-out GRAT produces a gift-tax value of $0 (or nearly $0) at inception, so the technique uses no lifetime AEA and pays no gift tax. The Tax Court in Walton v. Commissioner, 115 T.C. 589 (2000), acquiesced by the IRS in Notice 2003-72, confirmed that a properly-structured GRAT with a qualified annuity plus a contingent-remainder feature qualifies for full zeroing-out. The §7520 rate is the discount rate used to value the retained annuity: a lower rate produces a higher annuity present value (and thus a lower or zero remainder value), while a higher rate produces a lower annuity present value (and thus a larger remainder). A zeroed-out GRAT succeeds economically only if the trust's actual investment return exceeds the §7520 rate over the annuity term — the excess passes to the remainder beneficiaries free of transfer tax. In the September 2026 5.40% §7520 environment, a two-year zeroed-out GRAT on assets returning 12% annually would pass roughly 12.6% of the transferred value to the remainder beneficiaries transfer-tax-free.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is a shark-fin CLAT?</h3>
+<p>A shark-fin CLAT (charitable lead annuity trust) is a §170(f)(2)(B) / §2055(e)(2) / §2522(c)(2) charitable planning technique in which the grantor transfers appreciating property to an irrevocable trust that pays a charitable annuity for a term of years, with the residual remainder passing to non-charitable beneficiaries (typically the grantor's descendants). The "shark-fin" variant back-loads the charitable annuity — small annuity payments in the early years followed by a large balloon payment in the final year — to maximize the trust corpus available for growth during the term. The technique's economics depend heavily on the §7520 rate because the charitable deduction under §170 (income tax), §2055 (estate tax), or §2522 (gift tax) equals the present value of the charitable annuity stream computed using the §7520 rate. A lower rate produces a higher charitable deduction; a shark-fin structure amplifies this by concentrating the charitable payments at the end of the term, giving the trust corpus more years to compound before paying out. A properly structured zeroed-out shark-fin CLAT can produce a gift-tax remainder value of $0 while still providing meaningful economic value to the descendant remainder beneficiaries if the trust's actual return exceeds the §7520 rate. Rev. Proc. 2007-45 provides safe-harbor CLAT annuity language.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the 10% remainder test for charitable remainder trusts under §664?</h3>
+<p>Under IRC §664(d), a charitable remainder trust (a CRUT for a unitrust or CRAT for an annuity trust) qualifies for the §170 income-tax charitable deduction, §2055 estate-tax deduction, or §2522 gift-tax deduction only if the actuarial value of the charitable remainder (the amount projected to pass to charity at the term's end) equals at least 10% of the initial fair market value of property contributed. The 10% remainder test is computed using the §7520 rate and, for a CRAT, using Table S mortality factors from Publication 1457. A CRAT with a high annuity payout rate, a long term, or measuring lives that are too young will fail the 10% test because too little corpus is projected to remain for charity. In the September 2026 5.40% §7520 environment, a CRAT paying 5% annually to a single 60-year-old grantor for life projects a charitable remainder value of approximately 24% of the initial FMV — passing the 10% test comfortably. The same CRAT paying 8% annually would project a charitable remainder value of approximately 4% — failing the 10% test. For a CRAT, §664(d)(1)(D) also requires a 5% probability-of-exhaustion test under Rev. Rul. 77-374 (as modified by Notice 2008-63 and Rev. Rul. 2016-24) that adds a second §7520-rate-sensitive constraint. A CRUT is not subject to the probability-of-exhaustion test but is subject to the 10% remainder test.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is a QPRT and how does the §7520 rate affect it?</h3>
+<p>A QPRT (qualified personal residence trust) under Treas. Reg. §25.2702-5 is an irrevocable trust into which the grantor transfers a personal residence and retains the right to live in the residence for a term of years, with the residence passing to the remainder beneficiaries (typically children) at the term's end. The gift-tax value of the transferred remainder equals the fair market value of the residence at transfer, minus the actuarial value of the grantor's retained term interest computed under §7520 using Table B or, if the QPRT includes a contingent-reversion clause conditional on the grantor's survival, using Table S mortality factors. A higher §7520 rate increases the value of the retained term interest and reduces the gift-tax remainder value; a lower rate does the reverse. Unlike GRATs, QPRTs benefit from a higher §7520 rate — because the grantor's retained interest is a use interest rather than an annuity, and a higher discount rate values that use interest more heavily. In the September 2026 5.40% §7520 environment, a 15-year QPRT on a $2M residence by a 60-year-old grantor produces a retained interest of approximately 62% of the FMV and a gift-tax remainder of approximately 38% ($760,000). The QPRT succeeds economically only if the grantor survives the term; a grantor who dies during the term causes the residence to be included in the gross estate under §2036(a) at then-current FMV, unwinding the technique.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is a private annuity and how does the §7520 rate affect it?</h3>
+<p>A private annuity is a non-charitable inter-family transaction in which one family member (typically a parent) transfers property to another family member (typically a child) in exchange for the child's promise to pay the parent a fixed annual annuity for the parent's remaining life. The annuity is priced using §7520 rates and Table S mortality factors from Publication 1457. If the annuity is priced correctly — meaning the actuarial present value of the annuity equals the fair market value of the transferred property — the transfer has no gift-tax component. The parent excludes the property from the gross estate (Rev. Rul. 55-119, subsequently narrowed by the exhaustion-of-corpus doctrine); the child receives the property at a stepped-up basis of the annuity's stated value (Rev. Rul. 69-74 as modified). The §7520 rate matters because a lower rate produces a higher annuity present value for a given payment amount (and thus a lower required annual payment for a given property value), while a higher rate does the reverse. Treasury regulations issued in 2006 (Prop. Treas. Reg. §1.1001-1(j), later withdrawn) narrowed the tax benefits of private annuities, and the technique is now used less frequently than in decades past, but it remains available for intra-family sales where the parent needs a lifetime income stream and the child wants a stepped-up basis and estate-tax exclusion.</p>
+</div>
+
+<div class="faq-item">
+<h3>How do §7520 rates interact with §1274 and §7872 for intra-family loans?</h3>
+<p>The §7520 rate is used only for split-interest valuations under §7520(c) — annuities, life interests, term-of-years interests, remainders, and reversions. Intra-family loans use a different rate: the applicable federal rate (AFR) under §1274(d) directly, not 120% of it, for testing whether the loan bears adequate stated interest to avoid a §7872 imputed-interest recharacterization. §7872 provides that a loan bearing interest below the AFR is treated as if it bore interest at the AFR, with the below-market amount recharacterized as a gift for gift-tax purposes. Because the AFR is roughly 83% of the §7520 rate (§7520 = 120% × AFR, so AFR ≈ §7520 ÷ 1.2), an intra-family loan set at the AFR bears a lower rate than the §7520 rate — a critical difference when structuring an intra-family sale in exchange for an installment note. A sale to a grantor trust (a defective grantor trust or "IDGT") for an installment note bearing AFR-level interest works economically because the trust's assets can compound at a rate above the AFR while the note bears interest at a rate below the §7520 rate — the growth differential passes to the remainder beneficiaries without transfer tax. In the September 2026 5.40% §7520 environment, the corresponding AFR is approximately 4.50% — a 90-basis-point spread that a defective-grantor-trust installment sale can capture.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is Table 2010CM and how did T.D. 9974 change §7520 valuations?</h3>
+<p>Table 2010CM is the mortality table underlying Table S (single-life factors) and Table H (last-survivor factors) in Publication 1457 for transactions on or after June 1, 2023. It reflects U.S. Life Tables 2010 data compiled by the National Center for Health Statistics from mortality experience across the U.S. population in 2010 — a lower-mortality data set than the prior Table 2000CM (which was based on 2000 life tables). T.D. 9974 (June 1, 2023) finalized the adoption of Table 2010CM for §7520 purposes, with transition rules for transactions dated between May 1, 2019 (when proposed regulations were issued) and May 31, 2023 permitting taxpayers to elect either table. Under Table 2010CM, U.S. life expectancy at every age is longer than under Table 2000CM — which increases the value of every life-based retained interest (a life annuity is worth more if the annuitant is expected to receive more payments) and correspondingly decreases the value of every life-based remainder. The 2023 update reduced the gift-tax remainder value in a typical QPRT by 3-5 percentage points, made zeroed-out GRATs marginally more efficient (because the value of the retained annuity now runs slightly longer than the term for §2036(a) inclusion-risk purposes), and required practitioners to recompute every actuarial factor table from June 2023 forward using the new mortality basis.</p>
+</div>
+
+</div>
+
+<div class="methodology">
+<h3>Methodology &amp; sources</h3>
+<p>This article synthesizes the operative federal-tax framework for IRC §7520 valuations as they stand for 2026 transfers under the One Big Beautiful Bill Act (Pub. L. 119-21, enacted July 4, 2025), which raised the §2010(c) Applicable Exclusion Amount and §2631(c) GST exemption to $15,000,000 per donor for 2026, and under the Treasury Department's T.D. 9974 mortality-table update (finalized June 1, 2023). The current §7520 rate for September 2026 is 5.40% under Rev. Rul. 2026-17; August 2026 was 5.20% under Rev. Rul. 2026-15; July 2026 was 5.00% under Rev. Rul. 2026-13. Case-study computations use Publication 1457 Version 4B (June 2023) Table B, Table S, and Table F factors evaluated at the September 2026 rate; approximate factor values in the case studies are illustrative and should be re-verified against the current-month IRS Rev. Rul. and Publication 1457 Version 4B before any actual transfer. Every split-interest transfer requires actuarial computation by a qualified estate-planning attorney or CPA, with the exact factor tables sourced to the transfer's valuation month.</p>
+<p>Primary sources cited:</p>
+<ol style="font-size:.88rem">
+<li id="source-1">Internal Revenue Code §7520 (valuation tables — actuarial value of any annuity, interest for life or term of years, or remainder or reversionary interest, computed under Treasury tables using 120% of the federal midterm rate). Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/7520" rel="nofollow noopener">law.cornell.edu/uscode/text/26/7520</a></li>
+<li id="source-2">Internal Revenue Service, Rev. Rul. 2026-17 (September 2026 applicable federal rates including §7520 rate of 5.40%); Rev. Rul. 2026-15 (August 2026, §7520 = 5.20%); Rev. Rul. 2026-13 (July 2026, §7520 = 5.00%). Published in the Internal Revenue Bulletin. IRS. <a href="https://www.irs.gov/irb" rel="nofollow noopener">irs.gov/irb</a></li>
+<li id="source-3">Internal Revenue Code §7520(a) (formula: 120% of the federal midterm rate under §1274(d) for the month in which the valuation date falls, rounded to the nearest 0.2%; two-month lookback election). TAMRA §5031 (Pub. L. 100-647, enacted Nov. 10, 1988; effective for transfers after April 30, 1989). Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/7520" rel="nofollow noopener">law.cornell.edu/uscode/text/26/7520</a></li>
+<li id="source-4">Internal Revenue Code §1274(d) (applicable federal rate — short-term ≤3 years, mid-term 3-9 years, long-term &gt;9 years; annual, semiannual, quarterly, and monthly compounding options; monthly publication). Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/1274" rel="nofollow noopener">law.cornell.edu/uscode/text/26/1274</a></li>
+<li id="source-5">Internal Revenue Service, Publication 1457 (Actuarial Valuations Version 4B, effective for transactions on or after June 1, 2023) — Table B (term-of-years factors), Table S (single-life factors), Table H (two-life last-to-die factors), Table R(2) (two-life joint-and-survivor factors), Table F (CRUT annuity adjustment factors), and Table 2010CM (underlying mortality table). IRS Forms and Publications. <a href="https://www.irs.gov/pub/irs-pdf/p1457.pdf" rel="nofollow noopener">irs.gov/pub/irs-pdf/p1457.pdf</a></li>
+<li id="source-6">Treasury Decision 9974 (finalized June 1, 2023; adoption of Table 2010CM mortality table for §7520 purposes; transition rules for pre-June 2023 transactions). Federal Register, 88 Fed. Reg. 37069 (June 7, 2023). Federal Register. <a href="https://www.federalregister.gov/documents/2023/06/07" rel="nofollow noopener">federalregister.gov</a></li>
+<li id="source-7">Internal Revenue Code §2702 (special valuation rules for transfers in trust to family members — a retained interest is valued at zero unless it is a qualified interest as defined; qualified annuity, qualified unitrust, or qualified remainder). Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/2702" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2702</a></li>
+<li id="source-8">Walton v. Commissioner, 115 T.C. 589 (2000) (zeroed-out GRAT with contingent reversion qualifies as §2702 qualified annuity interest); IRS Notice 2003-72 (acquiescence in Walton; safe harbor for two-year rolling GRAT); Rev. Proc. 2003-72 (safe-harbor GRAT annuity language). U.S. Tax Court and IRS. <a href="https://www.ustaxcourt.gov/InternetOrders/DocumentViewer.aspx?IndexSearchableOrdersID=1148" rel="nofollow noopener">ustaxcourt.gov</a></li>
+<li id="source-9">Internal Revenue Code §170(f)(2)(B), §2055(e)(2), §2522(c)(2) (charitable deductions for split-interest transfers — the deduction equals the actuarial present value of the charitable interest, computed under §7520). Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/170" rel="nofollow noopener">law.cornell.edu/uscode/text/26/170</a></li>
+<li id="source-10">Rev. Proc. 2007-45 (safe-harbor sample language for inter vivos charitable lead annuity trusts under §170(f)(2)(B), §2055(e)(2), §2522(c)(2)); Treas. Reg. §1.170A-6(c)(2)(i)(A) (fixed CLAT annuity may increase during the term if the schedule is set at inception, permitting shark-fin structures). Internal Revenue Bulletin 2007-29. IRS. <a href="https://www.irs.gov/pub/irs-drop/rp-07-45.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/rp-07-45.pdf</a></li>
+<li id="source-11">Internal Revenue Code §664 (definition of charitable remainder trust — CRAT under §664(d)(1) and CRUT under §664(d)(2); 10% remainder test; five-year and lifetime term rules). Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/664" rel="nofollow noopener">law.cornell.edu/uscode/text/26/664</a></li>
+<li id="source-12">Internal Revenue Code §664(d)(1)(D) (CRAT 10% remainder test AND 5% probability-of-exhaustion test); Rev. Rul. 77-374 (probability-of-exhaustion computation) as modified by Notice 2008-63 and Rev. Rul. 2016-24 (updated methodology). IRS. <a href="https://www.irs.gov/pub/irs-drop/n-08-63.pdf" rel="nofollow noopener">irs.gov/pub/irs-drop/n-08-63.pdf</a></li>
+<li id="source-13">Treas. Reg. §25.2702-5 (qualified personal residence trust — retained-use interest treated as qualified interest for §2702 purposes; contingent-reversion clause; residence-use requirements; substitution and reformation rules). eCFR. <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-B/part-25/section-25.2702-5" rel="nofollow noopener">ecfr.gov/current/title-26/chapter-I/subchapter-B/part-25/section-25.2702-5</a></li>
+<li id="source-14">Rev. Rul. 55-119 (private annuity treatment for federal transfer-tax purposes); Rev. Rul. 69-74 (private annuity basis to the buyer); §72 (income taxation of annuity payments — exclusion ratio for basis recovery). Also: withdrawn Prop. Treas. Reg. §1.1001-1(j) (2006, withdrawn in 2019) attempting to narrow private annuity gain-recognition timing. IRS. <a href="https://www.irs.gov/newsroom" rel="nofollow noopener">irs.gov/newsroom</a></li>
+<li id="source-15">Internal Revenue Code §7872 (below-market loans — imputed-interest recharacterization for intra-family loans bearing interest below AFR); §1274(d) (applicable federal rate short-term/mid-term/long-term buckets). Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/7872" rel="nofollow noopener">law.cornell.edu/uscode/text/26/7872</a></li>
+<li id="source-16">Internal Revenue Code §2010(c) as amended by One Big Beautiful Bill Act §70105 (Applicable Exclusion Amount raised to $15,000,000 per donor for 2026, indexed thereafter, with DSUE portability under §2010(c)(5) for AEA only). Pub. L. 119-21 (July 4, 2025). Congress.gov. <a href="https://www.congress.gov/bill/119th-congress/house-bill/1/text" rel="nofollow noopener">congress.gov/bill/119th-congress/house-bill/1/text</a></li>
+<li id="source-17">Internal Revenue Code §2631 (GST exemption — $15,000,000 for 2026); §2632(a)/(b) (automatic and elected exemption allocation). Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/2631" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2631</a></li>
+<li id="source-18">Internal Revenue Code §2036(a) (gross-estate inclusion for property transferred with retained life estate — the inclusion mechanic that unwinds a QPRT where the grantor dies during the retained term). Cornell Legal Information Institute. <a href="https://www.law.cornell.edu/uscode/text/26/2036" rel="nofollow noopener">law.cornell.edu/uscode/text/26/2036</a></li>
+<li id="source-19">National Center for Health Statistics, U.S. Life Tables 2010 (NCHS data underlying Table 2010CM). Centers for Disease Control and Prevention. <a href="https://www.cdc.gov/nchs/products/life_tables.htm" rel="nofollow noopener">cdc.gov/nchs/products/life_tables.htm</a></li>
+<li id="source-20">Congressional Joint Committee on Taxation, "Description of Present Law and Present-Law Federal Estate, Gift, and Generation-Skipping Transfer Taxes" (JCX 2024 update). Includes §7520 rate history and split-interest transfer taxation. <a href="https://www.jct.gov/" rel="nofollow noopener">jct.gov</a></li>
+<li id="source-21">American College of Trust and Estate Counsel (ACTEC), practitioner materials on §7520 valuations, GRATs, CLATs, CRTs, and QPRTs (2024-2026 updates). ACTEC. <a href="https://www.actec.org/" rel="nofollow noopener">actec.org</a></li>
+<li id="source-22">Board of Governors of the Federal Reserve System, H.15 Selected Interest Rates (Treasury constant-maturity yields underlying the AFR computation). Federal Reserve. <a href="https://www.federalreserve.gov/releases/h15/" rel="nofollow noopener">federalreserve.gov/releases/h15</a></li>
+</ol>
+<p style="font-size:.85rem;margin-top:1rem">This article is educational and general in nature. It is not personalized tax, legal, or financial advice. Every §7520-driven planning technique involves interlocking Code provisions — §7520, §1274(d), §7872, §2702, §2036(a), §2044, §2010(c), §2631, §664, §170, §2055, §2522 — that are highly fact-specific and require attorney-level analysis of the specific estate. Consult a fee-only fiduciary advisor, an estate-planning attorney licensed in your state, a CPA or Enrolled Agent with §7520 valuation experience, and (for CLATs and CRTs) a charitable-planning specialist familiar with the 10% remainder test and the 5% probability-of-exhaustion test. <a href="/about-our-editorial-process.html">Read our editorial process →</a></p>
+</div>
+
+<div class="disclaimer"><strong>⚠️ Disclaimer:</strong> The §7520 rate for September 2026 (5.40%) reflects the IRS's Rev. Rul. 2026-17 publication. The rate changes monthly; verify the current-month rate against the most recent IRS Rev. Rul. before any transfer. Actuarial factor computations in the case studies are illustrative — every real transfer requires computation by qualified professional using Publication 1457 Version 4B at the specific valuation month. The §7520 mechanic, mortality tables, election procedures, and legal citations reflect the federal-tax framework in effect for 2026 transfers. Tax law changes frequently and interpretations vary. CalcLeap is not a law firm and does not provide personalized tax, legal, or estate-planning advice.</div>
+
+</article>
+</main>
+
+<aside class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="toc">
+      <h5>In this article</h5>
+      <ol>
+        <li><a href="#statute">The §7520(a) statutory mechanic</a></li>
+        <li><a href="#afr-relationship">§7520 and its AFR parents</a></li>
+        <li><a href="#tables">Tables S, B, H, R(2), F</a></li>
+        <li><a href="#mortality">Table 2010CM and T.D. 9974</a></li>
+        <li><a href="#grat">Zeroed-out GRATs (Walton)</a></li>
+        <li><a href="#clat">Shark-Fin CLATs</a></li>
+        <li><a href="#crt">CRAT / CRUT and the 10% test</a></li>
+        <li><a href="#qprt">QPRT residence transfer</a></li>
+        <li><a href="#private-annuity">Private Annuity and SCIN</a></li>
+        <li><a href="#afr-loans">§1274 AFR / §7872 loans</a></li>
+        <li><a href="#mistakes">Six most-expensive mistakes</a></li>
+        <li><a href="#checklist">Eight-item action checklist</a></li>
+        <li><a href="#drafting">Trust-drafting checklist</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="related-box">
+      <h5>Related calculators</h5>
+      <a href="/calc/estate-tax-calculator.html">Estate Tax Calculator</a>
+      <a href="/calc/retirement-calculator.html">Retirement Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest Calculator</a>
+      <a href="/calc/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/roth-ira-calculator.html">Roth IRA Calculator</a>
+      <a href="/calc/401k-calculator.html">401(k) Calculator</a>
+    </div>
+    <div class="related-box">
+      <h5>Related reading</h5>
+      <a href="/blog/irc-2652-a-3-reverse-qtip-election-2026.html">§2652(a)(3) reverse-QTIP election</a>
+      <a href="/blog/irc-2518-qualified-disclaimer-post-mortem-estate-planning-2026.html">§2518 post-mortem disclaimer</a>
+      <a href="/blog/irc-2519-qtip-disposition-trap-2026.html">§2519 QTIP disposition trap</a>
+      <a href="/blog/irc-2056-b-7-partial-qtip-election-2026.html">§2056(b)(7) partial-QTIP election</a>
+      <a href="/blog/irc-2010-c-dsue-portability-election-2026.html">§2010(c) DSUE portability election</a>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <a class="logo" href="/">Calc<span>Leap</span></a>
+      <p style="margin-top:.4rem">Fast, beautiful, free calculators and educational guides for every financial decision.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <a href="/calc/mortgage-payment.html">Mortgage Calculator</a>
+      <a href="/income-tax-calculator.html">Income Tax Calculator</a>
+      <a href="/calc/compound-interest.html">Compound Interest</a>
+      <a href="/bmi-calculator.html">BMI Calculator</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#insurance">Insurance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/blog/index.html">Blog</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="/about.html">About</a>
+      <a href="/about-our-editorial-process.html">Editorial Process</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CalcLeap. Educational content. Not financial advice.</p>
+  </div>
+</footer>
+
+<div id="clCookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#e0e0e0;padding:1rem 1.5rem;z-index:99999;font-size:.875rem;line-height:1.5;box-shadow:0 -2px 10px rgba(0,0,0,.3);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<p style="margin:0;flex:1;min-width:250px">We use cookies for analytics and advertising (Google AdSense). By continuing to use this site, you consent to our use of cookies. <a href="/privacy.html" style="color:#6366f1;text-decoration:underline">Privacy Policy</a></p>
+<div style="display:flex;gap:.5rem;flex-shrink:0">
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','1')" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.875rem;font-weight:600">Accept</button>
+<button onclick="document.getElementById('clCookieConsent').style.display='none';localStorage.setItem('clCookieOk','0')" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.875rem">Decline</button>
+</div>
+</div>
+<script>if(!localStorage.getItem('clCookieOk')){var c=document.getElementById('clCookieConsent');c.style.display='flex'}</script>
+</body>
+</html>
