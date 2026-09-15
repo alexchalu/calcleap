@@ -169,6 +169,56 @@
             .calc-section { padding: 20px; }
         }
     </style>
+<!-- AUDIT 2026-09-15 evening: BC + FAQPage JSON-LD injection (legal-settlement cluster BC + FAQ paired sweep) verified_by=evening-routine -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Insurance Calculators","item":"https://calcleap.com/index.html#insurance"},{"@type":"ListItem","position":3,"name":"Workers Compensation Insurance Calculator","item":"https://calcleap.com/workers-comp-calculator.html"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is a workers-compensation insurance premium calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The base formula is: Manual Premium = (Payroll ÷ 100) × Class Code Rate × Experience Modification Rate (EMR) × Schedule Rating × Territorial Multiplier ± Surcharges/Credits. (1) Payroll — gross wages including bonuses, overtime, commissions per NCCI Basic Manual Rule 2 (with overtime typically counted at straight-time, not time-and-a-half); certain items excluded include severance pay, tips, and expense reimbursements. Owner/officer payroll is capped at state-set minimum and maximum inclusion amounts. (2) Class Code — NCCI's ~700 classification codes (or state-bureau equivalents in NY, NJ, PA, DE, MI, WI, CA, MA, MN) assign a hazard rate based on the business's governing classification (e.g., 8810 clerical office $0.15-$0.35 per $100 payroll; 5645 carpentry $8-$25 per $100; 5606 executive supervisor $1-$3). (3) EMR — three-year loss experience compared to industry-expected losses; EMR of 1.00 is average, below 1.00 is a credit, above 1.00 is a debit. NCCI computes EMR from data reported by all insurers in an experience period ending 21 months before rating anniversary. (4) Schedule rating — carrier-specific credits/debits (typically ±25%) for safety programs, loss-control, and account characteristics. (5) Surcharges — assessments for state second-injury fund, uninsured-employers fund, and terrorism per TRIA reauthorization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which states require workers-compensation insurance and what are the exemptions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every state except Texas mandates workers' comp coverage for most private employers, but thresholds differ. California Cal. Lab. Code §3700 — all employers with even one employee (no minimum). New York WCL §3 — all employers. Illinois 820 ILCS 305/3 — all employers. Florida Fla. Stat. §440.02 — construction employers with 1+ employees; non-construction with 4+ employees; agricultural with 6+ regular or 12+ seasonal. Georgia O.C.G.A. §34-9-2 — 3+ employees. Alabama Ala. Code §25-5-50 — 5+ employees; construction exempt from the 5-employee threshold. TEXAS Tex. Lab. Code §406.002 — coverage is elective, but non-subscribers lose the common-law defenses of assumption of risk, contributory negligence, and fellow-servant per §406.033, exposing them to unlimited tort liability. Common exemptions across states include: sole proprietors and partners (unless they elect coverage); LLC members and corporate officers under state officer-exclusion elections (typically up to 4 officers may exclude with $1M net-worth threshold in some states); domestic servants below hour/wage thresholds; agricultural workers (patchwork state rules); casual or independent contractors properly classified. Federal employees are covered under FECA (5 USC §8101); maritime workers under LHWCA (33 USC §901) and Jones Act (46 USC §30104); railroad workers under FELA (45 USC §51). Failure to carry required coverage exposes the employer to statutory penalties, stop-work orders, and personal liability of officers and directors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Experience Modification Rate (EMR / mod) work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Experience Modification Rate is a multiplier that adjusts the manual premium based on the employer's own three-year loss history relative to industry expectations. NCCI's Experience Rating Plan formula (or state-bureau equivalent) uses three most-recent complete policy years excluding the most recently completed year (e.g., a 2026 policy uses 2022-2024 experience). The formula splits losses into primary (first $18,500 per claim in most states, adjusted annually) and excess portions to prevent large single claims from dominating the mod. EMR = (Actual Primary Losses + Weight × Actual Excess Losses + (1 − Weight) × Expected Excess Losses + Ballast) ÷ (Expected Primary + Weight × Expected Excess + (1 − Weight) × Expected Excess + Ballast). Weight and Ballast increase with payroll size, making larger employers' mods more responsive to actual losses. Interpretation: 1.00 = at industry expected; 0.80 = 20% below expected (20% premium credit); 1.20 = 20% above expected (20% premium debit). To qualify for experience rating an employer must exceed the state's minimum-premium eligibility threshold (typically $5,000-$10,000 average annual premium over the three-year experience period). Employers can request an EMR worksheet from their insurer to audit calculation errors. Common cost-reduction strategies: aggressive claim closure, return-to-work programs (transitional-duty jobs), safety-committee formation, subrogation against third-party tortfeasors, and disputing incorrectly-classified reserves."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What federal workers-compensation programs exist alongside state systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four principal federal systems: (1) FECA — Federal Employees' Compensation Act, 5 USC §§8101-8193, administered by DOL's OWCP for civilian federal employees; benefits include 66-2/3% of pre-injury wage (75% with dependents), all reasonable medical care, vocational rehab, and schedule awards for permanent partial impairment. (2) LHWCA — Longshore and Harbor Workers' Compensation Act, 33 USC §§901-950, covering maritime workers on navigable waters and adjoining shore areas, with related Defense Base Act, Outer Continental Shelf Lands Act, and Non-Appropriated Fund Instrumentalities Act extensions. LHWCA benefits are 66-2/3% of average weekly wage capped at 200% of national AWW ($1,807.47 max weekly benefit for 2024, adjusted annually). (3) FELA — Federal Employers' Liability Act, 45 USC §§51-60, covers railroad employees but is NOT true workers' comp — FELA is a fault-based tort statute where the plaintiff must prove employer negligence and can recover unlimited damages including pain-and-suffering (contrast with no-fault state workers' comp). (4) Jones Act — Merchant Marine Act §33, 46 USC §30104, covers seamen with a FELA-style fault-based remedy. The Black Lung Benefits Act (30 USC §§901-945) provides monthly benefits and medical care to coal miners with pneumoconiosis. Federal LHWCA administration by DOL's Office of Workers' Compensation Programs (OWCP) District Directors handles disputed claims with de novo ALJ review, Benefits Review Board appeal, and U.S. Court of Appeals judicial review under §21."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the exposure for misclassifying an employee as an independent contractor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Misclassification eliminates workers-comp coverage for the worker AND exposes the employer to catastrophic liability. Consequences: (1) The worker can sue in tort with full damages (no workers-comp exclusive-remedy bar under state statutes analogous to Cal. Lab. Code §3600) — potentially unlimited pain-and-suffering, lost earnings, and medical damages. (2) State workers-comp boards can assess back premiums, penalties, and criminal charges against officers — e.g., N.Y. WCL §52 makes willful non-coverage a misdemeanor with up to $2,500/10-day-noncoverage penalty plus felony charges for repeat offenders; Cal. Lab. Code §3700.5 makes uninsured operation a misdemeanor with $10,000-$100,000 fine plus §3722 stop-work order and daily $1,500 penalty. (3) The DOL Wage and Hour Division can assess unpaid overtime, back wages, and FLSA liquidated damages plus attorney fees under 29 USC §216. (4) The IRS can assess unpaid employment taxes (FICA employer share, FUTA, income-tax withholding) plus §3509 penalties and §6672 trust-fund-recovery penalty against responsible officers. (5) State UI departments can assess back SUTA and denial of experience-rate credit. Classification tests: DOL 2024 Final Rule (29 CFR §795, effective March 11, 2024) restored the six-factor economic-reality test replacing the Trump-era 2021 core-factors rule; IRS common-law 20-factor test in Rev. Rul. 87-41; California ABC test under Cal. Lab. Code §2775 codifying Dynamex Operations v. Superior Court 4 Cal. 5th 903 (2018) (AB 5 as amended by AB 2257); NLRB SuperShuttle 367 NLRB No. 75 (2019). Contract-language 'independent contractor' recitals are largely irrelevant — actual working conditions control."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div class="container">
