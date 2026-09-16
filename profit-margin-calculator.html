@@ -58,6 +58,56 @@ a{color:inherit;text-decoration:none}
 @media(max-width:768px){.nav-links{display:none}.page{padding:0 1.25rem}.page-title{font-size:1.75rem}}
 </style>
 <meta property="og:image" content="https://calcleap.com/og-default.png">
+<!-- AUDIT 2026-09-16 evening: BC + FAQPage JSON-LD injection (business-metrics-extension cluster BC + FAQ paired sweep) verified_by=evening-routine -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Business Calculators","item":"https://calcleap.com/index.html#business"},{"@type":"ListItem","position":3,"name":"Profit Margin Calculator","item":"https://calcleap.com/profit-margin-calculator.html"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the three main profit margin ratios and how do they differ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "(1) Gross Profit Margin = (Revenue - COGS) / Revenue \u00d7 100. Measures the profitability of producing goods or services before operating overhead. (2) Operating Profit Margin (EBIT margin) = (Revenue - COGS - Operating Expenses - Depreciation - Amortization) / Revenue \u00d7 100. Measures the profitability of core operations before financing decisions and tax. (3) Net Profit Margin = Net Income / Revenue \u00d7 100. Measures profitability after every expense, including interest and tax. Investors also track EBITDA margin (EBIT + D&A / Revenue) to compare capital structures across firms with different depreciation policies, and free cash flow (FCF) margin (FCF / Revenue) to measure cash-conversion. Each ratio strips different layers of expense; report all three plus EBITDA for a complete picture. NYU Stern's Damodaran Online industry-margin data (January 2025) is the canonical reference dataset for public-company benchmarking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a healthy profit margin by industry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Median EBITDA margins from Damodaran Online (January 2025, LTM September 2024, 7,000+ U.S. public companies): Software (System & Application) 30.2%, Software (Internet) 18.4%, Pharmaceuticals 27.1%, Biotech (large-cap) 22.6%, Beverages (Alcoholic) 22.6%, Household Products 21.5%, Semiconductor 28.4%, Aerospace/Defense 12.3%, Auto (OEM) 8.4%, Retail (General) 8.9%, Retail (Grocery & Food) 5.4%, Restaurants 15.7%, Apparel Retail 11.9%, Homebuilders 15.4%, Construction Supplies 15.9%, Oil/Gas (Production) 42.1%, Air Transport 15.2%, Trucking 12.4%, Advertising 15.6%, Publishing & Newspapers 6.1%. Small business net margin varies substantially by category: Sageworks' Private Company Report 2023-2024 shows median net margins of ~7-9% across small business (revenue $1M-$50M), with accounting firms and legal services 18-25%, healthcare practices 10-15%, restaurants 3-6%, general retail 2-5%, construction 5-8%. Trend and per-employee productivity often matter more than absolute-margin comparison to public-company benchmarks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the DuPont formula decompose Return on Equity into margin, turnover, and leverage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The three-step DuPont identity (developed by DuPont Corp. in the 1920s and popularized in Higgins's Analysis for Financial Management) decomposes Return on Equity: ROE = Net Profit Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier = (Net Income / Revenue) \u00d7 (Revenue / Total Assets) \u00d7 (Total Assets / Equity). This isolates the three levers driving shareholder return: (1) margin efficiency (how much of each dollar of revenue converts to profit), (2) asset efficiency (how many dollars of revenue each dollar of assets generates), and (3) financial leverage (how much the balance sheet is levered with debt). Extended five-step DuPont further decomposes: ROE = (Net Income / EBT) \u00d7 (EBT / EBIT) \u00d7 (EBIT / Revenue) \u00d7 (Revenue / Total Assets) \u00d7 (Total Assets / Equity), separating tax burden, interest burden, operating margin, asset turnover, and leverage. Two firms with identical 15% ROE can have radically different quality: 15% margin \u00d7 1\u00d7 turnover \u00d7 1\u00d7 leverage (Microsoft-like software) versus 3% margin \u00d7 5\u00d7 turnover \u00d7 1\u00d7 leverage (Walmart-like retail) versus 5% margin \u00d7 1.5\u00d7 turnover \u00d7 2\u00d7 leverage (levered banks). Report the decomposition alongside the headline ROE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can a business improve its net profit margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Six primary levers documented across McKinsey's Enduring Ideas 2015-2023 profitability analyses and Bain's Full Potential Diagnostic (2024): (1) Pricing \u2014 segmentation-based pricing capture, value-based bundling, and price-fence enforcement typically finds 200-400 bps of margin per Simon-Kucher's Global Pricing Study 2024. (2) Product-mix shift toward higher-margin SKUs (typical 80/20 concentration where the top 20% of SKUs generate 80% of margin). (3) Cost of goods reduction via strategic sourcing, contract renegotiation, and supply-chain design (McKinsey Purchasing Excellence identifies 3-8% savings on the addressable spend base). (4) SG&A leverage \u2014 sales and marketing efficiency (marketing efficiency ratio, sales-productivity ratios), G&A automation (AP, payroll, close automation), and real-estate optimization. (5) Working-capital reduction \u2014 cash conversion cycle (DIO + DSO - DPO) improvement releases cash without touching the P&L directly, funding growth without equity dilution. (6) Tax structure \u2014 R&D credit under IRC \u00a741 (OBBBA \u00a770401 restored current-year \u00a7174 domestic-R&E expensing prospective from 2026), work opportunity tax credit under IRC \u00a751 (WOTC), state and local tax planning (nexus, apportionment factor engineering), international transfer pricing (arm's-length under IRC \u00a7482 and OECD Transfer Pricing Guidelines). Not every business has all six levers; diagnose which are largest before starting a margin program."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What accounting differences (accrual vs cash, GAAP vs IFRS, non-GAAP metrics) affect reported margins?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cash-basis accounting recognizes revenue when received and expense when paid; accrual-basis (required under GAAP for larger firms and for public companies under Regulation S-X, with IRC \u00a7448 mandating accrual for C corporations and partnerships with C-corp partners above the \u00a7448(c) $30M three-year average gross receipts threshold for 2026 per Rev. Proc. 2025-32) recognizes revenue when earned and expense when incurred. The two often diverge sharply during rapid growth or contraction. U.S. GAAP (Financial Accounting Standards Board's Accounting Standards Codification) differs from IFRS (International Accounting Standards Board's IFRS Standards) in inventory (IFRS prohibits LIFO), development-cost capitalization (IAS 38 permits, GAAP generally expenses under ASC 730), lease treatment (converged post-ASC 842/IFRS 16 but with residual differences), and impairment reversal (IFRS permits, GAAP prohibits). Non-GAAP measures (adjusted EBITDA, free cash flow, adjusted operating margin) are permitted in SEC filings under Regulation G subject to reconciliation to the most-comparable GAAP measure and prohibition on using non-GAAP labels that suggest superiority \u2014 the SEC's 2010 Compliance & Disclosure Interpretations (last updated December 2022) enforce this. Common non-GAAP adjustments: stock-based compensation, acquisition-related amortization, restructuring, litigation reserves, and 'one-time' items \u2014 investors should evaluate whether the recurring 'one-time' pattern reveals ongoing costs mislabeled as non-recurring."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px 16px;background:#0071e3;color:#fff;text-decoration:none;font-size:14px;border-radius:0 0 4px 0;" onfocus="this.style.position='fixed';this.style.left='0';this.style.top='0';this.style.width='auto';this.style.height='auto';this.style.overflow='visible'" onblur="this.style.position='absolute';this.style.left='-9999px';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden'">Skip to content</a>

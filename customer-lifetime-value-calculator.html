@@ -41,6 +41,56 @@
         @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<!-- AUDIT 2026-09-16 evening: BC + FAQPage JSON-LD injection (business-metrics-extension cluster BC + FAQ paired sweep) verified_by=evening-routine -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Business Calculators","item":"https://calcleap.com/index.html#business"},{"@type":"ListItem","position":3,"name":"Customer Lifetime Value Calculator","item":"https://calcleap.com/customer-lifetime-value-calculator.html"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is Customer Lifetime Value (CLV or LTV) calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simple CLV = Average Order Value \u00d7 Purchase Frequency \u00d7 Gross Margin \u00d7 Average Customer Lifespan. For a subscription business the standard SaaS formula is CLV = (Average Revenue Per Account \u00d7 Gross Margin) / Customer Churn Rate \u2014 from Bessemer Venture Partners' 'State of the Cloud' methodology. The discounted (net-present-value) form is CLV = \u03a3\u209c (Contribution Margin_t \u00d7 Retention Rate^t) / (1 + WACC)^t, discounting future cash flows at the weighted-average cost of capital, typically 10-15% for private companies per the Duff & Phelps Cost of Capital Navigator. Peter Fader's Bruce Hardie's BG/NBD and Pareto/NBD probabilistic models (Fader, Hardie & Lee 2005 Marketing Science) fit non-contractual customer bases where purchase frequency and dropout are latent \u2014 used by Amazon, Wayfair, and most e-commerce operators \u2014 and are implemented in the R 'BTYD' package and Python 'lifetimes' library."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a healthy LTV:CAC ratio and payback period?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SaaS industry rule of thumb is LTV:CAC \u2265 3:1 with a CAC payback period \u2264 12 months for venture-backed growth, \u2264 24 months for capital-efficient businesses. This comes from David Skok's canonical 2015 essay 'SaaS Metrics 2.0' and is replicated by OpenView's SaaS Benchmarks Report 2024, ChartMogul's 2024 Metrics Report, and KeyBanc Capital Markets' SaaS Survey 2024. A ratio below 3:1 signals unit economics that don't support sustainable growth; above 5:1 often signals underinvestment in sales and marketing. Compute payback as CAC / (ARPA \u00d7 Gross Margin) months. Fully-loaded CAC includes salaries and benefits of the sales and marketing team, tooling, agency fees, and paid media \u2014 not just ad spend. Compute LTV using gross margin (not revenue) so the ratio is comparable across capital-intensive versus lean businesses. Report by cohort (acquisition month) and by channel \u2014 a 5:1 blended ratio can hide a 1:1 paid-search channel dragging down 15:1 organic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does churn rate affect LTV, and what's the difference between logo, revenue, and net revenue churn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a subscription business CLV is highly sensitive to churn: at 5% monthly churn, expected lifespan is 1/0.05 = 20 months; at 2% it's 50 months (2.5\u00d7). Three churn definitions: (1) Logo (or customer) churn \u2014 the count of accounts that canceled \u00f7 total accounts at period start. (2) Gross revenue churn \u2014 MRR lost from cancellations and downgrades \u00f7 starting MRR; excludes expansion. (3) Net revenue churn (or NRR when inverted as Net Revenue Retention) \u2014 (churned + downgraded - expansion MRR) \u00f7 starting MRR. Best-in-class public SaaS reports NRR above 120% per Meritech Capital's public-comp analysis (Snowflake, Datadog, Cloudflare, MongoDB all above 115% in 2024 filings), meaning existing customers grow faster than they churn. NRR < 100% requires new-logo acquisition just to hold flat revenue. B2C consumer subscriptions typically report gross monthly churn 3-8% and cannot rely on expansion revenue; B2B enterprise reports 5-15% annual gross churn with strong expansion. Compute all three; report cohorted NRR alongside blended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does cohort analysis reveal about LTV that a blended number hides?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cohort analysis groups customers by acquisition period (e.g., January 2024 cohort) and tracks retention, revenue, and margin for that group over time. A cohort curve shows whether newer customers are behaving worse (churning faster, spending less, deteriorating LTV) than older ones \u2014 a leading indicator of product-market-fit erosion or channel-mix problems that a blended average hides. Cohort tables typically show retention at 1/3/6/12/24 months. For e-commerce, Fader-Hardie style RFM (Recency, Frequency, Monetary) segmentation combined with cohort curves reveals whether the first-order-to-second-order conversion rate (a leading LTV indicator) is stable. For SaaS the 'quick ratio' (new + expansion MRR) / (churned + contracted MRR), popularized by Mamoon Hamid, complements cohort tables and should exceed 4 for healthy growth per Social Capital's IPO-era essays. Tools: Amplitude, Mixpanel, ChartMogul, and Baremetrics all render standard cohort tables."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the tax and accounting implications of investing in customer acquisition against future LTV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under ASC 606 (Revenue from Contracts with Customers, effective 2018) and ASC 340-40 (Incremental Costs of Obtaining a Contract), commissions and other incremental costs of obtaining a customer contract are capitalized and amortized over the expected customer relationship period \u2014 not expensed immediately \u2014 when the amortization period exceeds one year. IFRS 15 mirrors this treatment. This means fully-loaded CAC on the income statement understates cash-basis CAC by the capitalized portion. For tax purposes IRC \u00a7162 permits ordinary and necessary business-expense deduction for advertising and marketing spend in the year incurred (Rev. Rul. 92-80 confirms even institutional-brand advertising is currently deductible), which creates a book-versus-tax timing difference. The TCJA \u00a713221 amendment to IRC \u00a7174 (effective 2022) requires capitalization and amortization of research and experimental expenditures over 5 years (15 years for foreign R&E), but this does not extend to customer-acquisition costs. The One Big Beautiful Bill Act (Pub. L. 119-21, July 2025) restored current-year \u00a7174 domestic-R&E expensing prospectively; consult a CPA for interaction with the OBBBA \u00a770401 transition rules if your LTV modeling includes R&D-heavy channels."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div class="header">

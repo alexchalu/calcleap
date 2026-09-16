@@ -41,6 +41,56 @@
         @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<!-- AUDIT 2026-09-16 evening: BC + FAQPage JSON-LD injection (business-metrics-extension cluster BC + FAQ paired sweep) verified_by=evening-routine -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Business Calculators","item":"https://calcleap.com/index.html#business"},{"@type":"ListItem","position":3,"name":"Revenue Per Employee Calculator","item":"https://calcleap.com/revenue-per-employee-calculator.html"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is Revenue Per Employee calculated and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Revenue Per Employee (RPE) = Total Annual Revenue / Average Number of Full-Time-Equivalent Employees. Use FTE not headcount: two half-time employees count as one FTE per BLS definition; contractors are typically excluded unless they perform employee-substitute functions. Report on a rolling 12-month or LTM basis. RPE is a productivity indicator, a benchmarking anchor for staffing plans, and a valuation input (many private-market comparables use revenue-per-FTE alongside ARR-per-FTE for SaaS). It reveals labor efficiency and the extent to which the business scales revenue faster than headcount \u2014 a leading indicator of operating leverage. RPE alone is insufficient (a low-margin volume business can post high RPE and lose money); pair it with gross profit per FTE and net income per FTE for a complete productivity view."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are typical Revenue Per Employee benchmarks by industry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Public-company medians from S&P Capital IQ and Damodaran Online (January 2025 update): Software (Internet, top-decile) $1.2M-$2.5M per employee \u2014 Alphabet reported ~$1.66M/employee LTM Q3 2024, Meta ~$1.79M, NVIDIA ~$3.6M (semiconductor-plus-software), Microsoft ~$1.07M; Software (System & Application) $400K-$700K; Semiconductor $450K-$900K; Pharmaceutical $600K-$900K; Retail (General) $250K-$500K \u2014 Walmart ~$260K, Target ~$260K, Costco ~$800K (warehouse-club model with fewer FTEs per revenue dollar); Retail (Grocery) $250K-$350K; Restaurants $60K-$120K (labor-intensive); Airlines $500K-$900K; Investment Banking $700K-$1.5M+ (Goldman Sachs ~$1.4M, JPMorgan ~$550K blended); Consulting $250K-$500K (McKinsey/Bain/BCG partner mix skews higher). SaaS-specific: ChartMogul and OpenView SaaS Benchmarks 2024 report median ARR-per-FTE of $170K for growth-stage private SaaS ($10M-$100M ARR) and $200K-$300K for mature ($100M+ ARR); best-in-class public SaaS reports $300K-$500K ARR-per-FTE. Trend over 8-12 quarters matters more than absolute value; a declining RPE trend is a leading indicator of over-hiring or product-mix erosion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do RPE and Profit Per Employee differ, and which better measures productivity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RPE measures gross labor scaling; Profit-Per-Employee (net income per FTE) measures value-creation per employee \u2014 the metric Deloitte's Bassi Investment Analysis (Bassi & McMurrer 2007 HBR 'Maximizing Your Return on People') and McKinsey's Talent Wins framework favor for talent productivity. Two firms with identical $500K RPE can post radically different Profit-Per-Employee if one has 20% net margin and the other 3%. Software and pharmaceutical routinely lead Profit-Per-Employee (Apple ~$400K+, Alphabet ~$300K+ per LTM Q3 2024 filings) while capital-intensive and labor-intensive industries lag. For a knowledge-work business Profit-Per-Employee is often the single-best productivity anchor; McKinsey's 2018 'Prospering in the Age of Disruption' notes top-quartile firms average 3-4\u00d7 Profit-Per-Employee versus median firms in the same industry. Compute both; report the trend line and the industry-relative percentile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the SaaS-specific Rule of 40 relate to RPE productivity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Rule of 40 (popularized by Brad Feld's 2015 essay drawing on Bessemer Venture Partners' SaaS metrics): Revenue Growth Rate + EBITDA Margin \u2265 40% for a healthy growth-stage SaaS. Below 40 signals unhealthy tradeoff between growth and profitability; above 40 signals durable outperformance. RPE-per-FTE feeds directly into Rule of 40 because labor cost is the dominant SaaS operating expense (typically 60-75% of total opex). Public SaaS median Rule-of-40 was 22 in Q3 2024 per Meritech Capital's Rule of 40 leaderboard, with top decile above 60 (CrowdStrike, Cloudflare, Palo Alto Networks). ARR-per-FTE and Sales-Team-Productivity ratio ((New ARR + Expansion ARR) / Loaded Sales Cost) combine into a full productivity picture. OpenView SaaS Benchmarks 2024 identifies Sales Efficiency Ratio (SER = New ARR / S&M Spend) \u2265 1.0 as best-in-class for growth-stage SaaS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What limits and adjustments should apply when comparing RPE across firms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five common pitfalls: (1) FTE definition \u2014 some firms count contractors, some don't; adjust to a consistent basis (contractor-adjusted FTE is often called 'total labor capacity'). (2) Outsourcing and offshoring \u2014 firms that outsource manufacturing, customer service, or IT show artificially high RPE without productivity gain. Look at cost-of-goods and SG&A composition to detect. (3) M&A stub period \u2014 an acquired entity's revenue counts for the partial period after close but the acquired employees count in the ending FTE; compute an average FTE across the period. (4) Business-model differences \u2014 a low-touch SaaS reports much higher RPE than an implementation-services firm delivering identical revenue; segment revenue by service versus product for comparability. (5) Geographic and currency effects \u2014 FX translation and country-mix distort year-over-year RPE growth; report constant-currency RPE for multi-national firms. Also strip out one-time deferred-revenue releases, unusual license batches, or contract-manufacturing pass-through revenue that inflates the numerator without labor input. For public-company benchmarking, SEC 10-K Item 1 (Business) discloses employee count; Item 7 MD&A discloses revenue; both are audited under PCAOB standards, but the employee-count definition varies by filer."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div class="header">

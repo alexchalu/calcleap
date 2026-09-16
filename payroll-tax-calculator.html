@@ -41,6 +41,56 @@
         @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<!-- AUDIT 2026-09-16 evening: BC + FAQPage JSON-LD injection (business-metrics-extension cluster BC + FAQ paired sweep) verified_by=evening-routine -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Business Calculators","item":"https://calcleap.com/index.html#business"},{"@type":"ListItem","position":3,"name":"Payroll Tax Calculator","item":"https://calcleap.com/payroll-tax-calculator.html"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What payroll taxes must U.S. employers withhold and match?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five federal payroll taxes: (1) Federal Income Tax Withholding under IRC \u00a73402 \u2014 based on Form W-4 (redesigned 2020) and the withholding tables in IRS Publication 15-T; employer-only remittance, not matched. (2) Social Security (OASDI) under FICA IRC \u00a7\u00a73101(a) and 3111(a) \u2014 6.2% employee + 6.2% employer on the first $176,100 of wages in 2026 per SSA Fact Sheet 2026-01. (3) Medicare Hospital Insurance under FICA IRC \u00a7\u00a73101(b) and 3111(b) \u2014 1.45% employee + 1.45% employer on all wages, uncapped. (4) Additional Medicare Tax under IRC \u00a73101(b)(2) \u2014 0.9% employee only on wages above $200,000 per employee within a year (employer must begin withholding at $200,000 regardless of filing status; employer is not required to match). (5) FUTA (Federal Unemployment) under IRC \u00a73301 \u2014 6.0% employer only on the first $7,000 of wages, with a 5.4% credit for timely state-unemployment payments reducing the net rate to 0.6% in credit-reduction-free states. State: State income tax withholding (varies by state \u2014 nine states with no state income tax as of 2026), state unemployment insurance (SUI or SUTA, wage base and rate vary by state and by employer experience rating), state disability insurance (CA, NJ, NY, HI, RI), paid family leave (CA, NJ, NY, CT, WA, MA, OR, CO, DE, DC, MD, ME, MN \u2014 a growing list \u2014 check current statutes). Local: city and county income tax (NYC, Philadelphia, San Francisco payroll expense tax, Denver, etc.)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the 2026 Social Security wage base, Medicare, and Additional Medicare thresholds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Per SSA Fact Sheet 2026-01 and IRS Rev. Proc. 2025-32: 2026 Social Security wage base $176,100 (up from $168,600 in 2025 and $160,200 in 2024). Employee rate 6.2%; employer rate 6.2%; combined 12.4%. Maximum 2026 employee Social Security tax = $176,100 \u00d7 6.2% = $10,918.20. Medicare 1.45% employee + 1.45% employer on all wages, no cap. Additional Medicare Tax 0.9% under IRC \u00a73101(b)(2) applies to wages above the following thresholds (not indexed): $200,000 single, $250,000 MFJ, $125,000 MFS; the employer withholds the additional 0.9% on each employee's wages that exceed $200,000 within the calendar year regardless of the employee's filing status, and any over- or under-withholding relative to actual liability is reconciled on Form 8959 filed with Form 1040. Net Investment Income Tax under IRC \u00a71411 (3.8%) is not a payroll tax but layers on top of the Additional Medicare Tax for high earners with investment income. Self-employed individuals owe both halves of FICA under IRC \u00a71401 (see the Freelance Rate Calculator for detail)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often must an employer deposit payroll taxes and file returns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Deposit frequency is determined by the lookback period (prior 4 quarters July-June for the current year January-December) per Treas. Reg. \u00a731.6302-1: (1) Monthly depositor \u2014 total tax during lookback \u2264 $50,000; deposit by the 15th of the following month. (2) Semi-weekly depositor \u2014 total tax during lookback > $50,000; deposit within 3 banking days after each pay date (Wed-Fri paychecks by the following Wednesday; Sat-Tues paychecks by the following Friday). (3) Next-day depositor \u2014 any deposit day accumulation of $100,000+ within one deposit period triggers next-banking-day deposit under Treas. Reg. \u00a731.6302-1(c)(3). All deposits must be made electronically via EFTPS unless the employer's quarterly liability is under $2,500 (paid with Form 941). Filings: Form 941 (Employer's Quarterly Federal Tax Return) due April 30, July 31, October 31, January 31 for the prior quarter; Form 940 (FUTA annual) due January 31; Form W-2 (each employee) and Form W-3 (transmittal) due January 31 to SSA. States have parallel filing calendars. Late deposit penalties under IRC \u00a76656: 2% (1-5 days late), 5% (6-15 days), 10% (16+ days), 15% (more than 10 days after IRS notice). Trust Fund Recovery Penalty under IRC \u00a76672 personally liable-punish assessment against 'responsible persons' who willfully fail to remit \u2014 pierces LLC and corporate liability shields."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is federal income tax withholding calculated from Form W-4 and Publication 15-T?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Since the 2020 W-4 redesign (implementing TCJA changes) the W-4 no longer uses allowances. It has five steps: (1) Filing status. (2) Multiple jobs / spouse works (optional withholding uplift). (3) Dependents claim ($2,000 per qualifying child under 17, $500 per other dependent under IRC \u00a724 as amended by TCJA \u00a711022 and made permanent by OBBBA \u00a770102 with the $2,000 credit indexed and refundable-portion mechanics preserved). (4) Other income and deductions (optional). (5) Extra withholding per pay period. Employers use Publication 15-T's Percentage Method Tables (annually updated \u2014 the 2026 tables are in the December 2025 Pub 15-T) or Wage Bracket Method Tables to compute withholding. The percentage method: annualize wages, apply the W-4 adjustments, look up the bracket, compute annual withholding, divide by pay periods per year. Employees with volatile pay, bonuses (supplemental wages taxed at flat 22% under Treas. Reg. \u00a731.3402(g)-1(a)(2) for supplemental payments up to $1M and 37% mandatory above), or multi-source income should use IRS Tax Withholding Estimator (irs.gov) at least twice a year to avoid over- or under-withholding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What worker-classification tests apply and what are the misclassification risks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Federal tests differ across statutes: (1) IRS common-law test (Rev. Rul. 87-41, 20-factor test now organized as three categories: behavioral control, financial control, relationship of parties) determines whether a worker is an employee for federal-employment-tax purposes. Voluntary Classification Settlement Program (VCSP) under Announcement 2011-64 permits retroactive reclassification at 10% of one year's employment-tax liability if requirements met. Section 530 of the Revenue Act of 1978 provides safe-harbor relief where the employer had a reasonable basis for treating the worker as an independent contractor. (2) DOL Wage-and-Hour six-factor economic-reality test under 29 CFR \u00a7795 (2024 Final Rule effective March 11, 2024, restoring the pre-Trump-era Independent Contractor Rule) for FLSA employee vs. independent contractor. (3) State ABC tests \u2014 California Lab. Code \u00a72775 codifying Dynamex Operations v. Superior Court 4 Cal. 5th 903 (2018) as amended by AB 5 (2019) and AB 2257 (2020), plus MA Gen. Laws ch. 149 \u00a7148B, NJ N.J.S.A. \u00a743:21-19(i)(6)(A), IL 820 ILCS 185/10 \u2014 all impose a stricter three-prong test. (4) NLRB test for concerted-activity coverage. Misclassification penalties: back employment taxes (employer + employee shares) + interest + failure-to-deposit penalties + failure-to-file W-2 (\u00a76721/\u00a76722) + Trust Fund Recovery Penalty (\u00a76672) + state unemployment back-assessment + workers-compensation back-premium + wage-and-hour Fair Labor Standards Act liability (2 years back, 3 years for willful violations) with liquidated damages equal to unpaid wages under 29 U.S.C. \u00a7216(b). Form SS-8 (Determination of Worker Status) permits the IRS to rule on classification prospectively."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div class="header">

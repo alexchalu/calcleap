@@ -41,6 +41,56 @@
         @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<!-- AUDIT 2026-09-16 evening: BC + FAQPage JSON-LD injection (business-metrics-extension cluster BC + FAQ paired sweep) verified_by=evening-routine -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Business Calculators","item":"https://calcleap.com/index.html#business"},{"@type":"ListItem","position":3,"name":"Gross Profit Margin Calculator","item":"https://calcleap.com/gross-profit-margin-calculator.html"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is Gross Profit Margin calculated and what belongs in COGS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross Profit Margin = (Revenue - Cost of Goods Sold) / Revenue \u00d7 100. Under U.S. GAAP (ASC 705, Cost of Sales and Services) COGS includes the direct costs of producing goods sold or services delivered during the period: raw materials, direct labor, direct manufacturing overhead (utilities, depreciation, and rent for the production facility), inbound freight, and inventory write-downs. It excludes selling, general, and administrative expenses (SG&A), R&D, marketing, and interest, which fall below the gross-profit line. IFRS follows analogous treatment under IAS 2 (Inventories) for cost of inventories. Software and SaaS COGS typically includes hosting infrastructure (AWS, Azure, GCP), customer support salaries, third-party API costs (Twilio, Stripe, Segment usage), payment processing fees, and amortization of capitalized software development costs \u2014 not sales commissions, marketing, or general R&D. Confirm your COGS composition against your industry's standard reporting practice via SEC 10-K peer comparisons; misclassification distorts benchmark comparability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good gross profit margin by industry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Median gross margins from NYU Stern's Damodaran Online industry database (updated January 2025 with LTM September 2024 data across ~7,000 U.S. public companies): Software (Internet) 63.2%, Software (System & Application) 71.4%, Semiconductor 51.1%, Financial Services (banks median gross margin is not the standard metric \u2014 use net interest margin instead), Pharmaceutical 66.8%, Biotech 76.9%, Beverages (soft drinks) 55.8%, Household Products 42.5%, Retail (Apparel) 42.1%, Retail (Grocery & Food) 26.4%, Retail (General) 30.6%, Restaurants 30.7%, Auto Parts 22.4%, Auto (OEM) 15.6%, Homebuilders 21.7%, Construction Supplies 27.3%, Steel 12.4%, Oil/Gas (Production and Exploration) 42.9%, Air Transport 27.1%, Trucking 15.2%. E-commerce direct-to-consumer varies from 20-40% (physical goods) to 70-85% (digital goods). Consumer packaged goods brands typically report 45-55% at the brand-owner level and 20-30% at the retailer level after trade spend. Track your gross margin trend line quarterly \u2014 a persistent decline is often a leading indicator of pricing pressure, input cost inflation, or product-mix erosion before it hits operating income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does gross margin differ from contribution margin, operating margin, and EBITDA margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross margin subtracts COGS from revenue; contribution margin subtracts all variable costs (COGS + variable SG&A like sales commissions, credit-card fees, and variable shipping) from revenue and is used for break-even and CVP analysis (per Horngren's Cost Accounting 17th Edition Ch. 3). Operating margin (EBIT margin) subtracts COGS + SG&A + R&D + depreciation and amortization from revenue. EBITDA margin subtracts COGS + SG&A + R&D but adds back D&A \u2014 used to compare capital structures across businesses with different depreciation policies. Net margin subtracts everything including interest and tax. In a SaaS business the gap between gross margin (70-80%) and operating margin (often negative for growth-stage) captures the sales and marketing investment. In a manufacturer the gap is much smaller because SG&A is a smaller percentage. Report all four when possible; investors and lenders weight them differently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do FIFO, LIFO, and weighted-average inventory costing affect gross margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under ASC 330 (Inventory) U.S. GAAP permits FIFO (first-in, first-out), LIFO (last-in, first-out), specific identification, and weighted-average cost. IFRS under IAS 2 prohibits LIFO. In an inflationary environment LIFO produces higher COGS, lower reported gross margin, and lower income tax under the LIFO conformity rule (IRC \u00a7472(c) requires the same method for tax and book). FIFO in the same environment produces lower COGS, higher reported gross margin, and higher tax. In a deflationary environment the direction reverses. Companies using LIFO must disclose the 'LIFO reserve' (the difference between LIFO-basis and FIFO-basis inventory) in the notes to the financial statements per ASC 330-10-50-1; this permits comparison across firms using different methods. LIFO liquidation (selling below current production, drawing down low-cost old layers) can transiently inflate gross margin \u2014 an accounting artifact, not operational improvement. Under IRC \u00a7263A (UNICAP) certain overhead costs must be capitalized to inventory rather than expensed; failure to properly UNICAP is a common IRS examination adjustment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tactics improve gross profit margin without volume growth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Six operational levers: (1) Price optimization \u2014 segmentation-based pricing (Van Westendorp Price Sensitivity Meter, conjoint analysis) typically finds 3-8% latent price capacity per Simon-Kucher pricing studies; even a 1% price increase drops fully to gross margin. (2) Product mix \u2014 shift emphasis to higher-margin SKUs or upsell/cross-sell tiers per the 80/20 Pareto distribution common in most product catalogs. (3) Supplier cost reduction \u2014 competitive bidding on top-spend commodities, multi-year contracts, hedging on volatile inputs (steel, aluminum, freight), consortium purchasing. (4) Cost of goods engineering \u2014 value engineering, packaging reduction, freight consolidation, reduced returns via better product-detail-page accuracy. (5) Waste and shrink reduction \u2014 six-sigma DMAIC, cycle-count-based inventory accuracy, better forecasting to reduce markdown. (6) Vertical integration or contract manufacturing renegotiation \u2014 captures the supplier's own margin at scale. Cost-plus-pricing is the wrong frame; anchor to willingness-to-pay per Nagle & M\u00fcller's Strategy and Tactics of Pricing 6th Edition."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div class="header">

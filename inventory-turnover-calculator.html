@@ -41,6 +41,56 @@
         @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3112605892426625" crossorigin="anonymous"></script>
+<!-- AUDIT 2026-09-16 evening: BC + FAQPage JSON-LD injection (business-metrics-extension cluster BC + FAQ paired sweep) verified_by=evening-routine -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcleap.com/"},{"@type":"ListItem","position":2,"name":"Business Calculators","item":"https://calcleap.com/index.html#business"},{"@type":"ListItem","position":3,"name":"Inventory Turnover Calculator","item":"https://calcleap.com/inventory-turnover-calculator.html"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is inventory turnover calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inventory Turnover Ratio = Cost of Goods Sold / Average Inventory, where Average Inventory = (Beginning Inventory + Ending Inventory) / 2 or the more accurate 13-point monthly average for seasonal businesses. Some analysts use Sales in the numerator instead of COGS to compare against sales targets, but the COGS-based definition is the AICPA and Damodaran-standard because it matches inventory (carried at cost) with a cost-basis flow. Days Inventory Outstanding (DIO or Days in Inventory) = 365 / Inventory Turnover \u2014 expresses the same ratio as the average number of days a unit sits in inventory before sale. DIO of 60 days means inventory turns 6.08 times per year. Both metrics are reported in the SEC 10-K MD&A of most retailers and manufacturers and are components of the cash conversion cycle (DIO + DSO - DPO) that measures working-capital efficiency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good inventory turnover by industry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Median turnover ratios and DIO from NYU Stern's Damodaran Online industry data (January 2025 update): Grocery and Food Retail 12.9\u00d7 (28 days) \u2014 perishability drives it; General Retail 6.4\u00d7 (57 days); Apparel Retail 3.9\u00d7 (94 days); Automotive Parts 5.5\u00d7 (66 days); Electronics 5.8\u00d7 (63 days); Furniture 3.2\u00d7 (114 days); Building Supplies 4.4\u00d7 (83 days); Consumer Packaged Goods (brand-owner side) 6.7\u00d7 (54 days); Pharmaceutical 1.4\u00d7 (261 days) \u2014 regulatory shelf-life and clinical inventory hold it low; Auto (OEM) 8.9\u00d7 (41 days) \u2014 JIT manufacturing pulls it high; Aerospace 1.2\u00d7 (304 days). E-commerce pure-play averages 8-15\u00d7 versus 3-6\u00d7 for brick-and-mortar general merchandise per National Retail Federation 2024 State of Retail benchmark. Amazon operates at roughly 12\u00d7 turnover; Costco at ~13\u00d7 thanks to warehouse-club SKU depth over breadth. Anchor to peer 10-K disclosures for the closest-comp benchmark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Economic Order Quantity (EOQ) formula tell you about optimal reorder size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EOQ = \u221a((2 \u00d7 D \u00d7 S) / H) where D = annual demand in units, S = fixed cost per order (setup, freight, receiving labor), and H = holding cost per unit per year (typically 20-30% of unit cost, covering capital cost, warehouse rent, insurance, shrink, obsolescence). Derived by F.W. Harris in 1913 (Harris, 'How Many Parts to Make at Once' Factory 10:135, 1913) and canonized in Wilson's 1934 formalization. EOQ minimizes total inventory cost (holding + ordering) under stable-demand, constant-lead-time assumptions. Extensions: EOQ with quantity discounts, EOQ with backorders permitted, and stochastic-demand (s,Q) reorder-point models per Silver, Pyke & Thomas's Inventory and Production Management. For lumpy demand or short life-cycle products (fashion, electronics, seasonal), the newsvendor model (Arrow-Harris-Marschak 1951) fits better: order Q such that P(demand \u2265 Q) = (P - C) / (P + H - S) where P is selling price, C is unit cost, H is holding cost of unsold unit, S is salvage value. Any modern ERP (SAP, Oracle NetSuite, Microsoft Dynamics 365, Odoo) implements EOQ and reorder-point logic natively."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do LIFO, FIFO, and specific-identification affect the inventory-turnover ratio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The numerator (COGS) and denominator (average inventory) are both affected by the costing method. In an inflationary environment, LIFO reports higher COGS and lower inventory value \u2192 higher turnover ratio for the same physical throughput. FIFO reports lower COGS and higher inventory value \u2192 lower reported turnover ratio for identical physical activity. This is a reporting artifact not an operating difference. When comparing across firms disclose the method and adjust: subtract the LIFO reserve (disclosed under ASC 330-10-50-1) from a LIFO firm's inventory to restate to FIFO basis before computing turnover. IRC \u00a7472(c) LIFO conformity rule requires the same method on book and tax; IRC \u00a7473 provides limited relief on involuntary LIFO liquidation. IFRS prohibits LIFO under IAS 2 (revised 2003 effective 2005), which affects cross-border comparisons; most non-U.S. firms are FIFO or weighted-average. In a LIFO liquidation event the firm reports transiently high gross margin and low turnover as old, low-cost layers hit COGS; disclose the LIFO liquidation profit in the notes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the working-capital, tax, and audit implications of slow-moving and obsolete inventory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under ASC 330-10-35 inventory must be reported at the lower of cost or net realizable value (NRV = estimated selling price minus estimated completion, disposal, and transportation costs); the write-down is recognized in COGS in the period the condition is identified. For LIFO firms the standard is lower of cost or market (LCM). IFRS uses the same lower-of-cost-or-NRV under IAS 2. Auditors under AU-C 501 (Audit Evidence \u2014 Specific Considerations for Selected Items) obtain physical-inventory-count observation and test the NRV assessment. IRC \u00a7471 permits a bona fide 'subnormal goods' write-down under Treas. Reg. \u00a71.471-2(c) when the goods are unsalable at normal prices \u2014 but the write-down for tax purposes requires actual disposal or continued offering below cost per Thor Power Tool v. Commissioner 439 U.S. 522 (1979); the mere existence of excess inventory is not sufficient. Slow-moving inventory ties up working capital at the firm's WACC. Warehouse holding cost alone typically runs 15-30% of unit cost per year per APICS Operations Management Body of Knowledge. Aging analysis (30/60/90/180/360-day buckets) drives markdown, disposal, or write-off decisions and should be reviewed monthly. Excess and obsolete (E&O) reserves are a recurring audit adjustment area \u2014 document the reserve methodology and apply consistently."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div class="header">
